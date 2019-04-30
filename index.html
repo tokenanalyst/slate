@@ -307,7 +307,18 @@
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h1 id='introduction'>Introduction</h1>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-113322596-8"></script>
+
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-113322596-8');
+</script>
+<h1 id='introduction'>Introduction</h1>
 <p>Welcome to the TokenAnalyst API. We provide simple and powerful endpoints, which you can use to get information on basic transaction data and aggregate on-chain statistics derived directly from the blockchain. This API reference provides information on available endpoints and how to interact with them.</p>
 <h1 id='authentication'>Authentication</h1>
 <p>TokenAnalyst uses API keys to allow access to the API. To obtain your API key contact us <a href="https://sid296635.typeform.com/to/abg0kL" target="_blank">here</a>
@@ -1172,7 +1183,7 @@ curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_vo
 <blockquote>
 <p>This is an example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_top10_historical/last?token=btc&amp;exchange=binance&amp;direction=inflow&amp;format=json&amp;key=API_KEY"</span>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_top10_historical/last?token=eth&amp;exchange=binance&amp;direction=inflow&amp;format=json&amp;key=API_KEY"</span>
 </code></pre>
 <blockquote>
 <p>The response looks like:</p>
@@ -1228,7 +1239,7 @@ curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_vo
 <p>This endpoint returns the top 10 transactions (in terms of total ETH sent) flowing out of exchange wallets for every day that the exchange wallets we track have been live on the blockchain. </p>
 <h3 id='http-request-14'>HTTP Request</h3>
 <p><code>GET https://api.tokenanalyst.io/analytics/private/v1/last/exchange_flow_top10_historical/last?</code></p>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_top10_historical/last?token=btc&amp;exchange=binance&amp;direction=outflow&amp;format=json&amp;key=API_KEY"</span>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_top10_historical/last?token=eth&amp;exchange=binance&amp;direction=outflow&amp;format=json&amp;key=API_KEY"</span>
 </code></pre>
 <blockquote>
 <p>The response looks like:</p>
