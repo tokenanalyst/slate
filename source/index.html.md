@@ -531,7 +531,7 @@ This endpoint returns the top 10 transactions (in terms of total BTC sent) flowi
 `GET https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_top10_historical/last?`
 
 ```shell
-curl "https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_top10_historical/last?token=btc&exchange=binance&direction=infow&format=json&key=API_KEY"
+curl "https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_top10_historical/last?token=btc&exchange=binance&direction=inflow&format=json&key=API_KEY"
 ```
 
 > This is what the response looks like
