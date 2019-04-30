@@ -258,6 +258,17 @@
               </ul>
           </li>
           <li>
+            <a href="#stablecoin-stats" class="toc-h1 toc-link" data-title="Stablecoin Stats">Stablecoin Stats</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#on-chain-volume-4" class="toc-h2 toc-link" data-title="On-chain Volume">On-chain Volume</a>
+                  </li>
+                  <li>
+                    <a href="#on-chain-transaction-count-4" class="toc-h2 toc-link" data-title="On-chain Transaction Count">On-chain Transaction Count</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#bitcoin-exchange-flows" class="toc-h1 toc-link" data-title="Bitcoin Exchange Flows">Bitcoin Exchange Flows</a>
               <ul class="toc-list-h2">
                   <li>
@@ -297,7 +308,7 @@
       <div class="dark-box"></div>
       <div class="content">
         <h1 id='introduction'>Introduction</h1>
-<p>Welcome to the TokenAnalyst API. We provide simple and powerful endpoints, which you can use to get information on basic transaction data and aggregate on-chain statistics derived directly from the blockchain. This API reference provides information on available endpoints and how to interact with it.</p>
+<p>Welcome to the TokenAnalyst API. We provide simple and powerful endpoints, which you can use to get information on basic transaction data and aggregate on-chain statistics derived directly from the blockchain. This API reference provides information on available endpoints and how to interact with them.</p>
 <h1 id='authentication'>Authentication</h1>
 <p>TokenAnalyst uses API keys to allow access to the API. To obtain your API key contact us <a href="https://sid296635.typeform.com/to/abg0kL" target="_blank">here</a>
 .</p>
@@ -305,14 +316,15 @@
 <p>TokenAnalyst expects for the API key to be included in all API requests to the server. You can simply include the key in the URL parameters like:</p>
 
 <p><code>key=API_KEY</code></p>
-<pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
-curl <span class="s2">"api_endpoint_here"</span>
-  -H <span class="s2">"Authorization: API_KEY"</span>
-</code></pre>
+
 <aside class="notice">
 You must replace <code>API_KEY</code> with your personal API key.
 </aside>
-<h1 id='bitcoin-blockchain-stats'>Bitcoin Blockchain Stats</h1><h2 id='on-chain-volume'>On-chain Volume</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_volume_historical/last?format=json&amp;key=API_KEY&amp;token=btc"</span>
+<h1 id='bitcoin-blockchain-stats'>Bitcoin Blockchain Stats</h1><h2 id='on-chain-volume'>On-chain Volume</h2>
+<p><img src="https://img.shields.io/badge/Tier-Free-green.svg"/></p>
+<pre class="highlight shell tab-shell"><code><span class="c"># Make sure you substitute API_KEY for your unique API key.</span>
+
+curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_volume_historical/last?format=json&amp;key=API_KEY&amp;token=btc"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -359,7 +371,7 @@ You must replace <code>API_KEY</code> with your personal API key.
 <tr>
 <td>format</td>
 <td><em>string</em></td>
-<td>What format you want your data in (currently we support JSON)</td>
+<td>What format you want your data in (<code>json</code> or <code>csv</code>)</td>
 </tr>
 <tr>
 <td>token</td>
@@ -367,7 +379,9 @@ You must replace <code>API_KEY</code> with your personal API key.
 <td>The token you want the volume for (in this case <code>btc</code>)</td>
 </tr>
 </tbody></table>
-<h2 id='on-chain-transaction-count'>On-chain Transaction Count</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_count_historical/last?format=json&amp;key=API_KEY&amp;token=btc"</span>
+<h2 id='on-chain-transaction-count'>On-chain Transaction Count</h2>
+<p><img src="https://img.shields.io/badge/Tier-Free-green.svg"/></p>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_count_historical/last?format=json&amp;key=API_KEY&amp;token=btc"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -406,7 +420,7 @@ You must replace <code>API_KEY</code> with your personal API key.
 <tr>
 <td>format</td>
 <td><em>string</em></td>
-<td>What format you want your data in (currently we support JSON)</td>
+<td>What format you want your data in (<code>json</code> or <code>csv</code>)</td>
 </tr>
 <tr>
 <td>token</td>
@@ -414,7 +428,9 @@ You must replace <code>API_KEY</code> with your personal API key.
 <td>The token you want the volume for (in this case <code>btc</code>)</td>
 </tr>
 </tbody></table>
-<h1 id='ethereum-blockchain-stats'>Ethereum Blockchain Stats</h1><h2 id='on-chain-volume-2'>On-chain Volume</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_volume_historical/last?format=json&amp;key=API_KEY&amp;token=eth"</span>
+<h1 id='ethereum-blockchain-stats'>Ethereum Blockchain Stats</h1><h2 id='on-chain-volume-2'>On-chain Volume</h2>
+<p><img src="https://img.shields.io/badge/Tier-Free-green.svg"/></p>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_volume_historical/last?format=json&amp;key=API_KEY&amp;token=eth"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -438,9 +454,9 @@ You must replace <code>API_KEY</code> with your personal API key.
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
-<p>This endpoint returns the full historical on-chain volume of Ethereum since it&#39;s genesis in 2015. The volume is separated into &#39;internal&#39; volume and &#39;external&#39; volume.</p>
+<p>This endpoint returns the full historical on-chain volume of Ethereum since it went live in 2015. The volume is separated into &#39;internal&#39; volume and &#39;external&#39; volume.</p>
 
-<p>&#39;Internal&#39; transactions are transfers of ETH that are initiated by smart contracts. While contracts can&#39;t initiate transactions on their own, when certain functions are called on from the outside, the smart contract can generate transfers of ETH towards multiple addresses (other contracts and non-contract addresses). At TokenAnalyst, we track every function call and event that happens on Ethereum and thus we are able to derive an accurate &#39;internal&#39; ETH on-chain volume (something that is missed by many data providers). The &#39;external&#39; transaction volume is that which can be seen on the surface by looking at the blockchain using standard web3 calls - &#39;normal&#39; ETH transactions mined on each block.</p>
+<p>&#39;Internal&#39; transactions are transfers of ETH that are initiated by smart contracts. While contracts can&#39;t initiate transactions on their own, when certain functions are called on from the outside, the smart contract can generate transfers of ETH towards multiple addresses (other contracts and non-contract addresses). At TokenAnalyst, we track every function call and event that happens on Ethereum and thus we are able to derive an accurate &#39;internal&#39; ETH on-chain volume. The &#39;external&#39; transaction volume is that which can be seen on the surface by looking at the blockchain using standard web3 calls - &#39;normal&#39; ETH transactions included on each block.</p>
 <h3 id='http-request-3'>HTTP Request</h3>
 <p><code>GET https://api.tokenanalyst.io/analytics/private/v1/token_volume_historical/last</code></p>
 <h3 id='query-parameters-3'>Query Parameters</h3>
@@ -459,7 +475,7 @@ You must replace <code>API_KEY</code> with your personal API key.
 <tr>
 <td>format</td>
 <td><em>string</em></td>
-<td>What format you want your data in (currently we support JSON)</td>
+<td>What format you want your data in (<code>json</code> or <code>csv</code>)</td>
 </tr>
 <tr>
 <td>token</td>
@@ -467,7 +483,9 @@ You must replace <code>API_KEY</code> with your personal API key.
 <td>The token you want the volume for (in this case <code>eth</code>)</td>
 </tr>
 </tbody></table>
-<h2 id='on-chain-transaction-count-2'>On-chain Transaction Count</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_count_historical/last?format=json&amp;key=API_KEY&amp;token=eth"</span>
+<h2 id='on-chain-transaction-count-2'>On-chain Transaction Count</h2>
+<p><img src="https://img.shields.io/badge/Tier-Free-green.svg"/></p>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_count_historical/last?format=json&amp;key=API_KEY&amp;token=eth"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -487,7 +505,7 @@ You must replace <code>API_KEY</code> with your personal API key.
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
-<p>This endpoint returns the number of transactions on the full historical Ethereum blockchain for every day since it&#39;s genesis in 2009.</p>
+<p>This endpoint returns the number of transactions on the full historical Ethereum blockchain for every day since its genesis in 2015.</p>
 <h3 id='http-request-4'>HTTP Request</h3>
 <p><code>GET https://api.tokenanalyst.io/analytics/private/v1/token_count_historical/last</code></p>
 <h3 id='query-parameters-4'>Query Parameters</h3>
@@ -506,7 +524,7 @@ You must replace <code>API_KEY</code> with your personal API key.
 <tr>
 <td>format</td>
 <td><em>string</em></td>
-<td>What format you want your data in (currently we support JSON)</td>
+<td>What format you want your data in (<code>json</code> or <code>csv</code>)</td>
 </tr>
 <tr>
 <td>token</td>
@@ -604,7 +622,9 @@ You must replace <code>API_KEY</code> with your personal API key.
 <td><code>rlc</code></td>
 </tr>
 </tbody></table>
-<h2 id='on-chain-volume-3'>On-chain Volume</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_volume_historical/last?format=json&amp;key=API_KEY&amp;token=btc"</span>
+<h2 id='on-chain-volume-3'>On-chain Volume</h2>
+<p><img src="https://img.shields.io/badge/Tier-Free-green.svg"/></p>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_volume_historical/last?format=json&amp;key=API_KEY&amp;token=btc"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -645,7 +665,7 @@ You must replace <code>API_KEY</code> with your personal API key.
 <tr>
 <td>format</td>
 <td><em>string</em></td>
-<td>What format you want your data in (currently we support JSON)</td>
+<td>What format you want your data in (<code>json</code> or <code>csv</code>)</td>
 </tr>
 <tr>
 <td>token</td>
@@ -653,7 +673,9 @@ You must replace <code>API_KEY</code> with your personal API key.
 <td>The token you want the volume for</td>
 </tr>
 </tbody></table>
-<h2 id='on-chain-transaction-count-3'>On-chain Transaction Count</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_count_historical/last?format=json&amp;key=API_KEY&amp;token=mana"</span>
+<h2 id='on-chain-transaction-count-3'>On-chain Transaction Count</h2>
+<p><img src="https://img.shields.io/badge/Tier-Free-green.svg"/></p>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_count_historical/last?format=json&amp;key=API_KEY&amp;token=mana"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -677,12 +699,175 @@ You must replace <code>API_KEY</code> with your personal API key.
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
 <p>This endpoint returns the number of token transfers on the blockchain for the given token for every day since its existence.</p>
+<h3 id='http-request-6'>HTTP Request</h3>
+<p><code>GET https://api.tokenanalyst.io/analytics/private/v1/token_count_historical/last</code></p>
+<h3 id='query-parameters-6'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>key</td>
+<td><em>string</em></td>
+<td>Your unique API key</td>
+</tr>
+<tr>
+<td>format</td>
+<td><em>string</em></td>
+<td>What format you want your data in (<code>json</code> or <code>csv</code>)</td>
+</tr>
+<tr>
+<td>token</td>
+<td><em>string</em></td>
+<td>The token you want the transaction count for</td>
+</tr>
+</tbody></table>
+<h1 id='stablecoin-stats'>Stablecoin Stats</h1>
+<p>The stablecoins we currently support are:</p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Symbol</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Tether</td>
+<td><code>usdt</code></td>
+</tr>
+<tr>
+<td>USDC</td>
+<td><code>usdc</code></td>
+</tr>
+<tr>
+<td>Paxos Standard Token</td>
+<td><code>pax</code></td>
+</tr>
+<tr>
+<td>TrueUSD</td>
+<td><code>tusd</code></td>
+</tr>
+<tr>
+<td>Gemini Dollar</td>
+<td><code>gusd</code></td>
+</tr>
+<tr>
+<td>Dai</td>
+<td><code>dai</code></td>
+</tr>
+</tbody></table>
+<h2 id='on-chain-volume-4'>On-chain Volume</h2>
+<p><img src="https://img.shields.io/badge/Tier-Free-green.svg"/></p>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_volume_historical/last?format=json&amp;key=API_KEY&amp;token=usdc"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-09-10"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"volume"</span><span class="p">:</span><span class="w"> </span><span class="s2">"22.2"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"price_usd"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"volume_usd"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-09-12"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"volume"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.5"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"price_usd"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"volume_usd"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<p>This endpoint returns the full historical on-chain volume of any of the stablecoins that we support.</p>
+<h3 id='http-request-7'>HTTP Request</h3>
+<p><code>GET https://api.tokenanalyst.io/analytics/private/v1/token_volume_historical/last</code></p>
+<h3 id='query-parameters-7'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>key</td>
+<td><em>string</em></td>
+<td>Your unique API key</td>
+</tr>
+<tr>
+<td>format</td>
+<td><em>string</em></td>
+<td>What format you want your data in (<code>json</code> or <code>csv</code>)</td>
+</tr>
+<tr>
+<td>token</td>
+<td><em>string</em></td>
+<td>The token you want the volume for</td>
+</tr>
+</tbody></table>
+<h2 id='on-chain-transaction-count-4'>On-chain Transaction Count</h2>
+<p><img src="https://img.shields.io/badge/Tier-Free-green.svg"/></p>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_count_historical/last?format=json&amp;key=API_KEY&amp;token=dai"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"tokenaddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0x89d24A6b4CcB1B6fAA2625fE562bDD9a23260359"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-12-18"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"number_of_token_transfers"</span><span class="p">:</span><span class="w"> </span><span class="s2">"161"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"tokenaddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0x89d24A6b4CcB1B6fAA2625fE562bDD9a23260359"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-12-19"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"number_of_token_transfers"</span><span class="p">:</span><span class="w"> </span><span class="s2">"599"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"tokenaddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0x89d24A6b4CcB1B6fAA2625fE562bDD9a23260359"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-12-20"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"number_of_token_transfers"</span><span class="p">:</span><span class="w"> </span><span class="s2">"515"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<p>This endpoint returns the number of token transfers on the Ethereum blockchain for the given stablecoin for every day since its existence.</p>
+<h3 id='http-request-8'>HTTP Request</h3>
+<p><code>GET https://api.tokenanalyst.io/analytics/private/v1/token_count_historical/last</code></p>
+<h3 id='query-parameters-8'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>key</td>
+<td><em>string</em></td>
+<td>Your unique API key</td>
+</tr>
+<tr>
+<td>format</td>
+<td><em>string</em></td>
+<td>What format you want your data in (<code>json</code> or <code>csv</code>)</td>
+</tr>
+<tr>
+<td>token</td>
+<td><em>string</em></td>
+<td>The stablecoin you want the transaction count for</td>
+</tr>
+</tbody></table>
 <h1 id='bitcoin-exchange-flows'>Bitcoin Exchange Flows</h1>
 <p>For Bitcoin currently supported exchanges are: <code>binance</code>, <code>bittrex</code>, <code>bitstamp</code>, <code>poloniex</code>, <code>bitmex</code>, <code>bitfinex</code></p>
 <h2 id='full-historical-inflow-to-exchanges'>Full Historical Inflow to Exchanges</h2>
-<blockquote>
-<p>This is an example</p>
-</blockquote>
+<p><img src="https://img.shields.io/badge/Tier-Professional-black.svg"/></p>
+
+<p>This endpoint returns the inflow of BTC into exchange wallets for as far back as we track. The average inflow is the average transaction value for transactions flowing into exchange wallets on a given day. </p>
 <pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://ws.tokenanalyst.io/analytics/private/v1/exchange_flow_historical/last?format=json&amp;key=API_KEY&amp;token=btc&amp;exchange=binance&amp;direction=inflow"</span>
 </code></pre>
 <blockquote>
@@ -701,7 +886,7 @@ You must replace <code>API_KEY</code> with your personal API key.
     </span><span class="s2">"avg_txn_value_usd"</span><span class="p">:</span><span class="w"> </span><span class="s2">"27.34"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
-</span></code></pre><h3 id='http-request-6'>HTTP Request</h3>
+</span></code></pre><h3 id='http-request-9'>HTTP Request</h3>
 <p><code>GET https://ws.tokenanalyst.io/analytics/private/v1/exchange_flow_historical/last</code></p>
 <h3 id='url-parameters'>URL Parameters</h3>
 <table><thead>
@@ -719,7 +904,7 @@ You must replace <code>API_KEY</code> with your personal API key.
 <tr>
 <td>format</td>
 <td><em>string</em></td>
-<td>Either <code>json</code> or <code>csv</code></td>
+<td>What format you want your data in (<code>json</code> or <code>csv</code>)</td>
 </tr>
 <tr>
 <td>token</td>
@@ -737,18 +922,17 @@ You must replace <code>API_KEY</code> with your personal API key.
 <td>An exchange from the list of ones we support</td>
 </tr>
 </tbody></table>
-<h2 id='full-historical-outflows-from-exchanges'>Full Historical Outflows from Exchanges</h2><h3 id='http-request-7'>HTTP Request</h3>
+<h2 id='full-historical-outflows-from-exchanges'>Full Historical Outflows from Exchanges</h2>
+<p><img src="https://img.shields.io/badge/Tier-Professional-black.svg"/></p>
+
+<p>This endpoint returns the outflow of BTC from exchange wallets for as far back as we track. The average outflow is the average transaction value for transactions flowing out of exchange wallets on a given day. </p>
+<h3 id='http-request-10'>HTTP Request</h3>
 <p><code>GET https://ws.tokenanalyst.io/analytics/private/v1/exchange_flow_historical/last</code></p>
 
 <blockquote>
 <p>This is an example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code><span class="gp">$ </span>curl https://ws.tokenanalyst.io/analytics/private/v1/exchange_flow_historical/last
-&amp;token<span class="o">=</span>btc
-&amp;exchange<span class="o">=</span>binance
-&amp;direction<span class="o">=</span>outflow
-&amp;format<span class="o">=</span>json
-&amp;key<span class="o">=</span>API_KEY
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_historical/last&amp;token=btc&amp;exchange=binance&amp;direction=outflow&amp;format=json&amp;key=API_KEY"</span>
 </code></pre>
 <blockquote>
 <p>The response looks like:</p>
@@ -770,94 +954,105 @@ You must replace <code>API_KEY</code> with your personal API key.
 <table><thead>
 <tr>
 <th>Parameter</th>
+<th>Type</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>token</td>
-<td>btc</td>
-</tr>
-<tr>
-<td>exchange</td>
-<td>An exchange from the list</td>
-</tr>
-<tr>
-<td>direction</td>
-<td>Either inflow or outflow</td>
+<td>key</td>
+<td><em>string</em></td>
+<td>Your unique API key</td>
 </tr>
 <tr>
 <td>format</td>
-<td>Either json or csv</td>
+<td><em>string</em></td>
+<td>What format you want your data in (<code>json</code> or <code>csv</code>)</td>
 </tr>
 <tr>
-<td>key</td>
-<td>API key</td>
+<td>token</td>
+<td><em>string</em></td>
+<td><code>btc</code></td>
+</tr>
+<tr>
+<td>direction</td>
+<td><em>string</em></td>
+<td>Either <code>inflow</code> or <code>outflow</code> (in this case <code>outflow</code>)</td>
+</tr>
+<tr>
+<td>exchange</td>
+<td><em>string</em></td>
+<td>An exchange from the list of ones we support</td>
 </tr>
 </tbody></table>
-<h2 id='full-historical-top-10-inflow-large-value-transactions'>Full Historical Top 10 Inflow Large Value Transactions</h2><h3 id='http-request-8'>HTTP Request</h3>
+<h2 id='full-historical-top-10-inflow-large-value-transactions'>Full Historical Top 10 Inflow Large Value Transactions</h2>
+<p><img src="https://img.shields.io/badge/Tier-Professional-black.svg"/></p>
+
+<p>This endpoint returns the top 10 transactions (in terms of total BTC sent) flowing into exchange wallets for every day that the exchange wallets we track have been live on the blockchain. </p>
+<h3 id='http-request-11'>HTTP Request</h3>
 <p><code>GET https://api.tokenanalyst.io/analytics/private/v1/last/exchange_flow_top10_historical</code></p>
-<pre class="highlight shell tab-shell"><code><span class="gp">$ </span>curl https://api.tokenanalyst.io/analytics/private/v1/last/exchange_flow_top10_historical
-&amp;token<span class="o">=</span>btc
-&amp;exchange<span class="o">=</span>binance
-&amp;direction<span class="o">=</span>infow
-&amp;format<span class="o">=</span>json
-&amp;key<span class="o">=</span>API_KEY
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/last/exchange_flow_top10_historical&amp;token=btc&amp;exchange=binance&amp;direction=infow&amp;format=json&amp;key=API_KEY"</span>
 </code></pre>
 <blockquote>
 <p>This is what the response looks like</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
- </span><span class="p">{</span><span class="w">
-  </span><span class="s2">"date"</span><span class="p">:</span><span class="s2">"2017-06-23"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"entity"</span><span class="p">:</span><span class="s2">"Binance"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"rank"</span><span class="p">:</span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"transactionhash"</span><span class="p">:</span><span class="s2">"0546f2545393d706b3b77ec251be93af12038dc28eefd5dc0d27acea9f0613a0"</span><span class="p">,</span><span class="s2">"transactionid"</span><span class="p">:</span><span class="s2">"0546f2545393d706b3b77ec251be93af12038dc28eefd5dc0d27acea9f0613a0"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"value"</span><span class="p">:</span><span class="s2">"0.01"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"value_usd"</span><span class="p">:</span><span class="s2">"52.51"</span><span class="w">
- </span><span class="p">},</span><span class="err">...</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-06-23"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"entity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Binance"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"transactionhash"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0546f2545393d706b3b77ec251be93af12038dc28eefd5dc0d27acea9f0613a0"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"transactionid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0546f2545393d706b3b77ec251be93af12038dc28eefd5dc0d27acea9f0613a0"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.01"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"value_usd"</span><span class="p">:</span><span class="w"> </span><span class="s2">"52.51"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre><h3 id='url-parameters-3'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
+<th>Type</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>token</td>
-<td>btc</td>
-</tr>
-<tr>
-<td>exchange</td>
-<td>An exchange from the list</td>
-</tr>
-<tr>
-<td>direction</td>
-<td>Either inflow or outflow (in this case inflow)</td>
+<td>key</td>
+<td><em>string</em></td>
+<td>Your unique API key</td>
 </tr>
 <tr>
 <td>format</td>
-<td>Either json or csv</td>
+<td><em>string</em></td>
+<td>What format you want your data in (<code>json</code> or <code>csv</code>)</td>
 </tr>
 <tr>
-<td>key</td>
-<td>API key</td>
+<td>token</td>
+<td><em>string</em></td>
+<td><code>btc</code></td>
+</tr>
+<tr>
+<td>direction</td>
+<td><em>string</em></td>
+<td><code>inflow</code></td>
+</tr>
+<tr>
+<td>exchange</td>
+<td><em>string</em></td>
+<td>An exchange from the list of ones we support</td>
 </tr>
 </tbody></table>
 <h1 id='ethereum-exchange-flows'>Ethereum Exchange Flows</h1>
-<p>For Ethereum currently supported exchanges are: binance, kraken, bitfinex, poloniex, bittrex, kucoin</p>
-<h2 id='full-historical-inflow-to-exchanges-2'>Full Historical Inflow to Exchanges</h2><h3 id='http-request-9'>HTTP Request</h3>
+<p>For Ethereum currently supported exchanges are: <code>binance</code>, <code>kraken</code>, <code>bitfinex</code>, <code>poloniex</code>, <code>bittrex</code>, <code>kucoin</code></p>
+<h2 id='full-historical-inflow-to-exchanges-2'>Full Historical Inflow to Exchanges</h2>
+<p><img src="https://img.shields.io/badge/Tier-Professional-black.svg"/></p>
+
+<p>This endpoint returns the inflow of ETH into exchange wallets for as far back as we track. The average inflow is the average transaction value for transactions flowing into exchange wallets on a given day. </p>
+<h3 id='http-request-12'>HTTP Request</h3>
 <p><code>GET https://api.tokenanalyst.io/analytics/private/v1/last/exchange_flow_historical</code></p>
 
 <blockquote>
 <p>This is an example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.tokenanalyst.io/analytics/private/v1/last/exchange_flow_historical
-&amp;token<span class="o">=</span>eth
-&amp;exchange<span class="o">=</span>binance
-&amp;direction<span class="o">=</span>inflow
-&amp;format<span class="o">=</span>json
-&amp;key<span class="o">=</span>API_KEY
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/last/exchange_flow_historical&amp;token=eth&amp;exchange=binance&amp;direction=inflow&amp;format=json&amp;key=API_KEY"</span>
 </code></pre>
 <blockquote>
 <p>The response looks like:</p>
@@ -877,42 +1072,47 @@ You must replace <code>API_KEY</code> with your personal API key.
 <table><thead>
 <tr>
 <th>Parameter</th>
+<th>Type</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>token</td>
-<td>eth</td>
-</tr>
-<tr>
-<td>exchange</td>
-<td>An exchange from the list</td>
-</tr>
-<tr>
-<td>direction</td>
-<td>Either inflow or outflow</td>
+<td>key</td>
+<td><em>string</em></td>
+<td>Your unique API key</td>
 </tr>
 <tr>
 <td>format</td>
-<td>Either json or csv</td>
+<td><em>string</em></td>
+<td>What format you want your data in (<code>json</code> or <code>csv</code>)</td>
 </tr>
 <tr>
-<td>key</td>
-<td>API key</td>
+<td>token</td>
+<td><em>string</em></td>
+<td><code>eth</code></td>
+</tr>
+<tr>
+<td>direction</td>
+<td><em>string</em></td>
+<td><code>inflow</code></td>
+</tr>
+<tr>
+<td>exchange</td>
+<td><em>string</em></td>
+<td>An exchange from the list of ones we support</td>
 </tr>
 </tbody></table>
 <h2 id='full-historical-outflows-from-exchanges-2'>Full Historical Outflows from Exchanges</h2>
+<p><img src="https://img.shields.io/badge/Tier-Professional-black.svg"/></p>
+
+<p>This endpoint returns the outflow of ETH from exchange wallets for as far back as we track. The average outflow is the average transaction value for transactions flowing out of exchange wallets on a given day. </p>
+
 <p><code>GET https://api.tokenanalyst.io/analytics/private/v1/last/exchange_flow_historical</code></p>
 
 <blockquote>
 <p>This is an example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code><span class="gp">$ </span>curl https://api.tokenanalyst.io/analytics/private/v1/last/exchange_flow_historical
-&amp;token<span class="o">=</span>eth
-&amp;exchange<span class="o">=</span>binance
-&amp;direction<span class="o">=</span>outflow
-&amp;format<span class="o">=</span>json
-&amp;key<span class="o">=</span>API_KEY
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/last/exchange_flow_historical&amp;token=eth&amp;exchange=binance&amp;direction=outflow&amp;format=json&amp;key=API_KEY"</span>
 </code></pre>
 <blockquote>
 <p>The response looks like:</p>
@@ -932,42 +1132,47 @@ You must replace <code>API_KEY</code> with your personal API key.
 <table><thead>
 <tr>
 <th>Parameter</th>
+<th>Type</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>token</td>
-<td>eth</td>
-</tr>
-<tr>
-<td>exchange</td>
-<td>An exchange from the list</td>
-</tr>
-<tr>
-<td>direction</td>
-<td>Either inflow or outflow</td>
+<td>key</td>
+<td><em>string</em></td>
+<td>Your unique API key</td>
 </tr>
 <tr>
 <td>format</td>
-<td>Either json or csv</td>
+<td><em>string</em></td>
+<td>What format you want your data in (<code>json</code> or <code>csv</code>)</td>
 </tr>
 <tr>
-<td>key</td>
-<td>API key</td>
+<td>token</td>
+<td><em>string</em></td>
+<td><code>eth</code></td>
+</tr>
+<tr>
+<td>direction</td>
+<td><em>string</em></td>
+<td><code>outflow</code></td>
+</tr>
+<tr>
+<td>exchange</td>
+<td><em>string</em></td>
+<td>An exchange from the list of ones we support</td>
 </tr>
 </tbody></table>
-<h2 id='full-historical-top-10-inflow-large-value-transactions-2'>Full Historical Top 10 Inflow Large Value Transactions</h2><h3 id='http-request-10'>HTTP Request</h3>
+<h2 id='full-historical-top-10-inflow-large-value-transactions-2'>Full Historical Top 10 Inflow Large Value Transactions</h2>
+<p><img src="https://img.shields.io/badge/Tier-Professional-black.svg"/></p>
+
+<p>This endpoint returns the top 10 transactions (in terms of total ETH sent) flowing into exchange wallets for every day that the exchange wallets we track have been live on the blockchain. </p>
+<h3 id='http-request-13'>HTTP Request</h3>
 <p><code>GET https://api.tokenanalyst.io/analytics/private/v1/last/exchange_flow_top10_historical</code></p>
 
 <blockquote>
 <p>This is an example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code><span class="gp">$ </span>curl https://api.tokenanalyst.io/analytics/private/v1/last/exchange_flow_top10_historical
-&amp;token<span class="o">=</span>eth
-&amp;exchange<span class="o">=</span>binance
-&amp;direction<span class="o">=</span>infow
-&amp;format<span class="o">=</span>json
-&amp;key<span class="o">=</span>API_KEY
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/last/exchange_flow_top10_historical&amp;token=eth&amp;exchange=binance&amp;direction=infow&amp;format=json&amp;key=API_KEY"</span>
 </code></pre>
 <blockquote>
 <p>The response looks like:</p>
@@ -977,48 +1182,53 @@ You must replace <code>API_KEY</code> with your personal API key.
     </span><span class="s2">"toaddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0x7eD1E469fCb3EE19C0366D829e291451bE638E59"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"fromaddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0x5207Df8126b150f4D332D646cd4608de95e65C0d"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"transactionhash"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0xbe03be5a0d978d11f746358165c2287be1aad08c9f0ebeb326443a1c2b98a57a"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"inflow"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.09895"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.09895"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-03-17"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"rnk"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"inflow_usd"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12.792694364595414"</span><span class="w">
+    </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"value_usd"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12.79"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre><h3 id='url-parameters-6'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
+<th>Type</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>token</td>
-<td>The token (in this case eth)</td>
-</tr>
-<tr>
-<td>exchange</td>
-<td>An exchange from the list</td>
-</tr>
-<tr>
-<td>direction</td>
-<td>Either inflow or outflow (in this case inflow)</td>
+<td>key</td>
+<td><em>string</em></td>
+<td>Your unique API key</td>
 </tr>
 <tr>
 <td>format</td>
-<td>Either json or csv</td>
+<td><em>string</em></td>
+<td>What format you want your data in (<code>json</code> or <code>csv</code>)</td>
 </tr>
 <tr>
-<td>key</td>
-<td>API key</td>
+<td>token</td>
+<td><em>string</em></td>
+<td><code>eth</code></td>
+</tr>
+<tr>
+<td>direction</td>
+<td><em>string</em></td>
+<td><code>inflow</code></td>
+</tr>
+<tr>
+<td>exchange</td>
+<td><em>string</em></td>
+<td>An exchange from the list of ones we support</td>
 </tr>
 </tbody></table>
-<h2 id='full-historical-top-10-outflow-large-value-transactions'>Full Historical Top 10 Outflow Large Value Transactions</h2><h3 id='http-request-11'>HTTP Request</h3>
+<h2 id='full-historical-top-10-outflow-large-value-transactions'>Full Historical Top 10 Outflow Large Value Transactions</h2>
+<p><img src="https://img.shields.io/badge/Tier-Professional-black.svg"/></p>
+
+<p>This endpoint returns the top 10 transactions (in terms of total ETH sent) flowing out of exchange wallets for every day that the exchange wallets we track have been live on the blockchain. </p>
+<h3 id='http-request-14'>HTTP Request</h3>
 <p><code>GET https://api.tokenanalyst.io/analytics/private/v1/last/exchange_flow_top10_historical</code></p>
-<pre class="highlight shell tab-shell"><code><span class="gp">$ </span>curl https://api.tokenanalyst.io/analytics/private/v1/last/exchange_flow_top10_historical
-&amp;token<span class="o">=</span>eth
-&amp;exchange<span class="o">=</span>binance
-&amp;direction<span class="o">=</span>outflow
-&amp;format<span class="o">=</span>json
-&amp;key<span class="o">=</span>API_KEY
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/last/exchange_flow_top10_historical&amp;token=eth&amp;exchange=binance&amp;direction=outflow&amp;format=json&amp;key=API_KEY"</span>
 </code></pre>
 <blockquote>
 <p>The response looks like:</p>
@@ -1028,38 +1238,44 @@ You must replace <code>API_KEY</code> with your personal API key.
     </span><span class="s2">"toaddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0x70077eA7a9f6322F229261596EAdca64DC1b1e25"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"fromaddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0x3f5CE5FBFe3E9af3971dD833D26bA9b5C936f0bE"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"transactionhash"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0xf7e7b5a201d26b605e2f29d54878b4abc0e8c03bba6d691e0177deffef2b46f5"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"outflow"</span><span class="p">:</span><span class="w"> </span><span class="s2">"15.159998190000001"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"15.159998190000001"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-08-05"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"rnk"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"outflow_usd"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3618.8976306725385"</span><span class="w">
+    </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"value_usd"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3618.9"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre><h3 id='url-parameters-7'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
+<th>Type</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>token</td>
-<td>The token (in this case eth)</td>
-</tr>
-<tr>
-<td>exchange</td>
-<td>An exchange from the list</td>
-</tr>
-<tr>
-<td>direction</td>
-<td>Either inflow or outflow (in this case inflow)</td>
+<td>key</td>
+<td><em>string</em></td>
+<td>Your unique API key</td>
 </tr>
 <tr>
 <td>format</td>
-<td>Either json or csv</td>
+<td><em>string</em></td>
+<td>What format you want your data in (<code>json</code> or <code>csv</code>)</td>
 </tr>
 <tr>
-<td>key</td>
-<td>API key</td>
+<td>token</td>
+<td><em>string</em></td>
+<td><code>eth</code></td>
+</tr>
+<tr>
+<td>direction</td>
+<td><em>string</em></td>
+<td><code>outflow</code></td>
+</tr>
+<tr>
+<td>exchange</td>
+<td><em>string</em></td>
+<td>An exchange from the list of ones we support</td>
 </tr>
 </tbody></table>
 
