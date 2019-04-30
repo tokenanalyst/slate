@@ -40,6 +40,8 @@ You must replace <code>API_KEY</code> with your personal API key.
 
 ## On-chain Volume
 
+<img src="https://img.shields.io/badge/Tier-Free-black.svg"/>
+
 ```shell
 curl "https://api.tokenanalyst.io/analytics/private/v1/token_volume_historical/last?format=json&key=API_KEY&token=btc"
 ```
@@ -87,6 +89,8 @@ Our current heuristic for 'change' related volume is for whenever BTC in a trans
 
 ## On-chain Transaction Count
 
+<img src="https://img.shields.io/badge/Tier-Free-black.svg"/>
+
 ```shell
 curl "https://api.tokenanalyst.io/analytics/private/v1/token_count_historical/last?format=json&key=API_KEY&token=btc"
 ```
@@ -127,6 +131,8 @@ This endpoint returns the number of transactions on the full historical Bitcoin 
 # Ethereum Blockchain Stats
 
 ## On-chain Volume
+
+<img src="https://img.shields.io/badge/Tier-Free-black.svg"/>
 
 ```shell
 curl "https://api.tokenanalyst.io/analytics/private/v1/token_volume_historical/last?format=json&key=API_KEY&token=eth"
@@ -172,6 +178,8 @@ This endpoint returns the full historical on-chain volume of Ethereum since it's
 | token     | _string_ | The token you want the volume for (in this case `eth`)        |
 
 ## On-chain Transaction Count
+
+<img src="https://img.shields.io/badge/Tier-Free-black.svg"/>
 
 ```shell
 curl "https://api.tokenanalyst.io/analytics/private/v1/token_count_historical/last?format=json&key=API_KEY&token=eth"
@@ -239,6 +247,8 @@ ERC20 tokens we currently support are:
 
 ## On-chain Volume
 
+<img src="https://img.shields.io/badge/Tier-Free-black.svg"/>
+
 ```shell
 curl "https://api.tokenanalyst.io/analytics/private/v1/token_volume_historical/last?format=json&key=API_KEY&token=btc"
 ```
@@ -280,6 +290,8 @@ This endpoint returns the full historical on-chain volume of any of the major ER
 
 ## On-chain Transaction Count
 
+<img src="https://img.shields.io/badge/Tier-Free-black.svg"/>
+
 ```shell
 curl "https://api.tokenanalyst.io/analytics/private/v1/token_count_historical/last?format=json&key=API_KEY&token=mana"
 ```
@@ -313,6 +325,8 @@ This endpoint returns the number of token transfers on the blockchain for the gi
 For Bitcoin currently supported exchanges are: `binance`, `bittrex`, `bitstamp`, `poloniex`, `bitmex`, `bitfinex`
 
 ## Full Historical Inflow to Exchanges
+
+<img src="https://img.shields.io/badge/Tier-Professional-black.svg"/>
 
 > This is an example
 
@@ -354,6 +368,8 @@ curl "https://ws.tokenanalyst.io/analytics/private/v1/exchange_flow_historical/l
 
 
 ## Full Historical Outflows from Exchanges
+
+<img src="https://img.shields.io/badge/Tier-Professional-black.svg"/>
 
 ### HTTP Request
 
@@ -400,6 +416,8 @@ $ curl https://ws.tokenanalyst.io/analytics/private/v1/exchange_flow_historical/
 
 ## Full Historical Top 10 Inflow Large Value Transactions
 
+<img src="https://img.shields.io/badge/Tier-Professional-black.svg"/>
+
 ### HTTP Request
 
 `GET https://api.tokenanalyst.io/analytics/private/v1/last/exchange_flow_top10_historical`
@@ -444,6 +462,8 @@ For Ethereum currently supported exchanges are: binance, kraken, bitfinex, polon
 
 ## Full Historical Inflow to Exchanges
 
+<img src="https://img.shields.io/badge/Tier-Professional-black.svg"/>
+
 ### HTTP Request
 
 `GET https://api.tokenanalyst.io/analytics/private/v1/last/exchange_flow_historical`
@@ -487,6 +507,8 @@ curl https://api.tokenanalyst.io/analytics/private/v1/last/exchange_flow_histori
 
 ## Full Historical Outflows from Exchanges
 
+<img src="https://img.shields.io/badge/Tier-Professional-black.svg"/>
+
 `GET https://api.tokenanalyst.io/analytics/private/v1/last/exchange_flow_historical`
 
 > This is an example:
@@ -527,6 +549,8 @@ $ curl https://api.tokenanalyst.io/analytics/private/v1/last/exchange_flow_histo
 | key       | API key                   |
 
 ## Full Historical Top 10 Inflow Large Value Transactions
+
+<img src="https://img.shields.io/badge/Tier-Professional-black.svg"/>
 
 ### HTTP Request
 
@@ -570,6 +594,8 @@ $ curl https://api.tokenanalyst.io/analytics/private/v1/last/exchange_flow_top10
 | key       | API key                                        |
 
 ## Full Historical Top 10 Outflow Large Value Transactions
+
+<img src="https://img.shields.io/badge/Tier-Professional-black.svg"/>
 
 ### HTTP Request
 
