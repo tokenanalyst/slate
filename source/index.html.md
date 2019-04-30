@@ -36,12 +36,12 @@ curl "api_endpoint_here"
 You must replace <code>API_KEY</code> with your personal API key.
 </aside>
 
-# Bitcoin Stats
+# Bitcoin Blockchain Stats
 
 ## On-chain Volume
 
 ```shell
-curl "https://ws.tokenanalyst.io/analytics/private/last?job=token_volume_historical&format=json&key=API_KEY&token=btc"
+curl "https://api.tokenanalyst.io/analytics/private/v1/token_volume_historical/last?format=json&key=aeab6c818c7a5bda1c88432628589ec64ddf7bb4153639177f60258b9bb86451&token=btc"
 ```
 
 > The above command returns JSON structured like this:
@@ -75,119 +75,137 @@ Our current heuristic for 'change' related volume is for whenever BTC in a trans
 
 ### HTTP Request
 
-`GET https://ws.tokenanalyst.io/analytics/private/last?job=token_volume_historical`
+`GET https://api.tokenanalyst.io/analytics/private/v1/token_volume_historical/last`
 
 ### Query Parameters
 
-| Parameter | Type   | Description                                                   |
-| --------- | ------ | ------------------------------------------------------------- |
+| Parameter | Type     | Description                                                   |
+| --------- | -------- | ------------------------------------------------------------- |
 | key       | _string_ | Your unique API key                                           |
 | format    | _string_ | What format you want your data in (currently we support JSON) |
 | token     | _string_ | The token you want the volume for (in this case `btc`)        |
 
-
-
-
-## Get a Specific Kitten
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get(2)
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get(2)
-```
+## On-chain Transaction Count
 
 ```shell
-curl "http://example.com/api/kittens/2"
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require("kittn");
-
-let api = kittn.authorize("meowmeowmeow");
-let max = api.kittens.get(2);
+curl "https://api.tokenanalyst.io/analytics/private/v1/token_count_historical/last?format=json&key=aeab6c818c7a5bda1c88432628589ec64ddf7bb4153639177f60258b9bb86451&token=btc"
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
-{
-  "id": 2,
-  "name": "Max",
-  "breed": "unknown",
-  "fluffiness": 5,
-  "cuteness": 10
-}
+[
+  {
+    "date": "2009-03-12",
+    "number_of_txns": "119"
+  },
+  {
+    "date": "2009-03-13",
+    "number_of_txns": "114"
+  },
+  {
+    "date": "2009-03-14",
+    "number_of_txns": "110"
+  }
+]
 ```
 
-This endpoint retrieves a specific kitten.
-
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
+This endpoint returns the number of transactions on the full historical Bitcoin blockchain for every day since it's genesis in 2009.
 
 ### HTTP Request
 
-`GET http://example.com/kittens/<ID>`
+`GET https://api.tokenanalyst.io/analytics/private/v1/token_count_historical/last`
 
-### URL Parameters
+### Query Parameters
 
-| Parameter | Description                      |
-| --------- | -------------------------------- |
-| ID        | The ID of the kitten to retrieve |
+| Parameter | Type     | Description                                                   |
+| --------- | -------- | ------------------------------------------------------------- |
+| key       | _string_ | Your unique API key                                           |
+| format    | _string_ | What format you want your data in (currently we support JSON) |
+| token     | _string_ | The token you want the volume for (in this case `btc`)        |
 
-## Delete a Specific Kitten
+# Ethereum Blockchain Stats
 
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.delete(2)
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.delete(2)
-```
+## On-chain Volume
 
 ```shell
-curl "http://example.com/api/kittens/2"
-  -X DELETE
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require("kittn");
-
-let api = kittn.authorize("meowmeowmeow");
-let max = api.kittens.delete(2);
+curl "https://api.tokenanalyst.io/analytics/private/v1/token_volume_historical/last?format=json&key=aeab6c818c7a5bda1c88432628589ec64ddf7bb4153639177f60258b9bb86451&token=eth"
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
-{
-  "id": 2,
-  "deleted": ":("
-}
+[
+  {
+    "date": "2015-08-07",
+    "volume_internal": "39.7",
+    "volume_external": "2008602.5114319662",
+    "price_usd": "1.25",
+    "volume_internal_usd": "49.625",
+    "volume_external_usd": "2510753.139289958"
+  },
+  {
+    "date": "2015-08-08",
+    "volume_internal": "3568.434161233944",
+    "volume_external": "1681503.1468948543",
+    "price_usd": "1.7404166",
+    "volume_internal_usd": "6210.56221437989",
+    "volume_external_usd": "2926516.067163448"
+  }
+]
 ```
 
-This endpoint deletes a specific kitten.
+This endpoint returns the full historical on-chain volume of Ethereum since it's genesis in 2015. The volume is separated into 'internal' volume and 'external' volume.
+
+'Internal' transactions are transfers of ETH that are initiated by smart contracts. While contracts can't initiate transactions on their own, when certain functions are called on from the outside, the smart contract can generate transfers of ETH towards multiple addresses (other contracts and non-contract addresses). At TokenAnalyst, we track every function call and event that happens on Ethereum and thus we are able to derive an accurate 'internal' ETH on-chain volume (something that is missed by many data providers). The 'external' transaction volume is that which can be seen on the surface by looking at the blockchain using standard web3 calls - 'normal' ETH transactions mined on each block.
 
 ### HTTP Request
 
-`DELETE http://example.com/kittens/<ID>`
+`GET https://api.tokenanalyst.io/analytics/private/v1/token_volume_historical/last`
 
-### URL Parameters
+### Query Parameters
 
-| Parameter | Description                    |
-| --------- | ------------------------------ |
-| ID        | The ID of the kitten to delete |
+| Parameter | Type     | Description                                                   |
+| --------- | -------- | ------------------------------------------------------------- |
+| key       | _string_ | Your unique API key                                           |
+| format    | _string_ | What format you want your data in (currently we support JSON) |
+| token     | _string_ | The token you want the volume for (in this case `eth`)        |
+
+## On-chain Transaction Count
+
+```shell
+curl "https://api.tokenanalyst.io/analytics/private/v1/token_count_historical/last?format=json&key=aeab6c818c7a5bda1c88432628589ec64ddf7bb4153639177f60258b9bb86451&token=eth"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+  {
+    "date": "2015-08-07",
+    "number_of_txns": "1975"
+  },
+  {
+    "date": "2015-08-08",
+    "number_of_txns": "2036"
+  },
+  {
+    "date": "2015-08-09",
+    "number_of_txns": "1249"
+  }
+]
+```
+
+This endpoint returns the number of transactions on the full historical Ethereum blockchain for every day since it's genesis in 2009.
+
+### HTTP Request
+
+`GET https://api.tokenanalyst.io/analytics/private/v1/token_count_historical/last`
+
+### Query Parameters
+
+| Parameter | Type     | Description                                                   |
+| --------- | -------- | ------------------------------------------------------------- |
+| key       | _string_ | Your unique API key                                           |
+| format    | _string_ | What format you want your data in (currently we support JSON) |
+| token     | _string_ | The token you want the volume for (in this case `eth`)        |
