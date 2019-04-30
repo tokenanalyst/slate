@@ -374,7 +374,7 @@ This endpoint returns the full historical on-chain volume of any of the stableco
 
 ### HTTP Request
 
-`GET https://api.tokenanalyst.io/analytics/private/v1/token_volume_historical/last`
+`GET https://api.tokenanalyst.io/analytics/private/v1/token_volume_historical/last?`
 
 ### Query Parameters
 
@@ -418,7 +418,7 @@ This endpoint returns the number of token transfers on the Ethereum blockchain f
 
 ### HTTP Request
 
-`GET https://api.tokenanalyst.io/analytics/private/v1/token_count_historical/last`
+`GET https://api.tokenanalyst.io/analytics/private/v1/token_count_historical/last?`
 
 ### Query Parameters
 
@@ -462,7 +462,7 @@ curl "https://ws.tokenanalyst.io/analytics/private/v1/exchange_flow_historical/l
 
 ### HTTP Request
 
-`GET https://ws.tokenanalyst.io/analytics/private/v1/exchange_flow_historical/last`
+`GET https://ws.tokenanalyst.io/analytics/private/v1/exchange_flow_historical/last?`
 
 ### URL Parameters
 
@@ -483,12 +483,12 @@ This endpoint returns the outflow of BTC from exchange wallets for as far back a
 
 ### HTTP Request
 
-`GET https://ws.tokenanalyst.io/analytics/private/v1/exchange_flow_historical/last`
+`GET https://ws.tokenanalyst.io/analytics/private/v1/exchange_flow_historical/last?`
 
 > This is an example:
 
 ```shell
-curl "https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_historical/last&token=btc&exchange=binance&direction=outflow&format=json&key=API_KEY"
+curl "https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_historical/last?token=btc&exchange=binance&direction=outflow&format=json&key=API_KEY"
 ```
 
 > The response looks like:
@@ -528,10 +528,10 @@ This endpoint returns the top 10 transactions (in terms of total BTC sent) flowi
 
 ### HTTP Request
 
-`GET https://api.tokenanalyst.io/analytics/private/v1/last/exchange_flow_top10_historical`
+`GET https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_top10_historical/last?`
 
 ```shell
-curl "https://api.tokenanalyst.io/analytics/private/v1/last/exchange_flow_top10_historical&token=btc&exchange=binance&direction=infow&format=json&key=API_KEY"
+curl "https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_top10_historical/last?token=btc&exchange=binance&direction=infow&format=json&key=API_KEY"
 ```
 
 > This is what the response looks like
@@ -573,12 +573,12 @@ This endpoint returns the inflow of ETH into exchange wallets for as far back as
 
 ### HTTP Request
 
-`GET https://api.tokenanalyst.io/analytics/private/v1/last/exchange_flow_historical`
+`GET https://api.tokenanalyst.io/analytics/private/v1/last/exchange_flow_historical/last?`
 
 > This is an example:
 
 ```shell
-curl "https://api.tokenanalyst.io/analytics/private/v1/last/exchange_flow_historical&token=eth&exchange=binance&direction=inflow&format=json&key=API_KEY"
+curl "https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_historical/last?token=eth&exchange=binance&direction=inflow&format=json&key=API_KEY"
 ```
 
 > The response looks like:
@@ -613,12 +613,12 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/last/exchange_flow_histor
 
 This endpoint returns the outflow of ETH from exchange wallets for as far back as we track. The average outflow is the average transaction value for transactions flowing out of exchange wallets on a given day. 
 
-`GET https://api.tokenanalyst.io/analytics/private/v1/last/exchange_flow_historical`
+`GET https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_historical/last?`
 
 > This is an example:
 
 ```shell
-curl "https://api.tokenanalyst.io/analytics/private/v1/last/exchange_flow_historical&token=eth&exchange=binance&direction=outflow&format=json&key=API_KEY"
+curl "https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_historical/last?token=eth&exchange=binance&direction=outflow&format=json&key=API_KEY"
 ```
 
 > The response looks like:
@@ -655,12 +655,12 @@ This endpoint returns the top 10 transactions (in terms of total ETH sent) flowi
 
 ### HTTP Request
 
-`GET https://api.tokenanalyst.io/analytics/private/v1/last/exchange_flow_top10_historical`
+`GET https://api.tokenanalyst.io/analytics/private/v1/last/exchange_flow_top10_historical/last?`
 
 > This is an example:
 
 ```shell
-curl "https://api.tokenanalyst.io/analytics/private/v1/last/exchange_flow_top10_historical&token=eth&exchange=binance&direction=infow&format=json&key=API_KEY"
+curl "https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_top10_historical/last?token=btc&exchange=binance&direction=inflow&format=json&key=API_KEY"
 ```
 
 > The response looks like:
@@ -697,10 +697,10 @@ This endpoint returns the top 10 transactions (in terms of total ETH sent) flowi
 
 ### HTTP Request
 
-`GET https://api.tokenanalyst.io/analytics/private/v1/last/exchange_flow_top10_historical`
+`GET https://api.tokenanalyst.io/analytics/private/v1/last/exchange_flow_top10_historical/last?`
 
 ```shell
-curl "https://api.tokenanalyst.io/analytics/private/v1/last/exchange_flow_top10_historical&token=eth&exchange=binance&direction=outflow&format=json&key=API_KEY"
+curl "https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_top10_historical/last?token=btc&exchange=binance&direction=outflow&format=json&key=API_KEY"
 ```
 
 > The response looks like:
