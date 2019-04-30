@@ -13,6 +13,16 @@ toc_footers:
 search: true
 ---
 
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-113322596-8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-113322596-8');
+</script>
+
 # Introduction
 
 Welcome to the TokenAnalyst API. We provide simple and powerful endpoints, which you can use to get information on basic transaction data and aggregate on-chain statistics derived directly from the blockchain. This API reference provides information on available endpoints and how to interact with them.
@@ -660,7 +670,7 @@ This endpoint returns the top 10 transactions (in terms of total ETH sent) flowi
 > This is an example:
 
 ```shell
-curl "https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_top10_historical/last?token=btc&exchange=binance&direction=inflow&format=json&key=API_KEY"
+curl "https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_top10_historical/last?token=eth&exchange=binance&direction=inflow&format=json&key=API_KEY"
 ```
 
 > The response looks like:
@@ -700,7 +710,7 @@ This endpoint returns the top 10 transactions (in terms of total ETH sent) flowi
 `GET https://api.tokenanalyst.io/analytics/private/v1/last/exchange_flow_top10_historical/last?`
 
 ```shell
-curl "https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_top10_historical/last?token=btc&exchange=binance&direction=outflow&format=json&key=API_KEY"
+curl "https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_top10_historical/last?token=eth&exchange=binance&direction=outflow&format=json&key=API_KEY"
 ```
 
 > The response looks like:
