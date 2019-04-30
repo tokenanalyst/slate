@@ -26,12 +26,6 @@ TokenAnalyst expects for the API key to be included in all API requests to the s
 
 `key=API_KEY`
 
-```shell
-# With shell, you can just pass the correct header with each request
-curl "api_endpoint_here"
-  -H "Authorization: API_KEY"
-```
-
 <aside class="notice">
 You must replace <code>API_KEY</code> with your personal API key.
 </aside>
@@ -41,6 +35,8 @@ You must replace <code>API_KEY</code> with your personal API key.
 ## On-chain Volume
 
 ```shell
+# Make sure you substitute API_KEY for your unique API key.
+
 curl "https://api.tokenanalyst.io/analytics/private/v1/token_volume_historical/last?format=json&key=API_KEY&token=btc"
 ```
 
@@ -308,6 +304,90 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_count_historical/la
 
 This endpoint returns the number of token transfers on the blockchain for the given token for every day since its existence.
 
+# Stablecoin Stats
+
+The stablecoins we currently support are:
+
+| Name                 | Symbol |
+| -------------------- | ------ |
+| Tether               | `usdt` |
+| USDC                 | `usdc` |
+| Paxos Standard Token | `pax`  |
+| TrueUSD              | `tusd` |
+| Gemini Dollar        | `gusd` |
+| Dai                  | `dai`  |
+
+## On-chain Volume
+
+```shell
+curl "https://api.tokenanalyst.io/analytics/private/v1/token_volume_historical/last?format=json&key=API_KEY&token=usdc"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+  {
+    "address": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+    "date": "2018-09-10",
+    "volume": "22.2",
+    "price_usd": "0.0",
+    "volume_usd": "0.0"
+  },
+  {
+    "address": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+    "date": "2018-09-12",
+    "volume": "2.5",
+    "price_usd": "0.0",
+    "volume_usd": "0.0"
+  }
+]
+```
+
+This endpoint returns the full historical on-chain volume of any of the stablecoins that we support.
+
+### HTTP Request
+
+`GET https://api.tokenanalyst.io/analytics/private/v1/token_volume_historical/last`
+
+### Query Parameters
+
+| Parameter | Type     | Description                                                   |
+| --------- | -------- | ------------------------------------------------------------- |
+| key       | _string_ | Your unique API key                                           |
+| format    | _string_ | What format you want your data in (currently we support JSON) |
+| token     | _string_ | The token you want the volume for                             |
+
+## On-chain Transaction Count
+
+```shell
+curl "https://api.tokenanalyst.io/analytics/private/v1/token_count_historical/last?format=json&key=API_KEY&token=dai"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+  {
+    "tokenaddress": "0x89d24A6b4CcB1B6fAA2625fE562bDD9a23260359",
+    "date": "2017-12-18",
+    "number_of_token_transfers": "161"
+  },
+  {
+    "tokenaddress": "0x89d24A6b4CcB1B6fAA2625fE562bDD9a23260359",
+    "date": "2017-12-19",
+    "number_of_token_transfers": "599"
+  },
+  {
+    "tokenaddress": "0x89d24A6b4CcB1B6fAA2625fE562bDD9a23260359",
+    "date": "2017-12-20",
+    "number_of_token_transfers": "515"
+  }
+]
+```
+
+This endpoint returns the number of token transfers on the Ethereum blockchain for the given stablecoin for every day since its existence.
+
 # Bitcoin Exchange Flows
 
 For Bitcoin currently supported exchanges are: `binance`, `bittrex`, `bitstamp`, `poloniex`, `bitmex`, `bitfinex`
@@ -317,7 +397,11 @@ For Bitcoin currently supported exchanges are: `binance`, `bittrex`, `bitstamp`,
 > This is an example
 
 ```shell
-curl "https://ws.tokenanalyst.io/analytics/private/v1/exchange_flow_historical/last?format=json&key=API_KEY&token=btc&exchange=binance&direction=inflow"
+curl "https://ws.tokenanalyst.io/analytics/private/v1/exchange_flow_historical/last?format=json
+&key=API_KEY
+&token=btc
+&exchange=binance
+&direction=inflow"
 ```
 
 > The response looks like:
@@ -344,14 +428,13 @@ curl "https://ws.tokenanalyst.io/analytics/private/v1/exchange_flow_historical/l
 
 ### URL Parameters
 
-| Parameter | Type     | Description                                                   |
-| --------- | -------- | ------------------------------------------------------------- |
-| key       | _string_ | Your unique API key                                           |
-| format    | _string_ | Either `json` or `csv` |
-| token     | _string_ | `btc`                              |
+| Parameter | Type     | Description                                          |
+| --------- | -------- | ---------------------------------------------------- |
+| key       | _string_ | Your unique API key                                  |
+| format    | _string_ | Either `json` or `csv`                               |
+| token     | _string_ | `btc`                                                |
 | direction | _string_ | Either `inflow` or `outflow` (in this case `inflow`) |
-| exchange | _string_ | An exchange from the list of ones we support |
-
+| exchange  | _string_ | An exchange from the list of ones we support         |
 
 ## Full Historical Outflows from Exchanges
 
@@ -362,12 +445,12 @@ curl "https://ws.tokenanalyst.io/analytics/private/v1/exchange_flow_historical/l
 > This is an example:
 
 ```shell
-$ curl https://ws.tokenanalyst.io/analytics/private/v1/exchange_flow_historical/last
+curl "https://ws.tokenanalyst.io/analytics/private/v1/exchange_flow_historical/last
 &token=btc
 &exchange=binance
 &direction=outflow
 &format=json
-&key=API_KEY
+&key=API_KEY"
 ```
 
 > The response looks like:
@@ -390,13 +473,13 @@ $ curl https://ws.tokenanalyst.io/analytics/private/v1/exchange_flow_historical/
 
 ### URL Parameters
 
-| Parameter | Description               |
-| --------- | ------------------------- |
-| token     | btc                       |
-| exchange  | An exchange from the list |
-| direction | Either inflow or outflow  |
-| format    | Either json or csv        |
-| key       | API key                   |
+| Parameter | Type     | Description                                          |
+| --------- | -------- | ---------------------------------------------------- |
+| key       | _string_ | Your unique API key                                  |
+| format    | _string_ | Either `json` or `csv`                               |
+| token     | _string_ | `btc`                                                |
+| direction | _string_ | Either `inflow` or `outflow` (in this case `outflow`) |
+| exchange  | _string_ | An exchange from the list of ones we support         |
 
 ## Full Historical Top 10 Inflow Large Value Transactions
 
@@ -405,12 +488,12 @@ $ curl https://ws.tokenanalyst.io/analytics/private/v1/exchange_flow_historical/
 `GET https://api.tokenanalyst.io/analytics/private/v1/last/exchange_flow_top10_historical`
 
 ```shell
-$ curl https://api.tokenanalyst.io/analytics/private/v1/last/exchange_flow_top10_historical
+curl "https://api.tokenanalyst.io/analytics/private/v1/last/exchange_flow_top10_historical
 &token=btc
 &exchange=binance
 &direction=infow
 &format=json
-&key=API_KEY
+&key=API_KEY"
 ```
 
 > This is what the response looks like
@@ -424,23 +507,23 @@ $ curl https://api.tokenanalyst.io/analytics/private/v1/last/exchange_flow_top10
   "transactionhash":"0546f2545393d706b3b77ec251be93af12038dc28eefd5dc0d27acea9f0613a0","transactionid":"0546f2545393d706b3b77ec251be93af12038dc28eefd5dc0d27acea9f0613a0",
   "value":"0.01",
   "value_usd":"52.51"
- },...
+ }
 ]
 ```
 
 ### URL Parameters
 
-| Parameter | Description                                    |
-| --------- | ---------------------------------------------- |
-| token     | btc                                            |
-| exchange  | An exchange from the list                      |
-| direction | Either inflow or outflow (in this case inflow) |
-| format    | Either json or csv                             |
-| key       | API key                                        |
+| Parameter | Type     | Description                                          |
+| --------- | -------- | ---------------------------------------------------- |
+| key       | _string_ | Your unique API key                                  |
+| format    | _string_ | Either `json` or `csv`                               |
+| token     | _string_ | `btc`                                                |
+| direction | _string_ | `inflow` |
+| exchange  | _string_ | An exchange from the list of ones we support         |
 
 # Ethereum Exchange Flows
 
-For Ethereum currently supported exchanges are: binance, kraken, bitfinex, poloniex, bittrex, kucoin
+For Ethereum currently supported exchanges are: `binance`, `kraken`, `bitfinex`, `poloniex`, `bittrex`, `kucoin`
 
 ## Full Historical Inflow to Exchanges
 
@@ -451,12 +534,12 @@ For Ethereum currently supported exchanges are: binance, kraken, bitfinex, polon
 > This is an example:
 
 ```shell
-curl https://api.tokenanalyst.io/analytics/private/v1/last/exchange_flow_historical
+curl "https://api.tokenanalyst.io/analytics/private/v1/last/exchange_flow_historical
 &token=eth
 &exchange=binance
 &direction=inflow
 &format=json
-&key=API_KEY
+&key=API_KEY"
 ```
 
 > The response looks like:
@@ -477,13 +560,13 @@ curl https://api.tokenanalyst.io/analytics/private/v1/last/exchange_flow_histori
 
 ### URL Parameters
 
-| Parameter | Description               |
-| --------- | ------------------------- |
-| token     | eth                       |
-| exchange  | An exchange from the list |
-| direction | Either inflow or outflow  |
-| format    | Either json or csv        |
-| key       | API key                   |
+| Parameter | Type     | Description                                          |
+| --------- | -------- | ---------------------------------------------------- |
+| key       | _string_ | Your unique API key                                  |
+| format    | _string_ | Either `json` or `csv`                               |
+| token     | _string_ | `eth`                                                |
+| direction | _string_ | `inflow` |
+| exchange  | _string_ | An exchange from the list of ones we support         |
 
 ## Full Historical Outflows from Exchanges
 
@@ -492,12 +575,12 @@ curl https://api.tokenanalyst.io/analytics/private/v1/last/exchange_flow_histori
 > This is an example:
 
 ```shell
-$ curl https://api.tokenanalyst.io/analytics/private/v1/last/exchange_flow_historical
+curl "https://api.tokenanalyst.io/analytics/private/v1/last/exchange_flow_historical
 &token=eth
 &exchange=binance
 &direction=outflow
 &format=json
-&key=API_KEY
+&key=API_KEY"
 ```
 
 > The response looks like:
@@ -518,13 +601,13 @@ $ curl https://api.tokenanalyst.io/analytics/private/v1/last/exchange_flow_histo
 
 ### URL Parameters
 
-| Parameter | Description               |
-| --------- | ------------------------- |
-| token     | eth                       |
-| exchange  | An exchange from the list |
-| direction | Either inflow or outflow  |
-| format    | Either json or csv        |
-| key       | API key                   |
+| Parameter | Type     | Description                                          |
+| --------- | -------- | ---------------------------------------------------- |
+| key       | _string_ | Your unique API key                                  |
+| format    | _string_ | Either `json` or `csv`                               |
+| token     | _string_ | `eth`                                                |
+| direction | _string_ | `outflow` |
+| exchange  | _string_ | An exchange from the list of ones we support         |
 
 ## Full Historical Top 10 Inflow Large Value Transactions
 
@@ -535,12 +618,12 @@ $ curl https://api.tokenanalyst.io/analytics/private/v1/last/exchange_flow_histo
 > This is an example:
 
 ```shell
-$ curl https://api.tokenanalyst.io/analytics/private/v1/last/exchange_flow_top10_historical
+curl "https://api.tokenanalyst.io/analytics/private/v1/last/exchange_flow_top10_historical
 &token=eth
 &exchange=binance
 &direction=infow
 &format=json
-&key=API_KEY
+&key=API_KEY"
 ```
 
 > The response looks like:
@@ -561,13 +644,13 @@ $ curl https://api.tokenanalyst.io/analytics/private/v1/last/exchange_flow_top10
 
 ### URL Parameters
 
-| Parameter | Description                                    |
-| --------- | ---------------------------------------------- |
-| token     | The token (in this case eth)                   |
-| exchange  | An exchange from the list                      |
-| direction | Either inflow or outflow (in this case inflow) |
-| format    | Either json or csv                             |
-| key       | API key                                        |
+| Parameter | Type     | Description                                          |
+| --------- | -------- | ---------------------------------------------------- |
+| key       | _string_ | Your unique API key                                  |
+| format    | _string_ | Either `json` or `csv`                               |
+| token     | _string_ | `eth`                                                |
+| direction | _string_ | `inflow` |
+| exchange  | _string_ | An exchange from the list of ones we support         |
 
 ## Full Historical Top 10 Outflow Large Value Transactions
 
@@ -576,12 +659,12 @@ $ curl https://api.tokenanalyst.io/analytics/private/v1/last/exchange_flow_top10
 `GET https://api.tokenanalyst.io/analytics/private/v1/last/exchange_flow_top10_historical`
 
 ```shell
-$ curl https://api.tokenanalyst.io/analytics/private/v1/last/exchange_flow_top10_historical
+curl "https://api.tokenanalyst.io/analytics/private/v1/last/exchange_flow_top10_historical
 &token=eth
 &exchange=binance
 &direction=outflow
 &format=json
-&key=API_KEY
+&key=API_KEY"
 ```
 
 > The response looks like:
@@ -602,10 +685,10 @@ $ curl https://api.tokenanalyst.io/analytics/private/v1/last/exchange_flow_top10
 
 ### URL Parameters
 
-| Parameter | Description                                    |
-| --------- | ---------------------------------------------- |
-| token     | The token (in this case eth)                   |
-| exchange  | An exchange from the list                      |
-| direction | Either inflow or outflow (in this case inflow) |
-| format    | Either json or csv                             |
-| key       | API key                                        |
+| Parameter | Type     | Description                                          |
+| --------- | -------- | ---------------------------------------------------- |
+| key       | _string_ | Your unique API key                                  |
+| format    | _string_ | Either `json` or `csv`                               |
+| token     | _string_ | `eth`                                                |
+| direction | _string_ | `outflow` |
+| exchange  | _string_ | An exchange from the list of ones we support         |
