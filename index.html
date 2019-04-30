@@ -785,7 +785,7 @@ curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_vo
 </span></code></pre>
 <p>This endpoint returns the full historical on-chain volume of any of the stablecoins that we support.</p>
 <h3 id='http-request-7'>HTTP Request</h3>
-<p><code>GET https://api.tokenanalyst.io/analytics/private/v1/token_volume_historical/last</code></p>
+<p><code>GET https://api.tokenanalyst.io/analytics/private/v1/token_volume_historical/last?</code></p>
 <h3 id='query-parameters-7'>Query Parameters</h3>
 <table><thead>
 <tr>
@@ -837,7 +837,7 @@ curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_vo
 </span></code></pre>
 <p>This endpoint returns the number of token transfers on the Ethereum blockchain for the given stablecoin for every day since its existence.</p>
 <h3 id='http-request-8'>HTTP Request</h3>
-<p><code>GET https://api.tokenanalyst.io/analytics/private/v1/token_count_historical/last</code></p>
+<p><code>GET https://api.tokenanalyst.io/analytics/private/v1/token_count_historical/last?</code></p>
 <h3 id='query-parameters-8'>Query Parameters</h3>
 <table><thead>
 <tr>
@@ -887,7 +887,7 @@ curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_vo
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre><h3 id='http-request-9'>HTTP Request</h3>
-<p><code>GET https://ws.tokenanalyst.io/analytics/private/v1/exchange_flow_historical/last</code></p>
+<p><code>GET https://ws.tokenanalyst.io/analytics/private/v1/exchange_flow_historical/last?</code></p>
 <h3 id='url-parameters'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -927,12 +927,12 @@ curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_vo
 
 <p>This endpoint returns the outflow of BTC from exchange wallets for as far back as we track. The average outflow is the average transaction value for transactions flowing out of exchange wallets on a given day. </p>
 <h3 id='http-request-10'>HTTP Request</h3>
-<p><code>GET https://ws.tokenanalyst.io/analytics/private/v1/exchange_flow_historical/last</code></p>
+<p><code>GET https://ws.tokenanalyst.io/analytics/private/v1/exchange_flow_historical/last?</code></p>
 
 <blockquote>
 <p>This is an example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_historical/last&amp;token=btc&amp;exchange=binance&amp;direction=outflow&amp;format=json&amp;key=API_KEY"</span>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_historical/last?token=btc&amp;exchange=binance&amp;direction=outflow&amp;format=json&amp;key=API_KEY"</span>
 </code></pre>
 <blockquote>
 <p>The response looks like:</p>
@@ -989,8 +989,8 @@ curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_vo
 
 <p>This endpoint returns the top 10 transactions (in terms of total BTC sent) flowing into exchange wallets for every day that the exchange wallets we track have been live on the blockchain. </p>
 <h3 id='http-request-11'>HTTP Request</h3>
-<p><code>GET https://api.tokenanalyst.io/analytics/private/v1/last/exchange_flow_top10_historical</code></p>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/last/exchange_flow_top10_historical&amp;token=btc&amp;exchange=binance&amp;direction=infow&amp;format=json&amp;key=API_KEY"</span>
+<p><code>GET https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_top10_historical/last?</code></p>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_top10_historical/last?token=btc&amp;exchange=binance&amp;direction=infow&amp;format=json&amp;key=API_KEY"</span>
 </code></pre>
 <blockquote>
 <p>This is what the response looks like</p>
@@ -1047,12 +1047,12 @@ curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_vo
 
 <p>This endpoint returns the inflow of ETH into exchange wallets for as far back as we track. The average inflow is the average transaction value for transactions flowing into exchange wallets on a given day. </p>
 <h3 id='http-request-12'>HTTP Request</h3>
-<p><code>GET https://api.tokenanalyst.io/analytics/private/v1/last/exchange_flow_historical</code></p>
+<p><code>GET https://api.tokenanalyst.io/analytics/private/v1/last/exchange_flow_historical/last?</code></p>
 
 <blockquote>
 <p>This is an example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/last/exchange_flow_historical&amp;token=eth&amp;exchange=binance&amp;direction=inflow&amp;format=json&amp;key=API_KEY"</span>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_historical/last?token=eth&amp;exchange=binance&amp;direction=inflow&amp;format=json&amp;key=API_KEY"</span>
 </code></pre>
 <blockquote>
 <p>The response looks like:</p>
@@ -1107,12 +1107,12 @@ curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_vo
 
 <p>This endpoint returns the outflow of ETH from exchange wallets for as far back as we track. The average outflow is the average transaction value for transactions flowing out of exchange wallets on a given day. </p>
 
-<p><code>GET https://api.tokenanalyst.io/analytics/private/v1/last/exchange_flow_historical</code></p>
+<p><code>GET https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_historical/last?</code></p>
 
 <blockquote>
 <p>This is an example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/last/exchange_flow_historical&amp;token=eth&amp;exchange=binance&amp;direction=outflow&amp;format=json&amp;key=API_KEY"</span>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_historical/last?token=eth&amp;exchange=binance&amp;direction=outflow&amp;format=json&amp;key=API_KEY"</span>
 </code></pre>
 <blockquote>
 <p>The response looks like:</p>
@@ -1167,12 +1167,12 @@ curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_vo
 
 <p>This endpoint returns the top 10 transactions (in terms of total ETH sent) flowing into exchange wallets for every day that the exchange wallets we track have been live on the blockchain. </p>
 <h3 id='http-request-13'>HTTP Request</h3>
-<p><code>GET https://api.tokenanalyst.io/analytics/private/v1/last/exchange_flow_top10_historical</code></p>
+<p><code>GET https://api.tokenanalyst.io/analytics/private/v1/last/exchange_flow_top10_historical/last?</code></p>
 
 <blockquote>
 <p>This is an example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/last/exchange_flow_top10_historical&amp;token=eth&amp;exchange=binance&amp;direction=infow&amp;format=json&amp;key=API_KEY"</span>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_top10_historical/last?token=btc&amp;exchange=binance&amp;direction=inflow&amp;format=json&amp;key=API_KEY"</span>
 </code></pre>
 <blockquote>
 <p>The response looks like:</p>
@@ -1227,8 +1227,8 @@ curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_vo
 
 <p>This endpoint returns the top 10 transactions (in terms of total ETH sent) flowing out of exchange wallets for every day that the exchange wallets we track have been live on the blockchain. </p>
 <h3 id='http-request-14'>HTTP Request</h3>
-<p><code>GET https://api.tokenanalyst.io/analytics/private/v1/last/exchange_flow_top10_historical</code></p>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/last/exchange_flow_top10_historical&amp;token=eth&amp;exchange=binance&amp;direction=outflow&amp;format=json&amp;key=API_KEY"</span>
+<p><code>GET https://api.tokenanalyst.io/analytics/private/v1/last/exchange_flow_top10_historical/last?</code></p>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_top10_historical/last?token=btc&amp;exchange=binance&amp;direction=outflow&amp;format=json&amp;key=API_KEY"</span>
 </code></pre>
 <blockquote>
 <p>The response looks like:</p>
