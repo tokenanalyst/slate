@@ -353,7 +353,7 @@ The stablecoins we currently support are:
 
 ## On-chain Volume
 
-<img src="https://img.shields.io/badge/Tier-Free-green.svg"/>
+<img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/>
 
 ```shell
 curl "https://api.tokenanalyst.io/analytics/private/v1/token_volume_historical/last?format=json&key=API_KEY&token=usdc"
@@ -396,7 +396,7 @@ This endpoint returns the full historical on-chain volume of any of the stableco
 
 ## On-chain Transaction Count
 
-<img src="https://img.shields.io/badge/Tier-Free-green.svg"/>
+<img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/>
 
 ```shell
 curl "https://api.tokenanalyst.io/analytics/private/v1/token_count_historical/last?format=json&key=API_KEY&token=dai"
