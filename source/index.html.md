@@ -316,6 +316,18 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_count_historical/la
 
 This endpoint returns the number of token transfers on the blockchain for the given token for every day since its existence.
 
+### HTTP Request
+
+`GET https://api.tokenanalyst.io/analytics/private/v1/token_count_historical/last`
+
+### Query Parameters
+
+| Parameter | Type     | Description                                         |
+| --------- | -------- | --------------------------------------------------- |
+| key       | _string_ | Your unique API key                                 |
+| format    | _string_ | What format you want your data in (`json` or `csv`) |
+| token     | _string_ | The token you want the transaction count for                   |
+
 # Stablecoin Stats
 
 The stablecoins we currently support are:
@@ -404,6 +416,18 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_count_historical/la
 
 This endpoint returns the number of token transfers on the Ethereum blockchain for the given stablecoin for every day since its existence.
 
+### HTTP Request
+
+`GET https://api.tokenanalyst.io/analytics/private/v1/token_count_historical/last`
+
+### Query Parameters
+
+| Parameter | Type     | Description                                         |
+| --------- | -------- | --------------------------------------------------- |
+| key       | _string_ | Your unique API key                                 |
+| format    | _string_ | What format you want your data in (`json` or `csv`) |
+| token     | _string_ | The stablecoin you want the transaction count for                   |
+
 # Bitcoin Exchange Flows
 
 For Bitcoin currently supported exchanges are: `binance`, `bittrex`, `bitstamp`, `poloniex`, `bitmex`, `bitfinex`
@@ -412,7 +436,7 @@ For Bitcoin currently supported exchanges are: `binance`, `bittrex`, `bitstamp`,
 
 <img src="https://img.shields.io/badge/Tier-Professional-black.svg"/>
 
-> This is an example
+This endpoint returns the inflow of BTC into exchange wallets for as far back as we track. The average inflow is the average transaction value for transactions flowing into exchange wallets on a given day. 
 
 ```shell
 curl "https://ws.tokenanalyst.io/analytics/private/v1/exchange_flow_historical/last?format=json&key=API_KEY&token=btc&exchange=binance&direction=inflow"
@@ -453,6 +477,9 @@ curl "https://ws.tokenanalyst.io/analytics/private/v1/exchange_flow_historical/l
 ## Full Historical Outflows from Exchanges
 
 <img src="https://img.shields.io/badge/Tier-Professional-black.svg"/>
+
+This endpoint returns the outflow of BTC from exchange wallets for as far back as we track. The average outflow is the average transaction value for transactions flowing out of exchange wallets on a given day. 
+
 
 ### HTTP Request
 
@@ -496,6 +523,9 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_historical/
 
 <img src="https://img.shields.io/badge/Tier-Professional-black.svg"/>
 
+This endpoint returns the top 10 transactions (in terms of total BTC sent) flowing into exchange wallets for every day that the exchange wallets we track have been live on the blockchain. 
+
+
 ### HTTP Request
 
 `GET https://api.tokenanalyst.io/analytics/private/v1/last/exchange_flow_top10_historical`
@@ -538,6 +568,9 @@ For Ethereum currently supported exchanges are: `binance`, `kraken`, `bitfinex`,
 
 <img src="https://img.shields.io/badge/Tier-Professional-black.svg"/>
 
+This endpoint returns the inflow of ETH into exchange wallets for as far back as we track. The average inflow is the average transaction value for transactions flowing into exchange wallets on a given day. 
+
+
 ### HTTP Request
 
 `GET https://api.tokenanalyst.io/analytics/private/v1/last/exchange_flow_historical`
@@ -578,6 +611,8 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/last/exchange_flow_histor
 
 <img src="https://img.shields.io/badge/Tier-Professional-black.svg"/>
 
+This endpoint returns the outflow of ETH from exchange wallets for as far back as we track. The average outflow is the average transaction value for transactions flowing out of exchange wallets on a given day. 
+
 `GET https://api.tokenanalyst.io/analytics/private/v1/last/exchange_flow_historical`
 
 > This is an example:
@@ -615,6 +650,8 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/last/exchange_flow_histor
 ## Full Historical Top 10 Inflow Large Value Transactions
 
 <img src="https://img.shields.io/badge/Tier-Professional-black.svg"/>
+
+This endpoint returns the top 10 transactions (in terms of total ETH sent) flowing into exchange wallets for every day that the exchange wallets we track have been live on the blockchain. 
 
 ### HTTP Request
 
@@ -656,6 +693,8 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/last/exchange_flow_top10_
 
 <img src="https://img.shields.io/badge/Tier-Professional-black.svg"/>
 
+This endpoint returns the top 10 transactions (in terms of total ETH sent) flowing out of exchange wallets for every day that the exchange wallets we track have been live on the blockchain. 
+
 ### HTTP Request
 
 `GET https://api.tokenanalyst.io/analytics/private/v1/last/exchange_flow_top10_historical`
@@ -679,6 +718,7 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/last/exchange_flow_top10_
   }
 ]
 ```
+
 
 ### URL Parameters
 
