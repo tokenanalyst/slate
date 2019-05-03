@@ -264,6 +264,9 @@
                   <li>
                     <a href="#on-chain-transaction-count" class="toc-h2 toc-link" data-title="On-chain Transaction Count">On-chain Transaction Count</a>
                   </li>
+                  <li>
+                    <a href="#active-addresses" class="toc-h2 toc-link" data-title="Active addresses">Active addresses</a>
+                  </li>
               </ul>
           </li>
           <li>
@@ -274,6 +277,9 @@
                   </li>
                   <li>
                     <a href="#on-chain-transaction-count" class="toc-h2 toc-link" data-title="On-chain Transaction Count">On-chain Transaction Count</a>
+                  </li>
+                  <li>
+                    <a href="#active-addresses" class="toc-h2 toc-link" data-title="Active addresses">Active addresses</a>
                   </li>
               </ul>
           </li>
@@ -894,6 +900,53 @@ curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_vo
 <td>The token you want the transaction count for</td>
 </tr>
 </tbody></table>
+<h2 id='active-addresses'>Active addresses</h2>
+<p><img src="https://img.shields.io/badge/Tier-Hobbyist-blue.sv"/></p>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_active_address_historical/last?&amp;token=bnb&amp;format=json&amp;key=API_KEY"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-11-11"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"active_senders"</span><span class="p">:</span><span class="w"> </span><span class="s2">"23"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"active_receivers"</span><span class="p">:</span><span class="w"> </span><span class="s2">"31"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-11-12"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"active_senders"</span><span class="p">:</span><span class="w"> </span><span class="s2">"332"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"active_receivers"</span><span class="p">:</span><span class="w"> </span><span class="s2">"23"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<p>This endpoint returns the active addresses of ERC20 tokens for every day of their existence. An address is defined as &#39;active&#39; if it has transacted during the given day.</p>
+<h3 id='http-request-3'>HTTP Request</h3>
+<p><code>GET https://api.tokenanalyst.io/analytics/private/v1/token_active_address_historical/last</code></p>
+<h3 id='query-parameters-3'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>key</td>
+<td><em>string</em></td>
+<td>Your unique API key</td>
+</tr>
+<tr>
+<td>format</td>
+<td><em>string</em></td>
+<td>What format you want your data in (<code>json</code> or <code>csv</code>)</td>
+</tr>
+<tr>
+<td>token</td>
+<td><em>string</em></td>
+<td>The token you want the transaction count for</td>
+</tr>
+</tbody></table>
 <h1 id='stablecoin-stats'>Stablecoin Stats</h1>
 <p>The stablecoins we currently support are:</p>
 
@@ -1003,6 +1056,53 @@ curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_vo
 <h3 id='http-request-2'>HTTP Request</h3>
 <p><code>GET https://api.tokenanalyst.io/analytics/private/v1/token_count_historical/last?</code></p>
 <h3 id='query-parameters-2'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>key</td>
+<td><em>string</em></td>
+<td>Your unique API key</td>
+</tr>
+<tr>
+<td>format</td>
+<td><em>string</em></td>
+<td>What format you want your data in (<code>json</code> or <code>csv</code>)</td>
+</tr>
+<tr>
+<td>token</td>
+<td><em>string</em></td>
+<td>The stablecoin you want the transaction count for</td>
+</tr>
+</tbody></table>
+<h2 id='active-addresses'>Active addresses</h2>
+<p><img src="https://img.shields.io/badge/Tier-Hobbyist-blue.sv"/></p>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_active_address_historical/last?&amp;token=usdc&amp;format=json&amp;key=API_KEY"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-11-11"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"active_senders"</span><span class="p">:</span><span class="w"> </span><span class="s2">"23"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"active_receivers"</span><span class="p">:</span><span class="w"> </span><span class="s2">"31"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-11-12"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"active_senders"</span><span class="p">:</span><span class="w"> </span><span class="s2">"332"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"active_receivers"</span><span class="p">:</span><span class="w"> </span><span class="s2">"23"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<p>This endpoint returns the active addresses of stabelecoin tokens for every day of their existence. An address is defined as &#39;active&#39; if it has transacted during the given day.</p>
+<h3 id='http-request-3'>HTTP Request</h3>
+<p><code>GET https://api.tokenanalyst.io/analytics/private/v1/token_active_address_historical/last</code></p>
+<h3 id='query-parameters-3'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
