@@ -92,3 +92,42 @@ This endpoint returns the number of token transfers on the Ethereum blockchain f
 | key       | _string_ | Your unique API key                                 |
 | format    | _string_ | What format you want your data in (`json` or `csv`) |
 | token     | _string_ | The stablecoin you want the transaction count for   |
+
+## Active addresses
+
+<img src="https://img.shields.io/badge/Tier-Hobbyist-blue.sv"/>
+
+```shell
+curl "https://api.tokenanalyst.io/analytics/private/v1/token_active_address_historical/last?&token=usdc&format=json&key=API_KEY"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+  {
+    "date": "2016-11-11",
+    "active_senders": "23",
+    "active_receivers": "31"
+  },
+  {
+    "date": "2016-11-12",
+    "active_senders": "332",
+    "active_receivers": "23"
+  }
+]
+```
+
+This endpoint returns the active addresses of stabelecoin tokens for every day of their existence. An address is defined as 'active' if it has transacted during the given day.
+
+### HTTP Request
+
+`GET https://api.tokenanalyst.io/analytics/private/v1/token_active_address_historical/last`
+
+### Query Parameters
+
+| Parameter | Type     | Description                                         |
+| --------- | -------- | --------------------------------------------------- |
+| key       | _string_ | Your unique API key                                 |
+| format    | _string_ | What format you want your data in (`json` or `csv`) |
+| token     | _string_ | The stablecoin you want the transaction count for 
