@@ -9,7 +9,7 @@ For Bitcoin currently supported exchanges are: `binance`, `bittrex`, `bitstamp`,
 This endpoint returns the inflow of BTC into exchange wallets for as far back as we track. The average inflow is the average transaction value for transactions flowing into exchange wallets on a given day.
 
 ```shell
-curl "https://ws.tokenanalyst.io/analytics/private/v1/exchange_flow_historical/last?format=json&key=API_KEY&token=btc&exchange=binance&direction=inflow"
+curl "https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_historical/last?format=json&key=API_KEY&token=btc&exchange=binance&direction=inflow"
 ```
 
 > The response looks like:
@@ -43,7 +43,7 @@ curl "https://ws.tokenanalyst.io/analytics/private/v1/exchange_flow_historical/l
 
 ### HTTP Request
 
-`GET https://ws.tokenanalyst.io/analytics/private/v1/exchange_flow_historical/last?`
+`GET https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_historical/last?`
 
 ### URL Parameters
 
@@ -63,7 +63,7 @@ This endpoint returns the outflow of BTC from exchange wallets for as far back a
 
 ### HTTP Request
 
-`GET https://ws.tokenanalyst.io/analytics/private/v1/exchange_flow_historical/last?`
+`GET https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_historical/last?`
 
 > This is an example:
 
