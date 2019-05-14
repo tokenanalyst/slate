@@ -1195,7 +1195,7 @@ curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_vo
 <p><img src="https://img.shields.io/badge/Tier-Professional-black.svg"/></p>
 
 <p>This endpoint returns the inflow of BTC into exchange wallets for as far back as we track. The average inflow is the average transaction value for transactions flowing into exchange wallets on a given day.</p>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://ws.tokenanalyst.io/analytics/private/v1/exchange_flow_historical/last?format=json&amp;key=API_KEY&amp;token=btc&amp;exchange=binance&amp;direction=inflow"</span>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_historical/last?format=json&amp;key=API_KEY&amp;token=btc&amp;exchange=binance&amp;direction=inflow"</span>
 </code></pre>
 <blockquote>
 <p>The response looks like:</p>
@@ -1225,7 +1225,7 @@ curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_vo
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre><h3 id='http-request'>HTTP Request</h3>
-<p><code>GET https://ws.tokenanalyst.io/analytics/private/v1/exchange_flow_historical/last?</code></p>
+<p><code>GET https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_historical/last?</code></p>
 <h3 id='url-parameters'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -1265,7 +1265,7 @@ curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_vo
 
 <p>This endpoint returns the outflow of BTC from exchange wallets for as far back as we track. The average outflow is the average transaction value for transactions flowing out of exchange wallets on a given day.</p>
 <h3 id='http-request-2'>HTTP Request</h3>
-<p><code>GET https://ws.tokenanalyst.io/analytics/private/v1/exchange_flow_historical/last?</code></p>
+<p><code>GET https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_historical/last?</code></p>
 
 <blockquote>
 <p>This is an example:</p>
