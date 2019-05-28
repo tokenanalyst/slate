@@ -37,7 +37,7 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_historical/
 ]
 ```
 
-This endpoint returns the inflow of ETH into exchange wallets for as far back as we track. The average inflow is the average transaction value for transactions flowing into exchange wallets on a given day.
+This endpoint returns the inflow of ETH into exchange wallets. The `avg_txn_value` is the average inflow value for transactions flowing into exchange wallets on a given day.
 
 ### HTTP Request
 
@@ -88,7 +88,7 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_historical/
 ]
 ```
 
-This endpoint returns the outflow of ETH from exchange wallets for as far back as we track. The average outflow is the average transaction value for transactions flowing out of exchange wallets on a given day.
+This endpoint returns the outflow of ETH from exchange wallets. The 'avg_txn_value' is the average outflow value for transactions flowing out of exchange wallets on a given day.
 
 ### HTTP Request
 
