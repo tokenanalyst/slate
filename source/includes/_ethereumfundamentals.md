@@ -1,6 +1,6 @@
 # Ethereum Fundamentals
 
-## On-chain Volume
+## ETH On-chain Volume
 
 <img src="https://img.shields.io/badge/Tier-Free-green.svg"/>
 
@@ -47,7 +47,7 @@ This endpoint returns the full historical on-chain volume of Ethereum since it w
 | format    | _string_ | What format you want your data in (`json` or `csv`)    |
 | token     | _string_ | The token you want the volume for (in this case `eth`) |
 
-## On-chain Transaction Count
+## ETH On-chain Transaction Count
 
 <img src="https://img.shields.io/badge/Tier-Free-green.svg"/>
 
@@ -88,7 +88,7 @@ This endpoint returns the number of transactions on the full historical Ethereum
 | format    | _string_ | What format you want your data in (`json` or `csv`)    |
 | token     | _string_ | The token you want the volume for (in this case `eth`) |
 
-## Token Supply
+## ETH Token Supply
 
 <img src="https://img.shields.io/badge/Tier-Free-green.svg"/>
 
@@ -129,7 +129,7 @@ This endpoint returns the total token supply of Ether on the blockchain for ever
 | format    | _string_ | What format you want your data in (`json` or `csv`) |
 | token     | _string_ | `eth`                                               |
 
-## Active addresses
+## ETH Active addresses
 
 <img src="https://img.shields.io/badge/Tier-Free-green.svg"/>
 
@@ -167,3 +167,40 @@ This endpoint returns the active addresses on the Ethereum blockchain for every 
 | key       | _string_ | Your unique API key                                 |
 | format    | _string_ | What format you want your data in (`json` or `csv`) |
 | token     | _string_ | `eth`    
+
+## ETH Supply
+
+<img src="https://img.shields.io/badge/Tier-Free-green.svg"/>
+
+```shell
+curl "https://api.tokenanalyst.io/analytics/private/v1/token_supply_historical/last?&token=eth&format=json&key=API_KEY"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+  {
+    "date": "2015-07-30",
+    "supply": "39311.09375",
+  },
+  {
+    "date": "2015-07-31",
+    "supply": "75502.8125"
+  }
+]
+```
+
+This endpoint returns the historical supply of ETH on the Ethereum blockchain for every day of its existence.
+
+### HTTP Request
+
+`GET https://api.tokenanalyst.io/analytics/private/v1/token_supply_historical/last`
+
+### Query Parameters
+
+| Parameter | Type     | Description                                         |
+| --------- | -------- | --------------------------------------------------- |
+| key       | _string_ | Your unique API key                                 |
+| format    | _string_ | What format you want your data in (`json` or `csv`) |
+| token     | _string_ | `eth`  

@@ -15,6 +15,8 @@ includes:
   - defistats
   - bitcoinexchangeflows
   - ethereumexchangeflows
+  - stablecoinexchangeflows
+  - erc20exchangeflows
 
 search: true
 ---

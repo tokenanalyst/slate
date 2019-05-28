@@ -25,7 +25,7 @@ ERC20 tokens we currently support are:
 | Kyber Network         | `knc`   |
 | iExec RLC             | `rlc`   |
 
-## On-chain Volume
+## ERC20 On-chain Volume
 
 <img src="https://img.shields.io/badge/Tier-Free-green.svg"/>
 
@@ -66,7 +66,7 @@ This endpoint returns the full historical on-chain volume of any of the major ER
 | format    | _string_ | What format you want your data in (`json` or `csv`) |
 | token     | _string_ | The token you want the volume for                   |
 
-## On-chain Transaction Count
+## ERC20 On-chain Transaction Count
 
 <img src="https://img.shields.io/badge/Tier-Free-green.svg"/>
 
@@ -112,9 +112,9 @@ This endpoint returns the number of token transfers on the blockchain for the gi
 
 
 
-## Active addresses
+## ERC20 Active addresses
 
-<img src="https://img.shields.io/badge/Tier-Hobbyist-blue.sv"/>
+<img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/>
 
 ```shell
 curl "https://api.tokenanalyst.io/analytics/private/v1/token_active_address_historical/last?&token=bnb&format=json&key=API_KEY"

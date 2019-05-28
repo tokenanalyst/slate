@@ -2,7 +2,7 @@
 
 For Bitcoin currently supported exchanges are: `binance`, `bittrex`, `bitstamp`, `poloniex`, `bitmex`, `bitfinex`
 
-## Full Historical Inflow to Exchanges
+## BTC Full Historical Inflow to Exchanges
 
 <img src="https://img.shields.io/badge/Tier-Professional-black.svg"/>
 
@@ -55,7 +55,7 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_historical/
 | direction | _string_ | Either `inflow` or `outflow` (in this case `inflow`) |
 | exchange  | _string_ | An exchange from the list of ones we support         |
 
-## Full Historical Outflows from Exchanges
+## BTC Full Historical Outflows from Exchanges
 
 <img src="https://img.shields.io/badge/Tier-Professional-black.svg"/>
 
@@ -110,7 +110,7 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_historical/
 | direction | _string_ | Either `inflow` or `outflow` (in this case `outflow`) |
 | exchange  | _string_ | An exchange from the list of ones we support          |
 
-## Full Historical Top 10 Inflow Large Value Transactions
+## BTC Full Historical Top 10 Inflow Large Value Transactions
 
 <img src="https://img.shields.io/badge/Tier-Professional-black.svg"/>
 
