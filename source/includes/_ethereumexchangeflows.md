@@ -2,7 +2,7 @@
 
 For Ethereum currently supported exchanges are: `binance`, `kraken`, `bitfinex`, `poloniex`, `bittrex`, `kucoin`
 
-## Full Historical Inflow to Exchanges
+## ETH Full Historical Inflow to Exchanges
 
 <img src="https://img.shields.io/badge/Tier-Professional-black.svg"/>
 
@@ -53,7 +53,7 @@ This endpoint returns the inflow of ETH into exchange wallets for as far back as
 | direction | _string_ | `inflow`                                            |
 | exchange  | _string_ | An exchange from the list of ones we support        |
 
-## Full Historical Outflows from Exchanges
+## ETH Full Historical Outflows from Exchanges
 
 <img src="https://img.shields.io/badge/Tier-Professional-black.svg"/>
 
@@ -104,7 +104,7 @@ This endpoint returns the outflow of ETH from exchange wallets for as far back a
 | direction | _string_ | `outflow`                                           |
 | exchange  | _string_ | An exchange from the list of ones we support        |
 
-## Full Historical Top 10 Inflow Large Value Transactions
+## ETH Full Historical Top 10 Inflow Large Value Transactions
 
 <img src="https://img.shields.io/badge/Tier-Professional-black.svg"/>
 
@@ -151,7 +151,7 @@ This endpoint returns the top 10 transactions (in terms of total ETH sent) flowi
 | direction | _string_ | `inflow`                                            |
 | exchange  | _string_ | An exchange from the list of ones we support        |
 
-## Full Historical Top 10 Outflow Large Value Transactions
+## ETH Full Historical Top 10 Outflow Large Value Transactions
 
 <img src="https://img.shields.io/badge/Tier-Professional-black.svg"/>
 

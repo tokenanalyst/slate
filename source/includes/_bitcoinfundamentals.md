@@ -1,6 +1,6 @@
 # Bitcoin Fundamentals
 
-## On-chain Volume
+## BTC On-chain Volume
 
 <img src="https://img.shields.io/badge/Tier-Free-green.svg"/>
 
@@ -51,7 +51,7 @@ Our current heuristic for 'change' related volume is for whenever BTC in a trans
 | format    | _string_ | What format you want your data in (`json` or `csv`)    |
 | token     | _string_ | The token you want the volume for (in this case `btc`) |
 
-## On-chain Transaction Count
+## BTC On-chain Transaction Count
 
 <img src="https://img.shields.io/badge/Tier-Free-green.svg"/>
 
@@ -92,7 +92,7 @@ This endpoint returns the number of transactions on the full historical Bitcoin 
 | format    | _string_ | What format you want your data in (`json` or `csv`)    |
 | token     | _string_ | The token you want the volume for (in this case `btc`) |
 
-## Active addresses
+## BTC Active addresses
 
 <img src="https://img.shields.io/badge/Tier-Free-green.svg"/>
 
@@ -122,6 +122,43 @@ This endpoint returns the active addresses on the Bitcoin blockchain for every d
 ### HTTP Request
 
 `GET https://api.tokenanalyst.io/analytics/private/v1/token_active_address_historical/last`
+
+### Query Parameters
+
+| Parameter | Type     | Description                                         |
+| --------- | -------- | --------------------------------------------------- |
+| key       | _string_ | Your unique API key                                 |
+| format    | _string_ | What format you want your data in (`json` or `csv`) |
+| token     | _string_ | `btc`  
+
+## BTC Supply
+
+<img src="https://img.shields.io/badge/Tier-Free-green.svg"/>
+
+```shell
+curl "https://api.tokenanalyst.io/analytics/private/v1/token_supply_historical/last?&token=btc&format=json&key=API_KEY"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+  {
+    "date": "2009-01-12",
+    "supply": "50",
+  },
+  {
+    "date": "2009-01-13",
+    "supply": "750"
+  }
+]
+```
+
+This endpoint returns the historical supply of BTC on the Bitcoin blockchain for every day of its existence.
+
+### HTTP Request
+
+`GET https://api.tokenanalyst.io/analytics/private/v1/token_supply_historical/last`
 
 ### Query Parameters
 
