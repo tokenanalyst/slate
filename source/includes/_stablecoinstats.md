@@ -95,7 +95,7 @@ This endpoint returns the number of token transfers on the Ethereum blockchain f
 
 ## Stablecoin Active addresses
 
-<img src="https://img.shields.io/badge/Tier-Hobbyist-blue.sv"/>
+<img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/>
 
 ```shell
 curl "https://api.tokenanalyst.io/analytics/private/v1/token_active_address_historical/last?&token=usdc&format=json&key=API_KEY"
