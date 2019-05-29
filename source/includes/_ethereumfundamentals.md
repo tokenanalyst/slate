@@ -204,3 +204,42 @@ This endpoint returns the historical supply of ETH on the Ethereum blockchain fo
 | key       | _string_ | Your unique API key                                 |
 | format    | _string_ | What format you want your data in (`json` or `csv`) |
 | token     | _string_ | `eth`  
+
+## ETH NVT
+
+<img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/>
+
+```shell
+curl "https://api.tokenanalyst.io/analytics/private/v1/token_nvt_historical/last?&token=eth&format=json&key=API_KEY"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+  {
+    "date": "2015-09-02",
+    "marketcap_usd": "98056055.37",
+    "nvt": "262.70"
+  },
+  {
+    "date": "2015-09-03",
+    "marketcap_usd": "91877253.74",
+    "nvt": "130.90"
+  }
+]
+```
+
+This endpoint returns the NVT Ratio (Network Value to Transactions Ratio) for ETH. This is the ratio of the Market Cap divided by the volume transmitted by the blockchain. Special thanks to Willy Woo and Chris Burniske for coming up with it!
+
+### HTTP Request
+
+`GET https://api.tokenanalyst.io/analytics/private/v1/token_nvt_historical/last`
+
+### Query Parameters
+
+| Parameter | Type     | Description                                         |
+| --------- | -------- | --------------------------------------------------- |
+| key       | _string_ | Your unique API key                                 |
+| format    | _string_ | What format you want your data in (`json` or `csv`) |
+| token     | _string_ | `eth`  

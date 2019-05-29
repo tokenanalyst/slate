@@ -193,7 +193,7 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_nvt_historical/last
 ]
 ```
 
-This endpoint returns the NVT Ratio (Network Value to Transactions Ratio). This is the ratio of the Market Cap divided by the volume transmitted by the blockchain. Special thanks to Willy Woo and Chris Burniske for coming up with it!
+This endpoint returns the NVT Ratio (Network Value to Transactions Ratio) for BTC. This is the ratio of the Market Cap divided by the volume transmitted by the blockchain. Special thanks to Willy Woo and Chris Burniske for coming up with it!
 
 ### HTTP Request
 
