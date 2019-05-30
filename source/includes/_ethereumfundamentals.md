@@ -88,7 +88,6 @@ This endpoint returns the number of transactions on the full historical Ethereum
 | format    | _string_ | What format you want your data in (`json` or `csv`)    |
 | token     | _string_ | The token you want the volume for (in this case `eth`) |
 
-
 ## ETH Active addresses
 
 <img src="https://img.shields.io/badge/Tier-Free-green.svg"/>
@@ -102,14 +101,14 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_active_address_hist
 ```json
 [
   {
-    "date": "2016-11-11",
-    "active_senders": "9513",
-    "active_receivers": "14658"
+    "date": "2015-08-11",
+    "active_senders": "2235",
+    "active_recipients": "2155"
   },
   {
-    "date": "2016-11-12",
-    "active_senders": "8838",
-    "active_receivers": "13746"
+    "date": "2015-08-12",
+    "active_senders": "739",
+    "active_recipients": "665"
   }
 ]
 ```
@@ -126,7 +125,7 @@ This endpoint returns the active addresses on the Ethereum blockchain for every 
 | --------- | -------- | --------------------------------------------------- |
 | key       | _string_ | Your unique API key                                 |
 | format    | _string_ | What format you want your data in (`json` or `csv`) |
-| token     | _string_ | `eth`    
+| token     | _string_ | `eth`                                               |
 
 ## ETH Supply
 
@@ -142,7 +141,7 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_supply_historical/l
 [
   {
     "date": "2015-07-30",
-    "supply": "39311.09375",
+    "supply": "39311.09375"
   },
   {
     "date": "2015-07-31",
@@ -163,7 +162,7 @@ This endpoint returns the historical supply of ETH on the Ethereum blockchain fo
 | --------- | -------- | --------------------------------------------------- |
 | key       | _string_ | Your unique API key                                 |
 | format    | _string_ | What format you want your data in (`json` or `csv`) |
-| token     | _string_ | `eth`  
+| token     | _string_ | `eth`                                               |
 
 ## ETH NVT
 
@@ -202,4 +201,4 @@ This endpoint returns the NVT Ratio (Network Value to Transactions Ratio) for ET
 | --------- | -------- | --------------------------------------------------- |
 | key       | _string_ | Your unique API key                                 |
 | format    | _string_ | What format you want your data in (`json` or `csv`) |
-| token     | _string_ | `eth`  
+| token     | _string_ | `eth`                                               |
