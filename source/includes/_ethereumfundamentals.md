@@ -88,46 +88,6 @@ This endpoint returns the number of transactions on the full historical Ethereum
 | format    | _string_ | What format you want your data in (`json` or `csv`)    |
 | token     | _string_ | The token you want the volume for (in this case `eth`) |
 
-## ETH Token Supply
-
-<img src="https://img.shields.io/badge/Tier-Free-green.svg"/>
-
-```shell
-curl "https://api.tokenanalyst.io/analytics/private/v1/token_supply_historical/last?&token=eth&format=json&key=API_KEY"
-```
-
-> The above command returns JSON structured like this:
-
-```json
-[
-  {
-    "date": "2015-07-30",
-    "supply": "39311.09375"
-  },
-  {
-    "date": "2015-07-31",
-    "supply": "75502.8125"
-  },
-  {
-    "date": "2015-08-01",
-    "supply": "103205.0"
-  }
-]
-```
-
-This endpoint returns the total token supply of Ether on the blockchain for everyday of Ethereum's existence since its genesis in 2015.
-
-### HTTP Request
-
-`GET https://api.tokenanalyst.io/analytics/private/v1/token_supply_historical/last`
-
-### Query Parameters
-
-| Parameter | Type     | Description                                         |
-| --------- | -------- | --------------------------------------------------- |
-| key       | _string_ | Your unique API key                                 |
-| format    | _string_ | What format you want your data in (`json` or `csv`) |
-| token     | _string_ | `eth`                                               |
 
 ## ETH Active addresses
 
