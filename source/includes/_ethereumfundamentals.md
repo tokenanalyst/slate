@@ -88,47 +88,6 @@ This endpoint returns the number of transactions on the full historical Ethereum
 | format    | _string_ | What format you want your data in (`json` or `csv`)    |
 | token     | _string_ | The token you want the volume for (in this case `eth`) |
 
-## ETH Token Supply
-
-<img src="https://img.shields.io/badge/Tier-Free-green.svg"/>
-
-```shell
-curl "https://api.tokenanalyst.io/analytics/private/v1/token_supply_historical/last?&token=eth&format=json&key=API_KEY"
-```
-
-> The above command returns JSON structured like this:
-
-```json
-[
-  {
-    "date": "2015-07-30",
-    "supply": "39311.09375"
-  },
-  {
-    "date": "2015-07-31",
-    "supply": "75502.8125"
-  },
-  {
-    "date": "2015-08-01",
-    "supply": "103205.0"
-  }
-]
-```
-
-This endpoint returns the total token supply of Ether on the blockchain for everyday of Ethereum's existence since its genesis in 2015.
-
-### HTTP Request
-
-`GET https://api.tokenanalyst.io/analytics/private/v1/token_supply_historical/last`
-
-### Query Parameters
-
-| Parameter | Type     | Description                                         |
-| --------- | -------- | --------------------------------------------------- |
-| key       | _string_ | Your unique API key                                 |
-| format    | _string_ | What format you want your data in (`json` or `csv`) |
-| token     | _string_ | `eth`                                               |
-
 ## ETH Active addresses
 
 <img src="https://img.shields.io/badge/Tier-Free-green.svg"/>
@@ -142,14 +101,14 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_active_address_hist
 ```json
 [
   {
-    "date": "2016-11-11",
-    "active_senders": "9513",
-    "active_receivers": "14658"
+    "date": "2015-08-11",
+    "active_senders": "2235",
+    "active_recipients": "2155"
   },
   {
-    "date": "2016-11-12",
-    "active_senders": "8838",
-    "active_receivers": "13746"
+    "date": "2015-08-12",
+    "active_senders": "739",
+    "active_recipients": "665"
   }
 ]
 ```
@@ -166,7 +125,7 @@ This endpoint returns the active addresses on the Ethereum blockchain for every 
 | --------- | -------- | --------------------------------------------------- |
 | key       | _string_ | Your unique API key                                 |
 | format    | _string_ | What format you want your data in (`json` or `csv`) |
-| token     | _string_ | `eth`    
+| token     | _string_ | `eth`                                               |
 
 ## ETH Supply
 
@@ -182,7 +141,7 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_supply_historical/l
 [
   {
     "date": "2015-07-30",
-    "supply": "39311.09375",
+    "supply": "39311.09375"
   },
   {
     "date": "2015-07-31",
@@ -203,4 +162,43 @@ This endpoint returns the historical supply of ETH on the Ethereum blockchain fo
 | --------- | -------- | --------------------------------------------------- |
 | key       | _string_ | Your unique API key                                 |
 | format    | _string_ | What format you want your data in (`json` or `csv`) |
-| token     | _string_ | `eth`  
+| token     | _string_ | `eth`                                               |
+
+## ETH NVT
+
+<img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/>
+
+```shell
+curl "https://api.tokenanalyst.io/analytics/private/v1/token_nvt_historical/last?&token=eth&format=json&key=API_KEY"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+  {
+    "date": "2015-09-02",
+    "marketcap_usd": "98056055.37",
+    "nvt": "262.70"
+  },
+  {
+    "date": "2015-09-03",
+    "marketcap_usd": "91877253.74",
+    "nvt": "130.90"
+  }
+]
+```
+
+This endpoint returns the NVT Ratio (Network Value to Transactions Ratio) for ETH. This is the ratio of the Market Cap divided by the volume transmitted by the blockchain. Special thanks to Willy Woo and Chris Burniske for coming up with it!
+
+### HTTP Request
+
+`GET https://api.tokenanalyst.io/analytics/private/v1/token_nvt_historical/last`
+
+### Query Parameters
+
+| Parameter | Type     | Description                                         |
+| --------- | -------- | --------------------------------------------------- |
+| key       | _string_ | Your unique API key                                 |
+| format    | _string_ | What format you want your data in (`json` or `csv`) |
+| token     | _string_ | `eth`                                               |
