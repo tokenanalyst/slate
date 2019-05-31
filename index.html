@@ -254,13 +254,13 @@
                     <a href="#eth-on-chain-transaction-count" class="toc-h2 toc-link" data-title="ETH On-chain Transaction Count">ETH On-chain Transaction Count</a>
                   </li>
                   <li>
-                    <a href="#eth-token-supply" class="toc-h2 toc-link" data-title="ETH Token Supply">ETH Token Supply</a>
-                  </li>
-                  <li>
                     <a href="#eth-active-addresses" class="toc-h2 toc-link" data-title="ETH Active addresses">ETH Active addresses</a>
                   </li>
                   <li>
                     <a href="#eth-supply" class="toc-h2 toc-link" data-title="ETH Supply">ETH Supply</a>
+                  </li>
+                  <li>
+                    <a href="#eth-nvt" class="toc-h2 toc-link" data-title="ETH NVT">ETH NVT</a>
                   </li>
               </ul>
           </li>
@@ -550,7 +550,7 @@ curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_vo
 <pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2009-01-12"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"supply"</span><span class="p">:</span><span class="w"> </span><span class="s2">"50"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"supply"</span><span class="p">:</span><span class="w"> </span><span class="s2">"50"</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2009-01-13"</span><span class="p">,</span><span class="w">
@@ -594,18 +594,18 @@ curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_vo
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-05-23"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"marketcap_usd"</span><span class="p">:</span><span class="w"> </span><span class="s2">"136390109238.61"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"nvt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"21.477"</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-09-24"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"marketcap_usd"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5708841339.86"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"nvt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"33.195"</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-05-23"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"marketcap_usd"</span><span class="p">:</span><span class="w"> </span><span class="s2">"136390109238.61"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"nvt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"21.477"</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-09-25"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"marketcap_usd"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5516694629.19"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"nvt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"35.833"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
-<p>This endpoint returns the NVT Ratio (Network Value to Transactions Ratio). This is the ratio of the Market Cap divided by the volume transmitted by the blockchain. Special thanks to Willy Woo and Chris Burniske for coming up with it!</p>
+<p>This endpoint returns the NVT Ratio (Network Value to Transactions Ratio) for BTC. This is the ratio of the Market Cap divided by the volume transmitted by the blockchain. Special thanks to Willy Woo and Chris Burniske for coming up with it!</p>
 <h3 id='http-request-5'>HTTP Request</h3>
 <p><code>GET https://api.tokenanalyst.io/analytics/private/v1/token_nvt_historical/last</code></p>
 <h3 id='query-parameters-5'>Query Parameters</h3>
@@ -736,55 +736,6 @@ curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_vo
 <td>The token you want the volume for (in this case <code>eth</code>)</td>
 </tr>
 </tbody></table>
-<h2 id='eth-token-supply'>ETH Token Supply</h2>
-<p><img src="https://img.shields.io/badge/Tier-Free-green.svg"/></p>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_supply_historical/last?&amp;token=eth&amp;format=json&amp;key=API_KEY"</span>
-</code></pre>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-07-30"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"supply"</span><span class="p">:</span><span class="w"> </span><span class="s2">"39311.09375"</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-07-31"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"supply"</span><span class="p">:</span><span class="w"> </span><span class="s2">"75502.8125"</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-08-01"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"supply"</span><span class="p">:</span><span class="w"> </span><span class="s2">"103205.0"</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="w">
-</span></code></pre>
-<p>This endpoint returns the total token supply of Ether on the blockchain for everyday of Ethereum&#39;s existence since its genesis in 2015.</p>
-<h3 id='http-request-3'>HTTP Request</h3>
-<p><code>GET https://api.tokenanalyst.io/analytics/private/v1/token_supply_historical/last</code></p>
-<h3 id='query-parameters-3'>Query Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>key</td>
-<td><em>string</em></td>
-<td>Your unique API key</td>
-</tr>
-<tr>
-<td>format</td>
-<td><em>string</em></td>
-<td>What format you want your data in (<code>json</code> or <code>csv</code>)</td>
-</tr>
-<tr>
-<td>token</td>
-<td><em>string</em></td>
-<td><code>eth</code></td>
-</tr>
-</tbody></table>
 <h2 id='eth-active-addresses'>ETH Active addresses</h2>
 <p><img src="https://img.shields.io/badge/Tier-Free-green.svg"/></p>
 <pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_active_address_historical/last?&amp;token=eth&amp;format=json&amp;key=API_KEY"</span>
@@ -794,21 +745,21 @@ curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_vo
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-11-11"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"active_senders"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9513"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"active_receivers"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14658"</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-08-11"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"active_senders"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2235"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"active_recipients"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2155"</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-11-12"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"active_senders"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8838"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"active_receivers"</span><span class="p">:</span><span class="w"> </span><span class="s2">"13746"</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-08-12"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"active_senders"</span><span class="p">:</span><span class="w"> </span><span class="s2">"739"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"active_recipients"</span><span class="p">:</span><span class="w"> </span><span class="s2">"665"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
 <p>This endpoint returns the active addresses on the Ethereum blockchain for every day of its existence. An address is defined as &#39;active&#39; if it has transacted during the given day.</p>
-<h3 id='http-request-4'>HTTP Request</h3>
+<h3 id='http-request-3'>HTTP Request</h3>
 <p><code>GET https://api.tokenanalyst.io/analytics/private/v1/token_active_address_historical/last</code></p>
-<h3 id='query-parameters-4'>Query Parameters</h3>
+<h3 id='query-parameters-3'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -842,7 +793,7 @@ curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_vo
 <pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-07-30"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"supply"</span><span class="p">:</span><span class="w"> </span><span class="s2">"39311.09375"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"supply"</span><span class="p">:</span><span class="w"> </span><span class="s2">"39311.09375"</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-07-31"</span><span class="p">,</span><span class="w">
@@ -851,8 +802,55 @@ curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_vo
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
 <p>This endpoint returns the historical supply of ETH on the Ethereum blockchain for every day of its existence.</p>
-<h3 id='http-request-5'>HTTP Request</h3>
+<h3 id='http-request-4'>HTTP Request</h3>
 <p><code>GET https://api.tokenanalyst.io/analytics/private/v1/token_supply_historical/last</code></p>
+<h3 id='query-parameters-4'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>key</td>
+<td><em>string</em></td>
+<td>Your unique API key</td>
+</tr>
+<tr>
+<td>format</td>
+<td><em>string</em></td>
+<td>What format you want your data in (<code>json</code> or <code>csv</code>)</td>
+</tr>
+<tr>
+<td>token</td>
+<td><em>string</em></td>
+<td><code>eth</code></td>
+</tr>
+</tbody></table>
+<h2 id='eth-nvt'>ETH NVT</h2>
+<p><img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/></p>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_nvt_historical/last?&amp;token=eth&amp;format=json&amp;key=API_KEY"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-09-02"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"marketcap_usd"</span><span class="p">:</span><span class="w"> </span><span class="s2">"98056055.37"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"nvt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"262.70"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-09-03"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"marketcap_usd"</span><span class="p">:</span><span class="w"> </span><span class="s2">"91877253.74"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"nvt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"130.90"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<p>This endpoint returns the NVT Ratio (Network Value to Transactions Ratio) for ETH. This is the ratio of the Market Cap divided by the volume transmitted by the blockchain. Special thanks to Willy Woo and Chris Burniske for coming up with it!</p>
+<h3 id='http-request-5'>HTTP Request</h3>
+<p><code>GET https://api.tokenanalyst.io/analytics/private/v1/token_nvt_historical/last</code></p>
 <h3 id='query-parameters-5'>Query Parameters</h3>
 <table><thead>
 <tr>
