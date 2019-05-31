@@ -129,7 +129,7 @@ This endpoint returns the active addresses on the Bitcoin blockchain for every d
 | --------- | -------- | --------------------------------------------------- |
 | key       | _string_ | Your unique API key                                 |
 | format    | _string_ | What format you want your data in (`json` or `csv`) |
-| token     | _string_ | `btc`  
+| token     | _string_ | `btc`                                               |
 
 ## BTC Supply
 
@@ -145,7 +145,7 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_supply_historical/l
 [
   {
     "date": "2009-01-12",
-    "supply": "50",
+    "supply": "50"
   },
   {
     "date": "2009-01-13",
@@ -166,7 +166,7 @@ This endpoint returns the historical supply of BTC on the Bitcoin blockchain for
 | --------- | -------- | --------------------------------------------------- |
 | key       | _string_ | Your unique API key                                 |
 | format    | _string_ | What format you want your data in (`json` or `csv`) |
-| token     | _string_ | `btc`  
+| token     | _string_ | `btc`                                               |
 
 ## BTC NVT
 
@@ -181,14 +181,14 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_nvt_historical/last
 ```json
 [
   {
-    "date": "2019-05-23",
-    "marketcap_usd": "136390109238.61",
-    "nvt": "21.477"
+    "date": "2014-09-24",
+    "marketcap_usd": "5708841339.86",
+    "nvt": "33.195"
   },
   {
-    "date": "2019-05-23",
-    "marketcap_usd": "136390109238.61",
-    "nvt": "21.477"
+    "date": "2014-09-25",
+    "marketcap_usd": "5516694629.19",
+    "nvt": "35.833"
   }
 ]
 ```
@@ -205,4 +205,4 @@ This endpoint returns the NVT Ratio (Network Value to Transactions Ratio) for BT
 | --------- | -------- | --------------------------------------------------- |
 | key       | _string_ | Your unique API key                                 |
 | format    | _string_ | What format you want your data in (`json` or `csv`) |
-| token     | _string_ | `btc`  
+| token     | _string_ | `btc`                                               |
