@@ -90,7 +90,7 @@ This endpoint returns the number of transactions on the full historical Ethereum
 
 ## ETH Active addresses
 
-<img src="https://img.shields.io/badge/Tier-Free-green.svg"/>
+<img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/>
 
 ```shell
 curl "https://api.tokenanalyst.io/analytics/private/v1/token_active_address_historical/last?&token=eth&format=json&key=API_KEY"
@@ -129,7 +129,7 @@ This endpoint returns the active addresses on the Ethereum blockchain for every 
 
 ## ETH Supply
 
-<img src="https://img.shields.io/badge/Tier-Free-green.svg"/>
+<img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/>
 
 ```shell
 curl "https://api.tokenanalyst.io/analytics/private/v1/token_supply_historical/last?&token=eth&format=json&key=API_KEY"
@@ -205,7 +205,7 @@ This endpoint returns the NVT Ratio (Network Value to Transactions Ratio) for ET
 
 ## ETH Fees
 
-<img src="https://img.shields.io/badge/Tier-Free-green.svg"/>
+<img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/>
 
 ```shell
 curl "https://api.tokenanalyst.io/analytics/private/v1/token_fees_historical/last?&token=eth&format=json&key=API_KEY"

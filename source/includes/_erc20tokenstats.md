@@ -26,7 +26,7 @@ ERC20 tokens we currently support are:
 
 ## ERC20 On-chain Volume
 
-<img src="https://img.shields.io/badge/Tier-Free-green.svg"/>
+<img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/>
 
 ```shell
 curl "https://api.tokenanalyst.io/analytics/private/v1/token_volume_historical/last?format=json&token=zrx&key=API_KEY"
@@ -67,7 +67,7 @@ This endpoint returns the full historical on-chain volume of any of the major ER
 
 ## ERC20 On-chain Transaction Count
 
-<img src="https://img.shields.io/badge/Tier-Free-green.svg"/>
+<img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/>
 
 ```shell
 curl "https://api.tokenanalyst.io/analytics/private/v1/token_count_historical/last?format=json&token=mana&key=API_KEY"

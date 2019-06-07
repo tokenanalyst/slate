@@ -94,7 +94,7 @@ This endpoint returns the number of transactions on the full historical Bitcoin 
 
 ## BTC Active addresses
 
-<img src="https://img.shields.io/badge/Tier-Free-green.svg"/>
+<img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/>
 
 ```shell
 curl "https://api.tokenanalyst.io/analytics/private/v1/token_active_address_historical/last?&token=btc&format=json&key=API_KEY"
@@ -133,7 +133,7 @@ This endpoint returns the active addresses on the Bitcoin blockchain for every d
 
 ## BTC Supply
 
-<img src="https://img.shields.io/badge/Tier-Free-green.svg"/>
+<img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/>
 
 ```shell
 curl "https://api.tokenanalyst.io/analytics/private/v1/token_supply_historical/last?&token=btc&format=json&key=API_KEY"
@@ -209,7 +209,7 @@ This endpoint returns the NVT Ratio (Network Value to Transactions Ratio) for BT
 
 ## BTC Fees
 
-<img src="https://img.shields.io/badge/Tier-Free-green.svg"/>
+<img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/>
 
 ```shell
 curl "https://api.tokenanalyst.io/analytics/private/v1/token_fees_historical/last?&token=btc&format=json&key=API_KEY"
