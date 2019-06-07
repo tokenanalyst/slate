@@ -15,7 +15,6 @@ ERC20 tokens we currently support are:
 | Zilliqa               | `zil`   |
 | Decentraland          | `mana`  |
 | Numerai               | `nmr`   |
-| Storj                 | `storj` |
 | Tokencard             | `tkn`   |
 | Bancor                | `bnt`   |
 | Icon                  | `icx`   |
