@@ -242,6 +242,9 @@
                   <li>
                     <a href="#btc-nvt" class="toc-h2 toc-link" data-title="BTC NVT">BTC NVT</a>
                   </li>
+                  <li>
+                    <a href="#btc-fees" class="toc-h2 toc-link" data-title="BTC Fees">BTC Fees</a>
+                  </li>
               </ul>
           </li>
           <li>
@@ -261,6 +264,9 @@
                   </li>
                   <li>
                     <a href="#eth-nvt" class="toc-h2 toc-link" data-title="ETH NVT">ETH NVT</a>
+                  </li>
+                  <li>
+                    <a href="#eth-fees" class="toc-h2 toc-link" data-title="ETH Fees">ETH Fees</a>
                   </li>
               </ul>
           </li>
@@ -632,6 +638,63 @@ curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_vo
 <td><code>btc</code></td>
 </tr>
 </tbody></table>
+<h2 id='btc-fees'>BTC Fees</h2>
+<p><img src="https://img.shields.io/badge/Tier-Free-green.svg"/></p>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_fees_historical/last?&amp;token=btc&amp;format=json&amp;key=API_KEY"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"day"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2012-08-10"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"total_fee"</span><span class="p">:</span><span class="w"> </span><span class="mf">44.53058517</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"avg_size_bytes"</span><span class="p">:</span><span class="w"> </span><span class="mi">403</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="mf">9.1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"total_fee_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">405.23</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"avg_satoshis_per_byte"</span><span class="p">:</span><span class="w"> </span><span class="mi">389</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"avg_fee"</span><span class="p">:</span><span class="w"> </span><span class="mf">156935.983</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"avg_fee_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.01</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"day"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2012-08-11"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"total_fee"</span><span class="p">:</span><span class="w"> </span><span class="mf">19.13775992</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"avg_size_bytes"</span><span class="p">:</span><span class="w"> </span><span class="mi">393</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="mf">9.1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"total_fee_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">174.15</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"avg_satoshis_per_byte"</span><span class="p">:</span><span class="w"> </span><span class="mi">147</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"avg_fee"</span><span class="p">:</span><span class="w"> </span><span class="mf">57749.962</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"avg_fee_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.01</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<p>This endpoint returns the total and average fees spent on the Bitcoin network for every day of it&#39;s existence. The <code>total_fee</code> is denominated in Bitcoin, the <code>price</code> is the price of Bitcoin on that day, and the <code>avg_fee</code> is denominated in Bitcoin.</p>
+<h3 id='http-request-6'>HTTP Request</h3>
+<p><code>GET https://api.tokenanalyst.io/analytics/private/v1/token_nvt_historical/last</code></p>
+<h3 id='query-parameters-6'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>key</td>
+<td><em>string</em></td>
+<td>Your unique API key</td>
+</tr>
+<tr>
+<td>format</td>
+<td><em>string</em></td>
+<td>What format you want your data in (<code>json</code> or <code>csv</code>)</td>
+</tr>
+<tr>
+<td>token</td>
+<td><em>string</em></td>
+<td><code>btc</code></td>
+</tr>
+</tbody></table>
 <h1 id='ethereum-fundamentals'>Ethereum Fundamentals</h1><h2 id='eth-on-chain-volume'>ETH On-chain Volume</h2>
 <p><img src="https://img.shields.io/badge/Tier-Free-green.svg"/></p>
 <pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_volume_historical/last?format=json&amp;key=API_KEY&amp;token=eth"</span>
@@ -875,6 +938,63 @@ curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_vo
 <td><code>eth</code></td>
 </tr>
 </tbody></table>
+<h2 id='eth-fees'>ETH Fees</h2>
+<p><img src="https://img.shields.io/badge/Tier-Free-green.svg"/></p>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_fees_historical/last?&amp;token=eth&amp;format=json&amp;key=API_KEY"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"day"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-10-19"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.5</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"avg_gas"</span><span class="p">:</span><span class="w"> </span><span class="mf">32831.1236</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"avg_gas_price_wei"</span><span class="p">:</span><span class="w"> </span><span class="mf">52456819761.0774</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"total_fee"</span><span class="p">:</span><span class="w"> </span><span class="mf">11.699219139604072</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"total_fee_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">5.85</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"avg_fee"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.001771535302786807</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"avg_fee_usd"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"day"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-10-20"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.49</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"avg_gas"</span><span class="p">:</span><span class="w"> </span><span class="mf">32483.8972</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"avg_gas_price_wei"</span><span class="p">:</span><span class="w"> </span><span class="mf">53767556518.0802</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"total_fee"</span><span class="p">:</span><span class="w"> </span><span class="mf">11.527019798770482</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"total_fee_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">5.65</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"avg_fee"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.001954726097807441</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"avg_fee_usd"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<p>This endpoint returns the total and average fees spent on the Ethereum network for every day of it&#39;s existence. The <code>total_fee</code> and the <code>avg_fee</code> are denominated in ETH.</p>
+<h3 id='http-request-6'>HTTP Request</h3>
+<p><code>GET https://api.tokenanalyst.io/analytics/private/v1/token_nvt_historical/last</code></p>
+<h3 id='query-parameters-6'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>key</td>
+<td><em>string</em></td>
+<td>Your unique API key</td>
+</tr>
+<tr>
+<td>format</td>
+<td><em>string</em></td>
+<td>What format you want your data in (<code>json</code> or <code>csv</code>)</td>
+</tr>
+<tr>
+<td>token</td>
+<td><em>string</em></td>
+<td><code>eth</code></td>
+</tr>
+</tbody></table>
 <h1 id='erc20-token-stats'>ERC20 Token Stats</h1>
 <p>ERC20 tokens we currently support are:</p>
 
@@ -927,10 +1047,6 @@ curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_vo
 <tr>
 <td>Numerai</td>
 <td><code>nmr</code></td>
-</tr>
-<tr>
-<td>Storj</td>
-<td><code>storj</code></td>
 </tr>
 <tr>
 <td>Tokencard</td>
@@ -1725,7 +1841,7 @@ curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_vo
 </span></code></pre>
 <p>This endpoint returns the top 10 transactions (in terms of total ETH sent) flowing into exchange wallets for every day that the exchange wallets we track have been live on the blockchain.</p>
 <h3 id='http-request-3'>HTTP Request</h3>
-<p><code>GET https://api.tokenanalyst.io/analytics/private/v1/last/exchange_flow_top10_historical/last?</code></p>
+<p><code>GET https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_top10_historical/last?</code></p>
 <h3 id='url-parameters-3'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -1786,7 +1902,7 @@ curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_vo
 </span></code></pre>
 <p>This endpoint returns the top 10 transactions (in terms of total ETH sent) flowing out of exchange wallets for every day that the exchange wallets we track have been live on the blockchain.</p>
 <h3 id='http-request-4'>HTTP Request</h3>
-<p><code>GET https://api.tokenanalyst.io/analytics/private/v1/last/exchange_flow_top10_historical/last?</code></p>
+<p><code>GET https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_top10_historical/last?</code></p>
 <h3 id='url-parameters-4'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -2035,10 +2151,6 @@ curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_vo
 <tr>
 <td>Numerai</td>
 <td><code>nmr</code></td>
-</tr>
-<tr>
-<td>Storj</td>
-<td><code>storj</code></td>
 </tr>
 <tr>
 <td>Tokencard</td>
