@@ -202,3 +202,52 @@ This endpoint returns the NVT Ratio (Network Value to Transactions Ratio) for ET
 | key       | _string_ | Your unique API key                                 |
 | format    | _string_ | What format you want your data in (`json` or `csv`) |
 | token     | _string_ | `eth`                                               |
+
+## ETH Fees
+
+<img src="https://img.shields.io/badge/Tier-Free-green.svg"/>
+
+```shell
+curl "https://api.tokenanalyst.io/analytics/private/v1/token_fees_historical/last?&token=eth&format=json&key=API_KEY"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+  {
+    "day": "2015-10-19",
+    "price": 0.5,
+    "avg_gas": 32831.1236,
+    "avg_gas_price_wei": 52456819761.0774,
+    "total_fee": 11.699219139604072,
+    "total_fee_usd": 5.85,
+    "avg_fee": 0.001771535302786807,
+    "avg_fee_usd": 0
+  },
+  {
+    "day": "2015-10-20",
+    "price": 0.49,
+    "avg_gas": 32483.8972,
+    "avg_gas_price_wei": 53767556518.0802,
+    "total_fee": 11.527019798770482,
+    "total_fee_usd": 5.65,
+    "avg_fee": 0.001954726097807441,
+    "avg_fee_usd": 0
+  }
+]
+```
+
+This endpoint returns the total and average fees spent on the Ethereum network for every day of it's existence. The `total_fee` and the `avg_fee` are denominated in ETH.
+
+### HTTP Request
+
+`GET https://api.tokenanalyst.io/analytics/private/v1/token_nvt_historical/last`
+
+### Query Parameters
+
+| Parameter | Type     | Description                                         |
+| --------- | -------- | --------------------------------------------------- |
+| key       | _string_ | Your unique API key                                 |
+| format    | _string_ | What format you want your data in (`json` or `csv`) |
+| token     | _string_ | `eth`                                               |

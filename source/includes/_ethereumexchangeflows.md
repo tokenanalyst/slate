@@ -139,7 +139,7 @@ This endpoint returns the top 10 transactions (in terms of total ETH sent) flowi
 
 ### HTTP Request
 
-`GET https://api.tokenanalyst.io/analytics/private/v1/last/exchange_flow_top10_historical/last?`
+`GET https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_top10_historical/last?`
 
 ### URL Parameters
 
@@ -184,7 +184,7 @@ This endpoint returns the top 10 transactions (in terms of total ETH sent) flowi
 
 ### HTTP Request
 
-`GET https://api.tokenanalyst.io/analytics/private/v1/last/exchange_flow_top10_historical/last?`
+`GET https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_top10_historical/last?`
 
 ### URL Parameters
 

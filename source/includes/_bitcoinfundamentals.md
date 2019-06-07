@@ -206,3 +206,52 @@ This endpoint returns the NVT Ratio (Network Value to Transactions Ratio) for BT
 | key       | _string_ | Your unique API key                                 |
 | format    | _string_ | What format you want your data in (`json` or `csv`) |
 | token     | _string_ | `btc`                                               |
+
+## BTC Fees
+
+<img src="https://img.shields.io/badge/Tier-Free-green.svg"/>
+
+```shell
+curl "https://api.tokenanalyst.io/analytics/private/v1/token_fees_historical/last?&token=btc&format=json&key=API_KEY"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+  {
+    "day": "2012-08-10",
+    "total_fee": 44.53058517,
+    "avg_size_bytes": 403,
+    "price": 9.1,
+    "total_fee_usd": 405.23,
+    "avg_satoshis_per_byte": 389,
+    "avg_fee": 156935.983,
+    "avg_fee_usd": 0.01
+  },
+  {
+    "day": "2012-08-11",
+    "total_fee": 19.13775992,
+    "avg_size_bytes": 393,
+    "price": 9.1,
+    "total_fee_usd": 174.15,
+    "avg_satoshis_per_byte": 147,
+    "avg_fee": 57749.962,
+    "avg_fee_usd": 0.01
+  }
+]
+```
+
+This endpoint returns the total and average fees spent on the Bitcoin network for every day of it's existence. The `total_fee` is denominated in Bitcoin, the `price` is the price of Bitcoin on that day, and the `avg_fee` is denominated in Bitcoin.
+
+### HTTP Request
+
+`GET https://api.tokenanalyst.io/analytics/private/v1/token_nvt_historical/last`
+
+### Query Parameters
+
+| Parameter | Type     | Description                                         |
+| --------- | -------- | --------------------------------------------------- |
+| key       | _string_ | Your unique API key                                 |
+| format    | _string_ | What format you want your data in (`json` or `csv`) |
+| token     | _string_ | `btc`                                               |
