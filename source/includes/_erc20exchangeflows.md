@@ -2,27 +2,27 @@
 
 ERC20 tokens we currently support are:
 
-| Name                  | Symbol  |
-| --------------------- | ------- |
-| Binance Coin          | `bnb`   |
-| Maker                 | `mkr`   |
-| Basic Attention Token | `bat`   |
-| Venchain              | `ven`   |
-| OmiseGo               | `omg`   |
-| Augur                 | `rep`   |
-| Golem                 | `gnt`   |
-| ZRX                   | `zrx`   |
-| Zilliqa               | `zil`   |
-| Decentraland          | `mana`  |
-| Numerai               | `nmr`   |
-| Tokencard             | `tkn`   |
-| Bancor                | `bnt`   |
-| Icon                  | `icx`   |
-| Loom Network          | `loom`  |
-| Status                | `snt`   |
-| Civic                 | `cvc`   |
-| Kyber Network         | `knc`   |
-| iExec RLC             | `rlc`   |
+| Name                  | Symbol |
+| --------------------- | ------ |
+| Binance Coin          | `bnb`  |
+| Maker                 | `mkr`  |
+| Basic Attention Token | `bat`  |
+| Venchain              | `ven`  |
+| OmiseGo               | `omg`  |
+| Augur                 | `rep`  |
+| Golem                 | `gnt`  |
+| ZRX                   | `zrx`  |
+| Zilliqa               | `zil`  |
+| Decentraland          | `mana` |
+| Numerai               | `nmr`  |
+| Tokencard             | `tkn`  |
+| Bancor                | `bnt`  |
+| Icon                  | `icx`  |
+| Loom Network          | `loom` |
+| Status                | `snt`  |
+| Civic                 | `cvc`  |
+| Kyber Network         | `knc`  |
+| iExec RLC             | `rlc`  |
 
 ## ERC20 Full Historical Inflow to Exchanges
 
@@ -37,26 +37,26 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/erc20_exchanges_flow_hist
 ```json
 [
   {
-    "date": "2018-09-25",
+    "date": "2017-07-19",
     "token_name": "OMG",
-    "exchange": "Kucoin",
-    "inflow": 2.0,
-    "price": 0.0,
-    "inflow_usd": 0.0,
-    "number_of_txns": 1,
-    "avg_txn_value": 2.0,
-    "avg_txn_value_usd": 0.0
+    "exchange": "Bitfinex",
+    "inflow": 1021328.4514801201,
+    "price": 0.68,
+    "inflow_usd": 695260.83,
+    "number_of_txns": 46,
+    "avg_txn_value": 22202.79242348087,
+    "avg_txn_value_usd": 15114.37
   },
   {
-    "date": "2018-09-28",
+    "date": "2017-07-19",
     "token_name": "OMG",
-    "exchange": "Kucoin",
-    "inflow": 261.08372099999997,
-    "price": 0.0,
-    "inflow_usd": 0.0,
-    "number_of_txns": 2,
-    "avg_txn_value": 130.54186049999998,
-    "avg_txn_value_usd": 0.0
+    "exchange": "Bittrex",
+    "inflow": 2440563.297567261,
+    "price": 0.68,
+    "inflow_usd": 1661393.13,
+    "number_of_txns": 198,
+    "avg_txn_value": 12326.077260440712,
+    "avg_txn_value_usd": 8390.87
   }
 ]
 ```
@@ -73,9 +73,8 @@ This endpoint returns the inflow of ERC20 tokens into exchange wallets. The `avg
 | --------- | -------- | --------------------------------------------------- |
 | key       | _string_ | Your unique API key                                 |
 | format    | _string_ | What format you want your data in (`json` or `csv`) |
-| token     | _string_ | `omg`                                              |
+| token     | _string_ | `omg`                                               |
 | direction | _string_ | `inflow`                                            |
-
 
 ## ERC20 Full Historical Outflow from Exchanges
 
@@ -90,26 +89,26 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/erc20_exchanges_flow_hist
 ```json
 [
   {
-    "date": "2018-11-06",
+    "date": "2017-07-30",
     "token_name": "OMG",
-    "exchange": "Kucoin",
-    "outflow": 509.689581,
-    "price": 1.0,
-    "outflow_usd": 511.09,
-    "number_of_txns": 3,
-    "avg_txn_value": 169.896527,
-    "avg_txn_value_usd": 170.36
+    "exchange": "Bittrex",
+    "outflow": 83173.64737858999,
+    "price": 1.23,
+    "outflow_usd": 102476.86,
+    "number_of_txns": 115,
+    "avg_txn_value": 723.249107639913,
+    "avg_txn_value_usd": 891.1
   },
   {
-    "date": "2018-11-07",
+    "date": "2017-07-31",
     "token_name": "OMG",
-    "exchange": "Kucoin",
-    "outflow": 3585.887836,
-    "price": 1.01,
-    "outflow_usd": 3609.0,
-    "number_of_txns": 3,
-    "avg_txn_value": 1195.2959453333333,
-    "avg_txn_value_usd": 1203.0
+    "exchange": "Bitfinex",
+    "outflow": 317922.74454691994,
+    "price": 1.2,
+    "outflow_usd": 382302.1,
+    "number_of_txns": 95,
+    "avg_txn_value": 3346.555205757052,
+    "avg_txn_value_usd": 4024.23
   }
 ]
 ```
@@ -126,5 +125,5 @@ This endpoint returns the outflow of ERC20 tokens from exchange wallets. The `av
 | --------- | -------- | --------------------------------------------------- |
 | key       | _string_ | Your unique API key                                 |
 | format    | _string_ | What format you want your data in (`json` or `csv`) |
-| token     | _string_ | `omg`                                              |
+| token     | _string_ | `omg`                                               |
 | direction | _string_ | `outflow`                                           |

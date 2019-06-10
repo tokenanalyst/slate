@@ -11,7 +11,6 @@ The stablecoins we currently support are:
 | Gemini Dollar        | `gusd` |
 | Dai                  | `dai`  |
 
-
 ## Stablecoin Full Historical Inflow to Exchanges
 
 <img src="https://img.shields.io/badge/Tier-Professional-black.svg"/>
@@ -25,26 +24,26 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/erc20_exchanges_flow_hist
 ```json
 [
   {
-    "date": "2018-09-25",
+    "date": "2018-11-28",
     "token_name": "USDC",
-    "exchange": "Kucoin",
-    "inflow": 2.0,
-    "price": 0.0,
-    "inflow_usd": 0.0,
-    "number_of_txns": 1,
-    "avg_txn_value": 2.0,
-    "avg_txn_value_usd": 0.0
+    "exchange": "Binance",
+    "inflow": 7170265.744998998,
+    "price": 1.01,
+    "inflow_usd": 7253918.77,
+    "number_of_txns": 174,
+    "avg_txn_value": 41208.42382183332,
+    "avg_txn_value_usd": 41689.19
   },
   {
-    "date": "2018-09-28",
+    "date": "2018-11-28",
     "token_name": "USDC",
     "exchange": "Kucoin",
-    "inflow": 261.08372099999997,
-    "price": 0.0,
-    "inflow_usd": 0.0,
-    "number_of_txns": 2,
-    "avg_txn_value": 130.54186049999998,
-    "avg_txn_value_usd": 0.0
+    "inflow": 7724.377048,
+    "price": 1.01,
+    "inflow_usd": 7814.49,
+    "number_of_txns": 6,
+    "avg_txn_value": 1287.3961746666666,
+    "avg_txn_value_usd": 1302.42
   }
 ]
 ```
@@ -63,7 +62,6 @@ This endpoint returns the inflow of Stablecoins into exchange wallets. The `avg_
 | format    | _string_ | What format you want your data in (`json` or `csv`) |
 | token     | _string_ | `usdc`                                              |
 | direction | _string_ | `inflow`                                            |
-
 
 ## Stablecoin Full Historical Outflow from Exchanges
 
