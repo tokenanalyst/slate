@@ -17,26 +17,26 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_historical/
 ```json
 [
   {
-    "avg_txn_value": "0.79",
-    "avg_txn_value_usd": "3306.01",
+    "avg_txn_value": 0.79,
+    "avg_txn_value_usd": 3306.01,
     "date": "2017-08-16",
     "entity": "Binance",
-    "inflow": "1053.89",
-    "inflow_usd": "4410336.79",
-    "number_of_entity_receiving_addresses": "1349",
-    "number_of_nonentity_sending_addresses": "19413",
-    "number_of_txns": "1338"
+    "inflow": 1053.89,
+    "inflow_usd": 4410336.79,
+    "number_of_entity_receiving_addresses": 1349,
+    "number_of_nonentity_sending_addresses": 19413,
+    "number_of_txns": 1338
   },
   {
-    "avg_txn_value": "1.15",
-    "avg_txn_value_usd": "5009.32",
+    "avg_txn_value": 1.15,
+    "avg_txn_value_usd": 5009.32,
     "date": "2017-08-17",
     "entity": "Binance",
-    "inflow": "2236.29",
-    "inflow_usd": "9741124.94",
-    "number_of_entity_receiving_addresses": "2121",
-    "number_of_nonentity_sending_addresses": "24915",
-    "number_of_txns": "1950"
+    "inflow": 2236.29,
+    "inflow_usd": 9741124.94,
+    "number_of_entity_receiving_addresses": 2121,
+    "number_of_nonentity_sending_addresses": 24915,
+    "number_of_txns": 1950
   }
 ]
 ```
@@ -76,26 +76,26 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_historical/
 ```json
 [
   {
-    "avg_txn_value": "26.73",
-    "avg_txn_value_usd": "69375.93",
+    "avg_txn_value": 26.73,
+    "avg_txn_value_usd": 69375.93,
     "date": "2017-07-05",
     "entity": "Binance",
-    "number_of_entity_sending_addresses": "23",
-    "number_of_nonentity_receiving_addresses": "1",
-    "number_of_txns": "3",
-    "outflow": "26.73",
-    "outflow_usd": "69375.93"
+    "number_of_entity_sending_addresses": 23,
+    "number_of_nonentity_receiving_addresses": 1,
+    "number_of_txns": 3,
+    "outflow": 26.73,
+    "outflow_usd": 69375.93
   },
   {
-    "avg_txn_value": "102.48",
-    "avg_txn_value_usd": "241881.49",
+    "avg_txn_value": 102.48,
+    "avg_txn_value_usd": 241881.49,
     "date": "2017-07-12",
     "entity": "Binance",
-    "number_of_entity_sending_addresses": "77",
-    "number_of_nonentity_receiving_addresses": "1",
-    "number_of_txns": "2",
-    "outflow": "102.48",
-    "outflow_usd": "241881.49"
+    "number_of_entity_sending_addresses": 77,
+    "number_of_nonentity_receiving_addresses": 1,
+    "number_of_txns": 2,
+    "outflow": 102.48,
+    "outflow_usd": 241881.49
   }
 ]
 ```
@@ -131,11 +131,11 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_top10_histo
   {
     "date": "2017-06-23",
     "entity": "Binance",
-    "rank": "1",
+    "rank": 1,
     "transactionhash": "0546f2545393d706b3b77ec251be93af12038dc28eefd5dc0d27acea9f0613a0",
     "transactionid": "0546f2545393d706b3b77ec251be93af12038dc28eefd5dc0d27acea9f0613a0",
-    "value": "0.01",
-    "value_usd": "52.51"
+    "value": 0.01,
+    "value_usd": 52.51
   }
 ]
 ```

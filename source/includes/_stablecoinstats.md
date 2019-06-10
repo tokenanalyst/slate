@@ -25,15 +25,15 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_volume_historical/l
 [
   {
     "date": "2018-09-10",
-    "volume": "22.2",
-    "price_usd": "0.0",
-    "volume_usd": "0.0"
+    "volume": 22.2,
+    "price_usd": 0.0,
+    "volume_usd": 0.0
   },
   {
     "date": "2018-09-12",
-    "volume": "2.5",
-    "price_usd": "0.0",
-    "volume_usd": "0.0"
+    "volume": 2.5,
+    "price_usd": 0.0,
+    "volume_usd": 0.0
   }
 ]
 ```
@@ -66,15 +66,15 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_count_historical/la
 [
   {
     "date": "2017-12-18",
-    "number_of_token_transfers": "161"
+    "number_of_token_transfers": 161
   },
   {
     "date": "2017-12-19",
-    "number_of_token_transfers": "599"
+    "number_of_token_transfers": 599
   },
   {
     "date": "2017-12-20",
-    "number_of_token_transfers": "515"
+    "number_of_token_transfers": 515
   }
 ]
 ```
@@ -107,13 +107,13 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_active_address_hist
 [
   {
     "date": "2016-11-11",
-    "active_senders": "23",
-    "active_receivers": "31"
+    "active_senders": 23,
+    "active_receivers": 31
   },
   {
     "date": "2016-11-12",
-    "active_senders": "332",
-    "active_receivers": "23"
+    "active_senders": 332,
+    "active_receivers": 23
   }
 ]
 ```

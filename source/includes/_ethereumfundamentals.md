@@ -14,19 +14,19 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_volume_historical/l
 [
   {
     "date": "2015-08-07",
-    "volume_internal": "39.7",
-    "volume_external": "2008602.5114319662",
-    "price_usd": "1.25",
-    "volume_internal_usd": "49.625",
-    "volume_external_usd": "2510753.139289958"
+    "volume_internal": 39.7,
+    "volume_external": 2008602.5114319662,
+    "price_usd": 1.25,
+    "volume_internal_usd": 49.625,
+    "volume_external_usd": 2510753.139289958
   },
   {
     "date": "2015-08-08",
-    "volume_internal": "3568.434161233944",
-    "volume_external": "1681503.1468948543",
-    "price_usd": "1.7404166",
-    "volume_internal_usd": "6210.56221437989",
-    "volume_external_usd": "2926516.067163448"
+    "volume_internal": 3568.434161233944,
+    "volume_external": 1681503.1468948543,
+    "price_usd": 1.7404166,
+    "volume_internal_usd": 6210.56221437989,
+    "volume_external_usd": 2926516.067163448
   }
 ]
 ```
@@ -61,15 +61,15 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_count_historical/la
 [
   {
     "date": "2015-08-07",
-    "number_of_txns": "1975"
+    "number_of_txns": 1975
   },
   {
     "date": "2015-08-08",
-    "number_of_txns": "2036"
+    "number_of_txns": 2036
   },
   {
     "date": "2015-08-09",
-    "number_of_txns": "1249"
+    "number_of_txns": 1249
   }
 ]
 ```
@@ -102,13 +102,13 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_active_address_hist
 [
   {
     "date": "2015-08-11",
-    "active_senders": "2235",
-    "active_recipients": "2155"
+    "active_senders": 2235,
+    "active_recipients": 2155
   },
   {
     "date": "2015-08-12",
-    "active_senders": "739",
-    "active_recipients": "665"
+    "active_senders": 739,
+    "active_recipients": 665
   }
 ]
 ```
@@ -141,11 +141,11 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_supply_historical/l
 [
   {
     "date": "2015-07-30",
-    "supply": "39311.09375"
+    "supply": 39311.09375
   },
   {
     "date": "2015-07-31",
-    "supply": "75502.8125"
+    "supply": 75502.8125
   }
 ]
 ```
@@ -178,13 +178,13 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_nvt_historical/last
 [
   {
     "date": "2015-09-02",
-    "marketcap_usd": "98056055.37",
-    "nvt": "262.70"
+    "marketcap_usd": 98056055.37,
+    "nvt": 262.70
   },
   {
     "date": "2015-09-03",
-    "marketcap_usd": "91877253.74",
-    "nvt": "130.90"
+    "marketcap_usd": 91877253.74,
+    "nvt": 130.90
   }
 ]
 ```

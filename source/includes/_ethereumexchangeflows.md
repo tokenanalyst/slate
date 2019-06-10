@@ -18,21 +18,21 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_historical/
 [
   {
     "date": "2016-03-17",
-    "inflow": "1.8164",
-    "price": "11.64",
-    "inflow_usd": "21.14",
-    "number_of_txns": "8",
-    "avg_txn_value": "0.22705",
-    "avg_txn_value_usd": "2.64"
+    "inflow": 1.8164,
+    "price": 11.64,
+    "inflow_usd": 21.14,
+    "number_of_txns": 8,
+    "avg_txn_value": 0.22705,
+    "avg_txn_value_usd": 2.64
   },
   {
     "date": "2016-03-18",
-    "inflow": "3.7594499999999997",
-    "price": "10.21",
-    "inflow_usd": "38.38",
-    "number_of_txns": "5",
-    "avg_txn_value": "0.75189",
-    "avg_txn_value_usd": "7.68"
+    "inflow": 3.7594499999999997,
+    "price": 10.21,
+    "inflow_usd": 38.38,
+    "number_of_txns": 5,
+    "avg_txn_value": 0.75189,
+    "avg_txn_value_usd": 7.68
   }
 ]
 ```
@@ -69,21 +69,21 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_historical/
 [
   {
     "date": "2019-01-12",
-    "outflow": "72528.5501725",
-    "price": "126.79",
-    "outflow_usd": "9195562.38",
-    "number_of_txns": "2620",
-    "avg_txn_value": "27.682652737595422",
-    "avg_txn_value_usd": "3509.76"
+    "outflow": 72528.5501725,
+    "price": 126.79,
+    "outflow_usd": 9195562.38,
+    "number_of_txns": 2620,
+    "avg_txn_value": 27.62652737595422,
+    "avg_txn_value_usd": 3509.76
   },
   {
     "date": "2019-01-13",
-    "outflow": "81527.64908884998",
-    "price": "122.27",
-    "outflow_usd": "9968045.76",
-    "number_of_txns": "3000",
-    "avg_txn_value": "27.17588302961666",
-    "avg_txn_value_usd": "3322.68"
+    "outflow": 81527.64908884998,
+    "price": 122.27,
+    "outflow_usd": 9968045.76,
+    "number_of_txns": 3000,
+    "avg_txn_value": 27.17588302961666,
+    "avg_txn_value_usd": 3322.68
   }
 ]
 ```
@@ -120,17 +120,17 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_top10_histo
 [
   {
     "transactionhash": "0x8f4e1350eaa1c13360ea4a5269a1a350f3c5b3880147d0aa32ec34a12fc30923",
-    "value": "3424.6575",
+    "value": 3424.6575,
     "date": "2019-04-29",
-    "rank": "2",
-    "value_usd": "537210.85"
+    "rank": 2,
+    "value_usd": 537210.85
   },
   {
     "transactionhash": "0x5512d27b371bfbef2fc6dae353fb243866fe3dfb24ad546d6b6eebb4159fb7c2",
-    "value": "3000.0",
+    "value": 3000.0,
     "date": "2019-04-29",
-    "rank": "3",
-    "value_usd": "470596.71"
+    "rank": 3,
+    "value_usd": 470596.71
   }
 ]
 ```
@@ -165,17 +165,17 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_top10_histo
 [
   {
     "transactionhash": "0x97b8063962d549b053cf7366e70877f09ede29f5e2d5bd9837e5a9ea8089bb46",
-    "value": "7300.00024",
+    "value": 7300.00024,
     "date": "2019-04-26",
-    "rank": "3",
-    "value_usd": "1129368.16"
+    "rank": 3,
+    "value_usd": 1129368.16
   },
   {
     "transactionhash": "0x0e3d275eeae64b27ccbb12b65861039a7c3662c0c99212f88b9927c41b37bbae",
-    "value": "5982.0288",
+    "value": 5982.0288,
     "date": "2019-04-26",
-    "rank": "4",
-    "value_usd": "925467.48"
+    "rank": 4,
+    "value_usd": 925467.48
   }
 ]
 ```

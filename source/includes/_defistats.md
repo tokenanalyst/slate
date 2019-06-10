@@ -21,11 +21,11 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/project_loans_originated_
 [
   {
     "date": "2019-03-14 00:00:00.000",
-    "loans_originated": "4"
+    "loans_originated": 4
   },
   {
     "date": "2019-03-15 00:00:00.000",
-    "loans_originated": "20"
+    "loans_originated": 20
   }
 ]
 ```

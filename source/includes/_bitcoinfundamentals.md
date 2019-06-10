@@ -16,18 +16,18 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_volume_historical/l
 [
   {
     "date": "2009-04-13",
-    "volume_gross": "50.0",
-    "volume_change": "40.0",
-    "volume_real": "10.0",
+    "volume_gross": 50.0,
+    "volume_change": 40.0,
+    "volume_real": 10.0,
     "price_usd": "",
     "volume_real_usd": "",
     "volume_change_usd": ""
   },
   {
     "date": "2009-04-18",
-    "volume_gross": "182.51",
-    "volume_change": "17.49",
-    "volume_real": "165.01999999999998",
+    "volume_gross": 182.51,
+    "volume_change": 17.49,
+    "volume_real": 165.01999999999998,
     "price_usd": "",
     "volume_real_usd": "",
     "volume_change_usd": ""
@@ -65,15 +65,15 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_count_historical/la
 [
   {
     "date": "2009-03-12",
-    "number_of_txns": "119"
+    "number_of_txns": 119
   },
   {
     "date": "2009-03-13",
-    "number_of_txns": "114"
+    "number_of_txns": 114
   },
   {
     "date": "2009-03-14",
-    "number_of_txns": "110"
+    "number_of_txns": 110
   }
 ]
 ```
@@ -106,13 +106,13 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_active_address_hist
 [
   {
     "date": "2009-01-12",
-    "active_senders": "3",
-    "active_recipients": "1"
+    "active_senders": 3,
+    "active_recipients": 1
   },
   {
     "date": "2009-01-14",
-    "active_senders": "3",
-    "active_recipients": "0"
+    "active_senders": 3,
+    "active_recipients": 0
   }
 ]
 ```
@@ -145,11 +145,11 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_supply_historical/l
 [
   {
     "date": "2009-01-12",
-    "supply": "50"
+    "supply": 50
   },
   {
     "date": "2009-01-13",
-    "supply": "750"
+    "supply": 750
   }
 ]
 ```
@@ -182,13 +182,13 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_nvt_historical/last
 [
   {
     "date": "2014-09-24",
-    "marketcap_usd": "5708841339.86",
-    "nvt": "33.195"
+    "marketcap_usd": 5708841339.86,
+    "nvt": 33.195
   },
   {
     "date": "2014-09-25",
-    "marketcap_usd": "5516694629.19",
-    "nvt": "35.833"
+    "marketcap_usd": 5516694629.19,
+    "nvt": 35.833
   }
 ]
 ```
