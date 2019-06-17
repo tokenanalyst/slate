@@ -149,3 +149,52 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_top10_histo
 | token     | _string_ | `btc`                                               |
 | direction | _string_ | `inflow`                                            |
 | exchange  | _string_ | An exchange from the list of ones we support        |
+
+## BTC Full Historical Top 10 Outflow Large Value Transactions
+
+<img src="https://img.shields.io/badge/Tier-Professional-black.svg"/>
+
+```shell
+curl "https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_top10_historical/last?token=btc&exchange=binance&direction=outflow&format=json&key=API_KEY"
+```
+
+> The response looks like:
+
+```json
+[
+  {
+    "date": "2017-08-15",
+    "entity": "Binance",
+    "rank": 1,
+    "transactionhash": "c1053514fbc010322e9fec4d9931e9f4271a1453e1f2b6941c367bf75fd47ca2",
+    "transactionid": "c1053514fbc010322e9fec4d9931e9f4271a1453e1f2b6941c367bf75fd47ca2",
+    "value": 20,
+    "value_usd": 83539.6
+  },
+  {
+    "date": "2017-08-15",
+    "entity": "Binance",
+    "rank": 2,
+    "transactionhash": "d73a0d5c4100cbe3a680fc541d53a27133172f18da99768e89ec245cef93afa1",
+    "transactionid": "d73a0d5c4100cbe3a680fc541d53a27133172f18da99768e89ec245cef93afa1",
+    "value": 12.2471,
+    "value_usd": 51155.89
+  }
+]
+```
+
+This endpoint returns the top 10 transactions (in terms of total BTC sent) flowing out of exchange wallets for every day that the exchange wallets we track have been live on the blockchain.
+
+### HTTP Request
+
+`GET https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_top10_historical/last?`
+
+### URL Parameters
+
+| Parameter | Type     | Description                                         |
+| --------- | -------- | --------------------------------------------------- |
+| key       | _string_ | Your unique API key                                 |
+| format    | _string_ | What format you want your data in (`json` or `csv`) |
+| token     | _string_ | `btc`                                               |
+| direction | _string_ | `outflow`                                           |
+| exchange  | _string_ | An exchange from the list of ones we support        |
