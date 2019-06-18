@@ -245,6 +245,9 @@
                   <li>
                     <a href="#btc-fees" class="toc-h2 toc-link" data-title="BTC Fees">BTC Fees</a>
                   </li>
+                  <li>
+                    <a href="#btc-utxo-age" class="toc-h2 toc-link" data-title="BTC UTXO Age">BTC UTXO Age</a>
+                  </li>
               </ul>
           </li>
           <li>
@@ -673,8 +676,75 @@ curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_vo
 </span></code></pre>
 <p>This endpoint returns the total and average fees spent on the Bitcoin network for every day of it&#39;s existence. The <code>total_fee</code> is denominated in Bitcoin, the <code>price</code> is the price of Bitcoin on that day, and the <code>avg_fee</code> is denominated in Bitcoin.</p>
 <h3 id='http-request-6'>HTTP Request</h3>
-<p><code>GET https://api.tokenanalyst.io/analytics/private/v1/token_nvt_historical/last</code></p>
+<p><code>GET https://api.tokenanalyst.io/analytics/private/v1/token_fees_historical/last</code></p>
 <h3 id='query-parameters-6'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>key</td>
+<td><em>string</em></td>
+<td>Your unique API key</td>
+</tr>
+<tr>
+<td>format</td>
+<td><em>string</em></td>
+<td>What format you want your data in (<code>json</code> or <code>csv</code>)</td>
+</tr>
+<tr>
+<td>token</td>
+<td><em>string</em></td>
+<td><code>btc</code></td>
+</tr>
+</tbody></table>
+<h2 id='btc-utxo-age'>BTC UTXO Age</h2>
+<p><img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/></p>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_utxo_age_historical/last?format=json&amp;token=btc&amp;key=API_KEY"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"1-3m"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0872</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"12-18m"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.1227</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"18-24m"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.1173</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"1d-1w"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.032</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"1w-1m"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0806</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"2-3y"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0576</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"3-5y"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0586</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"3-6m"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0674</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"5-10y"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.1408</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"6-12m"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.1448</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"&lt;1d"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0123</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"&gt;10y"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0786</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-10"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"1-3m"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0883</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"12-18m"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.1219</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"18-24m"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.1179</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"1d-1w"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.021</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"1w-1m"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0856</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"2-3y"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0576</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"3-5y"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0586</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"3-6m"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0684</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"5-10y"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.1407</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"6-12m"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.145</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"&lt;1d"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0162</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"&gt;10y"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0787</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-11"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<p>This endpoint returns the proportion of the current bitcoin supply held in unspent transaction outputs stratified by their age. For instance outputs in the category <code>12-18m</code> are unspent outputs (UTXOs) from transactions that occurred <code>12-18m</code> ago. Time is measured relative to blocktime assuming 6 blocks are generated per hour. This means that the proportion of UTXOs in the <code>&lt;1d</code> category were generated less than or equal to <code>144 blocks ago (6 blocks * 24 hours)</code>.</p>
+<h3 id='http-request-7'>HTTP Request</h3>
+<p><code>GET https://api.tokenanalyst.io/analytics/private/v1/token_utxo_age_historical/last</code></p>
+<h3 id='query-parameters-7'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
