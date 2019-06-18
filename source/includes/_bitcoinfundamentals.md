@@ -212,7 +212,7 @@ This endpoint returns the NVT Ratio (Network Value to Transactions Ratio) for BT
 <img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/>
 
 ```shell
-curl "https://api.tokenanalyst.io/analytics/private/v1/token_fees_historical/last?&token=btc&format=json&key=API_KEY"
+curl "https://api.tokenanalyst.io/analytics/private/v1//last?&token=btc&format=json&key=API_KEY"
 ```
 
 > The above command returns JSON structured like this:
@@ -246,7 +246,7 @@ This endpoint returns the total and average fees spent on the Bitcoin network fo
 
 ### HTTP Request
 
-`GET https://api.tokenanalyst.io/analytics/private/v1/token_nvt_historical/last`
+`GET https://api.tokenanalyst.io/analytics/private/v1/token_fees_historical/last`
 
 ### Query Parameters
 
@@ -255,3 +255,64 @@ This endpoint returns the total and average fees spent on the Bitcoin network fo
 | key       | _string_ | Your unique API key                                 |
 | format    | _string_ | What format you want your data in (`json` or `csv`) |
 | token     | _string_ | `btc`                                               |
+
+
+## BTC UTXO Age
+
+<img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/>
+
+```shell
+curl "https://api.tokenanalyst.io/analytics/private/v1/token_utxo_age_historical/last?format=json&token=btc&key=API_KEY"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+  {
+    "1-3m": 0.0872,
+    "12-18m": 0.1227,
+    "18-24m": 0.1173,
+    "1d-1w": 0.032,
+    "1w-1m": 0.0806,
+    "2-3y": 0.0576,
+    "3-5y": 0.0586,
+    "3-6m": 0.0674,
+    "5-10y": 0.1408,
+    "6-12m": 0.1448,
+    "<1d": 0.0123,
+    ">10y": 0.0786,
+    "date": "2019-06-10"
+  },
+  {
+    "1-3m": 0.0883,
+    "12-18m": 0.1219,
+    "18-24m": 0.1179,
+    "1d-1w": 0.021,
+    "1w-1m": 0.0856,
+    "2-3y": 0.0576,
+    "3-5y": 0.0586,
+    "3-6m": 0.0684,
+    "5-10y": 0.1407,
+    "6-12m": 0.145,
+    "<1d": 0.0162,
+    ">10y": 0.0787,
+    "date": "2019-06-11"
+  }
+]
+```
+
+This endpoint returns the proportion of the current bitcoin supply held in unspent transaction outputs stratified by their age. For instance outputs in the category `12-18m` are unspent outputs (UTXOs) from transactions that occurred `12-18m` ago. Time is measured relative to blocktime assuming 6 blocks are generated per hour. This means that the proportion of UTXOs in the `<1d` category were generated less than or equal to `144 blocks ago (6 blocks * 24 hours)`.
+
+### HTTP Request
+
+`GET https://api.tokenanalyst.io/analytics/private/v1/token_utxo_age_historical/last`
+
+### Query Parameters
+
+| Parameter | Type     | Description                                         |
+| --------- | -------- | --------------------------------------------------- |
+| key       | _string_ | Your unique API key                                 |
+| format    | _string_ | What format you want your data in (`json` or `csv`) |
+| token     | _string_ | `btc`                                               |
+
