@@ -212,7 +212,7 @@ This endpoint returns the NVT Ratio (Network Value to Transactions Ratio) for BT
 <img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/>
 
 ```shell
-curl "https://api.tokenanalyst.io/analytics/private/v1//last?&token=btc&format=json&key=API_KEY"
+curl "https://api.tokenanalyst.io/analytics/private/v1/token_fees_historical/last?&token=btc&format=json&key=API_KEY"
 ```
 
 > The above command returns JSON structured like this:
