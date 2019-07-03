@@ -307,6 +307,9 @@
                   <li>
                     <a href="#number-of-loans-originated" class="toc-h2 toc-link" data-title="Number of loans originated">Number of loans originated</a>
                   </li>
+                  <li>
+                    <a href="#loan-origination-stats-by-token" class="toc-h2 toc-link" data-title="Loan Origination Stats By Token">Loan Origination Stats By Token</a>
+                  </li>
               </ul>
           </li>
           <li>
@@ -1521,6 +1524,59 @@ curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_vo
 <h3 id='http-request'>HTTP Request</h3>
 <p><code>GET https://api.tokenanalyst.io/analytics/private/v1/project_loans_originated_historical/last?</code></p>
 <h3 id='url-parameters'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>key</td>
+<td><em>string</em></td>
+<td>Your unique API key</td>
+</tr>
+<tr>
+<td>format</td>
+<td><em>string</em></td>
+<td>What format you want your data in (<code>json</code> or <code>csv</code>)</td>
+</tr>
+<tr>
+<td>project</td>
+<td><em>string</em></td>
+<td>An project from the list of ones we cover (Above)</td>
+</tr>
+</tbody></table>
+<h2 id='loan-origination-stats-by-token'>Loan Origination Stats By Token</h2>
+<p><img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/></p>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/project_loan_stats_historical/last?project=compound&amp;format=json&amp;key=API_KEY"</span>
+</code></pre>
+<blockquote>
+<p>The response looks like:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-05-07"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DAI"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"txns"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"volume"</span><span class="p">:</span><span class="w"> </span><span class="mf">4024.14</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"volume_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">4186.93</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.04</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-05-07"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ETH"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"txns"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"volume"</span><span class="p">:</span><span class="w"> </span><span class="mf">16.30051781573815</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"volume_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">2883.87</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="mf">176.92</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<p>This endpoint returns the number of transactions, volume, and volume_usd by date of loans generated (by token) on the Compound Protocol</p>
+<h3 id='http-request-2'>HTTP Request</h3>
+<p><code>GET https://api.tokenanalyst.io/analytics/private/v1/project_loan_stats_historical/last?</code></p>
+<h3 id='url-parameters-2'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
