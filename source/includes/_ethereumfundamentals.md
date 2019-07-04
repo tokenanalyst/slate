@@ -216,7 +216,7 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_fees_historical/las
 ```json
 [
   {
-    "day": "2015-10-19",
+    "date": "2015-10-19",
     "price": 0.5,
     "avg_gas": 32831.1236,
     "avg_gas_price_wei": 52456819761.0774,
@@ -226,7 +226,7 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_fees_historical/las
     "avg_fee_usd": 0
   },
   {
-    "day": "2015-10-20",
+    "date": "2015-10-20",
     "price": 0.49,
     "avg_gas": 32483.8972,
     "avg_gas_price_wei": 53767556518.0802,
