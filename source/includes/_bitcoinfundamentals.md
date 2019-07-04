@@ -220,7 +220,7 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_fees_historical/las
 ```json
 [
   {
-    "day": "2012-08-10",
+    "date": "2012-08-10",
     "total_fee": 44.53058517,
     "avg_size_bytes": 403,
     "price": 9.1,
@@ -230,7 +230,7 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_fees_historical/las
     "avg_fee_usd": 0.01
   },
   {
-    "day": "2012-08-11",
+    "date": "2012-08-11",
     "total_fee": 19.13775992,
     "avg_size_bytes": 393,
     "price": 9.1,
