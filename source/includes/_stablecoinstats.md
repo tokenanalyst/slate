@@ -66,15 +66,15 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_count_historical/la
 [
   {
     "date": "2017-12-18",
-    "number_of_token_transfers": 161
+    "number_of_txns": 161
   },
   {
     "date": "2017-12-19",
-    "number_of_token_transfers": 599
+    "number_of_txns": 599
   },
   {
     "date": "2017-12-20",
-    "number_of_token_transfers": 515
+    "number_of_txns": 515
   }
 ]
 ```
