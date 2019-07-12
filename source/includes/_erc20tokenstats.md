@@ -80,17 +80,17 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_count_historical/la
   {
     "tokenaddress": "0x0F5D2fB29fb7d3CFeE444a200298f468908cC942",
     "date": "2017-09-06",
-    "number_of_token_transfers": 4
+    "number_of_txns": 4
   },
   {
     "tokenaddress": "0x0F5D2fB29fb7d3CFeE444a200298f468908cC942",
     "date": "2017-09-15",
-    "number_of_token_transfers": 5512
+    "number_of_txns": 5512
   },
   {
     "tokenaddress": "0x0F5D2fB29fb7d3CFeE444a200298f468908cC942",
     "date": "2017-09-16",
-    "number_of_token_transfers": 4822
+    "number_of_txns": 4822
   }
 ]
 ```
