@@ -23,6 +23,9 @@ ERC20 tokens we currently support are:
 | Civic                 | `cvc`   |
 | Kyber Network         | `knc`   |
 | iExec RLC             | `rlc`   |
+| ChainLink             | `link`  |
+| Ocean Protocol        | `ocean` |
+| Fetch.ai.             | `fet`   |
 
 ## ERC20 On-chain Volume
 
