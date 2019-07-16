@@ -1,35 +1,25 @@
-# ERC20 Token Stats
+# Binance Token Stats (BETA)
 
-ERC20 tokens we currently support are:
+We support all tokens issued on Binance chain, but only have price data for the following:
 
-| Name                  | Symbol  |
-| --------------------- | ------- |
-| Binance Coin          | `bnb_erc20`   |
-| Maker                 | `mkr`   |
-| Basic Attention Token | `bat`   |
-| Venchain              | `ven`   |
-| OmiseGo               | `omg`   |
-| Augur                 | `rep`   |
-| Golem                 | `gnt`   |
-| ZRX                   | `zrx`   |
-| Zilliqa               | `zil`   |
-| Decentraland          | `mana`  |
-| Numerai               | `nmr`   |
-| Tokencard             | `tkn`   |
-| Bancor                | `bnt`   |
-| Icon                  | `icx`   |
-| Loom Network          | `loom`  |
-| Status                | `snt`   |
-| Civic                 | `cvc`   |
-| Kyber Network         | `knc`   |
-| iExec RLC             | `rlc`   |
+| Name                  | Symbol |
+| --------------------- | ------ |
+| Binance Coin          | `bnb`  |
+| Stable USD            | `usdsb`|
+| Harmony.One           | `one ` |
+| Bitcoin BEP2          | `btcb` |
+| Bezant                | `bznt` |
+| Ankr                  | `ankr` |
+| Mithril               | `mith` |
+| Fantom                | `ftm`  |
 
-## ERC20 On-chain Volume
+
+## BEP2 On-chain Volume
 
 <img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/>
 
 ```shell
-curl "https://api.tokenanalyst.io/analytics/private/v1/token_volume_historical/last?format=json&token=zrx&key=API_KEY"
+curl "https://api.tokenanalyst.io/analytics/private/v1/token_volume_historical/last?format=json&token=mith&key=API_KEY"
 ```
 
 > The above command returns JSON structured like this:
@@ -51,7 +41,7 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_volume_historical/l
 ]
 ```
 
-This endpoint returns the full historical on-chain volume of any of the major ERC20 tokens that we support.
+This endpoint returns the full historical on-chain volume of all BEP2 tokens. Note, wo don't have price data for all the tokens
 
 ### HTTP Request
 
@@ -65,12 +55,12 @@ This endpoint returns the full historical on-chain volume of any of the major ER
 | format    | _string_ | What format you want your data in (`json` or `csv`) |
 | token     | _string_ | The token you want the volume for                   |
 
-## ERC20 On-chain Transaction Count
+## BEP2 On-chain Transaction Count
 
 <img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/>
 
 ```shell
-curl "https://api.tokenanalyst.io/analytics/private/v1/token_count_historical/last?format=json&token=mana&key=API_KEY"
+curl "https://api.tokenanalyst.io/analytics/private/v1/token_count_historical/last?format=json&token=bnb&key=API_KEY"
 ```
 
 > The above command returns JSON structured like this:
@@ -78,24 +68,21 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_count_historical/la
 ```json
 [
   {
-    "tokenaddress": "0x0F5D2fB29fb7d3CFeE444a200298f468908cC942",
     "date": "2017-09-06",
     "number_of_txns": 4
   },
   {
-    "tokenaddress": "0x0F5D2fB29fb7d3CFeE444a200298f468908cC942",
     "date": "2017-09-15",
     "number_of_txns": 5512
   },
   {
-    "tokenaddress": "0x0F5D2fB29fb7d3CFeE444a200298f468908cC942",
     "date": "2017-09-16",
     "number_of_txns": 4822
   }
 ]
 ```
 
-This endpoint returns the number of token transfers on the blockchain for the given token for every day since its existence.
+This endpoint returns the full historical on-chain transaction count of all BEP2 tokens 
 
 ### HTTP Request
 
@@ -111,12 +98,12 @@ This endpoint returns the number of token transfers on the blockchain for the gi
 
 
 
-## ERC20 Active addresses
+## BEP2 Active addresses
 
 <img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/>
 
 ```shell
-curl "https://api.tokenanalyst.io/analytics/private/v1/token_active_address_historical/last?&token=gnt&format=json&key=API_KEY"
+curl "https://api.tokenanalyst.io/analytics/private/v1/token_active_address_historical/last?&token=ankr&format=json&key=API_KEY"
 ```
 
 > The above command returns JSON structured like this:
@@ -136,7 +123,7 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_active_address_hist
 ]
 ```
 
-This endpoint returns the active addresses of ERC20 tokens for every day of their existence. An address is defined as 'active' if it has transacted during the given day.
+This endpoint returns the active addresses of BEP2 tokens for every day of their existence. An address is defined as 'active' if it has transacted during the given day.
 
 ### HTTP Request
 
