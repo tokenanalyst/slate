@@ -17,12 +17,14 @@ ERC20 tokens we currently support are:
 | Numerai               | `nmr`  |
 | Tokencard             | `tkn`  |
 | Bancor                | `bnt`  |
-| Icon                  | `icx`  |
 | Loom Network          | `loom` |
 | Status                | `snt`  |
 | Civic                 | `cvc`  |
 | Kyber Network         | `knc`  |
 | iExec RLC             | `rlc`  |
+| ChainLink             | `link` |
+| Ocean Protocol        | `ocean`|
+| Fetch.ai.             | `fet`  |
 
 ## ERC20 Full Historical Inflow to Exchanges
 

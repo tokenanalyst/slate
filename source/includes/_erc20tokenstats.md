@@ -17,7 +17,6 @@ ERC20 tokens we currently support are:
 | Numerai               | `nmr`   |
 | Tokencard             | `tkn`   |
 | Bancor                | `bnt`   |
-| Icon                  | `icx`   |
 | Loom Network          | `loom`  |
 | Status                | `snt`   |
 | Civic                 | `cvc`   |
@@ -129,12 +128,12 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_active_address_hist
   {
     "date": "2016-11-11",
     "active_senders": 23,
-    "active_receivers": 31
+    "active_receipients": 31
   },
   {
     "date": "2016-11-12",
     "active_senders": 332,
-    "active_receivers": 23
+    "active_receipients": 23
   }
 ]
 ```
