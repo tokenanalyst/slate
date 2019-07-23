@@ -251,3 +251,109 @@ This endpoint returns the total and average fees spent on the Ethereum network f
 | key       | _string_ | Your unique API key                                 |
 | format    | _string_ | What format you want your data in (`json` or `csv`) |
 | token     | _string_ | `eth`                                               |
+
+
+## ETH Miner Hashrate
+
+<img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/>
+
+```shell
+curl "https://api.tokenanalyst.io/analytics/private/v1/token_miner_hashrate_historical/last?format=json&token=eth&key=API_KEY"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+  {
+    "date": "2019-07-13",
+    "miner_name": "F2Pool 2",
+    "total_daily_hashrate": 84.1223,
+    "miner_daily_hashrate": 9.6557,
+    "miner_daily_hashrate_pct": 9.6557,
+    "miner_daily_block_count": 379,
+    "miner_daily_uncle_count": 19,
+    "miner_daily_uncle_pct": 4,
+    "total_daily_block_count": 3301,
+    "total_daily_uncle_count": 228,
+    "total_daily_uncle_pct": 6
+  },
+  {
+    "date": "2019-07-13",
+    "miner_name": "F2Pool 2",
+    "total_daily_hashrate": 84.1223,
+    "miner_daily_hashrate": 9.6557,
+    "miner_daily_hashrate_pct": 9.6557,
+    "miner_daily_block_count": 379,
+    "miner_daily_uncle_count": 19,
+    "miner_daily_uncle_pct": 4,
+    "total_daily_block_count": 3301,
+    "total_daily_uncle_count": 228,
+    "total_daily_uncle_pct": 6
+  }
+]
+```
+
+This endpoint returns the total and miner specifc hashrate and uncle rates. The `total_daily_hashrate` and the `miner_daily_hashrate` are denominated in TH/s. The `total_daily_block_count` is the total number of blocks mined on a given day, and the `miner_daily_block_count` are the number of blocks mined by a specific miner. We do not know the identify of all miners and a lot of them are labelled as unkown
+
+### HTTP Request
+
+`GET https://api.tokenanalyst.io/analytics/private/v1/token_miner_hashrate_historical/last`
+
+### Query Parameters
+
+| Parameter | Type     | Description                                         |
+| --------- | -------- | --------------------------------------------------- |
+| key       | _string_ | Your unique API key                                 |
+| format    | _string_ | What format you want your data in (`json` or `csv`) |
+| token     | _string_ | `eth`                                               |
+
+
+
+## ETH Miner Rewards
+
+<img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/>
+
+```shell
+curl "https://api.tokenanalyst.io/analytics/private/v1/token_miner_rewards_historical/last?format=json&token=eth&key=API_KEY"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+  {
+    "date": "2019-07-23",
+    "miner_name": "Nanopool",
+    "miner_daily_block_reward": 1604.3125,
+    "price_usd": 224.36,
+    "miner_daily_block_reward_usd": 359940.49,
+    "miner_daily_uncle_reward": 76,
+    "miner_daily_uncle_reward_usd": 17051.22
+  },
+  {
+    "date": "2019-07-23",
+    "miner_name": "Spark Pool",
+    "miner_daily_block_reward": 3048,
+    "price_usd": 224.36,
+    "miner_daily_block_reward_usd": 683843.47,
+    "miner_daily_uncle_reward": 141,
+    "miner_daily_uncle_reward_usd": 31634.49
+  }
+]
+```
+
+This endpoint returns the daily block rewards and uncle rewards by miner. The `miner_daily_block_reward` and `miner_daily_uncle_reward` are denomiated ETH. 
+
+### HTTP Request
+
+`GET https://api.tokenanalyst.io/analytics/private/v1/token_miner_rewards_historical/last`
+
+### Query Parameters
+
+| Parameter | Type     | Description                                         |
+| --------- | -------- | --------------------------------------------------- |
+| key       | _string_ | Your unique API key                                 |
+| format    | _string_ | What format you want your data in (`json` or `csv`) |
+| token     | _string_ | `eth`                                               |
+

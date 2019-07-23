@@ -316,3 +316,92 @@ This endpoint returns the proportion of the current bitcoin supply held in unspe
 | format    | _string_ | What format you want your data in (`json` or `csv`) |
 | token     | _string_ | `btc`                                               |
 
+
+## BTC Miner Hashrate
+
+<img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/>
+
+```shell
+curl "https://api.tokenanalyst.io/analytics/private/v1/token_miner_hashrate_historical/last?format=json&token=btc&key=API_KEY"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+  {
+    "date": "2019-07-22",
+    "miner_name": "F2 Pool",
+    "miner_daily_block_count": 19,
+    "miner_daily_hashrate": 8561054.749877952,
+    "total_daily_hashrate": 71191928.97266929,
+    "miner_daily_hashrate_pct": 12.025316455696203
+  },
+  {
+    "date": "2019-07-22",
+    "miner_name": "AntPool",
+    "miner_daily_block_count": 18,
+    "miner_daily_hashrate": 8110472.920937006,
+    "total_daily_hashrate": 71191928.97266929,
+    "miner_daily_hashrate_pct": 11.392405063291138
+  }
+]
+```
+
+This endpoint returns the daily and miner specifc hashrates. The `total_daily_hashrate` and the `miner_daily_hashrate` are denominated in TH/s. The `total_daily_block_count` is the total number of blocks mined on a given day, and the `miner_daily_block_count` are the number of blocks mined by a specific miner. We do not know the identify of all miners and a lot of them are labelled as unkown and grouped together 
+
+### HTTP Request
+
+`GET https://api.tokenanalyst.io/analytics/private/v1/token_miner_hashrate_historical/last`
+
+### Query Parameters
+
+| Parameter | Type     | Description                                         |
+| --------- | -------- | --------------------------------------------------- |
+| key       | _string_ | Your unique API key                                 |
+| format    | _string_ | What format you want your data in (`json` or `csv`) |
+| token     | _string_ | `btc`                                               |
+
+
+## BTC Miner Rewards
+
+<img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/>
+
+```shell
+curl "https://api.tokenanalyst.io/analytics/private/v1/token_miner_rewards_historical/last?format=json&token=btc&key=API_KEY"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+  {
+    "date": "2019-07-23",
+    "miner_name": "SlushPool",
+    "miner_daily_block_reward": 51.29584509,
+    "price_usd": 10123.41,
+    "miner_daily_block_reward_usd": 519288.77897033526
+  },
+  {
+    "date": "2019-07-23",
+    "miner_name": "AntPool",
+    "miner_daily_block_reward": 37.74736379,
+    "price_usd": 10123.41,
+    "miner_daily_block_reward_usd": 382131.9722380296
+  }
+]
+```
+
+This endpoint returns the daily coinbase rewards by miner (incl. txn fees). The `miner_daily_block_reward` is denomiated BTC. 
+
+### HTTP Request
+
+`GET https://api.tokenanalyst.io/analytics/private/v1/token_miner_rewards_historical/last`
+
+### Query Parameters
+
+| Parameter | Type     | Description                                         |
+| --------- | -------- | --------------------------------------------------- |
+| key       | _string_ | Your unique API key                                 |
+| format    | _string_ | What format you want your data in (`json` or `csv`) |
+| token     | _string_ | `btc`                                               |
