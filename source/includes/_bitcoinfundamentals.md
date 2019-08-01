@@ -333,6 +333,7 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_miner_hashrate_hist
     "date": "2019-07-22",
     "miner_name": "F2 Pool",
     "miner_daily_block_count": 19,
+    "total_daily_block_count": 322,
     "miner_daily_hashrate": 8561054.749877952,
     "total_daily_hashrate": 71191928.97266929,
     "miner_daily_hashrate_pct": 12.025316455696203
@@ -341,6 +342,7 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_miner_hashrate_hist
     "date": "2019-07-22",
     "miner_name": "AntPool",
     "miner_daily_block_count": 18,
+    "total_daily_block_count": 322,
     "miner_daily_hashrate": 8110472.920937006,
     "total_daily_hashrate": 71191928.97266929,
     "miner_daily_hashrate_pct": 11.392405063291138
