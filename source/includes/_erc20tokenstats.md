@@ -4,7 +4,6 @@ ERC20 tokens we currently support are:
 
 | Name                  | Symbol  |
 | --------------------- | ------- |
-| Binance Coin          | `bnb_erc20`   |
 | Maker                 | `mkr`   |
 | Basic Attention Token | `bat`   |
 | Venchain              | `ven`   |

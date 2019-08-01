@@ -4,7 +4,6 @@ ERC20 tokens we currently support are:
 
 | Name                  | Symbol |
 | --------------------- | ------ |
-| Binance Coin          | `bnb`  |
 | Maker                 | `mkr`  |
 | Basic Attention Token | `bat`  |
 | Venchain              | `ven`  |
@@ -23,7 +22,6 @@ ERC20 tokens we currently support are:
 | Kyber Network         | `knc`  |
 | iExec RLC             | `rlc`  |
 | ChainLink             | `link` |
-| Ocean Protocol        | `ocean`|
 | Fetch.ai.             | `fet`  |
 
 ## ERC20 Full Historical Inflow to Exchanges
