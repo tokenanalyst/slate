@@ -51,6 +51,19 @@ Our current heuristic for 'change' related volume is for whenever BTC in a trans
 | format    | _string_ | What format you want your data in (`json` or `csv`)    |
 | token     | _string_ | The token you want the volume for (in this case `btc`) |
 
+
+### Data Overview
+
+| Field | Type     | Description                                            |
+| --------- | -------- | ------------------------------------------------------ |
+| date       | _string_ | The date                                    |
+| volume_gross    | _decimal_ | What this means, how it was calculated, what were the assumptions   |
+| volume_change     | _decimal_ | |
+| volume_gross    | _decimal_ |    |
+| price_usd     | _decimal_ | what is the period |
+| volume_real_usd    | _decimal_ |    |
+| volume_change_usd     | _decimal_ |  |
+
 ## BTC On-chain Transaction Count
 
 <img src="https://img.shields.io/badge/Tier-Free-green.svg"/>
