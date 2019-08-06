@@ -24,7 +24,8 @@ ERC20 tokens we currently support are:
 | ChainLink             | `link` |
 | Fetch.ai.             | `fet`  |
 
-## ERC20 Full Historical Inflow to Exchanges
+
+## ERC20 Full Historical Inflow to Exchanges (will be deprecated Aug 16th, 2019, use v2)
 
 <img src="https://img.shields.io/badge/Tier-Professional-black.svg"/>
 
@@ -76,7 +77,64 @@ This endpoint returns the inflow of ERC20 tokens into exchange wallets. The `avg
 | token     | _string_ | `omg`                                               |
 | direction | _string_ | `inflow`                                            |
 
-## ERC20 Full Historical Outflow from Exchanges
+
+## ERC20 Full Historical Inflow to Exchanges (v2 with increased granularity)
+
+<img src="https://img.shields.io/badge/Tier-Professional-black.svg"/>
+
+```shell
+curl "https://api.tokenanalyst.io/analytics/private/v1/erc20_exchanges_flow_window_historical/last?token=omg&direction=inflow&window=1h&format=json&key=API_KEY"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+  {
+    "date": "2017-07-19",
+    "hour": "11:00:00",
+    "token_name": "OMG",
+    "exchange": "Bitfinex",
+    "inflow": 1021328.4514801201,
+    "price": 0.68,
+    "inflow_usd": 695260.83,
+    "number_of_txns": 46,
+    "avg_txn_value": 22202.79242348087,
+    "avg_txn_value_usd": 15114.37
+  },
+  {
+    "date": "2017-07-19",
+    "hour": "12:00:00",
+    "token_name": "OMG",
+    "exchange": "Bittrex",
+    "inflow": 2440563.297567261,
+    "price": 0.68,
+    "inflow_usd": 1661393.13,
+    "number_of_txns": 198,
+    "avg_txn_value": 12326.077260440712,
+    "avg_txn_value_usd": 8390.87
+  }
+]
+```
+
+This endpoint returns the inflow of ERC20 into exchange wallets. The `avg_txn_value`, `inflow`, and `number_of_txns` are calculated over the window (either 1 hour or 1 day)
+
+### HTTP Request
+
+`GET https://api.tokenanalyst.io/analytics/private/v1/erc20_exchanges_flow_window_historical/last?`
+
+### Query Parameters
+
+| Parameter | Type     | Description                                         |
+| --------- | -------- | --------------------------------------------------- |
+| key       | _string_ | Your unique API key                                 |
+| format    | _string_ | What format you want your data in (`json` or `csv`) |
+| token     | _string_ | `omg`                                               |
+| direction | _string_ | `inflow`                                            |
+| window    | _string_ | `1h` or `1d`                                        |
+
+
+## ERC20 Full Historical Outflow from Exchanges (will be deprecated Aug 16th, 2019, use v2)
 
 <img src="https://img.shields.io/badge/Tier-Professional-black.svg"/>
 
@@ -113,7 +171,7 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/erc20_exchanges_flow_hist
 ]
 ```
 
-This endpoint returns the outflow of ERC20 tokens from exchange wallets. The `avg_txn_value` is the average transaction value for transactions flowing out of exchange wallets on a given day.
+This endpoint returns the outflow of ERC20 & stablecoins from exchange wallets. The `avg_txn_value` is the average transaction value for transactions flowing out of exchange wallets on a given day.
 
 ### HTTP Request
 
@@ -127,3 +185,59 @@ This endpoint returns the outflow of ERC20 tokens from exchange wallets. The `av
 | format    | _string_ | What format you want your data in (`json` or `csv`) |
 | token     | _string_ | `omg`                                               |
 | direction | _string_ | `outflow`                                           |
+
+
+## ERC20 Full Historical Outflow from Exchanges (v2 with increased granularity)
+
+<img src="https://img.shields.io/badge/Tier-Professional-black.svg"/>
+
+```shell
+curl "https://api.tokenanalyst.io/analytics/private/v1/erc20_exchanges_flow_window_historical/last?token=omg&direction=outflow&window=1h&format=json&key=API_KEY"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+  {
+    "date": "2017-07-19",
+    "hour": "11:00:00",
+    "token_name": "OMG",
+    "exchange": "Bitfinex",
+    "outflow": 1021328.4514801201,
+    "price": 0.68,
+    "outflow_usd": 695260.83,
+    "number_of_txns": 46,
+    "avg_txn_value": 22202.79242348087,
+    "avg_txn_value_usd": 15114.37
+  },
+  {
+    "date": "2017-07-19",
+    "hour": "12:00:00",
+    "token_name": "OMG",
+    "exchange": "Bittrex",
+    "outflow": 2440563.297567261,
+    "price": 0.68,
+    "outflow_usd": 1661393.13,
+    "number_of_txns": 198,
+    "avg_txn_value": 12326.077260440712,
+    "avg_txn_value_usd": 8390.87
+  }
+]
+```
+
+This endpoint returns the outflow of ERC20 from exchange wallets. The `avg_txn_value`, `outflow`, and `number_of_txns` are calculated over the window (either 1 hour or 1 day)
+
+### HTTP Request
+
+`GET https://api.tokenanalyst.io/analytics/private/v1/erc20_exchanges_flow_window_historical/last?`
+
+### Query Parameters
+
+| Parameter | Type     | Description                                         |
+| --------- | -------- | --------------------------------------------------- |
+| key       | _string_ | Your unique API key                                 |
+| format    | _string_ | What format you want your data in (`json` or `csv`) |
+| token     | _string_ | `omg`                                               |
+| direction | _string_ | `outflow`                                           |
+| window    | _string_ | `1h` or `1d`                                        |
