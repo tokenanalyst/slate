@@ -83,7 +83,7 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/erc20_exchanges_flow_wind
     "token_name": "USDC",
     "exchange": "Binance",
     "inflow": 509.689581,
-    "price": 1.0,
+    "price_usd": 1.0,
     "inflow_usd": 511.09,
     "number_of_txns": 3,
     "avg_txn_value": 169.896527,
@@ -95,7 +95,7 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/erc20_exchanges_flow_wind
     "token_name": "USDC",
     "exchange": "Kucoin",
     "inflow": 3585.887836,
-    "price": 1.01,
+    "price_usd": 1.01,
     "inflow_usd": 3609.0,
     "number_of_txns": 3,
     "avg_txn_value": 1195.2959453333333,
@@ -120,7 +120,7 @@ This endpoint returns the inflow of stablecoins into exchange wallets. The `avg_
 | direction | _string_ | `inflow`                                           |
 | window    | _string_ | `1h` or `1d`                                        |
 
-## Stablecoin Full Historical Outflow from Exchanges (will be deprecated Aug 16th, 2019, use v2)
+## V1 Stablecoin Full Historical Outflow from Exchanges (will be deprecated Aug 16th, 2019, use v2)
 
 <img src="https://img.shields.io/badge/Tier-Professional-black.svg"/>
 
@@ -192,7 +192,7 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/erc20_exchanges_flow_wind
     "token_name": "USDC",
     "exchange": "Kucoin",
     "outflow": 509.689581,
-    "price": 1.0,
+    "price_usd": 1.0,
     "outflow_usd": 511.09,
     "number_of_txns": 3,
     "avg_txn_value": 169.896527,
@@ -204,7 +204,7 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/erc20_exchanges_flow_wind
     "token_name": "USDC",
     "exchange": "Kucoin",
     "outflow": 3585.887836,
-    "price": 1.01,
+    "price_usd": 1.01,
     "outflow_usd": 3609.0,
     "number_of_txns": 3,
     "avg_txn_value": 1195.2959453333333,
