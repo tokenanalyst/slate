@@ -2,7 +2,7 @@
 
 For Ethereum currently supported exchanges are: `binance`, `kraken`, `bitfinex`, `poloniex`, `bittrex`, `kucoin`
 
-## ETH Full Historical Inflow to Exchanges
+## V1 ETH Full Historical Inflow to Exchanges (will be deprecated Aug 16th, 2019, use v2)
 
 <img src="https://img.shields.io/badge/Tier-Professional-black.svg"/>
 
@@ -53,7 +53,63 @@ This endpoint returns the inflow of ETH into exchange wallets. The `avg_txn_valu
 | direction | _string_ | `inflow`                                            |
 | exchange  | _string_ | An exchange from the list of ones we support        |
 
-## ETH Full Historical Outflows from Exchanges
+
+## V2 ETH Full Historical Flows to Exchanges (with 1 hour granularity)
+
+<img src="https://img.shields.io/badge/Tier-Professional-black.svg"/>
+
+> This is an example:
+
+```shell
+curl "https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_window_historical/last?token=eth&exchange=binance&direction=inflow&window=1h&format=json&key=API_KEY"
+```
+
+> The response looks like:
+
+```json
+[
+  {
+    "date": "2016-03-17",
+    "hour": "11:00:00",
+    "inflow": 1.8164,
+    "price_usd": 11.64,
+    "inflow_usd": 21.14,
+    "number_of_txns": 8,
+    "avg_txn_value": 0.22705,
+    "avg_txn_value_usd": 2.64
+  },
+  {
+    "date": "2016-03-18",
+    "hour": "12:00:00",
+    "inflow": 3.7594499999999997,
+    "price_usd": 10.21,
+    "inflow_usd": 38.38,
+    "number_of_txns": 5,
+    "avg_txn_value": 0.75189,
+    "avg_txn_value_usd": 7.68
+  }
+]
+```
+
+This endpoint returns the inflow of ETH into exchange wallets. The `avg_txn_value`, `inflow`, and `number_of_txns` are calculated over the window (either 1 hour or 1 day). `hour` is in UTC 
+
+### HTTP Request
+
+`GET https://api.tokenanalyst.io/analytics/private/v1/last/exchange_flow_window_historical/last?`
+
+### URL Parameters
+
+| Parameter | Type     | Description                                         |
+| --------- | -------- | --------------------------------------------------- |
+| key       | _string_ | Your unique API key                                 |
+| format    | _string_ | What format you want your data in (`json` or `csv`) |
+| token     | _string_ | `eth`                                               |
+| direction | _string_ | `inflow`                                            |
+| exchange  | _string_ | An exchange from the list of ones we support        |
+| window    | _string_ | `1h` or `1d`       |
+
+
+## V1 ETH Full Historical Outflows from Exchanges (will be deprecated Aug 16th, 2019, use v2)
 
 <img src="https://img.shields.io/badge/Tier-Professional-black.svg"/>
 
@@ -103,6 +159,61 @@ This endpoint returns the outflow of ETH from exchange wallets. The 'avg_txn_val
 | token     | _string_ | `eth`                                               |
 | direction | _string_ | `outflow`                                           |
 | exchange  | _string_ | An exchange from the list of ones we support        |
+
+
+## V2 ETH Full Historical Flows From Exchanges (with 1 hour granularity)
+
+<img src="https://img.shields.io/badge/Tier-Professional-black.svg"/>
+
+> This is an example:
+
+```shell
+curl "https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_window_historical/last?token=eth&exchange=binance&direction=outflow&window=1h&format=json&key=API_KEY"
+```
+
+> The response looks like:
+
+```json
+[
+  {
+    "date": "2016-03-17",
+    "hour": "11:00:00",
+    "outflow": 1.8164,
+    "price_usd": 11.64,
+    "outflow_usd": 21.14,
+    "number_of_txns": 8,
+    "avg_txn_value": 0.22705,
+    "avg_txn_value_usd": 2.64
+  },
+  {
+    "date": "2016-03-18",
+    "hour": "12:00:00",
+    "outflow": 3.7594499999999997,
+    "price_usd": 10.21,
+    "outflow_usd": 38.38,
+    "number_of_txns": 5,
+    "avg_txn_value": 0.75189,
+    "avg_txn_value_usd": 7.68
+  }
+]
+```
+
+This endpoint returns the outflow of ETH from exchange wallets. The `avg_txn_value`, `outflow`, and `number_of_txns` are calculated over the window (either 1 hour or 1 day). `hour` is in UTC
+### HTTP Request
+
+`GET https://api.tokenanalyst.io/analytics/private/v1/last/exchange_flow_window_historical/last?`
+
+### URL Parameters
+
+| Parameter | Type     | Description                                         |
+| --------- | -------- | --------------------------------------------------- |
+| key       | _string_ | Your unique API key                                 |
+| format    | _string_ | What format you want your data in (`json` or `csv`) |
+| token     | _string_ | `eth`                                               |
+| direction | _string_ | `outflow`                                            |
+| exchange  | _string_ | An exchange from the list of ones we support        |
+| window    | _string_ | `1h` or `1d`       |
+
 
 ## ETH Full Historical Top 10 Inflow Large Value Transactions
 
