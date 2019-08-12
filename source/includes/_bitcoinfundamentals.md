@@ -4,6 +4,13 @@
 
 <img src="https://img.shields.io/badge/Tier-Free-green.svg"/>
 
+
+This endpoint returns the full historical on-chain volume of Bitcoin since it's genesis in 2009. The volume is separated into 'real' volume and 'change' volume.
+
+Our current heuristic for 'change' related volume is for whenever BTC in a transaction
+is sent back to the same address that sent the BTC. The 'real' volume is simply the 
+remainder left over after subtracting the change.
+
 ```shell
 # Make sure you substitute API_KEY for your unique API key.
 
@@ -27,17 +34,13 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_volume_historical/l
     "date": "2009-04-18",
     "volume_gross": 182.51,
     "volume_change": 17.49,
-    "volume_real": 165.01999999999998,
+    "volume_real": 165.02,
     "price_usd": "",
     "volume_real_usd": "",
     "volume_change_usd": ""
   }
 ]
 ```
-
-This endpoint returns the full historical on-chain volume of Bitcoin since it's genesis in 2009. The volume is separated into 'real' volume and 'change' volume.
-
-Our current heuristic for 'change' related volume is for whenever BTC in a transaction is sent back to the same address that sent the BTC. The 'real' volume is simply the remainder left over after subtracting the change.
 
 ### HTTP Request
 
@@ -56,17 +59,24 @@ Our current heuristic for 'change' related volume is for whenever BTC in a trans
 
 | Field | Type     | Description                                            |
 | --------- | -------- | ------------------------------------------------------ |
-| date       | _string_ | The date                                    |
-| volume_gross    | _decimal_ | What this means, how it was calculated, what were the assumptions   |
-| volume_change     | _decimal_ | |
-| volume_gross    | _decimal_ |    |
-| price_usd     | _decimal_ | what is the period |
-| volume_real_usd    | _decimal_ |    |
-| volume_change_usd     | _decimal_ |  |
+| date       | _string_ | The date in _YYYY-MM-DD_ |
+| volume_gross    | _decimal_ | The total sum of BTC sent by (unlocked by) addresses in transactions with a timestamp that occurs on this date. Does not include coinbase rewards. |
+| volume_change     | _decimal_ | The total sum of BTC sent to (locked by) addresses that were also on the sending side of the same transaction |
+| volume_real    | _decimal_ | _volume_gross_ - _volume_change_ |
+| price_usd     | _decimal_ | The daily average price of BTC (the daily mean of minute-level price data) |
+| volume_real_usd    | _decimal_ |  _volume_real_ * _price_usd_  |
+| volume_change_usd     | _decimal_ | _volume_change_ * _price_usd_ |
+
+
+---
 
 ## BTC On-chain Transaction Count
 
 <img src="https://img.shields.io/badge/Tier-Free-green.svg"/>
+
+
+This endpoint returns the daily number of transactions on the full historical Bitcoin blockchain 
+for every day since it's genesis in 2009.
 
 ```shell
 curl "https://api.tokenanalyst.io/analytics/private/v1/token_count_historical/last?format=json&key=API_KEY&token=btc"
@@ -91,8 +101,6 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_count_historical/la
 ]
 ```
 
-This endpoint returns the number of transactions on the full historical Bitcoin blockchain for every day since it's genesis in 2009.
-
 ### HTTP Request
 
 `GET https://api.tokenanalyst.io/analytics/private/v1/token_count_historical/last`
@@ -105,9 +113,30 @@ This endpoint returns the number of transactions on the full historical Bitcoin 
 | format    | _string_ | What format you want your data in (`json` or `csv`)    |
 | token     | _string_ | The token you want the volume for (in this case `btc`) |
 
+
+### Data Overview
+
+| Field | Type     | Description                                            |
+| --------- | -------- | ------------------------------------------------------ |
+| date       | _string_ | The date in _YYYY-MM-DD_ |
+| number_of_txns | _integer_ | The number of transactions included in blocks with a timestamp that occurs on this date (includes coinbase transactions) |
+
+
+---
+
+
 ## BTC Active addresses
 
 <img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/>
+
+This endpoint returns the daily number of active addresses on the Bitcoin blockchain for each day 
+of its existence. An address is defined as 'active' if it has sent or received bitcoin 
+in a transaction with a timestamp on that day. Only the distinct number of addresses are
+counted, i.e. an address which sends thousands of transactions per day is only counted once
+as an _active_sender_ with the same logic applied to distinct receiving addresses. 
+
+
+
 
 ```shell
 curl "https://api.tokenanalyst.io/analytics/private/v1/token_active_address_historical/last?&token=btc&format=json&key=API_KEY"
@@ -130,7 +159,6 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_active_address_hist
 ]
 ```
 
-This endpoint returns the active addresses on the Bitcoin blockchain for every day of its existence. An address is defined as 'active' if it has transacted during the given day.
 
 ### HTTP Request
 
@@ -144,9 +172,38 @@ This endpoint returns the active addresses on the Bitcoin blockchain for every d
 | format    | _string_ | What format you want your data in (`json` or `csv`) |
 | token     | _string_ | `btc`                                               |
 
+### Data Overview
+
+| Field | Type     | Description                                            |
+| --------- | -------- | ------------------------------------------------------ |
+| date       | _string_ | The date in _YYYY-MM-DD_ |
+| active_senders | _integer_ | The total number of distinct addresses that sent BTC in transactions with a timestamp on this date |
+| active_senders | _integer_ | The total number of distinct addresses that received BTC in transactions with a timestamp on this date |
+
+
+---
+
 ## BTC Supply
 
 <img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/>
+
+This endpoint returns the historical supply of BTC on the Bitcoin blockchain for each day
+of its existence. This is the sum of BTC paid out in coinbase rewards.
+
+Since there is no
+requirement for a miner who successfully mines a block to pay themselves any or all of the
+block reward, we cannot simply multiply the number of blocks by the current reward level for
+those block(s). There have been instances where no coinbase reward was claimed at all, meaning
+those bitcoins are lost from the total supply forever.
+
+The supply generated by each mined block is the sum of the outputs (which includes the value of 
+any coinbase reward up to the maximum permissible claimed by the miner), minus the sum of the 
+inputs sent in that block.
+
+This metric includes bitcoins that have been locked by so-called 'burn' addresses (addresses 
+for which there is likely no known private key hence those bitcoins are also lost forever).
+An example of this is the lowest possible bitcoin address of `1111111111111111111114oLvT2`.
+
 
 ```shell
 curl "https://api.tokenanalyst.io/analytics/private/v1/token_supply_historical/last?&token=btc&format=json&key=API_KEY"
@@ -167,7 +224,6 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_supply_historical/l
 ]
 ```
 
-This endpoint returns the historical supply of BTC on the Bitcoin blockchain for every day of its existence.
 
 ### HTTP Request
 
@@ -180,6 +236,18 @@ This endpoint returns the historical supply of BTC on the Bitcoin blockchain for
 | key       | _string_ | Your unique API key                                 |
 | format    | _string_ | What format you want your data in (`json` or `csv`) |
 | token     | _string_ | `btc`                                               |
+
+
+### Data Overview
+
+| Field | Type     | Description                                            |
+| --------- | -------- | ------------------------------------------------------ |
+| date       | _string_ | The date in _YYYY-MM-DD_ |
+| supply | _float_ | The cumulative sum of bitcoins generated by mined blocks up to this date |
+
+
+---
+
 
 ## BTC NVT
 
