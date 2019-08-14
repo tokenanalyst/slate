@@ -52,6 +52,15 @@ This endpoint returns the full historical on-chain volume of any of the stableco
 | format    | _string_ | What format you want your data in (`json` or `csv`) |
 | token     | _string_ | The token you want the volume for                   |
 
+### Data Overview
+
+| Field | Type     | Description                                            |
+| --------- | -------- | ------------------------------------------------------ |
+| date       | _string_ | The date in _YYYY-MM-DD_ |
+| volume    | _decimal_ | The total sum of Stablecoins sent by addresses in transactions with a timestamp that occurs on this date. |
+| price_usd     | _decimal_ | The daily average price of the Stablecoins (the daily mean of minute-level price data) |
+| volume_usd    | _decimal_ |  _volume_ * _price_usd_  |
+
 ## Stablecoin On-chain Transaction Count
 
 <img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/>
@@ -93,6 +102,13 @@ This endpoint returns the number of token transfers on the Ethereum blockchain f
 | format    | _string_ | What format you want your data in (`json` or `csv`) |
 | token     | _string_ | The stablecoin you want the transaction count for   |
 
+### Data Overview
+
+| Field | Type     | Description                                            |
+| --------- | -------- | ------------------------------------------------------ |
+| date       | _string_ | The date in _YYYY-MM-DD_ |
+| number_of_txns | _integer_ | The number of stablecoin transactions included in blocks with a timestamp that occurs on this date |
+
 ## Stablecoin Active addresses
 
 <img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/>
@@ -108,12 +124,12 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_active_address_hist
   {
     "date": "2016-11-11",
     "active_senders": 23,
-    "active_receipients": 31
+    "active_recipients": 31
   },
   {
     "date": "2016-11-12",
     "active_senders": 332,
-    "active_receipients": 23
+    "active_recipients": 23
   }
 ]
 ```
@@ -131,3 +147,11 @@ This endpoint returns the active addresses of stabelecoin tokens for every day o
 | key       | _string_ | Your unique API key                                 |
 | format    | _string_ | What format you want your data in (`json` or `csv`) |
 | token     | _string_ | The stablecoin you want the transaction count for 
+
+### Data Overview
+
+| Field | Type     | Description                                            |
+| --------- | -------- | ------------------------------------------------------ |
+| date       | _string_ | The date in _YYYY-MM-DD_ |
+| active_senders | _integer_ | The total number of distinct addresses that sent Stablecoins in transactions with a timestamp on this date (includes smart contracts) |
+| active_recipients | _integer_ | The total number of distinct addresses that received Stablecoins in transactions with a timestamp on this date (includes smart contracts) |

@@ -178,7 +178,7 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_active_address_hist
 | --------- | -------- | ------------------------------------------------------ |
 | date       | _string_ | The date in _YYYY-MM-DD_ |
 | active_senders | _integer_ | The total number of distinct addresses that sent BTC in transactions with a timestamp on this date |
-| active_senders | _integer_ | The total number of distinct addresses that received BTC in transactions with a timestamp on this date |
+| active_recipients | _integer_ | The total number of distinct addresses that received BTC in transactions with a timestamp on this date |
 
 
 ---
