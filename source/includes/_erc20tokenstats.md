@@ -66,6 +66,16 @@ This endpoint returns the full historical on-chain volume of any of the major ER
 | format    | _string_ | What format you want your data in (`json` or `csv`) |
 | token     | _string_ | The token you want the volume for                   |
 
+
+### Data Overview
+
+| Field | Type     | Description                                            |
+| --------- | -------- | ------------------------------------------------------ |
+| date       | _string_ | The date in _YYYY-MM-DD_ |
+| volume    | _decimal_ | The total sum of ERC20 token sent by addresses in transactions with a timestamp that occurs on this date. |
+| price_usd     | _decimal_ | The daily average price of the ERC20 token (the daily mean of minute-level price data) |
+| volume_usd    | _decimal_ |  _volume_ * _price_usd_  |
+
 ## ERC20 On-chain Transaction Count
 
 <img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/>
@@ -79,17 +89,14 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_count_historical/la
 ```json
 [
   {
-    "tokenaddress": "0x0F5D2fB29fb7d3CFeE444a200298f468908cC942",
     "date": "2017-09-06",
     "number_of_txns": 4
   },
   {
-    "tokenaddress": "0x0F5D2fB29fb7d3CFeE444a200298f468908cC942",
     "date": "2017-09-15",
     "number_of_txns": 5512
   },
   {
-    "tokenaddress": "0x0F5D2fB29fb7d3CFeE444a200298f468908cC942",
     "date": "2017-09-16",
     "number_of_txns": 4822
   }
@@ -111,6 +118,13 @@ This endpoint returns the number of token transfers on the blockchain for the gi
 | token     | _string_ | The token you want the transaction count for        |
 
 
+### Data Overview
+
+| Field | Type     | Description                                            |
+| --------- | -------- | ------------------------------------------------------ |
+| date       | _string_ | The date in _YYYY-MM-DD_ |
+| number_of_txns | _integer_ | The number of ERC20 transactions included in blocks with a timestamp that occurs on this date |
+
 
 ## ERC20 Active addresses
 
@@ -127,12 +141,12 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_active_address_hist
   {
     "date": "2016-11-11",
     "active_senders": 23,
-    "active_receipients": 31
+    "active_recipients": 31
   },
   {
     "date": "2016-11-12",
     "active_senders": 332,
-    "active_receipients": 23
+    "active_recipients": 23
   }
 ]
 ```
@@ -149,4 +163,12 @@ This endpoint returns the active addresses of ERC20 tokens for every day of thei
 | --------- | -------- | --------------------------------------------------- |
 | key       | _string_ | Your unique API key                                 |
 | format    | _string_ | What format you want your data in (`json` or `csv`) |
-| token     | _string_ | The token you want the transaction count for   
+| token     | _string_ | The token you want the transaction count for        |
+
+### Data Overview
+
+| Field | Type     | Description                                            |
+| --------- | -------- | ------------------------------------------------------ |
+| date       | _string_ | The date in _YYYY-MM-DD_ |
+| active_senders | _integer_ | The total number of distinct addresses that sent ERC20 tokens in transactions with a timestamp on this date (includes smart contracts) |
+| active_recipients | _integer_ | The total number of distinct addresses that received ERC20 tokens in transactions with a timestamp on this date (includes smart contracts) |
