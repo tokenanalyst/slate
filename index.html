@@ -692,7 +692,7 @@ as an <em>active_sender</em> with the same logic applied to distinct receiving a
 <td>The total number of distinct addresses that sent BTC in transactions with a timestamp on this date</td>
 </tr>
 <tr>
-<td>active_senders</td>
+<td>active_recipients</td>
 <td><em>integer</em></td>
 <td>The total number of distinct addresses that received BTC in transactions with a timestamp on this date</td>
 </tr>
@@ -1614,6 +1614,35 @@ An example of this is the lowest possible bitcoin address of <code>1111111111111
 <td>The token you want the volume for</td>
 </tr>
 </tbody></table>
+<h3 id='data-overview'>Data Overview</h3>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>date</td>
+<td><em>string</em></td>
+<td>The date in <em>YYYY-MM-DD</em></td>
+</tr>
+<tr>
+<td>volume</td>
+<td><em>decimal</em></td>
+<td>The total sum of ERC20 token sent by addresses in transactions with a timestamp that occurs on this date.</td>
+</tr>
+<tr>
+<td>price_usd</td>
+<td><em>decimal</em></td>
+<td>The daily average price of the ERC20 token (the daily mean of minute-level price data)</td>
+</tr>
+<tr>
+<td>volume_usd</td>
+<td><em>decimal</em></td>
+<td><em>volume</em> * <em>price_usd</em></td>
+</tr>
+</tbody></table>
 <h2 id='erc20-on-chain-transaction-count'>ERC20 On-chain Transaction Count</h2>
 <p><img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/></p>
 <pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_count_historical/last?format=json&amp;token=mana&amp;key=API_KEY"</span>
@@ -1623,17 +1652,14 @@ An example of this is the lowest possible bitcoin address of <code>1111111111111
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"tokenaddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0x0F5D2fB29fb7d3CFeE444a200298f468908cC942"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-09-06"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"number_of_txns"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"tokenaddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0x0F5D2fB29fb7d3CFeE444a200298f468908cC942"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-09-15"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"number_of_txns"</span><span class="p">:</span><span class="w"> </span><span class="mi">5512</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"tokenaddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0x0F5D2fB29fb7d3CFeE444a200298f468908cC942"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-09-16"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"number_of_txns"</span><span class="p">:</span><span class="w"> </span><span class="mi">4822</span><span class="w">
   </span><span class="p">}</span><span class="w">
@@ -1666,6 +1692,25 @@ An example of this is the lowest possible bitcoin address of <code>1111111111111
 <td>The token you want the transaction count for</td>
 </tr>
 </tbody></table>
+<h3 id='data-overview-2'>Data Overview</h3>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>date</td>
+<td><em>string</em></td>
+<td>The date in <em>YYYY-MM-DD</em></td>
+</tr>
+<tr>
+<td>number_of_txns</td>
+<td><em>integer</em></td>
+<td>The number of ERC20 transactions included in blocks with a timestamp that occurs on this date</td>
+</tr>
+</tbody></table>
 <h2 id='erc20-active-addresses'>ERC20 Active addresses</h2>
 <p><img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/></p>
 <pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_active_address_historical/last?&amp;token=gnt&amp;format=json&amp;key=API_KEY"</span>
@@ -1677,12 +1722,12 @@ An example of this is the lowest possible bitcoin address of <code>1111111111111
   </span><span class="p">{</span><span class="w">
     </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-11-11"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"active_senders"</span><span class="p">:</span><span class="w"> </span><span class="mi">23</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"active_receipients"</span><span class="p">:</span><span class="w"> </span><span class="mi">31</span><span class="w">
+    </span><span class="s2">"active_recipients"</span><span class="p">:</span><span class="w"> </span><span class="mi">31</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-11-12"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"active_senders"</span><span class="p">:</span><span class="w"> </span><span class="mi">332</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"active_receipients"</span><span class="p">:</span><span class="w"> </span><span class="mi">23</span><span class="w">
+    </span><span class="s2">"active_recipients"</span><span class="p">:</span><span class="w"> </span><span class="mi">23</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
@@ -1711,6 +1756,30 @@ An example of this is the lowest possible bitcoin address of <code>1111111111111
 <td>token</td>
 <td><em>string</em></td>
 <td>The token you want the transaction count for</td>
+</tr>
+</tbody></table>
+<h3 id='data-overview-3'>Data Overview</h3>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>date</td>
+<td><em>string</em></td>
+<td>The date in <em>YYYY-MM-DD</em></td>
+</tr>
+<tr>
+<td>active_senders</td>
+<td><em>integer</em></td>
+<td>The total number of distinct addresses that sent ERC20 tokens in transactions with a timestamp on this date (includes smart contracts)</td>
+</tr>
+<tr>
+<td>active_recipients</td>
+<td><em>integer</em></td>
+<td>The total number of distinct addresses that received ERC20 tokens in transactions with a timestamp on this date (includes smart contracts)</td>
 </tr>
 </tbody></table>
 <h1 id='stablecoin-stats'>Stablecoin Stats</h1>
@@ -1796,6 +1865,35 @@ An example of this is the lowest possible bitcoin address of <code>1111111111111
 <td>The token you want the volume for</td>
 </tr>
 </tbody></table>
+<h3 id='data-overview'>Data Overview</h3>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>date</td>
+<td><em>string</em></td>
+<td>The date in <em>YYYY-MM-DD</em></td>
+</tr>
+<tr>
+<td>volume</td>
+<td><em>decimal</em></td>
+<td>The total sum of Stablecoins sent by addresses in transactions with a timestamp that occurs on this date.</td>
+</tr>
+<tr>
+<td>price_usd</td>
+<td><em>decimal</em></td>
+<td>The daily average price of the Stablecoins (the daily mean of minute-level price data)</td>
+</tr>
+<tr>
+<td>volume_usd</td>
+<td><em>decimal</em></td>
+<td><em>volume</em> * <em>price_usd</em></td>
+</tr>
+</tbody></table>
 <h2 id='stablecoin-on-chain-transaction-count'>Stablecoin On-chain Transaction Count</h2>
 <p><img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/></p>
 <pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_count_historical/last?format=json&amp;token=dai&amp;key=API_KEY"</span>
@@ -1845,6 +1943,25 @@ An example of this is the lowest possible bitcoin address of <code>1111111111111
 <td>The stablecoin you want the transaction count for</td>
 </tr>
 </tbody></table>
+<h3 id='data-overview-2'>Data Overview</h3>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>date</td>
+<td><em>string</em></td>
+<td>The date in <em>YYYY-MM-DD</em></td>
+</tr>
+<tr>
+<td>number_of_txns</td>
+<td><em>integer</em></td>
+<td>The number of stablecoin transactions included in blocks with a timestamp that occurs on this date</td>
+</tr>
+</tbody></table>
 <h2 id='stablecoin-active-addresses'>Stablecoin Active addresses</h2>
 <p><img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/></p>
 <pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_active_address_historical/last?&amp;token=usdc&amp;format=json&amp;key=API_KEY"</span>
@@ -1856,12 +1973,12 @@ An example of this is the lowest possible bitcoin address of <code>1111111111111
   </span><span class="p">{</span><span class="w">
     </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-11-11"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"active_senders"</span><span class="p">:</span><span class="w"> </span><span class="mi">23</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"active_receipients"</span><span class="p">:</span><span class="w"> </span><span class="mi">31</span><span class="w">
+    </span><span class="s2">"active_recipients"</span><span class="p">:</span><span class="w"> </span><span class="mi">31</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-11-12"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"active_senders"</span><span class="p">:</span><span class="w"> </span><span class="mi">332</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"active_receipients"</span><span class="p">:</span><span class="w"> </span><span class="mi">23</span><span class="w">
+    </span><span class="s2">"active_recipients"</span><span class="p">:</span><span class="w"> </span><span class="mi">23</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
@@ -1890,6 +2007,30 @@ An example of this is the lowest possible bitcoin address of <code>1111111111111
 <td>token</td>
 <td><em>string</em></td>
 <td>The stablecoin you want the transaction count for</td>
+</tr>
+</tbody></table>
+<h3 id='data-overview-3'>Data Overview</h3>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>date</td>
+<td><em>string</em></td>
+<td>The date in <em>YYYY-MM-DD</em></td>
+</tr>
+<tr>
+<td>active_senders</td>
+<td><em>integer</em></td>
+<td>The total number of distinct addresses that sent Stablecoins in transactions with a timestamp on this date (includes smart contracts)</td>
+</tr>
+<tr>
+<td>active_recipients</td>
+<td><em>integer</em></td>
+<td>The total number of distinct addresses that received Stablecoins in transactions with a timestamp on this date (includes smart contracts)</td>
 </tr>
 </tbody></table>
 <h1 id='binance-token-stats-beta'>Binance Token Stats (BETA)</h1>
