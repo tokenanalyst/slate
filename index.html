@@ -446,6 +446,12 @@ You must replace <code>API_KEY</code> with your personal API key.
 </aside>
 <h1 id='bitcoin-fundamentals'>Bitcoin Fundamentals</h1><h2 id='btc-on-chain-volume'>BTC On-chain Volume</h2>
 <p><img src="https://img.shields.io/badge/Tier-Free-green.svg"/></p>
+
+<p>This endpoint returns the full historical on-chain volume of Bitcoin since it&#39;s genesis in 2009. The volume is separated into &#39;real&#39; volume and &#39;change&#39; volume.</p>
+
+<p>Our current heuristic for &#39;change&#39; related volume is for whenever BTC in a transaction
+is sent back to the same address that sent the BTC. The &#39;real&#39; volume is simply the 
+remainder left over after subtracting the change.</p>
 <pre class="highlight shell tab-shell"><code><span class="c"># Make sure you substitute API_KEY for your unique API key.</span>
 
 curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_volume_historical/last?format=json&amp;key=API_KEY&amp;token=btc"</span>
@@ -467,17 +473,13 @@ curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_vo
     </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2009-04-18"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"volume_gross"</span><span class="p">:</span><span class="w"> </span><span class="mf">182.51</span><span class="p">,</span><span class="w">
     </span><span class="s2">"volume_change"</span><span class="p">:</span><span class="w"> </span><span class="mf">17.49</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"volume_real"</span><span class="p">:</span><span class="w"> </span><span class="mf">165.01999999999998</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"volume_real"</span><span class="p">:</span><span class="w"> </span><span class="mf">165.02</span><span class="p">,</span><span class="w">
     </span><span class="s2">"price_usd"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
     </span><span class="s2">"volume_real_usd"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
     </span><span class="s2">"volume_change_usd"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
-</span></code></pre>
-<p>This endpoint returns the full historical on-chain volume of Bitcoin since it&#39;s genesis in 2009. The volume is separated into &#39;real&#39; volume and &#39;change&#39; volume.</p>
-
-<p>Our current heuristic for &#39;change&#39; related volume is for whenever BTC in a transaction is sent back to the same address that sent the BTC. The &#39;real&#39; volume is simply the remainder left over after subtracting the change.</p>
-<h3 id='http-request'>HTTP Request</h3>
+</span></code></pre><h3 id='http-request'>HTTP Request</h3>
 <p><code>GET https://api.tokenanalyst.io/analytics/private/v1/token_volume_historical/last</code></p>
 <h3 id='query-parameters'>Query Parameters</h3>
 <table><thead>
@@ -503,8 +505,57 @@ curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_vo
 <td>The token you want the volume for (in this case <code>btc</code>)</td>
 </tr>
 </tbody></table>
+<h3 id='data-overview'>Data Overview</h3>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>date</td>
+<td><em>string</em></td>
+<td>The date in <em>YYYY-MM-DD</em></td>
+</tr>
+<tr>
+<td>volume_gross</td>
+<td><em>decimal</em></td>
+<td>The total sum of BTC sent by (unlocked by) addresses in transactions with a timestamp that occurs on this date. Does not include coinbase rewards.</td>
+</tr>
+<tr>
+<td>volume_change</td>
+<td><em>decimal</em></td>
+<td>The total sum of BTC sent to (locked by) addresses that were also on the sending side of the same transaction</td>
+</tr>
+<tr>
+<td>volume_real</td>
+<td><em>decimal</em></td>
+<td><em>volume_gross</em> - <em>volume_change</em></td>
+</tr>
+<tr>
+<td>price_usd</td>
+<td><em>decimal</em></td>
+<td>The daily average price of BTC (the daily mean of minute-level price data)</td>
+</tr>
+<tr>
+<td>volume_real_usd</td>
+<td><em>decimal</em></td>
+<td><em>volume_real</em> * <em>price_usd</em></td>
+</tr>
+<tr>
+<td>volume_change_usd</td>
+<td><em>decimal</em></td>
+<td><em>volume_change</em> * <em>price_usd</em></td>
+</tr>
+</tbody></table>
+
+<hr>
 <h2 id='btc-on-chain-transaction-count'>BTC On-chain Transaction Count</h2>
 <p><img src="https://img.shields.io/badge/Tier-Free-green.svg"/></p>
+
+<p>This endpoint returns the daily number of transactions on the full historical Bitcoin blockchain 
+for every day since it&#39;s genesis in 2009.</p>
 <pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_count_historical/last?format=json&amp;key=API_KEY&amp;token=btc"</span>
 </code></pre>
 <blockquote>
@@ -524,9 +575,7 @@ curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_vo
     </span><span class="s2">"number_of_txns"</span><span class="p">:</span><span class="w"> </span><span class="mi">110</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
-</span></code></pre>
-<p>This endpoint returns the number of transactions on the full historical Bitcoin blockchain for every day since it&#39;s genesis in 2009.</p>
-<h3 id='http-request-2'>HTTP Request</h3>
+</span></code></pre><h3 id='http-request-2'>HTTP Request</h3>
 <p><code>GET https://api.tokenanalyst.io/analytics/private/v1/token_count_historical/last</code></p>
 <h3 id='query-parameters-2'>Query Parameters</h3>
 <table><thead>
@@ -552,8 +601,35 @@ curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_vo
 <td>The token you want the volume for (in this case <code>btc</code>)</td>
 </tr>
 </tbody></table>
+<h3 id='data-overview-2'>Data Overview</h3>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>date</td>
+<td><em>string</em></td>
+<td>The date in <em>YYYY-MM-DD</em></td>
+</tr>
+<tr>
+<td>number_of_txns</td>
+<td><em>integer</em></td>
+<td>The number of transactions included in blocks with a timestamp that occurs on this date (includes coinbase transactions)</td>
+</tr>
+</tbody></table>
+
+<hr>
 <h2 id='btc-active-addresses'>BTC Active addresses</h2>
 <p><img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/></p>
+
+<p>This endpoint returns the daily number of active addresses on the Bitcoin blockchain for each day 
+of its existence. An address is defined as &#39;active&#39; if it has sent or received bitcoin 
+in a transaction with a timestamp on that day. Only the distinct number of addresses are
+counted, i.e. an address which sends thousands of transactions per day is only counted once
+as an <em>active_sender</em> with the same logic applied to distinct receiving addresses. </p>
 <pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_active_address_historical/last?&amp;token=btc&amp;format=json&amp;key=API_KEY"</span>
 </code></pre>
 <blockquote>
@@ -571,9 +647,7 @@ curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_vo
     </span><span class="s2">"active_recipients"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
-</span></code></pre>
-<p>This endpoint returns the active addresses on the Bitcoin blockchain for every day of its existence. An address is defined as &#39;active&#39; if it has transacted during the given day.</p>
-<h3 id='http-request-3'>HTTP Request</h3>
+</span></code></pre><h3 id='http-request-3'>HTTP Request</h3>
 <p><code>GET https://api.tokenanalyst.io/analytics/private/v1/token_active_address_historical/last</code></p>
 <h3 id='query-parameters-3'>Query Parameters</h3>
 <table><thead>
@@ -599,8 +673,51 @@ curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_vo
 <td><code>btc</code></td>
 </tr>
 </tbody></table>
+<h3 id='data-overview-3'>Data Overview</h3>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>date</td>
+<td><em>string</em></td>
+<td>The date in <em>YYYY-MM-DD</em></td>
+</tr>
+<tr>
+<td>active_senders</td>
+<td><em>integer</em></td>
+<td>The total number of distinct addresses that sent BTC in transactions with a timestamp on this date</td>
+</tr>
+<tr>
+<td>active_senders</td>
+<td><em>integer</em></td>
+<td>The total number of distinct addresses that received BTC in transactions with a timestamp on this date</td>
+</tr>
+</tbody></table>
+
+<hr>
 <h2 id='btc-supply'>BTC Supply</h2>
 <p><img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/></p>
+
+<p>This endpoint returns the historical supply of BTC on the Bitcoin blockchain for each day
+of its existence. This is the sum of BTC paid out in coinbase rewards.</p>
+
+<p>Since there is no
+requirement for a miner who successfully mines a block to pay themselves any or all of the
+block reward, we cannot simply multiply the number of blocks by the current reward level for
+those block(s). There have been instances where no coinbase reward was claimed at all, meaning
+those bitcoins are lost from the total supply forever.</p>
+
+<p>The supply generated by each mined block is the sum of the outputs (which includes the value of 
+any coinbase reward up to the maximum permissible claimed by the miner), minus the sum of the 
+inputs sent in that block.</p>
+
+<p>This metric includes bitcoins that have been locked by so-called &#39;burn&#39; addresses (addresses 
+for which there is likely no known private key hence those bitcoins are also lost forever).
+An example of this is the lowest possible bitcoin address of <code>1111111111111111111114oLvT2</code>.</p>
 <pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_supply_historical/last?&amp;token=btc&amp;format=json&amp;key=API_KEY"</span>
 </code></pre>
 <blockquote>
@@ -616,9 +733,7 @@ curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_vo
     </span><span class="s2">"supply"</span><span class="p">:</span><span class="w"> </span><span class="mi">750</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
-</span></code></pre>
-<p>This endpoint returns the historical supply of BTC on the Bitcoin blockchain for every day of its existence.</p>
-<h3 id='http-request-4'>HTTP Request</h3>
+</span></code></pre><h3 id='http-request-4'>HTTP Request</h3>
 <p><code>GET https://api.tokenanalyst.io/analytics/private/v1/token_supply_historical/last</code></p>
 <h3 id='query-parameters-4'>Query Parameters</h3>
 <table><thead>
@@ -644,6 +759,27 @@ curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_vo
 <td><code>btc</code></td>
 </tr>
 </tbody></table>
+<h3 id='data-overview-4'>Data Overview</h3>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>date</td>
+<td><em>string</em></td>
+<td>The date in <em>YYYY-MM-DD</em></td>
+</tr>
+<tr>
+<td>supply</td>
+<td><em>float</em></td>
+<td>The cumulative sum of bitcoins generated by mined blocks up to this date</td>
+</tr>
+</tbody></table>
+
+<hr>
 <h2 id='btc-nvt'>BTC NVT</h2>
 <p><img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/></p>
 <pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_nvt_historical/last?&amp;token=btc&amp;format=json&amp;key=API_KEY"</span>
