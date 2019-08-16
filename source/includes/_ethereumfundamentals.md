@@ -5,7 +5,7 @@
 <img src="https://img.shields.io/badge/Tier-Free-green.svg"/>
 
 ```shell
-curl "https://api.tokenanalyst.io/analytics/private/v1/token_volume_historical/last?format=json&key=API_KEY&token=eth"
+curl "https://api.tokenanalyst.io/analytics/private/v1/token_volume_historical/last?format=json&token=eth&key=API_KEY"
 ```
 
 > The above command returns JSON structured like this:
@@ -15,18 +15,22 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_volume_historical/l
   {
     "date": "2015-08-07",
     "volume_internal": 39.7,
-    "volume_external": 2008602.5114319662,
+    "volume_external": 2008602.511431967,
+    "volume_gross": 2008642.2114319669,
     "price_usd": 1.25,
-    "volume_internal_usd": 49.625,
-    "volume_external_usd": 2510753.139289958
+    "volume_internal_usd": 49.63,
+    "volume_external_usd": 2510753.14,
+    "volume_gross_usd": 2510802.76
   },
   {
     "date": "2015-08-08",
-    "volume_internal": 3568.434161233944,
-    "volume_external": 1681503.1468948543,
-    "price_usd": 1.7404166,
-    "volume_internal_usd": 6210.56221437989,
-    "volume_external_usd": 2926516.067163448
+    "volume_internal": 3568.4341612339426,
+    "volume_external": 1681503.1468948552,
+    "volume_gross": 1685071.5810560891,
+    "price_usd": 1.74,
+    "volume_internal_usd": 6210.56,
+    "volume_external_usd": 2926516.07,
+    "volume_gross_usd": 2932726.63
   }
 ]
 ```
@@ -47,12 +51,25 @@ This endpoint returns the full historical on-chain volume of Ethereum since it w
 | format    | _string_ | What format you want your data in (`json` or `csv`)    |
 | token     | _string_ | The token you want the volume for (in this case `eth`) |
 
+### Data Overview
+
+| Field               | Type      | Description                                                                                                                                                                      |
+| ------------------- | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| date                | _string_  | The date in _YYYY-MM-DD_                                                                                                                                                         |
+| volume_internal     | _decimal_ | The total sum of ETH transferred on this date via value transfers initiated by smart contracts (see <a href="https://www.tokenanalyst.io/faq" target="_blank">here</a> for more) |
+| volume_external     | _decimal_ | The total sum of eth transferred in transactions with a timestamp that occurs during this date.                                                                                  |
+| volume_gross        | _decimal_ | _volume_internal_ + _volume_external_                                                                                                                                            |
+| price_usd           | _decimal_ | The daily average price of ETH in USD (the daily mean of minute-level price data)                                                                                                       |
+| volume_internal_usd | _decimal_ | _volume_internal_ \* _price_usd_                                                                                                                                                 |
+| volume_external_usd | _decimal_ | _volume_external_ \* _price_usd_                                                                                                                                                 |
+| volume_gross_usd    | _decimal_ | _volume_gross_ \* _price_usd_                                                                                                                                                    |
+
 ## ETH On-chain Transaction Count
 
 <img src="https://img.shields.io/badge/Tier-Free-green.svg"/>
 
 ```shell
-curl "https://api.tokenanalyst.io/analytics/private/v1/token_count_historical/last?format=json&key=API_KEY&token=eth"
+curl "https://api.tokenanalyst.io/analytics/private/v1/token_count_historical/last?format=json&token=eth&key=API_KEY"
 ```
 
 > The above command returns JSON structured like this:
@@ -87,6 +104,13 @@ This endpoint returns the number of transactions on the full historical Ethereum
 | key       | _string_ | Your unique API key                                    |
 | format    | _string_ | What format you want your data in (`json` or `csv`)    |
 | token     | _string_ | The token you want the volume for (in this case `eth`) |
+
+### Data Overview
+
+| Field          | Type      | Description                                                                                 |
+| -------------- | --------- | ------------------------------------------------------------------------------------------- |
+| date           | _string_  | The date in _YYYY-MM-DD_                                                                    |
+| number_of_txns | _integer_ | The number of transactions included in blocks with a timestamp that occurs during this date |
 
 ## ETH Active addresses
 
@@ -127,6 +151,14 @@ This endpoint returns the active addresses on the Ethereum blockchain for every 
 | format    | _string_ | What format you want your data in (`json` or `csv`) |
 | token     | _string_ | `eth`                                               |
 
+### Data Overview
+
+| Field             | Type      | Description                                                                                            |
+| ----------------- | --------- | ------------------------------------------------------------------------------------------------------ |
+| date              | _string_  | The date in _YYYY-MM-DD_                                                                               |
+| active_senders    | _integer_ | The total number of distinct addresses that sent ETH in transactions with a timestamp on this date     |
+| active_recipients | _integer_ | The total number of distinct addresses that received ETH in transactions with a timestamp on this date |
+
 ## ETH Supply
 
 <img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/>
@@ -164,6 +196,13 @@ This endpoint returns the historical supply of ETH on the Ethereum blockchain fo
 | format    | _string_ | What format you want your data in (`json` or `csv`) |
 | token     | _string_ | `eth`                                               |
 
+### Data Overview
+
+| Field  | Type      | Description                                                                             |
+| ------ | --------- | --------------------------------------------------------------------------------------- |
+| date   | _string_  | The date in _YYYY-MM-DD_                                                                |
+| supply | _decimal_ | The cumulative sum of ether (ETH) generated by mining and uncle rewards up to this date |
+
 ## ETH NVT
 
 <img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/>
@@ -179,12 +218,12 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_nvt_historical/last
   {
     "date": "2015-09-02",
     "marketcap_usd": 98056055.37,
-    "nvt": 262.70
+    "nvt": 262.7
   },
   {
     "date": "2015-09-03",
     "marketcap_usd": 91877253.74,
-    "nvt": 130.90
+    "nvt": 130.9
   }
 ]
 ```
@@ -202,6 +241,14 @@ This endpoint returns the NVT Ratio (Network Value to Transactions Ratio) for ET
 | key       | _string_ | Your unique API key                                 |
 | format    | _string_ | What format you want your data in (`json` or `csv`) |
 | token     | _string_ | `eth`                                               |
+
+### Data Overview
+
+| Field         | Type      | Description                                                                                                         |
+| ------------- | --------- | ------------------------------------------------------------------------------------------------------------------- |
+| date          | _string_  | The date in _YYYY-MM-DD_                                                                                            |
+| marketcap_usd | _decimal_ | The total USD market capitalization of ETH on this date. (_price_usd_ \* _supply_)                                  |
+| nvt           | _decimal_ | Ratio comprising the total ETH Market Cap divided by the on-chain volume. (_marketcap_usd_ / _volume_external_usd_) |
 
 ## ETH Fees
 
@@ -252,6 +299,18 @@ This endpoint returns the total and average fees spent on the Ethereum network f
 | format    | _string_ | What format you want your data in (`json` or `csv`) |
 | token     | _string_ | `eth`                                               |
 
+### Data Overview
+
+| Field             | Type     | Description                                                                                                                                                                                               |
+| ----------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| date              | _string_ | The date in _YYYY-MM-DD_                                                                                                                                                                                  |
+| price             | _string_ | The daily average price of ETH in USD (the daily mean of minute-level price data)                                                                                                                                |
+| avg_gas           | _string_ | The average amount of gas used by transactions that occurred on this date. See <a href="https://www.investopedia.com/terms/g/gas-ethereum.asp" target="_blank">here</a> for a detailed definition of gas. |
+| avg_gas_price_wei | _string_ | The average price (in wei) paid per unit of gas for transactions that occurred on this date                                                                                                               |
+| total_fee         | _string_ | The sum of fees paid in transactions that occurred on this date. Denominated in ETH. Fees for a transaction are calculated as such: (gas used * gas price)*10^-18                                         |
+| total_fee_usd     | _string_ | _total_fee_ \* _price_                                                                                                                                                                                    |
+| avg_fee           | _string_ | The average fee paid per transaction that occurred on this date. Denominated in ETH.                                                                                                                      |
+| avg_fee_usd       | _string_ | _avg_fee_ \* _price_                                                                                                                                                                                      |
 
 ## ETH Miner Hashrate
 
@@ -266,29 +325,31 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_miner_hashrate_hist
 ```json
 [
   {
-    "date": "2019-07-13",
-    "miner_name": "F2Pool 2",
-    "total_daily_hashrate": 84.1223,
-    "miner_daily_hashrate": 9.6557,
-    "miner_daily_hashrate_pct": 9.6557,
-    "miner_daily_block_count": 379,
-    "miner_daily_uncle_count": 19,
-    "miner_daily_uncle_pct": 4,
-    "total_daily_block_count": 3301,
-    "total_daily_uncle_count": 228,
+    "date": "2016-04-07",
+    "miner": "0x5bD7a5f263fD5B00Fc8047D581fDBa92E34783b8",
+    "miner_name": "Unknown",
+    "total_daily_hashrate": 1.6977,
+    "miner_daily_hashrate": 0.0006,
+    "miner_daily_hashrate_pct": 0.0333,
+    "miner_daily_block_count": 2,
+    "miner_daily_uncle_count": 0,
+    "miner_daily_uncle_pct": 0,
+    "total_daily_block_count": 5953,
+    "total_daily_uncle_count": 403,
     "total_daily_uncle_pct": 6
   },
   {
-    "date": "2019-07-13",
-    "miner_name": "F2Pool 2",
-    "total_daily_hashrate": 84.1223,
-    "miner_daily_hashrate": 9.6557,
-    "miner_daily_hashrate_pct": 9.6557,
-    "miner_daily_block_count": 379,
-    "miner_daily_uncle_count": 19,
-    "miner_daily_uncle_pct": 4,
-    "total_daily_block_count": 3301,
-    "total_daily_uncle_count": 228,
+    "date": "2016-04-07",
+    "miner": "0x61C808D82A3Ac53231750daDc13c777b59310bD9",
+    "miner_name": "F2Pool 1",
+    "total_daily_hashrate": 1.6977,
+    "miner_daily_hashrate": 0.1032,
+    "miner_daily_hashrate_pct": 6.0811,
+    "miner_daily_block_count": 362,
+    "miner_daily_uncle_count": 22,
+    "miner_daily_uncle_pct": 5,
+    "total_daily_block_count": 5953,
+    "total_daily_uncle_count": 403,
     "total_daily_uncle_pct": 6
   }
 ]
@@ -308,7 +369,22 @@ This endpoint returns the total and miner specifc hashrate and uncle rates. The 
 | format    | _string_ | What format you want your data in (`json` or `csv`) |
 | token     | _string_ | `eth`                                               |
 
+### Data Overview
 
+| Field                    | Type      | Description                                                                    |
+| ------------------------ | --------- | ------------------------------------------------------------------------------ |
+| date                     | _string_  | The date in _YYYY-MM-DD_                                                       |
+| miner               | _string_  | Public key hash (address) of the miner                   |
+| miner_name               | _string_  | Human readable name of the miner in our database, if known.                    |
+| total_daily_hashrate     | _decimal_ | The hashrate of the blockchain for the day. Denominated in Th/s.               |
+| miner_daily_hashrate     | _decimal_  | The hashrate contribution of the given miner for the day. Denominated in Th/s. |
+| miner_daily_hashrate_pct | _decimal_  | The percentage of the daily hashrate contributed by the miner. (_miner_daily_hashrate_/_total_daily_hashrate_)*100                                                                          |
+| miner_daily_block_count  | _integer_  | The total number of blocks mined by the miner on this date                            |
+| miner_daily_uncle_count  | _integer_  | The total number of uncles mined by the miner on this date                                                                          |
+| miner_daily_uncle_pct    | _decimal_  | (_miner_daily_uncle_count_/_miner_daily_block_count_)*100                            |
+| total_daily_block_count  | _integer_  | The total number of blocks mined on the blockchain on this date.                                                                          |
+| total_daily_uncle_count  | _integer_  | The total number of uncles mined on the blockchain on this date.                            |
+| total_daily_uncle_pct    | _decimal_  | (_total_daily_uncle_count_/_total_daily_block_count_)*100                                                                          |
 
 ## ETH Miner Rewards
 
@@ -343,7 +419,7 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_miner_rewards_histo
 ]
 ```
 
-This endpoint returns the daily block rewards and uncle rewards by miner. The `miner_daily_block_reward` and `miner_daily_uncle_reward` are denomiated ETH. 
+This endpoint returns the daily block rewards and uncle rewards by miner. The `miner_daily_block_reward` and `miner_daily_uncle_reward` are denomiated ETH.
 
 ### HTTP Request
 
@@ -357,3 +433,14 @@ This endpoint returns the daily block rewards and uncle rewards by miner. The `m
 | format    | _string_ | What format you want your data in (`json` or `csv`) |
 | token     | _string_ | `eth`                                               |
 
+### Data Overview
+
+| Field | Type     | Description                                         |
+| --------- | -------- | --------------------------------------------------- |
+| date       | _string_ | The date in _YYYY-MM-DD_                                 |
+| miner_name    | _string_ | Human readable name of the miner in our database, if known. |
+| miner_daily_block_reward     | _decimal_ | The total amount of block rewards earned by this miner on this date. Denominated in ETH.                                               |
+| price_usd     | _decimal_ | The daily average price of ETH in USD (the daily mean of minute-level price data)                                               |
+| miner_daily_block_reward_usd     | _decimal_ | _miner_daily_block_reward_ * _price_usd_                                              |
+| miner_daily_uncle_reward     | _decimal_ | The total amount of uncle rewards earned by this miner on this date. Denominated in ETH.                                                                         |
+| miner_daily_uncle_reward_usd     | _decimal_ | _miner_daily_uncle_reward_ * _price_usd_                                               |

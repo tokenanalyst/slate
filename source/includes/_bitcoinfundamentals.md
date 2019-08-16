@@ -4,11 +4,10 @@
 
 <img src="https://img.shields.io/badge/Tier-Free-green.svg"/>
 
-
 This endpoint returns the full historical on-chain volume of Bitcoin since it's genesis in 2009. The volume is separated into 'real' volume and 'change' volume.
 
 Our current heuristic for 'change' related volume is for whenever BTC in a transaction
-is sent back to the same address that sent the BTC. The 'real' volume is simply the 
+is sent back to the same address that sent the BTC. The 'real' volume is simply the
 remainder left over after subtracting the change.
 
 ```shell
@@ -22,22 +21,22 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_volume_historical/l
 ```json
 [
   {
-    "date": "2009-04-13",
-    "volume_gross": 50.0,
-    "volume_change": 40.0,
-    "volume_real": 10.0,
-    "price_usd": "",
-    "volume_real_usd": "",
-    "volume_change_usd": ""
+    "date": "2014-02-04",
+    "price_usd": 841.73,
+    "volume_change": 60604.1,
+    "volume_change_usd": 51012300,
+    "volume_gross": 788252,
+    "volume_real": 727648,
+    "volume_real_usd": 612483000
   },
   {
-    "date": "2009-04-18",
-    "volume_gross": 182.51,
-    "volume_change": 17.49,
-    "volume_real": 165.02,
-    "price_usd": "",
-    "volume_real_usd": "",
-    "volume_change_usd": ""
+    "date": "2014-02-05",
+    "price_usd": 893.72,
+    "volume_change": 152871,
+    "volume_change_usd": 136624000,
+    "volume_gross": 771870,
+    "volume_real": 618999,
+    "volume_real_usd": 553212000
   }
 ]
 ```
@@ -54,19 +53,17 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_volume_historical/l
 | format    | _string_ | What format you want your data in (`json` or `csv`)    |
 | token     | _string_ | The token you want the volume for (in this case `btc`) |
 
-
 ### Data Overview
 
-| Field | Type     | Description                                            |
-| --------- | -------- | ------------------------------------------------------ |
-| date       | _string_ | The date in _YYYY-MM-DD_ |
-| volume_gross    | _decimal_ | The total sum of BTC sent by (unlocked by) addresses in transactions with a timestamp that occurs on this date. Does not include coinbase rewards. |
-| volume_change     | _decimal_ | The total sum of BTC sent to (locked by) addresses that were also on the sending side of the same transaction |
-| volume_real    | _decimal_ | _volume_gross_ - _volume_change_ |
-| price_usd     | _decimal_ | The daily average price of BTC (the daily mean of minute-level price data) |
-| volume_real_usd    | _decimal_ |  _volume_real_ * _price_usd_  |
-| volume_change_usd     | _decimal_ | _volume_change_ * _price_usd_ |
-
+| Field             | Type      | Description                                                                                                                                        |
+| ----------------- | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
+| date              | _string_  | The date in _YYYY-MM-DD_                                                                                                                           |
+| price_usd         | _decimal_ | The daily average price of BTC (the daily mean of minute-level price data)                                                                         |
+| volume_change     | _decimal_ | The total sum of BTC sent to (locked by) addresses that were also on the sending side of the same transaction                                      |
+| volume_change_usd | _decimal_ | _volume_change_ \* _price_usd_                                                                                                                     |
+| volume_gross      | _decimal_ | The total sum of BTC sent by (unlocked by) addresses in transactions with a timestamp that occurs on this date. Does not include coinbase rewards. |
+| volume_real       | _decimal_ | _volume_gross_ - _volume_change_                                                                                                                   |
+| volume_real_usd   | _decimal_ | _volume_real_ \* _price_usd_                                                                                                                       |
 
 ---
 
@@ -74,8 +71,7 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_volume_historical/l
 
 <img src="https://img.shields.io/badge/Tier-Free-green.svg"/>
 
-
-This endpoint returns the daily number of transactions on the full historical Bitcoin blockchain 
+This endpoint returns the daily number of transactions on the full historical Bitcoin blockchain
 for every day since it's genesis in 2009.
 
 ```shell
@@ -113,30 +109,24 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_count_historical/la
 | format    | _string_ | What format you want your data in (`json` or `csv`)    |
 | token     | _string_ | The token you want the volume for (in this case `btc`) |
 
-
 ### Data Overview
 
-| Field | Type     | Description                                            |
-| --------- | -------- | ------------------------------------------------------ |
-| date       | _string_ | The date in _YYYY-MM-DD_ |
-| number_of_txns | _integer_ | The number of transactions included in blocks with a timestamp that occurs on this date (includes coinbase transactions) |
-
+| Field          | Type      | Description                                                                                                              |
+| -------------- | --------- | ------------------------------------------------------------------------------------------------------------------------ |
+| date           | _string_  | The date in _YYYY-MM-DD_                                                                                                 |
+| number_of_txns | _integer_ | The number of transactions included in blocks with a timestamp that occurs during this date (includes coinbase transactions) |
 
 ---
-
 
 ## BTC Active addresses
 
 <img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/>
 
-This endpoint returns the daily number of active addresses on the Bitcoin blockchain for each day 
-of its existence. An address is defined as 'active' if it has sent or received bitcoin 
+This endpoint returns the daily number of active addresses on the Bitcoin blockchain for each day
+of its existence. An address is defined as 'active' if it has sent or received bitcoin
 in a transaction with a timestamp on that day. Only the distinct number of addresses are
 counted, i.e. an address which sends thousands of transactions per day is only counted once
-as an _active_sender_ with the same logic applied to distinct receiving addresses. 
-
-
-
+as an _active_sender_ with the same logic applied to distinct receiving addresses.
 
 ```shell
 curl "https://api.tokenanalyst.io/analytics/private/v1/token_active_address_historical/last?&token=btc&format=json&key=API_KEY"
@@ -159,7 +149,6 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_active_address_hist
 ]
 ```
 
-
 ### HTTP Request
 
 `GET https://api.tokenanalyst.io/analytics/private/v1/token_active_address_historical/last`
@@ -174,12 +163,11 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_active_address_hist
 
 ### Data Overview
 
-| Field | Type     | Description                                            |
-| --------- | -------- | ------------------------------------------------------ |
-| date       | _string_ | The date in _YYYY-MM-DD_ |
-| active_senders | _integer_ | The total number of distinct addresses that sent BTC in transactions with a timestamp on this date |
+| Field             | Type      | Description                                                                                            |
+| ----------------- | --------- | ------------------------------------------------------------------------------------------------------ |
+| date              | _string_  | The date in _YYYY-MM-DD_                                                                               |
+| active_senders    | _integer_ | The total number of distinct addresses that sent BTC in transactions with a timestamp on this date     |
 | active_recipients | _integer_ | The total number of distinct addresses that received BTC in transactions with a timestamp on this date |
-
 
 ---
 
@@ -196,14 +184,13 @@ block reward, we cannot simply multiply the number of blocks by the current rewa
 those block(s). There have been instances where no coinbase reward was claimed at all, meaning
 those bitcoins are lost from the total supply forever.
 
-The supply generated by each mined block is the sum of the outputs (which includes the value of 
-any coinbase reward up to the maximum permissible claimed by the miner), minus the sum of the 
+The supply generated by each mined block is the sum of the outputs (which includes the value of
+any coinbase reward up to the maximum permissible claimed by the miner), minus the sum of the
 inputs sent in that block.
 
-This metric includes bitcoins that have been locked by so-called 'burn' addresses (addresses 
+This metric includes bitcoins that have been locked by so-called 'burn' addresses (addresses
 for which there is likely no known private key hence those bitcoins are also lost forever).
 An example of this is the lowest possible bitcoin address of `1111111111111111111114oLvT2`.
-
 
 ```shell
 curl "https://api.tokenanalyst.io/analytics/private/v1/token_supply_historical/last?&token=btc&format=json&key=API_KEY"
@@ -224,7 +211,6 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_supply_historical/l
 ]
 ```
 
-
 ### HTTP Request
 
 `GET https://api.tokenanalyst.io/analytics/private/v1/token_supply_historical/last`
@@ -237,17 +223,14 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_supply_historical/l
 | format    | _string_ | What format you want your data in (`json` or `csv`) |
 | token     | _string_ | `btc`                                               |
 
-
 ### Data Overview
 
-| Field | Type     | Description                                            |
-| --------- | -------- | ------------------------------------------------------ |
-| date       | _string_ | The date in _YYYY-MM-DD_ |
-| supply | _float_ | The cumulative sum of bitcoins generated by mined blocks up to this date |
-
+| Field  | Type     | Description                                                              |
+| ------ | -------- | ------------------------------------------------------------------------ |
+| date   | _string_ | The date in _YYYY-MM-DD_                                                 |
+| supply | _float_  | The cumulative sum of bitcoins generated by mined blocks up to this date |
 
 ---
-
 
 ## BTC NVT
 
@@ -337,7 +320,6 @@ This endpoint returns the total and average fees spent on the Bitcoin network fo
 | format    | _string_ | What format you want your data in (`json` or `csv`) |
 | token     | _string_ | `btc`                                               |
 
-
 ## BTC UTXO Age
 
 <img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/>
@@ -397,7 +379,6 @@ This endpoint returns the proportion of the current bitcoin supply held in unspe
 | format    | _string_ | What format you want your data in (`json` or `csv`) |
 | token     | _string_ | `btc`                                               |
 
-
 ## BTC Miner Hashrate
 
 <img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/>
@@ -431,7 +412,7 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_miner_hashrate_hist
 ]
 ```
 
-This endpoint returns the daily and miner specifc hashrates. The `total_daily_hashrate` and the `miner_daily_hashrate` are denominated in TH/s. The `total_daily_block_count` is the total number of blocks mined on a given day, and the `miner_daily_block_count` are the number of blocks mined by a specific miner. We do not know the identify of all miners and a lot of them are labelled as unkown and grouped together 
+This endpoint returns the daily and miner specifc hashrates. The `total_daily_hashrate` and the `miner_daily_hashrate` are denominated in TH/s. The `total_daily_block_count` is the total number of blocks mined on a given day, and the `miner_daily_block_count` are the number of blocks mined by a specific miner. We do not know the identify of all miners and a lot of them are labelled as unkown and grouped together
 
 ### HTTP Request
 
@@ -444,7 +425,6 @@ This endpoint returns the daily and miner specifc hashrates. The `total_daily_ha
 | key       | _string_ | Your unique API key                                 |
 | format    | _string_ | What format you want your data in (`json` or `csv`) |
 | token     | _string_ | `btc`                                               |
-
 
 ## BTC Miner Rewards
 
@@ -475,7 +455,7 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_miner_rewards_histo
 ]
 ```
 
-This endpoint returns the daily coinbase rewards by miner (incl. txn fees). The `miner_daily_block_reward` is denomiated BTC. 
+This endpoint returns the daily coinbase rewards by miner (incl. txn fees). The `miner_daily_block_reward` is denomiated BTC.
 
 ### HTTP Request
 
