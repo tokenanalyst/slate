@@ -55,6 +55,15 @@ This endpoint returns the full historical on-chain volume of all BEP2 tokens. No
 | format    | _string_ | What format you want your data in (`json` or `csv`) |
 | token     | _string_ | The token you want the volume for                   |
 
+### Data Overview
+
+| Field                        | Type     | Description                                         |
+| ---------------------------- | -------- | --------------------------------------------------- |
+| date                         | _string_ | The date in _YYYY-MM-DD_                                 |
+| volume                   | _decimal_ | The total sum of the BEP2 token sent by addresses in transactions with a timestamp that occurs on this date. |
+| price_usd     | _decimal_ | The daily average price of specified BEP2 token in USD (the daily mean of minute-level price data)                                                |
+| volume_usd                    | _decimal_ | _volume_ * _price_usd_                                             |                                               |
+
 ## BEP2 On-chain Transaction Count
 
 <img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/>
@@ -96,6 +105,12 @@ This endpoint returns the full historical on-chain transaction count of all BEP2
 | format    | _string_ | What format you want your data in (`json` or `csv`) |
 | token     | _string_ | The token you want the transaction count for        |
 
+### Data Overview
+
+| Field | Type     | Description                                            |
+| --------- | -------- | ------------------------------------------------------ |
+| date       | _string_ | The date in _YYYY-MM-DD_ |
+| number_of_txns | _integer_ | The number of BEP2 token transactions for the specified token included in blocks with a timestamp that occurs on this date |
 
 
 ## BEP2 Active addresses
@@ -135,4 +150,10 @@ This endpoint returns the active addresses of BEP2 tokens for every day of their
 | --------- | -------- | --------------------------------------------------- |
 | key       | _string_ | Your unique API key                                 |
 | format    | _string_ | What format you want your data in (`json` or `csv`) |
-| token     | _string_ | The token you want the transaction count for   
+| token     | _string_ | The token you want the transaction count for   |
+
+| Field | Type     | Description                                            |
+| --------- | -------- | ------------------------------------------------------ |
+| date       | _string_ | The date in _YYYY-MM-DD_ |
+| active_senders | _integer_ | The total number of distinct addresses that sent the specified BEP2 token in transactions with a timestamp on this date |
+| active_recipients | _integer_ | The total number of distinct addresses that received the specified BEP2 token in transactions with a timestamp on this date |

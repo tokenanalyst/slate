@@ -9,7 +9,7 @@ For Bitcoin currently supported exchanges are: `binance`, `bittrex`, `bitstamp`,
 This endpoint returns the inflow of BTC into exchange wallets for as far back as we track. The average inflow is the average transaction value for transactions flowing into exchange wallets on a given day.
 
 ```shell
-curl "https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_historical/last?format=json&key=API_KEY&token=btc&exchange=binance&direction=inflow"
+curl "https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_historical/last?format=json&token=btc&exchange=binance&direction=inflow&key=API_KEY"
 ```
 
 > The response looks like:
@@ -54,6 +54,23 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_historical/
 | token     | _string_ | `btc`                                                |
 | direction | _string_ | Either `inflow` or `outflow` (in this case `inflow`) |
 | exchange  | _string_ | An exchange from the list of ones we support         |
+
+### Data Overview
+
+| Field | Type     | Description                                          |
+| --------- | -------- | ---------------------------------------------------- |
+| avg_txn_value       | _decimal_ | The average amount BTC transferred per transaction into the given exchange on this date.                                 |
+| avg_txn_value_usd    | _decimal_ | The USD value of the average amount of BTC transferred per transaction into the given exchange on this date.    |
+| date     | _string_ | The date in _YYYY-MM-DD_                                                  |
+| entity | _string_ | The name of the exchange in question |
+| inflow  | _decimal_ | The total amount of BTC that flowed into the entity on this date. Denominated in BTC.         |
+| inflow_usd  | _decimal_ | The USD value of the total amount of BTC that flowed into the exchange on this date         |
+| number_of_entity_receiving_addresses  | _integer_ | The distinct number of wallets identified as belonging to the exchange in question that were on the receiving side of a transaction (where no wallets identified as belonging to the exchange were senders) on this date.          |
+| number_of_nonentity_sending_addresses  | _integer_ | The distinct number of wallets (that don't belong to the exchange in question) that sent Bitcoin to wallets identified as belonging to this exchange on this date.         |
+| number_of_txns       | _integer_ | The number of transactions sending BTC into this exchange on this date.                                 |
+
+
+
 
 ## BTC Full Historical Outflows from Exchanges
 
@@ -110,6 +127,22 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_historical/
 | direction | _string_ | Either `inflow` or `outflow` (in this case `outflow`) |
 | exchange  | _string_ | An exchange from the list of ones we support          |
 
+### Data Overview
+
+| Field | Type     | Description                                          |
+| --------- | -------- | ---------------------------------------------------- |
+| avg_txn_value       | _decimal_ | The average amount BTC transferred per transaction out of the given exchange on this date.                                 |
+| avg_txn_value_usd    | _decimal_ | The USD value of the average amount of BTC transferred per transaction out of the given exchange on this date.    |
+| date     | _string_ | The date in _YYYY-MM-DD_                                                  |
+| entity | _string_ | The name of the exchange in question |
+| number_of_entity_sending_addresses  | _integer_ | The distinct number of wallets identified as belonging to the exchange in question that were on the sending side of a transaction (where no wallets identified as belonging to the exchange were receivers) on this date.          |
+| number_of_nonentity_receiving_addresses  | _integer_ | The distinct number of wallets (that don't to the exchange in question) that received Bitcoin from wallets identified as belonging to this exchange on this date.         |
+| number_of_txns  | _decimal_ | The number of transactions sending BTC out of this exchange on this date.         |
+| outflow  | _decimal_ | The total amount of BTC that flowed out of the entity on this date. Denominated in BTC.         |
+| outflow_usd  | _decimal_ | The USD value of the total amount of BTC that flowed out of the exchange on this date         |
+
+
+
 ## BTC Full Historical Top 10 Inflow Large Value Transactions
 
 <img src="https://img.shields.io/badge/Tier-Professional-black.svg"/>
@@ -149,6 +182,20 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_top10_histo
 | token     | _string_ | `btc`                                               |
 | direction | _string_ | `inflow`                                            |
 | exchange  | _string_ | An exchange from the list of ones we support        |
+
+
+### Data Overview
+
+| Field | Type     | Description                                         |
+| --------- | -------- | --------------------------------------------------- |
+| date       | _string_ | The date in _YYYY-MM-DD_                                 |
+| entity    | _string_ | The name of the exchange in question |
+| rank     | _integer_ | Ranking out of 10 for the 10 largest transactions of BTC flowing into the exchange in question on this date.                                             |
+| transactionhash | _string_ | The transaction hash of the transaction in question.                                            |
+| transactionid  | _string_ | The transaction id of the transaction in question.       |
+| value  | _decimal_ | The amount of BTC transferred in this transaction.        |
+| value_usd  | _decimal_ | The value in USD of the amount of BTC tranferred in this transaction.        |
+
 
 ## BTC Full Historical Top 10 Outflow Large Value Transactions
 
@@ -198,3 +245,15 @@ This endpoint returns the top 10 transactions (in terms of total BTC sent) flowi
 | token     | _string_ | `btc`                                               |
 | direction | _string_ | `outflow`                                           |
 | exchange  | _string_ | An exchange from the list of ones we support        |
+
+### Data Overview
+
+| Field | Type     | Description                                         |
+| --------- | -------- | --------------------------------------------------- |
+| date       | _string_ | The date in _YYYY-MM-DD_                                 |
+| entity    | _string_ | The name of the exchange in question |
+| rank     | _integer_ | Ranking out of 10 for the 10 largest transactions of BTC flowing out of the exchange in question on this date.                                             |
+| transactionhash | _string_ | The transaction hash of the transaction in question.                                            |
+| transactionid  | _string_ | The transaction id of the transaction in question.       |
+| value  | _decimal_ | The amount of BTC transferred in this transaction.        |
+| value_usd  | _decimal_ | The value in USD of the amount of BTC tranferred in this transaction.        |

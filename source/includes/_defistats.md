@@ -44,6 +44,14 @@ This endpoint returns the number of loans that have been originated in various d
 | format    | _string_ | What format you want your data in (`json` or `csv`) |
 | project   | _string_ | An project from the list of ones we cover (Above)   |
 
+### Data Overview
+
+| Field | Type     | Description                                            |
+| --------- | -------- | ------------------------------------------------------ |
+| date       | _string_ | The date in _YYYY-MM-DD_  _HH:MM:SS.MS_ |
+| loans_originated | _integer_ | The number of loans originated on the specified de-fi project on this date. |
+
+
 
 ## Loan Origination Stats By Token
 
@@ -89,3 +97,14 @@ This endpoint returns the number of transactions, volume, and volume_usd by date
 | key       | _string_ | Your unique API key                                 |
 | format    | _string_ | What format you want your data in (`json` or `csv`) |
 | project   | _string_ | An project from the list of ones we cover (Above)   |
+
+### Data Overview
+
+| Field | Type     | Description                                            |
+| --------- | -------- | ------------------------------------------------------ |
+| date       | _string_ | The date in _YYYY-MM-DD_ |
+| token | _string_ | The symbol of the token that is being used for the loan that is being generated |
+| txns | _string_ | The number of transactions (of the specified token) related to loan generations on Compound. |
+| volume | _string_ | The total amount of the specified token given out in loans generated on Compound on this date. Denominated in the specified token. |
+| volume_usd | _string_ | _volume_ * _price_  |
+| price | _string_ | The daily average price of the specified token in USD (the daily mean of minute-level price data) |
