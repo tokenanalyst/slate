@@ -2,59 +2,7 @@
 
 For Ethereum currently supported exchanges are: `binance`, `kraken`, `bitfinex`, `poloniex`, `bittrex`, `kucoin`
 
-## V1 ETH Full Historical Inflow to Exchanges (will be deprecated Aug 16th, 2019, use v2)
-
-<img src="https://img.shields.io/badge/Tier-Professional-black.svg"/>
-
-> This is an example:
-
-```shell
-curl "https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_historical/last?token=eth&exchange=binance&direction=inflow&format=json&key=API_KEY"
-```
-
-> The response looks like:
-
-```json
-[
-  {
-    "date": "2016-03-17",
-    "inflow": 1.8164,
-    "price": 11.64,
-    "inflow_usd": 21.14,
-    "number_of_txns": 8,
-    "avg_txn_value": 0.22705,
-    "avg_txn_value_usd": 2.64
-  },
-  {
-    "date": "2016-03-18",
-    "inflow": 3.7594499999999997,
-    "price": 10.21,
-    "inflow_usd": 38.38,
-    "number_of_txns": 5,
-    "avg_txn_value": 0.75189,
-    "avg_txn_value_usd": 7.68
-  }
-]
-```
-
-This endpoint returns the inflow of ETH into exchange wallets. The `avg_txn_value` is the average inflow value for transactions flowing into exchange wallets on a given day.
-
-### HTTP Request
-
-`GET https://api.tokenanalyst.io/analytics/private/v1/last/exchange_flow_historical/last?`
-
-### URL Parameters
-
-| Parameter | Type     | Description                                         |
-| --------- | -------- | --------------------------------------------------- |
-| key       | _string_ | Your unique API key                                 |
-| format    | _string_ | What format you want your data in (`json` or `csv`) |
-| token     | _string_ | `eth`                                               |
-| direction | _string_ | `inflow`                                            |
-| exchange  | _string_ | An exchange from the list of ones we support        |
-
-
-## V2 ETH Full Historical Flows to Exchanges (with 1 hour granularity)
+## ETH Full Historical Flows Into Exchanges
 
 <img src="https://img.shields.io/badge/Tier-Professional-black.svg"/>
 
@@ -108,60 +56,21 @@ This endpoint returns the inflow of ETH into exchange wallets. The `avg_txn_valu
 | exchange  | _string_ | An exchange from the list of ones we support        |
 | window    | _string_ | `1h` or `1d`       |
 
+### Data Overview
 
-## V1 ETH Full Historical Outflows from Exchanges (will be deprecated Aug 16th, 2019, use v2)
-
-<img src="https://img.shields.io/badge/Tier-Professional-black.svg"/>
-
-> This is an example:
-
-```shell
-curl "https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_historical/last?token=eth&exchange=binance&direction=outflow&format=json&key=API_KEY"
-```
-
-> The response looks like:
-
-```json
-[
-  {
-    "date": "2019-01-12",
-    "outflow": 72528.5501725,
-    "price": 126.79,
-    "outflow_usd": 9195562.38,
-    "number_of_txns": 2620,
-    "avg_txn_value": 27.62652737595422,
-    "avg_txn_value_usd": 3509.76
-  },
-  {
-    "date": "2019-01-13",
-    "outflow": 81527.64908884998,
-    "price": 122.27,
-    "outflow_usd": 9968045.76,
-    "number_of_txns": 3000,
-    "avg_txn_value": 27.17588302961666,
-    "avg_txn_value_usd": 3322.68
-  }
-]
-```
-
-This endpoint returns the outflow of ETH from exchange wallets. The 'avg_txn_value' is the average outflow value for transactions flowing out of exchange wallets on a given day.
-
-### HTTP Request
-
-`GET https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_historical/last?`
-
-### URL Parameters
-
-| Parameter | Type     | Description                                         |
-| --------- | -------- | --------------------------------------------------- |
-| key       | _string_ | Your unique API key                                 |
-| format    | _string_ | What format you want your data in (`json` or `csv`) |
-| token     | _string_ | `eth`                                               |
-| direction | _string_ | `outflow`                                           |
-| exchange  | _string_ | An exchange from the list of ones we support        |
+| Field | Type     | Description                                          |
+| --------- | -------- | ---------------------------------------------------- |
+| date     | _string_ | The date in _YYYY-MM-DD_                                                  |
+| hour     | _string_ | The hour of the day in _HH:MM:SS_  (UTC time zone). This is an optional field based on the params used.                                               |
+| inflow  | _decimal_ | The total amount of ETH that flowed into the exchange on this date. Denominated in ETH.         |
+| price_usd | _decimal_ | The daily average price of ETH in USD (the daily mean of minute-level price data) |
+| inflow_usd  | _decimal_ | The USD value of the total amount of ETH that flowed into the exchange on this date         |
+| number_of_txns       | _integer_ | The number of transactions sending ETH into this exchange on this date.                                 |
+| avg_txn_value       | _decimal_ | The average amount ETH transferred per transaction into the given exchange on this date.                                 |
+| avg_txn_value_usd    | _decimal_ | The USD value of the average amount of ETH transferred per transaction into the given exchange on this date.    |
 
 
-## V2 ETH Full Historical Flows From Exchanges (with 1 hour granularity)
+## ETH Full Historical Flows Out Of Exchanges
 
 <img src="https://img.shields.io/badge/Tier-Professional-black.svg"/>
 
@@ -214,6 +123,18 @@ This endpoint returns the outflow of ETH from exchange wallets. The `avg_txn_val
 | exchange  | _string_ | An exchange from the list of ones we support        |
 | window    | _string_ | `1h` or `1d`       |
 
+### Data Overview
+
+| Field | Type     | Description                                          |
+| --------- | -------- | ---------------------------------------------------- |
+| date     | _string_ | The date in _YYYY-MM-DD_                                                  |
+| hour     | _string_ | The hour of the day in _HH:MM:SS_  (UTC time zone). This is an optional field based on the params used.                                               |
+| outflow  | _decimal_ | The total amount of ETH that flowed out of the exchange on this date. Denominated in ETH.         |
+| price_usd | _decimal_ | The daily average price of ETH in USD (the daily mean of minute-level price data) |
+| outflow_usd  | _decimal_ | The USD value of the total amount of ETH that flowed out of the exchange on this date         |
+| number_of_txns       | _integer_ | The number of transactions sending ETH out of this exchange on this date.                                 |
+| avg_txn_value       | _decimal_ | The average amount ETH transferred per transaction out of the given exchange on this date.                                 |
+| avg_txn_value_usd    | _decimal_ | The USD value of the average amount of ETH transferred per transaction out of the given exchange on this date.    |
 
 ## ETH Full Historical Top 10 Inflow Large Value Transactions
 
@@ -262,6 +183,16 @@ This endpoint returns the top 10 transactions (in terms of total ETH sent) flowi
 | direction | _string_ | `inflow`                                            |
 | exchange  | _string_ | An exchange from the list of ones we support        |
 
+### Data Overview
+
+| Field | Type     | Description                                         |
+| --------- | -------- | --------------------------------------------------- |
+| transactionhash | _string_ | The transaction hash of the transaction in question.                                            |
+| value  | _decimal_ | The amount of ETH transferred in this transaction.        |
+| date       | _string_ | The date in _YYYY-MM-DD_                                 |
+| rank     | _integer_ | Ranking out of 10 for the 10 largest ETH transactions flowing into the exchange in question on this date.                                             |
+| value_usd  | _decimal_ | The value in USD of the amount of ETH tranferred in this transaction.        |
+
 ## ETH Full Historical Top 10 Outflow Large Value Transactions
 
 <img src="https://img.shields.io/badge/Tier-Professional-black.svg"/>
@@ -306,3 +237,13 @@ This endpoint returns the top 10 transactions (in terms of total ETH sent) flowi
 | token     | _string_ | `eth`                                               |
 | direction | _string_ | `outflow`                                           |
 | exchange  | _string_ | An exchange from the list of ones we support        |
+
+### Data Overview
+
+| Field | Type     | Description                                         |
+| --------- | -------- | --------------------------------------------------- |
+| transactionhash | _string_ | The transaction hash of the transaction in question.                                            |
+| value  | _decimal_ | The amount of ETH transferred in this transaction.        |
+| date       | _string_ | The date in _YYYY-MM-DD_                                 |
+| rank     | _integer_ | Ranking out of 10 for the 10 largest ETH transactions flowing out of the exchange in question on this date.                                             |
+| value_usd  | _decimal_ | The value in USD of the amount of ETH tranferred in this transaction.        |
