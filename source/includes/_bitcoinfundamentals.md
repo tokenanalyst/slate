@@ -58,7 +58,7 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_volume_historical/l
 | Field             | Type      | Description                                                                                                                                        |
 | ----------------- | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
 | date              | _string_  | The date in _YYYY-MM-DD_                                                                                                                           |
-| price_usd         | _decimal_ | The daily average price of BTC (the daily mean of minute-level price data)                                                                         |
+| price_usd         | _decimal_ | The daily average price of BTC in USD (the daily mean of minute-level price data)                                                                  |
 | volume_change     | _decimal_ | The total sum of BTC sent to (locked by) addresses that were also on the sending side of the same transaction                                      |
 | volume_change_usd | _decimal_ | _volume_change_ \* _price_usd_                                                                                                                     |
 | volume_gross      | _decimal_ | The total sum of BTC sent by (unlocked by) addresses in transactions with a timestamp that occurs on this date. Does not include coinbase rewards. |
@@ -111,9 +111,9 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_count_historical/la
 
 ### Data Overview
 
-| Field          | Type      | Description                                                                                                              |
-| -------------- | --------- | ------------------------------------------------------------------------------------------------------------------------ |
-| date           | _string_  | The date in _YYYY-MM-DD_                                                                                                 |
+| Field          | Type      | Description                                                                                                                  |
+| -------------- | --------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| date           | _string_  | The date in _YYYY-MM-DD_                                                                                                     |
 | number_of_txns | _integer_ | The number of transactions included in blocks with a timestamp that occurs during this date (includes coinbase transactions) |
 
 ---
@@ -271,6 +271,14 @@ This endpoint returns the NVT Ratio (Network Value to Transactions Ratio) for BT
 | format    | _string_ | What format you want your data in (`json` or `csv`) |
 | token     | _string_ | `btc`                                               |
 
+### Data Overview
+
+| Field         | Type      | Description                                                                                                         |
+| ------------- | --------- | ------------------------------------------------------------------------------------------------------------------- |
+| date          | _string_  | The date in _YYYY-MM-DD_                                                                                            |
+| marketcap_usd | _decimal_ | The total USD market capitalization of BTC on this date. (_price_usd_ \* _supply_)                                  |
+| nvt           | _decimal_ | Ratio comprising the total BTC Market Cap divided by the on-chain volume. (_marketcap_usd_ / _volume_external_usd_) |
+
 ## BTC Fees
 
 <img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/>
@@ -284,24 +292,24 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_fees_historical/las
 ```json
 [
   {
-    "date": "2012-08-10",
-    "total_fee": 44.53058517,
-    "avg_size_bytes": 403,
-    "price": 9.1,
-    "total_fee_usd": 405.23,
-    "avg_satoshis_per_byte": 389,
-    "avg_fee": 156935.983,
-    "avg_fee_usd": 0.01
+    "date": "2019-08-13",
+    "total_fee": 75.09047834,
+    "avg_size_bytes": 503,
+    "price": 11148.93,
+    "total_fee_usd": 837178.32,
+    "avg_satoshis_per_byte": 40,
+    "avg_fee": 0.0002,
+    "avg_fee_usd": 2.26
   },
   {
-    "date": "2012-08-11",
-    "total_fee": 19.13775992,
-    "avg_size_bytes": 393,
-    "price": 9.1,
-    "total_fee_usd": 174.15,
-    "avg_satoshis_per_byte": 147,
-    "avg_fee": 57749.962,
-    "avg_fee_usd": 0.01
+    "date": "2019-08-14",
+    "total_fee": 58.70170397,
+    "avg_size_bytes": 481,
+    "price": 10453.67,
+    "total_fee_usd": 613648.29,
+    "avg_satoshis_per_byte": 34,
+    "avg_fee": 0.0002,
+    "avg_fee_usd": 1.7
   }
 ]
 ```
@@ -319,6 +327,19 @@ This endpoint returns the total and average fees spent on the Bitcoin network fo
 | key       | _string_ | Your unique API key                                 |
 | format    | _string_ | What format you want your data in (`json` or `csv`) |
 | token     | _string_ | `btc`                                               |
+
+### Data Overview
+
+| Field                 | Type      | Description                                                                                       |
+| --------------------- | --------- | ------------------------------------------------------------------------------------------------- |
+| date                  | _string_  | The date in _YYYY-MM-DD_                                                                          |
+| total_fee             | _decimal_ | The total amount of fees paid by all transactions that occurred on this date. Denominated in BTC. |
+| avg_size_bytes        | _integer_ | The average transaction size to the nearest byte for transactions that occurred on this date.     |
+| price                 | _decimal_ | The daily average price of BTC in USD (the daily mean of minute-level price data)                 |
+| total_fee_usd         | _decimal_ | _total_fee_ \* _price_                                                                            |
+| avg_satoshis_per_byte | _integer_ | The average number of satoshis paid per byte for transactions that occurred on this date          |
+| avg_fee               | _decimal_ | The average amount of fees paid per transaction that occurred on this date. Denominated in BTC.   |
+| avg_fee_usd           | _decimal_ | _avg_fee_ \* _price_                                                                              |
 
 ## BTC UTXO Age
 
@@ -379,6 +400,24 @@ This endpoint returns the proportion of the current bitcoin supply held in unspe
 | format    | _string_ | What format you want your data in (`json` or `csv`) |
 | token     | _string_ | `btc`                                               |
 
+### Data Overview
+
+| Field  | Type      | Description                                                                                                                                         |
+| ------ | --------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1-3m   | _decimal_ | Proportion of bitcoin supply on this date held in unspent outputs (UTXOs) from transactions that occurred 1 to 3 months prior to this date.         |
+| 12-18m | _decimal_ | Proportion of bitcoin supply on this date held in unspent outputs (UTXOs) from transactions that occurred 12 to 18 months prior to this date.       |
+| 18-24m | _decimal_ | Proportion of bitcoin supply on this date held in unspent outputs (UTXOs) from transactions that occurred 18 to 24 months prior to this date.       |
+| 1d-1w  | _decimal_ | Proportion of bitcoin supply on this date held in unspent outputs (UTXOs) from transactions that occurred 1 day to 1 week prior to this date.       |
+| 1w-1m  | _decimal_ | Proportion of bitcoin supply on this date held in unspent outputs (UTXOs) from transactions that occurred 1 week to 1 month prior to this date.     |
+| 2-3y   | _decimal_ | Proportion of bitcoin supply on this date held in unspent outputs (UTXOs) from transactions that occurred 2 to 3 years prior to this date.          |
+| 3-5y   | _decimal_ | Proportion of bitcoin supply on this date held in unspent outputs (UTXOs) from transactions that occurred 3 to 5 years prior to this date.          |
+| 3-6m   | _decimal_ | Proportion of bitcoin supply on this date held in unspent outputs (UTXOs) from transactions that occurred 3 to 6 months prior to this date.         |
+| 5-10y  | _decimal_ | Proportion of bitcoin supply on this date held in unspent outputs (UTXOs) from transactions that occurred 5 to 10 years prior to this date.         |
+| 6-12m  | _decimal_ | Proportion of bitcoin supply on this date held in unspent outputs (UTXOs) from transactions that occurred 6 to 12 months prior to this date.        |
+| <1d    | _decimal_ | Proportion of bitcoin supply on this date held in unspent outputs (UTXOs) from transactions that occurred less than a day prior to this date.       |
+| >10y   | _decimal_ | Proportion of bitcoin supply on this date held in unspent outputs (UTXOs) from transactions that occurred greater than 10 years prior to this date. |
+| date   | _string_  | The date in _YYYY-MM-DD_                                                                                                                            |
+
 ## BTC Miner Hashrate
 
 <img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/>
@@ -426,6 +465,18 @@ This endpoint returns the daily and miner specifc hashrates. The `total_daily_ha
 | format    | _string_ | What format you want your data in (`json` or `csv`) |
 | token     | _string_ | `btc`                                               |
 
+### Data Overview
+
+| Field                    | Type     | Description                                                                                                         |
+| ------------------------ | -------- | ------------------------------------------------------------------------------------------------------------------- |
+| date                     | _string_ | The date in _YYYY-MM-DD_                                                                                            |
+| miner_name               | _string_ | Human readable name of the miner in our database, if known.                                                         |
+| miner_daily_block_count  | _integer_ | The total number of blocks mined by the miner on this date                                                          |
+| total_daily_block_count  | _integer_ | The total number of blocks mined on the blockchain on this date.                                                    |
+| miner_daily_hashrate     | _decimal_ | The hashrate contribution of the given miner for the day. Denominated in Th/s.                                      |
+| total_daily_hashrate     | _decimal_ | The hashrate of the blockchain for the day. Denominated in Th/s.                                                    |
+| miner_daily_hashrate_pct | _decimal_ | The percentage of the daily hashrate contributed by the miner. (_miner_daily_hashrate_/_total_daily_hashrate_)\*100 |
+
 ## BTC Miner Rewards
 
 <img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/>
@@ -439,18 +490,18 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_miner_rewards_histo
 ```json
 [
   {
-    "date": "2019-07-23",
-    "miner_name": "SlushPool",
-    "miner_daily_block_reward": 51.29584509,
-    "price_usd": 10123.41,
-    "miner_daily_block_reward_usd": 519288.77897033526
+    "date": "2018-07-27",
+    "miner_name": "AntPool",
+    "price_usd": 8022.25,
+    "miner_daily_block_reward": 239.4406,
+    "miner_daily_block_reward_usd": 1920851.96
   },
   {
-    "date": "2019-07-23",
-    "miner_name": "AntPool",
-    "miner_daily_block_reward": 37.74736379,
-    "price_usd": 10123.41,
-    "miner_daily_block_reward_usd": 382131.9722380296
+    "date": "2018-07-27",
+    "miner_name": "BTC.TOP",
+    "price_usd": 8022.25,
+    "miner_daily_block_reward": 213.9951,
+    "miner_daily_block_reward_usd": 1716721.89
   }
 ]
 ```
@@ -468,3 +519,13 @@ This endpoint returns the daily coinbase rewards by miner (incl. txn fees). The 
 | key       | _string_ | Your unique API key                                 |
 | format    | _string_ | What format you want your data in (`json` or `csv`) |
 | token     | _string_ | `btc`                                               |
+
+### Data Overview
+
+| Field                        | Type     | Description                                         |
+| ---------------------------- | -------- | --------------------------------------------------- |
+| date                         | _string_ | The date in _YYYY-MM-DD_                                 |
+| miner_name                   | _string_ | Human readable name of the miner in our database, if known. |
+| price_usd     | _decimal_ | The daily average price of BTC in USD (the daily mean of minute-level price data)                                                |
+| miner_daily_block_reward                    | _decimal_ | The total amount of block rewards earned by this miner on this date. Denominated in BTC.                                               |                                               |
+| miner_daily_block_reward_usd | _decimal_ | _miner_daily_block_reward_ * _price_usd_                                               |
