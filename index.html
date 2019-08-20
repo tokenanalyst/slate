@@ -382,6 +382,12 @@
                     <a href="#tether-omni-full-historical-outflow-from-exchanges" class="toc-h2 toc-link" data-title="Tether (Omni) Full Historical Outflow from Exchanges">Tether (Omni) Full Historical Outflow from Exchanges</a>
                   </li>
                   <li>
+                    <a href="#tether-omni-full-historical-top-10-inflow-large-value-transactions" class="toc-h2 toc-link" data-title="Tether (Omni) Full Historical Top 10 Inflow Large Value Transactions">Tether (Omni) Full Historical Top 10 Inflow Large Value Transactions</a>
+                  </li>
+                  <li>
+                    <a href="#tether-omni-full-historical-top-10-outflow-large-value-transactions" class="toc-h2 toc-link" data-title="Tether (Omni) Full Historical Top 10 Outflow Large Value Transactions">Tether (Omni) Full Historical Top 10 Outflow Large Value Transactions</a>
+                  </li>
+                  <li>
                     <a href="#erc20-stablecoin-full-historical-inflow-from-exchanges" class="toc-h2 toc-link" data-title="ERC20 Stablecoin Full Historical Inflow from Exchanges">ERC20 Stablecoin Full Historical Inflow from Exchanges</a>
                   </li>
                   <li>
@@ -4155,6 +4161,200 @@ An example of this is the lowest possible bitcoin address of <code>1111111111111
 <td>The USD value of the average amount of tokens transferred per transaction into the given exchange on this date.</td>
 </tr>
 </tbody></table>
+<h2 id='tether-omni-full-historical-top-10-inflow-large-value-transactions'>Tether (Omni) Full Historical Top 10 Inflow Large Value Transactions</h2>
+<p><img src="https://img.shields.io/badge/Tier-Professional-black.svg"/></p>
+
+<blockquote>
+<p>This is an example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_top10_historical/last?token=usdt_omni&amp;exchange=binance&amp;direction=inflow&amp;format=json&amp;key=API_KEY"</span>
+</code></pre>
+<blockquote>
+<p>The response looks like:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-18"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"transactionid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5e5c74b0aab078c929952f9de0155d32152c0dc7c65c8cfdc53c2c0ed1a4d720"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="mi">34000</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"value_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">34001.93</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-18"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"transactionid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"84801e2b0fa58093fa74b997a3bfd936b598c91ff1d9f16cf55b8d294ff2c672"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="mi">33283</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"value_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">33284.88</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<p>This endpoint returns the top 10 transactions (in terms of total USDT sent) flowing into exchange wallets for every day that the exchange wallets we track have been live on the blockchain.</p>
+<h3 id='http-request-3'>HTTP Request</h3>
+<p><code>GET https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_top10_historical/last?</code></p>
+<h3 id='url-parameters'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>key</td>
+<td><em>string</em></td>
+<td>Your unique API key</td>
+</tr>
+<tr>
+<td>format</td>
+<td><em>string</em></td>
+<td>What format you want your data in (<code>json</code> or <code>csv</code>)</td>
+</tr>
+<tr>
+<td>token</td>
+<td><em>string</em></td>
+<td><code>usdt_omni</code></td>
+</tr>
+<tr>
+<td>direction</td>
+<td><em>string</em></td>
+<td><code>inflow</code></td>
+</tr>
+<tr>
+<td>exchange</td>
+<td><em>string</em></td>
+<td>An exchange from the list of ones we support</td>
+</tr>
+</tbody></table>
+<h3 id='data-overview-3'>Data Overview</h3>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>date</td>
+<td><em>string</em></td>
+<td>The date in <em>YYYY-MM-DD</em></td>
+</tr>
+<tr>
+<td>transactionid</td>
+<td><em>string</em></td>
+<td>The transaction id of the transaction in question.</td>
+</tr>
+<tr>
+<td>value</td>
+<td><em>decimal</em></td>
+<td>The amount of USDT transferred in this transaction.</td>
+</tr>
+<tr>
+<td>rank</td>
+<td><em>integer</em></td>
+<td>Ranking out of 10 for the 10 largest USDT (Omni) transactions flowing into the exchange in question on this date.</td>
+</tr>
+<tr>
+<td>value_usd</td>
+<td><em>decimal</em></td>
+<td>The value in USD of the amount of USDT tranferred in this transaction.</td>
+</tr>
+</tbody></table>
+<h2 id='tether-omni-full-historical-top-10-outflow-large-value-transactions'>Tether (Omni) Full Historical Top 10 Outflow Large Value Transactions</h2>
+<p><img src="https://img.shields.io/badge/Tier-Professional-black.svg"/></p>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_top10_historical/last?token=usdt_omni&amp;exchange=binance&amp;direction=outflow&amp;format=json&amp;key=API_KEY"</span>
+</code></pre>
+<blockquote>
+<p>The response looks like:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-14"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"transactionid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5354b702a372027cc23bb9c47749bdfab77c9d7739f8afafcf49178bc6659a2b"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="mi">129985</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"value_usd"</span><span class="p">:</span><span class="w"> </span><span class="mi">129985</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-14"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"transactionid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7a91a7b4eabe7b0d0e77139ea1ed7eaecd6d45d82f7b789aae41617cfcdcf026"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="mi">100090</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"value_usd"</span><span class="p">:</span><span class="w"> </span><span class="mi">100090</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<p>This endpoint returns the top 10 transactions (in terms of total USDT sent) flowing out of exchange wallets for every day that the exchange wallets we track have been live on the blockchain.</p>
+<h3 id='http-request-4'>HTTP Request</h3>
+<p><code>GET https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_top10_historical/last?</code></p>
+<h3 id='url-parameters-2'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>key</td>
+<td><em>string</em></td>
+<td>Your unique API key</td>
+</tr>
+<tr>
+<td>format</td>
+<td><em>string</em></td>
+<td>What format you want your data in (<code>json</code> or <code>csv</code>)</td>
+</tr>
+<tr>
+<td>token</td>
+<td><em>string</em></td>
+<td><code>usdt_omni</code></td>
+</tr>
+<tr>
+<td>direction</td>
+<td><em>string</em></td>
+<td><code>outflow</code></td>
+</tr>
+<tr>
+<td>exchange</td>
+<td><em>string</em></td>
+<td>An exchange from the list of ones we support</td>
+</tr>
+</tbody></table>
+<h3 id='data-overview-4'>Data Overview</h3>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>date</td>
+<td><em>string</em></td>
+<td>The date in <em>YYYY-MM-DD</em></td>
+</tr>
+<tr>
+<td>transactionid</td>
+<td><em>string</em></td>
+<td>The transaction id of the transaction in question.</td>
+</tr>
+<tr>
+<td>value</td>
+<td><em>decimal</em></td>
+<td>The amount of USDT transferred in this transaction.</td>
+</tr>
+<tr>
+<td>rank</td>
+<td><em>integer</em></td>
+<td>Ranking out of 10 for the 10 largest USDT (Omni) transactions flowing into the exchange in question on this date.</td>
+</tr>
+<tr>
+<td>value_usd</td>
+<td><em>decimal</em></td>
+<td>The value in USD of the amount of USDT tranferred in this transaction.</td>
+</tr>
+</tbody></table>
 <h2 id='erc20-stablecoin-full-historical-inflow-from-exchanges'>ERC20 Stablecoin Full Historical Inflow from Exchanges</h2>
 <p><img src="https://img.shields.io/badge/Tier-Professional-black.svg"/></p>
 <pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/erc20_exchanges_flow_window_historical/last?token=usdc&amp;direction=inflow&amp;window=1h&amp;format=json&amp;key=API_KEY"</span>
@@ -4189,8 +4389,8 @@ An example of this is the lowest possible bitcoin address of <code>1111111111111
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
-<p>This endpoint returns the inflow of stablecoins into exchange wallets. The <code>avg_txn_value</code>, <code>inflow</code>, and <code>number_of_txns</code> are calculated over the window (either 1 hour or 1 day). <code>hour</code> is in UTC</p>
-<h3 id='http-request-3'>HTTP Request</h3>
+<p>This endpoint returns the inflow of stablecoins into exchange wallets. The <code>avg_txn_value</code>, <code>inflow</code>, and <code>number_of_txns</code> are calculated over the window (either 1 hour or 1 day). <code>hour</code> is in UTC. As a reminder, the exchanges we support for this endpoint are: <code>binance</code>, <code>kraken</code>, <code>bitfinex</code>, <code>poloniex</code>, <code>bittrex</code>, <code>kucoin</code>.</p>
+<h3 id='http-request-5'>HTTP Request</h3>
 <p><code>GET https://api.tokenanalyst.io/analytics/private/v1/erc20_exchanges_flow_window_historical/last?</code></p>
 <h3 id='query-parameters-3'>Query Parameters</h3>
 <table><thead>
@@ -4226,7 +4426,7 @@ An example of this is the lowest possible bitcoin address of <code>1111111111111
 <td><code>1h</code> or <code>1d</code></td>
 </tr>
 </tbody></table>
-<h3 id='data-overview-3'>Data Overview</h3>
+<h3 id='data-overview-5'>Data Overview</h3>
 <table><thead>
 <tr>
 <th>Field</th>
@@ -4320,7 +4520,7 @@ An example of this is the lowest possible bitcoin address of <code>1111111111111
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
 <p>This endpoint returns the outflow of stablecoins from exchange wallets. The <code>avg_txn_value</code>, <code>outflow</code>, and <code>number_of_txns</code> are calculated over the window (either 1 hour or 1 day). <code>hour</code> is in UTC</p>
-<h3 id='http-request-4'>HTTP Request</h3>
+<h3 id='http-request-6'>HTTP Request</h3>
 <p><code>GET https://api.tokenanalyst.io/analytics/private/v1/erc20_exchanges_flow_window_historical/last?</code></p>
 <h3 id='query-parameters-4'>Query Parameters</h3>
 <table><thead>
@@ -4356,7 +4556,7 @@ An example of this is the lowest possible bitcoin address of <code>1111111111111
 <td><code>1h</code> or <code>1d</code></td>
 </tr>
 </tbody></table>
-<h3 id='data-overview-4'>Data Overview</h3>
+<h3 id='data-overview-6'>Data Overview</h3>
 <table><thead>
 <tr>
 <th>Field</th>
