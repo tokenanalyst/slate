@@ -6,7 +6,6 @@ ERC20 tokens we currently support are:
 | --------------------- | ------ |
 | Maker                 | `mkr`  |
 | Basic Attention Token | `bat`  |
-| Venchain              | `ven`  |
 | OmiseGo               | `omg`  |
 | Augur                 | `rep`  |
 | Golem                 | `gnt`  |
