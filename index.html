@@ -303,6 +303,21 @@
             <a href="#stablecoin-stats" class="toc-h1 toc-link" data-title="Stablecoin Stats">Stablecoin Stats</a>
               <ul class="toc-list-h2">
                   <li>
+                    <a href="#tether-omni-on-chain-volume" class="toc-h2 toc-link" data-title="Tether (Omni) On-chain Volume">Tether (Omni) On-chain Volume</a>
+                  </li>
+                  <li>
+                    <a href="#tether-omni-on-chain-transaction-count" class="toc-h2 toc-link" data-title="Tether (Omni) On-chain Transaction Count">Tether (Omni) On-chain Transaction Count</a>
+                  </li>
+                  <li>
+                    <a href="#tether-omni-active-addresses" class="toc-h2 toc-link" data-title="Tether (Omni) Active Addresses">Tether (Omni) Active Addresses</a>
+                  </li>
+                  <li>
+                    <a href="#tether-omni-supply" class="toc-h2 toc-link" data-title="Tether (Omni) Supply">Tether (Omni) Supply</a>
+                  </li>
+                  <li>
+                    <a href="#tether-omni-fees" class="toc-h2 toc-link" data-title="Tether (Omni) Fees">Tether (Omni) Fees</a>
+                  </li>
+                  <li>
                     <a href="#stablecoin-on-chain-volume" class="toc-h2 toc-link" data-title="Stablecoin On-chain Volume">Stablecoin On-chain Volume</a>
                   </li>
                   <li>
@@ -2310,6 +2325,10 @@ An example of this is the lowest possible bitcoin address of <code>1111111111111
 </tr>
 </thead><tbody>
 <tr>
+<td>Tether (Omni)</td>
+<td><code>usdt_omni</code></td>
+</tr>
+<tr>
 <td>Tether</td>
 <td><code>usdt_erc20</code></td>
 </tr>
@@ -2332,6 +2351,396 @@ An example of this is the lowest possible bitcoin address of <code>1111111111111
 <tr>
 <td>Dai</td>
 <td><code>dai</code></td>
+</tr>
+</tbody></table>
+
+<p>We have slightly different endpoints for Tether (usdt_omni) due to the nature of OMNI blockchian </p>
+<h2 id='tether-omni-on-chain-volume'>Tether (Omni) On-chain Volume</h2>
+<p><img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/></p>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_volume_window_historical/last?key=API_KEY&amp;format=json&amp;token=usdt_omni&amp;window=1h"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-09-10"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"hour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01:00:00"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"volume"</span><span class="p">:</span><span class="w"> </span><span class="mf">759397926.2</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"price_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"volume_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">759397926.2</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-09-12"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"hour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"02:00:00"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"volume"</span><span class="p">:</span><span class="w"> </span><span class="mf">397509639.4</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"price_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"volume_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">397509639.4</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<p>This endpoint returns the full historical on-chain volume of Tether on the OMNI blockchain since it went live on 2014-10-06. Values are calculated over the window (either 1 hour or 1 day). <code>hour</code> is in UTC </p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>GET https://api.tokenanalyst.io/analytics/private/v1/token_volume_window_historical/last?</code></p>
+<h3 id='query-parameters'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>key</td>
+<td><em>string</em></td>
+<td>Your unique API key</td>
+</tr>
+<tr>
+<td>format</td>
+<td><em>string</em></td>
+<td>What format you want your data in (<code>json</code> or <code>csv</code>)</td>
+</tr>
+<tr>
+<td>token</td>
+<td><em>string</em></td>
+<td><code>usdt_omni</code></td>
+</tr>
+<tr>
+<td>window</td>
+<td><em>string</em></td>
+<td><code>1h</code> or <code>1d</code></td>
+</tr>
+</tbody></table>
+<h3 id='data-overview'>Data Overview</h3>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>date</td>
+<td><em>string</em></td>
+<td>The date in <em>YYYY-MM-DD</em></td>
+</tr>
+<tr>
+<td>hour</td>
+<td><em>string</em></td>
+<td>The hour of the day in <em>HH:MM:SS</em>  (UTC time zone). This is an optional field based on the params used.</td>
+</tr>
+<tr>
+<td>volume</td>
+<td><em>decimal</em></td>
+<td>The total sum of Tether (usdt_omni) sent by addresses in transactions with a timestamp that occurs within the window.</td>
+</tr>
+<tr>
+<td>price_usd</td>
+<td><em>decimal</em></td>
+<td>The daily average price of the Stablecoins (the daily mean of minute-level price data)</td>
+</tr>
+<tr>
+<td>volume_usd</td>
+<td><em>decimal</em></td>
+<td><em>volume</em> * <em>price_usd</em></td>
+</tr>
+</tbody></table>
+<h2 id='tether-omni-on-chain-transaction-count'>Tether (Omni) On-chain Transaction Count</h2>
+<p><img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/></p>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_count_window_historical/last?format=json&amp;token=usdt_omni&amp;key=API_KEY"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-12-18"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"hour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01:00:00"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"number_of_txns"</span><span class="p">:</span><span class="w"> </span><span class="mi">311</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-12-18"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"hour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"02:00:00"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"number_of_txns"</span><span class="p">:</span><span class="w"> </span><span class="mi">411</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<p>This endpoint returns the daily number of Tether (usdt_omni) transactions on the full Omni blockchain for every day of it&#39;s existence 2014-10-06</p>
+<h3 id='http-request-2'>HTTP Request</h3>
+<p><code>GET https://api.tokenanalyst.io/analytics/private/v1/token_count_window_historical/last?</code></p>
+<h3 id='query-parameters-2'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>key</td>
+<td><em>string</em></td>
+<td>Your unique API key</td>
+</tr>
+<tr>
+<td>format</td>
+<td><em>string</em></td>
+<td>What format you want your data in (<code>json</code> or <code>csv</code>)</td>
+</tr>
+<tr>
+<td>token</td>
+<td><em>string</em></td>
+<td><code>usdt_omni</code></td>
+</tr>
+</tbody></table>
+<h3 id='data-overview-2'>Data Overview</h3>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>date</td>
+<td><em>string</em></td>
+<td>The date in <em>YYYY-MM-DD</em></td>
+</tr>
+<tr>
+<td>hour</td>
+<td><em>string</em></td>
+<td>The hour of the day in <em>HH:MM:SS</em>  (UTC time zone). This is an optional field based on the params used.</td>
+</tr>
+<tr>
+<td>number_of_txns</td>
+<td><em>integer</em></td>
+<td>The number of stablecoin transactions included in blocks with a timestamp that occurs on this date</td>
+</tr>
+</tbody></table>
+<h2 id='tether-omni-active-addresses'>Tether (Omni) Active Addresses</h2>
+<p><img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/></p>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_active_address_historical/last?&amp;token=usdt_omni&amp;format=json&amp;key=API_KEY"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-02-17"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"active_senders"</span><span class="p">:</span><span class="w"> </span><span class="mi">5860</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"active_recipients"</span><span class="p">:</span><span class="w"> </span><span class="mi">6320</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-02-18"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"active_senders"</span><span class="p">:</span><span class="w"> </span><span class="mi">6787</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"active_recipients"</span><span class="p">:</span><span class="w"> </span><span class="mi">8347</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<p>This endpoint returns the active addresses of Tether (usdt_omni) tokens for every day of it&#39;s existence since 2014-10-06. An address is defined as &#39;active&#39; if it has transacted during the given day.</p>
+<h3 id='http-request-3'>HTTP Request</h3>
+<p><code>GET https://api.tokenanalyst.io/analytics/private/v1/token_active_address_historical/last</code></p>
+<h3 id='query-parameters-3'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>key</td>
+<td><em>string</em></td>
+<td>Your unique API key</td>
+</tr>
+<tr>
+<td>format</td>
+<td><em>string</em></td>
+<td>What format you want your data in (<code>json</code> or <code>csv</code>)</td>
+</tr>
+<tr>
+<td>token</td>
+<td><em>string</em></td>
+<td>The stablecoin you want the transaction count for</td>
+</tr>
+</tbody></table>
+<h3 id='data-overview-3'>Data Overview</h3>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>date</td>
+<td><em>string</em></td>
+<td>The date in <em>YYYY-MM-DD</em></td>
+</tr>
+<tr>
+<td>active_senders</td>
+<td><em>integer</em></td>
+<td>The total number of distinct addresses that sent Tether (usdt_omni) in transactions with a timestamp on this date (includes smart contracts)</td>
+</tr>
+<tr>
+<td>active_recipients</td>
+<td><em>integer</em></td>
+<td>The total number of distinct addresses that received Tether (usdt_omni) in transactions with a timestamp on this date (includes smart contracts)</td>
+</tr>
+</tbody></table>
+<h2 id='tether-omni-supply'>Tether (Omni) Supply</h2>
+<p><img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/></p>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_supply_historical/last?&amp;token=usdt_omni&amp;format=json&amp;key=API_KEY"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-14"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"supply"</span><span class="p">:</span><span class="w"> </span><span class="mi">2544048400</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-15"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"supply"</span><span class="p">:</span><span class="w"> </span><span class="mi">2544048400</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<p>This endpoint returns the historical supply of Tether (usdt_omni) on the OMNI blockchain for every day of it&#39;s existence 2014-10-06</p>
+<h3 id='http-request-4'>HTTP Request</h3>
+<p><code>GET https://api.tokenanalyst.io/analytics/private/v1/token_supply_historical/last</code></p>
+<h3 id='query-parameters-4'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>key</td>
+<td><em>string</em></td>
+<td>Your unique API key</td>
+</tr>
+<tr>
+<td>format</td>
+<td><em>string</em></td>
+<td>What format you want your data in (<code>json</code> or <code>csv</code>)</td>
+</tr>
+<tr>
+<td>token</td>
+<td><em>string</em></td>
+<td><code>usdt_omni</code></td>
+</tr>
+</tbody></table>
+<h3 id='data-overview-4'>Data Overview</h3>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>date</td>
+<td><em>string</em></td>
+<td>The date in <em>YYYY-MM-DD</em></td>
+</tr>
+<tr>
+<td>supply</td>
+<td><em>decimal</em></td>
+<td>The cumulative sum of Tether generated by minting and burning up to this date</td>
+</tr>
+</tbody></table>
+<h2 id='tether-omni-fees'>Tether (Omni) Fees</h2>
+<p><img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/></p>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_fees_historical/last?&amp;token=usdt_omni&amp;format=json&amp;key=API_KEY"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-13"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"price_usd"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"total_fee"</span><span class="p">:</span><span class="w"> </span><span class="mf">19.5264</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"total_fee_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">19.5264</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"avg_fee"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0003</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"avg_fee_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0003</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-14"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"price_usd"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"total_fee"</span><span class="p">:</span><span class="w"> </span><span class="mf">8.1131</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"total_fee_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">8.1131</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"avg_fee"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0002</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"avg_fee_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0002</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<p>This endpoint returns the historical supply of Tether (usdt_omni) on the OMNI blockchain for every day of it&#39;s existence 2014-10-06</p>
+<h3 id='http-request-5'>HTTP Request</h3>
+<p><code>GET https://api.tokenanalyst.io/analytics/private/v1/token_fees_historical/last</code></p>
+<h3 id='query-parameters-5'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>key</td>
+<td><em>string</em></td>
+<td>Your unique API key</td>
+</tr>
+<tr>
+<td>format</td>
+<td><em>string</em></td>
+<td>What format you want your data in (<code>json</code> or <code>csv</code>)</td>
+</tr>
+<tr>
+<td>token</td>
+<td><em>string</em></td>
+<td><code>usdt_omni</code></td>
+</tr>
+</tbody></table>
+<h3 id='data-overview-5'>Data Overview</h3>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>date</td>
+<td><em>string</em></td>
+<td>The date in <em>YYYY-MM-DD</em></td>
+</tr>
+<tr>
+<td>price_usd</td>
+<td><em>decimal</em></td>
+<td>The daily average price of Tether (usdt_omni) (the daily mean of minute-level price data)</td>
+</tr>
+<tr>
+<td>total_fee</td>
+<td><em>decimal</em></td>
+<td>The sum of fees paid in transactions that occurred on this date. Denominated in Tether (usdt_omni)</td>
+</tr>
+<tr>
+<td>total_fee_usd</td>
+<td><em>decimal</em></td>
+<td><em>total_fee</em> * <em>price_usd</em></td>
+</tr>
+<tr>
+<td>avg_fee</td>
+<td><em>decimal</em></td>
+<td>The average amount of fees paid per transaction that occurred on this date. Denominated in Tether (usdt_omni).</td>
+</tr>
+<tr>
+<td>avg_fee_usd</td>
+<td><em>decimal</em></td>
+<td><em>avg_fee</em> * <em>price_usd</em></td>
 </tr>
 </tbody></table>
 <h2 id='stablecoin-on-chain-volume'>Stablecoin On-chain Volume</h2>
@@ -2357,9 +2766,9 @@ An example of this is the lowest possible bitcoin address of <code>1111111111111
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
 <p>This endpoint returns the full historical on-chain volume of any of the stablecoins that we support.</p>
-<h3 id='http-request'>HTTP Request</h3>
+<h3 id='http-request-6'>HTTP Request</h3>
 <p><code>GET https://api.tokenanalyst.io/analytics/private/v1/token_volume_historical/last?</code></p>
-<h3 id='query-parameters'>Query Parameters</h3>
+<h3 id='query-parameters-6'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -2383,7 +2792,7 @@ An example of this is the lowest possible bitcoin address of <code>1111111111111
 <td>The token you want the volume for</td>
 </tr>
 </tbody></table>
-<h3 id='data-overview'>Data Overview</h3>
+<h3 id='data-overview-6'>Data Overview</h3>
 <table><thead>
 <tr>
 <th>Field</th>
@@ -2435,9 +2844,9 @@ An example of this is the lowest possible bitcoin address of <code>1111111111111
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
 <p>This endpoint returns the number of token transfers on the Ethereum blockchain for the given stablecoin you select for every day of its existence.</p>
-<h3 id='http-request-2'>HTTP Request</h3>
+<h3 id='http-request-7'>HTTP Request</h3>
 <p><code>GET https://api.tokenanalyst.io/analytics/private/v1/token_count_historical/last?</code></p>
-<h3 id='query-parameters-2'>Query Parameters</h3>
+<h3 id='query-parameters-7'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -2461,7 +2870,7 @@ An example of this is the lowest possible bitcoin address of <code>1111111111111
 <td>The stablecoin you want the transaction count for</td>
 </tr>
 </tbody></table>
-<h3 id='data-overview-2'>Data Overview</h3>
+<h3 id='data-overview-7'>Data Overview</h3>
 <table><thead>
 <tr>
 <th>Field</th>
@@ -2501,9 +2910,9 @@ An example of this is the lowest possible bitcoin address of <code>1111111111111
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
 <p>This endpoint returns the active addresses of stabelecoin tokens for every day of their existence. An address is defined as &#39;active&#39; if it has transacted during the given day.</p>
-<h3 id='http-request-3'>HTTP Request</h3>
+<h3 id='http-request-8'>HTTP Request</h3>
 <p><code>GET https://api.tokenanalyst.io/analytics/private/v1/token_active_address_historical/last</code></p>
-<h3 id='query-parameters-3'>Query Parameters</h3>
+<h3 id='query-parameters-8'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -2527,7 +2936,7 @@ An example of this is the lowest possible bitcoin address of <code>1111111111111
 <td>The stablecoin you want the transaction count for</td>
 </tr>
 </tbody></table>
-<h3 id='data-overview-3'>Data Overview</h3>
+<h3 id='data-overview-8'>Data Overview</h3>
 <table><thead>
 <tr>
 <th>Field</th>
