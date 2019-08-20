@@ -140,6 +140,118 @@ This endpoint returns the inflow of USDT (Tether) on the Omni blockchain into ex
 | avg_txn_value     | _decimal_ | The average amount of tokens transferred per transaction into the given exchange on this date.                             |
 | avg_txn_value_usd | _decimal_ | The USD value of the average amount of tokens transferred per transaction into the given exchange on this date.            |
 
+## Tether (Omni) Full Historical Top 10 Inflow Large Value Transactions
+
+<img src="https://img.shields.io/badge/Tier-Professional-black.svg"/>
+
+> This is an example:
+
+```shell
+curl "https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_top10_historical/last?token=usdt_omni&exchange=binance&direction=inflow&format=json&key=API_KEY"
+```
+
+> The response looks like:
+
+```json
+[
+  {
+    "date": "2019-08-18",
+    "transactionid": "5e5c74b0aab078c929952f9de0155d32152c0dc7c65c8cfdc53c2c0ed1a4d720",
+    "value": 34000,
+    "rank": 9,
+    "value_usd": 34001.93
+  },
+  {
+    "date": "2019-08-18",
+    "transactionid": "84801e2b0fa58093fa74b997a3bfd936b598c91ff1d9f16cf55b8d294ff2c672",
+    "value": 33283,
+    "rank": 10,
+    "value_usd": 33284.88
+  }
+]
+```
+
+This endpoint returns the top 10 transactions (in terms of total USDT sent) flowing into exchange wallets for every day that the exchange wallets we track have been live on the blockchain.
+
+### HTTP Request
+
+`GET https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_top10_historical/last?`
+
+### URL Parameters
+
+| Parameter | Type     | Description                                         |
+| --------- | -------- | --------------------------------------------------- |
+| key       | _string_ | Your unique API key                                 |
+| format    | _string_ | What format you want your data in (`json` or `csv`) |
+| token     | _string_ | `usdt_omni`                                         |
+| direction | _string_ | `inflow`                                            |
+| exchange  | _string_ | An exchange from the list of ones we support        |
+
+### Data Overview
+
+| Field         | Type      | Description                                                                                                       |
+| ------------- | --------- | ----------------------------------------------------------------------------------------------------------------- |
+| date          | _string_  | The date in _YYYY-MM-DD_                                                                                          |
+| transactionid | _string_  | The transaction id of the transaction in question.                                                                |
+| value         | _decimal_ | The amount of USDT transferred in this transaction.                                                               |
+| rank          | _integer_ | Ranking out of 10 for the 10 largest USDT (Omni) transactions flowing into the exchange in question on this date. |
+| value_usd     | _decimal_ | The value in USD of the amount of USDT tranferred in this transaction.                                            |
+
+## Tether (Omni) Full Historical Top 10 Outflow Large Value Transactions
+
+<img src="https://img.shields.io/badge/Tier-Professional-black.svg"/>
+
+```shell
+curl "https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_top10_historical/last?token=usdt_omni&exchange=binance&direction=outflow&format=json&key=API_KEY"
+```
+
+> The response looks like:
+
+```json
+[
+  {
+    "date": "2019-08-14",
+    "transactionid": "5354b702a372027cc23bb9c47749bdfab77c9d7739f8afafcf49178bc6659a2b",
+    "value": 129985,
+    "rank": 3,
+    "value_usd": 129985
+  },
+  {
+    "date": "2019-08-14",
+    "transactionid": "7a91a7b4eabe7b0d0e77139ea1ed7eaecd6d45d82f7b789aae41617cfcdcf026",
+    "value": 100090,
+    "rank": 4,
+    "value_usd": 100090
+  }
+]
+```
+
+This endpoint returns the top 10 transactions (in terms of total USDT sent) flowing out of exchange wallets for every day that the exchange wallets we track have been live on the blockchain.
+
+### HTTP Request
+
+`GET https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_top10_historical/last?`
+
+### URL Parameters
+
+| Parameter | Type     | Description                                         |
+| --------- | -------- | --------------------------------------------------- |
+| key       | _string_ | Your unique API key                                 |
+| format    | _string_ | What format you want your data in (`json` or `csv`) |
+| token     | _string_ | `usdt_omni`                                         |
+| direction | _string_ | `outflow`                                           |
+| exchange  | _string_ | An exchange from the list of ones we support        |
+
+### Data Overview
+
+| Field         | Type      | Description                                                                                                       |
+| ------------- | --------- | ----------------------------------------------------------------------------------------------------------------- |
+| date          | _string_  | The date in _YYYY-MM-DD_                                                                                          |
+| transactionid | _string_  | The transaction id of the transaction in question.                                                                |
+| value         | _decimal_ | The amount of USDT transferred in this transaction.                                                               |
+| rank          | _integer_ | Ranking out of 10 for the 10 largest USDT (Omni) transactions flowing into the exchange in question on this date. |
+| value_usd     | _decimal_ | The value in USD of the amount of USDT tranferred in this transaction.                                            |
+
 ## ERC20 Stablecoin Full Historical Inflow from Exchanges
 
 <img src="https://img.shields.io/badge/Tier-Professional-black.svg"/>
@@ -179,7 +291,7 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/erc20_exchanges_flow_wind
 ]
 ```
 
-This endpoint returns the inflow of stablecoins into exchange wallets. The `avg_txn_value`, `inflow`, and `number_of_txns` are calculated over the window (either 1 hour or 1 day). `hour` is in UTC
+This endpoint returns the inflow of stablecoins into exchange wallets. The `avg_txn_value`, `inflow`, and `number_of_txns` are calculated over the window (either 1 hour or 1 day). `hour` is in UTC. As a reminder, the exchanges we support for this endpoint are: `binance`, `kraken`, `bitfinex`, `poloniex`, `bittrex`, `kucoin`.
 
 ### HTTP Request
 
