@@ -74,7 +74,7 @@ This endpoint returns the full historical on-chain volume of Tether on the OMNI 
 <img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/>
 
 ```shell
-curl "https://api.tokenanalyst.io/analytics/private/v1/token_count_window_historical/last?format=json&token=usdt_omni&key=API_KEY"
+curl "https://api.tokenanalyst.io/analytics/private/v1/token_count_window_historical/last?format=json&token=usdt_omni&key=API_KEY&window=1h"
 ```
 
 > The above command returns JSON structured like this:
