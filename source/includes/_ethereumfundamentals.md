@@ -264,7 +264,7 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_fees_historical/las
 [
   {
     "date": "2015-10-19",
-    "price": 0.5,
+    "price_usd": 0.5,
     "avg_gas": 32831.1236,
     "avg_gas_price_wei": 52456819761.0774,
     "total_fee": 11.699219139604072,
@@ -274,7 +274,7 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_fees_historical/las
   },
   {
     "date": "2015-10-20",
-    "price": 0.49,
+    "price_usd": 0.49,
     "avg_gas": 32483.8972,
     "avg_gas_price_wei": 53767556518.0802,
     "total_fee": 11.527019798770482,
@@ -304,13 +304,13 @@ This endpoint returns the total and average fees spent on the Ethereum network f
 | Field             | Type     | Description                                                                                                                                                                                               |
 | ----------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | date              | _string_ | The date in _YYYY-MM-DD_                                                                                                                                                                                  |
-| price             | _string_ | The daily average price of ETH in USD (the daily mean of minute-level price data)                                                                                                                                |
+| price_usd          | _string_ | The daily average price of ETH in USD (the daily mean of minute-level price data)                                                                                                                                |
 | avg_gas           | _string_ | The average amount of gas used by transactions that occurred on this date. See <a href="https://www.investopedia.com/terms/g/gas-ethereum.asp" target="_blank">here</a> for a detailed definition of gas. |
 | avg_gas_price_wei | _string_ | The average price (in wei) paid per unit of gas for transactions that occurred on this date                                                                                                               |
 | total_fee         | _string_ | The sum of fees paid in transactions that occurred on this date. Denominated in ETH. Fees for a transaction are calculated as such: (gas used * gas price)*10^-18                                         |
 | total_fee_usd     | _string_ | _total_fee_ \* _price_                                                                                                                                                                                    |
 | avg_fee           | _string_ | The average fee paid per transaction that occurred on this date. Denominated in ETH.                                                                                                                      |
-| avg_fee_usd       | _string_ | _avg_fee_ \* _price_                                                                                                                                                                                      |
+| avg_fee_usd       | _string_ | _avg_fee_ \* _price_usd_                                                                                                                                                                                      |
 
 ## ETH Miner Hashrate
 
