@@ -315,6 +315,9 @@
                     <a href="#tether-omni-supply" class="toc-h2 toc-link" data-title="Tether (Omni) Supply">Tether (Omni) Supply</a>
                   </li>
                   <li>
+                    <a href="#tether-omni-nvt" class="toc-h2 toc-link" data-title="Tether (Omni) NVT">Tether (Omni) NVT</a>
+                  </li>
+                  <li>
                     <a href="#tether-omni-fees" class="toc-h2 toc-link" data-title="Tether (Omni) Fees">Tether (Omni) Fees</a>
                   </li>
                   <li>
@@ -857,7 +860,7 @@ An example of this is the lowest possible bitcoin address of <code>1111111111111
 <tr>
 <td>nvt</td>
 <td><em>decimal</em></td>
-<td>Ratio comprising the total BTC Market Cap divided by the on-chain volume. (<em>marketcap_usd</em> / <em>volume_external_usd</em>)</td>
+<td>Ratio comprising the total BTC Market Cap divided by the on-chain volume. (<em>marketcap_usd</em> / <em>volume_real_usd</em>)</td>
 </tr>
 </tbody></table>
 <h2 id='btc-fees'>BTC Fees</h2>
@@ -872,7 +875,7 @@ An example of this is the lowest possible bitcoin address of <code>1111111111111
     </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-13"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"total_fee"</span><span class="p">:</span><span class="w"> </span><span class="mf">75.09047834</span><span class="p">,</span><span class="w">
     </span><span class="s2">"avg_size_bytes"</span><span class="p">:</span><span class="w"> </span><span class="mi">503</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="mf">11148.93</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"price_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">11148.93</span><span class="p">,</span><span class="w">
     </span><span class="s2">"total_fee_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">837178.32</span><span class="p">,</span><span class="w">
     </span><span class="s2">"avg_satoshis_per_byte"</span><span class="p">:</span><span class="w"> </span><span class="mi">40</span><span class="p">,</span><span class="w">
     </span><span class="s2">"avg_fee"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0002</span><span class="p">,</span><span class="w">
@@ -882,7 +885,7 @@ An example of this is the lowest possible bitcoin address of <code>1111111111111
     </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-14"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"total_fee"</span><span class="p">:</span><span class="w"> </span><span class="mf">58.70170397</span><span class="p">,</span><span class="w">
     </span><span class="s2">"avg_size_bytes"</span><span class="p">:</span><span class="w"> </span><span class="mi">481</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="mf">10453.67</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"price_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">10453.67</span><span class="p">,</span><span class="w">
     </span><span class="s2">"total_fee_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">613648.29</span><span class="p">,</span><span class="w">
     </span><span class="s2">"avg_satoshis_per_byte"</span><span class="p">:</span><span class="w"> </span><span class="mi">34</span><span class="p">,</span><span class="w">
     </span><span class="s2">"avg_fee"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0002</span><span class="p">,</span><span class="w">
@@ -941,7 +944,7 @@ An example of this is the lowest possible bitcoin address of <code>1111111111111
 <td>The average transaction size to the nearest byte for transactions that occurred on this date.</td>
 </tr>
 <tr>
-<td>price</td>
+<td>price_usd</td>
 <td><em>decimal</em></td>
 <td>The daily average price of BTC in USD (the daily mean of minute-level price data)</td>
 </tr>
@@ -963,7 +966,7 @@ An example of this is the lowest possible bitcoin address of <code>1111111111111
 <tr>
 <td>avg_fee_usd</td>
 <td><em>decimal</em></td>
-<td><em>avg_fee</em> * <em>price</em></td>
+<td><em>avg_fee</em> * <em>price_usd</em></td>
 </tr>
 </tbody></table>
 <h2 id='btc-utxo-age'>BTC UTXO Age</h2>
@@ -1683,7 +1686,7 @@ An example of this is the lowest possible bitcoin address of <code>1111111111111
 <pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-10-19"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.5</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"price_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.5</span><span class="p">,</span><span class="w">
     </span><span class="s2">"avg_gas"</span><span class="p">:</span><span class="w"> </span><span class="mf">32831.1236</span><span class="p">,</span><span class="w">
     </span><span class="s2">"avg_gas_price_wei"</span><span class="p">:</span><span class="w"> </span><span class="mf">52456819761.0774</span><span class="p">,</span><span class="w">
     </span><span class="s2">"total_fee"</span><span class="p">:</span><span class="w"> </span><span class="mf">11.699219139604072</span><span class="p">,</span><span class="w">
@@ -1693,7 +1696,7 @@ An example of this is the lowest possible bitcoin address of <code>1111111111111
   </span><span class="p">},</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-10-20"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.49</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"price_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.49</span><span class="p">,</span><span class="w">
     </span><span class="s2">"avg_gas"</span><span class="p">:</span><span class="w"> </span><span class="mf">32483.8972</span><span class="p">,</span><span class="w">
     </span><span class="s2">"avg_gas_price_wei"</span><span class="p">:</span><span class="w"> </span><span class="mf">53767556518.0802</span><span class="p">,</span><span class="w">
     </span><span class="s2">"total_fee"</span><span class="p">:</span><span class="w"> </span><span class="mf">11.527019798770482</span><span class="p">,</span><span class="w">
@@ -1744,7 +1747,7 @@ An example of this is the lowest possible bitcoin address of <code>1111111111111
 <td>The date in <em>YYYY-MM-DD</em></td>
 </tr>
 <tr>
-<td>price</td>
+<td>price_usd</td>
 <td><em>string</em></td>
 <td>The daily average price of ETH in USD (the daily mean of minute-level price data)</td>
 </tr>
@@ -1776,7 +1779,7 @@ An example of this is the lowest possible bitcoin address of <code>1111111111111
 <tr>
 <td>avg_fee_usd</td>
 <td><em>string</em></td>
-<td><em>avg_fee</em> * <em>price</em></td>
+<td><em>avg_fee</em> * <em>price_usd</em></td>
 </tr>
 </tbody></table>
 <h2 id='eth-miner-hashrate'>ETH Miner Hashrate</h2>
@@ -2651,6 +2654,77 @@ An example of this is the lowest possible bitcoin address of <code>1111111111111
 <td>The cumulative sum of Tether generated by minting and burning up to this date</td>
 </tr>
 </tbody></table>
+<h2 id='tether-omni-nvt'>Tether (Omni) NVT</h2>
+<p><img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/></p>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_nvt_historical/last?&amp;token=usdt_omni&amp;format=json&amp;key=API_KEY"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="s2">"2019-08-19"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"marketcap_usd"</span><span class="p">:</span><span class="mi">2545000000</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"nvt"</span><span class="p">:</span><span class="mf">9.4907</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="s2">"2019-08-20"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"marketcap_usd"</span><span class="p">:</span><span class="mi">2545000000</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"nvt"</span><span class="p">:</span><span class="mf">8.6839</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<p>This endpoint returns the NVT Ratio (Network Value to Transactions Ratio) for Tether (usdt_omni). This is the ratio of the Market Cap divided by the volume transmitted by the blockchain. Special thanks to Willy Woo and Chris Burniske for coming up with it!</p>
+<h3 id='http-request-5'>HTTP Request</h3>
+<p><code>GET https://api.tokenanalyst.io/analytics/private/v1/token_nvt_historical/last</code></p>
+<h3 id='query-parameters-5'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>key</td>
+<td><em>string</em></td>
+<td>Your unique API key</td>
+</tr>
+<tr>
+<td>format</td>
+<td><em>string</em></td>
+<td>What format you want your data in (<code>json</code> or <code>csv</code>)</td>
+</tr>
+<tr>
+<td>token</td>
+<td><em>string</em></td>
+<td><code>usdt_omni</code></td>
+</tr>
+</tbody></table>
+<h3 id='data-overview-5'>Data Overview</h3>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>date</td>
+<td><em>string</em></td>
+<td>The date in <em>YYYY-MM-DD</em></td>
+</tr>
+<tr>
+<td>marketcap_usd</td>
+<td><em>decimal</em></td>
+<td>The total USD market capitalization of Tether (usdt_omni) on this date. (<em>price_usd</em> * <em>supply</em>)</td>
+</tr>
+<tr>
+<td>nvt</td>
+<td><em>decimal</em></td>
+<td>Ratio comprising the total Tether (usdt_omni) Market Cap divided by the on-chain volume. (<em>marketcap_usd</em> / <em>volume_usd</em>)</td>
+</tr>
+</tbody></table>
 <h2 id='tether-omni-fees'>Tether (Omni) Fees</h2>
 <p><img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/></p>
 <pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_fees_historical/last?&amp;token=usdt_omni&amp;format=json&amp;key=API_KEY"</span>
@@ -2678,9 +2752,9 @@ An example of this is the lowest possible bitcoin address of <code>1111111111111
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
 <p>This endpoint returns the historical supply of Tether (usdt_omni) on the OMNI blockchain for every day of it&#39;s existence 2014-10-06</p>
-<h3 id='http-request-5'>HTTP Request</h3>
+<h3 id='http-request-6'>HTTP Request</h3>
 <p><code>GET https://api.tokenanalyst.io/analytics/private/v1/token_fees_historical/last</code></p>
-<h3 id='query-parameters-5'>Query Parameters</h3>
+<h3 id='query-parameters-6'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -2704,7 +2778,7 @@ An example of this is the lowest possible bitcoin address of <code>1111111111111
 <td><code>usdt_omni</code></td>
 </tr>
 </tbody></table>
-<h3 id='data-overview-5'>Data Overview</h3>
+<h3 id='data-overview-6'>Data Overview</h3>
 <table><thead>
 <tr>
 <th>Field</th>
@@ -2766,9 +2840,9 @@ An example of this is the lowest possible bitcoin address of <code>1111111111111
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
 <p>This endpoint returns the full historical on-chain volume of any of the stablecoins that we support.</p>
-<h3 id='http-request-6'>HTTP Request</h3>
+<h3 id='http-request-7'>HTTP Request</h3>
 <p><code>GET https://api.tokenanalyst.io/analytics/private/v1/token_volume_historical/last?</code></p>
-<h3 id='query-parameters-6'>Query Parameters</h3>
+<h3 id='query-parameters-7'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -2792,7 +2866,7 @@ An example of this is the lowest possible bitcoin address of <code>1111111111111
 <td>The token you want the volume for</td>
 </tr>
 </tbody></table>
-<h3 id='data-overview-6'>Data Overview</h3>
+<h3 id='data-overview-7'>Data Overview</h3>
 <table><thead>
 <tr>
 <th>Field</th>
@@ -2844,9 +2918,9 @@ An example of this is the lowest possible bitcoin address of <code>1111111111111
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
 <p>This endpoint returns the number of token transfers on the Ethereum blockchain for the given stablecoin you select for every day of its existence.</p>
-<h3 id='http-request-7'>HTTP Request</h3>
+<h3 id='http-request-8'>HTTP Request</h3>
 <p><code>GET https://api.tokenanalyst.io/analytics/private/v1/token_count_historical/last?</code></p>
-<h3 id='query-parameters-7'>Query Parameters</h3>
+<h3 id='query-parameters-8'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -2870,7 +2944,7 @@ An example of this is the lowest possible bitcoin address of <code>1111111111111
 <td>The stablecoin you want the transaction count for</td>
 </tr>
 </tbody></table>
-<h3 id='data-overview-7'>Data Overview</h3>
+<h3 id='data-overview-8'>Data Overview</h3>
 <table><thead>
 <tr>
 <th>Field</th>
@@ -2910,9 +2984,9 @@ An example of this is the lowest possible bitcoin address of <code>1111111111111
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
 <p>This endpoint returns the active addresses of stabelecoin tokens for every day of their existence. An address is defined as &#39;active&#39; if it has transacted during the given day.</p>
-<h3 id='http-request-8'>HTTP Request</h3>
+<h3 id='http-request-9'>HTTP Request</h3>
 <p><code>GET https://api.tokenanalyst.io/analytics/private/v1/token_active_address_historical/last</code></p>
-<h3 id='query-parameters-8'>Query Parameters</h3>
+<h3 id='query-parameters-9'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -2936,7 +3010,7 @@ An example of this is the lowest possible bitcoin address of <code>1111111111111
 <td>The stablecoin you want the transaction count for</td>
 </tr>
 </tbody></table>
-<h3 id='data-overview-8'>Data Overview</h3>
+<h3 id='data-overview-9'>Data Overview</h3>
 <table><thead>
 <tr>
 <th>Field</th>
