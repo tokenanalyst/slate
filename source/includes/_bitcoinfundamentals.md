@@ -277,7 +277,7 @@ This endpoint returns the NVT Ratio (Network Value to Transactions Ratio) for BT
 | ------------- | --------- | ------------------------------------------------------------------------------------------------------------------- |
 | date          | _string_  | The date in _YYYY-MM-DD_                                                                                            |
 | marketcap_usd | _decimal_ | The total USD market capitalization of BTC on this date. (_price_usd_ \* _supply_)                                  |
-| nvt           | _decimal_ | Ratio comprising the total BTC Market Cap divided by the on-chain volume. (_marketcap_usd_ / _volume_usd_) |
+| nvt           | _decimal_ | Ratio comprising the total BTC Market Cap divided by the on-chain volume. (_marketcap_usd_ / _volume_real_usd_) |
 
 ## BTC Fees
 
