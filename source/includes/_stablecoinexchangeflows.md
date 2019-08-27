@@ -62,7 +62,7 @@ This endpoint returns the inflow of USDT (Tether) on the Omni blockchain into ex
 | key       | _string_ | Your unique API key                                 |
 | format    | _string_ | What format you want your data in (`json` or `csv`) |
 | token     | _string_ | `usdt_omni`                                         |
-| exchange  | _string_ | Which supported exchange you require flow data for  |
+| exchange  | _string_ | An exchange from the list of ones we support        |
 | direction | _string_ | `inflow`                                            |
 | window    | _string_ | `1h` or `1d`                                        |
 
@@ -125,7 +125,7 @@ This endpoint returns the inflow of USDT (Tether) on the Omni blockchain into ex
 | key       | _string_ | Your unique API key                                 |
 | format    | _string_ | What format you want your data in (`json` or `csv`) |
 | token     | _string_ | `usdt_omni`                                         |
-| exchange  | _string_ | Which supported exchange you require flow data for  |
+| exchange  | _string_ | An exchange from the list of ones we support        |
 | direction | _string_ | `inflow`                                            |
 | window    | _string_ | `1h` or `1d`                                        |
 
