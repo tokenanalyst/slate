@@ -257,6 +257,38 @@
               </ul>
           </li>
           <li>
+            <a href="#bitcoin-fundamentals-v2" class="toc-h1 toc-link" data-title="Bitcoin Fundamentals v2">Bitcoin Fundamentals v2</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#btc-on-chain-volume-v2" class="toc-h2 toc-link" data-title="BTC On-chain Volume v2">BTC On-chain Volume v2</a>
+                  </li>
+                  <li>
+                    <a href="#btc-on-chain-transaction-count-v2" class="toc-h2 toc-link" data-title="BTC On-chain Transaction Count v2">BTC On-chain Transaction Count v2</a>
+                  </li>
+                  <li>
+                    <a href="#btc-active-addresses-v2" class="toc-h2 toc-link" data-title="BTC Active addresses v2">BTC Active addresses v2</a>
+                  </li>
+                  <li>
+                    <a href="#btc-supply-v2" class="toc-h2 toc-link" data-title="BTC Supply v2">BTC Supply v2</a>
+                  </li>
+                  <li>
+                    <a href="#btc-nvt-v2" class="toc-h2 toc-link" data-title="BTC NVT v2">BTC NVT v2</a>
+                  </li>
+                  <li>
+                    <a href="#btc-fees-v2" class="toc-h2 toc-link" data-title="BTC Fees v2">BTC Fees v2</a>
+                  </li>
+                  <li>
+                    <a href="#btc-utxo-age-v2" class="toc-h2 toc-link" data-title="BTC UTXO Age v2">BTC UTXO Age v2</a>
+                  </li>
+                  <li>
+                    <a href="#btc-miner-hashrate-v2" class="toc-h2 toc-link" data-title="BTC Miner Hashrate v2">BTC Miner Hashrate v2</a>
+                  </li>
+                  <li>
+                    <a href="#btc-miner-rewards-v2" class="toc-h2 toc-link" data-title="BTC Miner Rewards v2">BTC Miner Rewards v2</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#ethereum-fundamentals" class="toc-h1 toc-link" data-title="Ethereum Fundamentals">Ethereum Fundamentals</a>
               <ul class="toc-list-h2">
                   <li>
@@ -370,6 +402,23 @@
                   </li>
                   <li>
                     <a href="#btc-full-historical-top-10-outflow-large-value-transactions" class="toc-h2 toc-link" data-title="BTC Full Historical Top 10 Outflow Large Value Transactions">BTC Full Historical Top 10 Outflow Large Value Transactions</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#bitcoin-exchange-flows-v2" class="toc-h1 toc-link" data-title="Bitcoin Exchange Flows V2">Bitcoin Exchange Flows V2</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#btc-full-historical-inflow-to-exchanges-v2" class="toc-h2 toc-link" data-title="BTC Full Historical Inflow to Exchanges v2">BTC Full Historical Inflow to Exchanges v2</a>
+                  </li>
+                  <li>
+                    <a href="#btc-full-historical-outflows-from-exchanges-v2" class="toc-h2 toc-link" data-title="BTC Full Historical Outflows from Exchanges v2">BTC Full Historical Outflows from Exchanges v2</a>
+                  </li>
+                  <li>
+                    <a href="#btc-full-historical-top-10-inflow-large-value-transactions-v2" class="toc-h2 toc-link" data-title="BTC Full Historical Top 10 Inflow Large Value Transactions v2">BTC Full Historical Top 10 Inflow Large Value Transactions v2</a>
+                  </li>
+                  <li>
+                    <a href="#btc-full-historical-top-10-outflow-large-value-transactions-v2" class="toc-h2 toc-link" data-title="BTC Full Historical Top 10 Outflow Large Value Transactions v2">BTC Full Historical Top 10 Outflow Large Value Transactions v2</a>
                   </li>
               </ul>
           </li>
@@ -1210,6 +1259,889 @@ An example of this is the lowest possible bitcoin address of <code>1111111111111
 </tr>
 </tbody></table>
 <h2 id='btc-miner-rewards'>BTC Miner Rewards</h2>
+<p><img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/></p>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_miner_rewards_historical/last?format=json&amp;token=btc&amp;key=API_KEY"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-07-27"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"miner_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AntPool"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"price_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">8022.25</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"miner_daily_block_reward"</span><span class="p">:</span><span class="w"> </span><span class="mf">239.4406</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"miner_daily_block_reward_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">1920851.96</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-07-27"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"miner_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC.TOP"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"price_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">8022.25</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"miner_daily_block_reward"</span><span class="p">:</span><span class="w"> </span><span class="mf">213.9951</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"miner_daily_block_reward_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">1716721.89</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<p>This endpoint returns the daily coinbase rewards by miner (incl. txn fees). The <code>miner_daily_block_reward</code> is denomiated BTC.</p>
+<h3 id='http-request-9'>HTTP Request</h3>
+<p><code>GET https://api.tokenanalyst.io/analytics/private/v1/token_miner_rewards_historical/last</code></p>
+<h3 id='query-parameters-9'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>key</td>
+<td><em>string</em></td>
+<td>Your unique API key</td>
+</tr>
+<tr>
+<td>format</td>
+<td><em>string</em></td>
+<td>What format you want your data in (<code>json</code> or <code>csv</code>)</td>
+</tr>
+<tr>
+<td>token</td>
+<td><em>string</em></td>
+<td><code>btc</code></td>
+</tr>
+</tbody></table>
+<h3 id='data-overview-9'>Data Overview</h3>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>date</td>
+<td><em>string</em></td>
+<td>The date in <em>YYYY-MM-DD</em></td>
+</tr>
+<tr>
+<td>miner_name</td>
+<td><em>string</em></td>
+<td>Human readable name of the miner in our database, if known.</td>
+</tr>
+<tr>
+<td>price_usd</td>
+<td><em>decimal</em></td>
+<td>The daily average price of BTC in USD (the daily mean of minute-level price data)</td>
+</tr>
+<tr>
+<td>miner_daily_block_reward</td>
+<td><em>decimal</em></td>
+<td>The total amount of block rewards earned by this miner on this date. Denominated in BTC.</td>
+</tr>
+<tr>
+<td>miner_daily_block_reward_usd</td>
+<td><em>decimal</em></td>
+<td><em>miner_daily_block_reward</em> * <em>price_usd</em></td>
+</tr>
+</tbody></table>
+<h1 id='bitcoin-fundamentals-v2'>Bitcoin Fundamentals v2</h1><h2 id='btc-on-chain-volume-v2'>BTC On-chain Volume v2</h2>
+<p><img src="https://img.shields.io/badge/Tier-Free-green.svg"/></p>
+
+<p>This endpoint returns the full historical on-chain volume of Bitcoin since it&#39;s genesis in 2009. The volume is separated into &#39;real&#39; volume and &#39;change&#39; volume.</p>
+
+<p>Our current heuristic for &#39;change&#39; related volume is for whenever BTC in a transaction
+is sent back to the same address that sent the BTC. The &#39;real&#39; volume is simply the
+remainder left over after subtracting the change.</p>
+<pre class="highlight shell tab-shell"><code><span class="c"># Make sure you substitute API_KEY for your unique API key.</span>
+
+curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_volume_window_historical/last?format=json&amp;key=API_KEY&amp;token=btc&amp;window=1h"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-02-04"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"hour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">avilabale</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
+    </span><span class="s2">"price_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">841.73</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"volume_change"</span><span class="p">:</span><span class="w"> </span><span class="mf">60604.1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"volume_change_usd"</span><span class="p">:</span><span class="w"> </span><span class="mi">51012300</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"volume_gross"</span><span class="p">:</span><span class="w"> </span><span class="mi">788252</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"volume_real"</span><span class="p">:</span><span class="w"> </span><span class="mi">727648</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"volume_real_usd"</span><span class="p">:</span><span class="w"> </span><span class="mi">612483000</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-02-05"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"hour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">avilabale</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
+    </span><span class="s2">"price_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">893.72</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"volume_change"</span><span class="p">:</span><span class="w"> </span><span class="mi">152871</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"volume_change_usd"</span><span class="p">:</span><span class="w"> </span><span class="mi">136624000</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"volume_gross"</span><span class="p">:</span><span class="w"> </span><span class="mi">771870</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"volume_real"</span><span class="p">:</span><span class="w"> </span><span class="mi">618999</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"volume_real_usd"</span><span class="p">:</span><span class="w"> </span><span class="mi">553212000</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre><h3 id='http-request'>HTTP Request</h3>
+<p><code>GET https://api.tokenanalyst.io/analytics/private/v1/token_volume_window_historical/last</code></p>
+<h3 id='query-parameters'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>key</td>
+<td><em>string</em></td>
+<td>Your unique API key</td>
+</tr>
+<tr>
+<td>format</td>
+<td><em>string</em></td>
+<td>What format you want your data in (<code>json</code> or <code>csv</code>)</td>
+</tr>
+<tr>
+<td>token</td>
+<td><em>string</em></td>
+<td>The token you want the volume for (in this case <code>btc</code>)</td>
+</tr>
+<tr>
+<td>window</td>
+<td><em>string</em></td>
+<td><code>1h</code> or <code>1d</code></td>
+</tr>
+</tbody></table>
+<h3 id='data-overview'>Data Overview</h3>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>date</td>
+<td><em>string</em></td>
+<td>The date in <em>YYYY-MM-DD</em></td>
+</tr>
+<tr>
+<td>hour</td>
+<td><em>string</em></td>
+<td>The hour of the day in <em>HH:MM:SS</em>  (UTC time zone). This is an optional field field and appears when window is <code>1h</code></td>
+</tr>
+<tr>
+<td>price_usd</td>
+<td><em>decimal</em></td>
+<td>The average price of BTC in USD for the window (the mean of minute-level price data for the given window)</td>
+</tr>
+<tr>
+<td>volume_change</td>
+<td><em>decimal</em></td>
+<td>The total sum of BTC sent to (locked by) addresses that were also on the sending side of the same transaction</td>
+</tr>
+<tr>
+<td>volume_change_usd</td>
+<td><em>decimal</em></td>
+<td><em>volume_change</em> * <em>price_usd</em></td>
+</tr>
+<tr>
+<td>volume_gross</td>
+<td><em>decimal</em></td>
+<td>The total sum of BTC sent by (unlocked by) addresses in transactions with a timestamp that occurs on this date. Does not include coinbase rewards.</td>
+</tr>
+<tr>
+<td>volume_real</td>
+<td><em>decimal</em></td>
+<td><em>volume_gross</em> - <em>volume_change</em></td>
+</tr>
+<tr>
+<td>volume_real_usd</td>
+<td><em>decimal</em></td>
+<td><em>volume_real</em> * <em>price_usd</em></td>
+</tr>
+</tbody></table>
+
+<hr>
+<h2 id='btc-on-chain-transaction-count-v2'>BTC On-chain Transaction Count v2</h2>
+<p><img src="https://img.shields.io/badge/Tier-Free-green.svg"/></p>
+
+<p>This endpoint returns the daily number of transactions on the full historical Bitcoin blockchain
+for every day since it&#39;s genesis in 2009.</p>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_count_window_historical/last?format=json&amp;key=API_KEY&amp;token=btc&amp;window=1h"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2009-03-12"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"hour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">avilabale</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
+    </span><span class="s2">"number_of_txns"</span><span class="p">:</span><span class="w"> </span><span class="mi">119</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2009-03-13"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"hour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">avilabale</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
+    </span><span class="s2">"number_of_txns"</span><span class="p">:</span><span class="w"> </span><span class="mi">114</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2009-03-14"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"hour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"13:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">avilabale</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
+    </span><span class="s2">"number_of_txns"</span><span class="p">:</span><span class="w"> </span><span class="mi">110</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre><h3 id='http-request-2'>HTTP Request</h3>
+<p><code>GET https://api.tokenanalyst.io/analytics/private/v1/token_count_window_historical/last</code></p>
+<h3 id='query-parameters-2'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>key</td>
+<td><em>string</em></td>
+<td>Your unique API key</td>
+</tr>
+<tr>
+<td>format</td>
+<td><em>string</em></td>
+<td>What format you want your data in (<code>json</code> or <code>csv</code>)</td>
+</tr>
+<tr>
+<td>token</td>
+<td><em>string</em></td>
+<td>The token you want the volume for (in this case <code>btc</code>)</td>
+</tr>
+<tr>
+<td>window</td>
+<td><em>string</em></td>
+<td><code>1h</code> or <code>1d</code></td>
+</tr>
+</tbody></table>
+<h3 id='data-overview-2'>Data Overview</h3>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>date</td>
+<td><em>string</em></td>
+<td>The date in <em>YYYY-MM-DD</em></td>
+</tr>
+<tr>
+<td>number_of_txns</td>
+<td><em>integer</em></td>
+<td>The number of transactions included in blocks with a timestamp that occurs during this date (includes coinbase transactions)</td>
+</tr>
+<tr>
+<td>hour</td>
+<td><em>string</em></td>
+<td>The hour of the day in <em>HH:MM:SS</em>  (UTC time zone). This is an optional field and appears when window is <code>1h</code></td>
+</tr>
+</tbody></table>
+
+<hr>
+<h2 id='btc-active-addresses-v2'>BTC Active addresses v2</h2>
+<p><img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/></p>
+
+<p>This endpoint returns the daily number of active addresses on the Bitcoin blockchain for each day
+of its existence. An address is defined as &#39;active&#39; if it has sent or received bitcoin
+in a transaction with a timestamp on that day. Only the distinct number of addresses are
+counted, i.e. an address which sends thousands of transactions per day is only counted once
+as an <em>active_sender</em> with the same logic applied to distinct receiving addresses.</p>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_active_address_window_historical/last?&amp;token=btc&amp;format=json&amp;window=1d&amp;key=API_KEY"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2009-01-12"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"active_senders"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"active_recipients"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2009-01-14"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"active_senders"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"active_recipients"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre><h3 id='http-request-3'>HTTP Request</h3>
+<p><code>GET https://api.tokenanalyst.io/analytics/private/v1/token_active_address_window_historical/last</code></p>
+<h3 id='query-parameters-3'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>key</td>
+<td><em>string</em></td>
+<td>Your unique API key</td>
+</tr>
+<tr>
+<td>format</td>
+<td><em>string</em></td>
+<td>What format you want your data in (<code>json</code> or <code>csv</code>)</td>
+</tr>
+<tr>
+<td>token</td>
+<td><em>string</em></td>
+<td><code>btc</code></td>
+</tr>
+<tr>
+<td>window</td>
+<td><em>string</em></td>
+<td><code>1d</code> (no support for 1h at this time)</td>
+</tr>
+</tbody></table>
+<h3 id='data-overview-3'>Data Overview</h3>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>date</td>
+<td><em>string</em></td>
+<td>The date in <em>YYYY-MM-DD</em></td>
+</tr>
+<tr>
+<td>active_senders</td>
+<td><em>integer</em></td>
+<td>The total number of distinct addresses that sent BTC in transactions with a timestamp on this date</td>
+</tr>
+<tr>
+<td>active_recipients</td>
+<td><em>integer</em></td>
+<td>The total number of distinct addresses that received BTC in transactions with a timestamp on this date</td>
+</tr>
+</tbody></table>
+
+<hr>
+<h2 id='btc-supply-v2'>BTC Supply v2</h2>
+<p><img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/></p>
+
+<p>This endpoint returns the historical supply of BTC on the Bitcoin blockchain for each day
+of its existence. This is the sum of BTC paid out in coinbase rewards.</p>
+
+<p>Since there is no
+requirement for a miner who successfully mines a block to pay themselves any or all of the
+block reward, we cannot simply multiply the number of blocks by the current reward level for
+those block(s). There have been instances where no coinbase reward was claimed at all, meaning
+those bitcoins are lost from the total supply forever.</p>
+
+<p>The supply generated by each mined block is the sum of the outputs (which includes the value of
+any coinbase reward up to the maximum permissible claimed by the miner), minus the sum of the
+inputs sent in that block.</p>
+
+<p>This metric includes bitcoins that have been locked by so-called &#39;burn&#39; addresses (addresses
+for which there is likely no known private key hence those bitcoins are also lost forever).
+An example of this is the lowest possible bitcoin address of <code>1111111111111111111114oLvT2</code>.</p>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_supply_window_historical/last?&amp;token=btc&amp;format=json&amp;window=1d&amp;key=API_KEY"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2009-01-12"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"supply"</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2009-01-13"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"supply"</span><span class="p">:</span><span class="w"> </span><span class="mi">750</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre><h3 id='http-request-4'>HTTP Request</h3>
+<p><code>GET https://api.tokenanalyst.io/analytics/private/v1/token_supply_historical/last</code></p>
+<h3 id='query-parameters-4'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>key</td>
+<td><em>string</em></td>
+<td>Your unique API key</td>
+</tr>
+<tr>
+<td>format</td>
+<td><em>string</em></td>
+<td>What format you want your data in (<code>json</code> or <code>csv</code>)</td>
+</tr>
+<tr>
+<td>token</td>
+<td><em>string</em></td>
+<td><code>btc</code></td>
+</tr>
+<tr>
+<td>window</td>
+<td><em>string</em></td>
+<td><code>1d</code> (no support for 1h at this time)</td>
+</tr>
+</tbody></table>
+<h3 id='data-overview-4'>Data Overview</h3>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>date</td>
+<td><em>string</em></td>
+<td>The date in <em>YYYY-MM-DD</em></td>
+</tr>
+<tr>
+<td>supply</td>
+<td><em>float</em></td>
+<td>The cumulative sum of bitcoins generated by mined blocks up to this date</td>
+</tr>
+</tbody></table>
+
+<hr>
+<h2 id='btc-nvt-v2'>BTC NVT v2</h2>
+<p><img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/></p>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_nvt_window_historical/last?&amp;token=btc&amp;format=json&amp;window=1d&amp;key=API_KEY"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-09-24"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"marketcap_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">5708841339.86</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"nvt"</span><span class="p">:</span><span class="w"> </span><span class="mf">33.195</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-09-25"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"marketcap_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">5516694629.19</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"nvt"</span><span class="p">:</span><span class="w"> </span><span class="mf">35.833</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<p>This endpoint returns the NVT Ratio (Network Value to Transactions Ratio) for BTC. This is the ratio of the Market Cap divided by the volume transmitted by the blockchain. Special thanks to Willy Woo and Chris Burniske for coming up with it!</p>
+<h3 id='http-request-5'>HTTP Request</h3>
+<p><code>GET https://api.tokenanalyst.io/analytics/private/v1/token_nvt_historical/last</code></p>
+<h3 id='query-parameters-5'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>key</td>
+<td><em>string</em></td>
+<td>Your unique API key</td>
+</tr>
+<tr>
+<td>format</td>
+<td><em>string</em></td>
+<td>What format you want your data in (<code>json</code> or <code>csv</code>)</td>
+</tr>
+<tr>
+<td>token</td>
+<td><em>string</em></td>
+<td><code>btc</code></td>
+</tr>
+<tr>
+<td>window</td>
+<td><em>string</em></td>
+<td><code>1d</code> (no support for 1h at this time)</td>
+</tr>
+</tbody></table>
+<h3 id='data-overview-5'>Data Overview</h3>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>date</td>
+<td><em>string</em></td>
+<td>The date in <em>YYYY-MM-DD</em></td>
+</tr>
+<tr>
+<td>marketcap_usd</td>
+<td><em>decimal</em></td>
+<td>The total USD market capitalization of BTC on this date. (<em>price_usd</em> * <em>supply</em>)</td>
+</tr>
+<tr>
+<td>nvt</td>
+<td><em>decimal</em></td>
+<td>Ratio comprising the total BTC Market Cap divided by the on-chain volume. (<em>marketcap_usd</em> / <em>volume_real_usd</em>)</td>
+</tr>
+</tbody></table>
+<h2 id='btc-fees-v2'>BTC Fees v2</h2>
+<p><img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/></p>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_fees_window_historical/last?&amp;token=btc&amp;format=json&amp;window=1d&amp;key=API_KEY"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-13"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"total_fee"</span><span class="p">:</span><span class="w"> </span><span class="mf">75.09047834</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"avg_size_bytes"</span><span class="p">:</span><span class="w"> </span><span class="mi">503</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"price_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">11148.93</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"total_fee_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">837178.32</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"avg_satoshis_per_byte"</span><span class="p">:</span><span class="w"> </span><span class="mi">40</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"avg_fee"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0002</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"avg_fee_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">2.26</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-14"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"total_fee"</span><span class="p">:</span><span class="w"> </span><span class="mf">58.70170397</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"avg_size_bytes"</span><span class="p">:</span><span class="w"> </span><span class="mi">481</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"price_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">10453.67</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"total_fee_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">613648.29</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"avg_satoshis_per_byte"</span><span class="p">:</span><span class="w"> </span><span class="mi">34</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"avg_fee"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0002</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"avg_fee_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.7</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<p>This endpoint returns the total and average fees spent on the Bitcoin network for every day of it&#39;s existence. The <code>total_fee</code> is denominated in Bitcoin, the <code>price</code> is the price of Bitcoin on that day, and the <code>avg_fee</code> is denominated in Bitcoin.</p>
+<h3 id='http-request-6'>HTTP Request</h3>
+<p><code>GET https://api.tokenanalyst.io/analytics/private/v1/token_fees_historical/last</code></p>
+<h3 id='query-parameters-6'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>key</td>
+<td><em>string</em></td>
+<td>Your unique API key</td>
+</tr>
+<tr>
+<td>format</td>
+<td><em>string</em></td>
+<td>What format you want your data in (<code>json</code> or <code>csv</code>)</td>
+</tr>
+<tr>
+<td>token</td>
+<td><em>string</em></td>
+<td><code>btc</code></td>
+</tr>
+<tr>
+<td>window</td>
+<td><em>string</em></td>
+<td><code>1d</code> (no support for 1h at this time)</td>
+</tr>
+</tbody></table>
+<h3 id='data-overview-6'>Data Overview</h3>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>date</td>
+<td><em>string</em></td>
+<td>The date in <em>YYYY-MM-DD</em></td>
+</tr>
+<tr>
+<td>total_fee</td>
+<td><em>decimal</em></td>
+<td>The total amount of fees paid by all transactions that occurred on this date. Denominated in BTC.</td>
+</tr>
+<tr>
+<td>avg_size_bytes</td>
+<td><em>integer</em></td>
+<td>The average transaction size to the nearest byte for transactions that occurred on this date.</td>
+</tr>
+<tr>
+<td>price_usd</td>
+<td><em>decimal</em></td>
+<td>The daily average price of BTC in USD (the daily mean of minute-level price data)</td>
+</tr>
+<tr>
+<td>total_fee_usd</td>
+<td><em>decimal</em></td>
+<td><em>total_fee</em> * <em>price</em></td>
+</tr>
+<tr>
+<td>avg_satoshis_per_byte</td>
+<td><em>integer</em></td>
+<td>The average number of satoshis paid per byte for transactions that occurred on this date</td>
+</tr>
+<tr>
+<td>avg_fee</td>
+<td><em>decimal</em></td>
+<td>The average amount of fees paid per transaction that occurred on this date. Denominated in BTC.</td>
+</tr>
+<tr>
+<td>avg_fee_usd</td>
+<td><em>decimal</em></td>
+<td><em>avg_fee</em> * <em>price_usd</em></td>
+</tr>
+</tbody></table>
+<h2 id='btc-utxo-age-v2'>BTC UTXO Age v2</h2>
+<p><img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/></p>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_utxo_age_historical/last?format=json&amp;token=btc&amp;key=API_KEY"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"1-3m"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0872</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"12-18m"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.1227</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"18-24m"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.1173</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"1d-1w"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.032</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"1w-1m"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0806</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"2-3y"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0576</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"3-5y"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0586</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"3-6m"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0674</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"5-10y"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.1408</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"6-12m"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.1448</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"&lt;1d"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0123</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"&gt;10y"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0786</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-10"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"1-3m"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0883</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"12-18m"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.1219</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"18-24m"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.1179</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"1d-1w"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.021</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"1w-1m"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0856</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"2-3y"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0576</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"3-5y"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0586</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"3-6m"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0684</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"5-10y"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.1407</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"6-12m"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.145</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"&lt;1d"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0162</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"&gt;10y"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0787</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-11"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<p>This endpoint returns the proportion of the current bitcoin supply held in unspent transaction outputs stratified by their age. For instance outputs in the category <code>12-18m</code> are unspent outputs (UTXOs) from transactions that occurred <code>12-18m</code> ago. Time is measured relative to blocktime assuming 6 blocks are generated per hour. This means that the proportion of UTXOs in the <code>&lt;1d</code> category were generated less than or equal to <code>144 blocks ago (6 blocks * 24 hours)</code>.</p>
+<h3 id='http-request-7'>HTTP Request</h3>
+<p><code>GET https://api.tokenanalyst.io/analytics/private/v1/token_utxo_age_historical/last</code></p>
+<h3 id='query-parameters-7'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>key</td>
+<td><em>string</em></td>
+<td>Your unique API key</td>
+</tr>
+<tr>
+<td>format</td>
+<td><em>string</em></td>
+<td>What format you want your data in (<code>json</code> or <code>csv</code>)</td>
+</tr>
+<tr>
+<td>token</td>
+<td><em>string</em></td>
+<td><code>btc</code></td>
+</tr>
+</tbody></table>
+<h3 id='data-overview-7'>Data Overview</h3>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>1-3m</td>
+<td><em>decimal</em></td>
+<td>Proportion of bitcoin supply on this date held in unspent outputs (UTXOs) from transactions that occurred 1 to 3 months prior to this date.</td>
+</tr>
+<tr>
+<td>12-18m</td>
+<td><em>decimal</em></td>
+<td>Proportion of bitcoin supply on this date held in unspent outputs (UTXOs) from transactions that occurred 12 to 18 months prior to this date.</td>
+</tr>
+<tr>
+<td>18-24m</td>
+<td><em>decimal</em></td>
+<td>Proportion of bitcoin supply on this date held in unspent outputs (UTXOs) from transactions that occurred 18 to 24 months prior to this date.</td>
+</tr>
+<tr>
+<td>1d-1w</td>
+<td><em>decimal</em></td>
+<td>Proportion of bitcoin supply on this date held in unspent outputs (UTXOs) from transactions that occurred 1 day to 1 week prior to this date.</td>
+</tr>
+<tr>
+<td>1w-1m</td>
+<td><em>decimal</em></td>
+<td>Proportion of bitcoin supply on this date held in unspent outputs (UTXOs) from transactions that occurred 1 week to 1 month prior to this date.</td>
+</tr>
+<tr>
+<td>2-3y</td>
+<td><em>decimal</em></td>
+<td>Proportion of bitcoin supply on this date held in unspent outputs (UTXOs) from transactions that occurred 2 to 3 years prior to this date.</td>
+</tr>
+<tr>
+<td>3-5y</td>
+<td><em>decimal</em></td>
+<td>Proportion of bitcoin supply on this date held in unspent outputs (UTXOs) from transactions that occurred 3 to 5 years prior to this date.</td>
+</tr>
+<tr>
+<td>3-6m</td>
+<td><em>decimal</em></td>
+<td>Proportion of bitcoin supply on this date held in unspent outputs (UTXOs) from transactions that occurred 3 to 6 months prior to this date.</td>
+</tr>
+<tr>
+<td>5-10y</td>
+<td><em>decimal</em></td>
+<td>Proportion of bitcoin supply on this date held in unspent outputs (UTXOs) from transactions that occurred 5 to 10 years prior to this date.</td>
+</tr>
+<tr>
+<td>6-12m</td>
+<td><em>decimal</em></td>
+<td>Proportion of bitcoin supply on this date held in unspent outputs (UTXOs) from transactions that occurred 6 to 12 months prior to this date.</td>
+</tr>
+<tr>
+<td>&lt;1d</td>
+<td><em>decimal</em></td>
+<td>Proportion of bitcoin supply on this date held in unspent outputs (UTXOs) from transactions that occurred less than a day prior to this date.</td>
+</tr>
+<tr>
+<td>&gt;10y</td>
+<td><em>decimal</em></td>
+<td>Proportion of bitcoin supply on this date held in unspent outputs (UTXOs) from transactions that occurred greater than 10 years prior to this date.</td>
+</tr>
+<tr>
+<td>date</td>
+<td><em>string</em></td>
+<td>The date in <em>YYYY-MM-DD</em></td>
+</tr>
+</tbody></table>
+<h2 id='btc-miner-hashrate-v2'>BTC Miner Hashrate v2</h2>
+<p><img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/></p>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_miner_hashrate_historical/last?format=json&amp;token=btc&amp;key=API_KEY"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-07-22"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"miner_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"F2 Pool"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"miner_daily_block_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">19</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"total_daily_block_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">322</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"miner_daily_hashrate"</span><span class="p">:</span><span class="w"> </span><span class="mf">8561054.749877952</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"total_daily_hashrate"</span><span class="p">:</span><span class="w"> </span><span class="mf">71191928.97266929</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"miner_daily_hashrate_pct"</span><span class="p">:</span><span class="w"> </span><span class="mf">12.025316455696203</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-07-22"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"miner_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AntPool"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"miner_daily_block_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">18</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"total_daily_block_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">322</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"miner_daily_hashrate"</span><span class="p">:</span><span class="w"> </span><span class="mf">8110472.920937006</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"total_daily_hashrate"</span><span class="p">:</span><span class="w"> </span><span class="mf">71191928.97266929</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"miner_daily_hashrate_pct"</span><span class="p">:</span><span class="w"> </span><span class="mf">11.392405063291138</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<p>This endpoint returns the daily and miner specifc hashrates. The <code>total_daily_hashrate</code> and the <code>miner_daily_hashrate</code> are denominated in TH/s. The <code>total_daily_block_count</code> is the total number of blocks mined on a given day, and the <code>miner_daily_block_count</code> are the number of blocks mined by a specific miner. We do not know the identify of all miners and a lot of them are labelled as unkown and grouped together</p>
+<h3 id='http-request-8'>HTTP Request</h3>
+<p><code>GET https://api.tokenanalyst.io/analytics/private/v1/token_miner_hashrate_historical/last</code></p>
+<h3 id='query-parameters-8'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>key</td>
+<td><em>string</em></td>
+<td>Your unique API key</td>
+</tr>
+<tr>
+<td>format</td>
+<td><em>string</em></td>
+<td>What format you want your data in (<code>json</code> or <code>csv</code>)</td>
+</tr>
+<tr>
+<td>token</td>
+<td><em>string</em></td>
+<td><code>btc</code></td>
+</tr>
+</tbody></table>
+<h3 id='data-overview-8'>Data Overview</h3>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>date</td>
+<td><em>string</em></td>
+<td>The date in <em>YYYY-MM-DD</em></td>
+</tr>
+<tr>
+<td>miner_name</td>
+<td><em>string</em></td>
+<td>Human readable name of the miner in our database, if known.</td>
+</tr>
+<tr>
+<td>miner_daily_block_count</td>
+<td><em>integer</em></td>
+<td>The total number of blocks mined by the miner on this date</td>
+</tr>
+<tr>
+<td>total_daily_block_count</td>
+<td><em>integer</em></td>
+<td>The total number of blocks mined on the blockchain on this date.</td>
+</tr>
+<tr>
+<td>miner_daily_hashrate</td>
+<td><em>decimal</em></td>
+<td>The hashrate contribution of the given miner for the day. Denominated in Th/s.</td>
+</tr>
+<tr>
+<td>total_daily_hashrate</td>
+<td><em>decimal</em></td>
+<td>The hashrate of the blockchain for the day. Denominated in Th/s.</td>
+</tr>
+<tr>
+<td>miner_daily_hashrate_pct</td>
+<td><em>decimal</em></td>
+<td>The percentage of the daily hashrate contributed by the miner. (<em>miner_daily_hashrate</em>/<em>total_daily_hashrate</em>)*100</td>
+</tr>
+</tbody></table>
+<h2 id='btc-miner-rewards-v2'>BTC Miner Rewards v2</h2>
 <p><img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/></p>
 <pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_miner_rewards_historical/last?format=json&amp;token=btc&amp;key=API_KEY"</span>
 </code></pre>
@@ -3882,6 +4814,496 @@ An example of this is the lowest possible bitcoin address of <code>1111111111111
 <td>exchange</td>
 <td><em>string</em></td>
 <td>An exchange from the list of ones we support</td>
+</tr>
+</tbody></table>
+<h3 id='data-overview-4'>Data Overview</h3>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>date</td>
+<td><em>string</em></td>
+<td>The date in <em>YYYY-MM-DD</em></td>
+</tr>
+<tr>
+<td>entity</td>
+<td><em>string</em></td>
+<td>The name of the exchange in question</td>
+</tr>
+<tr>
+<td>rank</td>
+<td><em>integer</em></td>
+<td>Ranking out of 10 for the 10 largest transactions of BTC flowing out of the exchange in question on this date.</td>
+</tr>
+<tr>
+<td>transactionhash</td>
+<td><em>string</em></td>
+<td>The transaction hash of the transaction in question.</td>
+</tr>
+<tr>
+<td>transactionid</td>
+<td><em>string</em></td>
+<td>The transaction id of the transaction in question.</td>
+</tr>
+<tr>
+<td>value</td>
+<td><em>decimal</em></td>
+<td>The amount of BTC transferred in this transaction.</td>
+</tr>
+<tr>
+<td>value_usd</td>
+<td><em>decimal</em></td>
+<td>The value in USD of the amount of BTC tranferred in this transaction.</td>
+</tr>
+</tbody></table>
+<h1 id='bitcoin-exchange-flows-v2'>Bitcoin Exchange Flows V2</h1>
+<p>For Bitcoin currently supported exchanges are: <code>binance</code>, <code>bittrex</code>, <code>bitstamp</code>, <code>poloniex</code>, <code>bitmex</code>, <code>bitfinex</code></p>
+<h2 id='btc-full-historical-inflow-to-exchanges-v2'>BTC Full Historical Inflow to Exchanges v2</h2>
+<p><img src="https://img.shields.io/badge/Tier-Professional-black.svg"/></p>
+
+<p>This endpoint returns the inflow of BTC into exchange wallets for as far back as we track. The average inflow is the average transaction value for transactions flowing into exchange wallets on a given day.</p>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_window_historical/last?format=json&amp;token=btc&amp;exchange=binance&amp;direction=inflow&amp;window=1h&amp;key=API_KEY"</span>
+</code></pre>
+<blockquote>
+<p>The response looks like:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"avg_txn_value"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.79</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"avg_txn_value_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">3306.01</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-08-16"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"hour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">avilabale</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
+    </span><span class="s2">"datetime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-08-16 11:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">avilabale</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
+    </span><span class="s2">"inflow"</span><span class="p">:</span><span class="w"> </span><span class="mf">1053.89</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"inflow_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">4410336.79</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"number_of_entity_receiving_addresses"</span><span class="p">:</span><span class="w"> </span><span class="mi">1349</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"number_of_nonentity_sending_addresses"</span><span class="p">:</span><span class="w"> </span><span class="mi">19413</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"number_of_txns"</span><span class="p">:</span><span class="w"> </span><span class="mi">1338</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"avg_txn_value"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.15</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"avg_txn_value_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">5009.32</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-08-17"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"hour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">avilabale</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
+    </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-08-17 11:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">avilabale</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
+    </span><span class="s2">"inflow"</span><span class="p">:</span><span class="w"> </span><span class="mf">2236.29</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"inflow_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">9741124.94</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"number_of_entity_receiving_addresses"</span><span class="p">:</span><span class="w"> </span><span class="mi">2121</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"number_of_nonentity_sending_addresses"</span><span class="p">:</span><span class="w"> </span><span class="mi">24915</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"number_of_txns"</span><span class="p">:</span><span class="w"> </span><span class="mi">1950</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre><h3 id='http-request'>HTTP Request</h3>
+<p><code>GET https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_window_historical/last?</code></p>
+<h3 id='url-parameters'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>key</td>
+<td><em>string</em></td>
+<td>Your unique API key</td>
+</tr>
+<tr>
+<td>format</td>
+<td><em>string</em></td>
+<td>What format you want your data in (<code>json</code> or <code>csv</code>)</td>
+</tr>
+<tr>
+<td>token</td>
+<td><em>string</em></td>
+<td><code>btc</code></td>
+</tr>
+<tr>
+<td>direction</td>
+<td><em>string</em></td>
+<td>Either <code>inflow</code> or <code>outflow</code> (in this case <code>inflow</code>)</td>
+</tr>
+<tr>
+<td>exchange</td>
+<td><em>string</em></td>
+<td>An exchange from the list of ones we support</td>
+</tr>
+<tr>
+<td>window</td>
+<td><em>string</em></td>
+<td><code>1h</code> or <code>1d</code></td>
+</tr>
+</tbody></table>
+<h3 id='data-overview'>Data Overview</h3>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>avg_txn_value</td>
+<td><em>decimal</em></td>
+<td>The average amount BTC transferred per transaction into the given exchange on this date.</td>
+</tr>
+<tr>
+<td>avg_txn_value_usd</td>
+<td><em>decimal</em></td>
+<td>The USD value of the average amount of BTC transferred per transaction into the given exchange on this date.</td>
+</tr>
+<tr>
+<td>date</td>
+<td><em>string</em></td>
+<td>The date in <em>YYYY-MM-DD</em></td>
+</tr>
+<tr>
+<td>hour</td>
+<td><em>string</em></td>
+<td>The hour of the day in <em>HH:MM:SS</em>  (UTC time zone). This is an optional field field and appears when window is <code>1h</code></td>
+</tr>
+<tr>
+<td>inflow</td>
+<td><em>decimal</em></td>
+<td>The total amount of BTC that flowed into the entity on this date. Denominated in BTC.</td>
+</tr>
+<tr>
+<td>inflow_usd</td>
+<td><em>decimal</em></td>
+<td>The USD value of the total amount of BTC that flowed into the exchange on this date</td>
+</tr>
+<tr>
+<td>number_of_entity_receiving_addresses</td>
+<td><em>integer</em></td>
+<td>The distinct number of wallets identified as belonging to the exchange in question that were on the receiving side of a transaction (where no wallets identified as belonging to the exchange were senders) on this date.</td>
+</tr>
+<tr>
+<td>number_of_nonentity_sending_addresses</td>
+<td><em>integer</em></td>
+<td>The distinct number of wallets (that don&#39;t belong to the exchange in question) that sent Bitcoin to wallets identified as belonging to this exchange on this date.</td>
+</tr>
+<tr>
+<td>number_of_txns</td>
+<td><em>integer</em></td>
+<td>The number of transactions sending BTC into this exchange on this date.</td>
+</tr>
+</tbody></table>
+<h2 id='btc-full-historical-outflows-from-exchanges-v2'>BTC Full Historical Outflows from Exchanges v2</h2>
+<p><img src="https://img.shields.io/badge/Tier-Professional-black.svg"/></p>
+
+<p>This endpoint returns the outflow of BTC from exchange wallets for as far back as we track. The average outflow is the average transaction value for transactions flowing out of exchange wallets on a given day.</p>
+<h3 id='http-request-2'>HTTP Request</h3>
+<p><code>GET https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_window_historical/last?</code></p>
+
+<blockquote>
+<p>This is an example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_window_historical/last?token=btc&amp;exchange=binance&amp;direction=outflow&amp;window=1h&amp;format=json&amp;key=API_KEY"</span>
+</code></pre>
+<blockquote>
+<p>The response looks like:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"avg_txn_value"</span><span class="p">:</span><span class="w"> </span><span class="mf">26.73</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"avg_txn_value_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">69375.93</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-07-05"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"hour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">avilabale</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
+    </span><span class="s2">"datetime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-07-05 11:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">avilabale</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
+    </span><span class="s2">"number_of_entity_sending_addresses"</span><span class="p">:</span><span class="w"> </span><span class="mi">23</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"number_of_nonentity_receiving_addresses"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"number_of_txns"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"outflow"</span><span class="p">:</span><span class="w"> </span><span class="mf">26.73</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"outflow_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">69375.93</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"avg_txn_value"</span><span class="p">:</span><span class="w"> </span><span class="mf">102.48</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"avg_txn_value_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">241881.49</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-07-12"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"hour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">avilabale</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
+    </span><span class="s2">"datetime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-07-12 11:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">avilabale</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
+    </span><span class="s2">"number_of_entity_sending_addresses"</span><span class="p">:</span><span class="w"> </span><span class="mi">77</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"number_of_nonentity_receiving_addresses"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"number_of_txns"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"outflow"</span><span class="p">:</span><span class="w"> </span><span class="mf">102.48</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"outflow_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">241881.49</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre><h3 id='url-parameters-2'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>key</td>
+<td><em>string</em></td>
+<td>Your unique API key</td>
+</tr>
+<tr>
+<td>format</td>
+<td><em>string</em></td>
+<td>What format you want your data in (<code>json</code> or <code>csv</code>)</td>
+</tr>
+<tr>
+<td>token</td>
+<td><em>string</em></td>
+<td><code>btc</code></td>
+</tr>
+<tr>
+<td>direction</td>
+<td><em>string</em></td>
+<td>Either <code>inflow</code> or <code>outflow</code> (in this case <code>outflow</code>)</td>
+</tr>
+<tr>
+<td>exchange</td>
+<td><em>string</em></td>
+<td>An exchange from the list of ones we support</td>
+</tr>
+<tr>
+<td>window</td>
+<td><em>string</em></td>
+<td><code>1h</code> or <code>1d</code></td>
+</tr>
+</tbody></table>
+<h3 id='data-overview-2'>Data Overview</h3>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>avg_txn_value</td>
+<td><em>decimal</em></td>
+<td>The average amount BTC transferred per transaction out of the given exchange on this date.</td>
+</tr>
+<tr>
+<td>avg_txn_value_usd</td>
+<td><em>decimal</em></td>
+<td>The USD value of the average amount of BTC transferred per transaction out of the given exchange on this date.</td>
+</tr>
+<tr>
+<td>date</td>
+<td><em>string</em></td>
+<td>The date in <em>YYYY-MM-DD</em></td>
+</tr>
+<tr>
+<td>hour</td>
+<td><em>string</em></td>
+<td>The hour of the day in <em>HH:MM:SS</em>  (UTC time zone). This is an optional field field and appears when window is <code>1h</code></td>
+</tr>
+<tr>
+<td>number_of_entity_sending_addresses</td>
+<td><em>integer</em></td>
+<td>The distinct number of wallets identified as belonging to the exchange in question that were on the sending side of a transaction (where no wallets identified as belonging to the exchange were receivers) on this date.</td>
+</tr>
+<tr>
+<td>number_of_nonentity_receiving_addresses</td>
+<td><em>integer</em></td>
+<td>The distinct number of wallets (that don&#39;t to the exchange in question) that received Bitcoin from wallets identified as belonging to this exchange on this date.</td>
+</tr>
+<tr>
+<td>number_of_txns</td>
+<td><em>decimal</em></td>
+<td>The number of transactions sending BTC out of this exchange on this date.</td>
+</tr>
+<tr>
+<td>outflow</td>
+<td><em>decimal</em></td>
+<td>The total amount of BTC that flowed out of the entity on this date. Denominated in BTC.</td>
+</tr>
+<tr>
+<td>outflow_usd</td>
+<td><em>decimal</em></td>
+<td>The USD value of the total amount of BTC that flowed out of the exchange on this date</td>
+</tr>
+</tbody></table>
+<h2 id='btc-full-historical-top-10-inflow-large-value-transactions-v2'>BTC Full Historical Top 10 Inflow Large Value Transactions v2</h2>
+<p><img src="https://img.shields.io/badge/Tier-Professional-black.svg"/></p>
+
+<p>This endpoint returns the top 10 transactions (in terms of total BTC sent) flowing into exchange wallets for every day that the exchange wallets we track have been live on the blockchain.</p>
+<h3 id='http-request-3'>HTTP Request</h3>
+<p><code>GET https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_top10_window_historical/last?</code></p>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_top10_window_historical/last?token=btc&amp;exchange=binance&amp;direction=inflow&amp;window=1d&amp;format=json&amp;key=API_KEY"</span>
+</code></pre>
+<blockquote>
+<p>This is what the response looks like</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-06-23"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"transactionhash"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0546f2545393d706b3b77ec251be93af12038dc28eefd5dc0d27acea9f0613a0"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"transactionid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0546f2545393d706b3b77ec251be93af12038dc28eefd5dc0d27acea9f0613a0"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"value_usd"</span><span class="p">:</span><span class="w"> </span><span class="mi">520000</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-06-24"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"transactionhash"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c1053514fbc010322e9fec4d9931e9f4271a1453e1f2b6941c367bf75fd47ca2"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"transactionid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c1053514fbc010322e9fec4d9931e9f4271a1453e1f2b6941c367bf75fd47ca2"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"value_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">83539.6</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre><h3 id='url-parameters-3'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>key</td>
+<td><em>string</em></td>
+<td>Your unique API key</td>
+</tr>
+<tr>
+<td>format</td>
+<td><em>string</em></td>
+<td>What format you want your data in (<code>json</code> or <code>csv</code>)</td>
+</tr>
+<tr>
+<td>token</td>
+<td><em>string</em></td>
+<td><code>btc</code></td>
+</tr>
+<tr>
+<td>direction</td>
+<td><em>string</em></td>
+<td><code>inflow</code></td>
+</tr>
+<tr>
+<td>exchange</td>
+<td><em>string</em></td>
+<td>An exchange from the list of ones we support</td>
+</tr>
+<tr>
+<td>window</td>
+<td><em>string</em></td>
+<td><code>1d</code> (no support for 1h at this time)</td>
+</tr>
+</tbody></table>
+<h3 id='data-overview-3'>Data Overview</h3>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>date</td>
+<td><em>string</em></td>
+<td>The date in <em>YYYY-MM-DD</em></td>
+</tr>
+<tr>
+<td>entity</td>
+<td><em>string</em></td>
+<td>The name of the exchange in question</td>
+</tr>
+<tr>
+<td>rank</td>
+<td><em>integer</em></td>
+<td>Ranking out of 10 for the 10 largest transactions of BTC flowing into the exchange in question on this date.</td>
+</tr>
+<tr>
+<td>transactionhash</td>
+<td><em>string</em></td>
+<td>The transaction hash of the transaction in question.</td>
+</tr>
+<tr>
+<td>transactionid</td>
+<td><em>string</em></td>
+<td>The transaction id of the transaction in question.</td>
+</tr>
+<tr>
+<td>value</td>
+<td><em>decimal</em></td>
+<td>The amount of BTC transferred in this transaction.</td>
+</tr>
+<tr>
+<td>value_usd</td>
+<td><em>decimal</em></td>
+<td>The value in USD of the amount of BTC tranferred in this transaction.</td>
+</tr>
+</tbody></table>
+<h2 id='btc-full-historical-top-10-outflow-large-value-transactions-v2'>BTC Full Historical Top 10 Outflow Large Value Transactions v2</h2>
+<p><img src="https://img.shields.io/badge/Tier-Professional-black.svg"/></p>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_top10_window_historical/last?token=btc&amp;exchange=binance&amp;direction=outflow&amp;window=1d&amp;format=json&amp;key=API_KEY"</span>
+</code></pre>
+<blockquote>
+<p>The response looks like:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-08-15"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"transactionhash"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c1053514fbc010322e9fec4d9931e9f4271a1453e1f2b6941c367bf75fd47ca2"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"transactionid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c1053514fbc010322e9fec4d9931e9f4271a1453e1f2b6941c367bf75fd47ca2"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"value_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">83539.6</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-08-15"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"transactionhash"</span><span class="p">:</span><span class="w"> </span><span class="s2">"d73a0d5c4100cbe3a680fc541d53a27133172f18da99768e89ec245cef93afa1"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"transactionid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"d73a0d5c4100cbe3a680fc541d53a27133172f18da99768e89ec245cef93afa1"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="mf">12.2471</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"value_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">51155.89</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<p>This endpoint returns the top 10 transactions (in terms of total BTC sent) flowing out of exchange wallets for every day that the exchange wallets we track have been live on the blockchain.</p>
+<h3 id='http-request-4'>HTTP Request</h3>
+<p><code>GET https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_top10_window_historical/last?</code></p>
+<h3 id='url-parameters-4'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>key</td>
+<td><em>string</em></td>
+<td>Your unique API key</td>
+</tr>
+<tr>
+<td>format</td>
+<td><em>string</em></td>
+<td>What format you want your data in (<code>json</code> or <code>csv</code>)</td>
+</tr>
+<tr>
+<td>token</td>
+<td><em>string</em></td>
+<td><code>btc</code></td>
+</tr>
+<tr>
+<td>direction</td>
+<td><em>string</em></td>
+<td><code>outflow</code></td>
+</tr>
+<tr>
+<td>exchange</td>
+<td><em>string</em></td>
+<td>An exchange from the list of ones we support</td>
+</tr>
+<tr>
+<td>window</td>
+<td><em>string</em></td>
+<td><code>1d</code> (no support for 1h at this time)</td>
 </tr>
 </tbody></table>
 <h3 id='data-overview-4'>Data Overview</h3>
