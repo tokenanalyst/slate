@@ -9,6 +9,7 @@ toc_footers:
 
 includes:
   - bitcoinfundamentals
+  - bitcoinfundamentalsv2
   - ethereumfundamentals
   - erc20tokenstats
   - stablecoinstats

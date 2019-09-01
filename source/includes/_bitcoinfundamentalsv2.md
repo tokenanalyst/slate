@@ -1,4 +1,4 @@
-# Bitcoin Fundamentals
+# Bitcoin Fundamentals v2
 
 ## BTC On-chain Volume
 
@@ -61,6 +61,7 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_volume_window_histo
 | Field             | Type      | Description                                                                                                                                        |
 | ----------------- | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
 | date              | _string_  | The date in _YYYY-MM-DD_                                                                                                                           |
+| hour              | _string_ | The hour of the day in _HH:MM:SS_  (UTC time zone). This is an optional field field and appears when window is `1h`                                 |
 | price_usd         | _decimal_ | The average price of BTC in USD for the window (the mean of minute-level price data for the given window)                                          |
 | volume_change     | _decimal_ | The total sum of BTC sent to (locked by) addresses that were also on the sending side of the same transaction                                      |
 | volume_change_usd | _decimal_ | _volume_change_ \* _price_usd_                                                                                                                     |
@@ -78,7 +79,7 @@ This endpoint returns the daily number of transactions on the full historical Bi
 for every day since it's genesis in 2009.
 
 ```shell
-curl "https://api.tokenanalyst.io/analytics/private/v1/token_count_historical/last?format=json&key=API_KEY&token=btc"
+curl "https://api.tokenanalyst.io/analytics/private/v1/token_count_window_historical/last?format=json&key=API_KEY&token=btc&window=1h"
 ```
 
 > The above command returns JSON structured like this:
@@ -87,14 +88,17 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_count_historical/la
 [
   {
     "date": "2009-03-12",
+    "hour": "11:00:00", // not avilabale when window 1d
     "number_of_txns": 119
   },
   {
     "date": "2009-03-13",
+    "hour": "12:00:00", // not avilabale when window 1d
     "number_of_txns": 114
   },
   {
     "date": "2009-03-14",
+    "hour": "13:00:00", // not avilabale when window 1d
     "number_of_txns": 110
   }
 ]
@@ -102,7 +106,7 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_count_historical/la
 
 ### HTTP Request
 
-`GET https://api.tokenanalyst.io/analytics/private/v1/token_count_historical/last`
+`GET https://api.tokenanalyst.io/analytics/private/v1/token_count_window_historical/last`
 
 ### Query Parameters
 
@@ -118,6 +122,7 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_count_historical/la
 | -------------- | --------- | ---------------------------------------------------------------------------------------------------------------------------- |
 | date           | _string_  | The date in _YYYY-MM-DD_                                                                                                     |
 | number_of_txns | _integer_ | The number of transactions included in blocks with a timestamp that occurs during this date (includes coinbase transactions) |
+| hour           | _string_  | The hour of the day in _HH:MM:SS_  (UTC time zone). This is an optional field and appears when window is `1h`                             |
 
 ---
 
@@ -132,7 +137,7 @@ counted, i.e. an address which sends thousands of transactions per day is only c
 as an _active_sender_ with the same logic applied to distinct receiving addresses.
 
 ```shell
-curl "https://api.tokenanalyst.io/analytics/private/v1/token_active_address_historical/last?&token=btc&format=json&key=API_KEY"
+curl "https://api.tokenanalyst.io/analytics/private/v1/token_active_address_window_historical/last?&token=btc&format=json&window=1d&key=API_KEY"
 ```
 
 > The above command returns JSON structured like this:
@@ -154,7 +159,7 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_active_address_hist
 
 ### HTTP Request
 
-`GET https://api.tokenanalyst.io/analytics/private/v1/token_active_address_historical/last`
+`GET https://api.tokenanalyst.io/analytics/private/v1/token_active_address_window_historical/last`
 
 ### Query Parameters
 
@@ -163,6 +168,7 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_active_address_hist
 | key       | _string_ | Your unique API key                                 |
 | format    | _string_ | What format you want your data in (`json` or `csv`) |
 | token     | _string_ | `btc`                                               |
+| window    | _string_ | `1d` (no support for 1h at this time)            |
 
 ### Data Overview
 
@@ -196,7 +202,7 @@ for which there is likely no known private key hence those bitcoins are also los
 An example of this is the lowest possible bitcoin address of `1111111111111111111114oLvT2`.
 
 ```shell
-curl "https://api.tokenanalyst.io/analytics/private/v1/token_supply_historical/last?&token=btc&format=json&key=API_KEY"
+curl "https://api.tokenanalyst.io/analytics/private/v1/token_supply_window_historical/last?&token=btc&format=json&window=1d&key=API_KEY"
 ```
 
 > The above command returns JSON structured like this:
@@ -225,6 +231,7 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_supply_historical/l
 | key       | _string_ | Your unique API key                                 |
 | format    | _string_ | What format you want your data in (`json` or `csv`) |
 | token     | _string_ | `btc`                                               |
+| window    | _string_ | `1d` (no support for 1h at this time)            |
 
 ### Data Overview
 
@@ -240,7 +247,7 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_supply_historical/l
 <img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/>
 
 ```shell
-curl "https://api.tokenanalyst.io/analytics/private/v1/token_nvt_historical/last?&token=btc&format=json&key=API_KEY"
+curl "https://api.tokenanalyst.io/analytics/private/v1/token_nvt_window_historical/last?&token=btc&format=json&window=1d&key=API_KEY"
 ```
 
 > The above command returns JSON structured like this:
@@ -273,6 +280,7 @@ This endpoint returns the NVT Ratio (Network Value to Transactions Ratio) for BT
 | key       | _string_ | Your unique API key                                 |
 | format    | _string_ | What format you want your data in (`json` or `csv`) |
 | token     | _string_ | `btc`                                               |
+| window    | _string_ | `1d` (no support for 1h at this time)            |
 
 ### Data Overview
 
@@ -287,7 +295,7 @@ This endpoint returns the NVT Ratio (Network Value to Transactions Ratio) for BT
 <img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/>
 
 ```shell
-curl "https://api.tokenanalyst.io/analytics/private/v1/token_fees_historical/last?&token=btc&format=json&key=API_KEY"
+curl "https://api.tokenanalyst.io/analytics/private/v1/token_fees_window_historical/last?&token=btc&format=json&window=1d&key=API_KEY"
 ```
 
 > The above command returns JSON structured like this:
@@ -330,6 +338,7 @@ This endpoint returns the total and average fees spent on the Bitcoin network fo
 | key       | _string_ | Your unique API key                                 |
 | format    | _string_ | What format you want your data in (`json` or `csv`) |
 | token     | _string_ | `btc`                                               |
+| window    | _string_ | `1d` (no support for 1h at this time)            |
 
 ### Data Overview
 
