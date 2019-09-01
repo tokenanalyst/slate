@@ -65,7 +65,7 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_window_hist
 | avg_txn_value       | _decimal_ | The average amount BTC transferred per transaction into the given exchange on this date.                                 |
 | avg_txn_value_usd    | _decimal_ | The USD value of the average amount of BTC transferred per transaction into the given exchange on this date.    |
 | date     | _string_ | The date in _YYYY-MM-DD_                     |
-| hour     | _string_ | The hour of the day in _HH:MM:SS_  (UTC time zone). This is an optional field based on the params used.                                               |
+| hour     | _string_ | The hour of the day in _HH:MM:SS_  (UTC time zone). This is an optional field field and appears when window is `1h`   |
 | inflow  | _decimal_ | The total amount of BTC that flowed into the entity on this date. Denominated in BTC.         |
 | inflow_usd  | _decimal_ | The USD value of the total amount of BTC that flowed into the exchange on this date         |
 | number_of_entity_receiving_addresses  | _integer_ | The distinct number of wallets identified as belonging to the exchange in question that were on the receiving side of a transaction (where no wallets identified as belonging to the exchange were senders) on this date.          |
@@ -141,7 +141,7 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_window_hist
 | avg_txn_value       | _decimal_ | The average amount BTC transferred per transaction out of the given exchange on this date.                                 |
 | avg_txn_value_usd    | _decimal_ | The USD value of the average amount of BTC transferred per transaction out of the given exchange on this date.    |
 | date     | _string_ | The date in _YYYY-MM-DD_                                                  |
-| hour     | _string_ | The hour of the day in _HH:MM:SS_  (UTC time zone). This is an optional field based on the params used.                                               |
+| hour     | _string_ | The hour of the day in _HH:MM:SS_  (UTC time zone). This is an optional field field and appears when window is `1h`   |
 | number_of_entity_sending_addresses  | _integer_ | The distinct number of wallets identified as belonging to the exchange in question that were on the sending side of a transaction (where no wallets identified as belonging to the exchange were receivers) on this date.          |
 | number_of_nonentity_receiving_addresses  | _integer_ | The distinct number of wallets (that don't to the exchange in question) that received Bitcoin from wallets identified as belonging to this exchange on this date.         |
 | number_of_txns  | _decimal_ | The number of transactions sending BTC out of this exchange on this date.         |
