@@ -1663,7 +1663,7 @@ An example of this is the lowest possible bitcoin address of <code>1111111111111
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre><h3 id='http-request-4'>HTTP Request</h3>
-<p><code>GET https://api.tokenanalyst.io/analytics/private/v1/token_supply_historical/last</code></p>
+<p><code>GET https://api.tokenanalyst.io/analytics/private/v1/token_supply_window_historical/last</code></p>
 <h3 id='query-parameters-4'>Query Parameters</h3>
 <table><thead>
 <tr>
@@ -1736,7 +1736,7 @@ An example of this is the lowest possible bitcoin address of <code>1111111111111
 </span></code></pre>
 <p>This endpoint returns the NVT Ratio (Network Value to Transactions Ratio) for BTC. This is the ratio of the Market Cap divided by the volume transmitted by the blockchain. Special thanks to Willy Woo and Chris Burniske for coming up with it!</p>
 <h3 id='http-request-5'>HTTP Request</h3>
-<p><code>GET https://api.tokenanalyst.io/analytics/private/v1/token_nvt_historical/last</code></p>
+<p><code>GET https://api.tokenanalyst.io/analytics/private/v1/token_nvt_window_historical/last</code></p>
 <h3 id='query-parameters-5'>Query Parameters</h3>
 <table><thead>
 <tr>
@@ -1822,7 +1822,7 @@ An example of this is the lowest possible bitcoin address of <code>1111111111111
 </span></code></pre>
 <p>This endpoint returns the total and average fees spent on the Bitcoin network for every day of it&#39;s existence. The <code>total_fee</code> is denominated in Bitcoin, the <code>price</code> is the price of Bitcoin on that day, and the <code>avg_fee</code> is denominated in Bitcoin.</p>
 <h3 id='http-request-6'>HTTP Request</h3>
-<p><code>GET https://api.tokenanalyst.io/analytics/private/v1/token_fees_historical/last</code></p>
+<p><code>GET https://api.tokenanalyst.io/analytics/private/v1/token_fees_window_historical/last</code></p>
 <h3 id='query-parameters-6'>Query Parameters</h3>
 <table><thead>
 <tr>
