@@ -223,7 +223,7 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_supply_window_histo
 
 ### HTTP Request
 
-`GET https://api.tokenanalyst.io/analytics/private/v1/token_supply_historical/last`
+`GET https://api.tokenanalyst.io/analytics/private/v1/token_supply_window_historical/last`
 
 ### Query Parameters
 
@@ -272,7 +272,7 @@ This endpoint returns the NVT Ratio (Network Value to Transactions Ratio) for BT
 
 ### HTTP Request
 
-`GET https://api.tokenanalyst.io/analytics/private/v1/token_nvt_historical/last`
+`GET https://api.tokenanalyst.io/analytics/private/v1/token_nvt_window_historical/last`
 
 ### Query Parameters
 
@@ -330,7 +330,7 @@ This endpoint returns the total and average fees spent on the Bitcoin network fo
 
 ### HTTP Request
 
-`GET https://api.tokenanalyst.io/analytics/private/v1/token_fees_historical/last`
+`GET https://api.tokenanalyst.io/analytics/private/v1/token_fees_window_historical/last`
 
 ### Query Parameters
 
