@@ -1,6 +1,6 @@
 # Bitcoin Fundamentals v2
 
-## BTC On-chain Volume
+## BTC On-chain Volume v2
 
 <img src="https://img.shields.io/badge/Tier-Free-green.svg"/>
 
@@ -71,7 +71,7 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_volume_window_histo
 
 ---
 
-## BTC On-chain Transaction Count
+## BTC On-chain Transaction Count v2
 
 <img src="https://img.shields.io/badge/Tier-Free-green.svg"/>
 
@@ -115,6 +115,7 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_count_window_histor
 | key       | _string_ | Your unique API key                                    |
 | format    | _string_ | What format you want your data in (`json` or `csv`)    |
 | token     | _string_ | The token you want the volume for (in this case `btc`) |
+| window    | _string_ | `1h` or `1d`       |
 
 ### Data Overview
 
@@ -126,7 +127,7 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_count_window_histor
 
 ---
 
-## BTC Active addresses
+## BTC Active addresses v2
 
 <img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/>
 
@@ -180,7 +181,7 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_active_address_wind
 
 ---
 
-## BTC Supply
+## BTC Supply v2
 
 <img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/>
 
@@ -242,7 +243,7 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_supply_window_histo
 
 ---
 
-## BTC NVT
+## BTC NVT v2
 
 <img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/>
 
@@ -290,7 +291,7 @@ This endpoint returns the NVT Ratio (Network Value to Transactions Ratio) for BT
 | marketcap_usd | _decimal_ | The total USD market capitalization of BTC on this date. (_price_usd_ \* _supply_)                                  |
 | nvt           | _decimal_ | Ratio comprising the total BTC Market Cap divided by the on-chain volume. (_marketcap_usd_ / _volume_real_usd_) |
 
-## BTC Fees
+## BTC Fees v2
 
 <img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/>
 
@@ -353,7 +354,7 @@ This endpoint returns the total and average fees spent on the Bitcoin network fo
 | avg_fee               | _decimal_ | The average amount of fees paid per transaction that occurred on this date. Denominated in BTC.   |
 | avg_fee_usd           | _decimal_ | _avg_fee_ \* _price_usd_                                                                              |
 
-## BTC UTXO Age
+## BTC UTXO Age v2
 
 <img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/>
 
@@ -430,7 +431,7 @@ This endpoint returns the proportion of the current bitcoin supply held in unspe
 | >10y   | _decimal_ | Proportion of bitcoin supply on this date held in unspent outputs (UTXOs) from transactions that occurred greater than 10 years prior to this date. |
 | date   | _string_  | The date in _YYYY-MM-DD_                                                                                                                            |
 
-## BTC Miner Hashrate
+## BTC Miner Hashrate v2
 
 <img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/>
 
@@ -489,7 +490,7 @@ This endpoint returns the daily and miner specifc hashrates. The `total_daily_ha
 | total_daily_hashrate     | _decimal_ | The hashrate of the blockchain for the day. Denominated in Th/s.                                                    |
 | miner_daily_hashrate_pct | _decimal_ | The percentage of the daily hashrate contributed by the miner. (_miner_daily_hashrate_/_total_daily_hashrate_)\*100 |
 
-## BTC Miner Rewards
+## BTC Miner Rewards v2
 
 <img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/>
 
