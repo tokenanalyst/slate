@@ -88,7 +88,7 @@ This endpoint returns the outflow of BTC from exchange wallets for as far back a
 > This is an example:
 
 ```shell
-curl "https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_window_historical/last?token=btc&exchange=binance&direction=outflow&format=json&key=API_KEY"
+curl "https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_window_historical/last?token=btc&exchange=binance&direction=outflow&window=1h&format=json&key=API_KEY"
 ```
 
 > The response looks like:
@@ -150,7 +150,7 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_window_hist
 
 
 
-## BTC Full Historical Top 10 Inflow Large Value Transactions
+## BTC Full Historical Top 10 Inflow Large Value Transactions v2
 
 <img src="https://img.shields.io/badge/Tier-Professional-black.svg"/>
 
@@ -161,7 +161,7 @@ This endpoint returns the top 10 transactions (in terms of total BTC sent) flowi
 `GET https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_top10_window_historical/last?`
 
 ```shell
-curl "https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_top10_window_historical/last?token=btc&exchange=binance&direction=inflow&format=json&key=API_KEY"
+curl "https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_top10_window_historical/last?token=btc&exchange=binance&direction=inflow&window=1d&format=json&key=API_KEY"
 ```
 
 > This is what the response looks like
@@ -173,9 +173,17 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_top10_windo
     "rank": 1,
     "transactionhash": "0546f2545393d706b3b77ec251be93af12038dc28eefd5dc0d27acea9f0613a0",
     "transactionid": "0546f2545393d706b3b77ec251be93af12038dc28eefd5dc0d27acea9f0613a0",
-    "value": 0.01,
-    "value_usd": 52.51
-  }
+    "value": 1000,
+    "value_usd": 520000
+  },
+  {
+    "date": "2017-06-24",
+    "rank": 2,
+    "transactionhash": "c1053514fbc010322e9fec4d9931e9f4271a1453e1f2b6941c367bf75fd47ca2",
+    "transactionid": "c1053514fbc010322e9fec4d9931e9f4271a1453e1f2b6941c367bf75fd47ca2",
+    "value": 200,
+    "value_usd": 83539.6
+  },
 ]
 ```
 
@@ -203,12 +211,12 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_top10_windo
 | value_usd  | _decimal_ | The value in USD of the amount of BTC tranferred in this transaction.        |
 
 
-## BTC Full Historical Top 10 Outflow Large Value Transactions
+## BTC Full Historical Top 10 Outflow Large Value Transactions v2
 
 <img src="https://img.shields.io/badge/Tier-Professional-black.svg"/>
 
 ```shell
-curl "https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_top10_window_historical/last?token=btc&exchange=binance&direction=outflow&format=json&key=API_KEY"
+curl "https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_top10_window_historical/last?token=btc&exchange=binance&direction=outflow&window=1d&format=json&key=API_KEY"
 ```
 
 > The response looks like:
