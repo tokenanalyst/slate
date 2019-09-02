@@ -180,7 +180,7 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_top10_windo
     "value_usd": 520000
   },
   {
-    "date": "2017-06-22",
+    "date": "2017-06-23",
     "rank": 2,
     "transaction_time": "2017-07-23 12:00:00",
     "transactionhash": "c1053514fbc010322e9fec4d9931e9f4271a1453e1f2b6941c367bf75fd47ca2",
