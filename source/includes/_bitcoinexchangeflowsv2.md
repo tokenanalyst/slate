@@ -65,6 +65,7 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_window_hist
 | avg_txn_value       | _decimal_ | The average amount BTC transferred per transaction into the given exchange on this date.                                 |
 | avg_txn_value_usd    | _decimal_ | The USD value of the average amount of BTC transferred per transaction into the given exchange on this date.    |
 | date     | _string_ | The date in _YYYY-MM-DD_                     |
+| datetime    | _string_   |    The hour of the day in  datetime format  YYYY-MM-DD HH:MM:SS (UTC time zone). This is an optional field field and appears when window is `1h` |
 | hour     | _string_ | The hour of the day in _HH:MM:SS_  (UTC time zone). This is an optional field field and appears when window is `1h`   |
 | inflow  | _decimal_ | The total amount of BTC that flowed into the entity on this date. Denominated in BTC.         |
 | inflow_usd  | _decimal_ | The USD value of the total amount of BTC that flowed into the exchange on this date         |
@@ -142,6 +143,7 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_window_hist
 | avg_txn_value_usd    | _decimal_ | The USD value of the average amount of BTC transferred per transaction out of the given exchange on this date.    |
 | date     | _string_ | The date in _YYYY-MM-DD_                                                  |
 | hour     | _string_ | The hour of the day in _HH:MM:SS_  (UTC time zone). This is an optional field field and appears when window is `1h`   |
+| datetime    | _string_   |    The hour of the day in  datetime format  YYYY-MM-DD HH:MM:SS (UTC time zone). This is an optional field field and appears when window is `1h` |
 | number_of_entity_sending_addresses  | _integer_ | The distinct number of wallets identified as belonging to the exchange in question that were on the sending side of a transaction (where no wallets identified as belonging to the exchange were receivers) on this date.          |
 | number_of_nonentity_receiving_addresses  | _integer_ | The distinct number of wallets (that don't to the exchange in question) that received Bitcoin from wallets identified as belonging to this exchange on this date.         |
 | number_of_txns  | _decimal_ | The number of transactions sending BTC out of this exchange on this date.         |
@@ -171,14 +173,16 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_top10_windo
   {
     "date": "2017-06-23",
     "rank": 1,
+    "transaction_time": "2017-07-23 11:00:00",
     "transactionhash": "0546f2545393d706b3b77ec251be93af12038dc28eefd5dc0d27acea9f0613a0",
     "transactionid": "0546f2545393d706b3b77ec251be93af12038dc28eefd5dc0d27acea9f0613a0",
     "value": 1000,
     "value_usd": 520000
   },
   {
-    "date": "2017-06-24",
+    "date": "2017-06-22",
     "rank": 2,
+    "transaction_time": "2017-07-23 12:00:00",
     "transactionhash": "c1053514fbc010322e9fec4d9931e9f4271a1453e1f2b6941c367bf75fd47ca2",
     "transactionid": "c1053514fbc010322e9fec4d9931e9f4271a1453e1f2b6941c367bf75fd47ca2",
     "value": 200,
@@ -205,6 +209,7 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_top10_windo
 | date       | _string_ | The date in _YYYY-MM-DD_                                 |
 | entity    | _string_ | The name of the exchange in question |
 | rank     | _integer_ | Ranking out of 10 for the 10 largest transactions of BTC flowing into the exchange in question on this date.                                             |
+| transaction_time    | _string_   |    The timestamp in  datetime format  YYYY-MM-DD HH:MM:SS (UTC time zone) when the transaction was mined |
 | transactionhash | _string_ | The transaction hash of the transaction in question.                                            |
 | transactionid  | _string_ | The transaction id of the transaction in question.       |
 | value  | _decimal_ | The amount of BTC transferred in this transaction.        |
@@ -226,6 +231,7 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_top10_windo
   {
     "date": "2017-08-15",
     "rank": 1,
+    "transaction_time": "2017-08-15 11:00:00",
     "transactionhash": "c1053514fbc010322e9fec4d9931e9f4271a1453e1f2b6941c367bf75fd47ca2",
     "transactionid": "c1053514fbc010322e9fec4d9931e9f4271a1453e1f2b6941c367bf75fd47ca2",
     "value": 20,
@@ -234,6 +240,7 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_top10_windo
   {
     "date": "2017-08-15",
     "rank": 2,
+    "transaction_time": "2017-08-15 12:00:00",
     "transactionhash": "d73a0d5c4100cbe3a680fc541d53a27133172f18da99768e89ec245cef93afa1",
     "transactionid": "d73a0d5c4100cbe3a680fc541d53a27133172f18da99768e89ec245cef93afa1",
     "value": 12.2471,
@@ -266,6 +273,7 @@ This endpoint returns the top 10 transactions (in terms of total BTC sent) flowi
 | date       | _string_ | The date in _YYYY-MM-DD_                                 |
 | entity    | _string_ | The name of the exchange in question |
 | rank     | _integer_ | Ranking out of 10 for the 10 largest transactions of BTC flowing out of the exchange in question on this date.                                             |
+| transaction_time    | _string_   |    The timestamp in  datetime format  YYYY-MM-DD HH:MM:SS (UTC time zone) when the transaction was mined |
 | transactionhash | _string_ | The transaction hash of the transaction in question.                                            |
 | transactionid  | _string_ | The transaction id of the transaction in question.       |
 | value  | _decimal_ | The amount of BTC transferred in this transaction.        |
