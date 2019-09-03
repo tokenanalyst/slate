@@ -378,17 +378,6 @@
               </ul>
           </li>
           <li>
-            <a href="#defi-metrics" class="toc-h1 toc-link" data-title="DeFi metrics">DeFi metrics</a>
-              <ul class="toc-list-h2">
-                  <li>
-                    <a href="#number-of-loans-originated" class="toc-h2 toc-link" data-title="Number of loans originated">Number of loans originated</a>
-                  </li>
-                  <li>
-                    <a href="#loan-origination-stats-by-token" class="toc-h2 toc-link" data-title="Loan Origination Stats By Token">Loan Origination Stats By Token</a>
-                  </li>
-              </ul>
-          </li>
-          <li>
             <a href="#bitcoin-exchange-flows" class="toc-h1 toc-link" data-title="Bitcoin Exchange Flows">Bitcoin Exchange Flows</a>
               <ul class="toc-list-h2">
                   <li>
@@ -1360,24 +1349,24 @@ curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_vo
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-02-04"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"hour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">avilabale</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
-    </span><span class="s2">"price_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">841.73</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"volume_change"</span><span class="p">:</span><span class="w"> </span><span class="mf">60604.1</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"volume_change_usd"</span><span class="p">:</span><span class="w"> </span><span class="mi">51012300</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"volume_gross"</span><span class="p">:</span><span class="w"> </span><span class="mi">788252</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"volume_real"</span><span class="p">:</span><span class="w"> </span><span class="mi">727648</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"volume_real_usd"</span><span class="p">:</span><span class="w"> </span><span class="mi">612483000</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-03-12"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"hour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"22:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">available</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
+    </span><span class="s2">"volume_gross"</span><span class="p">:</span><span class="w"> </span><span class="mf">18162.41657378</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"volume_change"</span><span class="p">:</span><span class="w"> </span><span class="mf">1437.98486305</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"volume_real"</span><span class="p">:</span><span class="w"> </span><span class="mf">16724.43171073</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"price_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">619.97</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"volume_change_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">891507.43</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"volume_real_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">10368645.44</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-02-05"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"hour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">avilabale</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
-    </span><span class="s2">"price_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">893.72</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"volume_change"</span><span class="p">:</span><span class="w"> </span><span class="mi">152871</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"volume_change_usd"</span><span class="p">:</span><span class="w"> </span><span class="mi">136624000</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"volume_gross"</span><span class="p">:</span><span class="w"> </span><span class="mi">771870</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"volume_real"</span><span class="p">:</span><span class="w"> </span><span class="mi">618999</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"volume_real_usd"</span><span class="p">:</span><span class="w"> </span><span class="mi">553212000</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-03-12"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"hour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"23:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">available</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
+    </span><span class="s2">"volume_gross"</span><span class="p">:</span><span class="w"> </span><span class="mf">51391.70115624</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"volume_change"</span><span class="p">:</span><span class="w"> </span><span class="mf">904.51484837</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"volume_real"</span><span class="p">:</span><span class="w"> </span><span class="mf">50487.18630787</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"price_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">619.54</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"volume_change_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">560383.11</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"volume_real_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">31278830.3</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre><h3 id='http-request'>HTTP Request</h3>
@@ -1410,7 +1399,24 @@ curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_vo
 <td><em>string</em></td>
 <td><code>1h</code> or <code>1d</code></td>
 </tr>
+<tr>
+<td>from_date *</td>
+<td><em>string</em></td>
+<td>Start date of returned data specified as YYYY-MM-DD (ISO date format)</td>
+</tr>
+<tr>
+<td>to_date *</td>
+<td><em>string</em></td>
+<td>End date of returned data specified as YYYY-MM-DD (ISO date format)</td>
+</tr>
+<tr>
+<td>limit *</td>
+<td><em>integer</em></td>
+<td>The number of entries returned before the latest data point (or the to_date if specified)</td>
+</tr>
 </tbody></table>
+
+<p>Note: All params with a * are optional and <code>limit</code> is only available in the JSON return format</p>
 <h3 id='data-overview'>Data Overview</h3>
 <table><thead>
 <tr>
@@ -1425,9 +1431,9 @@ curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_vo
 <td>The date in <em>YYYY-MM-DD</em></td>
 </tr>
 <tr>
-<td>hour</td>
+<td>hour *</td>
 <td><em>string</em></td>
-<td>The hour of the day in <em>HH:MM:SS</em>  (UTC time zone). This is an optional field field and appears when window is <code>1h</code></td>
+<td>The hour of the day in <em>HH:MM:SS</em> (UTC time zone). This is an optional field field and appears when window is <code>1h</code></td>
 </tr>
 <tr>
 <td>price_usd</td>
@@ -1467,7 +1473,7 @@ curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_vo
 
 <p>This endpoint returns the daily number of transactions on the full historical Bitcoin blockchain
 for every day since it&#39;s genesis in 2009.</p>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_count_window_historical/last?format=json&amp;key=API_KEY&amp;token=btc&amp;window=1h"</span>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_count_window_historical/last?format=json&amp;token=btc&amp;window=1h&amp;from_date=2009-03-12&amp;to_date=2009-03-12&amp;limit=3&amp;key=API_KEY"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -1475,18 +1481,18 @@ for every day since it&#39;s genesis in 2009.</p>
 <pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2009-03-12"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"hour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">avilabale</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
-    </span><span class="s2">"number_of_txns"</span><span class="p">:</span><span class="w"> </span><span class="mi">119</span><span class="w">
+    </span><span class="s2">"hour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"21:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">available</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
+    </span><span class="s2">"number_of_txns"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2009-03-13"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"hour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">avilabale</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
-    </span><span class="s2">"number_of_txns"</span><span class="p">:</span><span class="w"> </span><span class="mi">114</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2009-03-12"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"hour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"22:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">available</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
+    </span><span class="s2">"number_of_txns"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2009-03-14"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"hour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"13:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">avilabale</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
-    </span><span class="s2">"number_of_txns"</span><span class="p">:</span><span class="w"> </span><span class="mi">110</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2009-03-12"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"hour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"23:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">available</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
+    </span><span class="s2">"number_of_txns"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre><h3 id='http-request-2'>HTTP Request</h3>
@@ -1519,7 +1525,24 @@ for every day since it&#39;s genesis in 2009.</p>
 <td><em>string</em></td>
 <td><code>1h</code> or <code>1d</code></td>
 </tr>
+<tr>
+<td>from_date *</td>
+<td><em>string</em></td>
+<td>Start date of returned data specified as YYYY-MM-DD (ISO date format)</td>
+</tr>
+<tr>
+<td>to_date *</td>
+<td><em>string</em></td>
+<td>End date of returned data specified as YYYY-MM-DD (ISO date format)</td>
+</tr>
+<tr>
+<td>limit *</td>
+<td><em>integer</em></td>
+<td>The number of entries returned before the latest data point (or the to_date if specified)</td>
+</tr>
 </tbody></table>
+
+<p>Note: All params with a * are optional and <code>limit</code> is only available in the JSON return format</p>
 <h3 id='data-overview-2'>Data Overview</h3>
 <table><thead>
 <tr>
@@ -1539,9 +1562,9 @@ for every day since it&#39;s genesis in 2009.</p>
 <td>The number of transactions included in blocks with a timestamp that occurs during this date (includes coinbase transactions)</td>
 </tr>
 <tr>
-<td>hour</td>
+<td>hour *</td>
 <td><em>string</em></td>
-<td>The hour of the day in <em>HH:MM:SS</em>  (UTC time zone). This is an optional field and appears when window is <code>1h</code></td>
+<td>The hour of the day in <em>HH:MM:SS</em> (UTC time zone). This is an optional field and appears when window is <code>1h</code></td>
 </tr>
 </tbody></table>
 
@@ -1554,21 +1577,21 @@ of its existence. An address is defined as &#39;active&#39; if it has sent or re
 in a transaction with a timestamp on that day. Only the distinct number of addresses are
 counted, i.e. an address which sends thousands of transactions per day is only counted once
 as an <em>active_sender</em> with the same logic applied to distinct receiving addresses.</p>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_active_address_window_historical/last?&amp;token=btc&amp;format=json&amp;window=1d&amp;key=API_KEY"</span>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_active_address_window_historical/last?format=json&amp;token=btc&amp;window=1d&amp;from_date=2018-10-10&amp;to_date=2018-10-18&amp;limit=2&amp;key=API_KEY"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2009-01-12"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"active_senders"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"active_recipients"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-10-17"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"active_senders"</span><span class="p">:</span><span class="w"> </span><span class="mi">477052</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"active_recipients"</span><span class="p">:</span><span class="w"> </span><span class="mi">490874</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2009-01-14"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"active_senders"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"active_recipients"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-10-18"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"active_senders"</span><span class="p">:</span><span class="w"> </span><span class="mi">459061</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"active_recipients"</span><span class="p">:</span><span class="w"> </span><span class="mi">479728</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre><h3 id='http-request-3'>HTTP Request</h3>
@@ -1601,7 +1624,24 @@ as an <em>active_sender</em> with the same logic applied to distinct receiving a
 <td><em>string</em></td>
 <td><code>1d</code> (no support for 1h at this time)</td>
 </tr>
+<tr>
+<td>from_date *</td>
+<td><em>string</em></td>
+<td>Start date of returned data specified as YYYY-MM-DD (ISO date format)</td>
+</tr>
+<tr>
+<td>to_date *</td>
+<td><em>string</em></td>
+<td>End date of returned data specified as YYYY-MM-DD (ISO date format)</td>
+</tr>
+<tr>
+<td>limit *</td>
+<td><em>integer</em></td>
+<td>The number of entries returned before the latest data point (or the to_date if specified)</td>
+</tr>
 </tbody></table>
+
+<p>Note: All params with a * are optional and <code>limit</code> is only available in the JSON return format</p>
 <h3 id='data-overview-3'>Data Overview</h3>
 <table><thead>
 <tr>
@@ -1647,19 +1687,23 @@ inputs sent in that block.</p>
 <p>This metric includes bitcoins that have been locked by so-called &#39;burn&#39; addresses (addresses
 for which there is likely no known private key hence those bitcoins are also lost forever).
 An example of this is the lowest possible bitcoin address of <code>1111111111111111111114oLvT2</code>.</p>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_supply_window_historical/last?&amp;token=btc&amp;format=json&amp;window=1d&amp;key=API_KEY"</span>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_supply_window_historical/last?format=json&amp;token=btc&amp;window=1d&amp;from_date=2016-10-10&amp;to_date=2016-10-12&amp;key=API_KEY"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2009-01-12"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"supply"</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-10-10"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"supply"</span><span class="p">:</span><span class="w"> </span><span class="mf">15922677.2953033</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2009-01-13"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"supply"</span><span class="p">:</span><span class="w"> </span><span class="mi">750</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-10-11"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"supply"</span><span class="p">:</span><span class="w"> </span><span class="mf">15924414.7953033</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-10-12"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"supply"</span><span class="p">:</span><span class="w"> </span><span class="mf">15926214.7953033</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre><h3 id='http-request-4'>HTTP Request</h3>
@@ -1692,7 +1736,24 @@ An example of this is the lowest possible bitcoin address of <code>1111111111111
 <td><em>string</em></td>
 <td><code>1d</code> (no support for 1h at this time)</td>
 </tr>
+<tr>
+<td>from_date *</td>
+<td><em>string</em></td>
+<td>Start date of returned data specified as YYYY-MM-DD (ISO date format)</td>
+</tr>
+<tr>
+<td>to_date *</td>
+<td><em>string</em></td>
+<td>End date of returned data specified as YYYY-MM-DD (ISO date format)</td>
+</tr>
+<tr>
+<td>limit *</td>
+<td><em>integer</em></td>
+<td>The number of entries returned before the latest data point (or the to_date if specified)</td>
+</tr>
 </tbody></table>
+
+<p>Note: All params with a * are optional and <code>limit</code> is only available in the JSON return format</p>
 <h3 id='data-overview-4'>Data Overview</h3>
 <table><thead>
 <tr>
@@ -1716,21 +1777,26 @@ An example of this is the lowest possible bitcoin address of <code>1111111111111
 <hr>
 <h2 id='btc-nvt-v2'>BTC NVT v2</h2>
 <p><img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/></p>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_nvt_window_historical/last?&amp;token=btc&amp;format=json&amp;window=1d&amp;key=API_KEY"</span>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_nvt_window_historical/last?format=json&amp;token=btc&amp;window=1d&amp;from_date=2011-10-10&amp;to_date=2012-09-01&amp;limit=3&amp;key=API_KEY"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-09-24"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"marketcap_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">5708841339.86</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"nvt"</span><span class="p">:</span><span class="w"> </span><span class="mf">33.195</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2012-08-30"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"marketcap_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">89396489.26</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"nvt"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.8546</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-09-25"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"marketcap_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">5516694629.19</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"nvt"</span><span class="p">:</span><span class="w"> </span><span class="mf">35.833</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2012-08-31"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"marketcap_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">89460189.25</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"nvt"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.1035</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2012-09-01"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"marketcap_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">89533444.23</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"nvt"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.1367</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
@@ -1765,7 +1831,24 @@ An example of this is the lowest possible bitcoin address of <code>1111111111111
 <td><em>string</em></td>
 <td><code>1d</code> (no support for 1h at this time)</td>
 </tr>
+<tr>
+<td>from_date *</td>
+<td><em>string</em></td>
+<td>Start date of returned data specified as YYYY-MM-DD (ISO date format)</td>
+</tr>
+<tr>
+<td>to_date *</td>
+<td><em>string</em></td>
+<td>End date of returned data specified as YYYY-MM-DD (ISO date format)</td>
+</tr>
+<tr>
+<td>limit *</td>
+<td><em>integer</em></td>
+<td>The number of entries returned before the latest data point (or the to_date if specified)</td>
+</tr>
 </tbody></table>
+
+<p>Note: All params with a * are optional and <code>limit</code> is only available in the JSON return format</p>
 <h3 id='data-overview-5'>Data Overview</h3>
 <table><thead>
 <tr>
@@ -1792,31 +1875,31 @@ An example of this is the lowest possible bitcoin address of <code>1111111111111
 </tbody></table>
 <h2 id='btc-fees-v2'>BTC Fees v2</h2>
 <p><img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/></p>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_fees_window_historical/last?&amp;token=btc&amp;format=json&amp;window=1d&amp;key=API_KEY"</span>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_fees_window_historical/last?format=json&amp;token=btc&amp;window=1d&amp;from_date=2014-03-12&amp;to_date=2014-03-15&amp;limit=2&amp;key=API_KEY"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-13"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"total_fee"</span><span class="p">:</span><span class="w"> </span><span class="mf">75.09047834</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"avg_size_bytes"</span><span class="p">:</span><span class="w"> </span><span class="mi">503</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"price_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">11148.93</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"total_fee_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">837178.32</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"avg_satoshis_per_byte"</span><span class="p">:</span><span class="w"> </span><span class="mi">40</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-03-14"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"total_fee"</span><span class="p">:</span><span class="w"> </span><span class="mf">13.6553</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"avg_size_bytes"</span><span class="p">:</span><span class="w"> </span><span class="mi">575</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"price_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">621.0117</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"total_fee_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">8480.11</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"avg_satoshis_per_byte"</span><span class="p">:</span><span class="w"> </span><span class="mf">33.6015</span><span class="p">,</span><span class="w">
     </span><span class="s2">"avg_fee"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0002</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"avg_fee_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">2.26</span><span class="w">
+    </span><span class="s2">"avg_fee_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.12</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-14"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"total_fee"</span><span class="p">:</span><span class="w"> </span><span class="mf">58.70170397</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"avg_size_bytes"</span><span class="p">:</span><span class="w"> </span><span class="mi">481</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"price_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">10453.67</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"total_fee_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">613648.29</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"avg_satoshis_per_byte"</span><span class="p">:</span><span class="w"> </span><span class="mi">34</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-03-15"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"total_fee"</span><span class="p">:</span><span class="w"> </span><span class="mf">10.9136</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"avg_size_bytes"</span><span class="p">:</span><span class="w"> </span><span class="mi">508</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"price_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">620.7263</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"total_fee_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">6774.36</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"avg_satoshis_per_byte"</span><span class="p">:</span><span class="w"> </span><span class="mf">35.6095</span><span class="p">,</span><span class="w">
     </span><span class="s2">"avg_fee"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0002</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"avg_fee_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.7</span><span class="w">
+    </span><span class="s2">"avg_fee_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.11</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
@@ -1851,7 +1934,24 @@ An example of this is the lowest possible bitcoin address of <code>1111111111111
 <td><em>string</em></td>
 <td><code>1d</code> (no support for 1h at this time)</td>
 </tr>
+<tr>
+<td>from_date *</td>
+<td><em>string</em></td>
+<td>Start date of returned data specified as YYYY-MM-DD (ISO date format)</td>
+</tr>
+<tr>
+<td>to_date *</td>
+<td><em>string</em></td>
+<td>End date of returned data specified as YYYY-MM-DD (ISO date format)</td>
+</tr>
+<tr>
+<td>limit *</td>
+<td><em>integer</em></td>
+<td>The number of entries returned before the latest data point (or the to_date if specified)</td>
+</tr>
 </tbody></table>
+
+<p>Note: All params with a * are optional and <code>limit</code> is only available in the JSON return format</p>
 <h3 id='data-overview-6'>Data Overview</h3>
 <table><thead>
 <tr>
@@ -1903,41 +2003,41 @@ An example of this is the lowest possible bitcoin address of <code>1111111111111
 </tbody></table>
 <h2 id='btc-utxo-age-v2'>BTC UTXO Age v2</h2>
 <p><img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/></p>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_utxo_age_historical/last?format=json&amp;token=btc&amp;key=API_KEY"</span>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_utxo_age_historical/last?format=json&amp;token=btc&amp;from_date=2019-03-12&amp;to_date=2019-03-15&amp;limit=2&amp;key=API_KEY"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"1-3m"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0872</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"12-18m"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.1227</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"18-24m"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.1173</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"1d-1w"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.032</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"1w-1m"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0806</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"2-3y"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0576</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"3-5y"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0586</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"3-6m"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0674</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"5-10y"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.1408</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"6-12m"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.1448</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"&lt;1d"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0123</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"&gt;10y"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0786</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-10"</span><span class="w">
+    </span><span class="s2">"1-3m"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0812</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"12-18m"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.1705</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"18-24m"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0795</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"1d-1w"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0219</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"1w-1m"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0646</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"2-3y"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0491</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"3-5y"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0657</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"3-6m"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.1322</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"5-10y"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.1438</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"6-12m"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.1105</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"&lt;1d"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0131</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"&gt;10y"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0679</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-03-14"</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"1-3m"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0883</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"12-18m"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.1219</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"18-24m"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.1179</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"1d-1w"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.021</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"1w-1m"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0856</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"2-3y"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0576</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"3-5y"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0586</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"3-6m"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0684</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"5-10y"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.1407</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"6-12m"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.145</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"&lt;1d"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0162</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"&gt;10y"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0787</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-11"</span><span class="w">
+    </span><span class="s2">"1-3m"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0815</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"12-18m"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.1705</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"18-24m"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0798</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"1d-1w"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0226</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"1w-1m"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0634</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"2-3y"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0491</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"3-5y"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0658</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"3-6m"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.1317</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"5-10y"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.1436</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"6-12m"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.1109</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"&lt;1d"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0132</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"&gt;10y"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.068</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-03-15"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
@@ -1967,7 +2067,24 @@ An example of this is the lowest possible bitcoin address of <code>1111111111111
 <td><em>string</em></td>
 <td><code>btc</code></td>
 </tr>
+<tr>
+<td>from_date *</td>
+<td><em>string</em></td>
+<td>Start date of returned data specified as YYYY-MM-DD (ISO date format)</td>
+</tr>
+<tr>
+<td>to_date *</td>
+<td><em>string</em></td>
+<td>End date of returned data specified as YYYY-MM-DD (ISO date format)</td>
+</tr>
+<tr>
+<td>limit *</td>
+<td><em>integer</em></td>
+<td>The number of entries returned before the latest data point (or the to_date if specified)</td>
+</tr>
 </tbody></table>
+
+<p>Note: All params with a * are optional and <code>limit</code> is only available in the JSON return format</p>
 <h3 id='data-overview-7'>Data Overview</h3>
 <table><thead>
 <tr>
@@ -2044,7 +2161,7 @@ An example of this is the lowest possible bitcoin address of <code>1111111111111
 </tbody></table>
 <h2 id='btc-miner-hashrate-v2'>BTC Miner Hashrate v2</h2>
 <p><img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/></p>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_miner_hashrate_historical/last?format=json&amp;token=btc&amp;key=API_KEY"</span>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_miner_hashrate_window_historical/last?format=json&amp;token=btc&amp;key=API_KEY"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -2096,7 +2213,29 @@ An example of this is the lowest possible bitcoin address of <code>1111111111111
 <td><em>string</em></td>
 <td><code>btc</code></td>
 </tr>
+<tr>
+<td>window</td>
+<td><em>string</em></td>
+<td><code>1d</code> (no support for 1h at this time)</td>
+</tr>
+<tr>
+<td>from_date *</td>
+<td><em>string</em></td>
+<td>Start date of returned data specified as YYYY-MM-DD (ISO date format)</td>
+</tr>
+<tr>
+<td>to_date *</td>
+<td><em>string</em></td>
+<td>End date of returned data specified as YYYY-MM-DD (ISO date format)</td>
+</tr>
+<tr>
+<td>limit *</td>
+<td><em>integer</em></td>
+<td>The number of entries returned before the latest data point (or the to_date if specified)</td>
+</tr>
 </tbody></table>
+
+<p>Note: All params with a * are optional and <code>limit</code> is only available in the JSON return format</p>
 <h3 id='data-overview-8'>Data Overview</h3>
 <table><thead>
 <tr>
@@ -2143,25 +2282,29 @@ An example of this is the lowest possible bitcoin address of <code>1111111111111
 </tbody></table>
 <h2 id='btc-miner-rewards-v2'>BTC Miner Rewards v2</h2>
 <p><img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/></p>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_miner_rewards_historical/last?format=json&amp;token=btc&amp;key=API_KEY"</span>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_miner_hashrate_window_historical/last?format=json&amp;token=btc&amp;window=1d&amp;limit=2&amp;key=API_KEY"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-07-27"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"miner_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AntPool"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"price_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">8022.25</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"miner_daily_block_reward"</span><span class="p">:</span><span class="w"> </span><span class="mf">239.4406</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"miner_daily_block_reward_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">1920851.96</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-09-03"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"miner_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BitFury"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"miner_daily_block_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"miner_daily_hashrate"</span><span class="p">:</span><span class="w"> </span><span class="mf">2141915.4344</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"total_daily_block_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">103</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"total_daily_hashrate"</span><span class="p">:</span><span class="w"> </span><span class="mf">55154322.4359</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"miner_daily_hashrate_pct"</span><span class="p">:</span><span class="w"> </span><span class="mf">3.8835</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-07-27"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"miner_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC.TOP"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"price_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">8022.25</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"miner_daily_block_reward"</span><span class="p">:</span><span class="w"> </span><span class="mf">213.9951</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"miner_daily_block_reward_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">1716721.89</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-09-03"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"miner_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Huobi.pool"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"miner_daily_block_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"miner_daily_hashrate"</span><span class="p">:</span><span class="w"> </span><span class="mf">2141915.4344</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"total_daily_block_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">103</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"total_daily_hashrate"</span><span class="p">:</span><span class="w"> </span><span class="mf">55154322.4359</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"miner_daily_hashrate_pct"</span><span class="p">:</span><span class="w"> </span><span class="mf">3.8835</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
@@ -2191,7 +2334,29 @@ An example of this is the lowest possible bitcoin address of <code>1111111111111
 <td><em>string</em></td>
 <td><code>btc</code></td>
 </tr>
+<tr>
+<td>window</td>
+<td><em>string</em></td>
+<td><code>1d</code> only. <code>1h</code> not supported currently.</td>
+</tr>
+<tr>
+<td>from_date *</td>
+<td><em>string</em></td>
+<td>Start date of returned data specified as YYYY-MM-DD (ISO date format)</td>
+</tr>
+<tr>
+<td>to_date *</td>
+<td><em>string</em></td>
+<td>End date of returned data specified as YYYY-MM-DD (ISO date format)</td>
+</tr>
+<tr>
+<td>limit *</td>
+<td><em>integer</em></td>
+<td>The number of entries returned before the latest data point (or the to_date if specified)</td>
+</tr>
 </tbody></table>
+
+<p>Note: All params with a * are optional and <code>limit</code> is only available in the JSON return format</p>
 <h3 id='data-overview-9'>Data Overview</h3>
 <table><thead>
 <tr>
@@ -4225,180 +4390,6 @@ An example of this is the lowest possible bitcoin address of <code>1111111111111
 <td>The total number of distinct addresses that received the specified BEP2 token in transactions with a timestamp on this date</td>
 </tr>
 </tbody></table>
-<h1 id='defi-metrics'>DeFi metrics</h1>
-<p>The decentralized finance (DeFi) projects we currently cover are</p>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th>API Parameter</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>Dharma</td>
-<td><code>dharma</code></td>
-</tr>
-<tr>
-<td>Compound</td>
-<td><code>compound</code></td>
-</tr>
-</tbody></table>
-<h2 id='number-of-loans-originated'>Number of loans originated</h2>
-<p><img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/></p>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/project_loans_originated_historical/last?project=dharma&amp;format=json&amp;key=API_KEY"</span>
-</code></pre>
-<blockquote>
-<p>The response looks like:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-03-14 00:00:00.000"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"loans_originated"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-03-15 00:00:00.000"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"loans_originated"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="w">
-</span></code></pre>
-<p>This endpoint returns the number of loans that have been originated in various decentralized finance (&#39;DeFi&#39;) projects throughout the project&#39;s lifespan on the blockchain.</p>
-<h3 id='http-request'>HTTP Request</h3>
-<p><code>GET https://api.tokenanalyst.io/analytics/private/v1/project_loans_originated_historical/last?</code></p>
-<h3 id='url-parameters'>URL Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>key</td>
-<td><em>string</em></td>
-<td>Your unique API key</td>
-</tr>
-<tr>
-<td>format</td>
-<td><em>string</em></td>
-<td>What format you want your data in (<code>json</code> or <code>csv</code>)</td>
-</tr>
-<tr>
-<td>project</td>
-<td><em>string</em></td>
-<td>An project from the list of ones we cover (Above)</td>
-</tr>
-</tbody></table>
-<h3 id='data-overview'>Data Overview</h3>
-<table><thead>
-<tr>
-<th>Field</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>date</td>
-<td><em>string</em></td>
-<td>The date in <em>YYYY-MM-DD</em>  <em>HH:MM:SS.MS</em></td>
-</tr>
-<tr>
-<td>loans_originated</td>
-<td><em>integer</em></td>
-<td>The number of loans originated on the specified de-fi project on this date.</td>
-</tr>
-</tbody></table>
-<h2 id='loan-origination-stats-by-token'>Loan Origination Stats By Token</h2>
-<p><img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/></p>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/project_loan_stats_historical/last?project=compound&amp;format=json&amp;key=API_KEY"</span>
-</code></pre>
-<blockquote>
-<p>The response looks like:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-05-07"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DAI"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"txns"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"volume"</span><span class="p">:</span><span class="w"> </span><span class="mf">4024.14</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"volume_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">4186.93</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.04</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-05-07"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ETH"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"txns"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"volume"</span><span class="p">:</span><span class="w"> </span><span class="mf">16.30051781573815</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"volume_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">2883.87</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="mf">176.92</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="w">
-</span></code></pre>
-<p>This endpoint returns the number of transactions, volume, and volume_usd by date of loans generated (by token) on the Compound Protocol</p>
-<h3 id='http-request-2'>HTTP Request</h3>
-<p><code>GET https://api.tokenanalyst.io/analytics/private/v1/project_loan_stats_historical/last?</code></p>
-<h3 id='url-parameters-2'>URL Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>key</td>
-<td><em>string</em></td>
-<td>Your unique API key</td>
-</tr>
-<tr>
-<td>format</td>
-<td><em>string</em></td>
-<td>What format you want your data in (<code>json</code> or <code>csv</code>)</td>
-</tr>
-<tr>
-<td>project</td>
-<td><em>string</em></td>
-<td>An project from the list of ones we cover (Above)</td>
-</tr>
-</tbody></table>
-<h3 id='data-overview-2'>Data Overview</h3>
-<table><thead>
-<tr>
-<th>Field</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>date</td>
-<td><em>string</em></td>
-<td>The date in <em>YYYY-MM-DD</em></td>
-</tr>
-<tr>
-<td>token</td>
-<td><em>string</em></td>
-<td>The symbol of the token that is being used for the loan that is being generated</td>
-</tr>
-<tr>
-<td>txns</td>
-<td><em>string</em></td>
-<td>The number of transactions (of the specified token) related to loan generations on Compound.</td>
-</tr>
-<tr>
-<td>volume</td>
-<td><em>string</em></td>
-<td>The total amount of the specified token given out in loans generated on Compound on this date. Denominated in the specified token.</td>
-</tr>
-<tr>
-<td>volume_usd</td>
-<td><em>string</em></td>
-<td><em>volume</em> * <em>price</em></td>
-</tr>
-<tr>
-<td>price</td>
-<td><em>string</em></td>
-<td>The daily average price of the specified token in USD (the daily mean of minute-level price data)</td>
-</tr>
-</tbody></table>
 <h1 id='bitcoin-exchange-flows'>Bitcoin Exchange Flows</h1>
 <p>For Bitcoin currently supported exchanges are: <code>binance</code>, <code>bittrex</code>, <code>bitstamp</code>, <code>poloniex</code>, <code>bitmex</code>, <code>bitfinex</code></p>
 <h2 id='btc-full-historical-inflow-to-exchanges'>BTC Full Historical Inflow to Exchanges</h2>
@@ -4866,35 +4857,35 @@ An example of this is the lowest possible bitcoin address of <code>1111111111111
 <p><img src="https://img.shields.io/badge/Tier-Professional-black.svg"/></p>
 
 <p>This endpoint returns the inflow of BTC into exchange wallets for as far back as we track. The average inflow is the average transaction value for transactions flowing into exchange wallets on a given day.</p>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_window_historical/last?format=json&amp;token=btc&amp;exchange=binance&amp;direction=inflow&amp;window=1h&amp;key=API_KEY"</span>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_window_historical/last?format=json&amp;token=btc&amp;exchange=binance&amp;direction=inflow&amp;window=1h&amp;limit=2&amp;key=API_KEY"</span>
 </code></pre>
 <blockquote>
 <p>The response looks like:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"avg_txn_value"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.79</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"avg_txn_value_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">3306.01</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-08-16"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"hour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">avilabale</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
-    </span><span class="s2">"datetime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-08-16 11:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">avilabale</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
-    </span><span class="s2">"inflow"</span><span class="p">:</span><span class="w"> </span><span class="mf">1053.89</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"inflow_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">4410336.79</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"number_of_entity_receiving_addresses"</span><span class="p">:</span><span class="w"> </span><span class="mi">1349</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"number_of_nonentity_sending_addresses"</span><span class="p">:</span><span class="w"> </span><span class="mi">19413</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"number_of_txns"</span><span class="p">:</span><span class="w"> </span><span class="mi">1338</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-09-03"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"hour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">available</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
+    </span><span class="s2">"datetime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-09-03 14:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">available</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
+    </span><span class="s2">"avg_txn_value"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.81428269</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"avg_txn_value_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">19438.16</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"inflow"</span><span class="p">:</span><span class="w"> </span><span class="mf">344.71371202</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"inflow_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">3693250.26</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"number_of_entity_receiving_addresses"</span><span class="p">:</span><span class="w"> </span><span class="mi">185</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"number_of_nonentity_sending_addresses"</span><span class="p">:</span><span class="w"> </span><span class="mi">547</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"number_of_txns"</span><span class="p">:</span><span class="w"> </span><span class="mi">190</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"avg_txn_value"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.15</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"avg_txn_value_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">5009.32</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-08-17"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"hour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">avilabale</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
-    </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-08-17 11:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">avilabale</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
-    </span><span class="s2">"inflow"</span><span class="p">:</span><span class="w"> </span><span class="mf">2236.29</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"inflow_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">9741124.94</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"number_of_entity_receiving_addresses"</span><span class="p">:</span><span class="w"> </span><span class="mi">2121</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"number_of_nonentity_sending_addresses"</span><span class="p">:</span><span class="w"> </span><span class="mi">24915</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"number_of_txns"</span><span class="p">:</span><span class="w"> </span><span class="mi">1950</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-09-03"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"hour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"15:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">available</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
+    </span><span class="s2">"datetime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-09-03 15:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">available</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
+    </span><span class="s2">"avg_txn_value"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.48022623</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"avg_txn_value_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">5109.47</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"inflow"</span><span class="p">:</span><span class="w"> </span><span class="mf">46.58194403</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"inflow_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">495618.65</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"number_of_entity_receiving_addresses"</span><span class="p">:</span><span class="w"> </span><span class="mi">109</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"number_of_nonentity_sending_addresses"</span><span class="p">:</span><span class="w"> </span><span class="mi">224</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"number_of_txns"</span><span class="p">:</span><span class="w"> </span><span class="mi">97</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre><h3 id='http-request'>HTTP Request</h3>
@@ -4937,7 +4928,24 @@ An example of this is the lowest possible bitcoin address of <code>1111111111111
 <td><em>string</em></td>
 <td><code>1h</code> or <code>1d</code></td>
 </tr>
+<tr>
+<td>from_date *</td>
+<td><em>string</em></td>
+<td>Start date of returned data specified as YYYY-MM-DD (ISO date format)</td>
+</tr>
+<tr>
+<td>to_date *</td>
+<td><em>string</em></td>
+<td>End date of returned data specified as YYYY-MM-DD (ISO date format)</td>
+</tr>
+<tr>
+<td>limit *</td>
+<td><em>integer</em></td>
+<td>The number of entries returned before the latest data point (or the to_date if specified)</td>
+</tr>
 </tbody></table>
+
+<p>Note: All params with a * are optional and <code>limit</code> is only available in the JSON return format</p>
 <h3 id='data-overview'>Data Overview</h3>
 <table><thead>
 <tr>
@@ -4962,14 +4970,14 @@ An example of this is the lowest possible bitcoin address of <code>1111111111111
 <td>The date in <em>YYYY-MM-DD</em></td>
 </tr>
 <tr>
-<td>datetime</td>
+<td>datetime *</td>
 <td><em>string</em></td>
-<td>The hour of the day in  datetime format  YYYY-MM-DD HH:MM:SS (UTC time zone). This is an optional field field and appears when window is <code>1h</code></td>
+<td>The hour of the day in datetime format YYYY-MM-DD HH:MM:SS (UTC time zone). This is an optional field field and appears when window is <code>1h</code></td>
 </tr>
 <tr>
-<td>hour</td>
+<td>hour *</td>
 <td><em>string</em></td>
-<td>The hour of the day in <em>HH:MM:SS</em>  (UTC time zone). This is an optional field field and appears when window is <code>1h</code></td>
+<td>The hour of the day in <em>HH:MM:SS</em> (UTC time zone). This is an optional field field and appears when window is <code>1h</code></td>
 </tr>
 <tr>
 <td>inflow</td>
@@ -5007,7 +5015,7 @@ An example of this is the lowest possible bitcoin address of <code>1111111111111
 <blockquote>
 <p>This is an example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_window_historical/last?token=btc&amp;exchange=binance&amp;direction=outflow&amp;window=1h&amp;format=json&amp;key=API_KEY"</span>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_window_historical/last?token=btc&amp;exchange=binance&amp;direction=outflow&amp;window=1h&amp;format=json&amp;limit=2&amp;key=API_KEY"</span>
 </code></pre>
 <blockquote>
 <p>The response looks like:</p>
@@ -5016,9 +5024,9 @@ An example of this is the lowest possible bitcoin address of <code>1111111111111
   </span><span class="p">{</span><span class="w">
     </span><span class="s2">"avg_txn_value"</span><span class="p">:</span><span class="w"> </span><span class="mf">26.73</span><span class="p">,</span><span class="w">
     </span><span class="s2">"avg_txn_value_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">69375.93</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-07-05"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"hour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">avilabale</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
-    </span><span class="s2">"datetime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-07-05 11:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">avilabale</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-09-03"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"hour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">available</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
+    </span><span class="s2">"datetime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-09-03 11:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">available</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
     </span><span class="s2">"number_of_entity_sending_addresses"</span><span class="p">:</span><span class="w"> </span><span class="mi">23</span><span class="p">,</span><span class="w">
     </span><span class="s2">"number_of_nonentity_receiving_addresses"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
     </span><span class="s2">"number_of_txns"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
@@ -5028,9 +5036,9 @@ An example of this is the lowest possible bitcoin address of <code>1111111111111
   </span><span class="p">{</span><span class="w">
     </span><span class="s2">"avg_txn_value"</span><span class="p">:</span><span class="w"> </span><span class="mf">102.48</span><span class="p">,</span><span class="w">
     </span><span class="s2">"avg_txn_value_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">241881.49</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-07-12"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"hour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">avilabale</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
-    </span><span class="s2">"datetime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-07-12 11:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">avilabale</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-09-04"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"hour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">available</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
+    </span><span class="s2">"datetime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-09-04 11:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">available</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
     </span><span class="s2">"number_of_entity_sending_addresses"</span><span class="p">:</span><span class="w"> </span><span class="mi">77</span><span class="p">,</span><span class="w">
     </span><span class="s2">"number_of_nonentity_receiving_addresses"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
     </span><span class="s2">"number_of_txns"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
@@ -5076,7 +5084,24 @@ An example of this is the lowest possible bitcoin address of <code>1111111111111
 <td><em>string</em></td>
 <td><code>1h</code> or <code>1d</code></td>
 </tr>
+<tr>
+<td>from_date *</td>
+<td><em>string</em></td>
+<td>Start date of returned data specified as YYYY-MM-DD (ISO date format)</td>
+</tr>
+<tr>
+<td>to_date *</td>
+<td><em>string</em></td>
+<td>End date of returned data specified as YYYY-MM-DD (ISO date format)</td>
+</tr>
+<tr>
+<td>limit *</td>
+<td><em>integer</em></td>
+<td>The number of entries returned before the latest data point (or the to_date if specified)</td>
+</tr>
 </tbody></table>
+
+<p>Note: All params with a * are optional and <code>limit</code> is only available in the JSON return format</p>
 <h3 id='data-overview-2'>Data Overview</h3>
 <table><thead>
 <tr>
@@ -5101,14 +5126,14 @@ An example of this is the lowest possible bitcoin address of <code>1111111111111
 <td>The date in <em>YYYY-MM-DD</em></td>
 </tr>
 <tr>
-<td>hour</td>
+<td>hour *</td>
 <td><em>string</em></td>
-<td>The hour of the day in <em>HH:MM:SS</em>  (UTC time zone). This is an optional field field and appears when window is <code>1h</code></td>
+<td>The hour of the day in <em>HH:MM:SS</em> (UTC time zone). This is an optional field field and appears when window is <code>1h</code></td>
 </tr>
 <tr>
-<td>datetime</td>
+<td>datetime *</td>
 <td><em>string</em></td>
-<td>The hour of the day in  datetime format  YYYY-MM-DD HH:MM:SS (UTC time zone). This is an optional field field and appears when window is <code>1h</code></td>
+<td>The hour of the day in datetime format YYYY-MM-DD HH:MM:SS (UTC time zone). This is an optional field field and appears when window is <code>1h</code></td>
 </tr>
 <tr>
 <td>number_of_entity_sending_addresses</td>
@@ -5142,30 +5167,28 @@ An example of this is the lowest possible bitcoin address of <code>1111111111111
 <p>This endpoint returns the top 10 transactions (in terms of total BTC sent) flowing into exchange wallets for every day that the exchange wallets we track have been live on the blockchain.</p>
 <h3 id='http-request-3'>HTTP Request</h3>
 <p><code>GET https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_top10_window_historical/last?</code></p>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_top10_window_historical/last?token=btc&amp;exchange=binance&amp;direction=inflow&amp;window=1d&amp;format=json&amp;key=API_KEY"</span>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_top10_window_historical/last?format=json&amp;token=btc&amp;exchange=bitmex&amp;direction=inflow&amp;window=1d&amp;limit=2&amp;from_date=2019-02-02&amp;to_date=2019-02-08&amp;key=API_KEY"</span>
 </code></pre>
 <blockquote>
 <p>This is what the response looks like</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-06-23"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"transaction_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-07-23 11:00:00"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"transactionhash"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0546f2545393d706b3b77ec251be93af12038dc28eefd5dc0d27acea9f0613a0"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"transactionid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0546f2545393d706b3b77ec251be93af12038dc28eefd5dc0d27acea9f0613a0"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"value_usd"</span><span class="p">:</span><span class="w"> </span><span class="mi">520000</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-02-08"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"transactionid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ea6a036eb69f0b3c47ce27cc77a59270d2c0dc99342cdd5f4dcc41cfa1c98298"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"transaction_datetime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-02-08 16:50:54"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"value_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">174539.71</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-06-23"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"transaction_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-07-23 12:00:00"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"transactionhash"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c1053514fbc010322e9fec4d9931e9f4271a1453e1f2b6941c367bf75fd47ca2"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"transactionid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c1053514fbc010322e9fec4d9931e9f4271a1453e1f2b6941c367bf75fd47ca2"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"value_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">83539.6</span><span class="w">
-  </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-02-08"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"transactionid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"310ff316a1f8d887be851dfaaa14cb829f4d4d225a416ce7cd74a0c032d03c98"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"transaction_datetime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-02-08 17:21:24"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"value_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">174539.71</span><span class="w">
+  </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre><h3 id='url-parameters-3'>URL Parameters</h3>
 <table><thead>
@@ -5205,7 +5228,24 @@ An example of this is the lowest possible bitcoin address of <code>1111111111111
 <td><em>string</em></td>
 <td><code>1d</code> (no support for 1h at this time)</td>
 </tr>
+<tr>
+<td>from_date *</td>
+<td><em>string</em></td>
+<td>Start date of returned data specified as YYYY-MM-DD (ISO date format)</td>
+</tr>
+<tr>
+<td>to_date *</td>
+<td><em>string</em></td>
+<td>End date of returned data specified as YYYY-MM-DD (ISO date format)</td>
+</tr>
+<tr>
+<td>limit *</td>
+<td><em>integer</em></td>
+<td>The number of entries returned before the latest data point (or the to_date if specified)</td>
+</tr>
 </tbody></table>
+
+<p>Note: All params with a * are optional and <code>limit</code> is only available in the JSON return format</p>
 <h3 id='data-overview-3'>Data Overview</h3>
 <table><thead>
 <tr>
@@ -5232,7 +5272,7 @@ An example of this is the lowest possible bitcoin address of <code>1111111111111
 <tr>
 <td>transaction_time</td>
 <td><em>string</em></td>
-<td>The timestamp in  datetime format  YYYY-MM-DD HH:MM:SS (UTC time zone) when the transaction was mined</td>
+<td>The timestamp in datetime format YYYY-MM-DD HH:MM:SS (UTC time zone) when the transaction was mined</td>
 </tr>
 <tr>
 <td>transactionhash</td>
@@ -5257,33 +5297,31 @@ An example of this is the lowest possible bitcoin address of <code>1111111111111
 </tbody></table>
 <h2 id='btc-full-historical-top-10-outflow-large-value-transactions-v2'>BTC Full Historical Top 10 Outflow Large Value Transactions v2</h2>
 <p><img src="https://img.shields.io/badge/Tier-Professional-black.svg"/></p>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_top10_window_historical/last?token=btc&amp;exchange=binance&amp;direction=outflow&amp;window=1d&amp;format=json&amp;key=API_KEY"</span>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_top10_window_historical/last?format=json&amp;token=btc&amp;exchange=bitmex&amp;direction=outflow&amp;window=1d&amp;limit=2&amp;from_date=2019-02-02&amp;to_date=2019-02-08&amp;key=API_KEY"</span>
 </code></pre>
 <blockquote>
-<p>The response looks like:</p>
+<p>This is what the response looks like</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-08-15"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"transaction_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-08-15 11:00:00"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"transactionhash"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c1053514fbc010322e9fec4d9931e9f4271a1453e1f2b6941c367bf75fd47ca2"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"transactionid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c1053514fbc010322e9fec4d9931e9f4271a1453e1f2b6941c367bf75fd47ca2"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"value_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">83539.6</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-02-08"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"transactionid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bdf372897349b7103ed48c56e6bf0cfd44df854b4e3fc6cb6ce6b106360d0c2f"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"transaction_datetime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-02-08 18:50:53"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"value_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">27926.35</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-08-15"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"transaction_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-08-15 12:00:00"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"transactionhash"</span><span class="p">:</span><span class="w"> </span><span class="s2">"d73a0d5c4100cbe3a680fc541d53a27133172f18da99768e89ec245cef93afa1"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"transactionid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"d73a0d5c4100cbe3a680fc541d53a27133172f18da99768e89ec245cef93afa1"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="mf">12.2471</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"value_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">51155.89</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-02-08"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"transactionid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fcca2b0d59d640c5ba6bade0c32936d4ad512865b5e9e602ddce1da745d589e2"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"transaction_datetime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-02-08 18:50:53"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="mf">7.71</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"value_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">26897.2</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
-<p>This endpoint returns the top 10 transactions (in terms of total BTC sent) flowing out of exchange wallets for every day that the exchange wallets we track have been live on the blockchain.</p>
+<p>This endpoint returns the top 10 transactions (in terms of total BTC sent) flowing out of exchange wallets for every day that the exchange wallets we track have been live on the blockchain. Note: Currently Bitstamp and Binance are not supported for this endpoint</p>
 <h3 id='http-request-4'>HTTP Request</h3>
 <p><code>GET https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_top10_window_historical/last?</code></p>
 <h3 id='url-parameters-4'>URL Parameters</h3>
@@ -5324,7 +5362,24 @@ An example of this is the lowest possible bitcoin address of <code>1111111111111
 <td><em>string</em></td>
 <td><code>1d</code> (no support for 1h at this time)</td>
 </tr>
+<tr>
+<td>from_date *</td>
+<td><em>string</em></td>
+<td>Start date of returned data specified as YYYY-MM-DD (ISO date format)</td>
+</tr>
+<tr>
+<td>to_date *</td>
+<td><em>string</em></td>
+<td>End date of returned data specified as YYYY-MM-DD (ISO date format)</td>
+</tr>
+<tr>
+<td>limit *</td>
+<td><em>integer</em></td>
+<td>The number of entries returned before the latest data point (or the to_date if specified)</td>
+</tr>
 </tbody></table>
+
+<p>Note: All params with a * are optional and <code>limit</code> is only available in the JSON return format</p>
 <h3 id='data-overview-4'>Data Overview</h3>
 <table><thead>
 <tr>
@@ -5351,7 +5406,7 @@ An example of this is the lowest possible bitcoin address of <code>1111111111111
 <tr>
 <td>transaction_time</td>
 <td><em>string</em></td>
-<td>The timestamp in  datetime format  YYYY-MM-DD HH:MM:SS (UTC time zone) when the transaction was mined</td>
+<td>The timestamp in datetime format YYYY-MM-DD HH:MM:SS (UTC time zone) when the transaction was mined</td>
 </tr>
 <tr>
 <td>transactionhash</td>
