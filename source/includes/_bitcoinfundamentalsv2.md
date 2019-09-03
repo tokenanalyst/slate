@@ -21,24 +21,24 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_volume_window_histo
 ```json
 [
   {
-    "date": "2014-02-04",
-    "hour": "11:00:00", // not avilabale when window 1d
-    "price_usd": 841.73,
-    "volume_change": 60604.1,
-    "volume_change_usd": 51012300,
-    "volume_gross": 788252,
-    "volume_real": 727648,
-    "volume_real_usd": 612483000
+    "date": "2014-03-12",
+    "hour": "22:00:00", // not available when window 1d
+    "volume_gross": 18162.41657378,
+    "volume_change": 1437.98486305,
+    "volume_real": 16724.43171073,
+    "price_usd": 619.97,
+    "volume_change_usd": 891507.43,
+    "volume_real_usd": 10368645.44
   },
   {
-    "date": "2014-02-05",
-    "hour": "12:00:00", // not avilabale when window 1d
-    "price_usd": 893.72,
-    "volume_change": 152871,
-    "volume_change_usd": 136624000,
-    "volume_gross": 771870,
-    "volume_real": 618999,
-    "volume_real_usd": 553212000
+    "date": "2014-03-12",
+    "hour": "23:00:00", // not available when window 1d
+    "volume_gross": 51391.70115624,
+    "volume_change": 904.51484837,
+    "volume_real": 50487.18630787,
+    "price_usd": 619.54,
+    "volume_change_usd": 560383.11,
+    "volume_real_usd": 31278830.3
   }
 ]
 ```
@@ -49,19 +49,24 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_volume_window_histo
 
 ### Query Parameters
 
-| Parameter | Type     | Description                                            |
-| --------- | -------- | ------------------------------------------------------ |
-| key       | _string_ | Your unique API key                                    |
-| format    | _string_ | What format you want your data in (`json` or `csv`)    |
-| token     | _string_ | The token you want the volume for (in this case `btc`) |
-| window    | _string_ | `1h` or `1d`       |
+| Parameter    | Type      | Description                                                                               |
+| ------------ | --------- | ----------------------------------------------------------------------------------------- |
+| key          | _string_  | Your unique API key                                                                       |
+| format       | _string_  | What format you want your data in (`json` or `csv`)                                       |
+| token        | _string_  | The token you want the volume for (in this case `btc`)                                    |
+| window       | _string_  | `1h` or `1d`                                                                              |
+| from_date \* | _string_  | Start date of returned data specified as YYYY-MM-DD (ISO date format)                     |
+| to_date \*   | _string_  | End date of returned data specified as YYYY-MM-DD (ISO date format)                       |
+| limit \*     | _integer_ | The number of entries returned before the latest data point (or the to_date if specified) |
+
+Note: All params with a \* are optional and `limit` is only available in the JSON return format
 
 ### Data Overview
 
 | Field             | Type      | Description                                                                                                                                        |
 | ----------------- | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
 | date              | _string_  | The date in _YYYY-MM-DD_                                                                                                                           |
-| hour              | _string_ | The hour of the day in _HH:MM:SS_  (UTC time zone). This is an optional field field and appears when window is `1h`                                 |
+| hour \*           | _string_  | The hour of the day in _HH:MM:SS_ (UTC time zone). This is an optional field field and appears when window is `1h`                                 |
 | price_usd         | _decimal_ | The average price of BTC in USD for the window (the mean of minute-level price data for the given window)                                          |
 | volume_change     | _decimal_ | The total sum of BTC sent to (locked by) addresses that were also on the sending side of the same transaction                                      |
 | volume_change_usd | _decimal_ | _volume_change_ \* _price_usd_                                                                                                                     |
@@ -79,7 +84,7 @@ This endpoint returns the daily number of transactions on the full historical Bi
 for every day since it's genesis in 2009.
 
 ```shell
-curl "https://api.tokenanalyst.io/analytics/private/v1/token_count_window_historical/last?format=json&key=API_KEY&token=btc&window=1h"
+curl "https://api.tokenanalyst.io/analytics/private/v1/token_count_window_historical/last?format=json&token=btc&window=1h&from_date=2009-03-12&to_date=2009-03-12&limit=3&key=API_KEY"
 ```
 
 > The above command returns JSON structured like this:
@@ -88,18 +93,18 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_count_window_histor
 [
   {
     "date": "2009-03-12",
-    "hour": "11:00:00", // not avilabale when window 1d
-    "number_of_txns": 119
+    "hour": "21:00:00", // not available when window 1d
+    "number_of_txns": 7
   },
   {
-    "date": "2009-03-13",
-    "hour": "12:00:00", // not avilabale when window 1d
-    "number_of_txns": 114
+    "date": "2009-03-12",
+    "hour": "22:00:00", // not available when window 1d
+    "number_of_txns": 6
   },
   {
-    "date": "2009-03-14",
-    "hour": "13:00:00", // not avilabale when window 1d
-    "number_of_txns": 110
+    "date": "2009-03-12",
+    "hour": "23:00:00", // not available when window 1d
+    "number_of_txns": 5
   }
 ]
 ```
@@ -110,12 +115,17 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_count_window_histor
 
 ### Query Parameters
 
-| Parameter | Type     | Description                                            |
-| --------- | -------- | ------------------------------------------------------ |
-| key       | _string_ | Your unique API key                                    |
-| format    | _string_ | What format you want your data in (`json` or `csv`)    |
-| token     | _string_ | The token you want the volume for (in this case `btc`) |
-| window    | _string_ | `1h` or `1d`       |
+| Parameter    | Type      | Description                                                                               |
+| ------------ | --------- | ----------------------------------------------------------------------------------------- |
+| key          | _string_  | Your unique API key                                                                       |
+| format       | _string_  | What format you want your data in (`json` or `csv`)                                       |
+| token        | _string_  | The token you want the volume for (in this case `btc`)                                    |
+| window       | _string_  | `1h` or `1d`                                                                              |
+| from_date \* | _string_  | Start date of returned data specified as YYYY-MM-DD (ISO date format)                     |
+| to_date \*   | _string_  | End date of returned data specified as YYYY-MM-DD (ISO date format)                       |
+| limit \*     | _integer_ | The number of entries returned before the latest data point (or the to_date if specified) |
+
+Note: All params with a \* are optional and `limit` is only available in the JSON return format
 
 ### Data Overview
 
@@ -123,7 +133,7 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_count_window_histor
 | -------------- | --------- | ---------------------------------------------------------------------------------------------------------------------------- |
 | date           | _string_  | The date in _YYYY-MM-DD_                                                                                                     |
 | number_of_txns | _integer_ | The number of transactions included in blocks with a timestamp that occurs during this date (includes coinbase transactions) |
-| hour           | _string_  | The hour of the day in _HH:MM:SS_  (UTC time zone). This is an optional field and appears when window is `1h`                             |
+| hour \*        | _string_  | The hour of the day in _HH:MM:SS_ (UTC time zone). This is an optional field and appears when window is `1h`                 |
 
 ---
 
@@ -138,7 +148,7 @@ counted, i.e. an address which sends thousands of transactions per day is only c
 as an _active_sender_ with the same logic applied to distinct receiving addresses.
 
 ```shell
-curl "https://api.tokenanalyst.io/analytics/private/v1/token_active_address_window_historical/last?&token=btc&format=json&window=1d&key=API_KEY"
+curl "https://api.tokenanalyst.io/analytics/private/v1/token_active_address_window_historical/last?format=json&token=btc&window=1d&from_date=2018-10-10&to_date=2018-10-18&limit=2&key=API_KEY"
 ```
 
 > The above command returns JSON structured like this:
@@ -146,14 +156,14 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_active_address_wind
 ```json
 [
   {
-    "date": "2009-01-12",
-    "active_senders": 3,
-    "active_recipients": 1
+    "date": "2018-10-17",
+    "active_senders": 477052,
+    "active_recipients": 490874
   },
   {
-    "date": "2009-01-14",
-    "active_senders": 3,
-    "active_recipients": 0
+    "date": "2018-10-18",
+    "active_senders": 459061,
+    "active_recipients": 479728
   }
 ]
 ```
@@ -164,12 +174,17 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_active_address_wind
 
 ### Query Parameters
 
-| Parameter | Type     | Description                                         |
-| --------- | -------- | --------------------------------------------------- |
-| key       | _string_ | Your unique API key                                 |
-| format    | _string_ | What format you want your data in (`json` or `csv`) |
-| token     | _string_ | `btc`                                               |
-| window    | _string_ | `1d` (no support for 1h at this time)            |
+| Parameter    | Type      | Description                                                                               |
+| ------------ | --------- | ----------------------------------------------------------------------------------------- |
+| key          | _string_  | Your unique API key                                                                       |
+| format       | _string_  | What format you want your data in (`json` or `csv`)                                       |
+| token        | _string_  | `btc`                                                                                     |
+| window       | _string_  | `1d` (no support for 1h at this time)                                                     |
+| from_date \* | _string_  | Start date of returned data specified as YYYY-MM-DD (ISO date format)                     |
+| to_date \*   | _string_  | End date of returned data specified as YYYY-MM-DD (ISO date format)                       |
+| limit \*     | _integer_ | The number of entries returned before the latest data point (or the to_date if specified) |
+
+Note: All params with a \* are optional and `limit` is only available in the JSON return format
 
 ### Data Overview
 
@@ -203,7 +218,7 @@ for which there is likely no known private key hence those bitcoins are also los
 An example of this is the lowest possible bitcoin address of `1111111111111111111114oLvT2`.
 
 ```shell
-curl "https://api.tokenanalyst.io/analytics/private/v1/token_supply_window_historical/last?&token=btc&format=json&window=1d&key=API_KEY"
+curl "https://api.tokenanalyst.io/analytics/private/v1/token_supply_window_historical/last?format=json&token=btc&window=1d&from_date=2016-10-10&to_date=2016-10-12&key=API_KEY"
 ```
 
 > The above command returns JSON structured like this:
@@ -211,12 +226,16 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_supply_window_histo
 ```json
 [
   {
-    "date": "2009-01-12",
-    "supply": 50
+    "date": "2016-10-10",
+    "supply": 15922677.2953033
   },
   {
-    "date": "2009-01-13",
-    "supply": 750
+    "date": "2016-10-11",
+    "supply": 15924414.7953033
+  },
+  {
+    "date": "2016-10-12",
+    "supply": 15926214.7953033
   }
 ]
 ```
@@ -227,12 +246,17 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_supply_window_histo
 
 ### Query Parameters
 
-| Parameter | Type     | Description                                         |
-| --------- | -------- | --------------------------------------------------- |
-| key       | _string_ | Your unique API key                                 |
-| format    | _string_ | What format you want your data in (`json` or `csv`) |
-| token     | _string_ | `btc`                                               |
-| window    | _string_ | `1d` (no support for 1h at this time)            |
+| Parameter    | Type      | Description                                                                               |
+| ------------ | --------- | ----------------------------------------------------------------------------------------- |
+| key          | _string_  | Your unique API key                                                                       |
+| format       | _string_  | What format you want your data in (`json` or `csv`)                                       |
+| token        | _string_  | `btc`                                                                                     |
+| window       | _string_  | `1d` (no support for 1h at this time)                                                     |
+| from_date \* | _string_  | Start date of returned data specified as YYYY-MM-DD (ISO date format)                     |
+| to_date \*   | _string_  | End date of returned data specified as YYYY-MM-DD (ISO date format)                       |
+| limit \*     | _integer_ | The number of entries returned before the latest data point (or the to_date if specified) |
+
+Note: All params with a \* are optional and `limit` is only available in the JSON return format
 
 ### Data Overview
 
@@ -248,7 +272,7 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_supply_window_histo
 <img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/>
 
 ```shell
-curl "https://api.tokenanalyst.io/analytics/private/v1/token_nvt_window_historical/last?&token=btc&format=json&window=1d&key=API_KEY"
+curl "https://api.tokenanalyst.io/analytics/private/v1/token_nvt_window_historical/last?format=json&token=btc&window=1d&from_date=2011-10-10&to_date=2012-09-01&limit=3&key=API_KEY"
 ```
 
 > The above command returns JSON structured like this:
@@ -256,14 +280,19 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_nvt_window_historic
 ```json
 [
   {
-    "date": "2014-09-24",
-    "marketcap_usd": 5708841339.86,
-    "nvt": 33.195
+    "date": "2012-08-30",
+    "marketcap_usd": 89396489.26,
+    "nvt": 0.8546
   },
   {
-    "date": "2014-09-25",
-    "marketcap_usd": 5516694629.19,
-    "nvt": 35.833
+    "date": "2012-08-31",
+    "marketcap_usd": 89460189.25,
+    "nvt": 1.1035
+  },
+  {
+    "date": "2012-09-01",
+    "marketcap_usd": 89533444.23,
+    "nvt": 1.1367
   }
 ]
 ```
@@ -276,19 +305,24 @@ This endpoint returns the NVT Ratio (Network Value to Transactions Ratio) for BT
 
 ### Query Parameters
 
-| Parameter | Type     | Description                                         |
-| --------- | -------- | --------------------------------------------------- |
-| key       | _string_ | Your unique API key                                 |
-| format    | _string_ | What format you want your data in (`json` or `csv`) |
-| token     | _string_ | `btc`                                               |
-| window    | _string_ | `1d` (no support for 1h at this time)            |
+| Parameter    | Type      | Description                                                                               |
+| ------------ | --------- | ----------------------------------------------------------------------------------------- |
+| key          | _string_  | Your unique API key                                                                       |
+| format       | _string_  | What format you want your data in (`json` or `csv`)                                       |
+| token        | _string_  | `btc`                                                                                     |
+| window       | _string_  | `1d` (no support for 1h at this time)                                                     |
+| from_date \* | _string_  | Start date of returned data specified as YYYY-MM-DD (ISO date format)                     |
+| to_date \*   | _string_  | End date of returned data specified as YYYY-MM-DD (ISO date format)                       |
+| limit \*     | _integer_ | The number of entries returned before the latest data point (or the to_date if specified) |
+
+Note: All params with a \* are optional and `limit` is only available in the JSON return format
 
 ### Data Overview
 
-| Field         | Type      | Description                                                                                                         |
-| ------------- | --------- | ------------------------------------------------------------------------------------------------------------------- |
-| date          | _string_  | The date in _YYYY-MM-DD_                                                                                            |
-| marketcap_usd | _decimal_ | The total USD market capitalization of BTC on this date. (_price_usd_ \* _supply_)                                  |
+| Field         | Type      | Description                                                                                                     |
+| ------------- | --------- | --------------------------------------------------------------------------------------------------------------- |
+| date          | _string_  | The date in _YYYY-MM-DD_                                                                                        |
+| marketcap_usd | _decimal_ | The total USD market capitalization of BTC on this date. (_price_usd_ \* _supply_)                              |
 | nvt           | _decimal_ | Ratio comprising the total BTC Market Cap divided by the on-chain volume. (_marketcap_usd_ / _volume_real_usd_) |
 
 ## BTC Fees v2
@@ -296,7 +330,7 @@ This endpoint returns the NVT Ratio (Network Value to Transactions Ratio) for BT
 <img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/>
 
 ```shell
-curl "https://api.tokenanalyst.io/analytics/private/v1/token_fees_window_historical/last?&token=btc&format=json&window=1d&key=API_KEY"
+curl "https://api.tokenanalyst.io/analytics/private/v1/token_fees_window_historical/last?format=json&token=btc&window=1d&from_date=2014-03-12&to_date=2014-03-15&limit=2&key=API_KEY"
 ```
 
 > The above command returns JSON structured like this:
@@ -304,24 +338,24 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_fees_window_histori
 ```json
 [
   {
-    "date": "2019-08-13",
-    "total_fee": 75.09047834,
-    "avg_size_bytes": 503,
-    "price_usd": 11148.93,
-    "total_fee_usd": 837178.32,
-    "avg_satoshis_per_byte": 40,
+    "date": "2014-03-14",
+    "total_fee": 13.6553,
+    "avg_size_bytes": 575,
+    "price_usd": 621.0117,
+    "total_fee_usd": 8480.11,
+    "avg_satoshis_per_byte": 33.6015,
     "avg_fee": 0.0002,
-    "avg_fee_usd": 2.26
+    "avg_fee_usd": 0.12
   },
   {
-    "date": "2019-08-14",
-    "total_fee": 58.70170397,
-    "avg_size_bytes": 481,
-    "price_usd": 10453.67,
-    "total_fee_usd": 613648.29,
-    "avg_satoshis_per_byte": 34,
+    "date": "2014-03-15",
+    "total_fee": 10.9136,
+    "avg_size_bytes": 508,
+    "price_usd": 620.7263,
+    "total_fee_usd": 6774.36,
+    "avg_satoshis_per_byte": 35.6095,
     "avg_fee": 0.0002,
-    "avg_fee_usd": 1.7
+    "avg_fee_usd": 0.11
   }
 ]
 ```
@@ -334,12 +368,17 @@ This endpoint returns the total and average fees spent on the Bitcoin network fo
 
 ### Query Parameters
 
-| Parameter | Type     | Description                                         |
-| --------- | -------- | --------------------------------------------------- |
-| key       | _string_ | Your unique API key                                 |
-| format    | _string_ | What format you want your data in (`json` or `csv`) |
-| token     | _string_ | `btc`                                               |
-| window    | _string_ | `1d` (no support for 1h at this time)            |
+| Parameter    | Type      | Description                                                                               |
+| ------------ | --------- | ----------------------------------------------------------------------------------------- |
+| key          | _string_  | Your unique API key                                                                       |
+| format       | _string_  | What format you want your data in (`json` or `csv`)                                       |
+| token        | _string_  | `btc`                                                                                     |
+| window       | _string_  | `1d` (no support for 1h at this time)                                                     |
+| from_date \* | _string_  | Start date of returned data specified as YYYY-MM-DD (ISO date format)                     |
+| to_date \*   | _string_  | End date of returned data specified as YYYY-MM-DD (ISO date format)                       |
+| limit \*     | _integer_ | The number of entries returned before the latest data point (or the to_date if specified) |
+
+Note: All params with a \* are optional and `limit` is only available in the JSON return format
 
 ### Data Overview
 
@@ -352,14 +391,14 @@ This endpoint returns the total and average fees spent on the Bitcoin network fo
 | total_fee_usd         | _decimal_ | _total_fee_ \* _price_                                                                            |
 | avg_satoshis_per_byte | _integer_ | The average number of satoshis paid per byte for transactions that occurred on this date          |
 | avg_fee               | _decimal_ | The average amount of fees paid per transaction that occurred on this date. Denominated in BTC.   |
-| avg_fee_usd           | _decimal_ | _avg_fee_ \* _price_usd_                                                                              |
+| avg_fee_usd           | _decimal_ | _avg_fee_ \* _price_usd_                                                                          |
 
 ## BTC UTXO Age v2
 
 <img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/>
 
 ```shell
-curl "https://api.tokenanalyst.io/analytics/private/v1/token_utxo_age_historical/last?format=json&token=btc&key=API_KEY"
+curl "https://api.tokenanalyst.io/analytics/private/v1/token_utxo_age_historical/last?format=json&token=btc&from_date=2019-03-12&to_date=2019-03-15&limit=2&key=API_KEY"
 ```
 
 > The above command returns JSON structured like this:
@@ -367,34 +406,34 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_utxo_age_historical
 ```json
 [
   {
-    "1-3m": 0.0872,
-    "12-18m": 0.1227,
-    "18-24m": 0.1173,
-    "1d-1w": 0.032,
-    "1w-1m": 0.0806,
-    "2-3y": 0.0576,
-    "3-5y": 0.0586,
-    "3-6m": 0.0674,
-    "5-10y": 0.1408,
-    "6-12m": 0.1448,
-    "<1d": 0.0123,
-    ">10y": 0.0786,
-    "date": "2019-06-10"
+    "1-3m": 0.0812,
+    "12-18m": 0.1705,
+    "18-24m": 0.0795,
+    "1d-1w": 0.0219,
+    "1w-1m": 0.0646,
+    "2-3y": 0.0491,
+    "3-5y": 0.0657,
+    "3-6m": 0.1322,
+    "5-10y": 0.1438,
+    "6-12m": 0.1105,
+    "<1d": 0.0131,
+    ">10y": 0.0679,
+    "date": "2019-03-14"
   },
   {
-    "1-3m": 0.0883,
-    "12-18m": 0.1219,
-    "18-24m": 0.1179,
-    "1d-1w": 0.021,
-    "1w-1m": 0.0856,
-    "2-3y": 0.0576,
-    "3-5y": 0.0586,
-    "3-6m": 0.0684,
-    "5-10y": 0.1407,
-    "6-12m": 0.145,
-    "<1d": 0.0162,
-    ">10y": 0.0787,
-    "date": "2019-06-11"
+    "1-3m": 0.0815,
+    "12-18m": 0.1705,
+    "18-24m": 0.0798,
+    "1d-1w": 0.0226,
+    "1w-1m": 0.0634,
+    "2-3y": 0.0491,
+    "3-5y": 0.0658,
+    "3-6m": 0.1317,
+    "5-10y": 0.1436,
+    "6-12m": 0.1109,
+    "<1d": 0.0132,
+    ">10y": 0.068,
+    "date": "2019-03-15"
   }
 ]
 ```
@@ -407,11 +446,16 @@ This endpoint returns the proportion of the current bitcoin supply held in unspe
 
 ### Query Parameters
 
-| Parameter | Type     | Description                                         |
-| --------- | -------- | --------------------------------------------------- |
-| key       | _string_ | Your unique API key                                 |
-| format    | _string_ | What format you want your data in (`json` or `csv`) |
-| token     | _string_ | `btc`                                               |
+| Parameter    | Type      | Description                                                                               |
+| ------------ | --------- | ----------------------------------------------------------------------------------------- |
+| key          | _string_  | Your unique API key                                                                       |
+| format       | _string_  | What format you want your data in (`json` or `csv`)                                       |
+| token        | _string_  | `btc`                                                                                     |
+| from_date \* | _string_  | Start date of returned data specified as YYYY-MM-DD (ISO date format)                     |
+| to_date \*   | _string_  | End date of returned data specified as YYYY-MM-DD (ISO date format)                       |
+| limit \*     | _integer_ | The number of entries returned before the latest data point (or the to_date if specified) |
+
+Note: All params with a \* are optional and `limit` is only available in the JSON return format
 
 ### Data Overview
 
@@ -436,7 +480,7 @@ This endpoint returns the proportion of the current bitcoin supply held in unspe
 <img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/>
 
 ```shell
-curl "https://api.tokenanalyst.io/analytics/private/v1/token_miner_hashrate_historical/last?format=json&token=btc&key=API_KEY"
+curl "https://api.tokenanalyst.io/analytics/private/v1/token_miner_hashrate_window_historical/last?format=json&token=btc&key=API_KEY"
 ```
 
 > The above command returns JSON structured like this:
@@ -472,18 +516,24 @@ This endpoint returns the daily and miner specifc hashrates. The `total_daily_ha
 
 ### Query Parameters
 
-| Parameter | Type     | Description                                         |
-| --------- | -------- | --------------------------------------------------- |
-| key       | _string_ | Your unique API key                                 |
-| format    | _string_ | What format you want your data in (`json` or `csv`) |
-| token     | _string_ | `btc`                                               |
+| Parameter    | Type      | Description                                                                               |
+| ------------ | --------- | ----------------------------------------------------------------------------------------- |
+| key          | _string_  | Your unique API key                                                                       |
+| format       | _string_  | What format you want your data in (`json` or `csv`)                                       |
+| token        | _string_  | `btc`                                                                                     |
+| window       | _string_  | `1d` (no support for 1h at this time)                                                     |
+| from_date \* | _string_  | Start date of returned data specified as YYYY-MM-DD (ISO date format)                     |
+| to_date \*   | _string_  | End date of returned data specified as YYYY-MM-DD (ISO date format)                       |
+| limit \*     | _integer_ | The number of entries returned before the latest data point (or the to_date if specified) |
+
+Note: All params with a \* are optional and `limit` is only available in the JSON return format
 
 ### Data Overview
 
-| Field                    | Type     | Description                                                                                                         |
-| ------------------------ | -------- | ------------------------------------------------------------------------------------------------------------------- |
-| date                     | _string_ | The date in _YYYY-MM-DD_                                                                                            |
-| miner_name               | _string_ | Human readable name of the miner in our database, if known.                                                         |
+| Field                    | Type      | Description                                                                                                         |
+| ------------------------ | --------- | ------------------------------------------------------------------------------------------------------------------- |
+| date                     | _string_  | The date in _YYYY-MM-DD_                                                                                            |
+| miner_name               | _string_  | Human readable name of the miner in our database, if known.                                                         |
 | miner_daily_block_count  | _integer_ | The total number of blocks mined by the miner on this date                                                          |
 | total_daily_block_count  | _integer_ | The total number of blocks mined on the blockchain on this date.                                                    |
 | miner_daily_hashrate     | _decimal_ | The hashrate contribution of the given miner for the day. Denominated in Th/s.                                      |
@@ -495,7 +545,7 @@ This endpoint returns the daily and miner specifc hashrates. The `total_daily_ha
 <img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/>
 
 ```shell
-curl "https://api.tokenanalyst.io/analytics/private/v1/token_miner_rewards_historical/last?format=json&token=btc&key=API_KEY"
+curl "https://api.tokenanalyst.io/analytics/private/v1/token_miner_hashrate_window_historical/last?format=json&token=btc&window=1d&limit=2&key=API_KEY"
 ```
 
 > The above command returns JSON structured like this:
@@ -503,18 +553,22 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_miner_rewards_histo
 ```json
 [
   {
-    "date": "2018-07-27",
-    "miner_name": "AntPool",
-    "price_usd": 8022.25,
-    "miner_daily_block_reward": 239.4406,
-    "miner_daily_block_reward_usd": 1920851.96
+    "date": "2019-09-03",
+    "miner_name": "BitFury",
+    "miner_daily_block_count": 4,
+    "miner_daily_hashrate": 2141915.4344,
+    "total_daily_block_count": 103,
+    "total_daily_hashrate": 55154322.4359,
+    "miner_daily_hashrate_pct": 3.8835
   },
   {
-    "date": "2018-07-27",
-    "miner_name": "BTC.TOP",
-    "price_usd": 8022.25,
-    "miner_daily_block_reward": 213.9951,
-    "miner_daily_block_reward_usd": 1716721.89
+    "date": "2019-09-03",
+    "miner_name": "Huobi.pool",
+    "miner_daily_block_count": 4,
+    "miner_daily_hashrate": 2141915.4344,
+    "total_daily_block_count": 103,
+    "total_daily_hashrate": 55154322.4359,
+    "miner_daily_hashrate_pct": 3.8835
   }
 ]
 ```
@@ -527,18 +581,24 @@ This endpoint returns the daily coinbase rewards by miner (incl. txn fees). The 
 
 ### Query Parameters
 
-| Parameter | Type     | Description                                         |
-| --------- | -------- | --------------------------------------------------- |
-| key       | _string_ | Your unique API key                                 |
-| format    | _string_ | What format you want your data in (`json` or `csv`) |
-| token     | _string_ | `btc`                                               |
+| Parameter    | Type      | Description                                                                               |
+| ------------ | --------- | ----------------------------------------------------------------------------------------- |
+| key          | _string_  | Your unique API key                                                                       |
+| format       | _string_  | What format you want your data in (`json` or `csv`)                                       |
+| token        | _string_  | `btc`                                                                                     |
+| window       | _string_  | `1d` only. `1h` not supported currently.                                                  |
+| from_date \* | _string_  | Start date of returned data specified as YYYY-MM-DD (ISO date format)                     |
+| to_date \*   | _string_  | End date of returned data specified as YYYY-MM-DD (ISO date format)                       |
+| limit \*     | _integer_ | The number of entries returned before the latest data point (or the to_date if specified) |
+
+Note: All params with a \* are optional and `limit` is only available in the JSON return format
 
 ### Data Overview
 
-| Field                        | Type     | Description                                         |
-| ---------------------------- | -------- | --------------------------------------------------- |
-| date                         | _string_ | The date in _YYYY-MM-DD_                                 |
-| miner_name                   | _string_ | Human readable name of the miner in our database, if known. |
-| price_usd     | _decimal_ | The daily average price of BTC in USD (the daily mean of minute-level price data)                                                |
-| miner_daily_block_reward                    | _decimal_ | The total amount of block rewards earned by this miner on this date. Denominated in BTC.                                               |                                               |
-| miner_daily_block_reward_usd | _decimal_ | _miner_daily_block_reward_ * _price_usd_                                               |
+| Field                        | Type      | Description                                                                              |
+| ---------------------------- | --------- | ---------------------------------------------------------------------------------------- |
+| date                         | _string_  | The date in _YYYY-MM-DD_                                                                 |
+| miner_name                   | _string_  | Human readable name of the miner in our database, if known.                              |
+| price_usd                    | _decimal_ | The daily average price of BTC in USD (the daily mean of minute-level price data)        |
+| miner_daily_block_reward     | _decimal_ | The total amount of block rewards earned by this miner on this date. Denominated in BTC. |  |
+| miner_daily_block_reward_usd | _decimal_ | _miner_daily_block_reward_ \* _price_usd_                                                |

@@ -14,7 +14,6 @@ includes:
   - erc20tokenstats
   - stablecoinstats
   - binancestats
-  - defistats
   - bitcoinexchangeflows
   - bitcoinexchangeflowsv2.md
   - ethereumexchangeflows
