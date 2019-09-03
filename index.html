@@ -2189,7 +2189,7 @@ An example of this is the lowest possible bitcoin address of <code>1111111111111
 </span></code></pre>
 <p>This endpoint returns the daily and miner specifc hashrates. The <code>total_daily_hashrate</code> and the <code>miner_daily_hashrate</code> are denominated in TH/s. The <code>total_daily_block_count</code> is the total number of blocks mined on a given day, and the <code>miner_daily_block_count</code> are the number of blocks mined by a specific miner. We do not know the identify of all miners and a lot of them are labelled as unkown and grouped together</p>
 <h3 id='http-request-8'>HTTP Request</h3>
-<p><code>GET https://api.tokenanalyst.io/analytics/private/v1/token_miner_hashrate_historical/last</code></p>
+<p><code>GET https://api.tokenanalyst.io/analytics/private/v1/token_miner_hashrate_window_historical/last</code></p>
 <h3 id='query-parameters-8'>Query Parameters</h3>
 <table><thead>
 <tr>
@@ -2310,7 +2310,7 @@ An example of this is the lowest possible bitcoin address of <code>1111111111111
 </span></code></pre>
 <p>This endpoint returns the daily coinbase rewards by miner (incl. txn fees). The <code>miner_daily_block_reward</code> is denomiated BTC.</p>
 <h3 id='http-request-9'>HTTP Request</h3>
-<p><code>GET https://api.tokenanalyst.io/analytics/private/v1/token_miner_rewards_historical/last</code></p>
+<p><code>GET https://api.tokenanalyst.io/analytics/private/v1/token_miner_rewards_window_historical/last</code></p>
 <h3 id='query-parameters-9'>Query Parameters</h3>
 <table><thead>
 <tr>
