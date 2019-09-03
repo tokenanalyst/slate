@@ -512,7 +512,7 @@ This endpoint returns the daily and miner specifc hashrates. The `total_daily_ha
 
 ### HTTP Request
 
-`GET https://api.tokenanalyst.io/analytics/private/v1/token_miner_hashrate_historical/last`
+`GET https://api.tokenanalyst.io/analytics/private/v1/token_miner_hashrate_window_historical/last`
 
 ### Query Parameters
 
@@ -577,7 +577,7 @@ This endpoint returns the daily coinbase rewards by miner (incl. txn fees). The 
 
 ### HTTP Request
 
-`GET https://api.tokenanalyst.io/analytics/private/v1/token_miner_rewards_historical/last`
+`GET https://api.tokenanalyst.io/analytics/private/v1/token_miner_rewards_window_historical/last`
 
 ### Query Parameters
 
