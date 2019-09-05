@@ -225,6 +225,9 @@
             <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
           </li>
           <li>
+            <a href="#date-amp-time-conventions" class="toc-h1 toc-link" data-title="Date &amp; Time Conventions">Date &amp; Time Conventions</a>
+          </li>
+          <li>
             <a href="#bitcoin-fundamentals" class="toc-h1 toc-link" data-title="Bitcoin Fundamentals">Bitcoin Fundamentals</a>
               <ul class="toc-list-h2">
                   <li>
@@ -493,6 +496,28 @@
 
 <aside class="notice">
 You must replace <code>API_KEY</code> with your personal API key.
+</aside>
+<h1 id='date-amp-time-conventions'>Date &amp; Time Conventions</h1>
+<p>Throughout this API a <code>window</code> parameter is used to indicate the time intervals for which the data is aggregated. We currently offer daily (denoted by <code>window=1d</code>) and hourly (denoted by <code>window=1h</code>) endpoints:</p>
+
+<table><thead>
+<tr>
+<th>Window</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>1d</code></td>
+<td>Data returned per day for every day historically for which data exists for the endpoint in question. The latest day returned is the last full day of data. Each day runs from 0:00:00 UTC to 23:59:59 UTC.</td>
+</tr>
+<tr>
+<td><code>1h</code></td>
+<td>Data returned per hour for every hour for which data exists for the endpoint in question. All times are in UTC. The displayed hour in the data is the start of the hour for which the data is aggregated. For example if <code>&quot;hour&quot;:&quot;22:00:00&quot;</code>, it represents data from 22:00:00 to 22:59:59 UTC.</td>
+</tr>
+</tbody></table>
+
+<aside class="warning">
+Note: not all endpoints support hourly data yet. See the specific docs below to see if the `window=1h` param is supported for your desired endpoint
 </aside>
 <h1 id='bitcoin-fundamentals'>Bitcoin Fundamentals</h1><h2 id='btc-on-chain-volume'>BTC On-chain Volume</h2>
 <p><img src="https://img.shields.io/badge/Tier-Free-green.svg"/></p>
@@ -1903,7 +1928,8 @@ An example of this is the lowest possible bitcoin address of <code>1111111111111
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
-<p>This endpoint returns the total and average fees spent on the Bitcoin network for every day of it&#39;s existence. The <code>total_fee</code> is denominated in Bitcoin, the <code>price</code> is the price of Bitcoin on that day, and the <code>avg_fee</code> is denominated in Bitcoin.</p>
+<p>This endpoint returns the total and average fees spent on the Bitcoin network for every day of it&#39;s existence. The <code>total_fee</code> is denominated in Bitcoin, the <code>price</code> is the price of Bitcoin on that day, and the <code>avg_fee</code> is denominated in Bitcoin. Since fees are paid to miners as part of the coinbase transaction, these transactions are not included when
+calculating metrics such as the average fee per transaction (<code>avg_fee</code>). Before 2010 there was little activity on the blockchain besides mining, i.e. the chain was dominated by coinbase transactions.</p>
 <h3 id='http-request-6'>HTTP Request</h3>
 <p><code>GET https://api.tokenanalyst.io/analytics/private/v1/token_fees_window_historical/last</code></p>
 <h3 id='query-parameters-6'>Query Parameters</h3>
@@ -2003,13 +2029,14 @@ An example of this is the lowest possible bitcoin address of <code>1111111111111
 </tbody></table>
 <h2 id='btc-utxo-age-v2'>BTC UTXO Age v2</h2>
 <p><img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/></p>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_utxo_age_historical/last?format=json&amp;token=btc&amp;from_date=2019-03-12&amp;to_date=2019-03-15&amp;limit=2&amp;key=API_KEY"</span>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_utxo_age_window_historical/last?window=1d&amp;exchange=binance&amp;direction=outflow&amp;format=json&amp;token=btc&amp;from_date=2019-09-01&amp;to_date=2019-09-02&amp;key=API_KEY"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-09-01"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"1-3m"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0812</span><span class="p">,</span><span class="w">
     </span><span class="s2">"12-18m"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.1705</span><span class="p">,</span><span class="w">
     </span><span class="s2">"18-24m"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0795</span><span class="p">,</span><span class="w">
@@ -2021,10 +2048,10 @@ An example of this is the lowest possible bitcoin address of <code>1111111111111
     </span><span class="s2">"5-10y"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.1438</span><span class="p">,</span><span class="w">
     </span><span class="s2">"6-12m"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.1105</span><span class="p">,</span><span class="w">
     </span><span class="s2">"&lt;1d"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0131</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"&gt;10y"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0679</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-03-14"</span><span class="w">
+    </span><span class="s2">"&gt;10y"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0679</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-09-02"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"1-3m"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0815</span><span class="p">,</span><span class="w">
     </span><span class="s2">"12-18m"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.1705</span><span class="p">,</span><span class="w">
     </span><span class="s2">"18-24m"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0798</span><span class="p">,</span><span class="w">
@@ -2042,8 +2069,10 @@ An example of this is the lowest possible bitcoin address of <code>1111111111111
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
 <p>This endpoint returns the proportion of the current bitcoin supply held in unspent transaction outputs stratified by their age. For instance outputs in the category <code>12-18m</code> are unspent outputs (UTXOs) from transactions that occurred <code>12-18m</code> ago. Time is measured relative to blocktime assuming 6 blocks are generated per hour. This means that the proportion of UTXOs in the <code>&lt;1d</code> category were generated less than or equal to <code>144 blocks ago (6 blocks * 24 hours)</code>.</p>
+
+<p>The age in block height is used over the block timestamp because the block timestamp serves as a source of variation when calculating the blockhash and is only accurate to within an hour or two. By using timestamps some UTXOs could be considered older than a previously generated UTXO. By using block-age from current the blockheight, the age of utxos is strictly ordinal as blockheight is strictly sequential.</p>
 <h3 id='http-request-7'>HTTP Request</h3>
-<p><code>GET https://api.tokenanalyst.io/analytics/private/v1/token_utxo_age_historical/last</code></p>
+<p><code>GET https://api.tokenanalyst.io/analytics/private/v1/token_utxo_age_window_historical/last</code></p>
 <h3 id='query-parameters-7'>Query Parameters</h3>
 <table><thead>
 <tr>
@@ -2061,6 +2090,11 @@ An example of this is the lowest possible bitcoin address of <code>1111111111111
 <td>format</td>
 <td><em>string</em></td>
 <td>What format you want your data in (<code>json</code> or <code>csv</code>)</td>
+</tr>
+<tr>
+<td>window</td>
+<td><em>string</em></td>
+<td><code>1d</code> (no support for 1h at this time)</td>
 </tr>
 <tr>
 <td>token</td>
