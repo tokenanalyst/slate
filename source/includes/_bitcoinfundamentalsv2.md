@@ -399,7 +399,7 @@ Note: All params with a \* are optional and `limit` is only available in the JSO
 <img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/>
 
 ```shell
-curl "https://api.tokenanalyst.io/analytics/private/v1/token_utxo_age_historical/last?format=json&token=btc&from_date=2019-03-12&to_date=2019-03-15&limit=2&key=API_KEY"
+curl "https://api.tokenanalyst.io/analytics/private/v1/token_utxo_age_window_historical/last?window=1d&exchange=binance&direction=outflow&format=json&token=btc&from_date=2019-09-01&to_date=2019-09-02&key=API_KEY"
 ```
 
 > The above command returns JSON structured like this:
@@ -407,6 +407,7 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_utxo_age_historical
 ```json
 [
   {
+    "date": "2019-09-01",
     "1-3m": 0.0812,
     "12-18m": 0.1705,
     "18-24m": 0.0795,
@@ -418,10 +419,10 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_utxo_age_historical
     "5-10y": 0.1438,
     "6-12m": 0.1105,
     "<1d": 0.0131,
-    ">10y": 0.0679,
-    "date": "2019-03-14"
+    ">10y": 0.0679
   },
   {
+    "date": "2019-09-02",
     "1-3m": 0.0815,
     "12-18m": 0.1705,
     "18-24m": 0.0798,
@@ -441,7 +442,7 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_utxo_age_historical
 
 This endpoint returns the proportion of the current bitcoin supply held in unspent transaction outputs stratified by their age. For instance outputs in the category `12-18m` are unspent outputs (UTXOs) from transactions that occurred `12-18m` ago. Time is measured relative to blocktime assuming 6 blocks are generated per hour. This means that the proportion of UTXOs in the `<1d` category were generated less than or equal to `144 blocks ago (6 blocks * 24 hours)`.
 
-The age in block height is used over the block timestamp because the block timestamp serves as a source of variation when calculating the blockhash and is only accurate to within an hour or two. By using timestamps some UTXOs could be considered older than a previously generated UTXO. By using block-age from current the blockheight, the age of utxos is strictly ordinal as blockheight is strictly sequential. 
+The age in block height is used over the block timestamp because the block timestamp serves as a source of variation when calculating the blockhash and is only accurate to within an hour or two. By using timestamps some UTXOs could be considered older than a previously generated UTXO. By using block-age from current the blockheight, the age of utxos is strictly ordinal as blockheight is strictly sequential.
 
 ### HTTP Request
 

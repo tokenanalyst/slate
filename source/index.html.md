@@ -8,6 +8,7 @@ toc_footers:
   - <a href="https://sid296635.typeform.com/to/abg0kL" target="_blank">Get your API key</a>
 
 includes:
+  - dateandtime
   - bitcoinfundamentals
   - bitcoinfundamentalsv2
   - ethereumfundamentals
