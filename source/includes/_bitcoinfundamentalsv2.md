@@ -360,7 +360,8 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_fees_window_histori
 ]
 ```
 
-This endpoint returns the total and average fees spent on the Bitcoin network for every day of it's existence. The `total_fee` is denominated in Bitcoin, the `price` is the price of Bitcoin on that day, and the `avg_fee` is denominated in Bitcoin.
+This endpoint returns the total and average fees spent on the Bitcoin network for every day of it's existence. The `total_fee` is denominated in Bitcoin, the `price` is the price of Bitcoin on that day, and the `avg_fee` is denominated in Bitcoin. Since fees are paid to miners as part of the coinbase transaction, these transactions are not included when
+calculating metrics such as the average fee per transaction (`avg_fee`). Before 2010 there was little activity on the blockchain besides mining, i.e. the chain was dominated by coinbase transactions.
 
 ### HTTP Request
 
@@ -439,6 +440,8 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_utxo_age_historical
 ```
 
 This endpoint returns the proportion of the current bitcoin supply held in unspent transaction outputs stratified by their age. For instance outputs in the category `12-18m` are unspent outputs (UTXOs) from transactions that occurred `12-18m` ago. Time is measured relative to blocktime assuming 6 blocks are generated per hour. This means that the proportion of UTXOs in the `<1d` category were generated less than or equal to `144 blocks ago (6 blocks * 24 hours)`.
+
+The age in block height is used over the block timestamp because the block timestamp serves as a source of variation when calculating the blockhash and is only accurate to within an hour or two. By using timestamps some UTXOs could be considered older than a previously generated UTXO. By using block-age from current the blockheight, the age of utxos is strictly ordinal as blockheight is strictly sequential. 
 
 ### HTTP Request
 
