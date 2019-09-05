@@ -445,7 +445,7 @@ The age in block height is used over the block timestamp because the block times
 
 ### HTTP Request
 
-`GET https://api.tokenanalyst.io/analytics/private/v1/token_utxo_age_historical/last`
+`GET https://api.tokenanalyst.io/analytics/private/v1/token_utxo_age_window_historical/last`
 
 ### Query Parameters
 
@@ -453,6 +453,7 @@ The age in block height is used over the block timestamp because the block times
 | ------------ | --------- | ----------------------------------------------------------------------------------------- |
 | key          | _string_  | Your unique API key                                                                       |
 | format       | _string_  | What format you want your data in (`json` or `csv`)                                       |
+| window       | _string_  | `1d` (no support for 1h at this time)                                                     |
 | token        | _string_  | `btc`                                                                                     |
 | from_date \* | _string_  | Start date of returned data specified as YYYY-MM-DD (ISO date format)                     |
 | to_date \*   | _string_  | End date of returned data specified as YYYY-MM-DD (ISO date format)                       |
