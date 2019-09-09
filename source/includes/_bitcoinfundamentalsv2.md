@@ -1,6 +1,6 @@
-# Bitcoin Fundamentals v2
+# Bitcoin Fundamentals
 
-## BTC On-chain Volume v2
+## BTC On-chain Volume
 
 <img src="https://img.shields.io/badge/Tier-Free-green.svg"/>
 
@@ -76,7 +76,7 @@ Note: All params with a \* are optional and `limit` is only available in the JSO
 
 ---
 
-## BTC On-chain Transaction Count v2
+## BTC On-chain Transaction Count
 
 <img src="https://img.shields.io/badge/Tier-Free-green.svg"/>
 
@@ -137,7 +137,7 @@ Note: All params with a \* are optional and `limit` is only available in the JSO
 
 ---
 
-## BTC Active addresses v2
+## BTC Active addresses
 
 <img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/>
 
@@ -196,7 +196,7 @@ Note: All params with a \* are optional and `limit` is only available in the JSO
 
 ---
 
-## BTC Supply v2
+## BTC Supply
 
 <img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/>
 
@@ -267,7 +267,7 @@ Note: All params with a \* are optional and `limit` is only available in the JSO
 
 ---
 
-## BTC NVT v2
+## BTC NVT
 
 <img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/>
 
@@ -325,7 +325,7 @@ Note: All params with a \* are optional and `limit` is only available in the JSO
 | marketcap_usd | _decimal_ | The total USD market capitalization of BTC on this date. (_price_usd_ \* _supply_)                              |
 | nvt           | _decimal_ | Ratio comprising the total BTC Market Cap divided by the on-chain volume. (_marketcap_usd_ / _volume_real_usd_) |
 
-## BTC Fees v2
+## BTC Fees
 
 <img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/>
 
@@ -480,7 +480,7 @@ Note: All params with a \* are optional and `limit` is only available in the JSO
 | >10y   | _decimal_ | Proportion of bitcoin supply on this date held in unspent outputs (UTXOs) from transactions that occurred greater than 10 years prior to this date. |
 | date   | _string_  | The date in _YYYY-MM-DD_                                                                                                                            |
 
-## BTC Miner Hashrate v2
+## BTC Miner Hashrate
 
 <img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/>
 
@@ -545,7 +545,7 @@ Note: All params with a \* are optional and `limit` is only available in the JSO
 | total_daily_hashrate     | _decimal_ | The hashrate of the blockchain for the day. Denominated in Th/s.                                                    |
 | miner_daily_hashrate_pct | _decimal_ | The percentage of the daily hashrate contributed by the miner. (_miner_daily_hashrate_/_total_daily_hashrate_)\*100 |
 
-## BTC Miner Rewards v2
+## BTC Miner Rewards
 
 <img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/>
 

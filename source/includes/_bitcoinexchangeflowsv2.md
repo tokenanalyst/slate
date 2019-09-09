@@ -1,8 +1,7 @@
-# Bitcoin Exchange Flows V2
-
+# Bitcoin Exchange Flows
 For Bitcoin currently supported exchanges are: `binance`, `bittrex`, `bitstamp`, `poloniex`, `bitmex`, `bitfinex`
 
-## BTC Full Historical Inflow to Exchanges v2
+## BTC Full Historical Inflow to Exchanges
 
 <img src="https://img.shields.io/badge/Tier-Professional-black.svg"/>
 
@@ -78,7 +77,7 @@ Note: All params with a \* are optional and `limit` is only available in the JSO
 | number_of_nonentity_sending_addresses | _integer_ | The distinct number of wallets (that don't belong to the exchange in question) that sent Bitcoin to wallets identified as belonging to this exchange on this date.                                                        |
 | number_of_txns                        | _integer_ | The number of transactions sending BTC into this exchange on this date.                                                                                                                                                   |
 
-## BTC Full Historical Outflows from Exchanges v2
+## BTC Full Historical Outflows from Exchanges
 
 <img src="https://img.shields.io/badge/Tier-Professional-black.svg"/>
 
@@ -156,7 +155,7 @@ Note: All params with a \* are optional and `limit` is only available in the JSO
 | outflow                                 | _decimal_ | The total amount of BTC that flowed out of the entity on this date. Denominated in BTC.                                                                                                                                   |
 | outflow_usd                             | _decimal_ | The USD value of the total amount of BTC that flowed out of the exchange on this date                                                                                                                                     |
 
-## BTC Full Historical Top 10 Inflow Large Value Transactions v2
+## BTC Full Historical Top 10 Inflow Large Value Transactions
 
 <img src="https://img.shields.io/badge/Tier-Professional-black.svg"/>
 
@@ -222,7 +221,7 @@ Note: All params with a \* are optional and `limit` is only available in the JSO
 | value            | _decimal_ | The amount of BTC transferred in this transaction.                                                           |
 | value_usd        | _decimal_ | The value in USD of the amount of BTC tranferred in this transaction.                                        |
 
-## BTC Full Historical Top 10 Outflow Large Value Transactions v2
+## BTC Full Historical Top 10 Outflow Large Value Transactions
 
 <img src="https://img.shields.io/badge/Tier-Professional-black.svg"/>
 
