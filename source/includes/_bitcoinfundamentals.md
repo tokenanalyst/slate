@@ -295,7 +295,6 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_fees_historical/las
     "date": "2019-08-13",
     "total_fee": 75.09047834,
     "avg_size_bytes": 503,
-    "price_usd": 11148.93,
     "total_fee_usd": 837178.32,
     "avg_satoshis_per_byte": 40,
     "avg_fee": 0.0002,
@@ -305,7 +304,6 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_fees_historical/las
     "date": "2019-08-14",
     "total_fee": 58.70170397,
     "avg_size_bytes": 481,
-    "price_usd": 10453.67,
     "total_fee_usd": 613648.29,
     "avg_satoshis_per_byte": 34,
     "avg_fee": 0.0002,
@@ -335,7 +333,6 @@ This endpoint returns the total and average fees spent on the Bitcoin network fo
 | date                  | _string_  | The date in _YYYY-MM-DD_                                                                          |
 | total_fee             | _decimal_ | The total amount of fees paid by all transactions that occurred on this date. Denominated in BTC. |
 | avg_size_bytes        | _integer_ | The average transaction size to the nearest byte for transactions that occurred on this date.     |
-| price_usd             | _decimal_ | The daily average price of BTC in USD (the daily mean of minute-level price data)                 |
 | total_fee_usd         | _decimal_ | _total_fee_ \* _price_                                                                            |
 | avg_satoshis_per_byte | _integer_ | The average number of satoshis paid per byte for transactions that occurred on this date          |
 | avg_fee               | _decimal_ | The average amount of fees paid per transaction that occurred on this date. Denominated in BTC.   |
@@ -492,14 +489,12 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_miner_rewards_histo
   {
     "date": "2018-07-27",
     "miner_name": "AntPool",
-    "price_usd": 8022.25,
     "miner_daily_block_reward": 239.4406,
     "miner_daily_block_reward_usd": 1920851.96
   },
   {
     "date": "2018-07-27",
     "miner_name": "BTC.TOP",
-    "price_usd": 8022.25,
     "miner_daily_block_reward": 213.9951,
     "miner_daily_block_reward_usd": 1716721.89
   }
@@ -526,6 +521,5 @@ This endpoint returns the daily coinbase rewards by miner (incl. txn fees). The 
 | ---------------------------- | -------- | --------------------------------------------------- |
 | date                         | _string_ | The date in _YYYY-MM-DD_                                 |
 | miner_name                   | _string_ | Human readable name of the miner in our database, if known. |
-| price_usd     | _decimal_ | The daily average price of BTC in USD (the daily mean of minute-level price data)                                                |
 | miner_daily_block_reward                    | _decimal_ | The total amount of block rewards earned by this miner on this date. Denominated in BTC.                                               |                                               |
 | miner_daily_block_reward_usd | _decimal_ | _miner_daily_block_reward_ * _price_usd_                                               |

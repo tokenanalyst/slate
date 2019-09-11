@@ -28,16 +28,16 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_volume_window_histo
 [
   {
     "date": "2018-09-10",
-    "hour": "01:00:00",
+    "hour": "01:00:00", // not available when window 1d
+    "datetime": "2018-09-10 01:00:00", // not available when window 1d
     "volume": 759397926.2,
-    "price_usd": 1.0,
     "volume_usd": 759397926.2
   },
   {
     "date": "2018-09-12",
-    "hour": "02:00:00",
+    "hour": "02:00:00", // not available when window 1d
+    "datetime": "2018-09-12 02:00:00", // not available when window 1d
     "volume": 397509639.4,
-    "price_usd": 1.0,
     "volume_usd": 397509639.4
   }
 ]
@@ -63,9 +63,9 @@ This endpoint returns the full historical on-chain volume of Tether on the OMNI 
 | Field | Type     | Description                                            |
 | --------- | -------- | ------------------------------------------------------ |
 | date       | _string_ | The date in _YYYY-MM-DD_ |
-| hour     | _string_ | The hour of the day in _HH:MM:SS_  (UTC time zone). This is an optional field based on the params used.        
+| hour *   | _string_  | The hour of the day in _HH:MM:SS_ (UTC time zone). This is an optional field field and appears when window is `1h`                                                                                                        |
+| datetime *  | _string_  | The hour of the day in datetime format YYYY-MM-DD HH:MM:SS (UTC time zone). This is an optional field field and appears when window is `1h`                                                                               |
 | volume    | _decimal_ | The total sum of Tether (usdt_omni) sent by addresses in transactions with a timestamp that occurs within the window. |
-| price_usd     | _decimal_ | The daily average price of the Stablecoins (the daily mean of minute-level price data) |
 | volume_usd    | _decimal_ |  _volume_ * _price_usd_  |
 
 
@@ -83,12 +83,14 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_count_window_histor
 [
   {
     "date": "2017-12-18",
-    "hour": "01:00:00",
+    "hour": "01:00:00", // not available when window 1d
+    "datetime": "2017-12-18 01:00:00", // not available when window 1d
     "number_of_txns": 311
   },
   {
     "date": "2017-12-18",
-    "hour": "02:00:00",
+    "hour": "02:00:00", // not available when window 1d
+    "datetime": "2017-12-18 02:00:00", // not available when window 1d
     "number_of_txns": 411
   },
 ]
@@ -113,7 +115,8 @@ This endpoint returns the daily number of Tether (usdt_omni) transactions on the
 | Field | Type     | Description                                            |
 | --------- | -------- | ------------------------------------------------------ |
 | date       | _string_ | The date in _YYYY-MM-DD_ |
-| hour     | _string_ | The hour of the day in _HH:MM:SS_  (UTC time zone). This is an optional field based on the params used.      
+| hour *   | _string_  | The hour of the day in _HH:MM:SS_ (UTC time zone). This is an optional field field and appears when window is `1h`                                                                                                        |
+| datetime *  | _string_  | The hour of the day in datetime format YYYY-MM-DD HH:MM:SS (UTC time zone). This is an optional field field and appears when window is `1h`                                                                               |
 | number_of_txns | _integer_ | The number of stablecoin transactions included in blocks with a timestamp that occurs on this date |
 
 
@@ -272,7 +275,6 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_fees_historical/las
 [
   {
     "date": "2019-08-13",
-    "price_usd": 1,
     "total_fee": 19.5264,
     "total_fee_usd": 19.5264,
     "avg_fee": 0.0003,
@@ -280,7 +282,6 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_fees_historical/las
   },
   {
     "date": "2019-08-14",
-    "price_usd": 1,
     "total_fee": 8.1131,
     "total_fee_usd": 8.1131,
     "avg_fee": 0.0002,
@@ -308,7 +309,6 @@ This endpoint returns the historical supply of Tether (usdt_omni) on the OMNI bl
 | Field  | Type      | Description                                                                             |
 | ------ | --------- | --------------------------------------------------------------------------------------- |
 | date   | _string_  | The date in _YYYY-MM-DD_                                                                |
-| price_usd | _decimal_ | The daily average price of Tether (usdt_omni) (the daily mean of minute-level price data) |
 | total_fee       | _decimal_ | The sum of fees paid in transactions that occurred on this date. Denominated in Tether (usdt_omni)                                 |
 | total_fee_usd       | _decimal_ |  _total_fee_ \* _price_usd_                                 |
 | avg_fee       | _decimal_ |  The average amount of fees paid per transaction that occurred on this date. Denominated in Tether (usdt_omni).                                |
@@ -330,13 +330,11 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_volume_historical/l
   {
     "date": "2018-09-10",
     "volume": 22.2,
-    "price_usd": 0.0,
     "volume_usd": 0.0
   },
   {
     "date": "2018-09-12",
     "volume": 2.5,
-    "price_usd": 0.0,
     "volume_usd": 0.0
   }
 ]
@@ -362,7 +360,6 @@ This endpoint returns the full historical on-chain volume of any of the stableco
 | --------- | -------- | ------------------------------------------------------ |
 | date       | _string_ | The date in _YYYY-MM-DD_ |
 | volume    | _decimal_ | The total sum of Stablecoins sent by addresses in transactions with a timestamp that occurs on this date. |
-| price_usd     | _decimal_ | The daily average price of the Stablecoins (the daily mean of minute-level price data) |
 | volume_usd    | _decimal_ |  _volume_ * _price_usd_  |
 
 ## Stablecoin On-chain Transaction Count

@@ -17,7 +17,6 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_volume_historical/l
     "volume_internal": 39.7,
     "volume_external": 2008602.511431967,
     "volume_gross": 2008642.2114319669,
-    "price_usd": 1.25,
     "volume_internal_usd": 49.63,
     "volume_external_usd": 2510753.14,
     "volume_gross_usd": 2510802.76
@@ -27,7 +26,6 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_volume_historical/l
     "volume_internal": 3568.4341612339426,
     "volume_external": 1681503.1468948552,
     "volume_gross": 1685071.5810560891,
-    "price_usd": 1.74,
     "volume_internal_usd": 6210.56,
     "volume_external_usd": 2926516.07,
     "volume_gross_usd": 2932726.63
@@ -59,7 +57,6 @@ This endpoint returns the full historical on-chain volume of Ethereum since it w
 | volume_internal     | _decimal_ | The total sum of ETH transferred on this date via value transfers initiated by smart contracts (see <a href="https://www.tokenanalyst.io/faq" target="_blank">here</a> for more) |
 | volume_external     | _decimal_ | The total sum of eth transferred in transactions with a timestamp that occurs during this date.                                                                                  |
 | volume_gross        | _decimal_ | _volume_internal_ + _volume_external_                                                                                                                                            |
-| price_usd           | _decimal_ | The daily average price of ETH in USD (the daily mean of minute-level price data)                                                                                                       |
 | volume_internal_usd | _decimal_ | _volume_internal_ \* _price_usd_                                                                                                                                                 |
 | volume_external_usd | _decimal_ | _volume_external_ \* _price_usd_                                                                                                                                                 |
 | volume_gross_usd    | _decimal_ | _volume_gross_ \* _price_usd_                                                                                                                                                    |
@@ -264,7 +261,6 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_fees_historical/las
 [
   {
     "date": "2015-10-19",
-    "price_usd": 0.5,
     "avg_gas": 32831.1236,
     "avg_gas_price_wei": 52456819761.0774,
     "total_fee": 11.699219139604072,
@@ -274,7 +270,6 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_fees_historical/las
   },
   {
     "date": "2015-10-20",
-    "price_usd": 0.49,
     "avg_gas": 32483.8972,
     "avg_gas_price_wei": 53767556518.0802,
     "total_fee": 11.527019798770482,
@@ -304,7 +299,6 @@ This endpoint returns the total and average fees spent on the Ethereum network f
 | Field             | Type     | Description                                                                                                                                                                                               |
 | ----------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | date              | _string_ | The date in _YYYY-MM-DD_                                                                                                                                                                                  |
-| price_usd          | _string_ | The daily average price of ETH in USD (the daily mean of minute-level price data)                                                                                                                                |
 | avg_gas           | _string_ | The average amount of gas used by transactions that occurred on this date. See <a href="https://www.investopedia.com/terms/g/gas-ethereum.asp" target="_blank">here</a> for a detailed definition of gas. |
 | avg_gas_price_wei | _string_ | The average price (in wei) paid per unit of gas for transactions that occurred on this date                                                                                                               |
 | total_fee         | _string_ | The sum of fees paid in transactions that occurred on this date. Denominated in ETH. Fees for a transaction are calculated as such: (gas used * gas price)*10^-18                                         |
@@ -402,7 +396,6 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_miner_rewards_histo
     "date": "2019-07-23",
     "miner_name": "Nanopool",
     "miner_daily_block_reward": 1604.3125,
-    "price_usd": 224.36,
     "miner_daily_block_reward_usd": 359940.49,
     "miner_daily_uncle_reward": 76,
     "miner_daily_uncle_reward_usd": 17051.22
@@ -411,7 +404,6 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_miner_rewards_histo
     "date": "2019-07-23",
     "miner_name": "Spark Pool",
     "miner_daily_block_reward": 3048,
-    "price_usd": 224.36,
     "miner_daily_block_reward_usd": 683843.47,
     "miner_daily_uncle_reward": 141,
     "miner_daily_uncle_reward_usd": 31634.49
@@ -440,7 +432,6 @@ This endpoint returns the daily block rewards and uncle rewards by miner. The `m
 | date       | _string_ | The date in _YYYY-MM-DD_                                 |
 | miner_name    | _string_ | Human readable name of the miner in our database, if known. |
 | miner_daily_block_reward     | _decimal_ | The total amount of block rewards earned by this miner on this date. Denominated in ETH.                                               |
-| price_usd     | _decimal_ | The daily average price of ETH in USD (the daily mean of minute-level price data)                                               |
 | miner_daily_block_reward_usd     | _decimal_ | _miner_daily_block_reward_ * _price_usd_                                              |
 | miner_daily_uncle_reward     | _decimal_ | The total amount of uncle rewards earned by this miner on this date. Denominated in ETH.                                                                         |
 | miner_daily_uncle_reward_usd     | _decimal_ | _miner_daily_uncle_reward_ * _price_usd_                                               |
