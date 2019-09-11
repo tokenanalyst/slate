@@ -10,7 +10,7 @@ The list of assets we currently support is:
 | Binance Coin              | _bnb_         |
 | Bancor                    | _bnt_         |
 | Bitcoin                   | _btc_         |
-| BitcoinBrand              | _btcb_        |
+| Bitcoin BEP2 (Binance Chain)   | _btcb_        |
 | Bezant                    | _bznt_        |
 | Civic                     | _cvc_         |
 | Dai                       | _dai_         |
