@@ -416,6 +416,20 @@
                   </li>
               </ul>
           </li>
+          <li>
+            <a href="#asset-price-in-us-dollars-usd" class="toc-h1 toc-link" data-title="Asset price in US Dollars (USD)">Asset price in US Dollars (USD)</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#http-request" class="toc-h2 toc-link" data-title="HTTP Request">HTTP Request</a>
+                  </li>
+                  <li>
+                    <a href="#query-parameters" class="toc-h2 toc-link" data-title="Query Parameters">Query Parameters</a>
+                  </li>
+                  <li>
+                    <a href="#data-overview" class="toc-h2 toc-link" data-title="Data Overview">Data Overview</a>
+                  </li>
+              </ul>
+          </li>
       </ul>
         <ul class="toc-footer">
             <li><a href="https://sid296635.typeform.com/to/abg0kL" target="_blank">Get your API key</a></li>
@@ -5635,6 +5649,282 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
 <td>avg_txn_value_usd</td>
 <td><em>decimal</em></td>
 <td>The USD value of the average amount of tokens transferred per transaction out of the given exchange on this date.</td>
+</tr>
+</tbody></table>
+<h1 id='asset-price-in-us-dollars-usd'>Asset price in US Dollars (USD)</h1>
+<p>The US Dollar (<em>USD</em>) price of each asset we support is available through this endpoint. The mean hourly and daily price is available for each asset.</p>
+
+<p>The list of assets we currently support is:</p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>API Parameter</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Basic Attention Token</td>
+<td><em>bat</em></td>
+</tr>
+<tr>
+<td>Bitcoin Cash</td>
+<td><em>bch</em></td>
+</tr>
+<tr>
+<td>Binance Coin</td>
+<td><em>bnb</em></td>
+</tr>
+<tr>
+<td>Bancor</td>
+<td><em>bnt</em></td>
+</tr>
+<tr>
+<td>Bitcoin</td>
+<td><em>btc</em></td>
+</tr>
+<tr>
+<td>Bitcoin BEP2 (Binance Chain)</td>
+<td><em>btcb</em></td>
+</tr>
+<tr>
+<td>Bezant</td>
+<td><em>bznt</em></td>
+</tr>
+<tr>
+<td>Civic</td>
+<td><em>cvc</em></td>
+</tr>
+<tr>
+<td>Dai</td>
+<td><em>dai</em></td>
+</tr>
+<tr>
+<td>Ethereum Classic</td>
+<td><em>etc</em></td>
+</tr>
+<tr>
+<td>Ethereum</td>
+<td><em>eth</em></td>
+</tr>
+<tr>
+<td>Fetch</td>
+<td><em>fet</em></td>
+</tr>
+<tr>
+<td>Fantom</td>
+<td><em>ftm</em></td>
+</tr>
+<tr>
+<td>Golem</td>
+<td><em>gnt</em></td>
+</tr>
+<tr>
+<td>Gemini Dollar</td>
+<td><em>gusd</em></td>
+</tr>
+<tr>
+<td>ICON</td>
+<td><em>icx</em></td>
+</tr>
+<tr>
+<td>Kyber Network</td>
+<td><em>knc</em></td>
+</tr>
+<tr>
+<td>Chainlink</td>
+<td><em>link</em></td>
+</tr>
+<tr>
+<td>Loom Network</td>
+<td><em>loom</em></td>
+</tr>
+<tr>
+<td>Litecoin</td>
+<td><em>ltc</em></td>
+</tr>
+<tr>
+<td>Decentraland</td>
+<td><em>mana</em></td>
+</tr>
+<tr>
+<td>Matic Network</td>
+<td><em>matic</em></td>
+</tr>
+<tr>
+<td>Mithril</td>
+<td><em>mith</em></td>
+</tr>
+<tr>
+<td>Maker</td>
+<td><em>mkr</em></td>
+</tr>
+<tr>
+<td>Numeraire</td>
+<td><em>nmr</em></td>
+</tr>
+<tr>
+<td>OmiseGO</td>
+<td><em>omg</em></td>
+</tr>
+<tr>
+<td>1Coin</td>
+<td><em>one</em></td>
+</tr>
+<tr>
+<td>Paxos Standard Token</td>
+<td><em>pax</em></td>
+</tr>
+<tr>
+<td>Augur</td>
+<td><em>rep</em></td>
+</tr>
+<tr>
+<td>iExec</td>
+<td><em>rlc</em></td>
+</tr>
+<tr>
+<td>Status</td>
+<td><em>snt</em></td>
+</tr>
+<tr>
+<td>Storj</td>
+<td><em>storj</em></td>
+</tr>
+<tr>
+<td>Monolith</td>
+<td><em>tkn</em></td>
+</tr>
+<tr>
+<td>TrueUSD</td>
+<td><em>tusd</em></td>
+</tr>
+<tr>
+<td>USD Coin</td>
+<td><em>usdc</em></td>
+</tr>
+<tr>
+<td>StableUSD (Binance chain)</td>
+<td><em>usdsb</em></td>
+</tr>
+<tr>
+<td>Tether</td>
+<td><em>usdt_erc20</em></td>
+</tr>
+<tr>
+<td>Monero</td>
+<td><em>xmr</em></td>
+</tr>
+<tr>
+<td>Ripple</td>
+<td><em>xrp</em></td>
+</tr>
+<tr>
+<td>Zcash</td>
+<td><em>zec</em></td>
+</tr>
+<tr>
+<td>Zilliqa</td>
+<td><em>zil</em></td>
+</tr>
+<tr>
+<td>0x</td>
+<td><em>zrx</em></td>
+</tr>
+</tbody></table>
+
+<p><img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/></p>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_price_usd_window_historical/last?token=btc&amp;window=1h&amp;format=json&amp;key=API_KEY"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-12-27"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"hour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"05:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">available</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
+    </span><span class="s2">"datetime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-12-27 05:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">available</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
+    </span><span class="s2">"price_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">16416.71</span><span class="p">,</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-12-28"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"hour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"06:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">available</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
+    </span><span class="s2">"datetime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-12-27 06:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">available</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
+    </span><span class="s2">"price_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">13868.98</span><span class="p">,</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre><h3 id='http-request'>HTTP Request</h3>
+<p><code>GET https://api.tokenanalyst.io/analytics/private/v1/token_price_usd_window_historical/last?</code></p>
+<h3 id='query-parameters'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>key</td>
+<td><em>string</em></td>
+<td>Your unique API key</td>
+</tr>
+<tr>
+<td>format</td>
+<td><em>string</em></td>
+<td>What format you want your data in (<code>json</code> or <code>csv</code>)</td>
+</tr>
+<tr>
+<td>token</td>
+<td><em>string</em></td>
+<td><code>btc</code></td>
+</tr>
+<tr>
+<td>window</td>
+<td><em>string</em></td>
+<td><code>1h</code> or <code>1d</code></td>
+</tr>
+<tr>
+<td>from_date *</td>
+<td><em>string</em></td>
+<td>Start date of returned data specified as YYYY-MM-DD (ISO date format)</td>
+</tr>
+<tr>
+<td>to_date *</td>
+<td><em>string</em></td>
+<td>End date of returned data specified as YYYY-MM-DD (ISO date format)</td>
+</tr>
+<tr>
+<td>limit *</td>
+<td><em>integer</em></td>
+<td>The number of entries returned before the latest data point (or the to_date if specified)</td>
+</tr>
+</tbody></table>
+<h3 id='data-overview'>Data Overview</h3>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>date</td>
+<td><em>string</em></td>
+<td>The date in <em>YYYY-MM-DD</em></td>
+</tr>
+<tr>
+<td>datetime *</td>
+<td><em>string</em></td>
+<td>The hour of the day in datetime format YYYY-MM-DD HH:MM:SS (UTC time zone). This is an optional field field and appears when window is <code>1h</code></td>
+</tr>
+<tr>
+<td>hour *</td>
+<td><em>string</em></td>
+<td>The hour of the day in <em>HH:MM:SS</em> (UTC time zone). This is an optional field field and appears when window is <code>1h</code></td>
+</tr>
+<tr>
+<td>price_usd</td>
+<td><em>decimal</em></td>
+<td>The daily price of the token in USD (the hourly or daily mean of minute-level price data)</td>
 </tr>
 </tbody></table>
 
