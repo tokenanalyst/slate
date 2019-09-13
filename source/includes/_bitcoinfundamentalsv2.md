@@ -23,20 +23,20 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_volume_window_histo
   {
     "date": "2014-03-12",
     "hour": "22:00:00", // not available when window 1d
+    "datetime": "2014-03-12 22:00:00", // not available when window 1d
     "volume_gross": 18162.41657378,
     "volume_change": 1437.98486305,
     "volume_real": 16724.43171073,
-    "price_usd": 619.97,
     "volume_change_usd": 891507.43,
     "volume_real_usd": 10368645.44
   },
   {
     "date": "2014-03-12",
     "hour": "23:00:00", // not available when window 1d
+    "datetime": "2014-03-12 23:00:00", // not available when window 1d
     "volume_gross": 51391.70115624,
     "volume_change": 904.51484837,
     "volume_real": 50487.18630787,
-    "price_usd": 619.54,
     "volume_change_usd": 560383.11,
     "volume_real_usd": 31278830.3
   }
@@ -67,7 +67,7 @@ Note: All params with a \* are optional and `limit` is only available in the JSO
 | ----------------- | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
 | date              | _string_  | The date in _YYYY-MM-DD_                                                                                                                           |
 | hour \*           | _string_  | The hour of the day in _HH:MM:SS_ (UTC time zone). This is an optional field field and appears when window is `1h`                                 |
-| price_usd         | _decimal_ | The average price of BTC in USD for the window (the mean of minute-level price data for the given window)                                          |
+| datetime *        | _string_  | The hour of the day in datetime format YYYY-MM-DD HH:MM:SS (UTC time zone). This is an optional field field and appears when window is `1h`        |
 | volume_change     | _decimal_ | The total sum of BTC sent to (locked by) addresses that were also on the sending side of the same transaction                                      |
 | volume_change_usd | _decimal_ | _volume_change_ \* _price_usd_                                                                                                                     |
 | volume_gross      | _decimal_ | The total sum of BTC sent by (unlocked by) addresses in transactions with a timestamp that occurs on this date. Does not include coinbase rewards. |
@@ -94,16 +94,19 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_count_window_histor
   {
     "date": "2009-03-12",
     "hour": "21:00:00", // not available when window 1d
+    "datetime": "2009-03-12 21:00:00", // not available when window 1d
     "number_of_txns": 7
   },
   {
     "date": "2009-03-12",
     "hour": "22:00:00", // not available when window 1d
+    "datetime": "2009-03-12 22:00:00", // not available when window 1d
     "number_of_txns": 6
   },
   {
     "date": "2009-03-12",
     "hour": "23:00:00", // not available when window 1d
+    "datetime": "2009-03-12 23:00:00", // not available when window 1d
     "number_of_txns": 5
   }
 ]
@@ -134,6 +137,7 @@ Note: All params with a \* are optional and `limit` is only available in the JSO
 | date           | _string_  | The date in _YYYY-MM-DD_                                                                                                     |
 | number_of_txns | _integer_ | The number of transactions included in blocks with a timestamp that occurs during this date (includes coinbase transactions) |
 | hour \*        | _string_  | The hour of the day in _HH:MM:SS_ (UTC time zone). This is an optional field and appears when window is `1h`                 |
+| datetime *     | _string_  | The hour of the day in datetime format YYYY-MM-DD HH:MM:SS (UTC time zone). This is an optional field field and appears when window is `1h`        |
 
 ---
 
@@ -341,7 +345,6 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_fees_window_histori
     "date": "2014-03-14",
     "total_fee": 13.6553,
     "avg_size_bytes": 575,
-    "price_usd": 621.0117,
     "total_fee_usd": 8480.11,
     "avg_satoshis_per_byte": 33.6015,
     "avg_fee": 0.0002,
@@ -351,7 +354,6 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_fees_window_histori
     "date": "2014-03-15",
     "total_fee": 10.9136,
     "avg_size_bytes": 508,
-    "price_usd": 620.7263,
     "total_fee_usd": 6774.36,
     "avg_satoshis_per_byte": 35.6095,
     "avg_fee": 0.0002,
@@ -388,7 +390,6 @@ Note: All params with a \* are optional and `limit` is only available in the JSO
 | date                  | _string_  | The date in _YYYY-MM-DD_                                                                          |
 | total_fee             | _decimal_ | The total amount of fees paid by all transactions that occurred on this date. Denominated in BTC. |
 | avg_size_bytes        | _integer_ | The average transaction size to the nearest byte for transactions that occurred on this date.     |
-| price_usd             | _decimal_ | The daily average price of BTC in USD (the daily mean of minute-level price data)                 |
 | total_fee_usd         | _decimal_ | _total_fee_ \* _price_                                                                            |
 | avg_satoshis_per_byte | _integer_ | The average number of satoshis paid per byte for transactions that occurred on this date          |
 | avg_fee               | _decimal_ | The average amount of fees paid per transaction that occurred on this date. Denominated in BTC.   |
@@ -604,6 +605,5 @@ Note: All params with a \* are optional and `limit` is only available in the JSO
 | ---------------------------- | --------- | ---------------------------------------------------------------------------------------- |
 | date                         | _string_  | The date in _YYYY-MM-DD_                                                                 |
 | miner_name                   | _string_  | Human readable name of the miner in our database, if known.                              |
-| price_usd                    | _decimal_ | The daily average price of BTC in USD (the daily mean of minute-level price data)        |
 | miner_daily_block_reward     | _decimal_ | The total amount of block rewards earned by this miner on this date. Denominated in BTC. |  |
 | miner_daily_block_reward_usd | _decimal_ | _miner_daily_block_reward_ \* _price_usd_                                                |

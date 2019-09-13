@@ -40,11 +40,11 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/erc20_exchanges_flow_wind
 [
   {
     "date": "2017-07-19",
-    "hour": "11:00:00",
+    "hour": "11:00:00", // not available when window 1d
+    "datetime": "2017-07-19 11:00:00", // not available when window 1d
     "token_name": "OMG",
     "exchange": "Bitfinex",
     "inflow": 1021328.4514801201,
-    "price_usd": 0.68,
     "inflow_usd": 695260.83,
     "number_of_txns": 46,
     "avg_txn_value": 22202.79242348087,
@@ -52,11 +52,11 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/erc20_exchanges_flow_wind
   },
   {
     "date": "2017-07-19",
-    "hour": "12:00:00",
+    "hour": "12:00:00", // not available when window 1d
+    "datetime": "2017-07-19 12:00:00", // not available when window 1d
     "token_name": "OMG",
     "exchange": "Bittrex",
     "inflow": 2440563.297567261,
-    "price_usd": 0.68,
     "inflow_usd": 1661393.13,
     "number_of_txns": 198,
     "avg_txn_value": 12326.077260440712,
@@ -80,17 +80,21 @@ This endpoint returns the inflow of ERC20 into exchange wallets. The `avg_txn_va
 | token     | _string_ | `omg`                                               |
 | direction | _string_ | `inflow`                                            |
 | window    | _string_ | `1h` or `1d`                                        |
+| from_date \* | _string_  | Start date of returned data specified as YYYY-MM-DD (ISO date format)                     |
+| to_date \*   | _string_  | End date of returned data specified as YYYY-MM-DD (ISO date format)                       |
+| limit \*     | _integer_ | The number of entries returned before the latest data point (or the to_date if specified) |
+
 
 ### Data Overview
 
 | Field | Type     | Description                                          |
 | --------- | -------- | ---------------------------------------------------- |
 | date     | _string_ | The date in _YYYY-MM-DD_                                                  |
-| hour     | _string_ | The hour of the day in _HH:MM:SS_  (UTC time zone). This is an optional field based on the params used.                                               |
+| hour *   | _string_ | The hour of the day in _HH:MM:SS_  (UTC time zone). This is an optional field field and appears when window is `1h` |
+| datetime *  | _string_  | The hour of the day in datetime format YYYY-MM-DD HH:MM:SS (UTC time zone). This is an optional field field and appears when window is `1h`        |
 | token_name  | _string_ | The name of the token in question         |
 | exchange  | _string_ | The name of the exchange in question         |
 | inflow  | _decimal_ | The total amount of the token that flowed into the exchange on this date. Denominated in the token in question.         |
-| price_usd | _decimal_ | The daily average price of the token in USD (the daily mean of minute-level price data) |
 | inflow_usd  | _decimal_ | The USD value of the total amount of the token that flowed into the exchange on this date         |
 | number_of_txns       | _integer_ | The number of transactions sending the token into this exchange on this date.                                 |
 | avg_txn_value       | _decimal_ | The average amount of tokens transferred per transaction into the given exchange on this date.                                 |
@@ -111,11 +115,11 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/erc20_exchanges_flow_wind
 [
   {
     "date": "2017-07-19",
-    "hour": "11:00:00",
+    "hour": "11:00:00", // not available when window 1d
+    "datetime": "2017-07-19 11:00:00", // not available when window 1d
     "token_name": "OMG",
     "exchange": "Bitfinex",
     "outflow": 1021328.4514801201,
-    "price_usd": 0.68,
     "outflow_usd": 695260.83,
     "number_of_txns": 46,
     "avg_txn_value": 22202.79242348087,
@@ -124,10 +128,10 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/erc20_exchanges_flow_wind
   {
     "date": "2017-07-19",
     "hour": "12:00:00",
+    "datetime": "2017-07-19 12:00:00", // not available when window 1d
     "token_name": "OMG",
     "exchange": "Bittrex",
     "outflow": 2440563.297567261,
-    "price_usd": 0.68,
     "outflow_usd": 1661393.13,
     "number_of_txns": 198,
     "avg_txn_value": 12326.077260440712,
@@ -151,17 +155,21 @@ This endpoint returns the outflow of ERC20 from exchange wallets. The `avg_txn_v
 | token     | _string_ | `omg`                                               |
 | direction | _string_ | `outflow`                                           |
 | window    | _string_ | `1h` or `1d`                                        |
+| from_date \* | _string_  | Start date of returned data specified as YYYY-MM-DD (ISO date format)                     |
+| to_date \*   | _string_  | End date of returned data specified as YYYY-MM-DD (ISO date format)                       |
+| limit \*     | _integer_ | The number of entries returned before the latest data point (or the to_date if specified) |
+
 
 ### Data Overview
 
 | Field | Type     | Description                                          |
 | --------- | -------- | ---------------------------------------------------- |
 | date     | _string_ | The date in _YYYY-MM-DD_                                                  |
-| hour     | _string_ | The hour of the day in _HH:MM:SS_  (UTC time zone). This is an optional field based on the params used.                                               |
+| hour *   | _string_ | The hour of the day in _HH:MM:SS_  (UTC time zone). This is an optional field field and appears when window is `1h` |
+| datetime *  | _string_  | The hour of the day in datetime format YYYY-MM-DD HH:MM:SS (UTC time zone). This is an optional field field and appears when window is `1h`        |
 | token_name  | _string_ | The name of the token in question         |
 | exchange  | _string_ | The name of the exchange in question         |
 | outflow  | _decimal_ | The total amount of the token that flowed out of the exchange on this date. Denominated in the token in question.         |
-| price_usd | _decimal_ | The daily average price of the token in USD (the daily mean of minute-level price data) |
 | outflow_usd  | _decimal_ | The USD value of the total amount of the token that flowed out of the exchange on this date         |
 | number_of_txns       | _integer_ | The number of transactions sending the token out of this exchange on this date.                                 |
 | avg_txn_value       | _decimal_ | The average amount of tokens transferred per transaction out of the given exchange on this date.                                 |

@@ -39,13 +39,11 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_volume_historical/l
   {
     "date": "2017-08-11",
     "volume": 100001170833,
-    "price_usd": 0.11,
     "volume_usd": 1305799085
   },
   {
     "date": "2017-08-13",
     "volume": 82753422,
-    "price_usd": 0.18,
     "volume_usd": 1490913652
   }
 ]
@@ -64,6 +62,10 @@ This endpoint returns the full historical on-chain volume of any of the major ER
 | key       | _string_ | Your unique API key                                 |
 | format    | _string_ | What format you want your data in (`json` or `csv`) |
 | token     | _string_ | The token you want the volume for                   |
+| from_date \* | _string_  | Start date of returned data specified as YYYY-MM-DD (ISO date format)                     |
+| to_date \*   | _string_  | End date of returned data specified as YYYY-MM-DD (ISO date format)                       |
+| limit \*     | _integer_ | The number of entries returned before the latest data point (or the to_date if specified) |
+
 
 
 ### Data Overview
@@ -72,7 +74,6 @@ This endpoint returns the full historical on-chain volume of any of the major ER
 | --------- | -------- | ------------------------------------------------------ |
 | date       | _string_ | The date in _YYYY-MM-DD_ |
 | volume    | _decimal_ | The total sum of ERC20 token sent by addresses in transactions with a timestamp that occurs on this date. |
-| price_usd     | _decimal_ | The daily average price of the ERC20 token (the daily mean of minute-level price data) |
 | volume_usd    | _decimal_ |  _volume_ * _price_usd_  |
 
 ## ERC20 On-chain Transaction Count
@@ -115,6 +116,10 @@ This endpoint returns the number of token transfers on the blockchain for the gi
 | key       | _string_ | Your unique API key                                 |
 | format    | _string_ | What format you want your data in (`json` or `csv`) |
 | token     | _string_ | The token you want the transaction count for        |
+| from_date \* | _string_  | Start date of returned data specified as YYYY-MM-DD (ISO date format)                     |
+| to_date \*   | _string_  | End date of returned data specified as YYYY-MM-DD (ISO date format)                       |
+| limit \*     | _integer_ | The number of entries returned before the latest data point (or the to_date if specified) |
+
 
 
 ### Data Overview
@@ -163,6 +168,10 @@ This endpoint returns the active addresses of ERC20 tokens for every day of thei
 | key       | _string_ | Your unique API key                                 |
 | format    | _string_ | What format you want your data in (`json` or `csv`) |
 | token     | _string_ | The token you want the transaction count for        |
+| from_date \* | _string_  | Start date of returned data specified as YYYY-MM-DD (ISO date format)                     |
+| to_date \*   | _string_  | End date of returned data specified as YYYY-MM-DD (ISO date format)                       |
+| limit \*     | _integer_ | The number of entries returned before the latest data point (or the to_date if specified) |
+
 
 ### Data Overview
 

@@ -215,7 +215,7 @@ Note: All params with a \* are optional and `limit` is only available in the JSO
 | date             | _string_  | The date in _YYYY-MM-DD_                                                                                     |
 | entity           | _string_  | The name of the exchange in question                                                                         |
 | rank             | _integer_ | Ranking out of 10 for the 10 largest transactions of BTC flowing into the exchange in question on this date. |
-| transaction_time | _string_  | The timestamp in datetime format YYYY-MM-DD HH:MM:SS (UTC time zone) when the transaction was mined          |
+| transaction_datetime | _string_  | The timestamp in datetime format YYYY-MM-DD HH:MM:SS (UTC time zone) when the transaction was mined          |
 | transactionhash  | _string_  | The transaction hash of the transaction in question.                                                         |
 | transactionid    | _string_  | The transaction id of the transaction in question.                                                           |
 | value            | _decimal_ | The amount of BTC transferred in this transaction.                                                           |
@@ -281,7 +281,7 @@ Note: All params with a \* are optional and `limit` is only available in the JSO
 | date             | _string_  | The date in _YYYY-MM-DD_                                                                                       |
 | entity           | _string_  | The name of the exchange in question                                                                           |
 | rank             | _integer_ | Ranking out of 10 for the 10 largest transactions of BTC flowing out of the exchange in question on this date. |
-| transaction_time | _string_  | The timestamp in datetime format YYYY-MM-DD HH:MM:SS (UTC time zone) when the transaction was mined            |
+| transaction_datetime | _string_  | The timestamp in datetime format YYYY-MM-DD HH:MM:SS (UTC time zone) when the transaction was mined            |
 | transactionhash  | _string_  | The transaction hash of the transaction in question.                                                           |
 | transactionid    | _string_  | The transaction id of the transaction in question.                                                             |
 | value            | _decimal_ | The amount of BTC transferred in this transaction.                                                             |
