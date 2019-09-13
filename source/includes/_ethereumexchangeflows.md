@@ -55,6 +55,10 @@ This endpoint returns the inflow of ETH into exchange wallets. The `avg_txn_valu
 | direction | _string_ | `inflow`                                            |
 | exchange  | _string_ | An exchange from the list of ones we support        |
 | window    | _string_ | `1h` or `1d`       |
+| from_date \* | _string_  | Start date of returned data specified as YYYY-MM-DD (ISO date format)                     |
+| to_date \*   | _string_  | End date of returned data specified as YYYY-MM-DD (ISO date format)                       |
+| limit \*     | _integer_ | The number of entries returned before the latest data point (or the to_date if specified) |
+
 
 ### Data Overview
 
@@ -122,6 +126,10 @@ This endpoint returns the outflow of ETH from exchange wallets. The `avg_txn_val
 | direction | _string_ | `outflow`                                            |
 | exchange  | _string_ | An exchange from the list of ones we support        |
 | window    | _string_ | `1h` or `1d`       |
+| from_date \* | _string_  | Start date of returned data specified as YYYY-MM-DD (ISO date format)                     |
+| to_date \*   | _string_  | End date of returned data specified as YYYY-MM-DD (ISO date format)                       |
+| limit \*     | _integer_ | The number of entries returned before the latest data point (or the to_date if specified) |
+
 
 ### Data Overview
 
@@ -184,6 +192,10 @@ This endpoint returns the top 10 transactions (in terms of total ETH sent) flowi
 | token     | _string_ | `eth`                                               |
 | direction | _string_ | `inflow`                                            |
 | exchange  | _string_ | An exchange from the list of ones we support        |
+| from_date \* | _string_  | Start date of returned data specified as YYYY-MM-DD (ISO date format)                     |
+| to_date \*   | _string_  | End date of returned data specified as YYYY-MM-DD (ISO date format)                       |
+| limit \*     | _integer_ | The number of entries returned before the latest data point (or the to_date if specified) |
+
 
 ### Data Overview
 
@@ -242,6 +254,10 @@ This endpoint returns the top 10 transactions (in terms of total ETH sent) flowi
 | token     | _string_ | `eth`                                               |
 | direction | _string_ | `outflow`                                           |
 | exchange  | _string_ | An exchange from the list of ones we support        |
+| from_date \* | _string_  | Start date of returned data specified as YYYY-MM-DD (ISO date format)                     |
+| to_date \*   | _string_  | End date of returned data specified as YYYY-MM-DD (ISO date format)                       |
+| limit \*     | _integer_ | The number of entries returned before the latest data point (or the to_date if specified) |
+
 
 ### Data Overview
 

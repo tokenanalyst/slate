@@ -1,5 +1,9 @@
 # Bitcoin Fundamentals
 
+<aside class="warning">
+Please switch to the Bitcoin Fundamentals <code>V2</code> endpoint. Bitcoin Fundamentals <code>V1</code> is no longer updated.
+</aside>
+
 ## BTC On-chain Volume
 
 <img src="https://img.shields.io/badge/Tier-Free-green.svg"/>
@@ -52,6 +56,10 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_volume_historical/l
 | key       | _string_ | Your unique API key                                    |
 | format    | _string_ | What format you want your data in (`json` or `csv`)    |
 | token     | _string_ | The token you want the volume for (in this case `btc`) |
+| from_date \* | _string_  | Start date of returned data specified as YYYY-MM-DD (ISO date format)                     |
+| to_date \*   | _string_  | End date of returned data specified as YYYY-MM-DD (ISO date format)                       |
+| limit \*     | _integer_ | The number of entries returned before the latest data point (or the to_date if specified) |
+
 
 ### Data Overview
 
@@ -108,6 +116,10 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_count_historical/la
 | key       | _string_ | Your unique API key                                    |
 | format    | _string_ | What format you want your data in (`json` or `csv`)    |
 | token     | _string_ | The token you want the volume for (in this case `btc`) |
+| from_date \* | _string_  | Start date of returned data specified as YYYY-MM-DD (ISO date format)                     |
+| to_date \*   | _string_  | End date of returned data specified as YYYY-MM-DD (ISO date format)                       |
+| limit \*     | _integer_ | The number of entries returned before the latest data point (or the to_date if specified) |
+
 
 ### Data Overview
 
@@ -160,6 +172,10 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_active_address_hist
 | key       | _string_ | Your unique API key                                 |
 | format    | _string_ | What format you want your data in (`json` or `csv`) |
 | token     | _string_ | `btc`                                               |
+| from_date \* | _string_  | Start date of returned data specified as YYYY-MM-DD (ISO date format)                     |
+| to_date \*   | _string_  | End date of returned data specified as YYYY-MM-DD (ISO date format)                       |
+| limit \*     | _integer_ | The number of entries returned before the latest data point (or the to_date if specified) |
+
 
 ### Data Overview
 
@@ -222,6 +238,10 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_supply_historical/l
 | key       | _string_ | Your unique API key                                 |
 | format    | _string_ | What format you want your data in (`json` or `csv`) |
 | token     | _string_ | `btc`                                               |
+| from_date \* | _string_  | Start date of returned data specified as YYYY-MM-DD (ISO date format)                     |
+| to_date \*   | _string_  | End date of returned data specified as YYYY-MM-DD (ISO date format)                       |
+| limit \*     | _integer_ | The number of entries returned before the latest data point (or the to_date if specified) |
+
 
 ### Data Overview
 
@@ -270,6 +290,10 @@ This endpoint returns the NVT Ratio (Network Value to Transactions Ratio) for BT
 | key       | _string_ | Your unique API key                                 |
 | format    | _string_ | What format you want your data in (`json` or `csv`) |
 | token     | _string_ | `btc`                                               |
+| from_date \* | _string_  | Start date of returned data specified as YYYY-MM-DD (ISO date format)                     |
+| to_date \*   | _string_  | End date of returned data specified as YYYY-MM-DD (ISO date format)                       |
+| limit \*     | _integer_ | The number of entries returned before the latest data point (or the to_date if specified) |
+
 
 ### Data Overview
 
@@ -325,6 +349,10 @@ This endpoint returns the total and average fees spent on the Bitcoin network fo
 | key       | _string_ | Your unique API key                                 |
 | format    | _string_ | What format you want your data in (`json` or `csv`) |
 | token     | _string_ | `btc`                                               |
+| from_date \* | _string_  | Start date of returned data specified as YYYY-MM-DD (ISO date format)                     |
+| to_date \*   | _string_  | End date of returned data specified as YYYY-MM-DD (ISO date format)                       |
+| limit \*     | _integer_ | The number of entries returned before the latest data point (or the to_date if specified) |
+
 
 ### Data Overview
 
@@ -396,6 +424,10 @@ This endpoint returns the proportion of the current bitcoin supply held in unspe
 | key       | _string_ | Your unique API key                                 |
 | format    | _string_ | What format you want your data in (`json` or `csv`) |
 | token     | _string_ | `btc`                                               |
+| from_date \* | _string_  | Start date of returned data specified as YYYY-MM-DD (ISO date format)                     |
+| to_date \*   | _string_  | End date of returned data specified as YYYY-MM-DD (ISO date format)                       |
+| limit \*     | _integer_ | The number of entries returned before the latest data point (or the to_date if specified) |
+
 
 ### Data Overview
 
@@ -461,6 +493,10 @@ This endpoint returns the daily and miner specifc hashrates. The `total_daily_ha
 | key       | _string_ | Your unique API key                                 |
 | format    | _string_ | What format you want your data in (`json` or `csv`) |
 | token     | _string_ | `btc`                                               |
+| from_date \* | _string_  | Start date of returned data specified as YYYY-MM-DD (ISO date format)                     |
+| to_date \*   | _string_  | End date of returned data specified as YYYY-MM-DD (ISO date format)                       |
+| limit \*     | _integer_ | The number of entries returned before the latest data point (or the to_date if specified) |
+
 
 ### Data Overview
 
@@ -514,6 +550,10 @@ This endpoint returns the daily coinbase rewards by miner (incl. txn fees). The 
 | key       | _string_ | Your unique API key                                 |
 | format    | _string_ | What format you want your data in (`json` or `csv`) |
 | token     | _string_ | `btc`                                               |
+| from_date \* | _string_  | Start date of returned data specified as YYYY-MM-DD (ISO date format)                     |
+| to_date \*   | _string_  | End date of returned data specified as YYYY-MM-DD (ISO date format)                       |
+| limit \*     | _integer_ | The number of entries returned before the latest data point (or the to_date if specified) |
+
 
 ### Data Overview
 

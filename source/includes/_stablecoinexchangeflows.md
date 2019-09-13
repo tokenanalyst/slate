@@ -63,6 +63,10 @@ This endpoint returns the inflow of USDT (Tether) on the Omni blockchain into ex
 | exchange  | _string_ | An exchange from the list of ones we support        |
 | direction | _string_ | `inflow`                                            |
 | window    | _string_ | `1h` or `1d`                                        |
+| from_date \* | _string_  | Start date of returned data specified as YYYY-MM-DD (ISO date format)                     |
+| to_date \*   | _string_  | End date of returned data specified as YYYY-MM-DD (ISO date format)                       |
+| limit \*     | _integer_ | The number of entries returned before the latest data point (or the to_date if specified) |
+
 
 ### Data Overview
 
@@ -123,6 +127,10 @@ This endpoint returns the inflow of USDT (Tether) on the Omni blockchain into ex
 | exchange  | _string_ | An exchange from the list of ones we support        |
 | direction | _string_ | `inflow`                                            |
 | window    | _string_ | `1h` or `1d`                                        |
+| from_date \* | _string_  | Start date of returned data specified as YYYY-MM-DD (ISO date format)                     |
+| to_date \*   | _string_  | End date of returned data specified as YYYY-MM-DD (ISO date format)                       |
+| limit \*     | _integer_ | The number of entries returned before the latest data point (or the to_date if specified) |
+
 
 ### Data Overview
 
@@ -184,6 +192,10 @@ This endpoint returns the top 10 transactions (in terms of total USDT sent) flow
 | token     | _string_ | `usdt_omni`                                         |
 | direction | _string_ | `inflow`                                            |
 | exchange  | _string_ | An exchange from the list of ones we support        |
+| from_date \* | _string_  | Start date of returned data specified as YYYY-MM-DD (ISO date format)                     |
+| to_date \*   | _string_  | End date of returned data specified as YYYY-MM-DD (ISO date format)                       |
+| limit \*     | _integer_ | The number of entries returned before the latest data point (or the to_date if specified) |
+
 
 ### Data Overview
 
@@ -242,6 +254,10 @@ This endpoint returns the top 10 transactions (in terms of total USDT sent) flow
 | token     | _string_ | `usdt_omni`                                         |
 | direction | _string_ | `outflow`                                           |
 | exchange  | _string_ | An exchange from the list of ones we support        |
+| from_date \* | _string_  | Start date of returned data specified as YYYY-MM-DD (ISO date format)                     |
+| to_date \*   | _string_  | End date of returned data specified as YYYY-MM-DD (ISO date format)                       |
+| limit \*     | _integer_ | The number of entries returned before the latest data point (or the to_date if specified) |
+
 
 ### Data Overview
 
@@ -308,6 +324,10 @@ This endpoint returns the inflow of stablecoins into exchange wallets. The `avg_
 | token     | _string_ | `usdc`                                              |
 | direction | _string_ | `inflow`                                            |
 | window    | _string_ | `1h` or `1d`                                        |
+| from_date \* | _string_  | Start date of returned data specified as YYYY-MM-DD (ISO date format)                     |
+| to_date \*   | _string_  | End date of returned data specified as YYYY-MM-DD (ISO date format)                       |
+| limit \*     | _integer_ | The number of entries returned before the latest data point (or the to_date if specified) |
+
 
 ### Data Overview
 
@@ -378,6 +398,10 @@ This endpoint returns the outflow of stablecoins from exchange wallets. The `avg
 | token     | _string_ | `usdc`                                              |
 | direction | _string_ | `outflow`                                           |
 | window    | _string_ | `1h` or `1d`                                        |
+| from_date \* | _string_  | Start date of returned data specified as YYYY-MM-DD (ISO date format)                     |
+| to_date \*   | _string_  | End date of returned data specified as YYYY-MM-DD (ISO date format)                       |
+| limit \*     | _integer_ | The number of entries returned before the latest data point (or the to_date if specified) |
+
 
 ### Data Overview
 

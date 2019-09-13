@@ -80,6 +80,10 @@ This endpoint returns the inflow of ERC20 into exchange wallets. The `avg_txn_va
 | token     | _string_ | `omg`                                               |
 | direction | _string_ | `inflow`                                            |
 | window    | _string_ | `1h` or `1d`                                        |
+| from_date \* | _string_  | Start date of returned data specified as YYYY-MM-DD (ISO date format)                     |
+| to_date \*   | _string_  | End date of returned data specified as YYYY-MM-DD (ISO date format)                       |
+| limit \*     | _integer_ | The number of entries returned before the latest data point (or the to_date if specified) |
+
 
 ### Data Overview
 
@@ -151,6 +155,10 @@ This endpoint returns the outflow of ERC20 from exchange wallets. The `avg_txn_v
 | token     | _string_ | `omg`                                               |
 | direction | _string_ | `outflow`                                           |
 | window    | _string_ | `1h` or `1d`                                        |
+| from_date \* | _string_  | Start date of returned data specified as YYYY-MM-DD (ISO date format)                     |
+| to_date \*   | _string_  | End date of returned data specified as YYYY-MM-DD (ISO date format)                       |
+| limit \*     | _integer_ | The number of entries returned before the latest data point (or the to_date if specified) |
+
 
 ### Data Overview
 

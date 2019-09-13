@@ -48,6 +48,10 @@ This endpoint returns the full historical on-chain volume of Ethereum since it w
 | key       | _string_ | Your unique API key                                    |
 | format    | _string_ | What format you want your data in (`json` or `csv`)    |
 | token     | _string_ | The token you want the volume for (in this case `eth`) |
+| from_date \* | _string_  | Start date of returned data specified as YYYY-MM-DD (ISO date format)                     |
+| to_date \*   | _string_  | End date of returned data specified as YYYY-MM-DD (ISO date format)                       |
+| limit \*     | _integer_ | The number of entries returned before the latest data point (or the to_date if specified) |
+
 
 ### Data Overview
 
@@ -101,6 +105,10 @@ This endpoint returns the number of transactions on the full historical Ethereum
 | key       | _string_ | Your unique API key                                    |
 | format    | _string_ | What format you want your data in (`json` or `csv`)    |
 | token     | _string_ | The token you want the volume for (in this case `eth`) |
+| from_date \* | _string_  | Start date of returned data specified as YYYY-MM-DD (ISO date format)                     |
+| to_date \*   | _string_  | End date of returned data specified as YYYY-MM-DD (ISO date format)                       |
+| limit \*     | _integer_ | The number of entries returned before the latest data point (or the to_date if specified) |
+
 
 ### Data Overview
 
@@ -147,6 +155,10 @@ This endpoint returns the active addresses on the Ethereum blockchain for every 
 | key       | _string_ | Your unique API key                                 |
 | format    | _string_ | What format you want your data in (`json` or `csv`) |
 | token     | _string_ | `eth`                                               |
+| from_date \* | _string_  | Start date of returned data specified as YYYY-MM-DD (ISO date format)                     |
+| to_date \*   | _string_  | End date of returned data specified as YYYY-MM-DD (ISO date format)                       |
+| limit \*     | _integer_ | The number of entries returned before the latest data point (or the to_date if specified) |
+
 
 ### Data Overview
 
@@ -192,6 +204,10 @@ This endpoint returns the historical supply of ETH on the Ethereum blockchain fo
 | key       | _string_ | Your unique API key                                 |
 | format    | _string_ | What format you want your data in (`json` or `csv`) |
 | token     | _string_ | `eth`                                               |
+| from_date \* | _string_  | Start date of returned data specified as YYYY-MM-DD (ISO date format)                     |
+| to_date \*   | _string_  | End date of returned data specified as YYYY-MM-DD (ISO date format)                       |
+| limit \*     | _integer_ | The number of entries returned before the latest data point (or the to_date if specified) |
+
 
 ### Data Overview
 
@@ -238,6 +254,10 @@ This endpoint returns the NVT Ratio (Network Value to Transactions Ratio) for ET
 | key       | _string_ | Your unique API key                                 |
 | format    | _string_ | What format you want your data in (`json` or `csv`) |
 | token     | _string_ | `eth`                                               |
+| from_date \* | _string_  | Start date of returned data specified as YYYY-MM-DD (ISO date format)                     |
+| to_date \*   | _string_  | End date of returned data specified as YYYY-MM-DD (ISO date format)                       |
+| limit \*     | _integer_ | The number of entries returned before the latest data point (or the to_date if specified) |
+
 
 ### Data Overview
 
@@ -293,6 +313,10 @@ This endpoint returns the total and average fees spent on the Ethereum network f
 | key       | _string_ | Your unique API key                                 |
 | format    | _string_ | What format you want your data in (`json` or `csv`) |
 | token     | _string_ | `eth`                                               |
+| from_date \* | _string_  | Start date of returned data specified as YYYY-MM-DD (ISO date format)                     |
+| to_date \*   | _string_  | End date of returned data specified as YYYY-MM-DD (ISO date format)                       |
+| limit \*     | _integer_ | The number of entries returned before the latest data point (or the to_date if specified) |
+
 
 ### Data Overview
 
@@ -362,6 +386,10 @@ This endpoint returns the total and miner specifc hashrate and uncle rates. The 
 | key       | _string_ | Your unique API key                                 |
 | format    | _string_ | What format you want your data in (`json` or `csv`) |
 | token     | _string_ | `eth`                                               |
+| from_date \* | _string_  | Start date of returned data specified as YYYY-MM-DD (ISO date format)                     |
+| to_date \*   | _string_  | End date of returned data specified as YYYY-MM-DD (ISO date format)                       |
+| limit \*     | _integer_ | The number of entries returned before the latest data point (or the to_date if specified) |
+
 
 ### Data Overview
 
@@ -424,6 +452,10 @@ This endpoint returns the daily block rewards and uncle rewards by miner. The `m
 | key       | _string_ | Your unique API key                                 |
 | format    | _string_ | What format you want your data in (`json` or `csv`) |
 | token     | _string_ | `eth`                                               |
+| from_date \* | _string_  | Start date of returned data specified as YYYY-MM-DD (ISO date format)                     |
+| to_date \*   | _string_  | End date of returned data specified as YYYY-MM-DD (ISO date format)                       |
+| limit \*     | _integer_ | The number of entries returned before the latest data point (or the to_date if specified) |
+
 
 ### Data Overview
 
