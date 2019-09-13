@@ -503,20 +503,20 @@ curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_vo
   </span><span class="p">{</span><span class="w">
     </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-03-12"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"hour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"22:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">available</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
+    </span><span class="s2">"datetime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-03-12 22:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">available</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
     </span><span class="s2">"volume_gross"</span><span class="p">:</span><span class="w"> </span><span class="mf">18162.41657378</span><span class="p">,</span><span class="w">
     </span><span class="s2">"volume_change"</span><span class="p">:</span><span class="w"> </span><span class="mf">1437.98486305</span><span class="p">,</span><span class="w">
     </span><span class="s2">"volume_real"</span><span class="p">:</span><span class="w"> </span><span class="mf">16724.43171073</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"price_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">619.97</span><span class="p">,</span><span class="w">
     </span><span class="s2">"volume_change_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">891507.43</span><span class="p">,</span><span class="w">
     </span><span class="s2">"volume_real_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">10368645.44</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-03-12"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"hour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"23:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">available</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
+    </span><span class="s2">"datetime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-03-12 23:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">available</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
     </span><span class="s2">"volume_gross"</span><span class="p">:</span><span class="w"> </span><span class="mf">51391.70115624</span><span class="p">,</span><span class="w">
     </span><span class="s2">"volume_change"</span><span class="p">:</span><span class="w"> </span><span class="mf">904.51484837</span><span class="p">,</span><span class="w">
     </span><span class="s2">"volume_real"</span><span class="p">:</span><span class="w"> </span><span class="mf">50487.18630787</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"price_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">619.54</span><span class="p">,</span><span class="w">
     </span><span class="s2">"volume_change_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">560383.11</span><span class="p">,</span><span class="w">
     </span><span class="s2">"volume_real_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">31278830.3</span><span class="w">
   </span><span class="p">}</span><span class="w">
@@ -588,9 +588,9 @@ curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_vo
 <td>The hour of the day in <em>HH:MM:SS</em> (UTC time zone). This is an optional field field and appears when window is <code>1h</code></td>
 </tr>
 <tr>
-<td>price_usd</td>
-<td><em>decimal</em></td>
-<td>The average price of BTC in USD for the window (the mean of minute-level price data for the given window)</td>
+<td>datetime *</td>
+<td><em>string</em></td>
+<td>The hour of the day in datetime format YYYY-MM-DD HH:MM:SS (UTC time zone). This is an optional field field and appears when window is <code>1h</code></td>
 </tr>
 <tr>
 <td>volume_change</td>
@@ -634,16 +634,19 @@ for every day since it&#39;s genesis in 2009.</p>
   </span><span class="p">{</span><span class="w">
     </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2009-03-12"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"hour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"21:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">available</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
+    </span><span class="s2">"datetime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2009-03-12 21:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">available</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
     </span><span class="s2">"number_of_txns"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2009-03-12"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"hour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"22:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">available</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
+    </span><span class="s2">"datetime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2009-03-12 22:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">available</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
     </span><span class="s2">"number_of_txns"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2009-03-12"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"hour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"23:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">available</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
+    </span><span class="s2">"datetime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2009-03-12 23:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">available</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
     </span><span class="s2">"number_of_txns"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
@@ -717,6 +720,11 @@ for every day since it&#39;s genesis in 2009.</p>
 <td>hour *</td>
 <td><em>string</em></td>
 <td>The hour of the day in <em>HH:MM:SS</em> (UTC time zone). This is an optional field and appears when window is <code>1h</code></td>
+</tr>
+<tr>
+<td>datetime *</td>
+<td><em>string</em></td>
+<td>The hour of the day in datetime format YYYY-MM-DD HH:MM:SS (UTC time zone). This is an optional field field and appears when window is <code>1h</code></td>
 </tr>
 </tbody></table>
 
@@ -1037,7 +1045,6 @@ An example of this is the lowest possible bitcoin address of <code>1111111111111
     </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-03-14"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"total_fee"</span><span class="p">:</span><span class="w"> </span><span class="mf">13.6553</span><span class="p">,</span><span class="w">
     </span><span class="s2">"avg_size_bytes"</span><span class="p">:</span><span class="w"> </span><span class="mi">575</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"price_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">621.0117</span><span class="p">,</span><span class="w">
     </span><span class="s2">"total_fee_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">8480.11</span><span class="p">,</span><span class="w">
     </span><span class="s2">"avg_satoshis_per_byte"</span><span class="p">:</span><span class="w"> </span><span class="mf">33.6015</span><span class="p">,</span><span class="w">
     </span><span class="s2">"avg_fee"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0002</span><span class="p">,</span><span class="w">
@@ -1047,7 +1054,6 @@ An example of this is the lowest possible bitcoin address of <code>1111111111111
     </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-03-15"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"total_fee"</span><span class="p">:</span><span class="w"> </span><span class="mf">10.9136</span><span class="p">,</span><span class="w">
     </span><span class="s2">"avg_size_bytes"</span><span class="p">:</span><span class="w"> </span><span class="mi">508</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"price_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">620.7263</span><span class="p">,</span><span class="w">
     </span><span class="s2">"total_fee_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">6774.36</span><span class="p">,</span><span class="w">
     </span><span class="s2">"avg_satoshis_per_byte"</span><span class="p">:</span><span class="w"> </span><span class="mf">35.6095</span><span class="p">,</span><span class="w">
     </span><span class="s2">"avg_fee"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0002</span><span class="p">,</span><span class="w">
@@ -1127,11 +1133,6 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
 <td>avg_size_bytes</td>
 <td><em>integer</em></td>
 <td>The average transaction size to the nearest byte for transactions that occurred on this date.</td>
-</tr>
-<tr>
-<td>price_usd</td>
-<td><em>decimal</em></td>
-<td>The daily average price of BTC in USD (the daily mean of minute-level price data)</td>
 </tr>
 <tr>
 <td>total_fee_usd</td>
@@ -1537,11 +1538,6 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
 <td>Human readable name of the miner in our database, if known.</td>
 </tr>
 <tr>
-<td>price_usd</td>
-<td><em>decimal</em></td>
-<td>The daily average price of BTC in USD (the daily mean of minute-level price data)</td>
-</tr>
-<tr>
 <td>miner_daily_block_reward</td>
 <td><em>decimal</em></td>
 <td>The total amount of block rewards earned by this miner on this date. Denominated in BTC.</td>
@@ -1565,7 +1561,6 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
     </span><span class="s2">"volume_internal"</span><span class="p">:</span><span class="w"> </span><span class="mf">39.7</span><span class="p">,</span><span class="w">
     </span><span class="s2">"volume_external"</span><span class="p">:</span><span class="w"> </span><span class="mf">2008602.511431967</span><span class="p">,</span><span class="w">
     </span><span class="s2">"volume_gross"</span><span class="p">:</span><span class="w"> </span><span class="mf">2008642.2114319669</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"price_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.25</span><span class="p">,</span><span class="w">
     </span><span class="s2">"volume_internal_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">49.63</span><span class="p">,</span><span class="w">
     </span><span class="s2">"volume_external_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">2510753.14</span><span class="p">,</span><span class="w">
     </span><span class="s2">"volume_gross_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">2510802.76</span><span class="w">
@@ -1575,7 +1570,6 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
     </span><span class="s2">"volume_internal"</span><span class="p">:</span><span class="w"> </span><span class="mf">3568.4341612339426</span><span class="p">,</span><span class="w">
     </span><span class="s2">"volume_external"</span><span class="p">:</span><span class="w"> </span><span class="mf">1681503.1468948552</span><span class="p">,</span><span class="w">
     </span><span class="s2">"volume_gross"</span><span class="p">:</span><span class="w"> </span><span class="mf">1685071.5810560891</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"price_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.74</span><span class="p">,</span><span class="w">
     </span><span class="s2">"volume_internal_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">6210.56</span><span class="p">,</span><span class="w">
     </span><span class="s2">"volume_external_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">2926516.07</span><span class="p">,</span><span class="w">
     </span><span class="s2">"volume_gross_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">2932726.63</span><span class="w">
@@ -1610,6 +1604,21 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
 <td><em>string</em></td>
 <td>The token you want the volume for (in this case <code>eth</code>)</td>
 </tr>
+<tr>
+<td>from_date *</td>
+<td><em>string</em></td>
+<td>Start date of returned data specified as YYYY-MM-DD (ISO date format)</td>
+</tr>
+<tr>
+<td>to_date *</td>
+<td><em>string</em></td>
+<td>End date of returned data specified as YYYY-MM-DD (ISO date format)</td>
+</tr>
+<tr>
+<td>limit *</td>
+<td><em>integer</em></td>
+<td>The number of entries returned before the latest data point (or the to_date if specified)</td>
+</tr>
 </tbody></table>
 <h3 id='data-overview'>Data Overview</h3>
 <table><thead>
@@ -1638,11 +1647,6 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
 <td>volume_gross</td>
 <td><em>decimal</em></td>
 <td><em>volume_internal</em> + <em>volume_external</em></td>
-</tr>
-<tr>
-<td>price_usd</td>
-<td><em>decimal</em></td>
-<td>The daily average price of ETH in USD (the daily mean of minute-level price data)</td>
 </tr>
 <tr>
 <td>volume_internal_usd</td>
@@ -1707,6 +1711,21 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
 <td>token</td>
 <td><em>string</em></td>
 <td>The token you want the volume for (in this case <code>eth</code>)</td>
+</tr>
+<tr>
+<td>from_date *</td>
+<td><em>string</em></td>
+<td>Start date of returned data specified as YYYY-MM-DD (ISO date format)</td>
+</tr>
+<tr>
+<td>to_date *</td>
+<td><em>string</em></td>
+<td>End date of returned data specified as YYYY-MM-DD (ISO date format)</td>
+</tr>
+<tr>
+<td>limit *</td>
+<td><em>integer</em></td>
+<td>The number of entries returned before the latest data point (or the to_date if specified)</td>
 </tr>
 </tbody></table>
 <h3 id='data-overview-2'>Data Overview</h3>
@@ -1773,6 +1792,21 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
 <td>token</td>
 <td><em>string</em></td>
 <td><code>eth</code></td>
+</tr>
+<tr>
+<td>from_date *</td>
+<td><em>string</em></td>
+<td>Start date of returned data specified as YYYY-MM-DD (ISO date format)</td>
+</tr>
+<tr>
+<td>to_date *</td>
+<td><em>string</em></td>
+<td>End date of returned data specified as YYYY-MM-DD (ISO date format)</td>
+</tr>
+<tr>
+<td>limit *</td>
+<td><em>integer</em></td>
+<td>The number of entries returned before the latest data point (or the to_date if specified)</td>
 </tr>
 </tbody></table>
 <h3 id='data-overview-3'>Data Overview</h3>
@@ -1843,6 +1877,21 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
 <td><em>string</em></td>
 <td><code>eth</code></td>
 </tr>
+<tr>
+<td>from_date *</td>
+<td><em>string</em></td>
+<td>Start date of returned data specified as YYYY-MM-DD (ISO date format)</td>
+</tr>
+<tr>
+<td>to_date *</td>
+<td><em>string</em></td>
+<td>End date of returned data specified as YYYY-MM-DD (ISO date format)</td>
+</tr>
+<tr>
+<td>limit *</td>
+<td><em>integer</em></td>
+<td>The number of entries returned before the latest data point (or the to_date if specified)</td>
+</tr>
 </tbody></table>
 <h3 id='data-overview-4'>Data Overview</h3>
 <table><thead>
@@ -1909,6 +1958,21 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
 <td><em>string</em></td>
 <td><code>eth</code></td>
 </tr>
+<tr>
+<td>from_date *</td>
+<td><em>string</em></td>
+<td>Start date of returned data specified as YYYY-MM-DD (ISO date format)</td>
+</tr>
+<tr>
+<td>to_date *</td>
+<td><em>string</em></td>
+<td>End date of returned data specified as YYYY-MM-DD (ISO date format)</td>
+</tr>
+<tr>
+<td>limit *</td>
+<td><em>integer</em></td>
+<td>The number of entries returned before the latest data point (or the to_date if specified)</td>
+</tr>
 </tbody></table>
 <h3 id='data-overview-5'>Data Overview</h3>
 <table><thead>
@@ -1944,7 +2008,6 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
 <pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-10-19"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"price_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.5</span><span class="p">,</span><span class="w">
     </span><span class="s2">"avg_gas"</span><span class="p">:</span><span class="w"> </span><span class="mf">32831.1236</span><span class="p">,</span><span class="w">
     </span><span class="s2">"avg_gas_price_wei"</span><span class="p">:</span><span class="w"> </span><span class="mf">52456819761.0774</span><span class="p">,</span><span class="w">
     </span><span class="s2">"total_fee"</span><span class="p">:</span><span class="w"> </span><span class="mf">11.699219139604072</span><span class="p">,</span><span class="w">
@@ -1954,7 +2017,6 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
   </span><span class="p">},</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-10-20"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"price_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.49</span><span class="p">,</span><span class="w">
     </span><span class="s2">"avg_gas"</span><span class="p">:</span><span class="w"> </span><span class="mf">32483.8972</span><span class="p">,</span><span class="w">
     </span><span class="s2">"avg_gas_price_wei"</span><span class="p">:</span><span class="w"> </span><span class="mf">53767556518.0802</span><span class="p">,</span><span class="w">
     </span><span class="s2">"total_fee"</span><span class="p">:</span><span class="w"> </span><span class="mf">11.527019798770482</span><span class="p">,</span><span class="w">
@@ -1990,6 +2052,21 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
 <td><em>string</em></td>
 <td><code>eth</code></td>
 </tr>
+<tr>
+<td>from_date *</td>
+<td><em>string</em></td>
+<td>Start date of returned data specified as YYYY-MM-DD (ISO date format)</td>
+</tr>
+<tr>
+<td>to_date *</td>
+<td><em>string</em></td>
+<td>End date of returned data specified as YYYY-MM-DD (ISO date format)</td>
+</tr>
+<tr>
+<td>limit *</td>
+<td><em>integer</em></td>
+<td>The number of entries returned before the latest data point (or the to_date if specified)</td>
+</tr>
 </tbody></table>
 <h3 id='data-overview-6'>Data Overview</h3>
 <table><thead>
@@ -2003,11 +2080,6 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
 <td>date</td>
 <td><em>string</em></td>
 <td>The date in <em>YYYY-MM-DD</em></td>
-</tr>
-<tr>
-<td>price_usd</td>
-<td><em>string</em></td>
-<td>The daily average price of ETH in USD (the daily mean of minute-level price data)</td>
 </tr>
 <tr>
 <td>avg_gas</td>
@@ -2104,6 +2176,21 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
 <td><em>string</em></td>
 <td><code>eth</code></td>
 </tr>
+<tr>
+<td>from_date *</td>
+<td><em>string</em></td>
+<td>Start date of returned data specified as YYYY-MM-DD (ISO date format)</td>
+</tr>
+<tr>
+<td>to_date *</td>
+<td><em>string</em></td>
+<td>End date of returned data specified as YYYY-MM-DD (ISO date format)</td>
+</tr>
+<tr>
+<td>limit *</td>
+<td><em>integer</em></td>
+<td>The number of entries returned before the latest data point (or the to_date if specified)</td>
+</tr>
 </tbody></table>
 <h3 id='data-overview-7'>Data Overview</h3>
 <table><thead>
@@ -2186,7 +2273,6 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
     </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-07-23"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"miner_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nanopool"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"miner_daily_block_reward"</span><span class="p">:</span><span class="w"> </span><span class="mf">1604.3125</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"price_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">224.36</span><span class="p">,</span><span class="w">
     </span><span class="s2">"miner_daily_block_reward_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">359940.49</span><span class="p">,</span><span class="w">
     </span><span class="s2">"miner_daily_uncle_reward"</span><span class="p">:</span><span class="w"> </span><span class="mi">76</span><span class="p">,</span><span class="w">
     </span><span class="s2">"miner_daily_uncle_reward_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">17051.22</span><span class="w">
@@ -2195,7 +2281,6 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
     </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-07-23"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"miner_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Spark Pool"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"miner_daily_block_reward"</span><span class="p">:</span><span class="w"> </span><span class="mi">3048</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"price_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">224.36</span><span class="p">,</span><span class="w">
     </span><span class="s2">"miner_daily_block_reward_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">683843.47</span><span class="p">,</span><span class="w">
     </span><span class="s2">"miner_daily_uncle_reward"</span><span class="p">:</span><span class="w"> </span><span class="mi">141</span><span class="p">,</span><span class="w">
     </span><span class="s2">"miner_daily_uncle_reward_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">31634.49</span><span class="w">
@@ -2228,6 +2313,21 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
 <td><em>string</em></td>
 <td><code>eth</code></td>
 </tr>
+<tr>
+<td>from_date *</td>
+<td><em>string</em></td>
+<td>Start date of returned data specified as YYYY-MM-DD (ISO date format)</td>
+</tr>
+<tr>
+<td>to_date *</td>
+<td><em>string</em></td>
+<td>End date of returned data specified as YYYY-MM-DD (ISO date format)</td>
+</tr>
+<tr>
+<td>limit *</td>
+<td><em>integer</em></td>
+<td>The number of entries returned before the latest data point (or the to_date if specified)</td>
+</tr>
 </tbody></table>
 <h3 id='data-overview-8'>Data Overview</h3>
 <table><thead>
@@ -2251,11 +2351,6 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
 <td>miner_daily_block_reward</td>
 <td><em>decimal</em></td>
 <td>The total amount of block rewards earned by this miner on this date. Denominated in ETH.</td>
-</tr>
-<tr>
-<td>price_usd</td>
-<td><em>decimal</em></td>
-<td>The daily average price of ETH in USD (the daily mean of minute-level price data)</td>
 </tr>
 <tr>
 <td>miner_daily_block_reward_usd</td>
@@ -2370,13 +2465,11 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
   </span><span class="p">{</span><span class="w">
     </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-08-11"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"volume"</span><span class="p">:</span><span class="w"> </span><span class="mi">100001170833</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"price_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.11</span><span class="p">,</span><span class="w">
     </span><span class="s2">"volume_usd"</span><span class="p">:</span><span class="w"> </span><span class="mi">1305799085</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-08-13"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"volume"</span><span class="p">:</span><span class="w"> </span><span class="mi">82753422</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"price_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.18</span><span class="p">,</span><span class="w">
     </span><span class="s2">"volume_usd"</span><span class="p">:</span><span class="w"> </span><span class="mi">1490913652</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
@@ -2407,6 +2500,21 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
 <td><em>string</em></td>
 <td>The token you want the volume for</td>
 </tr>
+<tr>
+<td>from_date *</td>
+<td><em>string</em></td>
+<td>Start date of returned data specified as YYYY-MM-DD (ISO date format)</td>
+</tr>
+<tr>
+<td>to_date *</td>
+<td><em>string</em></td>
+<td>End date of returned data specified as YYYY-MM-DD (ISO date format)</td>
+</tr>
+<tr>
+<td>limit *</td>
+<td><em>integer</em></td>
+<td>The number of entries returned before the latest data point (or the to_date if specified)</td>
+</tr>
 </tbody></table>
 <h3 id='data-overview'>Data Overview</h3>
 <table><thead>
@@ -2425,11 +2533,6 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
 <td>volume</td>
 <td><em>decimal</em></td>
 <td>The total sum of ERC20 token sent by addresses in transactions with a timestamp that occurs on this date.</td>
-</tr>
-<tr>
-<td>price_usd</td>
-<td><em>decimal</em></td>
-<td>The daily average price of the ERC20 token (the daily mean of minute-level price data)</td>
 </tr>
 <tr>
 <td>volume_usd</td>
@@ -2484,6 +2587,21 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
 <td>token</td>
 <td><em>string</em></td>
 <td>The token you want the transaction count for</td>
+</tr>
+<tr>
+<td>from_date *</td>
+<td><em>string</em></td>
+<td>Start date of returned data specified as YYYY-MM-DD (ISO date format)</td>
+</tr>
+<tr>
+<td>to_date *</td>
+<td><em>string</em></td>
+<td>End date of returned data specified as YYYY-MM-DD (ISO date format)</td>
+</tr>
+<tr>
+<td>limit *</td>
+<td><em>integer</em></td>
+<td>The number of entries returned before the latest data point (or the to_date if specified)</td>
 </tr>
 </tbody></table>
 <h3 id='data-overview-2'>Data Overview</h3>
@@ -2550,6 +2668,21 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
 <td>token</td>
 <td><em>string</em></td>
 <td>The token you want the transaction count for</td>
+</tr>
+<tr>
+<td>from_date *</td>
+<td><em>string</em></td>
+<td>Start date of returned data specified as YYYY-MM-DD (ISO date format)</td>
+</tr>
+<tr>
+<td>to_date *</td>
+<td><em>string</em></td>
+<td>End date of returned data specified as YYYY-MM-DD (ISO date format)</td>
+</tr>
+<tr>
+<td>limit *</td>
+<td><em>integer</em></td>
+<td>The number of entries returned before the latest data point (or the to_date if specified)</td>
 </tr>
 </tbody></table>
 <h3 id='data-overview-3'>Data Overview</h3>
@@ -2626,16 +2759,16 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
 <pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-09-10"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"hour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01:00:00"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"hour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">available</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
+    </span><span class="s2">"datetime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-09-10 01:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">available</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
     </span><span class="s2">"volume"</span><span class="p">:</span><span class="w"> </span><span class="mf">759397926.2</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"price_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w">
     </span><span class="s2">"volume_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">759397926.2</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-09-12"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"hour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"02:00:00"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"hour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"02:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">available</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
+    </span><span class="s2">"datetime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-09-12 02:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">available</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
     </span><span class="s2">"volume"</span><span class="p">:</span><span class="w"> </span><span class="mf">397509639.4</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"price_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w">
     </span><span class="s2">"volume_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">397509639.4</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
@@ -2686,19 +2819,19 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
 <td>The date in <em>YYYY-MM-DD</em></td>
 </tr>
 <tr>
-<td>hour</td>
+<td>hour *</td>
 <td><em>string</em></td>
-<td>The hour of the day in <em>HH:MM:SS</em>  (UTC time zone). This is an optional field based on the params used.</td>
+<td>The hour of the day in <em>HH:MM:SS</em> (UTC time zone). This is an optional field field and appears when window is <code>1h</code></td>
+</tr>
+<tr>
+<td>datetime *</td>
+<td><em>string</em></td>
+<td>The hour of the day in datetime format YYYY-MM-DD HH:MM:SS (UTC time zone). This is an optional field field and appears when window is <code>1h</code></td>
 </tr>
 <tr>
 <td>volume</td>
 <td><em>decimal</em></td>
 <td>The total sum of Tether (usdt_omni) sent by addresses in transactions with a timestamp that occurs within the window.</td>
-</tr>
-<tr>
-<td>price_usd</td>
-<td><em>decimal</em></td>
-<td>The daily average price of the Stablecoins (the daily mean of minute-level price data)</td>
 </tr>
 <tr>
 <td>volume_usd</td>
@@ -2716,12 +2849,14 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
 <pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-12-18"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"hour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01:00:00"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"hour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">available</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
+    </span><span class="s2">"datetime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-12-18 01:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">available</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
     </span><span class="s2">"number_of_txns"</span><span class="p">:</span><span class="w"> </span><span class="mi">311</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-12-18"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"hour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"02:00:00"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"hour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"02:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">available</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
+    </span><span class="s2">"datetime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-12-18 02:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">available</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
     </span><span class="s2">"number_of_txns"</span><span class="p">:</span><span class="w"> </span><span class="mi">411</span><span class="w">
   </span><span class="p">},</span><span class="w">
 </span><span class="p">]</span><span class="w">
@@ -2767,9 +2902,14 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
 <td>The date in <em>YYYY-MM-DD</em></td>
 </tr>
 <tr>
-<td>hour</td>
+<td>hour *</td>
 <td><em>string</em></td>
-<td>The hour of the day in <em>HH:MM:SS</em>  (UTC time zone). This is an optional field based on the params used.</td>
+<td>The hour of the day in <em>HH:MM:SS</em> (UTC time zone). This is an optional field field and appears when window is <code>1h</code></td>
+</tr>
+<tr>
+<td>datetime *</td>
+<td><em>string</em></td>
+<td>The hour of the day in datetime format YYYY-MM-DD HH:MM:SS (UTC time zone). This is an optional field field and appears when window is <code>1h</code></td>
 </tr>
 <tr>
 <td>number_of_txns</td>
@@ -2993,7 +3133,6 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
 <pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-13"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"price_usd"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
     </span><span class="s2">"total_fee"</span><span class="p">:</span><span class="w"> </span><span class="mf">19.5264</span><span class="p">,</span><span class="w">
     </span><span class="s2">"total_fee_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">19.5264</span><span class="p">,</span><span class="w">
     </span><span class="s2">"avg_fee"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0003</span><span class="p">,</span><span class="w">
@@ -3001,7 +3140,6 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
   </span><span class="p">},</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-14"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"price_usd"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
     </span><span class="s2">"total_fee"</span><span class="p">:</span><span class="w"> </span><span class="mf">8.1131</span><span class="p">,</span><span class="w">
     </span><span class="s2">"total_fee_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">8.1131</span><span class="p">,</span><span class="w">
     </span><span class="s2">"avg_fee"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0002</span><span class="p">,</span><span class="w">
@@ -3050,11 +3188,6 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
 <td>The date in <em>YYYY-MM-DD</em></td>
 </tr>
 <tr>
-<td>price_usd</td>
-<td><em>decimal</em></td>
-<td>The daily average price of Tether (usdt_omni) (the daily mean of minute-level price data)</td>
-</tr>
-<tr>
 <td>total_fee</td>
 <td><em>decimal</em></td>
 <td>The sum of fees paid in transactions that occurred on this date. Denominated in Tether (usdt_omni)</td>
@@ -3086,13 +3219,11 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
   </span><span class="p">{</span><span class="w">
     </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-09-10"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"volume"</span><span class="p">:</span><span class="w"> </span><span class="mf">22.2</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"price_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
     </span><span class="s2">"volume_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-09-12"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"volume"</span><span class="p">:</span><span class="w"> </span><span class="mf">2.5</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"price_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
     </span><span class="s2">"volume_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
@@ -3141,11 +3272,6 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
 <td>volume</td>
 <td><em>decimal</em></td>
 <td>The total sum of Stablecoins sent by addresses in transactions with a timestamp that occurs on this date.</td>
-</tr>
-<tr>
-<td>price_usd</td>
-<td><em>decimal</em></td>
-<td>The daily average price of the Stablecoins (the daily mean of minute-level price data)</td>
 </tr>
 <tr>
 <td>volume_usd</td>
@@ -3970,7 +4096,7 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
 <td>Ranking out of 10 for the 10 largest transactions of BTC flowing into the exchange in question on this date.</td>
 </tr>
 <tr>
-<td>transaction_time</td>
+<td>transaction_datetime</td>
 <td><em>string</em></td>
 <td>The timestamp in datetime format YYYY-MM-DD HH:MM:SS (UTC time zone) when the transaction was mined</td>
 </tr>
@@ -4104,7 +4230,7 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
 <td>Ranking out of 10 for the 10 largest transactions of BTC flowing out of the exchange in question on this date.</td>
 </tr>
 <tr>
-<td>transaction_time</td>
+<td>transaction_datetime</td>
 <td><em>string</em></td>
 <td>The timestamp in datetime format YYYY-MM-DD HH:MM:SS (UTC time zone) when the transaction was mined</td>
 </tr>
@@ -4145,9 +4271,9 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
 <pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-03-17"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"hour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11:00:00"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"hour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">available</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
+    </span><span class="s2">"datetime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-03-17 11:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">available</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
     </span><span class="s2">"inflow"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.8164</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"price_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">11.64</span><span class="p">,</span><span class="w">
     </span><span class="s2">"inflow_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">21.14</span><span class="p">,</span><span class="w">
     </span><span class="s2">"number_of_txns"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
     </span><span class="s2">"avg_txn_value"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.22705</span><span class="p">,</span><span class="w">
@@ -4155,9 +4281,9 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
   </span><span class="p">},</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-03-18"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"hour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12:00:00"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"hour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">available</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
+    </span><span class="s2">"datetime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-03-18 12:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">available</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
     </span><span class="s2">"inflow"</span><span class="p">:</span><span class="w"> </span><span class="mf">3.7594499999999997</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"price_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">10.21</span><span class="p">,</span><span class="w">
     </span><span class="s2">"inflow_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">38.38</span><span class="p">,</span><span class="w">
     </span><span class="s2">"number_of_txns"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
     </span><span class="s2">"avg_txn_value"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.75189</span><span class="p">,</span><span class="w">
@@ -4206,6 +4332,21 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
 <td><em>string</em></td>
 <td><code>1h</code> or <code>1d</code></td>
 </tr>
+<tr>
+<td>from_date *</td>
+<td><em>string</em></td>
+<td>Start date of returned data specified as YYYY-MM-DD (ISO date format)</td>
+</tr>
+<tr>
+<td>to_date *</td>
+<td><em>string</em></td>
+<td>End date of returned data specified as YYYY-MM-DD (ISO date format)</td>
+</tr>
+<tr>
+<td>limit *</td>
+<td><em>integer</em></td>
+<td>The number of entries returned before the latest data point (or the to_date if specified)</td>
+</tr>
 </tbody></table>
 <h3 id='data-overview'>Data Overview</h3>
 <table><thead>
@@ -4221,19 +4362,19 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
 <td>The date in <em>YYYY-MM-DD</em></td>
 </tr>
 <tr>
-<td>hour</td>
+<td>hour *</td>
 <td><em>string</em></td>
-<td>The hour of the day in <em>HH:MM:SS</em>  (UTC time zone). This is an optional field based on the params used.</td>
+<td>The hour of the day in <em>HH:MM:SS</em> (UTC time zone). This is an optional field field and appears when window is <code>1h</code></td>
+</tr>
+<tr>
+<td>datetime *</td>
+<td><em>string</em></td>
+<td>The hour of the day in datetime format YYYY-MM-DD HH:MM:SS (UTC time zone). This is an optional field field and appears when window is <code>1h</code></td>
 </tr>
 <tr>
 <td>inflow</td>
 <td><em>decimal</em></td>
 <td>The total amount of ETH that flowed into the exchange on this date. Denominated in ETH.</td>
-</tr>
-<tr>
-<td>price_usd</td>
-<td><em>decimal</em></td>
-<td>The daily average price of ETH in USD (the daily mean of minute-level price data)</td>
 </tr>
 <tr>
 <td>inflow_usd</td>
@@ -4270,9 +4411,9 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
 <pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-03-17"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"hour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11:00:00"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"hour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">available</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
+    </span><span class="s2">"datetime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-03-17 11:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">available</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
     </span><span class="s2">"outflow"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.8164</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"price_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">11.64</span><span class="p">,</span><span class="w">
     </span><span class="s2">"outflow_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">21.14</span><span class="p">,</span><span class="w">
     </span><span class="s2">"number_of_txns"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
     </span><span class="s2">"avg_txn_value"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.22705</span><span class="p">,</span><span class="w">
@@ -4280,9 +4421,9 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
   </span><span class="p">},</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-03-18"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"hour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12:00:00"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"hour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">available</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
+    </span><span class="s2">"datetime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-03-18 12:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">available</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
     </span><span class="s2">"outflow"</span><span class="p">:</span><span class="w"> </span><span class="mf">3.7594499999999997</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"price_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">10.21</span><span class="p">,</span><span class="w">
     </span><span class="s2">"outflow_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">38.38</span><span class="p">,</span><span class="w">
     </span><span class="s2">"number_of_txns"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
     </span><span class="s2">"avg_txn_value"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.75189</span><span class="p">,</span><span class="w">
@@ -4331,6 +4472,21 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
 <td><em>string</em></td>
 <td><code>1h</code> or <code>1d</code></td>
 </tr>
+<tr>
+<td>from_date *</td>
+<td><em>string</em></td>
+<td>Start date of returned data specified as YYYY-MM-DD (ISO date format)</td>
+</tr>
+<tr>
+<td>to_date *</td>
+<td><em>string</em></td>
+<td>End date of returned data specified as YYYY-MM-DD (ISO date format)</td>
+</tr>
+<tr>
+<td>limit *</td>
+<td><em>integer</em></td>
+<td>The number of entries returned before the latest data point (or the to_date if specified)</td>
+</tr>
 </tbody></table>
 <h3 id='data-overview-2'>Data Overview</h3>
 <table><thead>
@@ -4346,19 +4502,19 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
 <td>The date in <em>YYYY-MM-DD</em></td>
 </tr>
 <tr>
-<td>hour</td>
+<td>hour *</td>
 <td><em>string</em></td>
-<td>The hour of the day in <em>HH:MM:SS</em>  (UTC time zone). This is an optional field based on the params used.</td>
+<td>The hour of the day in <em>HH:MM:SS</em> (UTC time zone). This is an optional field field and appears when window is <code>1h</code></td>
+</tr>
+<tr>
+<td>datetime *</td>
+<td><em>string</em></td>
+<td>The hour of the day in datetime format YYYY-MM-DD HH:MM:SS (UTC time zone). This is an optional field field and appears when window is <code>1h</code></td>
 </tr>
 <tr>
 <td>outflow</td>
 <td><em>decimal</em></td>
 <td>The total amount of ETH that flowed out of the exchange on this date. Denominated in ETH.</td>
-</tr>
-<tr>
-<td>price_usd</td>
-<td><em>decimal</em></td>
-<td>The daily average price of ETH in USD (the daily mean of minute-level price data)</td>
 </tr>
 <tr>
 <td>outflow_usd</td>
@@ -4397,6 +4553,7 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
     </span><span class="s2">"transactionhash"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0x8f4e1350eaa1c13360ea4a5269a1a350f3c5b3880147d0aa32ec34a12fc30923"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="mf">3424.6575</span><span class="p">,</span><span class="w">
     </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-04-29"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"transaction_datetime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-04-29 09:13:57"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
     </span><span class="s2">"value_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">537210.85</span><span class="w">
   </span><span class="p">},</span><span class="w">
@@ -4404,6 +4561,7 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
     </span><span class="s2">"transactionhash"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0x5512d27b371bfbef2fc6dae353fb243866fe3dfb24ad546d6b6eebb4159fb7c2"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="mf">3000.0</span><span class="p">,</span><span class="w">
     </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-04-29"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"transaction_datetime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-04-29 04:50:08"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
     </span><span class="s2">"value_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">470596.71</span><span class="w">
   </span><span class="p">}</span><span class="w">
@@ -4445,6 +4603,21 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
 <td><em>string</em></td>
 <td>An exchange from the list of ones we support</td>
 </tr>
+<tr>
+<td>from_date *</td>
+<td><em>string</em></td>
+<td>Start date of returned data specified as YYYY-MM-DD (ISO date format)</td>
+</tr>
+<tr>
+<td>to_date *</td>
+<td><em>string</em></td>
+<td>End date of returned data specified as YYYY-MM-DD (ISO date format)</td>
+</tr>
+<tr>
+<td>limit *</td>
+<td><em>integer</em></td>
+<td>The number of entries returned before the latest data point (or the to_date if specified)</td>
+</tr>
 </tbody></table>
 <h3 id='data-overview-3'>Data Overview</h3>
 <table><thead>
@@ -4470,6 +4643,11 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
 <td>The date in <em>YYYY-MM-DD</em></td>
 </tr>
 <tr>
+<td>transaction_datetime</td>
+<td><em>string</em></td>
+<td>The timestamp in datetime format YYYY-MM-DD HH:MM:SS (UTC time zone) when the transaction was mined</td>
+</tr>
+<tr>
 <td>rank</td>
 <td><em>integer</em></td>
 <td>Ranking out of 10 for the 10 largest ETH transactions flowing into the exchange in question on this date.</td>
@@ -4492,6 +4670,7 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
     </span><span class="s2">"transactionhash"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0x97b8063962d549b053cf7366e70877f09ede29f5e2d5bd9837e5a9ea8089bb46"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="mf">7300.00024</span><span class="p">,</span><span class="w">
     </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-04-26"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"transaction_datetime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-04-26 09:03:53"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
     </span><span class="s2">"value_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">1129368.16</span><span class="w">
   </span><span class="p">},</span><span class="w">
@@ -4499,6 +4678,7 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
     </span><span class="s2">"transactionhash"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0x0e3d275eeae64b27ccbb12b65861039a7c3662c0c99212f88b9927c41b37bbae"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="mf">5982.0288</span><span class="p">,</span><span class="w">
     </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-04-26"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"transaction_datetime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-04-26 04:02:49"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
     </span><span class="s2">"value_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">925467.48</span><span class="w">
   </span><span class="p">}</span><span class="w">
@@ -4540,6 +4720,21 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
 <td><em>string</em></td>
 <td>An exchange from the list of ones we support</td>
 </tr>
+<tr>
+<td>from_date *</td>
+<td><em>string</em></td>
+<td>Start date of returned data specified as YYYY-MM-DD (ISO date format)</td>
+</tr>
+<tr>
+<td>to_date *</td>
+<td><em>string</em></td>
+<td>End date of returned data specified as YYYY-MM-DD (ISO date format)</td>
+</tr>
+<tr>
+<td>limit *</td>
+<td><em>integer</em></td>
+<td>The number of entries returned before the latest data point (or the to_date if specified)</td>
+</tr>
 </tbody></table>
 <h3 id='data-overview-4'>Data Overview</h3>
 <table><thead>
@@ -4563,6 +4758,11 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
 <td>date</td>
 <td><em>string</em></td>
 <td>The date in <em>YYYY-MM-DD</em></td>
+</tr>
+<tr>
+<td>transaction_datetime</td>
+<td><em>string</em></td>
+<td>The timestamp in datetime format YYYY-MM-DD HH:MM:SS (UTC time zone) when the transaction was mined</td>
 </tr>
 <tr>
 <td>rank</td>
@@ -4630,7 +4830,6 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
     </span><span class="s2">"inflow"</span><span class="p">:</span><span class="w"> </span><span class="mf">2760452.458</span><span class="p">,</span><span class="w">
     </span><span class="s2">"inflow_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">2760452.46</span><span class="p">,</span><span class="w">
     </span><span class="s2">"number_of_txns"</span><span class="p">:</span><span class="w"> </span><span class="mi">26</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"price_usd"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
     </span><span class="s2">"avg_txn_value"</span><span class="p">:</span><span class="w"> </span><span class="mf">106171.2484</span><span class="p">,</span><span class="w">
     </span><span class="s2">"avg_txn_value_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">106171.25</span><span class="w">
   </span><span class="p">},</span><span class="w">
@@ -4639,7 +4838,6 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
     </span><span class="s2">"inflow"</span><span class="p">:</span><span class="w"> </span><span class="mf">97184.7667</span><span class="p">,</span><span class="w">
     </span><span class="s2">"inflow_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">97184.76</span><span class="p">,</span><span class="w">
     </span><span class="s2">"number_of_txns"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"price_usd"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
     </span><span class="s2">"avg_txn_value"</span><span class="p">:</span><span class="w"> </span><span class="mf">9718.4767</span><span class="p">,</span><span class="w">
     </span><span class="s2">"avg_txn_value_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">9718.48</span><span class="w">
   </span><span class="p">}</span><span class="w">
@@ -4686,6 +4884,21 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
 <td><em>string</em></td>
 <td><code>1h</code> or <code>1d</code></td>
 </tr>
+<tr>
+<td>from_date *</td>
+<td><em>string</em></td>
+<td>Start date of returned data specified as YYYY-MM-DD (ISO date format)</td>
+</tr>
+<tr>
+<td>to_date *</td>
+<td><em>string</em></td>
+<td>End date of returned data specified as YYYY-MM-DD (ISO date format)</td>
+</tr>
+<tr>
+<td>limit *</td>
+<td><em>integer</em></td>
+<td>The number of entries returned before the latest data point (or the to_date if specified)</td>
+</tr>
 </tbody></table>
 <h3 id='data-overview'>Data Overview</h3>
 <table><thead>
@@ -4721,11 +4934,6 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
 <td>The number of transactions sending the token into this exchange on this date.</td>
 </tr>
 <tr>
-<td>price_usd</td>
-<td><em>decimal</em></td>
-<td>The daily average price of the token in USD (the daily mean of minute-level price data)</td>
-</tr>
-<tr>
 <td>avg_txn_value</td>
 <td><em>decimal</em></td>
 <td>The average amount of tokens transferred per transaction into the given exchange on this date.</td>
@@ -4749,7 +4957,6 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
     </span><span class="s2">"outflow"</span><span class="p">:</span><span class="w"> </span><span class="mf">11148431.05</span><span class="p">,</span><span class="w">
     </span><span class="s2">"outflow_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">11137036.46</span><span class="p">,</span><span class="w">
     </span><span class="s2">"number_of_txns"</span><span class="p">:</span><span class="w"> </span><span class="mi">465</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"price_usd"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
     </span><span class="s2">"avg_txn_value"</span><span class="p">:</span><span class="w"> </span><span class="mf">23975.1205</span><span class="p">,</span><span class="w">
     </span><span class="s2">"avg_txn_value_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">23950.62</span><span class="w">
   </span><span class="p">},</span><span class="w">
@@ -4758,7 +4965,6 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
     </span><span class="s2">"outflow"</span><span class="p">:</span><span class="w"> </span><span class="mf">15456621.51</span><span class="p">,</span><span class="w">
     </span><span class="s2">"outflow_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">15426543.13</span><span class="p">,</span><span class="w">
     </span><span class="s2">"number_of_txns"</span><span class="p">:</span><span class="w"> </span><span class="mi">436</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"price_usd"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
     </span><span class="s2">"avg_txn_value"</span><span class="p">:</span><span class="w"> </span><span class="mf">35450.9668</span><span class="p">,</span><span class="w">
     </span><span class="s2">"avg_txn_value_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">35381.98</span><span class="w">
   </span><span class="p">}</span><span class="w">
@@ -4805,6 +5011,21 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
 <td><em>string</em></td>
 <td><code>1h</code> or <code>1d</code></td>
 </tr>
+<tr>
+<td>from_date *</td>
+<td><em>string</em></td>
+<td>Start date of returned data specified as YYYY-MM-DD (ISO date format)</td>
+</tr>
+<tr>
+<td>to_date *</td>
+<td><em>string</em></td>
+<td>End date of returned data specified as YYYY-MM-DD (ISO date format)</td>
+</tr>
+<tr>
+<td>limit *</td>
+<td><em>integer</em></td>
+<td>The number of entries returned before the latest data point (or the to_date if specified)</td>
+</tr>
 </tbody></table>
 <h3 id='data-overview-2'>Data Overview</h3>
 <table><thead>
@@ -4840,11 +5061,6 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
 <td>The number of transactions sending the token into this exchange on this date.</td>
 </tr>
 <tr>
-<td>price_usd</td>
-<td><em>decimal</em></td>
-<td>The daily average price of the token in USD (the daily mean of minute-level price data)</td>
-</tr>
-<tr>
 <td>avg_txn_value</td>
 <td><em>decimal</em></td>
 <td>The average amount of tokens transferred per transaction into the given exchange on this date.</td>
@@ -4870,6 +5086,7 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
   </span><span class="p">{</span><span class="w">
     </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-18"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"transactionid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5e5c74b0aab078c929952f9de0155d32152c0dc7c65c8cfdc53c2c0ed1a4d720"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"transaction_datetime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-18 04:48:59"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="mi">34000</span><span class="p">,</span><span class="w">
     </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
     </span><span class="s2">"value_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">34001.93</span><span class="w">
@@ -4877,6 +5094,7 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
   </span><span class="p">{</span><span class="w">
     </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-18"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"transactionid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"84801e2b0fa58093fa74b997a3bfd936b598c91ff1d9f16cf55b8d294ff2c672"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"transaction_datetime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-18 18:50:19"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="mi">33283</span><span class="p">,</span><span class="w">
     </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
     </span><span class="s2">"value_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">33284.88</span><span class="w">
@@ -4919,6 +5137,21 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
 <td><em>string</em></td>
 <td>An exchange from the list of ones we support</td>
 </tr>
+<tr>
+<td>from_date *</td>
+<td><em>string</em></td>
+<td>Start date of returned data specified as YYYY-MM-DD (ISO date format)</td>
+</tr>
+<tr>
+<td>to_date *</td>
+<td><em>string</em></td>
+<td>End date of returned data specified as YYYY-MM-DD (ISO date format)</td>
+</tr>
+<tr>
+<td>limit *</td>
+<td><em>integer</em></td>
+<td>The number of entries returned before the latest data point (or the to_date if specified)</td>
+</tr>
 </tbody></table>
 <h3 id='data-overview-3'>Data Overview</h3>
 <table><thead>
@@ -4937,6 +5170,11 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
 <td>transactionid</td>
 <td><em>string</em></td>
 <td>The transaction id of the transaction in question.</td>
+</tr>
+<tr>
+<td>transaction_datetime</td>
+<td><em>string</em></td>
+<td>The timestamp in datetime format YYYY-MM-DD HH:MM:SS (UTC time zone) when the transaction was mined</td>
 </tr>
 <tr>
 <td>value</td>
@@ -4965,6 +5203,7 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
   </span><span class="p">{</span><span class="w">
     </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-14"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"transactionid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5354b702a372027cc23bb9c47749bdfab77c9d7739f8afafcf49178bc6659a2b"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"transaction_datetime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-14 17:23:03"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="mi">129985</span><span class="p">,</span><span class="w">
     </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
     </span><span class="s2">"value_usd"</span><span class="p">:</span><span class="w"> </span><span class="mi">129985</span><span class="w">
@@ -4972,6 +5211,7 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
   </span><span class="p">{</span><span class="w">
     </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-14"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"transactionid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7a91a7b4eabe7b0d0e77139ea1ed7eaecd6d45d82f7b789aae41617cfcdcf026"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"transaction_datetime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-14 16:37:27"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="mi">100090</span><span class="p">,</span><span class="w">
     </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
     </span><span class="s2">"value_usd"</span><span class="p">:</span><span class="w"> </span><span class="mi">100090</span><span class="w">
@@ -5014,6 +5254,21 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
 <td><em>string</em></td>
 <td>An exchange from the list of ones we support</td>
 </tr>
+<tr>
+<td>from_date *</td>
+<td><em>string</em></td>
+<td>Start date of returned data specified as YYYY-MM-DD (ISO date format)</td>
+</tr>
+<tr>
+<td>to_date *</td>
+<td><em>string</em></td>
+<td>End date of returned data specified as YYYY-MM-DD (ISO date format)</td>
+</tr>
+<tr>
+<td>limit *</td>
+<td><em>integer</em></td>
+<td>The number of entries returned before the latest data point (or the to_date if specified)</td>
+</tr>
 </tbody></table>
 <h3 id='data-overview-4'>Data Overview</h3>
 <table><thead>
@@ -5032,6 +5287,11 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
 <td>transactionid</td>
 <td><em>string</em></td>
 <td>The transaction id of the transaction in question.</td>
+</tr>
+<tr>
+<td>transaction_datetime</td>
+<td><em>string</em></td>
+<td>The timestamp in datetime format YYYY-MM-DD HH:MM:SS (UTC time zone) when the transaction was mined</td>
 </tr>
 <tr>
 <td>value</td>
@@ -5059,11 +5319,11 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
 <pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-11-06"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"hour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11:00:00"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"hour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">available</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
+    </span><span class="s2">"datetime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-11-06 11:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">available</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
     </span><span class="s2">"token_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USDC"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"exchange"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Binance"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"inflow"</span><span class="p">:</span><span class="w"> </span><span class="mf">509.689581</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"price_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w">
     </span><span class="s2">"inflow_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">511.09</span><span class="p">,</span><span class="w">
     </span><span class="s2">"number_of_txns"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
     </span><span class="s2">"avg_txn_value"</span><span class="p">:</span><span class="w"> </span><span class="mf">169.896527</span><span class="p">,</span><span class="w">
@@ -5071,11 +5331,11 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
   </span><span class="p">},</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-11-07"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"hour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12:00:00"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"hour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">available</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
+    </span><span class="s2">"datetime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-11-07 12:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">available</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
     </span><span class="s2">"token_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USDC"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"exchange"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kucoin"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"inflow"</span><span class="p">:</span><span class="w"> </span><span class="mf">3585.887836</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"price_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.01</span><span class="p">,</span><span class="w">
     </span><span class="s2">"inflow_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">3609.0</span><span class="p">,</span><span class="w">
     </span><span class="s2">"number_of_txns"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
     </span><span class="s2">"avg_txn_value"</span><span class="p">:</span><span class="w"> </span><span class="mf">1195.2959453333333</span><span class="p">,</span><span class="w">
@@ -5119,6 +5379,21 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
 <td><em>string</em></td>
 <td><code>1h</code> or <code>1d</code></td>
 </tr>
+<tr>
+<td>from_date *</td>
+<td><em>string</em></td>
+<td>Start date of returned data specified as YYYY-MM-DD (ISO date format)</td>
+</tr>
+<tr>
+<td>to_date *</td>
+<td><em>string</em></td>
+<td>End date of returned data specified as YYYY-MM-DD (ISO date format)</td>
+</tr>
+<tr>
+<td>limit *</td>
+<td><em>integer</em></td>
+<td>The number of entries returned before the latest data point (or the to_date if specified)</td>
+</tr>
 </tbody></table>
 <h3 id='data-overview-5'>Data Overview</h3>
 <table><thead>
@@ -5134,9 +5409,14 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
 <td>The date in <em>YYYY-MM-DD</em></td>
 </tr>
 <tr>
-<td>hour</td>
+<td>hour *</td>
 <td><em>string</em></td>
-<td>The hour of the day in <em>HH:MM:SS</em> (UTC time zone). This is an optional field based on the params used.</td>
+<td>The hour of the day in <em>HH:MM:SS</em> (UTC time zone). This is an optional field field and appears when window is <code>1h</code></td>
+</tr>
+<tr>
+<td>datetime *</td>
+<td><em>string</em></td>
+<td>The hour of the day in datetime format YYYY-MM-DD HH:MM:SS (UTC time zone). This is an optional field field and appears when window is <code>1h</code></td>
 </tr>
 <tr>
 <td>token_name</td>
@@ -5152,11 +5432,6 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
 <td>inflow</td>
 <td><em>decimal</em></td>
 <td>The total amount of the token that flowed into the exchange on this date. Denominated in the token in question.</td>
-</tr>
-<tr>
-<td>price_usd</td>
-<td><em>decimal</em></td>
-<td>The daily average price of the token in USD (the daily mean of minute-level price data)</td>
 </tr>
 <tr>
 <td>inflow_usd</td>
@@ -5189,11 +5464,11 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
 <pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-11-06"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"hour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11:00:00"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"hour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">available</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
+    </span><span class="s2">"datetime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-11-06 11:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">available</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
     </span><span class="s2">"token_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USDC"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"exchange"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kucoin"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"outflow"</span><span class="p">:</span><span class="w"> </span><span class="mf">509.689581</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"price_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w">
     </span><span class="s2">"outflow_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">511.09</span><span class="p">,</span><span class="w">
     </span><span class="s2">"number_of_txns"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
     </span><span class="s2">"avg_txn_value"</span><span class="p">:</span><span class="w"> </span><span class="mf">169.896527</span><span class="p">,</span><span class="w">
@@ -5201,11 +5476,11 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
   </span><span class="p">},</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-11-07"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"hour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12:00:00"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"hour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">available</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
+    </span><span class="s2">"datetime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-11-07 12:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">available</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
     </span><span class="s2">"token_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USDC"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"exchange"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kucoin"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"outflow"</span><span class="p">:</span><span class="w"> </span><span class="mf">3585.887836</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"price_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.01</span><span class="p">,</span><span class="w">
     </span><span class="s2">"outflow_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">3609.0</span><span class="p">,</span><span class="w">
     </span><span class="s2">"number_of_txns"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
     </span><span class="s2">"avg_txn_value"</span><span class="p">:</span><span class="w"> </span><span class="mf">1195.2959453333333</span><span class="p">,</span><span class="w">
@@ -5249,6 +5524,21 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
 <td><em>string</em></td>
 <td><code>1h</code> or <code>1d</code></td>
 </tr>
+<tr>
+<td>from_date *</td>
+<td><em>string</em></td>
+<td>Start date of returned data specified as YYYY-MM-DD (ISO date format)</td>
+</tr>
+<tr>
+<td>to_date *</td>
+<td><em>string</em></td>
+<td>End date of returned data specified as YYYY-MM-DD (ISO date format)</td>
+</tr>
+<tr>
+<td>limit *</td>
+<td><em>integer</em></td>
+<td>The number of entries returned before the latest data point (or the to_date if specified)</td>
+</tr>
 </tbody></table>
 <h3 id='data-overview-6'>Data Overview</h3>
 <table><thead>
@@ -5264,9 +5554,14 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
 <td>The date in <em>YYYY-MM-DD</em></td>
 </tr>
 <tr>
-<td>hour</td>
+<td>hour *</td>
 <td><em>string</em></td>
-<td>The hour of the day in <em>HH:MM:SS</em> (UTC time zone). This is an optional field based on the params used.</td>
+<td>The hour of the day in <em>HH:MM:SS</em> (UTC time zone). This is an optional field field and appears when window is <code>1h</code></td>
+</tr>
+<tr>
+<td>datetime *</td>
+<td><em>string</em></td>
+<td>The hour of the day in datetime format YYYY-MM-DD HH:MM:SS (UTC time zone). This is an optional field field and appears when window is <code>1h</code></td>
 </tr>
 <tr>
 <td>token_name</td>
@@ -5282,11 +5577,6 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
 <td>outflow</td>
 <td><em>decimal</em></td>
 <td>The total amount of the token that flowed out of the exchange on this date. Denominated in the token in question.</td>
-</tr>
-<tr>
-<td>price_usd</td>
-<td><em>decimal</em></td>
-<td>The daily average price of the token in USD (the daily mean of minute-level price data)</td>
 </tr>
 <tr>
 <td>outflow_usd</td>
@@ -5401,11 +5691,11 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
 <pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-07-19"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"hour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11:00:00"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"hour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">available</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
+    </span><span class="s2">"datetime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-07-19 11:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">available</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
     </span><span class="s2">"token_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OMG"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"exchange"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bitfinex"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"inflow"</span><span class="p">:</span><span class="w"> </span><span class="mf">1021328.4514801201</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"price_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.68</span><span class="p">,</span><span class="w">
     </span><span class="s2">"inflow_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">695260.83</span><span class="p">,</span><span class="w">
     </span><span class="s2">"number_of_txns"</span><span class="p">:</span><span class="w"> </span><span class="mi">46</span><span class="p">,</span><span class="w">
     </span><span class="s2">"avg_txn_value"</span><span class="p">:</span><span class="w"> </span><span class="mf">22202.79242348087</span><span class="p">,</span><span class="w">
@@ -5413,11 +5703,11 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
   </span><span class="p">},</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-07-19"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"hour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12:00:00"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"hour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">available</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
+    </span><span class="s2">"datetime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-07-19 12:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">available</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
     </span><span class="s2">"token_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OMG"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"exchange"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bittrex"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"inflow"</span><span class="p">:</span><span class="w"> </span><span class="mf">2440563.297567261</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"price_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.68</span><span class="p">,</span><span class="w">
     </span><span class="s2">"inflow_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">1661393.13</span><span class="p">,</span><span class="w">
     </span><span class="s2">"number_of_txns"</span><span class="p">:</span><span class="w"> </span><span class="mi">198</span><span class="p">,</span><span class="w">
     </span><span class="s2">"avg_txn_value"</span><span class="p">:</span><span class="w"> </span><span class="mf">12326.077260440712</span><span class="p">,</span><span class="w">
@@ -5461,6 +5751,21 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
 <td><em>string</em></td>
 <td><code>1h</code> or <code>1d</code></td>
 </tr>
+<tr>
+<td>from_date *</td>
+<td><em>string</em></td>
+<td>Start date of returned data specified as YYYY-MM-DD (ISO date format)</td>
+</tr>
+<tr>
+<td>to_date *</td>
+<td><em>string</em></td>
+<td>End date of returned data specified as YYYY-MM-DD (ISO date format)</td>
+</tr>
+<tr>
+<td>limit *</td>
+<td><em>integer</em></td>
+<td>The number of entries returned before the latest data point (or the to_date if specified)</td>
+</tr>
 </tbody></table>
 <h3 id='data-overview'>Data Overview</h3>
 <table><thead>
@@ -5476,9 +5781,14 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
 <td>The date in <em>YYYY-MM-DD</em></td>
 </tr>
 <tr>
-<td>hour</td>
+<td>hour *</td>
 <td><em>string</em></td>
-<td>The hour of the day in <em>HH:MM:SS</em>  (UTC time zone). This is an optional field based on the params used.</td>
+<td>The hour of the day in <em>HH:MM:SS</em>  (UTC time zone). This is an optional field field and appears when window is <code>1h</code></td>
+</tr>
+<tr>
+<td>datetime *</td>
+<td><em>string</em></td>
+<td>The hour of the day in datetime format YYYY-MM-DD HH:MM:SS (UTC time zone). This is an optional field field and appears when window is <code>1h</code></td>
 </tr>
 <tr>
 <td>token_name</td>
@@ -5494,11 +5804,6 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
 <td>inflow</td>
 <td><em>decimal</em></td>
 <td>The total amount of the token that flowed into the exchange on this date. Denominated in the token in question.</td>
-</tr>
-<tr>
-<td>price_usd</td>
-<td><em>decimal</em></td>
-<td>The daily average price of the token in USD (the daily mean of minute-level price data)</td>
 </tr>
 <tr>
 <td>inflow_usd</td>
@@ -5531,11 +5836,11 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
 <pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-07-19"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"hour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11:00:00"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"hour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">available</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
+    </span><span class="s2">"datetime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-07-19 11:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">available</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
     </span><span class="s2">"token_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OMG"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"exchange"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bitfinex"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"outflow"</span><span class="p">:</span><span class="w"> </span><span class="mf">1021328.4514801201</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"price_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.68</span><span class="p">,</span><span class="w">
     </span><span class="s2">"outflow_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">695260.83</span><span class="p">,</span><span class="w">
     </span><span class="s2">"number_of_txns"</span><span class="p">:</span><span class="w"> </span><span class="mi">46</span><span class="p">,</span><span class="w">
     </span><span class="s2">"avg_txn_value"</span><span class="p">:</span><span class="w"> </span><span class="mf">22202.79242348087</span><span class="p">,</span><span class="w">
@@ -5544,10 +5849,10 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
   </span><span class="p">{</span><span class="w">
     </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-07-19"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"hour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12:00:00"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"datetime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-07-19 12:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">available</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
     </span><span class="s2">"token_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OMG"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"exchange"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bittrex"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"outflow"</span><span class="p">:</span><span class="w"> </span><span class="mf">2440563.297567261</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"price_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.68</span><span class="p">,</span><span class="w">
     </span><span class="s2">"outflow_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">1661393.13</span><span class="p">,</span><span class="w">
     </span><span class="s2">"number_of_txns"</span><span class="p">:</span><span class="w"> </span><span class="mi">198</span><span class="p">,</span><span class="w">
     </span><span class="s2">"avg_txn_value"</span><span class="p">:</span><span class="w"> </span><span class="mf">12326.077260440712</span><span class="p">,</span><span class="w">
@@ -5591,6 +5896,21 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
 <td><em>string</em></td>
 <td><code>1h</code> or <code>1d</code></td>
 </tr>
+<tr>
+<td>from_date *</td>
+<td><em>string</em></td>
+<td>Start date of returned data specified as YYYY-MM-DD (ISO date format)</td>
+</tr>
+<tr>
+<td>to_date *</td>
+<td><em>string</em></td>
+<td>End date of returned data specified as YYYY-MM-DD (ISO date format)</td>
+</tr>
+<tr>
+<td>limit *</td>
+<td><em>integer</em></td>
+<td>The number of entries returned before the latest data point (or the to_date if specified)</td>
+</tr>
 </tbody></table>
 <h3 id='data-overview-2'>Data Overview</h3>
 <table><thead>
@@ -5606,9 +5926,14 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
 <td>The date in <em>YYYY-MM-DD</em></td>
 </tr>
 <tr>
-<td>hour</td>
+<td>hour *</td>
 <td><em>string</em></td>
-<td>The hour of the day in <em>HH:MM:SS</em>  (UTC time zone). This is an optional field based on the params used.</td>
+<td>The hour of the day in <em>HH:MM:SS</em>  (UTC time zone). This is an optional field field and appears when window is <code>1h</code></td>
+</tr>
+<tr>
+<td>datetime *</td>
+<td><em>string</em></td>
+<td>The hour of the day in datetime format YYYY-MM-DD HH:MM:SS (UTC time zone). This is an optional field field and appears when window is <code>1h</code></td>
 </tr>
 <tr>
 <td>token_name</td>
@@ -5624,11 +5949,6 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
 <td>outflow</td>
 <td><em>decimal</em></td>
 <td>The total amount of the token that flowed out of the exchange on this date. Denominated in the token in question.</td>
-</tr>
-<tr>
-<td>price_usd</td>
-<td><em>decimal</em></td>
-<td>The daily average price of the token in USD (the daily mean of minute-level price data)</td>
 </tr>
 <tr>
 <td>outflow_usd</td>
