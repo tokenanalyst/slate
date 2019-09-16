@@ -37,7 +37,7 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/miner_flow_window_histori
 ]
 ```
 
-This endpoint returns the inflow of a given token into miner controlled wallets during the time period specified. The `avg_txn_value`, `inflow`, and `number_of_txns` are calculated over the window (either 1 hour or 1 day). `hour` is in UTC
+This endpoint returns the inflow of a given token into miner controlled wallets (that we have labelled) during the time period specified. The `avg_txn_value`, `inflow`, and `number_of_txns` are calculated over the window (either 1 hour or 1 day). `hour` is in UTC
 
 ### HTTP Request
 
@@ -107,7 +107,7 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/miner_flow_window_histori
 ]
 ```
 
-This endpoint returns the outflow of a given token out of miner controlled wallets during the time period specified. The `avg_txn_value`, `outflow`, and `number_of_txns` are calculated over the window (either 1 hour or 1 day). `hour` is in UTC
+This endpoint returns the outflow of a given token out of miner controlled wallets (that we have labelled) during the time period specified. The `avg_txn_value`, `outflow`, and `number_of_txns` are calculated over the window (either 1 hour or 1 day). `hour` is in UTC
 
 ### HTTP Request
 
