@@ -6014,7 +6014,7 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
-<p>This endpoint returns the inflow of a given token into miner controlled wallets during the time period specified. The <code>avg_txn_value</code>, <code>inflow</code>, and <code>number_of_txns</code> are calculated over the window (either 1 hour or 1 day). <code>hour</code> is in UTC</p>
+<p>This endpoint returns the inflow of a given token into miner controlled wallets (that we have labelled) during the time period specified. The <code>avg_txn_value</code>, <code>inflow</code>, and <code>number_of_txns</code> are calculated over the window (either 1 hour or 1 day). <code>hour</code> is in UTC</p>
 <h3 id='http-request'>HTTP Request</h3>
 <p><code>GET https://api.tokenanalyst.io/analytics/private/v1/miner_flow_window_historical/last?</code></p>
 <h3 id='query-parameters'>Query Parameters</h3>
@@ -6152,7 +6152,7 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
-<p>This endpoint returns the outflow of a given token out of miner controlled wallets during the time period specified. The <code>avg_txn_value</code>, <code>outflow</code>, and <code>number_of_txns</code> are calculated over the window (either 1 hour or 1 day). <code>hour</code> is in UTC</p>
+<p>This endpoint returns the outflow of a given token out of miner controlled wallets (that we have labelled) during the time period specified. The <code>avg_txn_value</code>, <code>outflow</code>, and <code>number_of_txns</code> are calculated over the window (either 1 hour or 1 day). <code>hour</code> is in UTC</p>
 <h3 id='http-request-2'>HTTP Request</h3>
 <p><code>GET https://api.tokenanalyst.io/analytics/private/v1/miner_flow_window_historical/last?</code></p>
 <h3 id='query-parameters-2'>Query Parameters</h3>
