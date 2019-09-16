@@ -18,6 +18,7 @@ includes:
   - ethereumexchangeflows
   - stablecoinexchangeflows
   - erc20exchangeflows
+  - minerflows
   - price
 
 search: true

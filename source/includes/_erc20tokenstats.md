@@ -1,4 +1,4 @@
-# ERC20 Token Stats
+# ERC20 Fundamentals
 
 ERC20 tokens we currently support are:
 

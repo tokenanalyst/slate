@@ -1,4 +1,4 @@
-# Asset price in US Dollars (USD)
+# Prices (USD)
 The US Dollar (_USD_) price of each asset we support is available through this endpoint. The mean hourly and daily price is available for each asset.
 
 The list of assets we currently support is:
