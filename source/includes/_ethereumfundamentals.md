@@ -304,7 +304,7 @@ This endpoint returns the total and average fees spent on the Ethereum network f
 
 ### HTTP Request
 
-`GET https://api.tokenanalyst.io/analytics/private/v1/token_nvt_historical/last`
+`GET https://api.tokenanalyst.io/analytics/private/v1/token_fees_historical/last`
 
 ### Query Parameters
 
