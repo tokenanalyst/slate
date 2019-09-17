@@ -1,4 +1,4 @@
-# Binance Token Stats (BETA)
+# Binance Token Stats [BETA]
 
 We support all tokens issued on Binance chain, but only have price data for the following:
 

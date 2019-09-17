@@ -20,6 +20,7 @@ includes:
   - erc20exchangeflows
   - minerflows
   - price
+  - websocketfeed
 
 search: true
 ---
