@@ -1,4 +1,4 @@
-# Stablecoin Stats v2
+# Stablecoin Stats
 
 The stablecoins we currently support are:
 

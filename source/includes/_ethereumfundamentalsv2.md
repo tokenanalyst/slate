@@ -1,4 +1,4 @@
-# Ethereum Fundamentals v2
+# Ethereum Fundamentals
 
 ## ETH On-chain Volume
 

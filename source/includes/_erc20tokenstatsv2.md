@@ -1,5 +1,5 @@
 
-# ERC20 Fundamentals v2
+# ERC20 Fundamentals
 
 ERC20 tokens we currently support are:
 
