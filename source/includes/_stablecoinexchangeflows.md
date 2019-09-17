@@ -151,7 +151,7 @@ This endpoint returns the inflow of USDT (Tether) on the Omni blockchain into ex
 > This is an example:
 
 ```shell
-curl "https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_top10_historical/last?token=usdt_omni&exchange=binance&direction=inflow&format=json&key=API_KEY"
+curl "https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_top10_window_historical/last?token=usdt_omni&exchange=binance&direction=inflow&format=json&key=API_KEY&window=1d"
 ```
 
 > The response looks like:
@@ -181,7 +181,7 @@ This endpoint returns the top 10 transactions (in terms of total USDT sent) flow
 
 ### HTTP Request
 
-`GET https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_top10_historical/last?`
+`GET https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_top10_window_historical/last?`
 
 ### URL Parameters
 
@@ -192,6 +192,7 @@ This endpoint returns the top 10 transactions (in terms of total USDT sent) flow
 | token     | _string_ | `usdt_omni`                                         |
 | direction | _string_ | `inflow`                                            |
 | exchange  | _string_ | An exchange from the list of ones we support        |
+| window       | _string_  | `1d` (no support for 1h at this time)                                                     |
 | from_date \* | _string_  | Start date of returned data specified as YYYY-MM-DD (ISO date format)                     |
 | to_date \*   | _string_  | End date of returned data specified as YYYY-MM-DD (ISO date format)                       |
 | limit \*     | _integer_ | The number of entries returned before the latest data point (or the to_date if specified) |
@@ -213,7 +214,7 @@ This endpoint returns the top 10 transactions (in terms of total USDT sent) flow
 <img src="https://img.shields.io/badge/Tier-Professional-black.svg"/>
 
 ```shell
-curl "https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_top10_historical/last?token=usdt_omni&exchange=binance&direction=outflow&format=json&key=API_KEY"
+curl "https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_top10_window_historical/last?token=usdt_omni&exchange=binance&direction=outflow&format=json&key=API_KEY"
 ```
 
 > The response looks like:
@@ -243,7 +244,7 @@ This endpoint returns the top 10 transactions (in terms of total USDT sent) flow
 
 ### HTTP Request
 
-`GET https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_top10_historical/last?`
+`GET https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_top10_window_historical/last?`
 
 ### URL Parameters
 
@@ -254,6 +255,7 @@ This endpoint returns the top 10 transactions (in terms of total USDT sent) flow
 | token     | _string_ | `usdt_omni`                                         |
 | direction | _string_ | `outflow`                                           |
 | exchange  | _string_ | An exchange from the list of ones we support        |
+| window       | _string_  | `1d` (no support for 1h at this time)                                                     |
 | from_date \* | _string_  | Start date of returned data specified as YYYY-MM-DD (ISO date format)                     |
 | to_date \*   | _string_  | End date of returned data specified as YYYY-MM-DD (ISO date format)                       |
 | limit \*     | _integer_ | The number of entries returned before the latest data point (or the to_date if specified) |

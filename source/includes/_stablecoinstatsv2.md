@@ -109,6 +109,7 @@ This endpoint returns the daily number of Tether (usdt_omni) transactions on the
 | key       | _string_ | Your unique API key                                 |
 | format    | _string_ | What format you want your data in (`json` or `csv`) |
 | token     | _string_ | `usdt_omni`  |
+| window    | _string_ | `1h` or `1d`       |
 
 ### Data Overview
 
@@ -126,7 +127,7 @@ This endpoint returns the daily number of Tether (usdt_omni) transactions on the
 <img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/>
 
 ```shell
-curl "https://api.tokenanalyst.io/analytics/private/v1/token_active_address_historical/last?&token=usdt_omni&format=json&key=API_KEY"
+curl "https://api.tokenanalyst.io/analytics/private/v1/token_active_address_window_historical/last?&token=usdt_omni&format=json&key=API_KEY&window=1d"
 ```
 
 > The above command returns JSON structured like this:
@@ -150,7 +151,7 @@ This endpoint returns the active addresses of Tether (usdt_omni) tokens for ever
 
 ### HTTP Request
 
-`GET https://api.tokenanalyst.io/analytics/private/v1/token_active_address_historical/last`
+`GET https://api.tokenanalyst.io/analytics/private/v1/token_active_address_window_historical/last`
 
 ### Query Parameters
 
@@ -159,6 +160,7 @@ This endpoint returns the active addresses of Tether (usdt_omni) tokens for ever
 | key       | _string_ | Your unique API key                                 |
 | format    | _string_ | What format you want your data in (`json` or `csv`) |
 | token     | _string_ | The stablecoin you want the transaction count for 
+| window       | _string_  | `1d` (no support for 1h at this time)                                                     |
 
 ### Data Overview
 
@@ -174,7 +176,7 @@ This endpoint returns the active addresses of Tether (usdt_omni) tokens for ever
 <img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/>
 
 ```shell
-curl "https://api.tokenanalyst.io/analytics/private/v1/token_supply_historical/last?&token=usdt_omni&format=json&key=API_KEY"
+curl "https://api.tokenanalyst.io/analytics/private/v1/token_supply_window_historical/last?&token=usdt_omni&format=json&key=API_KEY&window=1d"
 ```
 
 > The above command returns JSON structured like this:
@@ -196,7 +198,7 @@ This endpoint returns the historical supply of Tether (usdt_omni) on the OMNI bl
 
 ### HTTP Request
 
-`GET https://api.tokenanalyst.io/analytics/private/v1/token_supply_historical/last`
+`GET https://api.tokenanalyst.io/analytics/private/v1/token_supply_window_historical/last`
 
 ### Query Parameters
 
@@ -205,6 +207,7 @@ This endpoint returns the historical supply of Tether (usdt_omni) on the OMNI bl
 | key       | _string_ | Your unique API key                                 |
 | format    | _string_ | What format you want your data in (`json` or `csv`) |
 | token     | _string_ | `usdt_omni`                                               |
+| window       | _string_  | `1d` (no support for 1h at this time)                                                     |
 
 ### Data Overview
 
@@ -218,7 +221,7 @@ This endpoint returns the historical supply of Tether (usdt_omni) on the OMNI bl
 <img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/>
 
 ```shell
-curl "https://api.tokenanalyst.io/analytics/private/v1/token_nvt_historical/last?&token=usdt_omni&format=json&key=API_KEY"
+curl "https://api.tokenanalyst.io/analytics/private/v1/token_nvt_window_historical/last?&token=usdt_omni&format=json&key=API_KEY&window=1d"
 ```
 
 > The above command returns JSON structured like this:
@@ -242,7 +245,7 @@ This endpoint returns the NVT Ratio (Network Value to Transactions Ratio) for Te
 
 ### HTTP Request
 
-`GET https://api.tokenanalyst.io/analytics/private/v1/token_nvt_historical/last`
+`GET https://api.tokenanalyst.io/analytics/private/v1/token_nvt_window_historical/last`
 
 ### Query Parameters
 
@@ -251,6 +254,7 @@ This endpoint returns the NVT Ratio (Network Value to Transactions Ratio) for Te
 | key       | _string_ | Your unique API key                                 |
 | format    | _string_ | What format you want your data in (`json` or `csv`) |
 | token     | _string_ | `usdt_omni`                                               |
+| window       | _string_  | `1d` (no support for 1h at this time)                                                     |
 
 ### Data Overview
 
@@ -266,7 +270,7 @@ This endpoint returns the NVT Ratio (Network Value to Transactions Ratio) for Te
 <img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/>
 
 ```shell
-curl "https://api.tokenanalyst.io/analytics/private/v1/token_fees_historical/last?&token=usdt_omni&format=json&key=API_KEY"
+curl "https://api.tokenanalyst.io/analytics/private/v1/token_fees_window_historical/last?&token=usdt_omni&format=json&key=API_KEY&window=1d"
 ```
 
 > The above command returns JSON structured like this:
@@ -294,7 +298,7 @@ This endpoint returns the historical supply of Tether (usdt_omni) on the OMNI bl
 
 ### HTTP Request
 
-`GET https://api.tokenanalyst.io/analytics/private/v1/token_fees_historical/last`
+`GET https://api.tokenanalyst.io/analytics/private/v1/token_fees_window_historical/last`
 
 ### Query Parameters
 
@@ -303,6 +307,7 @@ This endpoint returns the historical supply of Tether (usdt_omni) on the OMNI bl
 | key       | _string_ | Your unique API key                                 |
 | format    | _string_ | What format you want your data in (`json` or `csv`) |
 | token     | _string_ | `usdt_omni`                                         |
+| window       | _string_  | `1d` (no support for 1h at this time)                                                     |
 
 ### Data Overview
 
@@ -320,7 +325,7 @@ This endpoint returns the historical supply of Tether (usdt_omni) on the OMNI bl
 <img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/>
 
 ```shell
-curl "https://api.tokenanalyst.io/analytics/private/v1/token_volume_historical/last?format=json&token=usdc&key=API_KEY"
+curl "https://api.tokenanalyst.io/analytics/private/v1/token_volume_window_historical/last?format=json&token=usdc&key=API_KEY&window=1d"
 ```
 
 > The above command returns JSON structured like this:
@@ -344,7 +349,7 @@ This endpoint returns the full historical on-chain volume of any of the stableco
 
 ### HTTP Request
 
-`GET https://api.tokenanalyst.io/analytics/private/v1/token_volume_historical/last?`
+`GET https://api.tokenanalyst.io/analytics/private/v1/token_volume_window_historical/last?`
 
 ### Query Parameters
 
@@ -353,6 +358,7 @@ This endpoint returns the full historical on-chain volume of any of the stableco
 | key       | _string_ | Your unique API key                                 |
 | format    | _string_ | What format you want your data in (`json` or `csv`) |
 | token     | _string_ | The token you want the volume for                   |
+| window       | _string_  | `1d` (no support for 1h at this time)                                                     |
 
 ### Data Overview
 
@@ -367,7 +373,7 @@ This endpoint returns the full historical on-chain volume of any of the stableco
 <img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/>
 
 ```shell
-curl "https://api.tokenanalyst.io/analytics/private/v1/token_count_historical/last?format=json&token=dai&key=API_KEY"
+curl "https://api.tokenanalyst.io/analytics/private/v1/token_count_window_historical/last?format=json&token=dai&key=API_KEY&window=1d"
 ```
 
 > The above command returns JSON structured like this:
@@ -393,7 +399,7 @@ This endpoint returns the number of token transfers on the Ethereum blockchain f
 
 ### HTTP Request
 
-`GET https://api.tokenanalyst.io/analytics/private/v1/token_count_historical/last?`
+`GET https://api.tokenanalyst.io/analytics/private/v1/token_count_window_historical/last?`
 
 ### Query Parameters
 
@@ -402,6 +408,7 @@ This endpoint returns the number of token transfers on the Ethereum blockchain f
 | key       | _string_ | Your unique API key                                 |
 | format    | _string_ | What format you want your data in (`json` or `csv`) |
 | token     | _string_ | The stablecoin you want the transaction count for   |
+| window       | _string_  | `1d` (no support for 1h at this time)                                                     |
 
 ### Data Overview
 
@@ -415,7 +422,7 @@ This endpoint returns the number of token transfers on the Ethereum blockchain f
 <img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/>
 
 ```shell
-curl "https://api.tokenanalyst.io/analytics/private/v1/token_active_address_historical/last?&token=usdc&format=json&key=API_KEY"
+curl "https://api.tokenanalyst.io/analytics/private/v1/token_active_address_historical/last?&token=usdc&format=json&key=API_KEY&window=1d"
 ```
 
 > The above command returns JSON structured like this:
@@ -448,6 +455,7 @@ This endpoint returns the active addresses of stabelecoin tokens for every day o
 | key       | _string_ | Your unique API key                                 |
 | format    | _string_ | What format you want your data in (`json` or `csv`) |
 | token     | _string_ | The stablecoin you want the transaction count for 
+| window       | _string_  | `1d` (no support for 1h at this time)                                                     |
 
 ### Data Overview
 

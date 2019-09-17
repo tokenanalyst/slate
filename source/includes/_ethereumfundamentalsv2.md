@@ -5,7 +5,7 @@
 <img src="https://img.shields.io/badge/Tier-Free-green.svg"/>
 
 ```shell
-curl "https://api.tokenanalyst.io/analytics/private/v1/token_volume_historical/last?format=json&token=eth&key=API_KEY"
+curl "https://api.tokenanalyst.io/analytics/private/v1/token_volume_window_historical/last?format=json&token=eth&key=API_KEY&window=1d"
 ```
 
 > The above command returns JSON structured like this:
@@ -39,7 +39,7 @@ This endpoint returns the full historical on-chain volume of Ethereum since it w
 
 ### HTTP Request
 
-`GET https://api.tokenanalyst.io/analytics/private/v1/token_volume_historical/last`
+`GET https://api.tokenanalyst.io/analytics/private/v1/token_volume_window_historical/last`
 
 ### Query Parameters
 
@@ -48,6 +48,7 @@ This endpoint returns the full historical on-chain volume of Ethereum since it w
 | key       | _string_ | Your unique API key                                    |
 | format    | _string_ | What format you want your data in (`json` or `csv`)    |
 | token     | _string_ | The token you want the volume for (in this case `eth`) |
+| window       | _string_  | `1d` (no support for 1h at this time)                                                     |
 | from_date \* | _string_  | Start date of returned data specified as YYYY-MM-DD (ISO date format)                     |
 | to_date \*   | _string_  | End date of returned data specified as YYYY-MM-DD (ISO date format)                       |
 | limit \*     | _integer_ | The number of entries returned before the latest data point (or the to_date if specified) |
@@ -70,7 +71,7 @@ This endpoint returns the full historical on-chain volume of Ethereum since it w
 <img src="https://img.shields.io/badge/Tier-Free-green.svg"/>
 
 ```shell
-curl "https://api.tokenanalyst.io/analytics/private/v1/token_count_historical/last?format=json&token=eth&key=API_KEY"
+curl "https://api.tokenanalyst.io/analytics/private/v1/token_count_window_historical/last?format=json&token=eth&key=API_KEY&window=1d"
 ```
 
 > The above command returns JSON structured like this:
@@ -96,7 +97,7 @@ This endpoint returns the number of transactions on the full historical Ethereum
 
 ### HTTP Request
 
-`GET https://api.tokenanalyst.io/analytics/private/v1/token_count_historical/last`
+`GET https://api.tokenanalyst.io/analytics/private/v1/token_count_window_historical/last`
 
 ### Query Parameters
 
@@ -105,6 +106,7 @@ This endpoint returns the number of transactions on the full historical Ethereum
 | key       | _string_ | Your unique API key                                    |
 | format    | _string_ | What format you want your data in (`json` or `csv`)    |
 | token     | _string_ | The token you want the volume for (in this case `eth`) |
+| window       | _string_  | `1d` (no support for 1h at this time)                                                     |
 | from_date \* | _string_  | Start date of returned data specified as YYYY-MM-DD (ISO date format)                     |
 | to_date \*   | _string_  | End date of returned data specified as YYYY-MM-DD (ISO date format)                       |
 | limit \*     | _integer_ | The number of entries returned before the latest data point (or the to_date if specified) |
@@ -122,7 +124,7 @@ This endpoint returns the number of transactions on the full historical Ethereum
 <img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/>
 
 ```shell
-curl "https://api.tokenanalyst.io/analytics/private/v1/token_active_address_historical/last?&token=eth&format=json&key=API_KEY"
+curl "https://api.tokenanalyst.io/analytics/private/v1/token_active_address_window_historical/last?&token=eth&format=json&key=API_KEY&window=1d"
 ```
 
 > The above command returns JSON structured like this:
@@ -146,7 +148,7 @@ This endpoint returns the active addresses on the Ethereum blockchain for every 
 
 ### HTTP Request
 
-`GET https://api.tokenanalyst.io/analytics/private/v1/token_active_address_historical/last`
+`GET https://api.tokenanalyst.io/analytics/private/v1/token_active_address_window_historical/last`
 
 ### Query Parameters
 
@@ -155,6 +157,7 @@ This endpoint returns the active addresses on the Ethereum blockchain for every 
 | key       | _string_ | Your unique API key                                 |
 | format    | _string_ | What format you want your data in (`json` or `csv`) |
 | token     | _string_ | `eth`                                               |
+| window       | _string_  | `1d` (no support for 1h at this time)                                                     |
 | from_date \* | _string_  | Start date of returned data specified as YYYY-MM-DD (ISO date format)                     |
 | to_date \*   | _string_  | End date of returned data specified as YYYY-MM-DD (ISO date format)                       |
 | limit \*     | _integer_ | The number of entries returned before the latest data point (or the to_date if specified) |
@@ -173,7 +176,7 @@ This endpoint returns the active addresses on the Ethereum blockchain for every 
 <img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/>
 
 ```shell
-curl "https://api.tokenanalyst.io/analytics/private/v1/token_supply_historical/last?&token=eth&format=json&key=API_KEY"
+curl "https://api.tokenanalyst.io/analytics/private/v1/token_supply_window_historical/last?&token=eth&format=json&key=API_KEY&window=1d"
 ```
 
 > The above command returns JSON structured like this:
@@ -195,7 +198,7 @@ This endpoint returns the historical supply of ETH on the Ethereum blockchain fo
 
 ### HTTP Request
 
-`GET https://api.tokenanalyst.io/analytics/private/v1/token_supply_historical/last`
+`GET https://api.tokenanalyst.io/analytics/private/v1/token_supply_window_historical/last`
 
 ### Query Parameters
 
@@ -204,6 +207,7 @@ This endpoint returns the historical supply of ETH on the Ethereum blockchain fo
 | key       | _string_ | Your unique API key                                 |
 | format    | _string_ | What format you want your data in (`json` or `csv`) |
 | token     | _string_ | `eth`                                               |
+| window       | _string_  | `1d` (no support for 1h at this time)                                                     |
 | from_date \* | _string_  | Start date of returned data specified as YYYY-MM-DD (ISO date format)                     |
 | to_date \*   | _string_  | End date of returned data specified as YYYY-MM-DD (ISO date format)                       |
 | limit \*     | _integer_ | The number of entries returned before the latest data point (or the to_date if specified) |
@@ -221,7 +225,7 @@ This endpoint returns the historical supply of ETH on the Ethereum blockchain fo
 <img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/>
 
 ```shell
-curl "https://api.tokenanalyst.io/analytics/private/v1/token_nvt_historical/last?&token=eth&format=json&key=API_KEY"
+curl "https://api.tokenanalyst.io/analytics/private/v1/token_nvt_window_historical/last?&token=eth&format=json&key=API_KEY&window=1d"
 ```
 
 > The above command returns JSON structured like this:
@@ -245,7 +249,7 @@ This endpoint returns the NVT Ratio (Network Value to Transactions Ratio) for ET
 
 ### HTTP Request
 
-`GET https://api.tokenanalyst.io/analytics/private/v1/token_nvt_historical/last`
+`GET https://api.tokenanalyst.io/analytics/private/v1/token_nvt_window_historical/last`
 
 ### Query Parameters
 
@@ -254,6 +258,7 @@ This endpoint returns the NVT Ratio (Network Value to Transactions Ratio) for ET
 | key       | _string_ | Your unique API key                                 |
 | format    | _string_ | What format you want your data in (`json` or `csv`) |
 | token     | _string_ | `eth`                                               |
+| window       | _string_  | `1d` (no support for 1h at this time)                                                     |
 | from_date \* | _string_  | Start date of returned data specified as YYYY-MM-DD (ISO date format)                     |
 | to_date \*   | _string_  | End date of returned data specified as YYYY-MM-DD (ISO date format)                       |
 | limit \*     | _integer_ | The number of entries returned before the latest data point (or the to_date if specified) |
@@ -272,7 +277,7 @@ This endpoint returns the NVT Ratio (Network Value to Transactions Ratio) for ET
 <img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/>
 
 ```shell
-curl "https://api.tokenanalyst.io/analytics/private/v1/token_fees_historical/last?&token=eth&format=json&key=API_KEY"
+curl "https://api.tokenanalyst.io/analytics/private/v1/token_fees_window_historical/last?&token=eth&format=json&key=API_KEY&window=1d"
 ```
 
 > The above command returns JSON structured like this:
@@ -304,7 +309,7 @@ This endpoint returns the total and average fees spent on the Ethereum network f
 
 ### HTTP Request
 
-`GET https://api.tokenanalyst.io/analytics/private/v1/token_fees_historical/last`
+`GET https://api.tokenanalyst.io/analytics/private/v1/token_fees_window_historical/last`
 
 ### Query Parameters
 
@@ -313,6 +318,7 @@ This endpoint returns the total and average fees spent on the Ethereum network f
 | key       | _string_ | Your unique API key                                 |
 | format    | _string_ | What format you want your data in (`json` or `csv`) |
 | token     | _string_ | `eth`                                               |
+| window       | _string_  | `1d` (no support for 1h at this time)                                                     |
 | from_date \* | _string_  | Start date of returned data specified as YYYY-MM-DD (ISO date format)                     |
 | to_date \*   | _string_  | End date of returned data specified as YYYY-MM-DD (ISO date format)                       |
 | limit \*     | _integer_ | The number of entries returned before the latest data point (or the to_date if specified) |
@@ -335,7 +341,7 @@ This endpoint returns the total and average fees spent on the Ethereum network f
 <img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/>
 
 ```shell
-curl "https://api.tokenanalyst.io/analytics/private/v1/token_miner_hashrate_historical/last?format=json&token=eth&key=API_KEY"
+curl "https://api.tokenanalyst.io/analytics/private/v1/token_miner_hashrate_window_historical/last?format=json&token=eth&key=API_KEY&window=1d"
 ```
 
 > The above command returns JSON structured like this:
@@ -377,7 +383,7 @@ This endpoint returns the total and miner specifc hashrate and uncle rates. The 
 
 ### HTTP Request
 
-`GET https://api.tokenanalyst.io/analytics/private/v1/token_miner_hashrate_historical/last`
+`GET https://api.tokenanalyst.io/analytics/private/v1/token_miner_hashrate_window_historical/last`
 
 ### Query Parameters
 
@@ -386,6 +392,7 @@ This endpoint returns the total and miner specifc hashrate and uncle rates. The 
 | key       | _string_ | Your unique API key                                 |
 | format    | _string_ | What format you want your data in (`json` or `csv`) |
 | token     | _string_ | `eth`                                               |
+| window       | _string_  | `1d` (no support for 1h at this time)                                                     |
 | from_date \* | _string_  | Start date of returned data specified as YYYY-MM-DD (ISO date format)                     |
 | to_date \*   | _string_  | End date of returned data specified as YYYY-MM-DD (ISO date format)                       |
 | limit \*     | _integer_ | The number of entries returned before the latest data point (or the to_date if specified) |
@@ -413,7 +420,7 @@ This endpoint returns the total and miner specifc hashrate and uncle rates. The 
 <img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/>
 
 ```shell
-curl "https://api.tokenanalyst.io/analytics/private/v1/token_miner_rewards_historical/last?format=json&token=eth&key=API_KEY"
+curl "https://api.tokenanalyst.io/analytics/private/v1/token_miner_rewards_window_historical/last?format=json&token=eth&key=API_KEY&window=1d"
 ```
 
 > The above command returns JSON structured like this:
@@ -443,7 +450,7 @@ This endpoint returns the daily block rewards and uncle rewards by miner. The `m
 
 ### HTTP Request
 
-`GET https://api.tokenanalyst.io/analytics/private/v1/token_miner_rewards_historical/last`
+`GET https://api.tokenanalyst.io/analytics/private/v1/token_miner_rewards_window_historical/last`
 
 ### Query Parameters
 
@@ -452,6 +459,7 @@ This endpoint returns the daily block rewards and uncle rewards by miner. The `m
 | key       | _string_ | Your unique API key                                 |
 | format    | _string_ | What format you want your data in (`json` or `csv`) |
 | token     | _string_ | `eth`                                               |
+| window       | _string_  | `1d` (no support for 1h at this time)                                                     |
 | from_date \* | _string_  | Start date of returned data specified as YYYY-MM-DD (ISO date format)                     |
 | to_date \*   | _string_  | End date of returned data specified as YYYY-MM-DD (ISO date format)                       |
 | limit \*     | _integer_ | The number of entries returned before the latest data point (or the to_date if specified) |

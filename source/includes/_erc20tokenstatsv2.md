@@ -1,3 +1,4 @@
+
 # ERC20 Fundamentals
 
 ERC20 tokens we currently support are:
@@ -29,7 +30,7 @@ ERC20 tokens we currently support are:
 <img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/>
 
 ```shell
-curl "https://api.tokenanalyst.io/analytics/private/v1/token_volume_historical/last?format=json&token=zrx&key=API_KEY"
+curl "https://api.tokenanalyst.io/analytics/private/v1/token_volume_window_historical/last?format=json&token=zrx&key=API_KEY&window=1d"
 ```
 
 > The above command returns JSON structured like this:
@@ -53,7 +54,7 @@ This endpoint returns the full historical on-chain volume of any of the major ER
 
 ### HTTP Request
 
-`GET https://api.tokenanalyst.io/analytics/private/v1/token_volume_historical/last`
+`GET https://api.tokenanalyst.io/analytics/private/v1/token_volume_window_historical/last`
 
 ### Query Parameters
 
@@ -81,7 +82,7 @@ This endpoint returns the full historical on-chain volume of any of the major ER
 <img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/>
 
 ```shell
-curl "https://api.tokenanalyst.io/analytics/private/v1/token_count_historical/last?format=json&token=mana&key=API_KEY"
+curl "https://api.tokenanalyst.io/analytics/private/v1/token_count_window_historical/last?format=json&token=mana&key=API_KEY&window=1d"
 ```
 
 > The above command returns JSON structured like this:
@@ -107,7 +108,7 @@ This endpoint returns the number of token transfers on the blockchain for the gi
 
 ### HTTP Request
 
-`GET https://api.tokenanalyst.io/analytics/private/v1/token_count_historical/last`
+`GET https://api.tokenanalyst.io/analytics/private/v1/token_count_window_historical/last`
 
 ### Query Parameters
 
@@ -135,7 +136,7 @@ This endpoint returns the number of token transfers on the blockchain for the gi
 <img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/>
 
 ```shell
-curl "https://api.tokenanalyst.io/analytics/private/v1/token_active_address_historical/last?&token=gnt&format=json&key=API_KEY"
+curl "https://api.tokenanalyst.io/analytics/private/v1/token_active_address_window_historical/last?&token=gnt&format=json&key=API_KEY&window=1d"
 ```
 
 > The above command returns JSON structured like this:
@@ -159,7 +160,7 @@ This endpoint returns the active addresses of ERC20 tokens for every day of thei
 
 ### HTTP Request
 
-`GET https://api.tokenanalyst.io/analytics/private/v1/token_active_address_historical/last`
+`GET https://api.tokenanalyst.io/analytics/private/v1/token_active_address_window_historical/last`
 
 ### Query Parameters
 
