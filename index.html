@@ -3435,7 +3435,7 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
 </tbody></table>
 <h2 id='stablecoin-active-addresses'>Stablecoin Active addresses</h2>
 <p><img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/></p>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_active_address_historical/last?&amp;token=usdc&amp;format=json&amp;key=API_KEY&amp;window=1d"</span>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_active_address_window_historical/last?&amp;token=usdc&amp;format=json&amp;key=API_KEY&amp;window=1d"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -3455,7 +3455,7 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
 </span></code></pre>
 <p>This endpoint returns the active addresses of stabelecoin tokens for every day of their existence. An address is defined as &#39;active&#39; if it has transacted during the given day.</p>
 <h3 id='http-request-9'>HTTP Request</h3>
-<p><code>GET https://api.tokenanalyst.io/analytics/private/v1/token_active_address_historical/last</code></p>
+<p><code>GET https://api.tokenanalyst.io/analytics/private/v1/token_active_address_window_historical/last</code></p>
 <h3 id='query-parameters-9'>Query Parameters</h3>
 <table><thead>
 <tr>
