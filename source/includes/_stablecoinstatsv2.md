@@ -109,6 +109,7 @@ This endpoint returns the daily number of Tether (usdt_omni) transactions on the
 | key       | _string_ | Your unique API key                                 |
 | format    | _string_ | What format you want your data in (`json` or `csv`) |
 | token     | _string_ | `usdt_omni`  |
+| window    | _string_ | `1h` or `1d`       |
 
 ### Data Overview
 
