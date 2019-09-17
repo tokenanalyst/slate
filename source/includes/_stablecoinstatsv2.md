@@ -422,7 +422,7 @@ This endpoint returns the number of token transfers on the Ethereum blockchain f
 <img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/>
 
 ```shell
-curl "https://api.tokenanalyst.io/analytics/private/v1/token_active_address_historical/last?&token=usdc&format=json&key=API_KEY&window=1d"
+curl "https://api.tokenanalyst.io/analytics/private/v1/token_active_address_window_historical/last?&token=usdc&format=json&key=API_KEY&window=1d"
 ```
 
 > The above command returns JSON structured like this:
@@ -446,7 +446,7 @@ This endpoint returns the active addresses of stabelecoin tokens for every day o
 
 ### HTTP Request
 
-`GET https://api.tokenanalyst.io/analytics/private/v1/token_active_address_historical/last`
+`GET https://api.tokenanalyst.io/analytics/private/v1/token_active_address_window_historical/last`
 
 ### Query Parameters
 
