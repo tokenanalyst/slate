@@ -395,7 +395,7 @@ Note: All params with a \* are optional and `limit` is only available in the JSO
 | avg_fee               | _decimal_ | The average amount of fees paid per transaction that occurred on this date. Denominated in BTC.   |
 | avg_fee_usd           | _decimal_ | _avg_fee_ \* _price_usd_                                                                          |
 
-## BTC UTXO Age v2
+## BTC UTXO Age
 
 <img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/>
 

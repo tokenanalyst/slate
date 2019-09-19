@@ -93,7 +93,7 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_count_window_histor
 ]
 ```
 
-This endpoint returns the number of transactions on the full historical Ethereum blockchain for every day since its genesis in 2015.
+This endpoint returns the number of transactions, where ETH value transferred was > 0, on the full historical Ethereum blockchain for every day since its genesis in 2015. This endpoint would exclude smart contract calls or token transfers where 0 ETH was transferred between accounts.
 
 ### HTTP Request
 
