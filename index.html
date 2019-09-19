@@ -249,7 +249,7 @@
                     <a href="#btc-fees" class="toc-h2 toc-link" data-title="BTC Fees">BTC Fees</a>
                   </li>
                   <li>
-                    <a href="#btc-utxo-age-v2" class="toc-h2 toc-link" data-title="BTC UTXO Age v2">BTC UTXO Age v2</a>
+                    <a href="#btc-utxo-age" class="toc-h2 toc-link" data-title="BTC UTXO Age">BTC UTXO Age</a>
                   </li>
                   <li>
                     <a href="#btc-miner-hashrate" class="toc-h2 toc-link" data-title="BTC Miner Hashrate">BTC Miner Hashrate</a>
@@ -1177,7 +1177,7 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
 <td><em>avg_fee</em> * <em>price_usd</em></td>
 </tr>
 </tbody></table>
-<h2 id='btc-utxo-age-v2'>BTC UTXO Age v2</h2>
+<h2 id='btc-utxo-age'>BTC UTXO Age</h2>
 <p><img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/></p>
 <pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_utxo_age_window_historical/last?window=1d&amp;exchange=binance&amp;direction=outflow&amp;format=json&amp;token=btc&amp;from_date=2019-09-01&amp;to_date=2019-09-02&amp;key=API_KEY"</span>
 </code></pre>
@@ -1713,7 +1713,7 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
-<p>This endpoint returns the number of transactions on the full historical Ethereum blockchain for every day since its genesis in 2015.</p>
+<p>This endpoint returns the number of transactions, where ETH value transferred was &gt; 0, on the full historical Ethereum blockchain for every day since its genesis in 2015. This endpoint would exclude smart contract calls or token transfers where 0 ETH was transferred between accounts.</p>
 <h3 id='http-request-2'>HTTP Request</h3>
 <p><code>GET https://api.tokenanalyst.io/analytics/private/v1/token_count_window_historical/last</code></p>
 <h3 id='query-parameters-2'>Query Parameters</h3>
