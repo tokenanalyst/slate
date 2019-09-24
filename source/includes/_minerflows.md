@@ -16,7 +16,7 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/miner_flow_window_histori
     "avg_txn_value": 12.64279457,
     "avg_txn_value_usd": 46273.01,
     "date": "2019-02-08",
-    "datetime": "2019-02-08 23:00:00.000", // not available when window 1d
+    "datetime": "2019-02-08 23:00:00", // not available when window 1d
     "hour": "23:00:00", // not available when window 1d
     "inflow": 12.64279457,
     "inflow_usd": 46273.01,
@@ -24,20 +24,20 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/miner_flow_window_histori
     "number_of_txns": 1
   },
   {
-    "avg_txn_value": 12.6999408,
-    "avg_txn_value_usd": 46482.16,
+    "avg_txn_value": 0.01407396,
+    "avg_txn_value_usd": 51.51,
     "date": "2019-02-08",
-    "datetime": "2019-02-08 23:00:00.000", // not available when window 1d
-    "hour": "23:00:00", // not available when window 1d
-    "inflow": 25.39988161,
-    "inflow_usd": 92964.33,
-    "miner_name": "F2 Pool",
+    "datetime": "2019-02-08 23:00:00",
+    "hour": "23:00:00",
+    "inflow": 0.02814792, // not available when window 1d
+    "inflow_usd": 103.02, // not available when window 1d
+    "miner_name": "Unknown",
     "number_of_txns": 2
   }
 ]
 ```
 
-This endpoint returns the inflow of a given token into miner controlled wallets (that we have labelled) during the time period specified. The `avg_txn_value`, `inflow`, and `number_of_txns` are calculated over the window (either 1 hour or 1 day). `hour` is in UTC
+This endpoint returns the inflow of a given token into miner controlled wallets (that we have labelled) during the time period specified. Miner wallets are all bitcoin addresses that have _ever_ been the recipient of block rewards. The `avg_txn_value`, `inflow`, and `number_of_txns` are calculated over the window (either 1 hour or 1 day). Inflow to miner addresses that are unlabelled are returned have a `miner_name` of `"Unknown"`. The `hour` is in UTC
 
 ### HTTP Request
 
@@ -84,7 +84,7 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/miner_flow_window_histori
 [
   {
     "date": "2019-02-08",
-    "datetime": "2019-02-08 20:00:00.000", // not available when window 1d
+    "datetime": "2019-02-08 20:00:00", // not available when window 1d
     "hour": "20:00:00", // not available when window 1d
     "miner_name": "SlushPool",
     "outflow": 12.51808781,
@@ -94,20 +94,20 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/miner_flow_window_histori
     "avg_txn_value_usd": 45818.33
   },
   {
+    "avg_txn_value": 1.15274538,
+    "avg_txn_value_usd": 4186.79,
     "date": "2019-02-08",
-    "datetime": "2019-02-08 21:00:00.000", // not available when window 1d
-    "hour": "21:00:00", // not available when window 1d
-    "miner_name": "SlushPool",
-    "outflow": 38.15583246,
-    "number_of_txns": 2,
-    "avg_txn_value": 19.07791623,
-    "outflow_usd": 138582.75,
-    "avg_txn_value_usd": 69291.37
+    "datetime": "2019-02-08 21:00:00",
+    "hour": "21:00:00",
+    "miner_name": "Unknown",
+    "number_of_txns": 7,
+    "outflow": 8.06921768,
+    "outflow_usd": 29307.56
   }
 ]
 ```
 
-This endpoint returns the outflow of a given token out of miner controlled wallets (that we have labelled) during the time period specified. The `avg_txn_value`, `outflow`, and `number_of_txns` are calculated over the window (either 1 hour or 1 day). `hour` is in UTC
+This endpoint returns the outflow of a given token out of miner controlled wallets (that we have labelled) during the time period specified. Miner wallets are all bitcoin addresses that have _ever_ been the recipient of block rewards. The `avg_txn_value`, `inflow`, and `number_of_txns` are calculated over the window (either 1 hour or 1 day). Inflow to miner addresses that are unlabelled are returned have a `miner_name` of `"Unknown"`. The `hour` is in UTC.
 
 ### HTTP Request
 
