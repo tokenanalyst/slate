@@ -406,6 +406,23 @@
               </ul>
           </li>
           <li>
+            <a href="#v2-stablecoin-exchange-flows-beta" class="toc-h1 toc-link" data-title="V2 Stablecoin Exchange Flows [BETA]">V2 Stablecoin Exchange Flows [BETA]</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#stablecoins-full-historical-inflow-from-exchanges-beta" class="toc-h2 toc-link" data-title="Stablecoins Full Historical Inflow from Exchanges [Beta]">Stablecoins Full Historical Inflow from Exchanges [Beta]</a>
+                  </li>
+                  <li>
+                    <a href="#stablecoins-full-historical-outflow-from-exchanges-beta" class="toc-h2 toc-link" data-title="Stablecoins Full Historical Outflow from Exchanges [Beta]">Stablecoins Full Historical Outflow from Exchanges [Beta]</a>
+                  </li>
+                  <li>
+                    <a href="#tether-omni-full-historical-top-10-inflow-large-value-transactions" class="toc-h2 toc-link" data-title="Tether (Omni) Full Historical Top 10 Inflow Large Value Transactions">Tether (Omni) Full Historical Top 10 Inflow Large Value Transactions</a>
+                  </li>
+                  <li>
+                    <a href="#tether-omni-full-historical-top-10-outflow-large-value-transactions" class="toc-h2 toc-link" data-title="Tether (Omni) Full Historical Top 10 Outflow Large Value Transactions">Tether (Omni) Full Historical Top 10 Outflow Large Value Transactions</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#erc20-exchange-flows" class="toc-h1 toc-link" data-title="ERC20 Exchange Flows">ERC20 Exchange Flows</a>
               <ul class="toc-list-h2">
                   <li>
@@ -413,6 +430,17 @@
                   </li>
                   <li>
                     <a href="#erc20-full-historical-outflow-from-exchanges-with-1-hour-granularity" class="toc-h2 toc-link" data-title="ERC20 Full Historical Outflow from Exchanges (with 1 hour granularity)">ERC20 Full Historical Outflow from Exchanges (with 1 hour granularity)</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#v2-erc20-exchange-flows-beta" class="toc-h1 toc-link" data-title="V2 ERC20 Exchange Flows [Beta]">V2 ERC20 Exchange Flows [Beta]</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#erc20-full-historical-flows-into-exchanges-beta" class="toc-h2 toc-link" data-title="ERC20 Full Historical Flows Into Exchanges [Beta]">ERC20 Full Historical Flows Into Exchanges [Beta]</a>
+                  </li>
+                  <li>
+                    <a href="#erc20-full-historical-flows-out-of-exchanges-beta" class="toc-h2 toc-link" data-title="ERC20 Full Historical Flows Out Of Exchanges [Beta]">ERC20 Full Historical Flows Out Of Exchanges [Beta]</a>
                   </li>
               </ul>
           </li>
@@ -5711,6 +5739,549 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
 <td>The USD value of the average amount of tokens transferred per transaction out of the given exchange on this date.</td>
 </tr>
 </tbody></table>
+<h1 id='v2-stablecoin-exchange-flows-beta'>V2 Stablecoin Exchange Flows [BETA]</h1>
+<p>The stablecoins we currently support are:</p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Symbol</th>
+<th>Supported Exchanges</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Tether (Omni)</td>
+<td><code>usdt_omni</code></td>
+<td><code>kraken</code>, <code>bitfinex</code>, <code>poloniex</code>, <code>bittrex</code>, <code>okex</code></td>
+</tr>
+<tr>
+<td>Tether (ERC20)</td>
+<td><code>usdt_erc20</code></td>
+<td><code>binance</code>, <code>bitfinex</code>, <code>bittrex</code>, <code>kucoin</code>, <code>poloniex</code></td>
+</tr>
+<tr>
+<td>USDC</td>
+<td><code>usdc</code></td>
+<td><code>binance</code>, <code>bitfinex</code></td>
+</tr>
+<tr>
+<td>Paxos Standard Token</td>
+<td><code>pax</code></td>
+<td><code>binance</code>, <code>bitfinex</code>, <code>bittrex</code></td>
+</tr>
+<tr>
+<td>TrueUSD</td>
+<td><code>tusd</code></td>
+<td><code>binance</code>, <code>bittrex</code></td>
+</tr>
+<tr>
+<td>Dai</td>
+<td><code>dai</code></td>
+<td><code>bittrex</code></td>
+</tr>
+</tbody></table>
+<h2 id='stablecoins-full-historical-inflow-from-exchanges-beta'>Stablecoins Full Historical Inflow from Exchanges [Beta]</h2>
+<p><img src="https://img.shields.io/badge/Tier-Professional-black.svg"/></p>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_window_historical/last?format=json&amp;window=1d&amp;token=usdt_omni&amp;exchange=kraken&amp;direction=inflow&amp;key=API_KEY"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-16"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"inflow"</span><span class="p">:</span><span class="w"> </span><span class="mf">2760452.458</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"inflow_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">2760452.46</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"number_of_txns"</span><span class="p">:</span><span class="w"> </span><span class="mi">26</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"avg_txn_value"</span><span class="p">:</span><span class="w"> </span><span class="mf">106171.2484</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"avg_txn_value_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">106171.25</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-17"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"inflow"</span><span class="p">:</span><span class="w"> </span><span class="mf">97184.7667</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"inflow_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">97184.76</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"number_of_txns"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"avg_txn_value"</span><span class="p">:</span><span class="w"> </span><span class="mf">9718.4767</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"avg_txn_value_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">9718.48</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<p>This endpoint returns the inflow of stablecoins into exchange wallets. The <code>avg_txn_value</code>, <code>inflow</code>, and <code>number_of_txns</code> are calculated over the window (either 1 hour or 1 day). <code>hour</code> is in UTC</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>GET https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_window_historical/last?</code></p>
+<h3 id='query-parameters'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>key</td>
+<td><em>string</em></td>
+<td>Your unique API key</td>
+</tr>
+<tr>
+<td>format</td>
+<td><em>string</em></td>
+<td>What format you want your data in (<code>json</code> or <code>csv</code>)</td>
+</tr>
+<tr>
+<td>token</td>
+<td><em>string</em></td>
+<td><code>usdt_omni</code></td>
+</tr>
+<tr>
+<td>exchange</td>
+<td><em>string</em></td>
+<td>An exchange from the list of ones we support</td>
+</tr>
+<tr>
+<td>direction</td>
+<td><em>string</em></td>
+<td><code>inflow</code></td>
+</tr>
+<tr>
+<td>window</td>
+<td><em>string</em></td>
+<td><code>1h</code> or <code>1d</code></td>
+</tr>
+<tr>
+<td>from_date *</td>
+<td><em>string</em></td>
+<td>Start date of returned data specified as YYYY-MM-DD (ISO date format)</td>
+</tr>
+<tr>
+<td>to_date *</td>
+<td><em>string</em></td>
+<td>End date of returned data specified as YYYY-MM-DD (ISO date format)</td>
+</tr>
+<tr>
+<td>limit *</td>
+<td><em>integer</em></td>
+<td>The number of entries returned before the latest data point (or the to_date if specified)</td>
+</tr>
+</tbody></table>
+<h3 id='data-overview'>Data Overview</h3>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>date</td>
+<td><em>string</em></td>
+<td>The date in <em>YYYY-MM-DD</em></td>
+</tr>
+<tr>
+<td>hour</td>
+<td><em>string</em></td>
+<td>The hour of the day in <em>HH:MM:SS</em> (UTC time zone). This is an optional field that only appears if the <code>window=1h</code> is used.</td>
+</tr>
+<tr>
+<td>inflow</td>
+<td><em>decimal</em></td>
+<td>The total amount of the token that flowed into the exchange on this date. Denominated in the token in question.</td>
+</tr>
+<tr>
+<td>inflow_usd</td>
+<td><em>decimal</em></td>
+<td>The USD value of the total amount of the token that flowed into the exchange on this date</td>
+</tr>
+<tr>
+<td>number_of_txns</td>
+<td><em>integer</em></td>
+<td>The number of transactions sending the token into this exchange on this date.</td>
+</tr>
+<tr>
+<td>avg_txn_value</td>
+<td><em>decimal</em></td>
+<td>The average amount of tokens transferred per transaction into the given exchange on this date.</td>
+</tr>
+<tr>
+<td>avg_txn_value_usd</td>
+<td><em>decimal</em></td>
+<td>The USD value of the average amount of tokens transferred per transaction into the given exchange on this date.</td>
+</tr>
+</tbody></table>
+<h2 id='stablecoins-full-historical-outflow-from-exchanges-beta'>Stablecoins Full Historical Outflow from Exchanges [Beta]</h2>
+<p><img src="https://img.shields.io/badge/Tier-Professional-black.svg"/></p>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_window_historical/last?format=json&amp;window=1d&amp;token=usdt_omni&amp;exchange=huobi&amp;direction=outflow&amp;key=API_KEY"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-09-26"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"outflow"</span><span class="p">:</span><span class="w"> </span><span class="mf">11148431.05</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"outflow_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">11137036.46</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"number_of_txns"</span><span class="p">:</span><span class="w"> </span><span class="mi">465</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"avg_txn_value"</span><span class="p">:</span><span class="w"> </span><span class="mf">23975.1205</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"avg_txn_value_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">23950.62</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-09-27"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"outflow"</span><span class="p">:</span><span class="w"> </span><span class="mf">15456621.51</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"outflow_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">15426543.13</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"number_of_txns"</span><span class="p">:</span><span class="w"> </span><span class="mi">436</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"avg_txn_value"</span><span class="p">:</span><span class="w"> </span><span class="mf">35450.9668</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"avg_txn_value_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">35381.98</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<p>This endpoint returns the inflow of stablecoins into exchange wallets. The <code>avg_txn_value</code>, <code>inflow</code>, and <code>number_of_txns</code> are calculated over the window (either 1 hour or 1 day). <code>hour</code> is in UTC</p>
+<h3 id='http-request-2'>HTTP Request</h3>
+<p><code>GET https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_window_historical/last?</code></p>
+<h3 id='query-parameters-2'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>key</td>
+<td><em>string</em></td>
+<td>Your unique API key</td>
+</tr>
+<tr>
+<td>format</td>
+<td><em>string</em></td>
+<td>What format you want your data in (<code>json</code> or <code>csv</code>)</td>
+</tr>
+<tr>
+<td>token</td>
+<td><em>string</em></td>
+<td><code>usdt_omni</code></td>
+</tr>
+<tr>
+<td>exchange</td>
+<td><em>string</em></td>
+<td>An exchange from the list of ones we support</td>
+</tr>
+<tr>
+<td>direction</td>
+<td><em>string</em></td>
+<td><code>inflow</code></td>
+</tr>
+<tr>
+<td>window</td>
+<td><em>string</em></td>
+<td><code>1h</code> or <code>1d</code></td>
+</tr>
+<tr>
+<td>from_date *</td>
+<td><em>string</em></td>
+<td>Start date of returned data specified as YYYY-MM-DD (ISO date format)</td>
+</tr>
+<tr>
+<td>to_date *</td>
+<td><em>string</em></td>
+<td>End date of returned data specified as YYYY-MM-DD (ISO date format)</td>
+</tr>
+<tr>
+<td>limit *</td>
+<td><em>integer</em></td>
+<td>The number of entries returned before the latest data point (or the to_date if specified)</td>
+</tr>
+</tbody></table>
+<h3 id='data-overview-2'>Data Overview</h3>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>date</td>
+<td><em>string</em></td>
+<td>The date in <em>YYYY-MM-DD</em></td>
+</tr>
+<tr>
+<td>hour</td>
+<td><em>string</em></td>
+<td>The hour of the day in <em>HH:MM:SS</em> (UTC time zone). This is an optional field that only appears if the <code>window=1h</code> is used.</td>
+</tr>
+<tr>
+<td>inflow</td>
+<td><em>decimal</em></td>
+<td>The total amount of the token that flowed into the exchange on this date. Denominated in the token in question.</td>
+</tr>
+<tr>
+<td>inflow_usd</td>
+<td><em>decimal</em></td>
+<td>The USD value of the total amount of the token that flowed into the exchange on this date</td>
+</tr>
+<tr>
+<td>number_of_txns</td>
+<td><em>integer</em></td>
+<td>The number of transactions sending the token into this exchange on this date.</td>
+</tr>
+<tr>
+<td>avg_txn_value</td>
+<td><em>decimal</em></td>
+<td>The average amount of tokens transferred per transaction into the given exchange on this date.</td>
+</tr>
+<tr>
+<td>avg_txn_value_usd</td>
+<td><em>decimal</em></td>
+<td>The USD value of the average amount of tokens transferred per transaction into the given exchange on this date.</td>
+</tr>
+</tbody></table>
+<h2 id='tether-omni-full-historical-top-10-inflow-large-value-transactions'>Tether (Omni) Full Historical Top 10 Inflow Large Value Transactions</h2>
+<p><img src="https://img.shields.io/badge/Tier-Professional-black.svg"/></p>
+
+<blockquote>
+<p>This is an example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_top10_window_historical/last?token=usdt_omni&amp;exchange=binance&amp;direction=inflow&amp;format=json&amp;key=API_KEY&amp;window=1d"</span>
+</code></pre>
+<blockquote>
+<p>The response looks like:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-18"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"transactionid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5e5c74b0aab078c929952f9de0155d32152c0dc7c65c8cfdc53c2c0ed1a4d720"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"transaction_datetime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-18 04:48:59"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="mi">34000</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"value_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">34001.93</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-18"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"transactionid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"84801e2b0fa58093fa74b997a3bfd936b598c91ff1d9f16cf55b8d294ff2c672"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"transaction_datetime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-18 18:50:19"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="mi">33283</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"value_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">33284.88</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<p>This endpoint returns the top 10 transactions (in terms of total USDT sent) flowing into exchange wallets for every day that the exchange wallets we track have been live on the blockchain.</p>
+<h3 id='http-request-3'>HTTP Request</h3>
+<p><code>GET https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_top10_window_historical/last?</code></p>
+<h3 id='url-parameters'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>key</td>
+<td><em>string</em></td>
+<td>Your unique API key</td>
+</tr>
+<tr>
+<td>format</td>
+<td><em>string</em></td>
+<td>What format you want your data in (<code>json</code> or <code>csv</code>)</td>
+</tr>
+<tr>
+<td>token</td>
+<td><em>string</em></td>
+<td><code>usdt_omni</code></td>
+</tr>
+<tr>
+<td>direction</td>
+<td><em>string</em></td>
+<td><code>inflow</code></td>
+</tr>
+<tr>
+<td>exchange</td>
+<td><em>string</em></td>
+<td>An exchange from the list of ones we support</td>
+</tr>
+<tr>
+<td>window</td>
+<td><em>string</em></td>
+<td><code>1d</code> (no support for 1h at this time)</td>
+</tr>
+<tr>
+<td>from_date *</td>
+<td><em>string</em></td>
+<td>Start date of returned data specified as YYYY-MM-DD (ISO date format)</td>
+</tr>
+<tr>
+<td>to_date *</td>
+<td><em>string</em></td>
+<td>End date of returned data specified as YYYY-MM-DD (ISO date format)</td>
+</tr>
+<tr>
+<td>limit *</td>
+<td><em>integer</em></td>
+<td>The number of entries returned before the latest data point (or the to_date if specified)</td>
+</tr>
+</tbody></table>
+<h3 id='data-overview-3'>Data Overview</h3>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>date</td>
+<td><em>string</em></td>
+<td>The date in <em>YYYY-MM-DD</em></td>
+</tr>
+<tr>
+<td>transactionid</td>
+<td><em>string</em></td>
+<td>The transaction id of the transaction in question.</td>
+</tr>
+<tr>
+<td>transaction_datetime</td>
+<td><em>string</em></td>
+<td>The timestamp in datetime format YYYY-MM-DD HH:MM:SS (UTC time zone) when the transaction was mined</td>
+</tr>
+<tr>
+<td>value</td>
+<td><em>decimal</em></td>
+<td>The amount of USDT transferred in this transaction.</td>
+</tr>
+<tr>
+<td>rank</td>
+<td><em>integer</em></td>
+<td>Ranking out of 10 for the 10 largest USDT (Omni) transactions flowing into the exchange in question on this date.</td>
+</tr>
+<tr>
+<td>value_usd</td>
+<td><em>decimal</em></td>
+<td>The value in USD of the amount of USDT tranferred in this transaction.</td>
+</tr>
+</tbody></table>
+<h2 id='tether-omni-full-historical-top-10-outflow-large-value-transactions'>Tether (Omni) Full Historical Top 10 Outflow Large Value Transactions</h2>
+<p><img src="https://img.shields.io/badge/Tier-Professional-black.svg"/></p>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_top10_window_historical/last?token=usdt_omni&amp;exchange=binance&amp;direction=outflow&amp;format=json&amp;key=API_KEY"</span>
+</code></pre>
+<blockquote>
+<p>The response looks like:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-14"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"transactionid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5354b702a372027cc23bb9c47749bdfab77c9d7739f8afafcf49178bc6659a2b"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"transaction_datetime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-14 17:23:03"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="mi">129985</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"value_usd"</span><span class="p">:</span><span class="w"> </span><span class="mi">129985</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-14"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"transactionid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7a91a7b4eabe7b0d0e77139ea1ed7eaecd6d45d82f7b789aae41617cfcdcf026"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"transaction_datetime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-14 16:37:27"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="mi">100090</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"value_usd"</span><span class="p">:</span><span class="w"> </span><span class="mi">100090</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<p>This endpoint returns the top 10 transactions (in terms of total USDT sent) flowing out of exchange wallets for every day that the exchange wallets we track have been live on the blockchain.</p>
+<h3 id='http-request-4'>HTTP Request</h3>
+<p><code>GET https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_top10_window_historical/last?</code></p>
+<h3 id='url-parameters-2'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>key</td>
+<td><em>string</em></td>
+<td>Your unique API key</td>
+</tr>
+<tr>
+<td>format</td>
+<td><em>string</em></td>
+<td>What format you want your data in (<code>json</code> or <code>csv</code>)</td>
+</tr>
+<tr>
+<td>token</td>
+<td><em>string</em></td>
+<td><code>usdt_omni</code></td>
+</tr>
+<tr>
+<td>direction</td>
+<td><em>string</em></td>
+<td><code>outflow</code></td>
+</tr>
+<tr>
+<td>exchange</td>
+<td><em>string</em></td>
+<td>An exchange from the list of ones we support</td>
+</tr>
+<tr>
+<td>window</td>
+<td><em>string</em></td>
+<td><code>1d</code> (no support for 1h at this time)</td>
+</tr>
+<tr>
+<td>from_date *</td>
+<td><em>string</em></td>
+<td>Start date of returned data specified as YYYY-MM-DD (ISO date format)</td>
+</tr>
+<tr>
+<td>to_date *</td>
+<td><em>string</em></td>
+<td>End date of returned data specified as YYYY-MM-DD (ISO date format)</td>
+</tr>
+<tr>
+<td>limit *</td>
+<td><em>integer</em></td>
+<td>The number of entries returned before the latest data point (or the to_date if specified)</td>
+</tr>
+</tbody></table>
+<h3 id='data-overview-4'>Data Overview</h3>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>date</td>
+<td><em>string</em></td>
+<td>The date in <em>YYYY-MM-DD</em></td>
+</tr>
+<tr>
+<td>transactionid</td>
+<td><em>string</em></td>
+<td>The transaction id of the transaction in question.</td>
+</tr>
+<tr>
+<td>transaction_datetime</td>
+<td><em>string</em></td>
+<td>The timestamp in datetime format YYYY-MM-DD HH:MM:SS (UTC time zone) when the transaction was mined</td>
+</tr>
+<tr>
+<td>value</td>
+<td><em>decimal</em></td>
+<td>The amount of USDT transferred in this transaction.</td>
+</tr>
+<tr>
+<td>rank</td>
+<td><em>integer</em></td>
+<td>Ranking out of 10 for the 10 largest USDT (Omni) transactions flowing into the exchange in question on this date.</td>
+</tr>
+<tr>
+<td>value_usd</td>
+<td><em>decimal</em></td>
+<td>The value in USD of the amount of USDT tranferred in this transaction.</td>
+</tr>
+</tbody></table>
 <h1 id='erc20-exchange-flows'>ERC20 Exchange Flows</h1>
 <p>ERC20 tokens we currently support are:</p>
 
@@ -6081,6 +6652,372 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
 <td>avg_txn_value_usd</td>
 <td><em>decimal</em></td>
 <td>The USD value of the average amount of tokens transferred per transaction out of the given exchange on this date.</td>
+</tr>
+</tbody></table>
+<h1 id='v2-erc20-exchange-flows-beta'>V2 ERC20 Exchange Flows [Beta]</h1>
+<p>ERC20 tokens we currently support are:</p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Symbol</th>
+<th>Supported exchanges</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Maker</td>
+<td><code>mkr</code></td>
+<td><code>bittrex</code>, <code>kucoin</code></td>
+</tr>
+<tr>
+<td>Basic Attention Token</td>
+<td><code>bat</code></td>
+<td><code>binance</code>, <code>bittrex</code>, <code>poloniex</code></td>
+</tr>
+<tr>
+<td>OmiseGo</td>
+<td><code>omg</code></td>
+<td><code>binance</code>, <code>bittrex</code>, <code>kucoin</code>, <code>poloniex</code></td>
+</tr>
+<tr>
+<td>Augur</td>
+<td><code>rep</code></td>
+<td><code>binance</code>, <code>bittrex</code>, <code>kraken</code>, <code>poloniex</code></td>
+</tr>
+<tr>
+<td>Golem</td>
+<td><code>gnt</code></td>
+<td><code>binance</code>, <code>bittrex</code>, <code>poloniex</code></td>
+</tr>
+<tr>
+<td>ZRX</td>
+<td><code>zrx</code></td>
+<td><code>binance</code>, <code>bittrex</code>, <code>kucoin</code>, <code>poloniex</code></td>
+</tr>
+<tr>
+<td>Zilliqa</td>
+<td><code>zil</code></td>
+<td><code>binance</code>, <code>bittrex</code>, <code>kucoin</code></td>
+</tr>
+<tr>
+<td>Decentraland</td>
+<td><code>mana</code></td>
+<td><code>binance</code>, <code>bittrex</code>, <code>kucoin</code>, <code>poloniex</code></td>
+</tr>
+<tr>
+<td>Numerai</td>
+<td><code>nmr</code></td>
+<td><code>bittrex</code></td>
+</tr>
+<tr>
+<td>Loom Network</td>
+<td><code>loom</code></td>
+<td><code>binance</code>, <code>bittrex</code>, <code>kucoin</code>, <code>poloniex</code></td>
+</tr>
+<tr>
+<td>Status</td>
+<td><code>snt</code></td>
+<td><code>kucoin</code>, <code>poloniex</code></td>
+</tr>
+<tr>
+<td>Civic</td>
+<td><code>cvc</code></td>
+<td><code>binance</code>, <code>bittrex</code>, <code>kucoin</code>, <code>poloniex</code></td>
+</tr>
+<tr>
+<td>Kyber Network</td>
+<td><code>knc</code></td>
+<td><code>binance</code>, <code>kucoin</code>, <code>poloniex</code></td>
+</tr>
+<tr>
+<td>iExec RLC</td>
+<td><code>rlc</code></td>
+<td><code>bittrex</code></td>
+</tr>
+<tr>
+<td>ChainLink</td>
+<td><code>link</code></td>
+<td><code>binance</code></td>
+</tr>
+</tbody></table>
+<h2 id='erc20-full-historical-flows-into-exchanges-beta'>ERC20 Full Historical Flows Into Exchanges [Beta]</h2>
+<p><img src="https://img.shields.io/badge/Tier-Professional-black.svg"/></p>
+
+<blockquote>
+<p>This is an example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_window_historical/last?token=bat&amp;exchange=binance&amp;direction=inflow&amp;window=1h&amp;format=json&amp;key=API_KEY"</span>
+</code></pre>
+<blockquote>
+<p>The response looks like:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-03-17"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"hour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">available</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
+    </span><span class="s2">"datetime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-03-17 11:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">available</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
+    </span><span class="s2">"inflow"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.8164</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"inflow_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">21.14</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"number_of_txns"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"avg_txn_value"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.22705</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"avg_txn_value_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">2.64</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-03-18"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"hour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">available</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
+    </span><span class="s2">"datetime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-03-18 12:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">available</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
+    </span><span class="s2">"inflow"</span><span class="p">:</span><span class="w"> </span><span class="mf">3.7594499999999997</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"inflow_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">38.38</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"number_of_txns"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"avg_txn_value"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.75189</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"avg_txn_value_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">7.68</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<p>This endpoint returns the inflow of ERC20 tokens into exchange wallets. The <code>avg_txn_value</code>, <code>inflow</code>, and <code>number_of_txns</code> are calculated over the window (either 1 hour or 1 day). <code>hour</code> is in UTC </p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>GET https://api.tokenanalyst.io/analytics/private/v1/last/exchange_flow_window_historical/last?</code></p>
+<h3 id='url-parameters'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>key</td>
+<td><em>string</em></td>
+<td>Your unique API key</td>
+</tr>
+<tr>
+<td>format</td>
+<td><em>string</em></td>
+<td>What format you want your data in (<code>json</code> or <code>csv</code>)</td>
+</tr>
+<tr>
+<td>token</td>
+<td><em>string</em></td>
+<td><code>bat</code></td>
+</tr>
+<tr>
+<td>direction</td>
+<td><em>string</em></td>
+<td><code>inflow</code></td>
+</tr>
+<tr>
+<td>exchange</td>
+<td><em>string</em></td>
+<td>An exchange from the list of ones we support</td>
+</tr>
+<tr>
+<td>window</td>
+<td><em>string</em></td>
+<td><code>1h</code> or <code>1d</code></td>
+</tr>
+<tr>
+<td>from_date *</td>
+<td><em>string</em></td>
+<td>Start date of returned data specified as YYYY-MM-DD (ISO date format)</td>
+</tr>
+<tr>
+<td>to_date *</td>
+<td><em>string</em></td>
+<td>End date of returned data specified as YYYY-MM-DD (ISO date format)</td>
+</tr>
+<tr>
+<td>limit *</td>
+<td><em>integer</em></td>
+<td>The number of entries returned before the latest data point (or the to_date if specified)</td>
+</tr>
+</tbody></table>
+<h3 id='data-overview'>Data Overview</h3>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>date</td>
+<td><em>string</em></td>
+<td>The date in <em>YYYY-MM-DD</em></td>
+</tr>
+<tr>
+<td>hour *</td>
+<td><em>string</em></td>
+<td>The hour of the day in <em>HH:MM:SS</em> (UTC time zone). This is an optional field field and appears when window is <code>1h</code></td>
+</tr>
+<tr>
+<td>datetime *</td>
+<td><em>string</em></td>
+<td>The hour of the day in datetime format YYYY-MM-DD HH:MM:SS (UTC time zone). This is an optional field field and appears when window is <code>1h</code></td>
+</tr>
+<tr>
+<td>inflow</td>
+<td><em>decimal</em></td>
+<td>The total amount of ETH that flowed into the exchange on this date. Denominated in ETH.</td>
+</tr>
+<tr>
+<td>inflow_usd</td>
+<td><em>decimal</em></td>
+<td>The USD value of the total amount of ETH that flowed into the exchange on this date</td>
+</tr>
+<tr>
+<td>number_of_txns</td>
+<td><em>integer</em></td>
+<td>The number of transactions sending ETH into this exchange on this date.</td>
+</tr>
+<tr>
+<td>avg_txn_value</td>
+<td><em>decimal</em></td>
+<td>The average amount ETH transferred per transaction into the given exchange on this date.</td>
+</tr>
+<tr>
+<td>avg_txn_value_usd</td>
+<td><em>decimal</em></td>
+<td>The USD value of the average amount of ETH transferred per transaction into the given exchange on this date.</td>
+</tr>
+</tbody></table>
+<h2 id='erc20-full-historical-flows-out-of-exchanges-beta'>ERC20 Full Historical Flows Out Of Exchanges [Beta]</h2>
+<p><img src="https://img.shields.io/badge/Tier-Professional-black.svg"/></p>
+
+<blockquote>
+<p>This is an example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_window_historical/last?token=bat&amp;exchange=binance&amp;direction=outflow&amp;window=1h&amp;format=json&amp;key=API_KEY"</span>
+</code></pre>
+<blockquote>
+<p>The response looks like:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-03-17"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"hour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">available</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
+    </span><span class="s2">"datetime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-03-17 11:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">available</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
+    </span><span class="s2">"outflow"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.8164</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"outflow_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">21.14</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"number_of_txns"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"avg_txn_value"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.22705</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"avg_txn_value_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">2.64</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-03-18"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"hour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">available</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
+    </span><span class="s2">"datetime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-03-18 12:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">available</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
+    </span><span class="s2">"outflow"</span><span class="p">:</span><span class="w"> </span><span class="mf">3.7594499999999997</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"outflow_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">38.38</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"number_of_txns"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"avg_txn_value"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.75189</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"avg_txn_value_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">7.68</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<p>This endpoint returns the outflow of ETH from exchange wallets. The <code>avg_txn_value</code>, <code>outflow</code>, and <code>number_of_txns</code> are calculated over the window (either 1 hour or 1 day). <code>hour</code> is in UTC</p>
+<h3 id='http-request-2'>HTTP Request</h3>
+<p><code>GET https://api.tokenanalyst.io/analytics/private/v1/last/exchange_flow_window_historical/last?</code></p>
+<h3 id='url-parameters-2'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>key</td>
+<td><em>string</em></td>
+<td>Your unique API key</td>
+</tr>
+<tr>
+<td>format</td>
+<td><em>string</em></td>
+<td>What format you want your data in (<code>json</code> or <code>csv</code>)</td>
+</tr>
+<tr>
+<td>token</td>
+<td><em>string</em></td>
+<td><code>bat</code></td>
+</tr>
+<tr>
+<td>direction</td>
+<td><em>string</em></td>
+<td><code>outflow</code></td>
+</tr>
+<tr>
+<td>exchange</td>
+<td><em>string</em></td>
+<td>An exchange from the list of ones we support</td>
+</tr>
+<tr>
+<td>window</td>
+<td><em>string</em></td>
+<td><code>1h</code> or <code>1d</code></td>
+</tr>
+<tr>
+<td>from_date *</td>
+<td><em>string</em></td>
+<td>Start date of returned data specified as YYYY-MM-DD (ISO date format)</td>
+</tr>
+<tr>
+<td>to_date *</td>
+<td><em>string</em></td>
+<td>End date of returned data specified as YYYY-MM-DD (ISO date format)</td>
+</tr>
+<tr>
+<td>limit *</td>
+<td><em>integer</em></td>
+<td>The number of entries returned before the latest data point (or the to_date if specified)</td>
+</tr>
+</tbody></table>
+<h3 id='data-overview-2'>Data Overview</h3>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>date</td>
+<td><em>string</em></td>
+<td>The date in <em>YYYY-MM-DD</em></td>
+</tr>
+<tr>
+<td>hour *</td>
+<td><em>string</em></td>
+<td>The hour of the day in <em>HH:MM:SS</em> (UTC time zone). This is an optional field field and appears when window is <code>1h</code></td>
+</tr>
+<tr>
+<td>datetime *</td>
+<td><em>string</em></td>
+<td>The hour of the day in datetime format YYYY-MM-DD HH:MM:SS (UTC time zone). This is an optional field field and appears when window is <code>1h</code></td>
+</tr>
+<tr>
+<td>outflow</td>
+<td><em>decimal</em></td>
+<td>The total amount of ETH that flowed out of the exchange on this date. Denominated in ETH.</td>
+</tr>
+<tr>
+<td>outflow_usd</td>
+<td><em>decimal</em></td>
+<td>The USD value of the total amount of ETH that flowed out of the exchange on this date</td>
+</tr>
+<tr>
+<td>number_of_txns</td>
+<td><em>integer</em></td>
+<td>The number of transactions sending ETH out of this exchange on this date.</td>
+</tr>
+<tr>
+<td>avg_txn_value</td>
+<td><em>decimal</em></td>
+<td>The average amount ETH transferred per transaction out of the given exchange on this date.</td>
+</tr>
+<tr>
+<td>avg_txn_value_usd</td>
+<td><em>decimal</em></td>
+<td>The USD value of the average amount of ETH transferred per transaction out of the given exchange on this date.</td>
 </tr>
 </tbody></table>
 <h1 id='miner-flows'>Miner Flows</h1><h2 id='miner-full-historical-inflow'>Miner Full Historical Inflow</h2>
