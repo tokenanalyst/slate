@@ -1,22 +1,17 @@
-# Stablecoin Exchange Flows
+# V2 Stablecoin Exchange Flows [BETA]
 
 The stablecoins we currently support are:
 
-| Name                 | Symbol       |
-| -------------------- | ------------ |
-| Tether (Omni)        | `usdt_omni`  |
-| Tether (ERC20)       | `usdt_erc20` |
-| USDC                 | `usdc`       |
-| Paxos Standard Token | `pax`        |
-| TrueUSD              | `tusd`       |
-| Gemini Dollar        | `gusd`       |
-| Dai                  | `dai`        |
+| Name                 | Symbol       | Supported Exchanges     |
+| -------------------- | ------------ | ------------ |
+| Tether (Omni)        | `usdt_omni`  | `kraken`, `bitfinex`, `poloniex`, `bittrex`, `okex` |
+| Tether (ERC20)       | `usdt_erc20` | `binance`, `bitfinex`, `bittrex`, `kucoin`, `poloniex` |
+| USDC                 | `usdc`       | `binance`, `bitfinex`|
+| Paxos Standard Token | `pax`        | `binance`, `bitfinex`, `bittrex` |
+| TrueUSD              | `tusd`       | `binance`, `bittrex` |
+| Dai                  | `dai`        | `bittrex` |
 
-For Tether (Omni), currently supported exchanges are: `kraken`, `bitfinex`, `poloniex`, `bittrex`, `okex`
-
-For ERC20 Stablecoins, currently supported exchanges are: `binance`, `kraken`, `bitfinex`, `poloniex`, `bittrex`, `kucoin`
-
-## Tether (Omni) Full Historical Inflow from Exchanges
+## Stablecoins Full Historical Inflow from Exchanges [Beta]
 
 <img src="https://img.shields.io/badge/Tier-Professional-black.svg"/>
 
@@ -47,7 +42,7 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_window_hist
 ]
 ```
 
-This endpoint returns the inflow of USDT (Tether) on the Omni blockchain into exchange wallets. The `avg_txn_value`, `inflow`, and `number_of_txns` are calculated over the window (either 1 hour or 1 day). `hour` is in UTC
+This endpoint returns the inflow of stablecoins into exchange wallets. The `avg_txn_value`, `inflow`, and `number_of_txns` are calculated over the window (either 1 hour or 1 day). `hour` is in UTC
 
 ### HTTP Request
 
@@ -80,7 +75,8 @@ This endpoint returns the inflow of USDT (Tether) on the Omni blockchain into ex
 | avg_txn_value     | _decimal_ | The average amount of tokens transferred per transaction into the given exchange on this date.                             |
 | avg_txn_value_usd | _decimal_ | The USD value of the average amount of tokens transferred per transaction into the given exchange on this date.            |
 
-## Tether (Omni) Full Historical Outflow from Exchanges
+
+## Stablecoins Full Historical Outflow from Exchanges [Beta]
 
 <img src="https://img.shields.io/badge/Tier-Professional-black.svg"/>
 
@@ -111,7 +107,7 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_window_hist
 ]
 ```
 
-This endpoint returns the inflow of USDT (Tether) on the Omni blockchain into exchange wallets. The `avg_txn_value`, `inflow`, and `number_of_txns` are calculated over the window (either 1 hour or 1 day). `hour` is in UTC
+This endpoint returns the inflow of stablecoins into exchange wallets. The `avg_txn_value`, `inflow`, and `number_of_txns` are calculated over the window (either 1 hour or 1 day). `hour` is in UTC
 
 ### HTTP Request
 
@@ -271,151 +267,3 @@ This endpoint returns the top 10 transactions (in terms of total USDT sent) flow
 | value         | _decimal_ | The amount of USDT transferred in this transaction.                                                               |
 | rank          | _integer_ | Ranking out of 10 for the 10 largest USDT (Omni) transactions flowing into the exchange in question on this date. |
 | value_usd     | _decimal_ | The value in USD of the amount of USDT tranferred in this transaction.                                            |
-
-## ERC20 Stablecoin Full Historical Inflow from Exchanges
-
-<img src="https://img.shields.io/badge/Tier-Professional-black.svg"/>
-
-```shell
-curl "https://api.tokenanalyst.io/analytics/private/v1/erc20_exchanges_flow_window_historical/last?token=usdc&direction=inflow&window=1h&format=json&key=API_KEY"
-```
-
-> The above command returns JSON structured like this:
-
-```json
-[
-  {
-    "date": "2018-11-06",
-    "hour": "11:00:00", // not available when window 1d
-    "datetime": "2018-11-06 11:00:00", // not available when window 1d
-    "token_name": "USDC",
-    "exchange": "Binance",
-    "inflow": 509.689581,
-    "inflow_usd": 511.09,
-    "number_of_txns": 3,
-    "avg_txn_value": 169.896527,
-    "avg_txn_value_usd": 170.36
-  },
-  {
-    "date": "2018-11-07",
-    "hour": "12:00:00", // not available when window 1d
-    "datetime": "2018-11-07 12:00:00", // not available when window 1d
-    "token_name": "USDC",
-    "exchange": "Kucoin",
-    "inflow": 3585.887836,
-    "inflow_usd": 3609.0,
-    "number_of_txns": 3,
-    "avg_txn_value": 1195.2959453333333,
-    "avg_txn_value_usd": 1203.0
-  }
-]
-```
-
-This endpoint returns the inflow of stablecoins into exchange wallets. The `avg_txn_value`, `inflow`, and `number_of_txns` are calculated over the window (either 1 hour or 1 day). `hour` is in UTC. As a reminder, the exchanges we support for this endpoint are: `binance`, `kraken`, `bitfinex`, `poloniex`, `bittrex`, `kucoin`.
-
-### HTTP Request
-
-`GET https://api.tokenanalyst.io/analytics/private/v1/erc20_exchanges_flow_window_historical/last?`
-
-### Query Parameters
-
-| Parameter | Type     | Description                                         |
-| --------- | -------- | --------------------------------------------------- |
-| key       | _string_ | Your unique API key                                 |
-| format    | _string_ | What format you want your data in (`json` or `csv`) |
-| token     | _string_ | `usdc`                                              |
-| direction | _string_ | `inflow`                                            |
-| window    | _string_ | `1h` or `1d`                                        |
-| from_date \* | _string_  | Start date of returned data specified as YYYY-MM-DD (ISO date format)                     |
-| to_date \*   | _string_  | End date of returned data specified as YYYY-MM-DD (ISO date format)                       |
-| limit \*     | _integer_ | The number of entries returned before the latest data point (or the to_date if specified) |
-
-
-### Data Overview
-
-| Field             | Type      | Description                                                                                                     |
-| ----------------- | --------- | --------------------------------------------------------------------------------------------------------------- |
-| date              | _string_  | The date in _YYYY-MM-DD_                                                                                        |
-| hour *   | _string_  | The hour of the day in _HH:MM:SS_ (UTC time zone). This is an optional field field and appears when window is `1h`                                                                                                        |
-| datetime *  | _string_  | The hour of the day in datetime format YYYY-MM-DD HH:MM:SS (UTC time zone). This is an optional field field and appears when window is `1h`                                                                               |
-| token_name        | _string_  | The name of the token in question                                                                               |
-| exchange          | _string_  | The name of the exchange in question                                                                            |
-| inflow            | _decimal_ | The total amount of the token that flowed into the exchange on this date. Denominated in the token in question. |
-| inflow_usd        | _decimal_ | The USD value of the total amount of the token that flowed into the exchange on this date                       |
-| number_of_txns    | _integer_ | The number of transactions sending the token into this exchange on this date.                                   |
-| avg_txn_value     | _decimal_ | The average amount of tokens transferred per transaction into the given exchange on this date.                  |
-| avg_txn_value_usd | _decimal_ | The USD value of the average amount of tokens transferred per transaction into the given exchange on this date. |
-
-## ERC20 Stablecoin Full Historical Outflow from Exchanges
-
-<img src="https://img.shields.io/badge/Tier-Professional-black.svg"/>
-
-```shell
-curl "https://api.tokenanalyst.io/analytics/private/v1/erc20_exchanges_flow_window_historical/last?token=usdc&direction=outflow&window=1h&format=json&key=API_KEY"
-```
-
-> The above command returns JSON structured like this:
-
-```json
-[
-  {
-    "date": "2018-11-06",
-    "hour": "11:00:00", // not available when window 1d
-    "datetime": "2018-11-06 11:00:00", // not available when window 1d
-    "token_name": "USDC",
-    "exchange": "Kucoin",
-    "outflow": 509.689581,
-    "outflow_usd": 511.09,
-    "number_of_txns": 3,
-    "avg_txn_value": 169.896527,
-    "avg_txn_value_usd": 170.36
-  },
-  {
-    "date": "2018-11-07",
-    "hour": "12:00:00", // not available when window 1d
-    "datetime": "2018-11-07 12:00:00", // not available when window 1d
-    "token_name": "USDC",
-    "exchange": "Kucoin",
-    "outflow": 3585.887836,
-    "outflow_usd": 3609.0,
-    "number_of_txns": 3,
-    "avg_txn_value": 1195.2959453333333,
-    "avg_txn_value_usd": 1203.0
-  }
-]
-```
-
-This endpoint returns the outflow of stablecoins from exchange wallets. The `avg_txn_value`, `outflow`, and `number_of_txns` are calculated over the window (either 1 hour or 1 day). `hour` is in UTC
-
-### HTTP Request
-
-`GET https://api.tokenanalyst.io/analytics/private/v1/erc20_exchanges_flow_window_historical/last?`
-
-### Query Parameters
-
-| Parameter | Type     | Description                                         |
-| --------- | -------- | --------------------------------------------------- |
-| key       | _string_ | Your unique API key                                 |
-| format    | _string_ | What format you want your data in (`json` or `csv`) |
-| token     | _string_ | `usdc`                                              |
-| direction | _string_ | `outflow`                                           |
-| window    | _string_ | `1h` or `1d`                                        |
-| from_date \* | _string_  | Start date of returned data specified as YYYY-MM-DD (ISO date format)                     |
-| to_date \*   | _string_  | End date of returned data specified as YYYY-MM-DD (ISO date format)                       |
-| limit \*     | _integer_ | The number of entries returned before the latest data point (or the to_date if specified) |
-
-
-### Data Overview
-
-| Field             | Type      | Description                                                                                                       |
-| ----------------- | --------- | ----------------------------------------------------------------------------------------------------------------- |
-| date              | _string_  | The date in _YYYY-MM-DD_                                                                                          |
-| hour *   | _string_  | The hour of the day in _HH:MM:SS_ (UTC time zone). This is an optional field field and appears when window is `1h`                                                                                                        |
-| datetime *  | _string_  | The hour of the day in datetime format YYYY-MM-DD HH:MM:SS (UTC time zone). This is an optional field field and appears when window is `1h`                                                                               |
-| token_name        | _string_  | The name of the token in question                                                                                 |
-| exchange          | _string_  | The name of the exchange in question                                                                              |
-| outflow           | _decimal_ | The total amount of the token that flowed out of the exchange on this date. Denominated in the token in question. |
-| outflow_usd       | _decimal_ | The USD value of the total amount of the token that flowed out of the exchange on this date                       |
-| number_of_txns    | _integer_ | The number of transactions sending the token out of this exchange on this date.                                   |
-| avg_txn_value     | _decimal_ | The average amount of tokens transferred per transaction out of the given exchange on this date.                  |
-| avg_txn_value_usd | _decimal_ | The USD value of the average amount of tokens transferred per transaction out of the given exchange on this date. |
