@@ -10,7 +10,7 @@ You can find a sample python script to subscribe to this feed here - <a href="ht
 ws://ws.tokenanalyst.io:8000
 ```
 
-> Subscribing to the above URL returns JSON structured like this:
+> Subscribing to the exchange_flows channel returns JSON structured like this:
 
 ```json
 [
@@ -51,21 +51,24 @@ Websocket connections go through the following lifecycle:
 * Receive heartbeat (every 30 seconds) - `{"id":null,"event":"heartbeat","data":{"serverTime":1570014312199}}`
 * Authenticate and subscribe to a channel with `{"event":"subscribe","channel":"exchange_flows","id":"test-id","key":"<insert_api_key_here>"}`
 * Receive subscription response `{"id":"test-id","event":"subscribed","data":{"success":true,"errorCode":null,"message":"Subscribed to channel exchange_flows"}}`
-* Receive data `{"id": test-id, "blockNumber": 597535, "timestamp": 1570016241000, "seen": 1570016245525}`
-* Unsubscribe `{"event":"unsubscribe","channel":"exchange_flows","id":"test-id","key":"<insert_api_key_here"}`
+* Receive data `{"id":"test-id","event":"data","data":{"blockNumber":597542,"blockHash":"0000000000000000000581292750484f48e85bc2de54c2658a4a774da2095880","transactionId":"67bd2bc0652ae1a999cd5c60a879c5c15f5cb7178aa00b97875bb6fe8debff2d","timestamp":1570019590,"from":["1Bf5e5iUDbKL1c4wqom1Us6zszSokXY4Bd","1Bf5e5iUDbKL1c4wqom1Us6zszSokXY4Bd","1Bf5e5iUDbKL1c4wqom1Us6zszSokXY4Bd","1Bf5e5iUDbKL1c4wqom1Us6zszSokXY4Bd"],"to":["Huobi"],"value":0.2018245,"flowType":"Inflow"}}`
+* Unsubscribe `{"event":"unsubscribe","channel":"exchange_flows","id":"test-id"}`
 * Receive unsubscription response `{"id":"test-id","event":"unsubscribed","data":{"success":true,"errorCode":null,"message":"Unsubscribed from channel exchange_flows"}}`
 
-### WS Request Parameters
+### Request Parameters
 
 | Field       | Type      | Description                                                                                                                                 |
 | ----------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
-| event       | _string_  | `subscribe`                                                                                                                    |
+| event       | _string_  | `subscribe` or `unsubscribe`                                                                                                                    |
 | channel | _string_  | The channel you want to subscribe to. Currently we only support `exchange_flows`, which has all BTC transactions going into, out of, and in-between exchanges on-chain. |
-| id    | _string_  | An arbitrary id that you can specify to identify the subscription                      |
+| id    | _string_  | An arbitrary id that you can specify to identify the data from the specific subscription                     |
 | key   | _string_ | Your unique TokenAnalyst API key                                                  |
 
+<aside class="notice">
+We currently support and return 4 types of events - <code>subscribe</code>, <code>unsubscribe</code>, <code>error</code>, and <code>data</code>. Below are overviews of the types of responses you will get from each event type.
+</aside>
 
-### WS Response Data Overview
+### Data Response Overview
 
 | Field       | Type      | Description                                                                                                                                 |
 | ----------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -76,7 +79,16 @@ Websocket connections go through the following lifecycle:
 | from   | [_string_] | A list of sending public key hashes (if infow) or exchange names (if outfow)                                                  |
 | to      | [_string_] | A list of receiving public key hashes (if outflow) or exchange names (if inflow)                                                 |
 | value      | _decimal_ | The total amount of BTC sent in the transaction                                                   |
-| flowType      | _string_ | One of either `Inflow`, `Outflow`, or `IntraFlow` (if funds flow within exchange wallets)                                                   |
+| flowType      | _string_ | One of either `Inflow`, `Outflow`, or `InterFlow` (if funds flow between different exchanges) `IntraFlow` (if funds flow within the same exchange's wallets)                                                   |
+
+
+### Subscribe/Unsubscribe/Error Event Response Overview
+
+| Field       | Type      | Description                                                                                                                                 |
+| ----------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| success       | _string_  | `true` or `false`                                                                                                                    |
+| errorCode | _string_  | The error code if an error occurred. Error codes detailed below. |
+| message    | _string_  | Human readable message confirming what event has occurred (successful subscription etc.)                      |
 
 
 ### Error Codes
@@ -88,3 +100,4 @@ Websocket connections go through the following lifecycle:
 | 3    | "You need to provide a valid API key."  | When your API key is not valid                      |
 | 4   | "Channel $name does not exist." | When the channel you've subscribed to doesn't exist                                                  |
 | 5   | "Not subscribed to channel $name." | When you are not subscribed to the channel you specified                                                  |
+| 6   | "The field $field is missing in the request" | When one of the required request parameters are missing.                                                  |
