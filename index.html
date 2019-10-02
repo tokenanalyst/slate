@@ -465,10 +465,13 @@
                     <a href="#request-process" class="toc-h2 toc-link" data-title="Request process">Request process</a>
                   </li>
                   <li>
-                    <a href="#ws-request-parameters" class="toc-h2 toc-link" data-title="WS Request Parameters">WS Request Parameters</a>
+                    <a href="#request-parameters" class="toc-h2 toc-link" data-title="Request Parameters">Request Parameters</a>
                   </li>
                   <li>
-                    <a href="#ws-response-data-overview" class="toc-h2 toc-link" data-title="WS Response Data Overview">WS Response Data Overview</a>
+                    <a href="#data-response-overview" class="toc-h2 toc-link" data-title="Data Response Overview">Data Response Overview</a>
+                  </li>
+                  <li>
+                    <a href="#subscribe-unsubscribe-error-event-response-overview" class="toc-h2 toc-link" data-title="Subscribe/Unsubscribe/Error Event Response Overview">Subscribe/Unsubscribe/Error Event Response Overview</a>
                   </li>
                   <li>
                     <a href="#error-codes" class="toc-h2 toc-link" data-title="Error Codes">Error Codes</a>
@@ -7309,7 +7312,7 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
 </tr>
 </tbody></table>
 <h1 id='websocket-feed'>Websocket Feed</h1>
-<p>The TokenAnalyst websocket feed provides real-time (with 3 blocks confirmation) bitcoin inflows and outflows to/from exchanges that we have labelled.</p>
+<p>The TokenAnalyst websocket feed provides real-time (with 0 blocks confirmation) bitcoin inflows and outflows to/from exchanges that we have labelled.</p>
 
 <p>You can find a sample python script to subscribe to this feed here - <a href="https://github.com/tokenanalyst/samplecode" target="_blank">https://github.com/tokenanalyst/samplecode</a></p>
 
@@ -7317,7 +7320,7 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
 <pre class="highlight shell tab-shell"><code>ws://ws.tokenanalyst.io:8000
 </code></pre>
 <blockquote>
-<p>Subscribing to the above URL returns JSON structured like this:</p>
+<p>Subscribing to the exchange_flows channel returns JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
@@ -7354,11 +7357,11 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
 <li>Receive heartbeat (every 30 seconds) - <code>{&quot;id&quot;:null,&quot;event&quot;:&quot;heartbeat&quot;,&quot;data&quot;:{&quot;serverTime&quot;:1570014312199}}</code></li>
 <li>Authenticate and subscribe to a channel with <code>{&quot;event&quot;:&quot;subscribe&quot;,&quot;channel&quot;:&quot;exchange_flows&quot;,&quot;id&quot;:&quot;test-id&quot;,&quot;key&quot;:&quot;&lt;insert_api_key_here&gt;&quot;}</code></li>
 <li>Receive subscription response <code>{&quot;id&quot;:&quot;test-id&quot;,&quot;event&quot;:&quot;subscribed&quot;,&quot;data&quot;:{&quot;success&quot;:true,&quot;errorCode&quot;:null,&quot;message&quot;:&quot;Subscribed to channel exchange_flows&quot;}}</code></li>
-<li>Receive data <code>{&quot;id&quot;: test-id, &quot;blockNumber&quot;: 597535, &quot;timestamp&quot;: 1570016241000, &quot;seen&quot;: 1570016245525}</code></li>
-<li>Unsubscribe <code>{&quot;event&quot;:&quot;unsubscribe&quot;,&quot;channel&quot;:&quot;exchange_flows&quot;,&quot;id&quot;:&quot;test-id&quot;,&quot;key&quot;:&quot;&lt;insert_api_key_here&quot;}</code></li>
+<li>Receive data <code>{&quot;id&quot;:&quot;test-id&quot;,&quot;event&quot;:&quot;data&quot;,&quot;data&quot;:{&quot;blockNumber&quot;:597542,&quot;blockHash&quot;:&quot;0000000000000000000581292750484f48e85bc2de54c2658a4a774da2095880&quot;,&quot;transactionId&quot;:&quot;67bd2bc0652ae1a999cd5c60a879c5c15f5cb7178aa00b97875bb6fe8debff2d&quot;,&quot;timestamp&quot;:1570019590,&quot;from&quot;:[&quot;1Bf5e5iUDbKL1c4wqom1Us6zszSokXY4Bd&quot;,&quot;1Bf5e5iUDbKL1c4wqom1Us6zszSokXY4Bd&quot;,&quot;1Bf5e5iUDbKL1c4wqom1Us6zszSokXY4Bd&quot;,&quot;1Bf5e5iUDbKL1c4wqom1Us6zszSokXY4Bd&quot;],&quot;to&quot;:[&quot;Huobi&quot;],&quot;value&quot;:0.2018245,&quot;flowType&quot;:&quot;Inflow&quot;}}</code></li>
+<li>Unsubscribe <code>{&quot;event&quot;:&quot;unsubscribe&quot;,&quot;channel&quot;:&quot;exchange_flows&quot;,&quot;id&quot;:&quot;test-id&quot;}</code></li>
 <li>Receive unsubscription response <code>{&quot;id&quot;:&quot;test-id&quot;,&quot;event&quot;:&quot;unsubscribed&quot;,&quot;data&quot;:{&quot;success&quot;:true,&quot;errorCode&quot;:null,&quot;message&quot;:&quot;Unsubscribed from channel exchange_flows&quot;}}</code></li>
 </ul>
-<h3 id='ws-request-parameters'>WS Request Parameters</h3>
+<h3 id='request-parameters'>Request Parameters</h3>
 <table><thead>
 <tr>
 <th>Field</th>
@@ -7369,7 +7372,7 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
 <tr>
 <td>event</td>
 <td><em>string</em></td>
-<td><code>subscribe</code></td>
+<td><code>subscribe</code> or <code>unsubscribe</code></td>
 </tr>
 <tr>
 <td>channel</td>
@@ -7379,7 +7382,7 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
 <tr>
 <td>id</td>
 <td><em>string</em></td>
-<td>An arbitrary id that you can specify to identify the subscription</td>
+<td>An arbitrary id that you can specify to identify the data from the specific subscription</td>
 </tr>
 <tr>
 <td>key</td>
@@ -7387,7 +7390,11 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
 <td>Your unique TokenAnalyst API key</td>
 </tr>
 </tbody></table>
-<h3 id='ws-response-data-overview'>WS Response Data Overview</h3>
+
+<aside class="notice">
+We currently support and return 4 types of events - <code>subscribe</code>, <code>unsubscribe</code>, <code>error</code>, and <code>data</code>. Below are overviews of the types of responses you will get from each event type.
+</aside>
+<h3 id='data-response-overview'>Data Response Overview</h3>
 <table><thead>
 <tr>
 <th>Field</th>
@@ -7433,7 +7440,31 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
 <tr>
 <td>flowType</td>
 <td><em>string</em></td>
-<td>One of either <code>Inflow</code>, <code>Outflow</code>, or <code>IntraFlow</code> (if funds flow within exchange wallets)</td>
+<td>One of either <code>Inflow</code>, <code>Outflow</code>, or <code>InterFlow</code> (if funds flow between different exchanges) <code>IntraFlow</code> (if funds flow within the same exchange&#39;s wallets)</td>
+</tr>
+</tbody></table>
+<h3 id='subscribe-unsubscribe-error-event-response-overview'>Subscribe/Unsubscribe/Error Event Response Overview</h3>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>success</td>
+<td><em>string</em></td>
+<td><code>true</code> or <code>false</code></td>
+</tr>
+<tr>
+<td>errorCode</td>
+<td><em>string</em></td>
+<td>The error code if an error occurred. Error codes detailed below.</td>
+</tr>
+<tr>
+<td>message</td>
+<td><em>string</em></td>
+<td>Human readable message confirming what event has occurred (successful subscription etc.)</td>
 </tr>
 </tbody></table>
 <h3 id='error-codes'>Error Codes</h3>
@@ -7468,6 +7499,11 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
 <td>5</td>
 <td>&quot;Not subscribed to channel $name.&quot;</td>
 <td>When you are not subscribed to the channel you specified</td>
+</tr>
+<tr>
+<td>6</td>
+<td>&quot;The field $field is missing in the request&quot;</td>
+<td>When one of the required request parameters are missing.</td>
 </tr>
 </tbody></table>
 
