@@ -1,8 +1,10 @@
-# Websocket Feed [BETA]
+# Websocket Feed
 
 The TokenAnalyst websocket feed provides real-time (with 3 blocks confirmation) bitcoin inflows and outflows to/from exchanges that we have labelled.
 
-<img src="https://img.shields.io/badge/Tier-BETA-blueviolet.svg"/>
+You can find a sample python script to subscribe to this feed here - <a href="https://github.com/tokenanalyst/samplecode" target="_blank">https://github.com/tokenanalyst/samplecode</a>
+
+<img src="https://img.shields.io/badge/Tier-ALPHA-blueviolet.svg"/>
 
 ```shell
 ws://ws.tokenanalyst.io:8000
@@ -42,7 +44,28 @@ ws://ws.tokenanalyst.io:8000
 
 `ws://ws.tokenanalyst.io:8000`
 
-### WS Data Overview
+### Request process
+Websocket connections go through the following lifecycle:
+
+* Establish a websocket connection with `ws://ws.tokenanalyst.io:8000`
+* Receive heartbeat (every 30 seconds) - `{"id":null,"event":"heartbeat","data":{"serverTime":1570014312199}}`
+* Authenticate and subscribe to a channel with `{"event":"subscribe","channel":"exchange_flows","id":"test-id","key":"<insert_api_key_here>"}`
+* Receive subscription response `{"id":"test-id","event":"subscribed","data":{"success":true,"errorCode":null,"message":"Subscribed to channel exchange_flows"}}`
+* Receive data `{"id": test-id, "blockNumber": 597535, "timestamp": 1570016241000, "seen": 1570016245525}`
+* Unsubscribe `{"event":"unsubscribe","channel":"exchange_flows","id":"test-id","key":"<insert_api_key_here"}`
+* Receive unsubscription response `{"id":"test-id","event":"unsubscribed","data":{"success":true,"errorCode":null,"message":"Unsubscribed from channel exchange_flows"}}`
+
+### WS Request Parameters
+
+| Field       | Type      | Description                                                                                                                                 |
+| ----------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| event       | _string_  | `subscribe`                                                                                                                    |
+| channel | _string_  | The channel you want to subscribe to. Currently we only support `exchange_flows`, which has all BTC transactions going into, out of, and in-between exchanges on-chain. |
+| id    | _string_  | An arbitrary id that you can specify to identify the subscription                      |
+| key   | _string_ | Your unique TokenAnalyst API key                                                  |
+
+
+### WS Response Data Overview
 
 | Field       | Type      | Description                                                                                                                                 |
 | ----------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -56,3 +79,12 @@ ws://ws.tokenanalyst.io:8000
 | flowType      | _string_ | One of either `Inflow`, `Outflow`, or `IntraFlow` (if funds flow within exchange wallets)                                                   |
 
 
+### Error Codes
+
+| Code       | Human Readable Response      | Description                                                                                                                                 |
+| ----------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1       | "An unknown error occured." | General error code if something went wrong                                                                                                                    |
+| 2 | "Could not read request, please send proper JSON." | When your request is malformed JSON |
+| 3    | "You need to provide a valid API key."  | When your API key is not valid                      |
+| 4   | "Channel $name does not exist." | When the channel you've subscribed to doesn't exist                                                  |
+| 5   | "Not subscribed to channel $name." | When you are not subscribed to the channel you specified                                                  |

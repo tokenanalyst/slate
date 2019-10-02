@@ -13,7 +13,6 @@ includes:
   - ethereumfundamentalsv2
   - erc20tokenstatsv2
   - stablecoinstatsv2
-  - binancestats
   - bitcoinexchangeflowsv2.md
   - ethereumexchangeflows
   - stablecoinexchangeflows
