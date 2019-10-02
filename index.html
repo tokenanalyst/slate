@@ -335,20 +335,6 @@
               </ul>
           </li>
           <li>
-            <a href="#binance-token-stats-beta" class="toc-h1 toc-link" data-title="Binance Token Stats [BETA]">Binance Token Stats [BETA]</a>
-              <ul class="toc-list-h2">
-                  <li>
-                    <a href="#bep2-on-chain-volume" class="toc-h2 toc-link" data-title="BEP2 On-chain Volume">BEP2 On-chain Volume</a>
-                  </li>
-                  <li>
-                    <a href="#bep2-on-chain-transaction-count" class="toc-h2 toc-link" data-title="BEP2 On-chain Transaction Count">BEP2 On-chain Transaction Count</a>
-                  </li>
-                  <li>
-                    <a href="#bep2-active-addresses" class="toc-h2 toc-link" data-title="BEP2 Active addresses">BEP2 Active addresses</a>
-                  </li>
-              </ul>
-          </li>
-          <li>
             <a href="#bitcoin-exchange-flows" class="toc-h1 toc-link" data-title="Bitcoin Exchange Flows">Bitcoin Exchange Flows</a>
               <ul class="toc-list-h2">
                   <li>
@@ -470,13 +456,22 @@
               </ul>
           </li>
           <li>
-            <a href="#websocket-feed-beta" class="toc-h1 toc-link" data-title="Websocket Feed [BETA]">Websocket Feed [BETA]</a>
+            <a href="#websocket-feed" class="toc-h1 toc-link" data-title="Websocket Feed">Websocket Feed</a>
               <ul class="toc-list-h2">
                   <li>
                     <a href="#url" class="toc-h2 toc-link" data-title="URL">URL</a>
                   </li>
                   <li>
-                    <a href="#ws-data-overview" class="toc-h2 toc-link" data-title="WS Data Overview">WS Data Overview</a>
+                    <a href="#request-process" class="toc-h2 toc-link" data-title="Request process">Request process</a>
+                  </li>
+                  <li>
+                    <a href="#ws-request-parameters" class="toc-h2 toc-link" data-title="WS Request Parameters">WS Request Parameters</a>
+                  </li>
+                  <li>
+                    <a href="#ws-response-data-overview" class="toc-h2 toc-link" data-title="WS Response Data Overview">WS Response Data Overview</a>
+                  </li>
+                  <li>
+                    <a href="#error-codes" class="toc-h2 toc-link" data-title="Error Codes">Error Codes</a>
                   </li>
               </ul>
           </li>
@@ -3546,265 +3541,6 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
 <td>active_recipients</td>
 <td><em>integer</em></td>
 <td>The total number of distinct addresses that received Stablecoins in transactions with a timestamp on this date (includes smart contracts)</td>
-</tr>
-</tbody></table>
-<h1 id='binance-token-stats-beta'>Binance Token Stats [BETA]</h1>
-<p>We support all tokens issued on Binance chain, but only have price data for the following:</p>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Symbol</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>Binance Coin</td>
-<td><code>bnb</code></td>
-</tr>
-<tr>
-<td>Stable USD</td>
-<td><code>usdsb</code></td>
-</tr>
-<tr>
-<td>Harmony.One</td>
-<td><code>one</code></td>
-</tr>
-<tr>
-<td>Bitcoin BEP2</td>
-<td><code>btcb</code></td>
-</tr>
-<tr>
-<td>Bezant</td>
-<td><code>bznt</code></td>
-</tr>
-<tr>
-<td>Ankr</td>
-<td><code>ankr</code></td>
-</tr>
-<tr>
-<td>Mithril</td>
-<td><code>mith</code></td>
-</tr>
-<tr>
-<td>Fantom</td>
-<td><code>ftm</code></td>
-</tr>
-</tbody></table>
-<h2 id='bep2-on-chain-volume'>BEP2 On-chain Volume</h2>
-<p><img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/></p>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_volume_historical/last?format=json&amp;token=mith&amp;key=API_KEY"</span>
-</code></pre>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-08-11"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"volume"</span><span class="p">:</span><span class="w"> </span><span class="mi">100001170833</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"price_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.11</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"volume_usd"</span><span class="p">:</span><span class="w"> </span><span class="mi">1305799085</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-08-13"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"volume"</span><span class="p">:</span><span class="w"> </span><span class="mi">82753422</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"price_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.18</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"volume_usd"</span><span class="p">:</span><span class="w"> </span><span class="mi">1490913652</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="w">
-</span></code></pre>
-<p>This endpoint returns the full historical on-chain volume of all BEP2 tokens. Note, wo don&#39;t have price data for all the tokens</p>
-<h3 id='http-request'>HTTP Request</h3>
-<p><code>GET https://api.tokenanalyst.io/analytics/private/v1/token_volume_historical/last</code></p>
-<h3 id='query-parameters'>Query Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>key</td>
-<td><em>string</em></td>
-<td>Your unique API key</td>
-</tr>
-<tr>
-<td>format</td>
-<td><em>string</em></td>
-<td>What format you want your data in (<code>json</code> or <code>csv</code>)</td>
-</tr>
-<tr>
-<td>token</td>
-<td><em>string</em></td>
-<td>The token you want the volume for</td>
-</tr>
-</tbody></table>
-<h3 id='data-overview'>Data Overview</h3>
-<table><thead>
-<tr>
-<th>Field</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>date</td>
-<td><em>string</em></td>
-<td>The date in <em>YYYY-MM-DD</em></td>
-</tr>
-<tr>
-<td>volume</td>
-<td><em>decimal</em></td>
-<td>The total sum of the BEP2 token sent by addresses in transactions with a timestamp that occurs on this date.</td>
-</tr>
-<tr>
-<td>price_usd</td>
-<td><em>decimal</em></td>
-<td>The daily average price of specified BEP2 token in USD (the daily mean of minute-level price data)</td>
-</tr>
-<tr>
-<td>volume_usd</td>
-<td><em>decimal</em></td>
-<td><em>volume</em> * <em>price_usd</em></td>
-</tr>
-</tbody></table>
-<h2 id='bep2-on-chain-transaction-count'>BEP2 On-chain Transaction Count</h2>
-<p><img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/></p>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_count_historical/last?format=json&amp;token=bnb&amp;key=API_KEY"</span>
-</code></pre>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-09-06"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"number_of_txns"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-09-15"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"number_of_txns"</span><span class="p">:</span><span class="w"> </span><span class="mi">5512</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-09-16"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"number_of_txns"</span><span class="p">:</span><span class="w"> </span><span class="mi">4822</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="w">
-</span></code></pre>
-<p>This endpoint returns the full historical on-chain transaction count of all BEP2 tokens </p>
-<h3 id='http-request-2'>HTTP Request</h3>
-<p><code>GET https://api.tokenanalyst.io/analytics/private/v1/token_count_historical/last</code></p>
-<h3 id='query-parameters-2'>Query Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>key</td>
-<td><em>string</em></td>
-<td>Your unique API key</td>
-</tr>
-<tr>
-<td>format</td>
-<td><em>string</em></td>
-<td>What format you want your data in (<code>json</code> or <code>csv</code>)</td>
-</tr>
-<tr>
-<td>token</td>
-<td><em>string</em></td>
-<td>The token you want the transaction count for</td>
-</tr>
-</tbody></table>
-<h3 id='data-overview-2'>Data Overview</h3>
-<table><thead>
-<tr>
-<th>Field</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>date</td>
-<td><em>string</em></td>
-<td>The date in <em>YYYY-MM-DD</em></td>
-</tr>
-<tr>
-<td>number_of_txns</td>
-<td><em>integer</em></td>
-<td>The number of BEP2 token transactions for the specified token included in blocks with a timestamp that occurs on this date</td>
-</tr>
-</tbody></table>
-<h2 id='bep2-active-addresses'>BEP2 Active addresses</h2>
-<p><img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/></p>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_active_address_historical/last?&amp;token=ankr&amp;format=json&amp;key=API_KEY"</span>
-</code></pre>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-11-11"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"active_senders"</span><span class="p">:</span><span class="w"> </span><span class="mi">23</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"active_receipients"</span><span class="p">:</span><span class="w"> </span><span class="mi">31</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-11-12"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"active_senders"</span><span class="p">:</span><span class="w"> </span><span class="mi">332</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"active_receipients"</span><span class="p">:</span><span class="w"> </span><span class="mi">23</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="w">
-</span></code></pre>
-<p>This endpoint returns the active addresses of BEP2 tokens for every day of their existence. An address is defined as &#39;active&#39; if it has transacted during the given day.</p>
-<h3 id='http-request-3'>HTTP Request</h3>
-<p><code>GET https://api.tokenanalyst.io/analytics/private/v1/token_active_address_historical/last</code></p>
-<h3 id='query-parameters-3'>Query Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>key</td>
-<td><em>string</em></td>
-<td>Your unique API key</td>
-</tr>
-<tr>
-<td>format</td>
-<td><em>string</em></td>
-<td>What format you want your data in (<code>json</code> or <code>csv</code>)</td>
-</tr>
-<tr>
-<td>token</td>
-<td><em>string</em></td>
-<td>The token you want the transaction count for</td>
-</tr>
-</tbody></table>
-
-<table><thead>
-<tr>
-<th>Field</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>date</td>
-<td><em>string</em></td>
-<td>The date in <em>YYYY-MM-DD</em></td>
-</tr>
-<tr>
-<td>active_senders</td>
-<td><em>integer</em></td>
-<td>The total number of distinct addresses that sent the specified BEP2 token in transactions with a timestamp on this date</td>
-</tr>
-<tr>
-<td>active_recipients</td>
-<td><em>integer</em></td>
-<td>The total number of distinct addresses that received the specified BEP2 token in transactions with a timestamp on this date</td>
 </tr>
 </tbody></table>
 <h1 id='bitcoin-exchange-flows'>Bitcoin Exchange Flows</h1>
@@ -7572,10 +7308,12 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
 <td>The daily price of the token in USD (the hourly or daily mean of minute-level price data)</td>
 </tr>
 </tbody></table>
-<h1 id='websocket-feed-beta'>Websocket Feed [BETA]</h1>
+<h1 id='websocket-feed'>Websocket Feed</h1>
 <p>The TokenAnalyst websocket feed provides real-time (with 3 blocks confirmation) bitcoin inflows and outflows to/from exchanges that we have labelled.</p>
 
-<p><img src="https://img.shields.io/badge/Tier-BETA-blueviolet.svg"/></p>
+<p>You can find a sample python script to subscribe to this feed here - <a href="https://github.com/tokenanalyst/samplecode" target="_blank">https://github.com/tokenanalyst/samplecode</a></p>
+
+<p><img src="https://img.shields.io/badge/Tier-ALPHA-blueviolet.svg"/></p>
 <pre class="highlight shell tab-shell"><code>ws://ws.tokenanalyst.io:8000
 </code></pre>
 <blockquote>
@@ -7608,7 +7346,48 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
 </span><span class="p">]</span><span class="w">
 </span></code></pre><h3 id='url'>URL</h3>
 <p><code>ws://ws.tokenanalyst.io:8000</code></p>
-<h3 id='ws-data-overview'>WS Data Overview</h3>
+<h3 id='request-process'>Request process</h3>
+<p>Websocket connections go through the following lifecycle:</p>
+
+<ul>
+<li>Establish a websocket connection with <code>ws://ws.tokenanalyst.io:8000</code></li>
+<li>Receive heartbeat (every 30 seconds) - <code>{&quot;id&quot;:null,&quot;event&quot;:&quot;heartbeat&quot;,&quot;data&quot;:{&quot;serverTime&quot;:1570014312199}}</code></li>
+<li>Authenticate and subscribe to a channel with <code>{&quot;event&quot;:&quot;subscribe&quot;,&quot;channel&quot;:&quot;exchange_flows&quot;,&quot;id&quot;:&quot;test-id&quot;,&quot;key&quot;:&quot;&lt;insert_api_key_here&gt;&quot;}</code></li>
+<li>Receive subscription response <code>{&quot;id&quot;:&quot;test-id&quot;,&quot;event&quot;:&quot;subscribed&quot;,&quot;data&quot;:{&quot;success&quot;:true,&quot;errorCode&quot;:null,&quot;message&quot;:&quot;Subscribed to channel exchange_flows&quot;}}</code></li>
+<li>Receive data <code>{&quot;id&quot;: test-id, &quot;blockNumber&quot;: 597535, &quot;timestamp&quot;: 1570016241000, &quot;seen&quot;: 1570016245525}</code></li>
+<li>Unsubscribe <code>{&quot;event&quot;:&quot;unsubscribe&quot;,&quot;channel&quot;:&quot;exchange_flows&quot;,&quot;id&quot;:&quot;test-id&quot;,&quot;key&quot;:&quot;&lt;insert_api_key_here&quot;}</code></li>
+<li>Receive unsubscription response <code>{&quot;id&quot;:&quot;test-id&quot;,&quot;event&quot;:&quot;unsubscribed&quot;,&quot;data&quot;:{&quot;success&quot;:true,&quot;errorCode&quot;:null,&quot;message&quot;:&quot;Unsubscribed from channel exchange_flows&quot;}}</code></li>
+</ul>
+<h3 id='ws-request-parameters'>WS Request Parameters</h3>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>event</td>
+<td><em>string</em></td>
+<td><code>subscribe</code></td>
+</tr>
+<tr>
+<td>channel</td>
+<td><em>string</em></td>
+<td>The channel you want to subscribe to. Currently we only support <code>exchange_flows</code>, which has all BTC transactions going into, out of, and in-between exchanges on-chain.</td>
+</tr>
+<tr>
+<td>id</td>
+<td><em>string</em></td>
+<td>An arbitrary id that you can specify to identify the subscription</td>
+</tr>
+<tr>
+<td>key</td>
+<td><em>string</em></td>
+<td>Your unique TokenAnalyst API key</td>
+</tr>
+</tbody></table>
+<h3 id='ws-response-data-overview'>WS Response Data Overview</h3>
 <table><thead>
 <tr>
 <th>Field</th>
@@ -7655,6 +7434,40 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
 <td>flowType</td>
 <td><em>string</em></td>
 <td>One of either <code>Inflow</code>, <code>Outflow</code>, or <code>IntraFlow</code> (if funds flow within exchange wallets)</td>
+</tr>
+</tbody></table>
+<h3 id='error-codes'>Error Codes</h3>
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Human Readable Response</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>1</td>
+<td>&quot;An unknown error occured.&quot;</td>
+<td>General error code if something went wrong</td>
+</tr>
+<tr>
+<td>2</td>
+<td>&quot;Could not read request, please send proper JSON.&quot;</td>
+<td>When your request is malformed JSON</td>
+</tr>
+<tr>
+<td>3</td>
+<td>&quot;You need to provide a valid API key.&quot;</td>
+<td>When your API key is not valid</td>
+</tr>
+<tr>
+<td>4</td>
+<td>&quot;Channel $name does not exist.&quot;</td>
+<td>When the channel you&#39;ve subscribed to doesn&#39;t exist</td>
+</tr>
+<tr>
+<td>5</td>
+<td>&quot;Not subscribed to channel $name.&quot;</td>
+<td>When you are not subscribed to the channel you specified</td>
 </tr>
 </tbody></table>
 
