@@ -1,6 +1,6 @@
 # Websocket Feed
 
-The TokenAnalyst websocket feed provides real-time (with 3 blocks confirmation) bitcoin inflows and outflows to/from exchanges that we have labelled.
+The TokenAnalyst websocket feed provides real-time (with 0 blocks confirmation) bitcoin inflows and outflows to/from exchanges that we have labelled.
 
 You can find a sample python script to subscribe to this feed here - <a href="https://github.com/tokenanalyst/samplecode" target="_blank">https://github.com/tokenanalyst/samplecode</a>
 
