@@ -17,8 +17,8 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_window_hist
 [
   {
     "date": "2019-10-04",
-    "hour": "11:00:00",
-    "datetime": "2019-10-04 11:00:00",
+    "hour": "11:00:00", // not available when window 1d
+    "datetime": "2019-10-04 11:00:00", // not available when window 1d
     "inflow": 146.78124811,
     "inflow_usd": 1197591.43,
     "number_of_txns": 358,
@@ -27,8 +27,8 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_window_hist
   },
   {
     "date": "2019-10-04",
-    "hour": "12:00:00",
-    "datetime": "2019-10-04 12:00:00",
+    "hour": "12:00:00", // not available when window 1d
+    "datetime": "2019-10-04 12:00:00", // not available when window 1d
     "inflow": 134.97661825,
     "inflow_usd": 1101849.66,
     "number_of_txns": 177,
@@ -93,8 +93,8 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_window_hist
 [
   {
     "date": "2019-10-04",
-    "hour": "11:00:00",
-    "datetime": "2019-10-04 11:00:00",
+    "hour": "11:00:00", // not available when window 1d
+    "datetime": "2019-10-04 11:00:00", // not available when window 1d
     "outflow": 215.79754153,
     "outflow_usd": 1760696.88,
     "number_of_txns": 7,
@@ -103,8 +103,8 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_window_hist
   },
   {
     "date": "2019-10-04",
-    "hour": "12:00:00",
-    "datetime": "2019-10-04 12:00:00",
+    "hour": "12:00:00", // not available when window 1d
+    "datetime": "2019-10-04 12:00:00", // not available when window 1d
     "outflow": 143.59191158,
     "outflow_usd": 1172183.26,
     "number_of_txns": 4,
