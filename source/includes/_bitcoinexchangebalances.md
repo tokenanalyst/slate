@@ -1,10 +1,13 @@
 # Bitcoin Exchange Balance 
 
+For Bitcoin currently supported exchanges are: `binance`, `bittrex`, `bitstamp`, `poloniex`, `bitmex`, `bitfinex`
+
+
 ## BTC Full Historical Balance
 
 <img src="https://img.shields.io/badge/Tier-Professional-black.svg"/>
 
-This endpoint returns the full historical on-chain balance of Bitcoin for as far back as we can track.
+This endpoint returns the full historical on-chain balance of Bitcoin exchanges.
 
 ```shell
 # Make sure you substitute API_KEY for your unique API key.
@@ -59,5 +62,5 @@ Note: All params with a \* are optional and `limit` is only available in the JSO
 | balance                                 | _decimal_ | The amount of BTC on a given exchange on this date.                                                                                                                                |
 | balance_usd                             | _decimal_ | The USD value of the amount of BTC on a given exchange on this date.                                                                                                            |
 | date                                    | _string_  | The date in _YYYY-MM-DD_                                                                                                                                                                                                  |
-| datetime *                              | _string_  | The hour of the day in datetime format YYYY-MM-DD HH:MM:SS (UTC time zone). This is an optional field field and appears when window is `1h`                                                                               |
-| hour *                                  | _string_  | The hour of the day in _HH:MM:SS_ (UTC time zone). This is an optional field field and appears when window is `1h`                                                                                                        |
+| datetime *                              | _string_  | The hour of the day in datetime format YYYY-MM-DD HH:MM:SS (UTC time zone). This is an optional field and appears when window is `1h`                                                                               |
+| hour *                                  | _string_  | The hour of the day in _HH:MM:SS_ (UTC time zone). This is an optional field and appears when window is `1h`                                                                                                        |
