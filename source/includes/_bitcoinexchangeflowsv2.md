@@ -16,28 +16,24 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_window_hist
 ```json
 [
   {
-    "date": "2019-09-03",
-    "hour": "14:00:00", // not available when window 1d
-    "datetime": "2019-09-03 14:00:00", // not available when window 1d
-    "avg_txn_value": 1.81428269,
-    "avg_txn_value_usd": 19438.16,
-    "inflow": 344.71371202,
-    "inflow_usd": 3693250.26,
-    "number_of_entity_receiving_addresses": 185,
-    "number_of_nonentity_sending_addresses": 547,
-    "number_of_txns": 190
+    "date": "2019-10-04",
+    "hour": "11:00:00", // not available when window 1d
+    "datetime": "2019-10-04 11:00:00", // not available when window 1d
+    "inflow": 146.78124811,
+    "inflow_usd": 1197591.43,
+    "number_of_txns": 358,
+    "avg_txn_value": 0.41000349,
+    "avg_txn_value_usd": 3345.23
   },
   {
-    "date": "2019-09-03",
-    "hour": "15:00:00", // not available when window 1d
-    "datetime": "2019-09-03 15:00:00", // not available when window 1d
-    "avg_txn_value": 0.48022623,
-    "avg_txn_value_usd": 5109.47,
-    "inflow": 46.58194403,
-    "inflow_usd": 495618.65,
-    "number_of_entity_receiving_addresses": 109,
-    "number_of_nonentity_sending_addresses": 224,
-    "number_of_txns": 97
+    "date": "2019-10-04",
+    "hour": "12:00:00", // not available when window 1d
+    "datetime": "2019-10-04 12:00:00", // not available when window 1d
+    "inflow": 134.97661825,
+    "inflow_usd": 1101849.66,
+    "number_of_txns": 177,
+    "avg_txn_value": 0.76257976,
+    "avg_txn_value_usd": 6225.14
   }
 ]
 ```
@@ -73,8 +69,6 @@ Note: All params with a \* are optional and `limit` is only available in the JSO
 | hour *                                 | _string_  | The hour of the day in _HH:MM:SS_ (UTC time zone). This is an optional field field and appears when window is `1h`                                                                                                        |
 | inflow                                | _decimal_ | The total amount of BTC that flowed into the entity on this date. Denominated in BTC.                                                                                                                                     |
 | inflow_usd                            | _decimal_ | The USD value of the total amount of BTC that flowed into the exchange on this date                                                                                                                                       |
-| number_of_entity_receiving_addresses  | _integer_ | The distinct number of wallets identified as belonging to the exchange in question that were on the receiving side of a transaction (where no wallets identified as belonging to the exchange were senders) on this date. |
-| number_of_nonentity_sending_addresses | _integer_ | The distinct number of wallets (that don't belong to the exchange in question) that sent Bitcoin to wallets identified as belonging to this exchange on this date.                                                        |
 | number_of_txns                        | _integer_ | The number of transactions sending BTC into this exchange on this date.                                                                                                                                                   |
 
 ## BTC Full Historical Outflows from Exchanges
@@ -98,28 +92,24 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_window_hist
 ```json
 [
   {
-    "avg_txn_value": 26.73,
-    "avg_txn_value_usd": 69375.93,
-    "date": "2019-09-03",
+    "date": "2019-10-04",
     "hour": "11:00:00", // not available when window 1d
-    "datetime": "2019-09-03 11:00:00", // not available when window 1d
-    "number_of_entity_sending_addresses": 23,
-    "number_of_nonentity_receiving_addresses": 1,
-    "number_of_txns": 3,
-    "outflow": 26.73,
-    "outflow_usd": 69375.93
+    "datetime": "2019-10-04 11:00:00", // not available when window 1d
+    "outflow": 215.79754153,
+    "outflow_usd": 1760696.88,
+    "number_of_txns": 7,
+    "avg_txn_value": 30.82822022,
+    "avg_txn_value_usd": 251528.13
   },
   {
-    "avg_txn_value": 102.48,
-    "avg_txn_value_usd": 241881.49,
-    "date": "2019-09-04",
-    "hour": "11:00:00", // not available when window 1d
-    "datetime": "2019-09-04 11:00:00", // not available when window 1d
-    "number_of_entity_sending_addresses": 77,
-    "number_of_nonentity_receiving_addresses": 1,
-    "number_of_txns": 2,
-    "outflow": 102.48,
-    "outflow_usd": 241881.49
+    "date": "2019-10-04",
+    "hour": "12:00:00", // not available when window 1d
+    "datetime": "2019-10-04 12:00:00", // not available when window 1d
+    "outflow": 143.59191158,
+    "outflow_usd": 1172183.26,
+    "number_of_txns": 4,
+    "avg_txn_value": 35.89797789,
+    "avg_txn_value_usd": 293045.82
   }
 ]
 ```
@@ -147,10 +137,8 @@ Note: All params with a \* are optional and `limit` is only available in the JSO
 | avg_txn_value                           | _decimal_ | The average amount BTC transferred per transaction out of the given exchange on this date.                                                                                                                                |
 | avg_txn_value_usd                       | _decimal_ | The USD value of the average amount of BTC transferred per transaction out of the given exchange on this date.                                                                                                            |
 | date                                    | _string_  | The date in _YYYY-MM-DD_                                                                                                                                                                                                  |
-| hour *                                   | _string_  | The hour of the day in _HH:MM:SS_ (UTC time zone). This is an optional field field and appears when window is `1h`                                                                                                        |
 | datetime *                               | _string_  | The hour of the day in datetime format YYYY-MM-DD HH:MM:SS (UTC time zone). This is an optional field field and appears when window is `1h`                                                                               |
-| number_of_entity_sending_addresses      | _integer_ | The distinct number of wallets identified as belonging to the exchange in question that were on the sending side of a transaction (where no wallets identified as belonging to the exchange were receivers) on this date. |
-| number_of_nonentity_receiving_addresses | _integer_ | The distinct number of wallets (that don't to the exchange in question) that received Bitcoin from wallets identified as belonging to this exchange on this date.                                                         |
+| hour *                                   | _string_  | The hour of the day in _HH:MM:SS_ (UTC time zone). This is an optional field field and appears when window is `1h`                                                                                                        |
 | number_of_txns                          | _decimal_ | The number of transactions sending BTC out of this exchange on this date.                                                                                                                                                 |
 | outflow                                 | _decimal_ | The total amount of BTC that flowed out of the entity on this date. Denominated in BTC.                                                                                                                                   |
 | outflow_usd                             | _decimal_ | The USD value of the total amount of BTC that flowed out of the exchange on this date                                                                                                                                     |
@@ -213,10 +201,8 @@ Note: All params with a \* are optional and `limit` is only available in the JSO
 | Field            | Type      | Description                                                                                                  |
 | ---------------- | --------- | ------------------------------------------------------------------------------------------------------------ |
 | date             | _string_  | The date in _YYYY-MM-DD_                                                                                     |
-| entity           | _string_  | The name of the exchange in question                                                                         |
 | rank             | _integer_ | Ranking out of 10 for the 10 largest transactions of BTC flowing into the exchange in question on this date. |
 | transaction_datetime | _string_  | The timestamp in datetime format YYYY-MM-DD HH:MM:SS (UTC time zone) when the transaction was mined          |
-| transactionhash  | _string_  | The transaction hash of the transaction in question.                                                         |
 | transactionid    | _string_  | The transaction id of the transaction in question.                                                           |
 | value            | _decimal_ | The amount of BTC transferred in this transaction.                                                           |
 | value_usd        | _decimal_ | The value in USD of the amount of BTC tranferred in this transaction.                                        |
@@ -279,10 +265,8 @@ Note: All params with a \* are optional and `limit` is only available in the JSO
 | Field            | Type      | Description                                                                                                    |
 | ---------------- | --------- | -------------------------------------------------------------------------------------------------------------- |
 | date             | _string_  | The date in _YYYY-MM-DD_                                                                                       |
-| entity           | _string_  | The name of the exchange in question                                                                           |
 | rank             | _integer_ | Ranking out of 10 for the 10 largest transactions of BTC flowing out of the exchange in question on this date. |
 | transaction_datetime | _string_  | The timestamp in datetime format YYYY-MM-DD HH:MM:SS (UTC time zone) when the transaction was mined            |
-| transactionhash  | _string_  | The transaction hash of the transaction in question.                                                           |
 | transactionid    | _string_  | The transaction id of the transaction in question.                                                             |
 | value            | _decimal_ | The amount of BTC transferred in this transaction.                                                             |
 | value_usd        | _decimal_ | The value in USD of the amount of BTC tranferred in this transaction.                                          |
