@@ -42,7 +42,7 @@ ws://ws.tokenanalyst.io:8000
 
 ### URL
 
-`ws://ws.tokenanalyst.io:8000`
+`wss://ws.tokenanalyst.io:8000`
 
 ### Request process
 Websocket connections go through the following lifecycle:
