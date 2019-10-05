@@ -1,4 +1,4 @@
-# V2 ERC20 Exchange Flows [Beta]
+# ERC20 Exchange Flows
 
 ERC20 tokens we currently support are:
 

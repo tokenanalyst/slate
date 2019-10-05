@@ -1,4 +1,4 @@
-# V2 Stablecoin Exchange Flows [BETA]
+# Stablecoin Exchange Flows
 
 The stablecoins we currently support are:
 
