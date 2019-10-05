@@ -13,13 +13,12 @@ includes:
   - ethereumfundamentalsv2
   - erc20tokenstatsv2
   - stablecoinstatsv2
-  - bitcoinexchangeflowsv2.md
+  - bitcoinexchangeflowsv2
   - ethereumexchangeflows
-  - stablecoinexchangeflows
   - stablecoinexchangeflowsv2
-  - erc20exchangeflows
   - erc20exchangeflowsv2
   - minerflows
+  - bitcoinexchangebalances
   - price
   - websocketfeed
 

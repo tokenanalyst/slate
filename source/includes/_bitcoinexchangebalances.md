@@ -1,6 +1,6 @@
 # Bitcoin Exchange Balance 
 
-For Bitcoin currently supported exchanges are: `binance`, `bittrex`, `bitstamp`, `poloniex`, `bitmex`, `bitfinex`
+For Bitcoin currently supported exchanges are: `binance`, `bittrex`, `bitstamp`, `poloniex`, `bitmex`, `bitfinex`, `kraken`, `huobi`
 
 
 ## BTC Full Historical Balance
