@@ -70,6 +70,7 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/miner_flow_window_histori
 | miner_name        | _string_  | The name of the miner or mining pool in question                                                                                            |
 | number_of_txns    | _integer_ | The number of transactions sending the token into this miner on this date/hour.                                                             |
 
+## Miner Full Historical Outflow
 
 <img src="https://img.shields.io/badge/Tier-Professional-black.svg"/>
 
