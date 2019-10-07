@@ -403,13 +403,7 @@
                     <a href="#miner-full-historical-inflow" class="toc-h2 toc-link" data-title="Miner Full Historical Inflow">Miner Full Historical Inflow</a>
                   </li>
                   <li>
-                    <a href="#miner-full-historical-outflow" class="toc-h2 toc-link" data-title="Miner Full Historical Outflow">Miner Full Historical Outflow</a>
-                  </li>
-                  <li>
                     <a href="#miners-to-exchanges-full-historical-flows" class="toc-h2 toc-link" data-title="Miners to Exchanges Full Historical Flows">Miners to Exchanges Full Historical Flows</a>
-                  </li>
-                  <li>
-                    <a href="#miners-to-exchanges-full-historical-flows-2" class="toc-h2 toc-link" data-title="Miners to Exchanges Full Historical Flows">Miners to Exchanges Full Historical Flows</a>
                   </li>
               </ul>
           </li>
@@ -5486,6 +5480,8 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
 </tr>
 </tbody></table>
 <h1 id='miner-flows'>Miner Flows</h1><h2 id='miner-full-historical-inflow'>Miner Full Historical Inflow</h2>
+<p>This endpoint returns the inflow of a given token into miner controlled wallets during the time period specified. Miner wallets are all bitcoin addresses that have <em>ever</em> been the recipient of block rewards. The <code>avg_txn_value</code>, <code>inflow</code>, and <code>number_of_txns</code> are calculated over the window (either 1 hour or 1 day). Inflow to miner addresses that are unlabelled are returned have a <code>miner_name</code> of <code>&quot;Unknown&quot;</code>. The <code>hour</code> is in UTC</p>
+
 <p><img src="https://img.shields.io/badge/Tier-Professional-black.svg"/></p>
 <pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/miner_flow_window_historical/last?token=btc&amp;direction=inflow&amp;window=1h&amp;from_date=2019-02-07&amp;to_date=2019-02-08&amp;format=json&amp;limit=2&amp;key=API_KEY"</span>
 </code></pre>
@@ -5516,9 +5512,7 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
     </span><span class="s2">"number_of_txns"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
-</span></code></pre>
-<p>This endpoint returns the inflow of a given token into miner controlled wallets during the time period specified. Miner wallets are all bitcoin addresses that have <em>ever</em> been the recipient of block rewards. The <code>avg_txn_value</code>, <code>inflow</code>, and <code>number_of_txns</code> are calculated over the window (either 1 hour or 1 day). Inflow to miner addresses that are unlabelled are returned have a <code>miner_name</code> of <code>&quot;Unknown&quot;</code>. The <code>hour</code> is in UTC</p>
-<h3 id='http-request'>HTTP Request</h3>
+</span></code></pre><h3 id='http-request'>HTTP Request</h3>
 <p><code>GET https://api.tokenanalyst.io/analytics/private/v1/miner_flow_window_historical/last?</code></p>
 <h3 id='query-parameters'>Query Parameters</h3>
 <table><thead>
@@ -5623,7 +5617,7 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
 <td>The number of transactions sending the token into this miner on this date/hour.</td>
 </tr>
 </tbody></table>
-<h2 id='miner-full-historical-outflow'>Miner Full Historical Outflow</h2>
+
 <p><img src="https://img.shields.io/badge/Tier-Professional-black.svg"/></p>
 <pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/miner_flow_window_historical/last?token=btc&amp;direction=outflow&amp;window=1h&amp;from_date=2019-02-07&amp;to_date=2019-02-08&amp;format=json&amp;limit=2&amp;key=API_KEY"</span>
 </code></pre>
@@ -5762,6 +5756,8 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
 </tr>
 </tbody></table>
 <h2 id='miners-to-exchanges-full-historical-flows'>Miners to Exchanges Full Historical Flows</h2>
+<p>This endpoint returns the full historical on-chain entity-to-entity flows.</p>
+
 <p>For Bitcoin, the currently supported Miners/Exchanges are:</p>
 
 <table><thead>
@@ -5804,10 +5800,8 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
 </tbody></table>
 
 <p>The above table defines supported pairs of the query parameters <code>from_entity</code> and <code>to_entity</code>. </p>
-<h2 id='miners-to-exchanges-full-historical-flows-2'>Miners to Exchanges Full Historical Flows</h2>
-<p><img src="https://img.shields.io/badge/Tier-Professional-black.svg"/></p>
 
-<p>This endpoint returns the full historical on-chain entity-to-entity flows.</p>
+<p><img src="https://img.shields.io/badge/Tier-Professional-black.svg"/></p>
 <pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/entity_to_entity_flow_window_historical/last?window=1d&amp;limit=2&amp;from_entity=slushpool&amp;to_entity=binance&amp;format=json&amp;token=btc&amp;key=APIKEY"</span>
 </code></pre>
 <blockquote>
