@@ -2,6 +2,8 @@
 
 ## Miner Full Historical Inflow
 
+This endpoint returns the inflow of a given token into miner controlled wallets during the time period specified. Miner wallets are all bitcoin addresses that have _ever_ been the recipient of block rewards. The `avg_txn_value`, `inflow`, and `number_of_txns` are calculated over the window (either 1 hour or 1 day). Inflow to miner addresses that are unlabelled are returned have a `miner_name` of `"Unknown"`. The `hour` is in UTC
+
 <img src="https://img.shields.io/badge/Tier-Professional-black.svg"/>
 
 ```shell
@@ -37,8 +39,6 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/miner_flow_window_histori
 ]
 ```
 
-This endpoint returns the inflow of a given token into miner controlled wallets during the time period specified. Miner wallets are all bitcoin addresses that have _ever_ been the recipient of block rewards. The `avg_txn_value`, `inflow`, and `number_of_txns` are calculated over the window (either 1 hour or 1 day). Inflow to miner addresses that are unlabelled are returned have a `miner_name` of `"Unknown"`. The `hour` is in UTC
-
 ### HTTP Request
 
 `GET https://api.tokenanalyst.io/analytics/private/v1/miner_flow_window_historical/last?`
@@ -70,7 +70,6 @@ This endpoint returns the inflow of a given token into miner controlled wallets 
 | miner_name        | _string_  | The name of the miner or mining pool in question                                                                                            |
 | number_of_txns    | _integer_ | The number of transactions sending the token into this miner on this date/hour.                                                             |
 
-## Miner Full Historical Outflow
 
 <img src="https://img.shields.io/badge/Tier-Professional-black.svg"/>
 
@@ -142,6 +141,9 @@ This endpoint returns the outflow of a given token out of miner controlled walle
 
 ## Miners to Exchanges Full Historical Flows
 
+This endpoint returns the full historical on-chain entity-to-entity flows.
+
+
 For Bitcoin, the currently supported Miners/Exchanges are:
 
 | Name           | `from_entity`    | `to_entity`                                                                           |
@@ -155,11 +157,8 @@ For Bitcoin, the currently supported Miners/Exchanges are:
 
 The above table defines supported pairs of the query parameters `from_entity` and `to_entity`. 
 
-## Miners to Exchanges Full Historical Flows
-
 <img src="https://img.shields.io/badge/Tier-Professional-black.svg"/>
 
-This endpoint returns the full historical on-chain entity-to-entity flows.
 
 ```shell
 curl "https://api.tokenanalyst.io/analytics/private/v1/entity_to_entity_flow_window_historical/last?window=1d&limit=2&from_entity=slushpool&to_entity=binance&format=json&token=btc&key=APIKEY"
