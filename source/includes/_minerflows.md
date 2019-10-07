@@ -219,4 +219,4 @@ Note: All params with a \* are optional and `limit` is only available in the JSO
 | hour *                                  | _string_  | The hour of the day in _HH:MM:SS_ (UTC time zone). This is an optional field and appears when window is `1h`                                                                                                        |
 | number_of_txns                          | _integer_ | The number of transactions sending BTC into an exchange on this date/hour
 | value                                   | _decimal_ | The total value of transactions sending BTC into an exchange
-| value_usd                               | _decimal_ | The USD value of transactions sending the BTC into an exchange
+| value_usd                               | _decimal_ | The USD value of transactions sending BTC into an exchange
