@@ -405,6 +405,12 @@
                   <li>
                     <a href="#miner-full-historical-outflow" class="toc-h2 toc-link" data-title="Miner Full Historical Outflow">Miner Full Historical Outflow</a>
                   </li>
+                  <li>
+                    <a href="#miners-to-exchanges-full-historical-flows" class="toc-h2 toc-link" data-title="Miners to Exchanges Full Historical Flows">Miners to Exchanges Full Historical Flows</a>
+                  </li>
+                  <li>
+                    <a href="#miners-to-exchanges-full-historical-flows-2" class="toc-h2 toc-link" data-title="Miners to Exchanges Full Historical Flows">Miners to Exchanges Full Historical Flows</a>
+                  </li>
               </ul>
           </li>
           <li>
@@ -5753,6 +5759,183 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
 <td>number_of_txns</td>
 <td><em>integer</em></td>
 <td>The number of transactions sending the token out of this miner on this date/hour.</td>
+</tr>
+</tbody></table>
+<h2 id='miners-to-exchanges-full-historical-flows'>Miners to Exchanges Full Historical Flows</h2>
+<p>For Bitcoin, the currently supported Miners/Exchanges are:</p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th><code>from_entity</code></th>
+<th><code>to_entity</code></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>AntPool</td>
+<td><code>antpool</code></td>
+<td><code>bitstamp</code>, <code>bittrex</code></td>
+</tr>
+<tr>
+<td>BTC.TOP</td>
+<td><code>btc.top</code></td>
+<td><code>binance</code>, <code>bitfinex</code>, <code>bitmex</code>, <code>bitstamp</code>, <code>bittrex</code>, <code>huobi</code>, <code>kraken</code>, <code>poloniex</code></td>
+</tr>
+<tr>
+<td>BitClubNetwork</td>
+<td><code>bitclubnetwork</code></td>
+<td><code>bitfinex</code>, <code>bitstamp</code></td>
+</tr>
+<tr>
+<td>F2Pool</td>
+<td><code>f2pool</code></td>
+<td><code>binance</code>, <code>bitfinex</code>, <code>bitstamp</code>, <code>bittrex</code>, <code>huobi</code>, <code>kraken</code>, <code>poloniex</code></td>
+</tr>
+<tr>
+<td>SlushPool</td>
+<td><code>slushpool</code></td>
+<td><code>binance</code>, <code>bitfinex</code>, <code>bitmex</code>, <code>bitstamp</code>, <code>bittrex</code>, <code>huobi</code>, <code>kraken</code>, <code>poloniex</code></td>
+</tr>
+<tr>
+<td>viaBTC</td>
+<td><code>viabtc</code></td>
+<td><code>bitmex</code>, <code>bitstamp</code>, <code>bittrex</code>, <code>huobi</code>, <code>poloniex</code></td>
+</tr>
+</tbody></table>
+
+<p>The above table defines supported pairs of the query parameters <code>from_entity</code> and <code>to_entity</code>. </p>
+<h2 id='miners-to-exchanges-full-historical-flows-2'>Miners to Exchanges Full Historical Flows</h2>
+<p><img src="https://img.shields.io/badge/Tier-Professional-black.svg"/></p>
+
+<p>This endpoint returns the full historical on-chain entity-to-entity flows.</p>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/entity_to_entity_flow_window_historical/last?window=1d&amp;limit=2&amp;from_entity=slushpool&amp;to_entity=binance&amp;format=json&amp;token=btc&amp;key=APIKEY"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-10-05"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="mf">2.80564686</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"value_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">22805.88</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"number_of_txns"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"avg_txn_value"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.31173854</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"avg_txn_value_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">2533.99</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-10-06"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.90917571</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"value_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">15287.62</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"number_of_txns"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"avg_txn_value"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.23864696</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"avg_txn_value_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">1910.95</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre><h3 id='http-request-3'>HTTP Request</h3>
+<p><code>GET https://api.tokenanalyst.io/analytics/private/v1/entity_to_entity_flow_window_historical/last</code></p>
+<h3 id='query-parameters-3'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>key</td>
+<td><em>string</em></td>
+<td>Your unique API key</td>
+</tr>
+<tr>
+<td>format</td>
+<td><em>string</em></td>
+<td>What format you want your data in (<code>json</code> or <code>csv</code>)</td>
+</tr>
+<tr>
+<td>token</td>
+<td><em>string</em></td>
+<td><code>btc</code></td>
+</tr>
+<tr>
+<td>window</td>
+<td><em>string</em></td>
+<td><code>1h</code> or <code>1d</code></td>
+</tr>
+<tr>
+<td>from_entity</td>
+<td><em>string</em></td>
+<td>A miner from the table that we support</td>
+</tr>
+<tr>
+<td>to_entity</td>
+<td><em>string</em></td>
+<td>An exchange from the table that we support</td>
+</tr>
+<tr>
+<td>from_date *</td>
+<td><em>string</em></td>
+<td>Start date of returned data specified as YYYY-MM-DD (ISO date format)</td>
+</tr>
+<tr>
+<td>to_date *</td>
+<td><em>string</em></td>
+<td>End date of returned data specified as YYYY-MM-DD (ISO date format)</td>
+</tr>
+<tr>
+<td>limit *</td>
+<td><em>integer</em></td>
+<td>The number of entries returned before the latest data point (or the to_date if specified)</td>
+</tr>
+</tbody></table>
+
+<p>Note: All params with a * are optional and <code>limit</code> is only available in the JSON return format</p>
+<h3 id='data-overview-3'>Data Overview</h3>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>avg_txn_value</td>
+<td><em>decimal</em></td>
+<td>The average amount of BTC transferred per transaction into the given exchange on this date.</td>
+</tr>
+<tr>
+<td>avg_txn_value_usd</td>
+<td><em>decimal</em></td>
+<td>The USD value of the average amount of BTC transferred per transaction into the given exchange on this date.</td>
+</tr>
+<tr>
+<td>date</td>
+<td><em>string</em></td>
+<td>The date in <em>YYYY-MM-DD</em></td>
+</tr>
+<tr>
+<td>datetime *</td>
+<td><em>string</em></td>
+<td>The hour of the day in datetime format YYYY-MM-DD HH:MM:SS (UTC time zone). This is an optional field and appears when window is <code>1h</code></td>
+</tr>
+<tr>
+<td>hour *</td>
+<td><em>string</em></td>
+<td>The hour of the day in <em>HH:MM:SS</em> (UTC time zone). This is an optional field and appears when window is <code>1h</code></td>
+</tr>
+<tr>
+<td>number_of_txns</td>
+<td><em>integer</em></td>
+<td>The number of transactions sending BTC into an exchange on this date/hour</td>
+</tr>
+<tr>
+<td>value</td>
+<td><em>decimal</em></td>
+<td>The total value of transactions sending BTC into an exchange</td>
+</tr>
+<tr>
+<td>value_usd</td>
+<td><em>decimal</em></td>
+<td>The USD value of transactions sending BTC into an exchange</td>
 </tr>
 </tbody></table>
 <h1 id='bitcoin-exchange-balance'>Bitcoin Exchange Balance</h1>
