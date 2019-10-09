@@ -2,17 +2,17 @@
 
 The stablecoins we currently support are:
 
-| Name                 | Symbol |
-| -------------------- | ------ |
+| Name                 | Symbol       |
+| -------------------- | ------------ |
 | Tether (Omni)        | `usdt_omni`  |
 | Tether               | `usdt_erc20` |
-| USDC                 | `usdc` |
-| Paxos Standard Token | `pax`  |
-| TrueUSD              | `tusd` |
-| Gemini Dollar        | `gusd` |
-| Dai                  | `dai`  |
+| USDC                 | `usdc`       |
+| Paxos Standard Token | `pax`        |
+| TrueUSD              | `tusd`       |
+| Gemini Dollar        | `gusd`       |
+| Dai                  | `dai`        |
 
-We have slightly different endpoints for Tether (usdt_omni) due to the nature of OMNI blockchian 
+We have slightly different endpoints for Tether (usdt_omni) due to the nature of OMNI blockchian
 
 ## Tether (Omni) On-chain Volume
 
@@ -43,7 +43,7 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_volume_window_histo
 ]
 ```
 
-This endpoint returns the full historical on-chain volume of Tether on the OMNI blockchain since it went live on 2014-10-06. Values are calculated over the window (either 1 hour or 1 day). `hour` is in UTC 
+This endpoint returns the full historical on-chain volume of Tether on the OMNI blockchain since it went live on 2014-10-06. Values are calculated over the window (either 1 hour or 1 day). `hour` is in UTC
 
 ### HTTP Request
 
@@ -55,19 +55,18 @@ This endpoint returns the full historical on-chain volume of Tether on the OMNI 
 | --------- | -------- | --------------------------------------------------- |
 | key       | _string_ | Your unique API key                                 |
 | format    | _string_ | What format you want your data in (`json` or `csv`) |
-| token     | _string_ | `usdt_omni`               |
-| window    | _string_ | `1h` or `1d`       |
+| token     | _string_ | `usdt_omni`                                         |
+| window    | _string_ | `1h` or `1d`                                        |
 
 ### Data Overview
 
-| Field | Type     | Description                                            |
-| --------- | -------- | ------------------------------------------------------ |
-| date       | _string_ | The date in _YYYY-MM-DD_ |
-| hour *   | _string_  | The hour of the day in _HH:MM:SS_ (UTC time zone). This is an optional field field and appears when window is `1h`                                                                                                        |
-| datetime *  | _string_  | The hour of the day in datetime format YYYY-MM-DD HH:MM:SS (UTC time zone). This is an optional field field and appears when window is `1h`                                                                               |
-| volume    | _decimal_ | The total sum of Tether (usdt_omni) sent by addresses in transactions with a timestamp that occurs within the window. |
-| volume_usd    | _decimal_ |  _volume_ * _price_usd_  |
-
+| Field       | Type      | Description                                                                                                                                 |
+| ----------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| date        | _string_  | The date in _YYYY-MM-DD_                                                                                                                    |
+| hour \*     | _string_  | The hour of the day in _HH:MM:SS_ (UTC time zone). This is an optional field field and appears when window is `1h`                          |
+| datetime \* | _string_  | The hour of the day in datetime format YYYY-MM-DD HH:MM:SS (UTC time zone). This is an optional field field and appears when window is `1h` |
+| volume      | _decimal_ | The total sum of Tether (usdt_omni) sent by addresses in transactions with a timestamp that occurs within the window.                       |
+| volume_usd  | _decimal_ | _volume_ \* _price_usd_                                                                                                                     |
 
 ## Tether (Omni) On-chain Transaction Count
 
@@ -92,7 +91,7 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_count_window_histor
     "hour": "02:00:00", // not available when window 1d
     "datetime": "2017-12-18 02:00:00", // not available when window 1d
     "number_of_txns": 411
-  },
+  }
 ]
 ```
 
@@ -108,19 +107,17 @@ This endpoint returns the daily number of Tether (usdt_omni) transactions on the
 | --------- | -------- | --------------------------------------------------- |
 | key       | _string_ | Your unique API key                                 |
 | format    | _string_ | What format you want your data in (`json` or `csv`) |
-| token     | _string_ | `usdt_omni`  |
-| window    | _string_ | `1h` or `1d`       |
+| token     | _string_ | `usdt_omni`                                         |
+| window    | _string_ | `1h` or `1d`                                        |
 
 ### Data Overview
 
-| Field | Type     | Description                                            |
-| --------- | -------- | ------------------------------------------------------ |
-| date       | _string_ | The date in _YYYY-MM-DD_ |
-| hour *   | _string_  | The hour of the day in _HH:MM:SS_ (UTC time zone). This is an optional field field and appears when window is `1h`                                                                                                        |
-| datetime *  | _string_  | The hour of the day in datetime format YYYY-MM-DD HH:MM:SS (UTC time zone). This is an optional field field and appears when window is `1h`                                                                               |
-| number_of_txns | _integer_ | The number of stablecoin transactions included in blocks with a timestamp that occurs on this date |
-
-
+| Field          | Type      | Description                                                                                                                                 |
+| -------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| date           | _string_  | The date in _YYYY-MM-DD_                                                                                                                    |
+| hour \*        | _string_  | The hour of the day in _HH:MM:SS_ (UTC time zone). This is an optional field field and appears when window is `1h`                          |
+| datetime \*    | _string_  | The hour of the day in datetime format YYYY-MM-DD HH:MM:SS (UTC time zone). This is an optional field field and appears when window is `1h` |
+| number_of_txns | _integer_ | The number of stablecoin transactions included in blocks with a timestamp that occurs on this date                                          |
 
 ## Tether (Omni) Active Addresses
 
@@ -159,17 +156,16 @@ This endpoint returns the active addresses of Tether (usdt_omni) tokens for ever
 | --------- | -------- | --------------------------------------------------- |
 | key       | _string_ | Your unique API key                                 |
 | format    | _string_ | What format you want your data in (`json` or `csv`) |
-| token     | _string_ | The stablecoin you want the transaction count for 
-| window       | _string_  | `1d` (no support for 1h at this time)                                                     |
+| token     | _string_ | The stablecoin you want the transaction count for   |
+| window    | _string_ | `1d` (no support for 1h at this time)               |
 
 ### Data Overview
 
-| Field | Type     | Description                                            |
-| --------- | -------- | ------------------------------------------------------ |
-| date       | _string_ | The date in _YYYY-MM-DD_ |
-| active_senders | _integer_ | The total number of distinct addresses that sent Tether (usdt_omni) in transactions with a timestamp on this date (includes smart contracts) |
+| Field             | Type      | Description                                                                                                                                      |
+| ----------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| date              | _string_  | The date in _YYYY-MM-DD_                                                                                                                         |
+| active_senders    | _integer_ | The total number of distinct addresses that sent Tether (usdt_omni) in transactions with a timestamp on this date (includes smart contracts)     |
 | active_recipients | _integer_ | The total number of distinct addresses that received Tether (usdt_omni) in transactions with a timestamp on this date (includes smart contracts) |
-
 
 ## Tether (Omni) Supply
 
@@ -194,7 +190,7 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_supply_window_histo
 ]
 ```
 
-This endpoint returns the historical supply of Tether (usdt_omni) on the OMNI blockchain for every day of it's existence 2014-10-06
+This endpoint returns the historical supply of Tether (usdt_omni) on the OMNI blockchain for every day of it's existence.
 
 ### HTTP Request
 
@@ -206,14 +202,59 @@ This endpoint returns the historical supply of Tether (usdt_omni) on the OMNI bl
 | --------- | -------- | --------------------------------------------------- |
 | key       | _string_ | Your unique API key                                 |
 | format    | _string_ | What format you want your data in (`json` or `csv`) |
-| token     | _string_ | `usdt_omni`                                               |
-| window       | _string_  | `1d` (no support for 1h at this time)                                                     |
+| token     | _string_ | `usdt_omni`                                         |
+| window    | _string_ | `1d` (no support for 1h at this time)               |
 
 ### Data Overview
 
-| Field  | Type      | Description                                                                             |
-| ------ | --------- | --------------------------------------------------------------------------------------- |
-| date   | _string_  | The date in _YYYY-MM-DD_                                                                |
+| Field  | Type      | Description                                                                   |
+| ------ | --------- | ----------------------------------------------------------------------------- |
+| date   | _string_  | The date in _YYYY-MM-DD_                                                      |
+| supply | _decimal_ | The cumulative sum of Tether generated by minting and burning up to this date |
+
+## Tether (ERC20) Supply
+
+<img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/>
+
+```shell
+curl "https://api.tokenanalyst.io/analytics/private/v1/token_supply_window_historical/last?&token=usdt_erc20&format=json&key=API_KEY&window=1d"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+  {
+    "date": "2019-06-11",
+    "supply": 800010000
+  },
+  {
+    "date": "2019-06-12",
+    "supply": 800010000
+  }
+]
+```
+
+This endpoint returns the historical supply of the Tether ERC20 token (usdt_erc20) on the Ethereum blockchain for every day of it's existence.
+
+### HTTP Request
+
+`GET https://api.tokenanalyst.io/analytics/private/v1/token_supply_window_historical/last`
+
+### Query Parameters
+
+| Parameter | Type     | Description                                         |
+| --------- | -------- | --------------------------------------------------- |
+| key       | _string_ | Your unique API key                                 |
+| format    | _string_ | What format you want your data in (`json` or `csv`) |
+| token     | _string_ | `usdt_erc20`                                         |
+| window    | _string_ | `1d` (no support for 1h at this time)               |
+
+### Data Overview
+
+| Field  | Type      | Description                                                                   |
+| ------ | --------- | ----------------------------------------------------------------------------- |
+| date   | _string_  | The date in _YYYY-MM-DD_                                                      |
 | supply | _decimal_ | The cumulative sum of Tether generated by minting and burning up to this date |
 
 ## Tether (Omni) NVT
@@ -229,14 +270,14 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_nvt_window_historic
 ```json
 [
   {
-    "date":"2019-08-19",
-    "marketcap_usd":2545000000,
-    "nvt":9.4907
+    "date": "2019-08-19",
+    "marketcap_usd": 2545000000,
+    "nvt": 9.4907
   },
   {
-    "date":"2019-08-20",
-    "marketcap_usd":2545000000,
-    "nvt":8.6839
+    "date": "2019-08-20",
+    "marketcap_usd": 2545000000,
+    "nvt": 8.6839
   }
 ]
 ```
@@ -253,17 +294,16 @@ This endpoint returns the NVT Ratio (Network Value to Transactions Ratio) for Te
 | --------- | -------- | --------------------------------------------------- |
 | key       | _string_ | Your unique API key                                 |
 | format    | _string_ | What format you want your data in (`json` or `csv`) |
-| token     | _string_ | `usdt_omni`                                               |
-| window       | _string_  | `1d` (no support for 1h at this time)                                                     |
+| token     | _string_ | `usdt_omni`                                         |
+| window    | _string_ | `1d` (no support for 1h at this time)               |
 
 ### Data Overview
 
-| Field         | Type      | Description                                                                                                         |
-| ------------- | --------- | ------------------------------------------------------------------------------------------------------------------- |
-| date          | _string_  | The date in _YYYY-MM-DD_                                                                                            |
-| marketcap_usd | _decimal_ | The total USD market capitalization of Tether (usdt_omni) on this date. (_price_usd_ \* _supply_)                                  |
-| nvt           | _decimal_ | Ratio comprising the total Tether (usdt_omni) Market Cap divided by the on-chain volume. (_marketcap_usd_ / _volume_usd_) |
-
+| Field         | Type      | Description                                                                                                                |
+| ------------- | --------- | -------------------------------------------------------------------------------------------------------------------------- |
+| date          | _string_  | The date in _YYYY-MM-DD_                                                                                                   |
+| marketcap_usd | _decimal_ | The total USD market capitalization of Tether (usdt*omni) on this date. (\_price_usd* \* _supply_)                         |
+| nvt           | _decimal_ | Ratio comprising the total Tether (usdt*omni) Market Cap divided by the on-chain volume. (\_marketcap_usd* / _volume_usd_) |
 
 ## Tether (Omni) Fees
 
@@ -307,18 +347,17 @@ This endpoint returns the historical supply of Tether (usdt_omni) on the OMNI bl
 | key       | _string_ | Your unique API key                                 |
 | format    | _string_ | What format you want your data in (`json` or `csv`) |
 | token     | _string_ | `usdt_omni`                                         |
-| window       | _string_  | `1d` (no support for 1h at this time)                                                     |
+| window    | _string_ | `1d` (no support for 1h at this time)               |
 
 ### Data Overview
 
-| Field  | Type      | Description                                                                             |
-| ------ | --------- | --------------------------------------------------------------------------------------- |
-| date   | _string_  | The date in _YYYY-MM-DD_                                                                |
-| total_fee       | _decimal_ | The sum of fees paid in transactions that occurred on this date. Denominated in Tether (usdt_omni)                                 |
-| total_fee_usd       | _decimal_ |  _total_fee_ \* _price_usd_                                 |
-| avg_fee       | _decimal_ |  The average amount of fees paid per transaction that occurred on this date. Denominated in Tether (usdt_omni).                                |
-| avg_fee_usd       | _decimal_ |  _avg_fee_ \* _price_usd_                                |
-
+| Field         | Type      | Description                                                                                                    |
+| ------------- | --------- | -------------------------------------------------------------------------------------------------------------- |
+| date          | _string_  | The date in _YYYY-MM-DD_                                                                                       |
+| total_fee     | _decimal_ | The sum of fees paid in transactions that occurred on this date. Denominated in Tether (usdt_omni)             |
+| total_fee_usd | _decimal_ | _total_fee_ \* _price_usd_                                                                                     |
+| avg_fee       | _decimal_ | The average amount of fees paid per transaction that occurred on this date. Denominated in Tether (usdt_omni). |
+| avg_fee_usd   | _decimal_ | _avg_fee_ \* _price_usd_                                                                                       |
 
 ## Stablecoin On-chain Volume
 
@@ -358,15 +397,15 @@ This endpoint returns the full historical on-chain volume of any of the stableco
 | key       | _string_ | Your unique API key                                 |
 | format    | _string_ | What format you want your data in (`json` or `csv`) |
 | token     | _string_ | The token you want the volume for                   |
-| window       | _string_  | `1d` (no support for 1h at this time)                                                     |
+| window    | _string_ | `1d` (no support for 1h at this time)               |
 
 ### Data Overview
 
-| Field | Type     | Description                                            |
-| --------- | -------- | ------------------------------------------------------ |
-| date       | _string_ | The date in _YYYY-MM-DD_ |
-| volume    | _decimal_ | The total sum of Stablecoins sent by addresses in transactions with a timestamp that occurs on this date. |
-| volume_usd    | _decimal_ |  _volume_ * _price_usd_  |
+| Field      | Type      | Description                                                                                               |
+| ---------- | --------- | --------------------------------------------------------------------------------------------------------- |
+| date       | _string_  | The date in _YYYY-MM-DD_                                                                                  |
+| volume     | _decimal_ | The total sum of Stablecoins sent by addresses in transactions with a timestamp that occurs on this date. |
+| volume_usd | _decimal_ | _volume_ \* _price_usd_                                                                                   |
 
 ## Stablecoin On-chain Transaction Count
 
@@ -408,13 +447,13 @@ This endpoint returns the number of token transfers on the Ethereum blockchain f
 | key       | _string_ | Your unique API key                                 |
 | format    | _string_ | What format you want your data in (`json` or `csv`) |
 | token     | _string_ | The stablecoin you want the transaction count for   |
-| window       | _string_  | `1d` (no support for 1h at this time)                                                     |
+| window    | _string_ | `1d` (no support for 1h at this time)               |
 
 ### Data Overview
 
-| Field | Type     | Description                                            |
-| --------- | -------- | ------------------------------------------------------ |
-| date       | _string_ | The date in _YYYY-MM-DD_ |
+| Field          | Type      | Description                                                                                        |
+| -------------- | --------- | -------------------------------------------------------------------------------------------------- |
+| date           | _string_  | The date in _YYYY-MM-DD_                                                                           |
 | number_of_txns | _integer_ | The number of stablecoin transactions included in blocks with a timestamp that occurs on this date |
 
 ## Stablecoin Active addresses
@@ -454,13 +493,13 @@ This endpoint returns the active addresses of stabelecoin tokens for every day o
 | --------- | -------- | --------------------------------------------------- |
 | key       | _string_ | Your unique API key                                 |
 | format    | _string_ | What format you want your data in (`json` or `csv`) |
-| token     | _string_ | The stablecoin you want the transaction count for 
-| window       | _string_  | `1d` (no support for 1h at this time)                                                     |
+| token     | _string_ | The stablecoin you want the transaction count for   |
+| window    | _string_ | `1d` (no support for 1h at this time)               |
 
 ### Data Overview
 
-| Field | Type     | Description                                            |
-| --------- | -------- | ------------------------------------------------------ |
-| date       | _string_ | The date in _YYYY-MM-DD_ |
-| active_senders | _integer_ | The total number of distinct addresses that sent Stablecoins in transactions with a timestamp on this date (includes smart contracts) |
+| Field             | Type      | Description                                                                                                                               |
+| ----------------- | --------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| date              | _string_  | The date in _YYYY-MM-DD_                                                                                                                  |
+| active_senders    | _integer_ | The total number of distinct addresses that sent Stablecoins in transactions with a timestamp on this date (includes smart contracts)     |
 | active_recipients | _integer_ | The total number of distinct addresses that received Stablecoins in transactions with a timestamp on this date (includes smart contracts) |
