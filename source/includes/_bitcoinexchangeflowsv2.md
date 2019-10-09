@@ -1,5 +1,16 @@
 # Bitcoin Exchange Flows
-For Bitcoin currently supported exchanges are: `binance`, `bittrex`, `bitstamp`, `poloniex`, `bitmex`, `bitfinex`, `kraken`, `huobi`
+For Bitcoin currently supported exchanges are:
+
+| Name           | Symbol           |
+|----------------|------------------|
+| Binance        | `binance`        | 
+| Bittrex        | `bittrex`        | 
+| Bitstamp       | `bitstamp`       |
+| Bitmex         | `bitmex`         |
+| Bitfinex       | `bitfinex`       |
+| Huobi          | `huobi`          |
+| Kraken         | `kraken`         |
+| Poloniex       | `poloniex`       |
 
 ## BTC Full Historical Inflow to Exchanges
 
@@ -50,7 +61,7 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_window_hist
 | format       | _string_  | What format you want your data in (`json` or `csv`)                                       |
 | token        | _string_  | `btc`                                                                                     |
 | direction    | _string_  | Either `inflow` or `outflow` (in this case `inflow`)                                      |
-| exchange     | _string_  | An exchange from the list of ones we support                                              |
+| exchange     | _string_  | An exchange from the table that we support                                              |
 | window       | _string_  | `1h` or `1d`                                                                              |
 | from_date \* | _string_  | Start date of returned data specified as YYYY-MM-DD (ISO date format)                     |
 | to_date \*   | _string_  | End date of returned data specified as YYYY-MM-DD (ISO date format)                       |
