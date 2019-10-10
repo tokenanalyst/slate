@@ -1,6 +1,15 @@
 # Ethereum Exchange Flows
 
-For Ethereum currently supported exchanges are: `binance`, `kraken`, `bitfinex`, `poloniex`, `bittrex`, `kucoin`
+For Ethereum currently supported exchanges are:
+
+| Name           | Symbol           |
+|----------------|------------------|
+| Binance        | `binance`        | 
+| Bittrex        | `bittrex`        | 
+| Bitfinex       | `bitfinex`       |
+| Kraken         | `kraken`         |
+| Kucoin         | `kucoin`         |
+| Poloniex       | `poloniex`       |
 
 ## ETH Full Historical Flows Into Exchanges
 
@@ -53,7 +62,7 @@ This endpoint returns the inflow of ETH into exchange wallets. The `avg_txn_valu
 | format    | _string_ | What format you want your data in (`json` or `csv`) |
 | token     | _string_ | `eth`                                               |
 | direction | _string_ | `inflow`                                            |
-| exchange  | _string_ | An exchange from the list of ones we support        |
+| exchange  | _string_ | An exchange from the table that we support        |
 | window    | _string_ | `1h` or `1d`       |
 | from_date \* | _string_  | Start date of returned data specified as YYYY-MM-DD (ISO date format)                     |
 | to_date \*   | _string_  | End date of returned data specified as YYYY-MM-DD (ISO date format)                       |
