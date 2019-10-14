@@ -22,7 +22,6 @@ ERC20 tokens we currently support are:
 | Kyber Network         | `knc`   |
 | iExec RLC             | `rlc`   |
 | ChainLink             | `link`  |
-| Ocean Protocol        | `ocean` |
 | Fetch.ai.             | `fet`   |
 
 ## ERC20 On-chain Volume
@@ -63,6 +62,7 @@ This endpoint returns the full historical on-chain volume of any of the major ER
 | key       | _string_ | Your unique API key                                 |
 | format    | _string_ | What format you want your data in (`json` or `csv`) |
 | token     | _string_ | The token you want the volume for                   |
+| window    | _string_  | `1h` or `1d`                                       |
 | from_date \* | _string_  | Start date of returned data specified as YYYY-MM-DD (ISO date format)                     |
 | to_date \*   | _string_  | End date of returned data specified as YYYY-MM-DD (ISO date format)                       |
 | limit \*     | _integer_ | The number of entries returned before the latest data point (or the to_date if specified) |
@@ -117,6 +117,7 @@ This endpoint returns the number of token transfers on the blockchain for the gi
 | key       | _string_ | Your unique API key                                 |
 | format    | _string_ | What format you want your data in (`json` or `csv`) |
 | token     | _string_ | The token you want the transaction count for        |
+| window    | _string_  | `1h` or `1d`                                       |
 | from_date \* | _string_  | Start date of returned data specified as YYYY-MM-DD (ISO date format)                     |
 | to_date \*   | _string_  | End date of returned data specified as YYYY-MM-DD (ISO date format)                       |
 | limit \*     | _integer_ | The number of entries returned before the latest data point (or the to_date if specified) |
@@ -169,6 +170,7 @@ This endpoint returns the active addresses of ERC20 tokens for every day of thei
 | key       | _string_ | Your unique API key                                 |
 | format    | _string_ | What format you want your data in (`json` or `csv`) |
 | token     | _string_ | The token you want the transaction count for        |
+| window    | _string_  | `1h` or `1d`                                       |
 | from_date \* | _string_  | Start date of returned data specified as YYYY-MM-DD (ISO date format)                     |
 | to_date \*   | _string_  | End date of returned data specified as YYYY-MM-DD (ISO date format)                       |
 | limit \*     | _integer_ | The number of entries returned before the latest data point (or the to_date if specified) |
