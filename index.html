@@ -2514,10 +2514,6 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
 <td><code>link</code></td>
 </tr>
 <tr>
-<td>Ocean Protocol</td>
-<td><code>ocean</code></td>
-</tr>
-<tr>
 <td>Fetch.ai.</td>
 <td><code>fet</code></td>
 </tr>
@@ -2567,6 +2563,11 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
 <td>token</td>
 <td><em>string</em></td>
 <td>The token you want the volume for</td>
+</tr>
+<tr>
+<td>window</td>
+<td><em>string</em></td>
+<td><code>1d</code> (no support for 1h at this time)</td>
 </tr>
 <tr>
 <td>from_date *</td>
@@ -2657,6 +2658,11 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
 <td>The token you want the transaction count for</td>
 </tr>
 <tr>
+<td>window</td>
+<td><em>string</em></td>
+<td><code>1d</code> (no support for 1h at this time)</td>
+</tr>
+<tr>
 <td>from_date *</td>
 <td><em>string</em></td>
 <td>Start date of returned data specified as YYYY-MM-DD (ISO date format)</td>
@@ -2736,6 +2742,11 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
 <td>token</td>
 <td><em>string</em></td>
 <td>The token you want the transaction count for</td>
+</tr>
+<tr>
+<td>window</td>
+<td><em>string</em></td>
+<td><code>1d</code> (no support for 1h at this time)</td>
 </tr>
 <tr>
 <td>from_date *</td>
@@ -2872,6 +2883,21 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
 <td><em>string</em></td>
 <td><code>1h</code> or <code>1d</code></td>
 </tr>
+<tr>
+<td>from_date *</td>
+<td><em>string</em></td>
+<td>Start date of returned data specified as YYYY-MM-DD (ISO date format)</td>
+</tr>
+<tr>
+<td>to_date *</td>
+<td><em>string</em></td>
+<td>End date of returned data specified as YYYY-MM-DD (ISO date format)</td>
+</tr>
+<tr>
+<td>limit *</td>
+<td><em>integer</em></td>
+<td>The number of entries returned before the latest data point (or the to_date if specified)</td>
+</tr>
 </tbody></table>
 <h3 id='data-overview'>Data Overview</h3>
 <table><thead>
@@ -2960,6 +2986,21 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
 <td><em>string</em></td>
 <td><code>1h</code> or <code>1d</code></td>
 </tr>
+<tr>
+<td>from_date *</td>
+<td><em>string</em></td>
+<td>Start date of returned data specified as YYYY-MM-DD (ISO date format)</td>
+</tr>
+<tr>
+<td>to_date *</td>
+<td><em>string</em></td>
+<td>End date of returned data specified as YYYY-MM-DD (ISO date format)</td>
+</tr>
+<tr>
+<td>limit *</td>
+<td><em>integer</em></td>
+<td>The number of entries returned before the latest data point (or the to_date if specified)</td>
+</tr>
 </tbody></table>
 <h3 id='data-overview-2'>Data Overview</h3>
 <table><thead>
@@ -3041,6 +3082,21 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
 <td><em>string</em></td>
 <td><code>1d</code> (no support for 1h at this time)</td>
 </tr>
+<tr>
+<td>from_date *</td>
+<td><em>string</em></td>
+<td>Start date of returned data specified as YYYY-MM-DD (ISO date format)</td>
+</tr>
+<tr>
+<td>to_date *</td>
+<td><em>string</em></td>
+<td>End date of returned data specified as YYYY-MM-DD (ISO date format)</td>
+</tr>
+<tr>
+<td>limit *</td>
+<td><em>integer</em></td>
+<td>The number of entries returned before the latest data point (or the to_date if specified)</td>
+</tr>
 </tbody></table>
 <h3 id='data-overview-3'>Data Overview</h3>
 <table><thead>
@@ -3115,6 +3171,21 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
 <td><em>string</em></td>
 <td><code>1d</code> (no support for 1h at this time)</td>
 </tr>
+<tr>
+<td>from_date *</td>
+<td><em>string</em></td>
+<td>Start date of returned data specified as YYYY-MM-DD (ISO date format)</td>
+</tr>
+<tr>
+<td>to_date *</td>
+<td><em>string</em></td>
+<td>End date of returned data specified as YYYY-MM-DD (ISO date format)</td>
+</tr>
+<tr>
+<td>limit *</td>
+<td><em>integer</em></td>
+<td>The number of entries returned before the latest data point (or the to_date if specified)</td>
+</tr>
 </tbody></table>
 <h3 id='data-overview-4'>Data Overview</h3>
 <table><thead>
@@ -3183,6 +3254,21 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
 <td>window</td>
 <td><em>string</em></td>
 <td><code>1d</code> (no support for 1h at this time)</td>
+</tr>
+<tr>
+<td>from_date *</td>
+<td><em>string</em></td>
+<td>Start date of returned data specified as YYYY-MM-DD (ISO date format)</td>
+</tr>
+<tr>
+<td>to_date *</td>
+<td><em>string</em></td>
+<td>End date of returned data specified as YYYY-MM-DD (ISO date format)</td>
+</tr>
+<tr>
+<td>limit *</td>
+<td><em>integer</em></td>
+<td>The number of entries returned before the latest data point (or the to_date if specified)</td>
 </tr>
 </tbody></table>
 <h3 id='data-overview-5'>Data Overview</h3>
@@ -3254,6 +3340,21 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
 <td>window</td>
 <td><em>string</em></td>
 <td><code>1d</code> (no support for 1h at this time)</td>
+</tr>
+<tr>
+<td>from_date *</td>
+<td><em>string</em></td>
+<td>Start date of returned data specified as YYYY-MM-DD (ISO date format)</td>
+</tr>
+<tr>
+<td>to_date *</td>
+<td><em>string</em></td>
+<td>End date of returned data specified as YYYY-MM-DD (ISO date format)</td>
+</tr>
+<tr>
+<td>limit *</td>
+<td><em>integer</em></td>
+<td>The number of entries returned before the latest data point (or the to_date if specified)</td>
 </tr>
 </tbody></table>
 <h3 id='data-overview-6'>Data Overview</h3>
@@ -3334,6 +3435,21 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
 <td>window</td>
 <td><em>string</em></td>
 <td><code>1d</code> (no support for 1h at this time)</td>
+</tr>
+<tr>
+<td>from_date *</td>
+<td><em>string</em></td>
+<td>Start date of returned data specified as YYYY-MM-DD (ISO date format)</td>
+</tr>
+<tr>
+<td>to_date *</td>
+<td><em>string</em></td>
+<td>End date of returned data specified as YYYY-MM-DD (ISO date format)</td>
+</tr>
+<tr>
+<td>limit *</td>
+<td><em>integer</em></td>
+<td>The number of entries returned before the latest data point (or the to_date if specified)</td>
 </tr>
 </tbody></table>
 <h3 id='data-overview-7'>Data Overview</h3>
@@ -3421,6 +3537,21 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
 <td><em>string</em></td>
 <td><code>1d</code> (no support for 1h at this time)</td>
 </tr>
+<tr>
+<td>from_date *</td>
+<td><em>string</em></td>
+<td>Start date of returned data specified as YYYY-MM-DD (ISO date format)</td>
+</tr>
+<tr>
+<td>to_date *</td>
+<td><em>string</em></td>
+<td>End date of returned data specified as YYYY-MM-DD (ISO date format)</td>
+</tr>
+<tr>
+<td>limit *</td>
+<td><em>integer</em></td>
+<td>The number of entries returned before the latest data point (or the to_date if specified)</td>
+</tr>
 </tbody></table>
 <h3 id='data-overview-8'>Data Overview</h3>
 <table><thead>
@@ -3499,6 +3630,21 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
 <td><em>string</em></td>
 <td><code>1d</code> (no support for 1h at this time)</td>
 </tr>
+<tr>
+<td>from_date *</td>
+<td><em>string</em></td>
+<td>Start date of returned data specified as YYYY-MM-DD (ISO date format)</td>
+</tr>
+<tr>
+<td>to_date *</td>
+<td><em>string</em></td>
+<td>End date of returned data specified as YYYY-MM-DD (ISO date format)</td>
+</tr>
+<tr>
+<td>limit *</td>
+<td><em>integer</em></td>
+<td>The number of entries returned before the latest data point (or the to_date if specified)</td>
+</tr>
 </tbody></table>
 <h3 id='data-overview-9'>Data Overview</h3>
 <table><thead>
@@ -3569,6 +3715,21 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
 <td>window</td>
 <td><em>string</em></td>
 <td><code>1d</code> (no support for 1h at this time)</td>
+</tr>
+<tr>
+<td>from_date *</td>
+<td><em>string</em></td>
+<td>Start date of returned data specified as YYYY-MM-DD (ISO date format)</td>
+</tr>
+<tr>
+<td>to_date *</td>
+<td><em>string</em></td>
+<td>End date of returned data specified as YYYY-MM-DD (ISO date format)</td>
+</tr>
+<tr>
+<td>limit *</td>
+<td><em>integer</em></td>
+<td>The number of entries returned before the latest data point (or the to_date if specified)</td>
 </tr>
 </tbody></table>
 <h3 id='data-overview-10'>Data Overview</h3>
