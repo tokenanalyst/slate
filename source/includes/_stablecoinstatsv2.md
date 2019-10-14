@@ -57,6 +57,10 @@ This endpoint returns the full historical on-chain volume of Tether on the OMNI 
 | format    | _string_ | What format you want your data in (`json` or `csv`) |
 | token     | _string_ | `usdt_omni`                                         |
 | window    | _string_ | `1h` or `1d`                                        |
+| from_date \* | _string_  | Start date of returned data specified as YYYY-MM-DD (ISO date format)                     |
+| to_date \*   | _string_  | End date of returned data specified as YYYY-MM-DD (ISO date format)                       |
+| limit \*     | _integer_ | The number of entries returned before the latest data point (or the to_date if specified) |
+
 
 ### Data Overview
 
@@ -109,6 +113,10 @@ This endpoint returns the daily number of Tether (usdt_omni) transactions on the
 | format    | _string_ | What format you want your data in (`json` or `csv`) |
 | token     | _string_ | `usdt_omni`                                         |
 | window    | _string_ | `1h` or `1d`                                        |
+| from_date \* | _string_  | Start date of returned data specified as YYYY-MM-DD (ISO date format)                     |
+| to_date \*   | _string_  | End date of returned data specified as YYYY-MM-DD (ISO date format)                       |
+| limit \*     | _integer_ | The number of entries returned before the latest data point (or the to_date if specified) |
+
 
 ### Data Overview
 
@@ -158,6 +166,10 @@ This endpoint returns the active addresses of Tether (usdt_omni) tokens for ever
 | format    | _string_ | What format you want your data in (`json` or `csv`) |
 | token     | _string_ | The stablecoin you want the transaction count for   |
 | window    | _string_ | `1d` (no support for 1h at this time)               |
+| from_date \* | _string_  | Start date of returned data specified as YYYY-MM-DD (ISO date format)                     |
+| to_date \*   | _string_  | End date of returned data specified as YYYY-MM-DD (ISO date format)                       |
+| limit \*     | _integer_ | The number of entries returned before the latest data point (or the to_date if specified) |
+
 
 ### Data Overview
 
@@ -204,6 +216,10 @@ This endpoint returns the historical supply of Tether (usdt_omni) on the OMNI bl
 | format    | _string_ | What format you want your data in (`json` or `csv`) |
 | token     | _string_ | `usdt_omni`                                         |
 | window    | _string_ | `1d` (no support for 1h at this time)               |
+| from_date \* | _string_  | Start date of returned data specified as YYYY-MM-DD (ISO date format)                     |
+| to_date \*   | _string_  | End date of returned data specified as YYYY-MM-DD (ISO date format)                       |
+| limit \*     | _integer_ | The number of entries returned before the latest data point (or the to_date if specified) |
+
 
 ### Data Overview
 
@@ -249,6 +265,10 @@ This endpoint returns the historical supply of the Tether ERC20 token (usdt_erc2
 | format    | _string_ | What format you want your data in (`json` or `csv`) |
 | token     | _string_ | `usdt_erc20`                                         |
 | window    | _string_ | `1d` (no support for 1h at this time)               |
+| from_date \* | _string_  | Start date of returned data specified as YYYY-MM-DD (ISO date format)                     |
+| to_date \*   | _string_  | End date of returned data specified as YYYY-MM-DD (ISO date format)                       |
+| limit \*     | _integer_ | The number of entries returned before the latest data point (or the to_date if specified) |
+
 
 ### Data Overview
 
@@ -296,6 +316,10 @@ This endpoint returns the NVT Ratio (Network Value to Transactions Ratio) for Te
 | format    | _string_ | What format you want your data in (`json` or `csv`) |
 | token     | _string_ | `usdt_omni`                                         |
 | window    | _string_ | `1d` (no support for 1h at this time)               |
+| from_date \* | _string_  | Start date of returned data specified as YYYY-MM-DD (ISO date format)                     |
+| to_date \*   | _string_  | End date of returned data specified as YYYY-MM-DD (ISO date format)                       |
+| limit \*     | _integer_ | The number of entries returned before the latest data point (or the to_date if specified) |
+
 
 ### Data Overview
 
@@ -348,6 +372,10 @@ This endpoint returns the historical supply of Tether (usdt_omni) on the OMNI bl
 | format    | _string_ | What format you want your data in (`json` or `csv`) |
 | token     | _string_ | `usdt_omni`                                         |
 | window    | _string_ | `1d` (no support for 1h at this time)               |
+| from_date \* | _string_  | Start date of returned data specified as YYYY-MM-DD (ISO date format)                     |
+| to_date \*   | _string_  | End date of returned data specified as YYYY-MM-DD (ISO date format)                       |
+| limit \*     | _integer_ | The number of entries returned before the latest data point (or the to_date if specified) |
+
 
 ### Data Overview
 
@@ -398,6 +426,10 @@ This endpoint returns the full historical on-chain volume of any of the stableco
 | format    | _string_ | What format you want your data in (`json` or `csv`) |
 | token     | _string_ | The token you want the volume for                   |
 | window    | _string_ | `1d` (no support for 1h at this time)               |
+| from_date \* | _string_  | Start date of returned data specified as YYYY-MM-DD (ISO date format)                     |
+| to_date \*   | _string_  | End date of returned data specified as YYYY-MM-DD (ISO date format)                       |
+| limit \*     | _integer_ | The number of entries returned before the latest data point (or the to_date if specified) |
+
 
 ### Data Overview
 
@@ -448,6 +480,10 @@ This endpoint returns the number of token transfers on the Ethereum blockchain f
 | format    | _string_ | What format you want your data in (`json` or `csv`) |
 | token     | _string_ | The stablecoin you want the transaction count for   |
 | window    | _string_ | `1d` (no support for 1h at this time)               |
+| from_date \* | _string_  | Start date of returned data specified as YYYY-MM-DD (ISO date format)                     |
+| to_date \*   | _string_  | End date of returned data specified as YYYY-MM-DD (ISO date format)                       |
+| limit \*     | _integer_ | The number of entries returned before the latest data point (or the to_date if specified) |
+
 
 ### Data Overview
 
@@ -495,6 +531,10 @@ This endpoint returns the active addresses of stabelecoin tokens for every day o
 | format    | _string_ | What format you want your data in (`json` or `csv`) |
 | token     | _string_ | The stablecoin you want the transaction count for   |
 | window    | _string_ | `1d` (no support for 1h at this time)               |
+| from_date \* | _string_  | Start date of returned data specified as YYYY-MM-DD (ISO date format)                     |
+| to_date \*   | _string_  | End date of returned data specified as YYYY-MM-DD (ISO date format)                       |
+| limit \*     | _integer_ | The number of entries returned before the latest data point (or the to_date if specified) |
+
 
 ### Data Overview
 
