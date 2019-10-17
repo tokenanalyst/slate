@@ -551,7 +551,7 @@ Note: All params with a \* are optional and `limit` is only available in the JSO
 <img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/>
 
 ```shell
-curl "https://api.tokenanalyst.io/analytics/private/v1/token_miner_hashrate_window_historical/last?format=json&token=btc&window=1d&limit=2&key=API_KEY"
+curl "https://api.tokenanalyst.io/analytics/private/v1/token_miner_rewards_window_historical/last?format=json&token=btc&window=1d&limit=2&key=API_KEY"
 ```
 
 > The above command returns JSON structured like this:
@@ -559,22 +559,16 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_miner_hashrate_wind
 ```json
 [
   {
-    "date": "2019-09-03",
-    "miner_name": "BitFury",
-    "miner_daily_block_count": 4,
-    "miner_daily_hashrate": 2141915.4344,
-    "total_daily_block_count": 103,
-    "total_daily_hashrate": 55154322.4359,
-    "miner_daily_hashrate_pct": 3.8835
+    "date": "2019-10-16",
+    "miner_name": "unknown",
+    "miner_daily_block_reward": 571.6431,
+    "miner_daily_block_reward_usd": 4620304.75
   },
   {
-    "date": "2019-09-03",
-    "miner_name": "Huobi.pool",
-    "miner_daily_block_count": 4,
-    "miner_daily_hashrate": 2141915.4344,
-    "total_daily_block_count": 103,
-    "total_daily_hashrate": 55154322.4359,
-    "miner_daily_hashrate_pct": 3.8835
+    "date": "2019-10-16",
+    "miner_name": "viaBTC",
+    "miner_daily_block_reward": 164.9395,
+    "miner_daily_block_reward_usd": 1333123.7
   }
 ]
 ```
