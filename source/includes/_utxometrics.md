@@ -524,16 +524,16 @@ Note: All params with a \* are optional and `limit` is only available in the JSO
 
 | Field  | Type      | Description                                                                                                                                         |
 | ------ | --------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 1-3m   | _decimal_ | The weighted average age of unspent outputs (UTXOs) on this date from transactions that occurred 1 to 3 months prior to this date.         |
-| 12-18m | _decimal_ | The weighted average age of unspent outputs (UTXOs) on this date) from transactions that occurred 12 to 18 months prior to this date.       |
-| 18-24m | _decimal_ | The weighted average age of unspent outputs (UTXOs) on this date from transactions that occurred 18 to 24 months prior to this date.       |
+| date   | _string_  | The date in _YYYY-MM-DD_                                                                                                                            |
+| <1d    | _decimal_ | The weighted average age of unspent outputs (UTXOs) on this date from transactions that occurred less than a day prior to this date.       |
 | 1d-1w  | _decimal_ | The weighted average age of unspent outputs (UTXOs) on this date from transactions that occurred 1 day to 1 week prior to this date.       |
 | 1w-1m  | _decimal_ | The weighted average age of unspent outputs (UTXOs) on this date from transactions that occurred 1 week to 1 month prior to this date.     |
+| 1-3m   | _decimal_ | The weighted average age of unspent outputs (UTXOs) on this date from transactions that occurred 1 to 3 months prior to this date.         |
+| 3-6m   | _decimal_ | The weighted average age of unspent outputs (UTXOs) on this date from transactions that occurred 3 to 6 months prior to this date.         |
+| 6-12m  | _decimal_ | The weighted average age of unspent outputs (UTXOs) on this date from transactions that occurred 6 to 12 months prior to this date.        |
+| 12-18m | _decimal_ | The weighted average age of unspent outputs (UTXOs) on this date) from transactions that occurred 12 to 18 months prior to this date.       |
+| 18-24m | _decimal_ | The weighted average age of unspent outputs (UTXOs) on this date from transactions that occurred 18 to 24 months prior to this date.       |
 | 2-3y   | _decimal_ | The weighted average age of unspent outputs (UTXOs) on this date from transactions that occurred 2 to 3 years prior to this date.          |
 | 3-5y   | _decimal_ | The weighted average age of unspent outputs (UTXOs) on this date from transactions that occurred 3 to 5 years prior to this date.          |
-| 3-6m   | _decimal_ | The weighted average age of unspent outputs (UTXOs) on this date from transactions that occurred 3 to 6 months prior to this date.         |
 | 5-10y  | _decimal_ | The weighted average age of unspent outputs (UTXOs) on this date from transactions that occurred 5 to 10 years prior to this date.         |
-| 6-12m  | _decimal_ | The weighted average age of unspent outputs (UTXOs) on this date from transactions that occurred 6 to 12 months prior to this date.        |
-| <1d    | _decimal_ | The weighted average age of unspent outputs (UTXOs) on this date from transactions that occurred less than a day prior to this date.       |
-| >10y   | _decimal_ | The weighted average age of unspent outputs (UTXOs) on this date from transactions that occurred greater than 10 years prior to this date. |
-| date   | _string_  | The date in _YYYY-MM-DD_   
+| >10y   | _decimal_ | The weighted average age of unspent outputs (UTXOs) on this date from transactions that occurred greater than 10 years prior to this date. |  
