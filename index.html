@@ -280,6 +280,9 @@
                   <li>
                     <a href="#btc-utxo-weighted-average-age" class="toc-h2 toc-link" data-title="BTC UTXO Weighted Average Age">BTC UTXO Weighted Average Age</a>
                   </li>
+                  <li>
+                    <a href="#btc-utxo-supply-percentage" class="toc-h2 toc-link" data-title="BTC UTXO Supply Percentage">BTC UTXO Supply Percentage</a>
+                  </li>
               </ul>
           </li>
           <li>
@@ -2629,6 +2632,177 @@ The weighted average age is sum of the ages of UTXOs multiplied by their bitocoi
 <td>&gt;10y</td>
 <td><em>decimal</em></td>
 <td>The weighted average age of unspent outputs (UTXOs) on this date from transactions that occurred greater than 10 years prior to this date.</td>
+</tr>
+</tbody></table>
+<h2 id='btc-utxo-supply-percentage'>BTC UTXO Supply Percentage</h2>
+<p><img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/></p>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_utxo_metric_window_historical/last?window=1d&amp;metric=supply_pct&amp;format=json&amp;token=btc&amp;limit=2&amp;key=API_KEY"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-09-01"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"1-3m"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0812</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"12-18m"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.1705</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"18-24m"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0795</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"1d-1w"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0219</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"1w-1m"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0646</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"2-3y"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0491</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"3-5y"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0657</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"3-6m"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.1322</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"5-10y"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.1438</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"6-12m"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.1105</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"&lt;1d"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0131</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"&gt;10y"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0679</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-09-02"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"1-3m"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0815</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"12-18m"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.1705</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"18-24m"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0798</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"1d-1w"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0226</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"1w-1m"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0634</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"2-3y"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0491</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"3-5y"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0658</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"3-6m"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.1317</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"5-10y"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.1436</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"6-12m"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.1109</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"&lt;1d"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0132</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"&gt;10y"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.068</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-03-15"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<p>This endpoint returns the proportion of the bitcoin supply on the specified date, held in unspent transaction outputs stratified by their age. For instance outputs in the category <code>12-18m</code> are unspent outputs (UTXOs) from transactions that occurred <code>12-18m</code> ago. Time is measured relative to blocktime assuming 6 blocks are generated per hour. This means that the proportion of UTXOs in the <code>&lt;1d</code> category were generated less than or equal to <code>144 blocks ago (6 blocks * 24 hours)</code>.</p>
+
+<p>The age in block height is used over the block timestamp because the block timestamp serves as a source of variation when calculating the blockhash and is only accurate to within an hour or two. By using timestamps some UTXOs could be considered older than a previously generated UTXO. By using block-age from current the blockheight, the age of utxos is strictly ordinal as blockheight is strictly sequential.</p>
+<h3 id='http-request-7'>HTTP Request</h3>
+<p><code>GET https://api.tokenanalyst.io/analytics/private/v1/token_utxo_metric_window_historical/last</code></p>
+<h3 id='query-parameters-7'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>key</td>
+<td><em>string</em></td>
+<td>Your unique API key</td>
+</tr>
+<tr>
+<td>format</td>
+<td><em>string</em></td>
+<td>What format you want your data in (<code>json</code> or <code>csv</code>)</td>
+</tr>
+<tr>
+<td>metric</td>
+<td><em>string</em></td>
+<td><code>supply_pct</code></td>
+</tr>
+<tr>
+<td>window</td>
+<td><em>string</em></td>
+<td><code>1d</code> (no support for 1h at this time)</td>
+</tr>
+<tr>
+<td>token</td>
+<td><em>string</em></td>
+<td><code>btc</code></td>
+</tr>
+<tr>
+<td>from_date *</td>
+<td><em>string</em></td>
+<td>Start date of returned data specified as YYYY-MM-DD (ISO date format)</td>
+</tr>
+<tr>
+<td>to_date *</td>
+<td><em>string</em></td>
+<td>End date of returned data specified as YYYY-MM-DD (ISO date format)</td>
+</tr>
+<tr>
+<td>limit *</td>
+<td><em>integer</em></td>
+<td>The number of entries returned before the latest data point (or the to_date if specified)</td>
+</tr>
+</tbody></table>
+
+<p>Note: All params with a * are optional and <code>limit</code> is only available in the JSON return format</p>
+<h3 id='data-overview-7'>Data Overview</h3>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>1-3m</td>
+<td><em>decimal</em></td>
+<td>Proportion of bitcoin supply on this date held in unspent outputs (UTXOs) from transactions that occurred 1 to 3 months prior to this date.</td>
+</tr>
+<tr>
+<td>12-18m</td>
+<td><em>decimal</em></td>
+<td>Proportion of bitcoin supply on this date held in unspent outputs (UTXOs) from transactions that occurred 12 to 18 months prior to this date.</td>
+</tr>
+<tr>
+<td>18-24m</td>
+<td><em>decimal</em></td>
+<td>Proportion of bitcoin supply on this date held in unspent outputs (UTXOs) from transactions that occurred 18 to 24 months prior to this date.</td>
+</tr>
+<tr>
+<td>1d-1w</td>
+<td><em>decimal</em></td>
+<td>Proportion of bitcoin supply on this date held in unspent outputs (UTXOs) from transactions that occurred 1 day to 1 week prior to this date.</td>
+</tr>
+<tr>
+<td>1w-1m</td>
+<td><em>decimal</em></td>
+<td>Proportion of bitcoin supply on this date held in unspent outputs (UTXOs) from transactions that occurred 1 week to 1 month prior to this date.</td>
+</tr>
+<tr>
+<td>2-3y</td>
+<td><em>decimal</em></td>
+<td>Proportion of bitcoin supply on this date held in unspent outputs (UTXOs) from transactions that occurred 2 to 3 years prior to this date.</td>
+</tr>
+<tr>
+<td>3-5y</td>
+<td><em>decimal</em></td>
+<td>Proportion of bitcoin supply on this date held in unspent outputs (UTXOs) from transactions that occurred 3 to 5 years prior to this date.</td>
+</tr>
+<tr>
+<td>3-6m</td>
+<td><em>decimal</em></td>
+<td>Proportion of bitcoin supply on this date held in unspent outputs (UTXOs) from transactions that occurred 3 to 6 months prior to this date.</td>
+</tr>
+<tr>
+<td>5-10y</td>
+<td><em>decimal</em></td>
+<td>Proportion of bitcoin supply on this date held in unspent outputs (UTXOs) from transactions that occurred 5 to 10 years prior to this date.</td>
+</tr>
+<tr>
+<td>6-12m</td>
+<td><em>decimal</em></td>
+<td>Proportion of bitcoin supply on this date held in unspent outputs (UTXOs) from transactions that occurred 6 to 12 months prior to this date.</td>
+</tr>
+<tr>
+<td>&lt;1d</td>
+<td><em>decimal</em></td>
+<td>Proportion of bitcoin supply on this date held in unspent outputs (UTXOs) from transactions that occurred less than a day prior to this date.</td>
+</tr>
+<tr>
+<td>&gt;10y</td>
+<td><em>decimal</em></td>
+<td>Proportion of bitcoin supply on this date held in unspent outputs (UTXOs) from transactions that occurred greater than 10 years prior to this date.</td>
+</tr>
+<tr>
+<td>date</td>
+<td><em>string</em></td>
+<td>The date in <em>YYYY-MM-DD</em></td>
 </tr>
 </tbody></table>
 <h1 id='ethereum-fundamentals'>Ethereum Fundamentals</h1><h2 id='eth-on-chain-volume'>ETH On-chain Volume</h2>
