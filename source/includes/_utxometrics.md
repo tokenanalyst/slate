@@ -267,7 +267,7 @@ Note: All params with a \* are optional and `limit` is only available in the JSO
 | >10y   | _decimal_ | The count of unspent outputs (UTXOs) on this date from transactions that occurred greater than 10 years prior to this date. |
 | date   | _string_  | The date in _YYYY-MM-DD_   
 
-### BTC UTXO Median Age
+## BTC UTXO Median Age
 
 This endpoint returns the median age of the current bitcoin supply held in unspent transaction outputs stratified by their age. For instance outputs in the category `12-18m` are unspent outputs (UTXOs) from transactions that occurred `12-18m` ago. Time is measured relative to blocktime assuming 6 blocks are generated per hour. This means that the proportion of UTXOs in the `<1d` category were generated less than or equal to `144 blocks ago (6 blocks * 24 hours)`.
 
@@ -356,7 +356,7 @@ Note: All params with a \* are optional and `limit` is only available in the JSO
 | >10y   | _decimal_ | The median age of unspent outputs (UTXOs) on this date from transactions that occurred greater than 10 years prior to this date. |
 | date   | _string_  | The date in _YYYY-MM-DD_   
 
-### BTC UTXO Total Value
+## BTC UTXO Total Value
 
 This endpoint returns the total value of the current bitcoin supply held in unspent transaction outputs stratified by their age. For instance outputs in the category `12-18m` are unspent outputs (UTXOs) from transactions that occurred `12-18m` ago. Time is measured relative to blocktime assuming 6 blocks are generated per hour. This means that the proportion of UTXOs in the `<1d` category were generated less than or equal to `144 blocks ago (6 blocks * 24 hours)`.
 
@@ -445,7 +445,7 @@ Note: All params with a \* are optional and `limit` is only available in the JSO
 | >10y   | _decimal_ | The total value of unspent outputs (UTXOs) on this date from transactions that occurred greater than 10 years prior to this date. |
 | date   | _string_  | The date in _YYYY-MM-DD_   
 
-### BTC UTXO Weighted Average Age
+## BTC UTXO Weighted Average Age
 
 This endpoint returns the weighted average age of the current bitcoin supply held in unspent transaction outputs stratified by their age. For instance outputs in the category `12-18m` are unspent outputs (UTXOs) from transactions that occurred `12-18m` ago. Time is measured relative to blocktime assuming 6 blocks are generated per hour. This means that the proportion of UTXOs in the `<1d` category were generated less than or equal to `144 blocks ago (6 blocks * 24 hours)`.
 
