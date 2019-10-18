@@ -10,6 +10,7 @@ toc_footers:
 includes:
   - dateandtime
   - bitcoinfundamentalsv2
+  - utxometrics
   - ethereumfundamentalsv2
   - erc20tokenstatsv2
   - stablecoinstatsv2
@@ -19,7 +20,6 @@ includes:
   - erc20exchangeflowsv2
   - minerflows
   - bitcoinexchangebalances
-  - utxometrics
   - price
   - websocketfeed
 

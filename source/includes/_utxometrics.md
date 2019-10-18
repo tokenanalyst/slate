@@ -2,9 +2,11 @@
 
 ## BTC UTXO Average Age
 
-This endpoint returns the average age of the current bitcoin supply held in unspent transaction outputs stratified by their age. For instance outputs in the category `12-18m` are unspent outputs (UTXOs) from transactions that occurred `12-18m` ago. Time is measured relative to blocktime assuming 6 blocks are generated per hour. This means that the proportion of UTXOs in the `<1d` category were generated less than or equal to 144 blocks ago (`6 blocks * 24 hours`).
+This endpoint returns the average age of the bitcoin supply at the specified date, held in unspent transaction outputs stratified by their age. For instance outputs in the category `12-18m` are unspent outputs (UTXOs) from transactions that occurred `12-18m` ago. Time is measured relative to blocktime assuming 6 blocks are generated per hour. This means that the proportion of UTXOs in the `<1d` category were generated less than or equal to 144 blocks ago (`6 blocks * 24 hours`).
 
 The age in block height is used over the block timestamp because the block timestamp serves as a source of variation when calculating the blockhash and is only accurate to within an hour or two. By using timestamps some UTXOs could be considered older than a previously generated UTXO. By using block-age from current the blockheight, the age of utxos is strictly ordinal as blockheight is strictly sequential.
+
+<img src="https://img.shields.io/badge/Tier-Enterprise-blueviolet.svg"/>
 
 
 ```shell
@@ -89,12 +91,12 @@ Note: All params with a \* are optional and `limit` is only available in the JSO
 
 ## BTC UTXO Average Value
 
-This endpoint returns the average value of unspent transaction outputs (UTXOs) stratified by their current age. For instance outputs in the category `12-18m` are unspent outputs (UTXOs) from transactions that occurred `12-18m` ago. Time is measured relative to blocktime assuming 6 blocks are generated per hour. This means that the average value of UTXOs in the `>10y` category is the average for unspent outputs that were generated 525, 600 blocks ago (`6 blocks * 24 hours * 365 days * 10 years`).
+This endpoint returns the average value of unspent transaction outputs (UTXOs) at the specified date, stratified by their age. For instance outputs in the category `12-18m` are unspent outputs (UTXOs) from transactions that occurred `12-18m` ago. Time is measured relative to blocktime assuming 6 blocks are generated per hour. This means that the average value of UTXOs in the `>10y` category is the average for unspent outputs that were generated 525, 600 blocks ago (`6 blocks * 24 hours * 365 days * 10 years`).
 
 The age in block height is used over the block timestamp because the block timestamp serves as a source of variation when calculating the blockhash and is only accurate to within an hour or two. By using timestamps some UTXOs could be considered older than a previously generated UTXO. By using block-age from current the blockheight, the age of utxos is strictly ordinal as blockheight is strictly sequential.
 
 
-<img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/>
+<img src="https://img.shields.io/badge/Tier-Enterprise-blueviolet.svg"/>
 
 ```shell
 curl "https://api.tokenanalyst.io/analytics/private/v1/token_utxo_metric_window_historical/last?metric=avg_age&limit=2&window=1d&format=json&token=btc&key=API_KEY"
@@ -178,12 +180,12 @@ Note: All params with a \* are optional and `limit` is only available in the JSO
 
 ## BTC UTXO Count
 
-This endpoint returns the count of unspent transaction outputs (UTXOs) stratified by their age. For instance the category `12-18m` contains the count of currently unspent outputs from transactions that occurred `12-18m` ago. Time is measured relative to blocktime assuming 6 blocks are generated per hour. This means that the count of UTXOs in the `<1d` category were from UTXOs generated less than or equal to `144 blocks ago (6 blocks * 24 hours)`.
+This endpoint returns the count of unspent transaction outputs (UTXOs) at the specified date, stratified by their age. For instance the category `12-18m` contains the count of currently unspent outputs from transactions that occurred `12-18m` ago. Time is measured relative to blocktime assuming 6 blocks are generated per hour. This means that the count of UTXOs in the `<1d` category were from UTXOs generated less than or equal to `144 blocks ago (6 blocks * 24 hours)`.
 
 The age in block height is used over the block timestamp because the block timestamp serves as a source of variation when calculating the blockhash and is only accurate to within an hour or two. By using timestamps some UTXOs could be considered older than a previously generated UTXO. By using block-age from current the blockheight, the age of utxos is strictly ordinal as blockheight is strictly sequential.
 
 
-<img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/>
+<img src="https://img.shields.io/badge/Tier-Enterprise-blueviolet.svg"/>
 
 ```shell
 curl "https://api.tokenanalyst.io/analytics/private/v1/token_utxo_metric_window_historical/last?metric=count&limit=2&window=1d&format=json&token=btc&key=API_KEY"
@@ -267,12 +269,12 @@ Note: All params with a \* are optional and `limit` is only available in the JSO
 
 ## BTC UTXO Median Age
 
-This endpoint returns the median age of the current bitcoin supply held in unspent transaction outputs stratified by their age. For instance outputs in the category `12-18m` are unspent outputs (UTXOs) from transactions that occurred `12-18m` ago. Time is measured relative to blocktime assuming 6 blocks are generated per hour. This means that the median age of UTXOs in the `<1d` category were generated less than or equal to `144 blocks ago (6 blocks * 24 hours)`.
+This endpoint returns the median age of the bitcoin supply at the specified date, held in unspent transaction outputs stratified by their age. For instance outputs in the category `12-18m` are unspent outputs (UTXOs) from transactions that occurred `12-18m` ago. Time is measured relative to blocktime assuming 6 blocks are generated per hour. This means that the median age of UTXOs in the `<1d` category were generated less than or equal to `144 blocks ago (6 blocks * 24 hours)`.
 
 The age in block height is used over the block timestamp because the block timestamp serves as a source of variation when calculating the blockhash and is only accurate to within an hour or two. By using timestamps some UTXOs could be considered older than a previously generated UTXO. By using block-age from current the blockheight, the age of utxos is strictly ordinal as blockheight is strictly sequential.
 
 
-<img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/>
+<img src="https://img.shields.io/badge/Tier-Enterprise-blueviolet.svg"/>
 
 ```shell
 curl "https://api.tokenanalyst.io/analytics/private/v1/token_utxo_metric_window_historical/last?metric=count&limit=2&window=1d&format=json&token=btc&key=API_KEY"
@@ -356,15 +358,15 @@ Note: All params with a \* are optional and `limit` is only available in the JSO
 
 ## BTC UTXO Total Value
 
-This endpoint returns the total BTC value of the current bitcoin supply held in unspent transaction outputs stratified by their age. For instance outputs in the category `12-18m` are unspent outputs (UTXOs) from transactions that occurred `12-18m` ago. Time is measured relative to blocktime assuming 6 blocks are generated per hour. This means that the BTC value of UTXOs in the `<1d` category were generated less than or equal to `144 blocks ago (6 blocks * 24 hours)`.
+This endpoint returns the total BTC value of the bitcoin supply at the specified date, held in unspent transaction outputs stratified by their age. For instance outputs in the category `12-18m` are unspent outputs (UTXOs) from transactions that occurred `12-18m` ago. Time is measured relative to blocktime assuming 6 blocks are generated per hour. This means that the BTC value of UTXOs in the `<1d` category were generated less than or equal to `144 blocks ago (6 blocks * 24 hours)`.
 
 The age in block height is used over the block timestamp because the block timestamp serves as a source of variation when calculating the blockhash and is only accurate to within an hour or two. By using timestamps some UTXOs could be considered older than a previously generated UTXO. By using block-age from current the blockheight, the age of utxos is strictly ordinal as blockheight is strictly sequential.
 
 
-<img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/>
+<img src="https://img.shields.io/badge/Tier-Enterprise-blueviolet.svg"/>
 
 ```shell
-curl "https://api.tokenanalyst.io/analytics/private/v1/token_utxo_metric_window_historical/last?metric=count&limit=2&window=1d&format=json&token=btc&key=API_KEY"
+curl "https://api.tokenanalyst.io/analytics/private/v1/token_utxo_metric_window_historical/last?metric=total_value&limit=2&window=1d&format=json&token=btc&key=API_KEY"
 ```
 
 > The above command returns JSON structured like this:
@@ -455,10 +457,10 @@ For instance outputs in the category `12-18m` are unspent outputs (UTXOs) from t
 The age in block height is used over the block timestamp because the block timestamp serves as a source of variation when calculating the blockhash and is only accurate to within an hour or two. By using timestamps some UTXOs could be considered older than a previously generated UTXO. By using block-age from current the blockheight, the age of utxos is strictly ordinal as blockheight is strictly sequential.
 
 
-<img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/>
+<img src="https://img.shields.io/badge/Tier-Enterprise-blueviolet.svg"/>
 
 ```shell
-curl "https://api.tokenanalyst.io/analytics/private/v1/token_utxo_metric_window_historical/last?metric=count&limit=2&window=1d&format=json&token=btc&key=API_KEY"
+curl "https://api.tokenanalyst.io/analytics/private/v1/token_utxo_metric_window_historical/last?metric=weighted_avg_age&limit=2&window=1d&format=json&token=btc&key=API_KEY"
 ```
 
 > The above command returns JSON structured like this:

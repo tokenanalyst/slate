@@ -4,7 +4,7 @@ The TokenAnalyst websocket feed provides real-time (with 0 blocks confirmation) 
 
 You can find a sample python script to subscribe to this feed here - <a href="https://github.com/tokenanalyst/samplecode" target="_blank">https://github.com/tokenanalyst/samplecode</a>
 
-<img src="https://img.shields.io/badge/Tier-ALPHA-blueviolet.svg"/>
+<img src="https://img.shields.io/badge/Tier-Enterprise-blueviolet.svg"/>
 
 ```shell
 ws://ws.tokenanalyst.io:8000
