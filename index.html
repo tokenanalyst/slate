@@ -260,6 +260,29 @@
               </ul>
           </li>
           <li>
+            <a href="#btc-utxo-metrics" class="toc-h1 toc-link" data-title="BTC UTXO Metrics">BTC UTXO Metrics</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#btc-utxo-average-age" class="toc-h2 toc-link" data-title="BTC UTXO Average Age">BTC UTXO Average Age</a>
+                  </li>
+                  <li>
+                    <a href="#btc-utxo-average-value" class="toc-h2 toc-link" data-title="BTC UTXO Average Value">BTC UTXO Average Value</a>
+                  </li>
+                  <li>
+                    <a href="#btc-utxo-count" class="toc-h2 toc-link" data-title="BTC UTXO Count">BTC UTXO Count</a>
+                  </li>
+                  <li>
+                    <a href="#btc-utxo-median-age" class="toc-h2 toc-link" data-title="BTC UTXO Median Age">BTC UTXO Median Age</a>
+                  </li>
+                  <li>
+                    <a href="#btc-utxo-total-value" class="toc-h2 toc-link" data-title="BTC UTXO Total Value">BTC UTXO Total Value</a>
+                  </li>
+                  <li>
+                    <a href="#btc-utxo-weighted-average-age" class="toc-h2 toc-link" data-title="BTC UTXO Weighted Average Age">BTC UTXO Weighted Average Age</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#ethereum-fundamentals" class="toc-h1 toc-link" data-title="Ethereum Fundamentals">Ethereum Fundamentals</a>
               <ul class="toc-list-h2">
                   <li>
@@ -1568,6 +1591,1044 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
 <td>miner_daily_block_reward_usd</td>
 <td><em>decimal</em></td>
 <td><em>miner_daily_block_reward</em> * <em>price_usd</em></td>
+</tr>
+</tbody></table>
+<h1 id='btc-utxo-metrics'>BTC UTXO Metrics</h1><h2 id='btc-utxo-average-age'>BTC UTXO Average Age</h2>
+<p>This endpoint returns the average age of the bitcoin supply at the specified date, held in unspent transaction outputs stratified by their age. For instance outputs in the category <code>12-18m</code> are unspent outputs (UTXOs) from transactions that occurred <code>12-18m</code> ago. Time is measured relative to blocktime assuming 6 blocks are generated per hour. This means that the proportion of UTXOs in the <code>&lt;1d</code> category were generated less than or equal to 144 blocks ago (<code>6 blocks * 24 hours</code>).</p>
+
+<p>The age in block height is used over the block timestamp because the block timestamp serves as a source of variation when calculating the blockhash and is only accurate to within an hour or two. By using timestamps some UTXOs could be considered older than a previously generated UTXO. By using block-age from current the blockheight, the age of utxos is strictly ordinal as blockheight is strictly sequential.</p>
+
+<p><img src="https://img.shields.io/badge/Tier-Enterprise-blueviolet.svg"/></p>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_utxo_metric_window_historical/last?metric=avg_age&amp;limit=2&amp;window=1d&amp;format=json&amp;token=btc&amp;key=API_KEY"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+   </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-10-16"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"1-3m"</span><span class="p">:</span><span class="w"> </span><span class="mf">1429.2267</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"12-18m"</span><span class="p">:</span><span class="w"> </span><span class="mf">10891.7902</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"18-24m"</span><span class="p">:</span><span class="w"> </span><span class="mf">15520.8613</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"1d-1w"</span><span class="p">:</span><span class="w"> </span><span class="mf">90.3656</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"1w-1m"</span><span class="p">:</span><span class="w"> </span><span class="mf">435.0935</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"2-3y"</span><span class="p">:</span><span class="w"> </span><span class="mf">21635.8451</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"3-5y"</span><span class="p">:</span><span class="w"> </span><span class="mf">35142.7048</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"3-6m"</span><span class="p">:</span><span class="w"> </span><span class="mf">3189.9665</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"5-10y"</span><span class="p">:</span><span class="w"> </span><span class="mf">56884.8621</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"6-12m"</span><span class="p">:</span><span class="w"> </span><span class="mf">6392.2049</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"&lt;1d"</span><span class="p">:</span><span class="w"> </span><span class="mf">12.0231</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"&gt;10y"</span><span class="p">:</span><span class="w"> </span><span class="mf">95228.0092</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+   </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-10-17"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"1-3m"</span><span class="p">:</span><span class="w"> </span><span class="mf">1425.9911</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"12-18m"</span><span class="p">:</span><span class="w"> </span><span class="mf">10888.0116</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"18-24m"</span><span class="p">:</span><span class="w"> </span><span class="mf">15524.2703</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"1d-1w"</span><span class="p">:</span><span class="w"> </span><span class="mf">90.6531</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"1w-1m"</span><span class="p">:</span><span class="w"> </span><span class="mf">437.233</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"2-3y"</span><span class="p">:</span><span class="w"> </span><span class="mf">21629.4766</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"3-5y"</span><span class="p">:</span><span class="w"> </span><span class="mf">35148.2189</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"3-6m"</span><span class="p">:</span><span class="w"> </span><span class="mf">3192.6356</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"5-10y"</span><span class="p">:</span><span class="w"> </span><span class="mf">56902.5727</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"6-12m"</span><span class="p">:</span><span class="w"> </span><span class="mf">6385.1655</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"&lt;1d"</span><span class="p">:</span><span class="w"> </span><span class="mf">11.1082</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"&gt;10y"</span><span class="p">:</span><span class="w"> </span><span class="mf">95242.9982</span><span class="w">
+</span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre><h3 id='http-request'>HTTP Request</h3>
+<p><code>GET https://api.tokenanalyst.io/analytics/private/v1/token_utxo_metric_window_historical/last</code></p>
+<h3 id='query-parameters'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>key</td>
+<td><em>string</em></td>
+<td>Your unique API key</td>
+</tr>
+<tr>
+<td>format</td>
+<td><em>string</em></td>
+<td>What format you want your data in (<code>json</code> or <code>csv</code>)</td>
+</tr>
+<tr>
+<td>metric</td>
+<td><em>string</em></td>
+<td><code>avg_age</code></td>
+</tr>
+<tr>
+<td>window</td>
+<td><em>string</em></td>
+<td><code>1d</code> (no support for 1h at this time)</td>
+</tr>
+<tr>
+<td>token</td>
+<td><em>string</em></td>
+<td><code>btc</code></td>
+</tr>
+<tr>
+<td>from_date *</td>
+<td><em>string</em></td>
+<td>Start date of returned data specified as YYYY-MM-DD (ISO date format)</td>
+</tr>
+<tr>
+<td>to_date *</td>
+<td><em>string</em></td>
+<td>End date of returned data specified as YYYY-MM-DD (ISO date format)</td>
+</tr>
+<tr>
+<td>limit *</td>
+<td><em>integer</em></td>
+<td>The number of entries returned before the latest data point (or the to_date if specified)</td>
+</tr>
+</tbody></table>
+
+<p>Note: All params with a * are optional and <code>limit</code> is only available in the JSON return format</p>
+<h3 id='data-overview'>Data Overview</h3>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>date</td>
+<td><em>string</em></td>
+<td>The date in <em>YYYY-MM-DD</em></td>
+</tr>
+<tr>
+<td>&lt;1d</td>
+<td><em>decimal</em></td>
+<td>The average age of unspent outputs (UTXOs) on this date from transactions that occurred less than a day prior to this date.</td>
+</tr>
+<tr>
+<td>1d-1w</td>
+<td><em>decimal</em></td>
+<td>The average age of unspent outputs (UTXOs) on this date from transactions that occurred 1 day to 1 week prior to this date.</td>
+</tr>
+<tr>
+<td>1w-1m</td>
+<td><em>decimal</em></td>
+<td>The average age of unspent outputs (UTXOs) on this date from transactions that occurred 1 week to 1 month prior to this date.</td>
+</tr>
+<tr>
+<td>1-3m</td>
+<td><em>decimal</em></td>
+<td>The average age of unspent outputs (UTXOs) on this date from transactions that occurred 1 to 3 months prior to this date.</td>
+</tr>
+<tr>
+<td>3-6m</td>
+<td><em>decimal</em></td>
+<td>The average age of unspent outputs (UTXOs) on this date from transactions that occurred 3 to 6 months prior to this date.</td>
+</tr>
+<tr>
+<td>6-12m</td>
+<td><em>decimal</em></td>
+<td>The average age of unspent outputs (UTXOs) on this date from transactions that occurred 6 to 12 months prior to this date.</td>
+</tr>
+<tr>
+<td>12-18m</td>
+<td><em>decimal</em></td>
+<td>The average age of unspent outputs (UTXOs) on this date) from transactions that occurred 12 to 18 months prior to this date.</td>
+</tr>
+<tr>
+<td>18-24m</td>
+<td><em>decimal</em></td>
+<td>The average age of unspent outputs (UTXOs) on this date from transactions that occurred 18 to 24 months prior to this date.</td>
+</tr>
+<tr>
+<td>2-3y</td>
+<td><em>decimal</em></td>
+<td>The average age of unspent outputs (UTXOs) on this date from transactions that occurred 2 to 3 years prior to this date.</td>
+</tr>
+<tr>
+<td>3-5y</td>
+<td><em>decimal</em></td>
+<td>The average age of unspent outputs (UTXOs) on this date from transactions that occurred 3 to 5 years prior to this date.</td>
+</tr>
+<tr>
+<td>5-10y</td>
+<td><em>decimal</em></td>
+<td>The average age of unspent outputs (UTXOs) on this date from transactions that occurred 5 to 10 years prior to this date.</td>
+</tr>
+<tr>
+<td>&gt;10y</td>
+<td><em>decimal</em></td>
+<td>The average age of unspent outputs (UTXOs) on this date from transactions that occurred greater than 10 years prior to this date.</td>
+</tr>
+</tbody></table>
+<h2 id='btc-utxo-average-value'>BTC UTXO Average Value</h2>
+<p>This endpoint returns the average value of unspent transaction outputs (UTXOs) at the specified date, stratified by their age. For instance outputs in the category <code>12-18m</code> are unspent outputs (UTXOs) from transactions that occurred <code>12-18m</code> ago. Time is measured relative to blocktime assuming 6 blocks are generated per hour. This means that the average value of UTXOs in the <code>&gt;10y</code> category is the average for unspent outputs that were generated 525, 600 blocks ago (<code>6 blocks * 24 hours * 365 days * 10 years</code>).</p>
+
+<p>The age in block height is used over the block timestamp because the block timestamp serves as a source of variation when calculating the blockhash and is only accurate to within an hour or two. By using timestamps some UTXOs could be considered older than a previously generated UTXO. By using block-age from current the blockheight, the age of utxos is strictly ordinal as blockheight is strictly sequential.</p>
+
+<p><img src="https://img.shields.io/badge/Tier-Enterprise-blueviolet.svg"/></p>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_utxo_metric_window_historical/last?metric=avg_age&amp;limit=2&amp;window=1d&amp;format=json&amp;token=btc&amp;key=API_KEY"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+   </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-10-16"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"1-3m"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.3169</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"12-18m"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.2018</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"18-24m"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.3342</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"1d-1w"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.3745</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"1w-1m"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.3462</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"2-3y"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.2303</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"3-5y"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0834</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"3-6m"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.2905</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"5-10y"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.2852</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"6-12m"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.3736</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"&lt;1d"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.4967</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"&gt;10y"</span><span class="p">:</span><span class="w"> </span><span class="mf">50.6428</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+   </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-10-17"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"1-3m"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.3153</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"12-18m"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.2001</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"18-24m"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.3353</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"1d-1w"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.384</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"1w-1m"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.3132</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"2-3y"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.2309</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"3-5y"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0834</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"3-6m"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.2895</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"5-10y"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.2848</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"6-12m"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.3728</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"&lt;1d"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.8995</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"&gt;10y"</span><span class="p">:</span><span class="w"> </span><span class="mf">50.6194</span><span class="w">
+</span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre><h3 id='http-request-2'>HTTP Request</h3>
+<p><code>GET https://api.tokenanalyst.io/analytics/private/v1/token_utxo_metric_window_historical/last</code></p>
+<h3 id='query-parameters-2'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>key</td>
+<td><em>string</em></td>
+<td>Your unique API key</td>
+</tr>
+<tr>
+<td>format</td>
+<td><em>string</em></td>
+<td>What format you want your data in (<code>json</code> or <code>csv</code>)</td>
+</tr>
+<tr>
+<td>metric</td>
+<td><em>string</em></td>
+<td><code>avg_value</code></td>
+</tr>
+<tr>
+<td>window</td>
+<td><em>string</em></td>
+<td><code>1d</code> (no support for 1h at this time)</td>
+</tr>
+<tr>
+<td>token</td>
+<td><em>string</em></td>
+<td><code>btc</code></td>
+</tr>
+<tr>
+<td>from_date *</td>
+<td><em>string</em></td>
+<td>Start date of returned data specified as YYYY-MM-DD (ISO date format)</td>
+</tr>
+<tr>
+<td>to_date *</td>
+<td><em>string</em></td>
+<td>End date of returned data specified as YYYY-MM-DD (ISO date format)</td>
+</tr>
+<tr>
+<td>limit *</td>
+<td><em>integer</em></td>
+<td>The number of entries returned before the latest data point (or the to_date if specified)</td>
+</tr>
+</tbody></table>
+
+<p>Note: All params with a * are optional and <code>limit</code> is only available in the JSON return format</p>
+<h3 id='data-overview-2'>Data Overview</h3>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>date</td>
+<td><em>string</em></td>
+<td>The date in <em>YYYY-MM-DD</em></td>
+</tr>
+<tr>
+<td>&lt;1d</td>
+<td><em>decimal</em></td>
+<td>The average value of unspent outputs (UTXOs) on this date from transactions that occurred less than a day prior to this date.</td>
+</tr>
+<tr>
+<td>1d-1w</td>
+<td><em>decimal</em></td>
+<td>The average value of unspent outputs (UTXOs) on this date from transactions that occurred 1 day to 1 week prior to this date.</td>
+</tr>
+<tr>
+<td>1w-1m</td>
+<td><em>decimal</em></td>
+<td>The average value of unspent outputs (UTXOs) on this date from transactions that occurred 1 week to 1 month prior to this date.</td>
+</tr>
+<tr>
+<td>1-3m</td>
+<td><em>decimal</em></td>
+<td>The average value of unspent outputs (UTXOs) on this date from transactions that occurred 1 to 3 months prior to this date.</td>
+</tr>
+<tr>
+<td>3-6m</td>
+<td><em>decimal</em></td>
+<td>The average value of unspent outputs (UTXOs) on this date from transactions that occurred 3 to 6 months prior to this date.</td>
+</tr>
+<tr>
+<td>6-12m</td>
+<td><em>decimal</em></td>
+<td>The average value of unspent outputs (UTXOs) on this date from transactions that occurred 6 to 12 months prior to this date.</td>
+</tr>
+<tr>
+<td>12-18m</td>
+<td><em>decimal</em></td>
+<td>The average value of unspent outputs (UTXOs) on this date) from transactions that occurred 12 to 18 months prior to this date.</td>
+</tr>
+<tr>
+<td>18-24m</td>
+<td><em>decimal</em></td>
+<td>The average value of unspent outputs (UTXOs) on this date from transactions that occurred 18 to 24 months prior to this date.</td>
+</tr>
+<tr>
+<td>2-3y</td>
+<td><em>decimal</em></td>
+<td>The average value of unspent outputs (UTXOs) on this date from transactions that occurred 2 to 3 years prior to this date.</td>
+</tr>
+<tr>
+<td>3-5y</td>
+<td><em>decimal</em></td>
+<td>The average value of unspent outputs (UTXOs) on this date from transactions that occurred 3 to 5 years prior to this date.</td>
+</tr>
+<tr>
+<td>5-10y</td>
+<td><em>decimal</em></td>
+<td>The average value of unspent outputs (UTXOs) on this date from transactions that occurred 5 to 10 years prior to this date.</td>
+</tr>
+<tr>
+<td>&gt;10y</td>
+<td><em>decimal</em></td>
+<td>The average value of unspent outputs (UTXOs) on this date from transactions that occurred greater than 10 years prior to this date.</td>
+</tr>
+</tbody></table>
+<h2 id='btc-utxo-count'>BTC UTXO Count</h2>
+<p>This endpoint returns the count of unspent transaction outputs (UTXOs) at the specified date, stratified by their age. For instance the category <code>12-18m</code> contains the count of currently unspent outputs from transactions that occurred <code>12-18m</code> ago. Time is measured relative to blocktime assuming 6 blocks are generated per hour. This means that the count of UTXOs in the <code>&lt;1d</code> category were from UTXOs generated less than or equal to <code>144 blocks ago (6 blocks * 24 hours)</code>.</p>
+
+<p>The age in block height is used over the block timestamp because the block timestamp serves as a source of variation when calculating the blockhash and is only accurate to within an hour or two. By using timestamps some UTXOs could be considered older than a previously generated UTXO. By using block-age from current the blockheight, the age of utxos is strictly ordinal as blockheight is strictly sequential.</p>
+
+<p><img src="https://img.shields.io/badge/Tier-Enterprise-blueviolet.svg"/></p>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_utxo_metric_window_historical/last?metric=count&amp;limit=2&amp;window=1d&amp;format=json&amp;token=btc&amp;key=API_KEY"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+   </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-10-16"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"1-3m"</span><span class="p">:</span><span class="w"> </span><span class="mi">5608778</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"12-18m"</span><span class="p">:</span><span class="w"> </span><span class="mi">5737941</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"18-24m"</span><span class="p">:</span><span class="w"> </span><span class="mi">6219351</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"1d-1w"</span><span class="p">:</span><span class="w"> </span><span class="mi">1139380</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"1w-1m"</span><span class="p">:</span><span class="w"> </span><span class="mi">3060596</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"2-3y"</span><span class="p">:</span><span class="w"> </span><span class="mi">7402366</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"3-5y"</span><span class="p">:</span><span class="w"> </span><span class="mi">11597627</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"3-6m"</span><span class="p">:</span><span class="w"> </span><span class="mi">7248319</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"5-10y"</span><span class="p">:</span><span class="w"> </span><span class="mi">8067592</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"6-12m"</span><span class="p">:</span><span class="w"> </span><span class="mi">6916852</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"&lt;1d"</span><span class="p">:</span><span class="w"> </span><span class="mi">349249</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"&gt;10y"</span><span class="p">:</span><span class="w"> </span><span class="mi">32772</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+   </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-10-17"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"1-3m"</span><span class="p">:</span><span class="w"> </span><span class="mi">5615040</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"12-18m"</span><span class="p">:</span><span class="w"> </span><span class="mi">5753489</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"18-24m"</span><span class="p">:</span><span class="w"> </span><span class="mi">6214569</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"1d-1w"</span><span class="p">:</span><span class="w"> </span><span class="mi">1141220</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"1w-1m"</span><span class="p">:</span><span class="w"> </span><span class="mi">2987535</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"2-3y"</span><span class="p">:</span><span class="w"> </span><span class="mi">7412377</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"3-5y"</span><span class="p">:</span><span class="w"> </span><span class="mi">11613309</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"3-6m"</span><span class="p">:</span><span class="w"> </span><span class="mi">7282144</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"5-10y"</span><span class="p">:</span><span class="w"> </span><span class="mi">8071654</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"6-12m"</span><span class="p">:</span><span class="w"> </span><span class="mi">6916407</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"&lt;1d"</span><span class="p">:</span><span class="w"> </span><span class="mi">323682</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"&gt;10y"</span><span class="p">:</span><span class="w"> </span><span class="mi">32815</span><span class="w">
+</span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre><h3 id='http-request-3'>HTTP Request</h3>
+<p><code>GET https://api.tokenanalyst.io/analytics/private/v1/token_utxo_metric_window_historical/last</code></p>
+<h3 id='query-parameters-3'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>key</td>
+<td><em>string</em></td>
+<td>Your unique API key</td>
+</tr>
+<tr>
+<td>format</td>
+<td><em>string</em></td>
+<td>What format you want your data in (<code>json</code> or <code>csv</code>)</td>
+</tr>
+<tr>
+<td>metric</td>
+<td><em>string</em></td>
+<td><code>count</code></td>
+</tr>
+<tr>
+<td>window</td>
+<td><em>string</em></td>
+<td><code>1d</code> (no support for 1h at this time)</td>
+</tr>
+<tr>
+<td>token</td>
+<td><em>string</em></td>
+<td><code>btc</code></td>
+</tr>
+<tr>
+<td>from_date *</td>
+<td><em>string</em></td>
+<td>Start date of returned data specified as YYYY-MM-DD (ISO date format)</td>
+</tr>
+<tr>
+<td>to_date *</td>
+<td><em>string</em></td>
+<td>End date of returned data specified as YYYY-MM-DD (ISO date format)</td>
+</tr>
+<tr>
+<td>limit *</td>
+<td><em>integer</em></td>
+<td>The number of entries returned before the latest data point (or the to_date if specified)</td>
+</tr>
+</tbody></table>
+
+<p>Note: All params with a * are optional and <code>limit</code> is only available in the JSON return format</p>
+<h3 id='data-overview-3'>Data Overview</h3>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>date</td>
+<td><em>string</em></td>
+<td>The date in <em>YYYY-MM-DD</em></td>
+</tr>
+<tr>
+<td>&lt;1d</td>
+<td><em>decimal</em></td>
+<td>The count of unspent outputs (UTXOs) on this date from transactions that occurred less than a day prior to this date.</td>
+</tr>
+<tr>
+<td>1d-1w</td>
+<td><em>decimal</em></td>
+<td>The count of unspent outputs (UTXOs) on this date from transactions that occurred 1 day to 1 week prior to this date.</td>
+</tr>
+<tr>
+<td>1w-1m</td>
+<td><em>decimal</em></td>
+<td>The count of unspent outputs (UTXOs) on this date from transactions that occurred 1 week to 1 month prior to this date.</td>
+</tr>
+<tr>
+<td>1-3m</td>
+<td><em>decimal</em></td>
+<td>The count of unspent outputs (UTXOs) on this date from transactions that occurred 1 to 3 months prior to this date.</td>
+</tr>
+<tr>
+<td>3-6m</td>
+<td><em>decimal</em></td>
+<td>The count of unspent outputs (UTXOs) on this date from transactions that occurred 3 to 6 months prior to this date.</td>
+</tr>
+<tr>
+<td>6-12m</td>
+<td><em>decimal</em></td>
+<td>The count of unspent outputs (UTXOs) on this date from transactions that occurred 6 to 12 months prior to this date.</td>
+</tr>
+<tr>
+<td>12-18m</td>
+<td><em>decimal</em></td>
+<td>The count of unspent outputs (UTXOs) on this date) from transactions that occurred 12 to 18 months prior to this date.</td>
+</tr>
+<tr>
+<td>18-24m</td>
+<td><em>decimal</em></td>
+<td>The count of unspent outputs (UTXOs) on this date from transactions that occurred 18 to 24 months prior to this date.</td>
+</tr>
+<tr>
+<td>2-3y</td>
+<td><em>decimal</em></td>
+<td>The count of unspent outputs (UTXOs) on this date from transactions that occurred 2 to 3 years prior to this date.</td>
+</tr>
+<tr>
+<td>3-5y</td>
+<td><em>decimal</em></td>
+<td>The count of unspent outputs (UTXOs) on this date from transactions that occurred 3 to 5 years prior to this date.</td>
+</tr>
+<tr>
+<td>5-10y</td>
+<td><em>decimal</em></td>
+<td>The count of unspent outputs (UTXOs) on this date from transactions that occurred 5 to 10 years prior to this date.</td>
+</tr>
+<tr>
+<td>&gt;10y</td>
+<td><em>decimal</em></td>
+<td>The count of unspent outputs (UTXOs) on this date from transactions that occurred greater than 10 years prior to this date.</td>
+</tr>
+</tbody></table>
+<h2 id='btc-utxo-median-age'>BTC UTXO Median Age</h2>
+<p>This endpoint returns the median age of the bitcoin supply at the specified date, held in unspent transaction outputs stratified by their age. For instance outputs in the category <code>12-18m</code> are unspent outputs (UTXOs) from transactions that occurred <code>12-18m</code> ago. Time is measured relative to blocktime assuming 6 blocks are generated per hour. This means that the median age of UTXOs in the <code>&lt;1d</code> category were generated less than or equal to <code>144 blocks ago (6 blocks * 24 hours)</code>.</p>
+
+<p>The age in block height is used over the block timestamp because the block timestamp serves as a source of variation when calculating the blockhash and is only accurate to within an hour or two. By using timestamps some UTXOs could be considered older than a previously generated UTXO. By using block-age from current the blockheight, the age of utxos is strictly ordinal as blockheight is strictly sequential.</p>
+
+<p><img src="https://img.shields.io/badge/Tier-Enterprise-blueviolet.svg"/></p>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_utxo_metric_window_historical/last?metric=count&amp;limit=2&amp;window=1d&amp;format=json&amp;token=btc&amp;key=API_KEY"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+   </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-10-16"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"1-3m"</span><span class="p">:</span><span class="w"> </span><span class="mf">1428.5</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"12-18m"</span><span class="p">:</span><span class="w"> </span><span class="mf">10879.8333</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"18-24m"</span><span class="p">:</span><span class="w"> </span><span class="mf">15663.8333</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"1d-1w"</span><span class="p">:</span><span class="w"> </span><span class="mf">88.5</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"1w-1m"</span><span class="p">:</span><span class="w"> </span><span class="mf">430.5</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"2-3y"</span><span class="p">:</span><span class="w"> </span><span class="mf">21493.1667</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"3-5y"</span><span class="p">:</span><span class="w"> </span><span class="mf">35925.1667</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"3-6m"</span><span class="p">:</span><span class="w"> </span><span class="mf">3146.5</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"5-10y"</span><span class="p">:</span><span class="w"> </span><span class="mf">55743.8333</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"6-12m"</span><span class="p">:</span><span class="w"> </span><span class="mf">6271.8333</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"&lt;1d"</span><span class="p">:</span><span class="w"> </span><span class="mf">11.5</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"&gt;10y"</span><span class="p">:</span><span class="w"> </span><span class="mf">96415.8333</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+   </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-10-17"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"1-3m"</span><span class="p">:</span><span class="w"> </span><span class="mf">1435.8333</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"12-18m"</span><span class="p">:</span><span class="w"> </span><span class="mf">10885.1667</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"18-24m"</span><span class="p">:</span><span class="w"> </span><span class="mf">15663.8333</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"1d-1w"</span><span class="p">:</span><span class="w"> </span><span class="mf">87.3333</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"1w-1m"</span><span class="p">:</span><span class="w"> </span><span class="mf">433.1667</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"2-3y"</span><span class="p">:</span><span class="w"> </span><span class="mf">21482.5</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"3-5y"</span><span class="p">:</span><span class="w"> </span><span class="mf">35903.8333</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"3-6m"</span><span class="p">:</span><span class="w"> </span><span class="mf">3149.1667</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"5-10y"</span><span class="p">:</span><span class="w"> </span><span class="mf">55765.1667</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"6-12m"</span><span class="p">:</span><span class="w"> </span><span class="mf">6266.5</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"&lt;1d"</span><span class="p">:</span><span class="w"> </span><span class="mf">10.3333</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"&gt;10y"</span><span class="p">:</span><span class="w"> </span><span class="mf">96426.5</span><span class="w">
+</span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre><h3 id='http-request-4'>HTTP Request</h3>
+<p><code>GET https://api.tokenanalyst.io/analytics/private/v1/token_utxo_metric_window_historical/last</code></p>
+<h3 id='query-parameters-4'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>key</td>
+<td><em>string</em></td>
+<td>Your unique API key</td>
+</tr>
+<tr>
+<td>format</td>
+<td><em>string</em></td>
+<td>What format you want your data in (<code>json</code> or <code>csv</code>)</td>
+</tr>
+<tr>
+<td>metric</td>
+<td><em>string</em></td>
+<td><code>median_age</code></td>
+</tr>
+<tr>
+<td>window</td>
+<td><em>string</em></td>
+<td><code>1d</code> (no support for 1h at this time)</td>
+</tr>
+<tr>
+<td>token</td>
+<td><em>string</em></td>
+<td><code>btc</code></td>
+</tr>
+<tr>
+<td>from_date *</td>
+<td><em>string</em></td>
+<td>Start date of returned data specified as YYYY-MM-DD (ISO date format)</td>
+</tr>
+<tr>
+<td>to_date *</td>
+<td><em>string</em></td>
+<td>End date of returned data specified as YYYY-MM-DD (ISO date format)</td>
+</tr>
+<tr>
+<td>limit *</td>
+<td><em>integer</em></td>
+<td>The number of entries returned before the latest data point (or the to_date if specified)</td>
+</tr>
+</tbody></table>
+
+<p>Note: All params with a * are optional and <code>limit</code> is only available in the JSON return format</p>
+<h3 id='data-overview-4'>Data Overview</h3>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>date</td>
+<td><em>string</em></td>
+<td>The date in <em>YYYY-MM-DD</em></td>
+</tr>
+<tr>
+<td>&lt;1d</td>
+<td><em>decimal</em></td>
+<td>The median age of unspent outputs (UTXOs) on this date from transactions that occurred less than a day prior to this date.</td>
+</tr>
+<tr>
+<td>1d-1w</td>
+<td><em>decimal</em></td>
+<td>The median age of unspent outputs (UTXOs) on this date from transactions that occurred 1 day to 1 week prior to this date.</td>
+</tr>
+<tr>
+<td>1w-1m</td>
+<td><em>decimal</em></td>
+<td>The median age of unspent outputs (UTXOs) on this date from transactions that occurred 1 week to 1 month prior to this date.</td>
+</tr>
+<tr>
+<td>1-3m</td>
+<td><em>decimal</em></td>
+<td>The median age of unspent outputs (UTXOs) on this date from transactions that occurred 1 to 3 months prior to this date.</td>
+</tr>
+<tr>
+<td>3-6m</td>
+<td><em>decimal</em></td>
+<td>The median age of unspent outputs (UTXOs) on this date from transactions that occurred 3 to 6 months prior to this date.</td>
+</tr>
+<tr>
+<td>6-12m</td>
+<td><em>decimal</em></td>
+<td>The median age of unspent outputs (UTXOs) on this date from transactions that occurred 6 to 12 months prior to this date.</td>
+</tr>
+<tr>
+<td>12-18m</td>
+<td><em>decimal</em></td>
+<td>The median age of unspent outputs (UTXOs) on this date) from transactions that occurred 12 to 18 months prior to this date.</td>
+</tr>
+<tr>
+<td>18-24m</td>
+<td><em>decimal</em></td>
+<td>The median age of unspent outputs (UTXOs) on this date from transactions that occurred 18 to 24 months prior to this date.</td>
+</tr>
+<tr>
+<td>2-3y</td>
+<td><em>decimal</em></td>
+<td>The median age of unspent outputs (UTXOs) on this date from transactions that occurred 2 to 3 years prior to this date.</td>
+</tr>
+<tr>
+<td>3-5y</td>
+<td><em>decimal</em></td>
+<td>The median age of unspent outputs (UTXOs) on this date from transactions that occurred 3 to 5 years prior to this date.</td>
+</tr>
+<tr>
+<td>5-10y</td>
+<td><em>decimal</em></td>
+<td>The median age of unspent outputs (UTXOs) on this date from transactions that occurred 5 to 10 years prior to this date.</td>
+</tr>
+<tr>
+<td>&gt;10y</td>
+<td><em>decimal</em></td>
+<td>The median age of unspent outputs (UTXOs) on this date from transactions that occurred greater than 10 years prior to this date.</td>
+</tr>
+</tbody></table>
+<h2 id='btc-utxo-total-value'>BTC UTXO Total Value</h2>
+<p>This endpoint returns the total BTC value of the bitcoin supply at the specified date, held in unspent transaction outputs stratified by their age. For instance outputs in the category <code>12-18m</code> are unspent outputs (UTXOs) from transactions that occurred <code>12-18m</code> ago. Time is measured relative to blocktime assuming 6 blocks are generated per hour. This means that the BTC value of UTXOs in the <code>&lt;1d</code> category were generated less than or equal to <code>144 blocks ago (6 blocks * 24 hours)</code>.</p>
+
+<p>The age in block height is used over the block timestamp because the block timestamp serves as a source of variation when calculating the blockhash and is only accurate to within an hour or two. By using timestamps some UTXOs could be considered older than a previously generated UTXO. By using block-age from current the blockheight, the age of utxos is strictly ordinal as blockheight is strictly sequential.</p>
+
+<p><img src="https://img.shields.io/badge/Tier-Enterprise-blueviolet.svg"/></p>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_utxo_metric_window_historical/last?metric=total_value&amp;limit=2&amp;window=1d&amp;format=json&amp;token=btc&amp;key=API_KEY"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+   </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-10-16"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"1-3m"</span><span class="p">:</span><span class="w"> </span><span class="mf">1777347.3869</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"12-18m"</span><span class="p">:</span><span class="w"> </span><span class="mf">1158032.9532</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"18-24m"</span><span class="p">:</span><span class="w"> </span><span class="mf">2078703.5591</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"1d-1w"</span><span class="p">:</span><span class="w"> </span><span class="mf">426700.584</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"1w-1m"</span><span class="p">:</span><span class="w"> </span><span class="mf">1059641.5382</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"2-3y"</span><span class="p">:</span><span class="w"> </span><span class="mf">1704598.3775</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"3-5y"</span><span class="p">:</span><span class="w"> </span><span class="mf">967616.1339</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"3-6m"</span><span class="p">:</span><span class="w"> </span><span class="mf">2105447.8466</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"5-10y"</span><span class="p">:</span><span class="w"> </span><span class="mf">2300642.2641</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"6-12m"</span><span class="p">:</span><span class="w"> </span><span class="mf">2584202.2294</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"&lt;1d"</span><span class="p">:</span><span class="w"> </span><span class="mf">173486.1721</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"&gt;10y"</span><span class="p">:</span><span class="w"> </span><span class="mf">1659664.5</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+   </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-10-17"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"1-3m"</span><span class="p">:</span><span class="w"> </span><span class="mf">1770545.9191</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"12-18m"</span><span class="p">:</span><span class="w"> </span><span class="mf">1151530.6676</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"18-24m"</span><span class="p">:</span><span class="w"> </span><span class="mf">2083877.5908</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"1d-1w"</span><span class="p">:</span><span class="w"> </span><span class="mf">438182.7858</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"1w-1m"</span><span class="p">:</span><span class="w"> </span><span class="mf">935844.8516</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"2-3y"</span><span class="p">:</span><span class="w"> </span><span class="mf">1711474.8656</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"3-5y"</span><span class="p">:</span><span class="w"> </span><span class="mf">968321.7507</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"3-6m"</span><span class="p">:</span><span class="w"> </span><span class="mf">2108284.9723</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"5-10y"</span><span class="p">:</span><span class="w"> </span><span class="mf">2299152.7543</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"6-12m"</span><span class="p">:</span><span class="w"> </span><span class="mf">2578503.3151</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"&lt;1d"</span><span class="p">:</span><span class="w"> </span><span class="mf">291163.752</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"&gt;10y"</span><span class="p">:</span><span class="w"> </span><span class="mf">1661075.32</span><span class="w">
+</span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre><h3 id='http-request-5'>HTTP Request</h3>
+<p><code>GET https://api.tokenanalyst.io/analytics/private/v1/token_utxo_metric_window_historical/last</code></p>
+<h3 id='query-parameters-5'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>key</td>
+<td><em>string</em></td>
+<td>Your unique API key</td>
+</tr>
+<tr>
+<td>format</td>
+<td><em>string</em></td>
+<td>What format you want your data in (<code>json</code> or <code>csv</code>)</td>
+</tr>
+<tr>
+<td>metric</td>
+<td><em>string</em></td>
+<td><code>total_value</code></td>
+</tr>
+<tr>
+<td>window</td>
+<td><em>string</em></td>
+<td><code>1d</code> (no support for 1h at this time)</td>
+</tr>
+<tr>
+<td>token</td>
+<td><em>string</em></td>
+<td><code>btc</code></td>
+</tr>
+<tr>
+<td>from_date *</td>
+<td><em>string</em></td>
+<td>Start date of returned data specified as YYYY-MM-DD (ISO date format)</td>
+</tr>
+<tr>
+<td>to_date *</td>
+<td><em>string</em></td>
+<td>End date of returned data specified as YYYY-MM-DD (ISO date format)</td>
+</tr>
+<tr>
+<td>limit *</td>
+<td><em>integer</em></td>
+<td>The number of entries returned before the latest data point (or the to_date if specified)</td>
+</tr>
+</tbody></table>
+
+<p>Note: All params with a * are optional and <code>limit</code> is only available in the JSON return format</p>
+<h3 id='data-overview-5'>Data Overview</h3>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>date</td>
+<td><em>string</em></td>
+<td>The date in <em>YYYY-MM-DD</em></td>
+</tr>
+<tr>
+<td>&lt;1d</td>
+<td><em>decimal</em></td>
+<td>The total value of unspent outputs (UTXOs) on this date from transactions that occurred less than a day prior to this date.</td>
+</tr>
+<tr>
+<td>1d-1w</td>
+<td><em>decimal</em></td>
+<td>The total value of unspent outputs (UTXOs) on this date from transactions that occurred 1 day to 1 week prior to this date.</td>
+</tr>
+<tr>
+<td>1w-1m</td>
+<td><em>decimal</em></td>
+<td>The total value of unspent outputs (UTXOs) on this date from transactions that occurred 1 week to 1 month prior to this date.</td>
+</tr>
+<tr>
+<td>1-3m</td>
+<td><em>decimal</em></td>
+<td>The total value of unspent outputs (UTXOs) on this date from transactions that occurred 1 to 3 months prior to this date.</td>
+</tr>
+<tr>
+<td>3-6m</td>
+<td><em>decimal</em></td>
+<td>The total value of unspent outputs (UTXOs) on this date from transactions that occurred 3 to 6 months prior to this date.</td>
+</tr>
+<tr>
+<td>6-12m</td>
+<td><em>decimal</em></td>
+<td>The total value of unspent outputs (UTXOs) on this date from transactions that occurred 6 to 12 months prior to this date.</td>
+</tr>
+<tr>
+<td>12-18m</td>
+<td><em>decimal</em></td>
+<td>The total value of unspent outputs (UTXOs) on this date) from transactions that occurred 12 to 18 months prior to this date.</td>
+</tr>
+<tr>
+<td>18-24m</td>
+<td><em>decimal</em></td>
+<td>The total value of unspent outputs (UTXOs) on this date from transactions that occurred 18 to 24 months prior to this date.</td>
+</tr>
+<tr>
+<td>2-3y</td>
+<td><em>decimal</em></td>
+<td>The total value of unspent outputs (UTXOs) on this date from transactions that occurred 2 to 3 years prior to this date.</td>
+</tr>
+<tr>
+<td>3-5y</td>
+<td><em>decimal</em></td>
+<td>The total value of unspent outputs (UTXOs) on this date from transactions that occurred 3 to 5 years prior to this date.</td>
+</tr>
+<tr>
+<td>5-10y</td>
+<td><em>decimal</em></td>
+<td>The total value of unspent outputs (UTXOs) on this date from transactions that occurred 5 to 10 years prior to this date.</td>
+</tr>
+<tr>
+<td>&gt;10y</td>
+<td><em>decimal</em></td>
+<td>The total value of unspent outputs (UTXOs) on this date from transactions that occurred greater than 10 years prior to this date.</td>
+</tr>
+</tbody></table>
+<h2 id='btc-utxo-weighted-average-age'>BTC UTXO Weighted Average Age</h2>
+<p>This endpoint returns the weighted average age of the current bitcoin supply held in unspent transaction outputs stratified by their age.
+The weighted average age is sum of the ages of UTXOs multiplied by their bitocoinvalue, divided by the total bitcoin value in that stratum. The formula is below:</p>
+
+<p><img src="https://s3.amazonaws.com/www.tokenanalyst.io/img/weight_avg_age_eqn.svg"/></p>
+
+<p>For instance outputs in the category <code>12-18m</code> are unspent outputs (UTXOs) from transactions that occurred <code>12-18m</code> ago. Time is measured relative to blocktime assuming 6 blocks are generated per hour. This means that the proportion of UTXOs in the <code>&lt;1d</code> category were generated less than or equal to <code>144 blocks ago (6 blocks * 24 hours)</code>.</p>
+
+<p>The age in block height is used over the block timestamp because the block timestamp serves as a source of variation when calculating the blockhash and is only accurate to within an hour or two. By using timestamps some UTXOs could be considered older than a previously generated UTXO. By using block-age from current the blockheight, the age of utxos is strictly ordinal as blockheight is strictly sequential.</p>
+
+<p><img src="https://img.shields.io/badge/Tier-Enterprise-blueviolet.svg"/></p>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_utxo_metric_window_historical/last?metric=weighted_avg_age&amp;limit=2&amp;window=1d&amp;format=json&amp;token=btc&amp;key=API_KEY"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+   </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-10-16"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"1-3m"</span><span class="p">:</span><span class="w"> </span><span class="mf">1545.2336</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"12-18m"</span><span class="p">:</span><span class="w"> </span><span class="mf">11035.8792</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"18-24m"</span><span class="p">:</span><span class="w"> </span><span class="mf">15596.1418</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"1d-1w"</span><span class="p">:</span><span class="w"> </span><span class="mf">76.1194</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"1w-1m"</span><span class="p">:</span><span class="w"> </span><span class="mf">451.0636</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"2-3y"</span><span class="p">:</span><span class="w"> </span><span class="mf">20471.2648</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"3-5y"</span><span class="p">:</span><span class="w"> </span><span class="mf">33903.6172</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"3-6m"</span><span class="p">:</span><span class="w"> </span><span class="mf">3142.9224</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"5-10y"</span><span class="p">:</span><span class="w"> </span><span class="mf">64551.2214</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"6-12m"</span><span class="p">:</span><span class="w"> </span><span class="mf">6871.3697</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"&lt;1d"</span><span class="p">:</span><span class="w"> </span><span class="mf">10.3378</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"&gt;10y"</span><span class="p">:</span><span class="w"> </span><span class="mf">95306.9022</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+   </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-10-17"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"1-3m"</span><span class="p">:</span><span class="w"> </span><span class="mf">1553.5454</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"12-18m"</span><span class="p">:</span><span class="w"> </span><span class="mf">11016.0713</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"18-24m"</span><span class="p">:</span><span class="w"> </span><span class="mf">15595.3426</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"1d-1w"</span><span class="p">:</span><span class="w"> </span><span class="mf">78.7768</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"1w-1m"</span><span class="p">:</span><span class="w"> </span><span class="mf">452.0231</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"2-3y"</span><span class="p">:</span><span class="w"> </span><span class="mf">20477.4807</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"3-5y"</span><span class="p">:</span><span class="w"> </span><span class="mf">33919.834</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"3-6m"</span><span class="p">:</span><span class="w"> </span><span class="mf">3157.0836</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"5-10y"</span><span class="p">:</span><span class="w"> </span><span class="mf">64560.6276</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"6-12m"</span><span class="p">:</span><span class="w"> </span><span class="mf">6884.0698</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"&lt;1d"</span><span class="p">:</span><span class="w"> </span><span class="mf">6.1814</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"&gt;10y"</span><span class="p">:</span><span class="w"> </span><span class="mf">95325.3456</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre><h3 id='http-request-6'>HTTP Request</h3>
+<p><code>GET https://api.tokenanalyst.io/analytics/private/v1/token_utxo_metric_window_historical/last</code></p>
+<h3 id='query-parameters-6'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>key</td>
+<td><em>string</em></td>
+<td>Your unique API key</td>
+</tr>
+<tr>
+<td>format</td>
+<td><em>string</em></td>
+<td>What format you want your data in (<code>json</code> or <code>csv</code>)</td>
+</tr>
+<tr>
+<td>metric</td>
+<td><em>string</em></td>
+<td><code>weighted_avg_age</code></td>
+</tr>
+<tr>
+<td>window</td>
+<td><em>string</em></td>
+<td><code>1d</code> (no support for 1h at this time)</td>
+</tr>
+<tr>
+<td>token</td>
+<td><em>string</em></td>
+<td><code>btc</code></td>
+</tr>
+<tr>
+<td>from_date *</td>
+<td><em>string</em></td>
+<td>Start date of returned data specified as YYYY-MM-DD (ISO date format)</td>
+</tr>
+<tr>
+<td>to_date *</td>
+<td><em>string</em></td>
+<td>End date of returned data specified as YYYY-MM-DD (ISO date format)</td>
+</tr>
+<tr>
+<td>limit *</td>
+<td><em>integer</em></td>
+<td>The number of entries returned before the latest data point (or the to_date if specified)</td>
+</tr>
+</tbody></table>
+
+<p>Note: All params with a * are optional and <code>limit</code> is only available in the JSON return format</p>
+<h3 id='data-overview-6'>Data Overview</h3>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>date</td>
+<td><em>string</em></td>
+<td>The date in <em>YYYY-MM-DD</em></td>
+</tr>
+<tr>
+<td>&lt;1d</td>
+<td><em>decimal</em></td>
+<td>The weighted average age of unspent outputs (UTXOs) on this date from transactions that occurred less than a day prior to this date.</td>
+</tr>
+<tr>
+<td>1d-1w</td>
+<td><em>decimal</em></td>
+<td>The weighted average age of unspent outputs (UTXOs) on this date from transactions that occurred 1 day to 1 week prior to this date.</td>
+</tr>
+<tr>
+<td>1w-1m</td>
+<td><em>decimal</em></td>
+<td>The weighted average age of unspent outputs (UTXOs) on this date from transactions that occurred 1 week to 1 month prior to this date.</td>
+</tr>
+<tr>
+<td>1-3m</td>
+<td><em>decimal</em></td>
+<td>The weighted average age of unspent outputs (UTXOs) on this date from transactions that occurred 1 to 3 months prior to this date.</td>
+</tr>
+<tr>
+<td>3-6m</td>
+<td><em>decimal</em></td>
+<td>The weighted average age of unspent outputs (UTXOs) on this date from transactions that occurred 3 to 6 months prior to this date.</td>
+</tr>
+<tr>
+<td>6-12m</td>
+<td><em>decimal</em></td>
+<td>The weighted average age of unspent outputs (UTXOs) on this date from transactions that occurred 6 to 12 months prior to this date.</td>
+</tr>
+<tr>
+<td>12-18m</td>
+<td><em>decimal</em></td>
+<td>The weighted average age of unspent outputs (UTXOs) on this date) from transactions that occurred 12 to 18 months prior to this date.</td>
+</tr>
+<tr>
+<td>18-24m</td>
+<td><em>decimal</em></td>
+<td>The weighted average age of unspent outputs (UTXOs) on this date from transactions that occurred 18 to 24 months prior to this date.</td>
+</tr>
+<tr>
+<td>2-3y</td>
+<td><em>decimal</em></td>
+<td>The weighted average age of unspent outputs (UTXOs) on this date from transactions that occurred 2 to 3 years prior to this date.</td>
+</tr>
+<tr>
+<td>3-5y</td>
+<td><em>decimal</em></td>
+<td>The weighted average age of unspent outputs (UTXOs) on this date from transactions that occurred 3 to 5 years prior to this date.</td>
+</tr>
+<tr>
+<td>5-10y</td>
+<td><em>decimal</em></td>
+<td>The weighted average age of unspent outputs (UTXOs) on this date from transactions that occurred 5 to 10 years prior to this date.</td>
+</tr>
+<tr>
+<td>&gt;10y</td>
+<td><em>decimal</em></td>
+<td>The weighted average age of unspent outputs (UTXOs) on this date from transactions that occurred greater than 10 years prior to this date.</td>
 </tr>
 </tbody></table>
 <h1 id='ethereum-fundamentals'>Ethereum Fundamentals</h1><h2 id='eth-on-chain-volume'>ETH On-chain Volume</h2>
@@ -6671,7 +7732,7 @@ curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/exchange
 
 <p>You can find a sample python script to subscribe to this feed here - <a href="https://github.com/tokenanalyst/samplecode" target="_blank">https://github.com/tokenanalyst/samplecode</a></p>
 
-<p><img src="https://img.shields.io/badge/Tier-ALPHA-blueviolet.svg"/></p>
+<p><img src="https://img.shields.io/badge/Tier-Enterprise-blueviolet.svg"/></p>
 <pre class="highlight shell tab-shell"><code>ws://ws.tokenanalyst.io:8000
 </code></pre>
 <blockquote>
