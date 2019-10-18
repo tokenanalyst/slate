@@ -7,8 +7,6 @@ This endpoint returns the average age of the current bitcoin supply held in unsp
 The age in block height is used over the block timestamp because the block timestamp serves as a source of variation when calculating the blockhash and is only accurate to within an hour or two. By using timestamps some UTXOs could be considered older than a previously generated UTXO. By using block-age from current the blockheight, the age of utxos is strictly ordinal as blockheight is strictly sequential.
 
 
-<img src="https://s3.amazonaws.com/www.tokenanalyst.io/img/weight_avg_age_eqn.svg"/>
-
 ```shell
 curl "https://api.tokenanalyst.io/analytics/private/v1/token_utxo_metric_window_historical/last?metric=avg_age&limit=2&window=1d&format=json&token=btc&key=API_KEY"
 ```
@@ -448,9 +446,11 @@ Note: All params with a \* are optional and `limit` is only available in the JSO
 ## BTC UTXO Weighted Average Age
 
 This endpoint returns the weighted average age of the current bitcoin supply held in unspent transaction outputs stratified by their age.
-The weighted average age is sum of the ages of UTXOs multiplied by their bitocoinvalue, divided by the total bitcoin value in that stratum. For instance outputs in the category `12-18m` are unspent outputs (UTXOs) from transactions that occurred `12-18m` ago. Time is measured relative to blocktime assuming 6 blocks are generated per hour. This means that the proportion of UTXOs in the `<1d` category were generated less than or equal to `144 blocks ago (6 blocks * 24 hours)`.
+The weighted average age is sum of the ages of UTXOs multiplied by their bitocoinvalue, divided by the total bitcoin value in that stratum. The formula is below:
 
-<img src="images/weight_avg_age_eqn.svg"/>
+<img src="https://s3.amazonaws.com/www.tokenanalyst.io/img/weight_avg_age_eqn.svg"/>
+
+For instance outputs in the category `12-18m` are unspent outputs (UTXOs) from transactions that occurred `12-18m` ago. Time is measured relative to blocktime assuming 6 blocks are generated per hour. This means that the proportion of UTXOs in the `<1d` category were generated less than or equal to `144 blocks ago (6 blocks * 24 hours)`.
 
 The age in block height is used over the block timestamp because the block timestamp serves as a source of variation when calculating the blockhash and is only accurate to within an hour or two. By using timestamps some UTXOs could be considered older than a previously generated UTXO. By using block-age from current the blockheight, the age of utxos is strictly ordinal as blockheight is strictly sequential.
 
