@@ -2,12 +2,12 @@
 
 ## BTC UTXO Average Age
 
-This endpoint returns the average age of the current bitcoin supply held in unspent transaction outputs stratified by their age. For instance outputs in the category `12-18m` are unspent outputs (UTXOs) from transactions that occurred `12-18m` ago. Time is measured relative to blocktime assuming 6 blocks are generated per hour. This means that the proportion of UTXOs in the `<1d` category were generated less than or equal to `144 blocks ago (6 blocks * 24 hours)`.
+This endpoint returns the average age of the current bitcoin supply held in unspent transaction outputs stratified by their age. For instance outputs in the category `12-18m` are unspent outputs (UTXOs) from transactions that occurred `12-18m` ago. Time is measured relative to blocktime assuming 6 blocks are generated per hour. This means that the proportion of UTXOs in the `<1d` category were generated less than or equal to 144 blocks ago (`6 blocks * 24 hours`).
 
 The age in block height is used over the block timestamp because the block timestamp serves as a source of variation when calculating the blockhash and is only accurate to within an hour or two. By using timestamps some UTXOs could be considered older than a previously generated UTXO. By using block-age from current the blockheight, the age of utxos is strictly ordinal as blockheight is strictly sequential.
 
 
-<img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/>
+<img src="https://s3.amazonaws.com/www.tokenanalyst.io/img/weight_avg_age_eqn.svg"/>
 
 ```shell
 curl "https://api.tokenanalyst.io/analytics/private/v1/token_utxo_metric_window_historical/last?metric=avg_age&limit=2&window=1d&format=json&token=btc&key=API_KEY"
@@ -75,23 +75,23 @@ Note: All params with a \* are optional and `limit` is only available in the JSO
 
 | Field  | Type      | Description                                                                                                                                         |
 | ------ | --------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 1-3m   | _decimal_ | The average age of unspent outputs (UTXOs) on this date from transactions that occurred 1 to 3 months prior to this date.         |
-| 12-18m | _decimal_ | The average age of unspent outputs (UTXOs) on this date) from transactions that occurred 12 to 18 months prior to this date.       |
-| 18-24m | _decimal_ | The average age of unspent outputs (UTXOs) on this date from transactions that occurred 18 to 24 months prior to this date.       |
+| date   | _string_  | The date in _YYYY-MM-DD_                                                                                                                            |
+| <1d    | _decimal_ | The average age of unspent outputs (UTXOs) on this date from transactions that occurred less than a day prior to this date.       |
 | 1d-1w  | _decimal_ | The average age of unspent outputs (UTXOs) on this date from transactions that occurred 1 day to 1 week prior to this date.       |
 | 1w-1m  | _decimal_ | The average age of unspent outputs (UTXOs) on this date from transactions that occurred 1 week to 1 month prior to this date.     |
+| 1-3m   | _decimal_ | The average age of unspent outputs (UTXOs) on this date from transactions that occurred 1 to 3 months prior to this date.         |
+| 3-6m   | _decimal_ | The average age of unspent outputs (UTXOs) on this date from transactions that occurred 3 to 6 months prior to this date.         |
+| 6-12m  | _decimal_ | The average age of unspent outputs (UTXOs) on this date from transactions that occurred 6 to 12 months prior to this date.        |
+| 12-18m | _decimal_ | The average age of unspent outputs (UTXOs) on this date) from transactions that occurred 12 to 18 months prior to this date.       |
+| 18-24m | _decimal_ | The average age of unspent outputs (UTXOs) on this date from transactions that occurred 18 to 24 months prior to this date.       |
 | 2-3y   | _decimal_ | The average age of unspent outputs (UTXOs) on this date from transactions that occurred 2 to 3 years prior to this date.          |
 | 3-5y   | _decimal_ | The average age of unspent outputs (UTXOs) on this date from transactions that occurred 3 to 5 years prior to this date.          |
-| 3-6m   | _decimal_ | The average age of unspent outputs (UTXOs) on this date from transactions that occurred 3 to 6 months prior to this date.         |
 | 5-10y  | _decimal_ | The average age of unspent outputs (UTXOs) on this date from transactions that occurred 5 to 10 years prior to this date.         |
-| 6-12m  | _decimal_ | The average age of unspent outputs (UTXOs) on this date from transactions that occurred 6 to 12 months prior to this date.        |
-| <1d    | _decimal_ | The average age of unspent outputs (UTXOs) on this date from transactions that occurred less than a day prior to this date.       |
 | >10y   | _decimal_ | The average age of unspent outputs (UTXOs) on this date from transactions that occurred greater than 10 years prior to this date. |
-| date   | _string_  | The date in _YYYY-MM-DD_                                                                                                                            |
 
 ## BTC UTXO Average Value
 
-This endpoint returns the average value of the current bitcoin supply held in unspent transaction outputs stratified by their age. For instance outputs in the category `12-18m` are unspent outputs (UTXOs) from transactions that occurred `12-18m` ago. Time is measured relative to blocktime assuming 6 blocks are generated per hour. This means that the proportion of UTXOs in the `<1d` category were generated less than or equal to `144 blocks ago (6 blocks * 24 hours)`.
+This endpoint returns the average value of unspent transaction outputs (UTXOs) stratified by their current age. For instance outputs in the category `12-18m` are unspent outputs (UTXOs) from transactions that occurred `12-18m` ago. Time is measured relative to blocktime assuming 6 blocks are generated per hour. This means that the average value of UTXOs in the `>10y` category is the average for unspent outputs that were generated 525, 600 blocks ago (`6 blocks * 24 hours * 365 days * 10 years`).
 
 The age in block height is used over the block timestamp because the block timestamp serves as a source of variation when calculating the blockhash and is only accurate to within an hour or two. By using timestamps some UTXOs could be considered older than a previously generated UTXO. By using block-age from current the blockheight, the age of utxos is strictly ordinal as blockheight is strictly sequential.
 
@@ -164,23 +164,23 @@ Note: All params with a \* are optional and `limit` is only available in the JSO
 
 | Field  | Type      | Description                                                                                                                                         |
 | ------ | --------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 1-3m   | _decimal_ | The average value of unspent outputs (UTXOs) on this date from transactions that occurred 1 to 3 months prior to this date.         |
-| 12-18m | _decimal_ | The average value of unspent outputs (UTXOs) on this date) from transactions that occurred 12 to 18 months prior to this date.       |
-| 18-24m | _decimal_ | The average value of unspent outputs (UTXOs) on this date from transactions that occurred 18 to 24 months prior to this date.       |
+| date   | _string_  | The date in _YYYY-MM-DD_                                                                                                                            |
+| <1d    | _decimal_ | The average value of unspent outputs (UTXOs) on this date from transactions that occurred less than a day prior to this date.       |
 | 1d-1w  | _decimal_ | The average value of unspent outputs (UTXOs) on this date from transactions that occurred 1 day to 1 week prior to this date.       |
 | 1w-1m  | _decimal_ | The average value of unspent outputs (UTXOs) on this date from transactions that occurred 1 week to 1 month prior to this date.     |
+| 1-3m   | _decimal_ | The average value of unspent outputs (UTXOs) on this date from transactions that occurred 1 to 3 months prior to this date.         |
+| 3-6m   | _decimal_ | The average value of unspent outputs (UTXOs) on this date from transactions that occurred 3 to 6 months prior to this date.         |
+| 6-12m  | _decimal_ | The average value of unspent outputs (UTXOs) on this date from transactions that occurred 6 to 12 months prior to this date.        |
+| 12-18m | _decimal_ | The average value of unspent outputs (UTXOs) on this date) from transactions that occurred 12 to 18 months prior to this date.       |
+| 18-24m | _decimal_ | The average value of unspent outputs (UTXOs) on this date from transactions that occurred 18 to 24 months prior to this date.       |
 | 2-3y   | _decimal_ | The average value of unspent outputs (UTXOs) on this date from transactions that occurred 2 to 3 years prior to this date.          |
 | 3-5y   | _decimal_ | The average value of unspent outputs (UTXOs) on this date from transactions that occurred 3 to 5 years prior to this date.          |
-| 3-6m   | _decimal_ | The average value of unspent outputs (UTXOs) on this date from transactions that occurred 3 to 6 months prior to this date.         |
 | 5-10y  | _decimal_ | The average value of unspent outputs (UTXOs) on this date from transactions that occurred 5 to 10 years prior to this date.         |
-| 6-12m  | _decimal_ | The average value of unspent outputs (UTXOs) on this date from transactions that occurred 6 to 12 months prior to this date.        |
-| <1d    | _decimal_ | The average value of unspent outputs (UTXOs) on this date from transactions that occurred less than a day prior to this date.       |
-| >10y   | _decimal_ | The average value of unspent outputs (UTXOs) on this date from transactions that occurred greater than 10 years prior to this date. |
-| date   | _string_  | The date in _YYYY-MM-DD_        
+| >10y   | _decimal_ | The average value of unspent outputs (UTXOs) on this date from transactions that occurred greater than 10 years prior to this date. |  
 
 ## BTC UTXO Count
 
-This endpoint returns the count of the current bitcoin supply held in unspent transaction outputs stratified by their age. For instance outputs in the category `12-18m` are unspent outputs (UTXOs) from transactions that occurred `12-18m` ago. Time is measured relative to blocktime assuming 6 blocks are generated per hour. This means that the proportion of UTXOs in the `<1d` category were generated less than or equal to `144 blocks ago (6 blocks * 24 hours)`.
+This endpoint returns the count of unspent transaction outputs (UTXOs) stratified by their age. For instance the category `12-18m` contains the count of currently unspent outputs from transactions that occurred `12-18m` ago. Time is measured relative to blocktime assuming 6 blocks are generated per hour. This means that the count of UTXOs in the `<1d` category were from UTXOs generated less than or equal to `144 blocks ago (6 blocks * 24 hours)`.
 
 The age in block height is used over the block timestamp because the block timestamp serves as a source of variation when calculating the blockhash and is only accurate to within an hour or two. By using timestamps some UTXOs could be considered older than a previously generated UTXO. By using block-age from current the blockheight, the age of utxos is strictly ordinal as blockheight is strictly sequential.
 
@@ -253,23 +253,23 @@ Note: All params with a \* are optional and `limit` is only available in the JSO
 
 | Field  | Type      | Description                                                                                                                                         |
 | ------ | --------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 1-3m   | _decimal_ | The count of unspent outputs (UTXOs) on this date from transactions that occurred 1 to 3 months prior to this date.         |
-| 12-18m | _decimal_ | The count of unspent outputs (UTXOs) on this date) from transactions that occurred 12 to 18 months prior to this date.       |
-| 18-24m | _decimal_ | The count of unspent outputs (UTXOs) on this date from transactions that occurred 18 to 24 months prior to this date.       |
+| date   | _string_  | The date in _YYYY-MM-DD_                                                                                                                            |
+| <1d    | _decimal_ | The count of unspent outputs (UTXOs) on this date from transactions that occurred less than a day prior to this date.       |
 | 1d-1w  | _decimal_ | The count of unspent outputs (UTXOs) on this date from transactions that occurred 1 day to 1 week prior to this date.       |
 | 1w-1m  | _decimal_ | The count of unspent outputs (UTXOs) on this date from transactions that occurred 1 week to 1 month prior to this date.     |
+| 1-3m   | _decimal_ | The count of unspent outputs (UTXOs) on this date from transactions that occurred 1 to 3 months prior to this date.         |
+| 3-6m   | _decimal_ | The count of unspent outputs (UTXOs) on this date from transactions that occurred 3 to 6 months prior to this date.         |
+| 6-12m  | _decimal_ | The count of unspent outputs (UTXOs) on this date from transactions that occurred 6 to 12 months prior to this date.        |
+| 12-18m | _decimal_ | The count of unspent outputs (UTXOs) on this date) from transactions that occurred 12 to 18 months prior to this date.       |
+| 18-24m | _decimal_ | The count of unspent outputs (UTXOs) on this date from transactions that occurred 18 to 24 months prior to this date.       |
 | 2-3y   | _decimal_ | The count of unspent outputs (UTXOs) on this date from transactions that occurred 2 to 3 years prior to this date.          |
 | 3-5y   | _decimal_ | The count of unspent outputs (UTXOs) on this date from transactions that occurred 3 to 5 years prior to this date.          |
-| 3-6m   | _decimal_ | The count of unspent outputs (UTXOs) on this date from transactions that occurred 3 to 6 months prior to this date.         |
 | 5-10y  | _decimal_ | The count of unspent outputs (UTXOs) on this date from transactions that occurred 5 to 10 years prior to this date.         |
-| 6-12m  | _decimal_ | The count of unspent outputs (UTXOs) on this date from transactions that occurred 6 to 12 months prior to this date.        |
-| <1d    | _decimal_ | The count of unspent outputs (UTXOs) on this date from transactions that occurred less than a day prior to this date.       |
-| >10y   | _decimal_ | The count of unspent outputs (UTXOs) on this date from transactions that occurred greater than 10 years prior to this date. |
-| date   | _string_  | The date in _YYYY-MM-DD_   
+| >10y   | _decimal_ | The count of unspent outputs (UTXOs) on this date from transactions that occurred greater than 10 years prior to this date. |  
 
 ## BTC UTXO Median Age
 
-This endpoint returns the median age of the current bitcoin supply held in unspent transaction outputs stratified by their age. For instance outputs in the category `12-18m` are unspent outputs (UTXOs) from transactions that occurred `12-18m` ago. Time is measured relative to blocktime assuming 6 blocks are generated per hour. This means that the proportion of UTXOs in the `<1d` category were generated less than or equal to `144 blocks ago (6 blocks * 24 hours)`.
+This endpoint returns the median age of the current bitcoin supply held in unspent transaction outputs stratified by their age. For instance outputs in the category `12-18m` are unspent outputs (UTXOs) from transactions that occurred `12-18m` ago. Time is measured relative to blocktime assuming 6 blocks are generated per hour. This means that the median age of UTXOs in the `<1d` category were generated less than or equal to `144 blocks ago (6 blocks * 24 hours)`.
 
 The age in block height is used over the block timestamp because the block timestamp serves as a source of variation when calculating the blockhash and is only accurate to within an hour or two. By using timestamps some UTXOs could be considered older than a previously generated UTXO. By using block-age from current the blockheight, the age of utxos is strictly ordinal as blockheight is strictly sequential.
 
@@ -342,23 +342,23 @@ Note: All params with a \* are optional and `limit` is only available in the JSO
 
 | Field  | Type      | Description                                                                                                                                         |
 | ------ | --------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 1-3m   | _decimal_ | The median age of unspent outputs (UTXOs) on this date from transactions that occurred 1 to 3 months prior to this date.         |
-| 12-18m | _decimal_ | The median age of unspent outputs (UTXOs) on this date) from transactions that occurred 12 to 18 months prior to this date.       |
-| 18-24m | _decimal_ | The median age of unspent outputs (UTXOs) on this date from transactions that occurred 18 to 24 months prior to this date.       |
+| date   | _string_  | The date in _YYYY-MM-DD_                                                                                                                            |
+| <1d    | _decimal_ | The median age of unspent outputs (UTXOs) on this date from transactions that occurred less than a day prior to this date.       |
 | 1d-1w  | _decimal_ | The median age of unspent outputs (UTXOs) on this date from transactions that occurred 1 day to 1 week prior to this date.       |
 | 1w-1m  | _decimal_ | The median age of unspent outputs (UTXOs) on this date from transactions that occurred 1 week to 1 month prior to this date.     |
+| 1-3m   | _decimal_ | The median age of unspent outputs (UTXOs) on this date from transactions that occurred 1 to 3 months prior to this date.         |
+| 3-6m   | _decimal_ | The median age of unspent outputs (UTXOs) on this date from transactions that occurred 3 to 6 months prior to this date.         |
+| 6-12m  | _decimal_ | The median age of unspent outputs (UTXOs) on this date from transactions that occurred 6 to 12 months prior to this date.        |
+| 12-18m | _decimal_ | The median age of unspent outputs (UTXOs) on this date) from transactions that occurred 12 to 18 months prior to this date.       |
+| 18-24m | _decimal_ | The median age of unspent outputs (UTXOs) on this date from transactions that occurred 18 to 24 months prior to this date.       |
 | 2-3y   | _decimal_ | The median age of unspent outputs (UTXOs) on this date from transactions that occurred 2 to 3 years prior to this date.          |
 | 3-5y   | _decimal_ | The median age of unspent outputs (UTXOs) on this date from transactions that occurred 3 to 5 years prior to this date.          |
-| 3-6m   | _decimal_ | The median age of unspent outputs (UTXOs) on this date from transactions that occurred 3 to 6 months prior to this date.         |
 | 5-10y  | _decimal_ | The median age of unspent outputs (UTXOs) on this date from transactions that occurred 5 to 10 years prior to this date.         |
-| 6-12m  | _decimal_ | The median age of unspent outputs (UTXOs) on this date from transactions that occurred 6 to 12 months prior to this date.        |
-| <1d    | _decimal_ | The median age of unspent outputs (UTXOs) on this date from transactions that occurred less than a day prior to this date.       |
-| >10y   | _decimal_ | The median age of unspent outputs (UTXOs) on this date from transactions that occurred greater than 10 years prior to this date. |
-| date   | _string_  | The date in _YYYY-MM-DD_   
+| >10y   | _decimal_ | The median age of unspent outputs (UTXOs) on this date from transactions that occurred greater than 10 years prior to this date. | 
 
 ## BTC UTXO Total Value
 
-This endpoint returns the total value of the current bitcoin supply held in unspent transaction outputs stratified by their age. For instance outputs in the category `12-18m` are unspent outputs (UTXOs) from transactions that occurred `12-18m` ago. Time is measured relative to blocktime assuming 6 blocks are generated per hour. This means that the proportion of UTXOs in the `<1d` category were generated less than or equal to `144 blocks ago (6 blocks * 24 hours)`.
+This endpoint returns the total BTC value of the current bitcoin supply held in unspent transaction outputs stratified by their age. For instance outputs in the category `12-18m` are unspent outputs (UTXOs) from transactions that occurred `12-18m` ago. Time is measured relative to blocktime assuming 6 blocks are generated per hour. This means that the BTC value of UTXOs in the `<1d` category were generated less than or equal to `144 blocks ago (6 blocks * 24 hours)`.
 
 The age in block height is used over the block timestamp because the block timestamp serves as a source of variation when calculating the blockhash and is only accurate to within an hour or two. By using timestamps some UTXOs could be considered older than a previously generated UTXO. By using block-age from current the blockheight, the age of utxos is strictly ordinal as blockheight is strictly sequential.
 
@@ -431,23 +431,26 @@ Note: All params with a \* are optional and `limit` is only available in the JSO
 
 | Field  | Type      | Description                                                                                                                                         |
 | ------ | --------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 1-3m   | _decimal_ | The total value of unspent outputs (UTXOs) on this date from transactions that occurred 1 to 3 months prior to this date.         |
-| 12-18m | _decimal_ | The total value of unspent outputs (UTXOs) on this date) from transactions that occurred 12 to 18 months prior to this date.       |
-| 18-24m | _decimal_ | The total value of unspent outputs (UTXOs) on this date from transactions that occurred 18 to 24 months prior to this date.       |
+| date   | _string_  | The date in _YYYY-MM-DD_                                                                                                                            |
+| <1d    | _decimal_ | The total value of unspent outputs (UTXOs) on this date from transactions that occurred less than a day prior to this date.       |
 | 1d-1w  | _decimal_ | The total value of unspent outputs (UTXOs) on this date from transactions that occurred 1 day to 1 week prior to this date.       |
 | 1w-1m  | _decimal_ | The total value of unspent outputs (UTXOs) on this date from transactions that occurred 1 week to 1 month prior to this date.     |
+| 1-3m   | _decimal_ | The total value of unspent outputs (UTXOs) on this date from transactions that occurred 1 to 3 months prior to this date.         |
+| 3-6m   | _decimal_ | The total value of unspent outputs (UTXOs) on this date from transactions that occurred 3 to 6 months prior to this date.         |
+| 6-12m  | _decimal_ | The total value of unspent outputs (UTXOs) on this date from transactions that occurred 6 to 12 months prior to this date.        |
+| 12-18m | _decimal_ | The total value of unspent outputs (UTXOs) on this date) from transactions that occurred 12 to 18 months prior to this date.       |
+| 18-24m | _decimal_ | The total value of unspent outputs (UTXOs) on this date from transactions that occurred 18 to 24 months prior to this date.       |
 | 2-3y   | _decimal_ | The total value of unspent outputs (UTXOs) on this date from transactions that occurred 2 to 3 years prior to this date.          |
 | 3-5y   | _decimal_ | The total value of unspent outputs (UTXOs) on this date from transactions that occurred 3 to 5 years prior to this date.          |
-| 3-6m   | _decimal_ | The total value of unspent outputs (UTXOs) on this date from transactions that occurred 3 to 6 months prior to this date.         |
 | 5-10y  | _decimal_ | The total value of unspent outputs (UTXOs) on this date from transactions that occurred 5 to 10 years prior to this date.         |
-| 6-12m  | _decimal_ | The total value of unspent outputs (UTXOs) on this date from transactions that occurred 6 to 12 months prior to this date.        |
-| <1d    | _decimal_ | The total value of unspent outputs (UTXOs) on this date from transactions that occurred less than a day prior to this date.       |
-| >10y   | _decimal_ | The total value of unspent outputs (UTXOs) on this date from transactions that occurred greater than 10 years prior to this date. |
-| date   | _string_  | The date in _YYYY-MM-DD_   
+| >10y   | _decimal_ | The total value of unspent outputs (UTXOs) on this date from transactions that occurred greater than 10 years prior to this date. |  
 
 ## BTC UTXO Weighted Average Age
 
-This endpoint returns the weighted average age of the current bitcoin supply held in unspent transaction outputs stratified by their age. For instance outputs in the category `12-18m` are unspent outputs (UTXOs) from transactions that occurred `12-18m` ago. Time is measured relative to blocktime assuming 6 blocks are generated per hour. This means that the proportion of UTXOs in the `<1d` category were generated less than or equal to `144 blocks ago (6 blocks * 24 hours)`.
+This endpoint returns the weighted average age of the current bitcoin supply held in unspent transaction outputs stratified by their age.
+The weighted average age is sum of the ages of UTXOs multiplied by their bitocoinvalue, divided by the total bitcoin value in that stratum. For instance outputs in the category `12-18m` are unspent outputs (UTXOs) from transactions that occurred `12-18m` ago. Time is measured relative to blocktime assuming 6 blocks are generated per hour. This means that the proportion of UTXOs in the `<1d` category were generated less than or equal to `144 blocks ago (6 blocks * 24 hours)`.
+
+<img src="images/weight_avg_age_eqn.svg"/>
 
 The age in block height is used over the block timestamp because the block timestamp serves as a source of variation when calculating the blockhash and is only accurate to within an hour or two. By using timestamps some UTXOs could be considered older than a previously generated UTXO. By using block-age from current the blockheight, the age of utxos is strictly ordinal as blockheight is strictly sequential.
 
