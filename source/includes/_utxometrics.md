@@ -539,3 +539,90 @@ Note: All params with a \* are optional and `limit` is only available in the JSO
 | 3-5y   | _decimal_ | The weighted average age of unspent outputs (UTXOs) on this date from transactions that occurred 3 to 5 years prior to this date.          |
 | 5-10y  | _decimal_ | The weighted average age of unspent outputs (UTXOs) on this date from transactions that occurred 5 to 10 years prior to this date.         |
 | >10y   | _decimal_ | The weighted average age of unspent outputs (UTXOs) on this date from transactions that occurred greater than 10 years prior to this date. |  
+
+## BTC UTXO Supply Percentage
+
+<img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/>
+
+```shell
+curl "https://api.tokenanalyst.io/analytics/private/v1/token_utxo_metric_window_historical/last?window=1d&metric=supply_pct&format=json&token=btc&limit=2&key=API_KEY"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+  {
+    "date": "2019-09-01",
+    "1-3m": 0.0812,
+    "12-18m": 0.1705,
+    "18-24m": 0.0795,
+    "1d-1w": 0.0219,
+    "1w-1m": 0.0646,
+    "2-3y": 0.0491,
+    "3-5y": 0.0657,
+    "3-6m": 0.1322,
+    "5-10y": 0.1438,
+    "6-12m": 0.1105,
+    "<1d": 0.0131,
+    ">10y": 0.0679
+  },
+  {
+    "date": "2019-09-02",
+    "1-3m": 0.0815,
+    "12-18m": 0.1705,
+    "18-24m": 0.0798,
+    "1d-1w": 0.0226,
+    "1w-1m": 0.0634,
+    "2-3y": 0.0491,
+    "3-5y": 0.0658,
+    "3-6m": 0.1317,
+    "5-10y": 0.1436,
+    "6-12m": 0.1109,
+    "<1d": 0.0132,
+    ">10y": 0.068,
+    "date": "2019-03-15"
+  }
+]
+```
+
+This endpoint returns the proportion of the bitcoin supply on the specified date, held in unspent transaction outputs stratified by their age. For instance outputs in the category `12-18m` are unspent outputs (UTXOs) from transactions that occurred `12-18m` ago. Time is measured relative to blocktime assuming 6 blocks are generated per hour. This means that the proportion of UTXOs in the `<1d` category were generated less than or equal to `144 blocks ago (6 blocks * 24 hours)`.
+
+The age in block height is used over the block timestamp because the block timestamp serves as a source of variation when calculating the blockhash and is only accurate to within an hour or two. By using timestamps some UTXOs could be considered older than a previously generated UTXO. By using block-age from current the blockheight, the age of utxos is strictly ordinal as blockheight is strictly sequential.
+
+### HTTP Request
+
+`GET https://api.tokenanalyst.io/analytics/private/v1/token_utxo_metric_window_historical/last`
+
+### Query Parameters
+
+| Parameter    | Type      | Description                                                                               |
+| ------------ | --------- | ----------------------------------------------------------------------------------------- |
+| key          | _string_  | Your unique API key                                                                       |
+| format       | _string_  | What format you want your data in (`json` or `csv`)                                       |
+| metric       | _string_  | `supply_pct`                                                                                 |
+| window       | _string_  | `1d` (no support for 1h at this time)                                                     |
+| token        | _string_  | `btc`                                                                                     |
+| from_date \* | _string_  | Start date of returned data specified as YYYY-MM-DD (ISO date format)                     |
+| to_date \*   | _string_  | End date of returned data specified as YYYY-MM-DD (ISO date format)                       |
+| limit \*     | _integer_ | The number of entries returned before the latest data point (or the to_date if specified) |
+
+Note: All params with a \* are optional and `limit` is only available in the JSON return format
+
+### Data Overview
+
+| Field  | Type      | Description                                                                                                                                         |
+| ------ | --------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1-3m   | _decimal_ | Proportion of bitcoin supply on this date held in unspent outputs (UTXOs) from transactions that occurred 1 to 3 months prior to this date.         |
+| 12-18m | _decimal_ | Proportion of bitcoin supply on this date held in unspent outputs (UTXOs) from transactions that occurred 12 to 18 months prior to this date.       |
+| 18-24m | _decimal_ | Proportion of bitcoin supply on this date held in unspent outputs (UTXOs) from transactions that occurred 18 to 24 months prior to this date.       |
+| 1d-1w  | _decimal_ | Proportion of bitcoin supply on this date held in unspent outputs (UTXOs) from transactions that occurred 1 day to 1 week prior to this date.       |
+| 1w-1m  | _decimal_ | Proportion of bitcoin supply on this date held in unspent outputs (UTXOs) from transactions that occurred 1 week to 1 month prior to this date.     |
+| 2-3y   | _decimal_ | Proportion of bitcoin supply on this date held in unspent outputs (UTXOs) from transactions that occurred 2 to 3 years prior to this date.          |
+| 3-5y   | _decimal_ | Proportion of bitcoin supply on this date held in unspent outputs (UTXOs) from transactions that occurred 3 to 5 years prior to this date.          |
+| 3-6m   | _decimal_ | Proportion of bitcoin supply on this date held in unspent outputs (UTXOs) from transactions that occurred 3 to 6 months prior to this date.         |
+| 5-10y  | _decimal_ | Proportion of bitcoin supply on this date held in unspent outputs (UTXOs) from transactions that occurred 5 to 10 years prior to this date.         |
+| 6-12m  | _decimal_ | Proportion of bitcoin supply on this date held in unspent outputs (UTXOs) from transactions that occurred 6 to 12 months prior to this date.        |
+| <1d    | _decimal_ | Proportion of bitcoin supply on this date held in unspent outputs (UTXOs) from transactions that occurred less than a day prior to this date.       |
+| >10y   | _decimal_ | Proportion of bitcoin supply on this date held in unspent outputs (UTXOs) from transactions that occurred greater than 10 years prior to this date. |
+| date   | _string_  | The date in _YYYY-MM-DD_                                                                                                                            |
