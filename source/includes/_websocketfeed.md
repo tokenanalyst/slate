@@ -7,37 +7,47 @@ You can find a sample python script to subscribe to this feed here - <a href="ht
 <img src="https://img.shields.io/badge/Tier-Enterprise-blueviolet.svg"/>
 
 ```shell
-ws://ws.tokenanalyst.io:8000
+wss://ws.tokenanalyst.io
 ```
 
-> Subscribing to the exchange_flows channel returns JSON structured like this:
+> Subscribing to the btc_confirmed_exchange_flows channel returns JSON structured like this:
 
 ```json
-[
-  {
-    "blockNumber": 595307,
-    "blockHash": "000000000000000000165c78ea45068c6ed0308dd7c5295608cd2ec5bf1a7c34",
-    "transactionId": "eb98ab622365d63daf6baf5c9f02eaf52eefcbab78d25932b1d8bbd1725db647",
-    "timestamp": 1568735726,
-    "from": ["1JBRJFRBDEgNEiXkgRR7cGyi7c1W3r1NPd"],
-    "to": ["Bitmex"],
-    "value": 0.00026469,
-    "flowType": "Inflow"
-  },
-  {
-    "blockNumber": 595307,
-    "blockHash": "000000000000000000165c78ea45068c6ed0308dd7c5295608cd2ec5bf1a7c34",
-    "transactionId": "5bbe6732e5d191e12b9d005968fff9a40c74ebf16dd6295b7c84128112cf2096",
-    "timestamp": 1568735726,
-    "from": [
-      "13UfH12GBuvmACQUy54fTKx8ScsoSySK6b",
-      "1HUJCVmBGFNw5229uyg8GjRztzX1krocyj"
-    ],
-    "to": ["Binance"],
-    "value": 0.04793434,
-    "flowType": "Inflow"
-  }
-]
+    {
+     "id":"test-id",
+     "event":"data",
+     "data": {
+        "blockNumber": 595307,
+        "blockHash": "000000000000000000165c78...c5295608cd2ec5bf1a7c34",
+        "transactionId": "eb98ab622365d63daf6...25932b1d8bbd1725db647",
+        "timestamp": 1568735726,
+        "from": ["1JBRJFRBDEgNEiXkgRR7cGyi7c1W3r1NPd"],
+        "to": ["Bitmex"],
+        "value": 0.00026469,
+        "flowType": "Inflow"
+      }
+    }
+```
+
+> Subscribing to the btc_unconfirmed_exchange_flows (Mempool) channel returns JSON structured like this:
+
+```json
+    {
+     "id":"test-id",
+     "event":"data",
+     "data":
+      {
+        "blockNumber":600372,
+        "probability":1.0,
+        "transactionHash":"c3960dda32e862001c963a...0724bc72502b3e14bfc",
+        "seen":1571665338,
+        "feerate":4.0153846153846547E-7,
+        "from":["1KnBtxSH4sNdMXz2gQ3vYuH9iAaPafxwTT"],
+        "to":["Binance"],
+        "value":0.01737219,
+        "flowType":"Inflow"
+      }
+    }
 ```
 
 ### URL
@@ -49,26 +59,34 @@ Websocket connections go through the following lifecycle:
 
 * Establish a websocket connection with `ws://ws.tokenanalyst.io:8000`
 * Receive heartbeat (every 30 seconds) - `{"id":null,"event":"heartbeat","data":{"serverTime":1570014312199}}`
-* Authenticate and subscribe to a channel with `{"event":"subscribe","channel":"exchange_flows","id":"test-id","key":"<insert_api_key_here>"}`
-* Receive subscription response `{"id":"test-id","event":"subscribed","data":{"success":true,"errorCode":null,"message":"Subscribed to channel exchange_flows"}}`
+* Authenticate and subscribe to a channel with `{"event":"subscribe","channel":"btc_confirmed_exchange_flows","id":"test-id","key":"<insert_api_key_here>"}`
+* Receive subscription response `{"id":"test-id","event":"subscribed","data":{"success":true,"errorCode":null,"message":"Subscribed to channel btc_confirmed_exchange_flows"}}`
 * Receive data `{"id":"test-id","event":"data","data":{"blockNumber":597542,"blockHash":"0000000000000000000581292750484f48e85bc2de54c2658a4a774da2095880","transactionId":"67bd2bc0652ae1a999cd5c60a879c5c15f5cb7178aa00b97875bb6fe8debff2d","timestamp":1570019590,"from":["1Bf5e5iUDbKL1c4wqom1Us6zszSokXY4Bd","1Bf5e5iUDbKL1c4wqom1Us6zszSokXY4Bd","1Bf5e5iUDbKL1c4wqom1Us6zszSokXY4Bd","1Bf5e5iUDbKL1c4wqom1Us6zszSokXY4Bd"],"to":["Huobi"],"value":0.2018245,"flowType":"Inflow"}}`
-* Unsubscribe `{"event":"unsubscribe","channel":"exchange_flows","id":"test-id"}`
-* Receive unsubscription response `{"id":"test-id","event":"unsubscribed","data":{"success":true,"errorCode":null,"message":"Unsubscribed from channel exchange_flows"}}`
+* Unsubscribe `{"event":"unsubscribe","channel":"btc_confirmed_exchange_flows","id":"test-id"}`
+* Receive unsubscription response `{"id":"test-id","event":"unsubscribed","data":{"success":true,"errorCode":null,"message":"Unsubscribed from channel btc_confirmed_exchange_flows"}}`
 
 ### Request Parameters
 
 | Field       | Type      | Description                                                                                                                                 |
 | ----------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
 | event       | _string_  | `subscribe` or `unsubscribe`                                                                                                                    |
-| channel | _string_  | The channel you want to subscribe to. Currently we only support `exchange_flows`, which has all BTC transactions going into, out of, and in-between exchanges on-chain. |
+| channel | _string_  | The channel you want to subscribe to. Currently we only support 1) `btc_confirmed_exchange_flows`, which has all BTC transactions going into, out of, and in-between exchanges on-chain 2) `btc_unconfirmed_exchange_flows` which has all BTC transactions going into, out of, and in-between exchanges on-chain straight from the Bitcoin memory pool (unconfirmed transactions).  |
 | id    | _string_  | An arbitrary id that you can specify to identify the data from the specific subscription                     |
 | key   | _string_ | Your unique TokenAnalyst API key                                                  |
+
+### Channels 
+
+| Name         | Description |
+| ----------- | --------- | 
+| btc_confirmed_exchange_flows       | This channel has all BTC transactions going into, out of, and in-between exchanges on-chain, transaction is mined in one block. |
+| btc_unconfirmed_exchange_flows       | This channel has unconfirmed BTC transactions going into, out of, and in-between exchanges on-chain straight from the Bitcoin memory pool |
 
 <aside class="notice">
 We currently support and return 4 types of events - <code>subscribe</code>, <code>unsubscribe</code>, <code>error</code>, and <code>data</code>. Below are overviews of the types of responses you will get from each event type.
 </aside>
 
-### Data Response Overview
+
+### Data Response btc_confirmed_exchange_flows Overview
 
 | Field       | Type      | Description                                                                                                                                 |
 | ----------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -76,6 +94,19 @@ We currently support and return 4 types of events - <code>subscribe</code>, <cod
 | blockHash | _string_  | The hash of the block where this transaction occurred |
 | transactionId    | _string_  | The id of the transaction in question                      |
 | timestamp   | _integer_ | Unix timestamp of the transaction in question                                                  |
+| from   | [_string_] | A list of sending public key hashes (if infow) or exchange names (if outfow)                                                  |
+| to      | [_string_] | A list of receiving public key hashes (if outflow) or exchange names (if inflow)                                                 |
+| value      | _decimal_ | The total amount of BTC sent in the transaction                                                   |
+| flowType      | _string_ | One of either `Inflow`, `Outflow`, or `InterFlow` (if funds flow between different exchanges) `IntraFlow` (if funds flow within the same exchange's wallets)                                                   |
+
+### Data Response btc_unconfirmed_exchange_flows Overview
+
+| Field       | Type      | Description                                                                                                                                 |
+| ----------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| blockNumber       | _integer_  | The predicted block number in which this transaction will be mined |
+| transactionId    | _string_  | The id of the transaction in question                      |
+| probability | _string_  | Placeholder field, will be removed soon                      |
+| seen   | _integer_ | Unix timestamp when this transaction was seen in the Memory Pool                                                |
 | from   | [_string_] | A list of sending public key hashes (if infow) or exchange names (if outfow)                                                  |
 | to      | [_string_] | A list of receiving public key hashes (if outflow) or exchange names (if inflow)                                                 |
 | value      | _decimal_ | The total amount of BTC sent in the transaction                                                   |
