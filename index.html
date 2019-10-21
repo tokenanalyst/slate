@@ -474,7 +474,13 @@
                     <a href="#request-parameters" class="toc-h2 toc-link" data-title="Request Parameters">Request Parameters</a>
                   </li>
                   <li>
-                    <a href="#data-response-overview" class="toc-h2 toc-link" data-title="Data Response Overview">Data Response Overview</a>
+                    <a href="#channels" class="toc-h2 toc-link" data-title="Channels">Channels</a>
+                  </li>
+                  <li>
+                    <a href="#data-response-btc_confirmed_exchange_flows-overview" class="toc-h2 toc-link" data-title="Data Response btc_confirmed_exchange_flows Overview">Data Response btc_confirmed_exchange_flows Overview</a>
+                  </li>
+                  <li>
+                    <a href="#data-response-btc_unconfirmed_exchange_flows-overview" class="toc-h2 toc-link" data-title="Data Response btc_unconfirmed_exchange_flows Overview">Data Response btc_unconfirmed_exchange_flows Overview</a>
                   </li>
                   <li>
                     <a href="#subscribe-unsubscribe-error-event-response-overview" class="toc-h2 toc-link" data-title="Subscribe/Unsubscribe/Error Event Response Overview">Subscribe/Unsubscribe/Error Event Response Overview</a>
@@ -7907,36 +7913,45 @@ curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/exchange
 <p>You can find a sample python script to subscribe to this feed here - <a href="https://github.com/tokenanalyst/samplecode" target="_blank">https://github.com/tokenanalyst/samplecode</a></p>
 
 <p><img src="https://img.shields.io/badge/Tier-Enterprise-blueviolet.svg"/></p>
-<pre class="highlight shell tab-shell"><code>ws://ws.tokenanalyst.io:8000
+<pre class="highlight shell tab-shell"><code>wss://ws.tokenanalyst.io
 </code></pre>
 <blockquote>
-<p>Subscribing to the exchange_flows channel returns JSON structured like this:</p>
+<p>Subscribing to the btc_confirmed_exchange_flows channel returns JSON structured like this:</p>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"blockNumber"</span><span class="p">:</span><span class="w"> </span><span class="mi">595307</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"blockHash"</span><span class="p">:</span><span class="w"> </span><span class="s2">"000000000000000000165c78ea45068c6ed0308dd7c5295608cd2ec5bf1a7c34"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"transactionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eb98ab622365d63daf6baf5c9f02eaf52eefcbab78d25932b1d8bbd1725db647"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">1568735726</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"from"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"1JBRJFRBDEgNEiXkgRR7cGyi7c1W3r1NPd"</span><span class="p">],</span><span class="w">
-    </span><span class="s2">"to"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"Bitmex"</span><span class="p">],</span><span class="w">
-    </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.00026469</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"flowType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Inflow"</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"blockNumber"</span><span class="p">:</span><span class="w"> </span><span class="mi">595307</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"blockHash"</span><span class="p">:</span><span class="w"> </span><span class="s2">"000000000000000000165c78ea45068c6ed0308dd7c5295608cd2ec5bf1a7c34"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"transactionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5bbe6732e5d191e12b9d005968fff9a40c74ebf16dd6295b7c84128112cf2096"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">1568735726</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"from"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-      </span><span class="s2">"13UfH12GBuvmACQUy54fTKx8ScsoSySK6b"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"1HUJCVmBGFNw5229uyg8GjRztzX1krocyj"</span><span class="w">
-    </span><span class="p">],</span><span class="w">
-    </span><span class="s2">"to"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"Binance"</span><span class="p">],</span><span class="w">
-    </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.04793434</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"flowType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Inflow"</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="w">
+<pre class="highlight json tab-json"><code><span class="w">    </span><span class="p">{</span><span class="w">
+     </span><span class="s2">"id"</span><span class="p">:</span><span class="s2">"test-id"</span><span class="p">,</span><span class="w">
+     </span><span class="s2">"event"</span><span class="p">:</span><span class="s2">"data"</span><span class="p">,</span><span class="w">
+     </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"blockNumber"</span><span class="p">:</span><span class="w"> </span><span class="mi">595307</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"blockHash"</span><span class="p">:</span><span class="w"> </span><span class="s2">"000000000000000000165c78...c5295608cd2ec5bf1a7c34"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"transactionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eb98ab622365d63daf6...25932b1d8bbd1725db647"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">1568735726</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"from"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"1JBRJFRBDEgNEiXkgRR7cGyi7c1W3r1NPd"</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"to"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"Bitmex"</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.00026469</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"flowType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Inflow"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Subscribing to the btc_unconfirmed_exchange_flows (Mempool) channel returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">    </span><span class="p">{</span><span class="w">
+     </span><span class="s2">"id"</span><span class="p">:</span><span class="s2">"test-id"</span><span class="p">,</span><span class="w">
+     </span><span class="s2">"event"</span><span class="p">:</span><span class="s2">"data"</span><span class="p">,</span><span class="w">
+     </span><span class="s2">"data"</span><span class="p">:</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"blockNumber"</span><span class="p">:</span><span class="mi">600372</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"probability"</span><span class="p">:</span><span class="mf">1.0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"transactionHash"</span><span class="p">:</span><span class="s2">"c3960dda32e862001c963a...0724bc72502b3e14bfc"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"seen"</span><span class="p">:</span><span class="mi">1571665338</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"feerate"</span><span class="p">:</span><span class="mf">4.0153846153846547E-7</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"from"</span><span class="p">:[</span><span class="s2">"1KnBtxSH4sNdMXz2gQ3vYuH9iAaPafxwTT"</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"to"</span><span class="p">:[</span><span class="s2">"Binance"</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"value"</span><span class="p">:</span><span class="mf">0.01737219</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"flowType"</span><span class="p">:</span><span class="s2">"Inflow"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
 </span></code></pre><h3 id='url'>URL</h3>
 <p><code>wss://ws.tokenanalyst.io</code></p>
 <h3 id='request-process'>Request process</h3>
@@ -7945,11 +7960,11 @@ curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/exchange
 <ul>
 <li>Establish a websocket connection with <code>ws://ws.tokenanalyst.io:8000</code></li>
 <li>Receive heartbeat (every 30 seconds) - <code>{&quot;id&quot;:null,&quot;event&quot;:&quot;heartbeat&quot;,&quot;data&quot;:{&quot;serverTime&quot;:1570014312199}}</code></li>
-<li>Authenticate and subscribe to a channel with <code>{&quot;event&quot;:&quot;subscribe&quot;,&quot;channel&quot;:&quot;exchange_flows&quot;,&quot;id&quot;:&quot;test-id&quot;,&quot;key&quot;:&quot;&lt;insert_api_key_here&gt;&quot;}</code></li>
-<li>Receive subscription response <code>{&quot;id&quot;:&quot;test-id&quot;,&quot;event&quot;:&quot;subscribed&quot;,&quot;data&quot;:{&quot;success&quot;:true,&quot;errorCode&quot;:null,&quot;message&quot;:&quot;Subscribed to channel exchange_flows&quot;}}</code></li>
+<li>Authenticate and subscribe to a channel with <code>{&quot;event&quot;:&quot;subscribe&quot;,&quot;channel&quot;:&quot;btc_confirmed_exchange_flows&quot;,&quot;id&quot;:&quot;test-id&quot;,&quot;key&quot;:&quot;&lt;insert_api_key_here&gt;&quot;}</code></li>
+<li>Receive subscription response <code>{&quot;id&quot;:&quot;test-id&quot;,&quot;event&quot;:&quot;subscribed&quot;,&quot;data&quot;:{&quot;success&quot;:true,&quot;errorCode&quot;:null,&quot;message&quot;:&quot;Subscribed to channel btc_confirmed_exchange_flows&quot;}}</code></li>
 <li>Receive data <code>{&quot;id&quot;:&quot;test-id&quot;,&quot;event&quot;:&quot;data&quot;,&quot;data&quot;:{&quot;blockNumber&quot;:597542,&quot;blockHash&quot;:&quot;0000000000000000000581292750484f48e85bc2de54c2658a4a774da2095880&quot;,&quot;transactionId&quot;:&quot;67bd2bc0652ae1a999cd5c60a879c5c15f5cb7178aa00b97875bb6fe8debff2d&quot;,&quot;timestamp&quot;:1570019590,&quot;from&quot;:[&quot;1Bf5e5iUDbKL1c4wqom1Us6zszSokXY4Bd&quot;,&quot;1Bf5e5iUDbKL1c4wqom1Us6zszSokXY4Bd&quot;,&quot;1Bf5e5iUDbKL1c4wqom1Us6zszSokXY4Bd&quot;,&quot;1Bf5e5iUDbKL1c4wqom1Us6zszSokXY4Bd&quot;],&quot;to&quot;:[&quot;Huobi&quot;],&quot;value&quot;:0.2018245,&quot;flowType&quot;:&quot;Inflow&quot;}}</code></li>
-<li>Unsubscribe <code>{&quot;event&quot;:&quot;unsubscribe&quot;,&quot;channel&quot;:&quot;exchange_flows&quot;,&quot;id&quot;:&quot;test-id&quot;}</code></li>
-<li>Receive unsubscription response <code>{&quot;id&quot;:&quot;test-id&quot;,&quot;event&quot;:&quot;unsubscribed&quot;,&quot;data&quot;:{&quot;success&quot;:true,&quot;errorCode&quot;:null,&quot;message&quot;:&quot;Unsubscribed from channel exchange_flows&quot;}}</code></li>
+<li>Unsubscribe <code>{&quot;event&quot;:&quot;unsubscribe&quot;,&quot;channel&quot;:&quot;btc_confirmed_exchange_flows&quot;,&quot;id&quot;:&quot;test-id&quot;}</code></li>
+<li>Receive unsubscription response <code>{&quot;id&quot;:&quot;test-id&quot;,&quot;event&quot;:&quot;unsubscribed&quot;,&quot;data&quot;:{&quot;success&quot;:true,&quot;errorCode&quot;:null,&quot;message&quot;:&quot;Unsubscribed from channel btc_confirmed_exchange_flows&quot;}}</code></li>
 </ul>
 <h3 id='request-parameters'>Request Parameters</h3>
 <table><thead>
@@ -7967,7 +7982,7 @@ curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/exchange
 <tr>
 <td>channel</td>
 <td><em>string</em></td>
-<td>The channel you want to subscribe to. Currently we only support <code>exchange_flows</code>, which has all BTC transactions going into, out of, and in-between exchanges on-chain.</td>
+<td>The channel you want to subscribe to. Currently we only support 1) <code>btc_confirmed_exchange_flows</code>, which has all BTC transactions going into, out of, and in-between exchanges on-chain 2) <code>btc_unconfirmed_exchange_flows</code> which has all BTC transactions going into, out of, and in-between exchanges on-chain straight from the Bitcoin memory pool (unconfirmed transactions).</td>
 </tr>
 <tr>
 <td>id</td>
@@ -7980,11 +7995,27 @@ curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/exchange
 <td>Your unique TokenAnalyst API key</td>
 </tr>
 </tbody></table>
+<h3 id='channels'>Channels</h3>
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>btc_confirmed_exchange_flows</td>
+<td>This channel has all BTC transactions going into, out of, and in-between exchanges on-chain, transaction is mined in one block.</td>
+</tr>
+<tr>
+<td>btc_unconfirmed_exchange_flows</td>
+<td>This channel has unconfirmed BTC transactions going into, out of, and in-between exchanges on-chain straight from the Bitcoin memory pool</td>
+</tr>
+</tbody></table>
 
 <aside class="notice">
 We currently support and return 4 types of events - <code>subscribe</code>, <code>unsubscribe</code>, <code>error</code>, and <code>data</code>. Below are overviews of the types of responses you will get from each event type.
 </aside>
-<h3 id='data-response-overview'>Data Response Overview</h3>
+<h3 id='data-response-btc_confirmed_exchange_flows-overview'>Data Response btc_confirmed_exchange_flows Overview</h3>
 <table><thead>
 <tr>
 <th>Field</th>
@@ -8011,6 +8042,55 @@ We currently support and return 4 types of events - <code>subscribe</code>, <cod
 <td>timestamp</td>
 <td><em>integer</em></td>
 <td>Unix timestamp of the transaction in question</td>
+</tr>
+<tr>
+<td>from</td>
+<td>[<em>string</em>]</td>
+<td>A list of sending public key hashes (if infow) or exchange names (if outfow)</td>
+</tr>
+<tr>
+<td>to</td>
+<td>[<em>string</em>]</td>
+<td>A list of receiving public key hashes (if outflow) or exchange names (if inflow)</td>
+</tr>
+<tr>
+<td>value</td>
+<td><em>decimal</em></td>
+<td>The total amount of BTC sent in the transaction</td>
+</tr>
+<tr>
+<td>flowType</td>
+<td><em>string</em></td>
+<td>One of either <code>Inflow</code>, <code>Outflow</code>, or <code>InterFlow</code> (if funds flow between different exchanges) <code>IntraFlow</code> (if funds flow within the same exchange&#39;s wallets)</td>
+</tr>
+</tbody></table>
+<h3 id='data-response-btc_unconfirmed_exchange_flows-overview'>Data Response btc_unconfirmed_exchange_flows Overview</h3>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>blockNumber</td>
+<td><em>integer</em></td>
+<td>The predicted block number in which this transaction will be mined</td>
+</tr>
+<tr>
+<td>transactionId</td>
+<td><em>string</em></td>
+<td>The id of the transaction in question</td>
+</tr>
+<tr>
+<td>probability</td>
+<td><em>string</em></td>
+<td>Placeholder field, will be removed soon</td>
+</tr>
+<tr>
+<td>seen</td>
+<td><em>integer</em></td>
+<td>Unix timestamp when this transaction was seen in the Memory Pool</td>
 </tr>
 <tr>
 <td>from</td>
