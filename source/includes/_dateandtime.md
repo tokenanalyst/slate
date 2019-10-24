@@ -1,6 +1,6 @@
 # Date & Time Conventions
 
-Throughout this API a `window` parameter is used to indicate the time intervals for which the data is aggregated. We currently offer daily (denoted by `window=1d`) and hourly (denoted by `window=1h`) endpoints:
+Throughout this API a `window` parameter is used to indicate the time intervals for which the data is aggregated. We currently offer daily (denoted by `window=1d`) and hourly (denoted by `window=1h`) endpoints. We use a 6 block confirmation strategy in all our calculations, therefore, the latest hour’s data may change when the following hour is calculated due to these block lags:
 
 | Window | Description     | 
 | --------- | -------- | 
@@ -9,5 +9,5 @@ Throughout this API a `window` parameter is used to indicate the time intervals 
 
 
 <aside class="warning">
-Note: not all endpoints support hourly data yet. See the specific docs below to see if the `window=1h` param is supported for your desired endpoint
+Note: Not all endpoints support hourly data yet. See the specific docs below to see if the `window=1h` param is supported for your desired endpoint
 </aside>
