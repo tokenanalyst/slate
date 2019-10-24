@@ -27,7 +27,7 @@ ERC20 tokens we currently support are:
 > This is an example:
 
 ```shell
-curl "https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_window_historical/last?token=bat&exchange=binance&direction=inflow&window=1h&format=json&key=API_KEY"
+curl "https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_window_historical/last?token=bat&exchange=binance&direction=inflow&window=1h&format=json&from_date=2019-10-04&to_date=2019-10-06&limit=2&key=API_KEY"
 ```
 
 > The response looks like:
@@ -35,24 +35,24 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_window_hist
 ```json
 [
   {
-    "date": "2016-03-17",
-    "hour": "11:00:00", // not available when window 1d
-    "datetime": "2016-03-17 11:00:00", // not available when window 1d
-    "inflow": 1.8164,
-    "inflow_usd": 21.14,
-    "number_of_txns": 8,
-    "avg_txn_value": 0.22705,
-    "avg_txn_value_usd": 2.64
+    "date": "2019-10-06",
+    "hour": "22:00:00", // not available when window 1d
+    "datetime": "2019-10-06 22:00:00", // not available when window 1d
+    "inflow": 2564.4029,
+    "inflow_usd": 487.24,
+    "number_of_txns": 4,
+    "avg_txn_value": 641.1007,
+    "avg_txn_value_usd": 121.81
   },
   {
-    "date": "2016-03-18",
-    "hour": "12:00:00", // not available when window 1d
-    "datetime": "2016-03-18 12:00:00", // not available when window 1d
-    "inflow": 3.7594499999999997,
-    "inflow_usd": 38.38,
-    "number_of_txns": 5,
-    "avg_txn_value": 0.75189,
-    "avg_txn_value_usd": 7.68
+    "date": "2019-10-06",
+    "hour": "23:00:00", // not available when window 1d
+    "datetime": "2010-10-06 23:00:00", // not available when window 1d
+    "inflow": 219.5791,
+    "inflow_usd": 41.72,
+    "number_of_txns": 2,
+    "avg_txn_value": 109.7895,
+    "avg_txn_value_usd": 20.86
   }
 ]
 ```
@@ -99,7 +99,7 @@ This endpoint returns the inflow of ERC20 tokens into exchange wallets. The `avg
 > This is an example:
 
 ```shell
-curl "https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_window_historical/last?token=bat&exchange=binance&direction=outflow&window=1h&format=json&key=API_KEY"
+curl "https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_window_historical/last?token=bat&exchange=binance&direction=outflow&window=1h&format=json&from_date=2019-10-01&to_date=2019-10-10&limit=2&key=API_KEY"
 ```
 
 > The response looks like:
@@ -107,24 +107,24 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_window_hist
 ```json
 [
   {
-    "date": "2016-03-17",
-    "hour": "11:00:00", // not available when window 1d
-    "datetime": "2016-03-17 11:00:00", // not available when window 1d
-    "outflow": 1.8164,
-    "outflow_usd": 21.14,
+    "date": "2019-10-10",
+    "hour": "22:00:00", // not available when window 1d
+    "datetime": "2019-10-10 22:00:00", // not available when window 1d
+    "outflow": 108214.6507,
+    "outflow_usd": 21642.93,
     "number_of_txns": 8,
-    "avg_txn_value": 0.22705,
-    "avg_txn_value_usd": 2.64
+    "avg_txn_value": 13526.8313,
+    "avg_txn_value_usd": 2705.37
   },
   {
-    "date": "2016-03-18",
-    "hour": "12:00:00", // not available when window 1d
-    "datetime": "2016-03-18 12:00:00", // not available when window 1d
-    "outflow": 3.7594499999999997,
-    "outflow_usd": 38.38,
-    "number_of_txns": 5,
-    "avg_txn_value": 0.75189,
-    "avg_txn_value_usd": 7.68
+    "date": "2019-10-10",
+    "hour": "23:00:00", // not available when window 1d
+    "datetime": "2019-10-10 23:00:00", // not available when window 1d
+    "outflow": 51502.1242,
+    "outflow_usd": 10300.42,
+    "number_of_txns": 4,
+    "avg_txn_value": 12875.5311,
+    "avg_txn_value_usd": 2575.11
   }
 ]
 ```

@@ -18,7 +18,7 @@ For Ethereum currently supported exchanges are:
 > This is an example:
 
 ```shell
-curl "https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_window_historical/last?token=eth&exchange=binance&direction=inflow&window=1h&format=json&key=API_KEY"
+curl "https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_window_historical/last?token=eth&exchange=binance&direction=inflow&window=1h&format=json&from_date=2018-01-01&to_date=2018-01-05&limit=2&key=API_KEY"
 ```
 
 > The response looks like:
@@ -26,24 +26,24 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_window_hist
 ```json
 [
   {
-    "date": "2016-03-17",
-    "hour": "11:00:00", // not available when window 1d
-    "datetime": "2016-03-17 11:00:00", // not available when window 1d
-    "inflow": 1.8164,
-    "inflow_usd": 21.14,
-    "number_of_txns": 8,
-    "avg_txn_value": 0.22705,
-    "avg_txn_value_usd": 2.64
+    "date": "2018-01-05",
+    "hour": "22:00:00", // not available when window 1d
+    "datetime": "2018-01-05 22:00:00", // not available when window 1d
+    "inflow": 11758.0723,
+    "inflow_usd": 11131601.58,
+    "number_of_txns": 8461,
+    "avg_txn_value": 1.3897,
+    "avg_txn_value_usd": 1315.64
   },
   {
-    "date": "2016-03-18",
-    "hour": "12:00:00", // not available when window 1d
-    "datetime": "2016-03-18 12:00:00", // not available when window 1d
-    "inflow": 3.7594499999999997,
-    "inflow_usd": 38.38,
-    "number_of_txns": 5,
-    "avg_txn_value": 0.75189,
-    "avg_txn_value_usd": 7.68
+    "date": "2018-01-05",
+    "hour": "23:00:00", // not available when window 1d
+    "datetime": "2018-01-05 23:00:00", // not available when window 1d
+    "inflow": 11330.9083,
+    "inflow_usd": 10958461.64,
+    "number_of_txns": 8439,
+    "avg_txn_value": 1.3427,
+    "avg_txn_value_usd": 1298.55
   }
 ]
 ```
@@ -90,7 +90,7 @@ This endpoint returns the inflow of ETH into exchange wallets. The `avg_txn_valu
 > This is an example:
 
 ```shell
-curl "https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_window_historical/last?token=eth&exchange=binance&direction=outflow&window=1h&format=json&key=API_KEY"
+curl "https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_window_historical/last?token=eth&exchange=binance&direction=outflow&window=1h&format=json&from_date=2019-01-01&to_date=2019-01-05&limit=2&key=API_KEY"
 ```
 
 > The response looks like:
@@ -98,24 +98,24 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_window_hist
 ```json
 [
   {
-    "date": "2016-03-17",
-    "hour": "11:00:00", // not available when window 1d
-    "datetime": "2016-03-17 11:00:00", // not available when window 1d
-    "outflow": 1.8164,
-    "outflow_usd": 21.14,
-    "number_of_txns": 8,
-    "avg_txn_value": 0.22705,
-    "avg_txn_value_usd": 2.64
+    "date": "2019-01-05",
+    "hour": "22:00:00", // not available when window 1d
+    "datetime": "2019-01-05 22:00:00", // not available when window 1d
+    "outflow": 4019.589,
+    "outflow_usd": 631879.37,
+    "number_of_txns": 133,
+    "avg_txn_value": 30.2225,
+    "avg_txn_value_usd": 4750.97
   },
   {
-    "date": "2016-03-18",
-    "hour": "12:00:00", // not available when window 1d
-    "datetime": "2016-03-18 12:00:00", // not available when window 1d
-    "outflow": 3.7594499999999997,
-    "outflow_usd": 38.38,
-    "number_of_txns": 5,
-    "avg_txn_value": 0.75189,
-    "avg_txn_value_usd": 7.68
+    "date": "2019-01-05",
+    "hour": "23:00:00", // not available when window 1d
+    "datetime": "2019-01-05 23:00:00", // not available when window 1d
+    "outflow": 591.5552,
+    "outflow_usd": 92418.66,
+    "number_of_txns": 92,
+    "avg_txn_value": 6.4299,
+    "avg_txn_value_usd": 1004.55
   }
 ]
 ```
@@ -160,7 +160,7 @@ This endpoint returns the outflow of ETH from exchange wallets. The `avg_txn_val
 > This is an example:
 
 ```shell
-curl "https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_top10_historical/last?token=eth&exchange=binance&direction=inflow&format=json&key=API_KEY"
+curl "https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_top10_historical/last?token=eth&exchange=binance&direction=inflow&format=json&limit=2&key=API_KEY"
 ```
 
 > The response looks like:
@@ -222,7 +222,7 @@ This endpoint returns the top 10 transactions (in terms of total ETH sent) flowi
 <img src="https://img.shields.io/badge/Tier-Professional-black.svg"/>
 
 ```shell
-curl "https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_top10_historical/last?token=eth&exchange=binance&direction=outflow&format=json&key=API_KEY"
+curl "https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_top10_historical/last?token=eth&exchange=binance&direction=outflow&format=json&limit=2&key=API_KEY"
 ```
 
 > The response looks like:

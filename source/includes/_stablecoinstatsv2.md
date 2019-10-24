@@ -19,7 +19,7 @@ We have slightly different endpoints for Tether (usdt_omni) due to the nature of
 <img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/>
 
 ```shell
-curl "https://api.tokenanalyst.io/analytics/private/v1/token_volume_window_historical/last?key=API_KEY&format=json&token=usdt_omni&window=1h"
+curl "https://api.tokenanalyst.io/analytics/private/v1/token_volume_window_historical/last?format=json&token=usdt_omni&window=1h&from_date=2018-09-10&to_date=2018-09-12&limit=2&key=API_KEY"
 ```
 
 > The above command returns JSON structured like this:
@@ -27,18 +27,18 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_volume_window_histo
 ```json
 [
   {
-    "date": "2018-09-10",
-    "hour": "01:00:00", // not available when window 1d
-    "datetime": "2018-09-10 01:00:00", // not available when window 1d
-    "volume": 759397926.2,
-    "volume_usd": 759397926.2
+    "date": "2018-09-12",
+    "hour": "22:00:00", // not available when window 1d
+    "datetime": "2018-09-10 22:00:00", // not available when window 1d
+    "volume": 3253506.56,
+    "volume_usd": 3245372.75
   },
   {
     "date": "2018-09-12",
-    "hour": "02:00:00", // not available when window 1d
-    "datetime": "2018-09-12 02:00:00", // not available when window 1d
-    "volume": 397509639.4,
-    "volume_usd": 397509639.4
+    "hour": "23:00:00", // not available when window 1d
+    "datetime": "2018-09-12 23:00:00", // not available when window 1d
+    "volume": 3820308.81,
+    "volume_usd": 3815724.25
   }
 ]
 ```
@@ -77,7 +77,7 @@ This endpoint returns the full historical on-chain volume of Tether on the OMNI 
 <img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/>
 
 ```shell
-curl "https://api.tokenanalyst.io/analytics/private/v1/token_count_window_historical/last?format=json&token=usdt_omni&key=API_KEY&window=1h"
+curl "https://api.tokenanalyst.io/analytics/private/v1/token_count_window_historical/last?format=json&token=usdt_omni&from_date=2017-12-17&to_date=2017-12-18&limit=2&window=1h&key=API_KEY"
 ```
 
 > The above command returns JSON structured like this:
@@ -86,15 +86,15 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_count_window_histor
 [
   {
     "date": "2017-12-18",
-    "hour": "01:00:00", // not available when window 1d
-    "datetime": "2017-12-18 01:00:00", // not available when window 1d
-    "number_of_txns": 311
+    "hour": "22:00:00", // not available when window 1d
+    "datetime": "2017-12-18 22:00:00", // not available when window 1d
+    "number_of_txns": 121
   },
   {
     "date": "2017-12-18",
-    "hour": "02:00:00", // not available when window 1d
-    "datetime": "2017-12-18 02:00:00", // not available when window 1d
-    "number_of_txns": 411
+    "hour": "23:00:00", // not available when window 1d
+    "datetime": "2017-12-18 23:00:00", // not available when window 1d
+    "number_of_txns": 89
   }
 ]
 ```
@@ -132,7 +132,7 @@ This endpoint returns the daily number of Tether (usdt_omni) transactions on the
 <img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/>
 
 ```shell
-curl "https://api.tokenanalyst.io/analytics/private/v1/token_active_address_window_historical/last?&token=usdt_omni&format=json&key=API_KEY&window=1d"
+curl "https://api.tokenanalyst.io/analytics/private/v1/token_active_address_window_historical/last?&token=usdt_omni&format=json&from_date=2019-02-17&to_date=2019-02-18&window=1d&key=API_KEY"
 ```
 
 > The above command returns JSON structured like this:
@@ -141,13 +141,13 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_active_address_wind
 [
   {
     "date": "2019-02-17",
-    "active_senders": 5860,
-    "active_recipients": 6320
+    "active_recipients": 6320,
+    "active_senders": 5860
   },
   {
     "date": "2019-02-18",
-    "active_senders": 6787,
-    "active_recipients": 8347
+    "active_recipients": 8347,
+    "active_senders": 6787
   }
 ]
 ```
@@ -184,7 +184,7 @@ This endpoint returns the active addresses of Tether (usdt_omni) tokens for ever
 <img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/>
 
 ```shell
-curl "https://api.tokenanalyst.io/analytics/private/v1/token_supply_window_historical/last?&token=usdt_omni&format=json&key=API_KEY&window=1d"
+curl "https://api.tokenanalyst.io/analytics/private/v1/token_supply_window_historical/last?&token=usdt_omni&format=json&window=1d&from_date=2019-08-14&to_date=2019-08-15&key=API_KEY"
 ```
 
 > The above command returns JSON structured like this:
@@ -193,11 +193,11 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_supply_window_histo
 [
   {
     "date": "2019-08-14",
-    "supply": 2544048400
+    "supply": 2545000000
   },
   {
     "date": "2019-08-15",
-    "supply": 2544048400
+    "supply": 2545000000
   }
 ]
 ```
@@ -233,7 +233,7 @@ This endpoint returns the historical supply of Tether (usdt_omni) on the OMNI bl
 <img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/>
 
 ```shell
-curl "https://api.tokenanalyst.io/analytics/private/v1/token_supply_window_historical/last?&token=usdt_erc20&format=json&key=API_KEY&window=1d"
+curl "https://api.tokenanalyst.io/analytics/private/v1/token_supply_window_historical/last?&token=usdt_erc20&format=json&window=1d&from_date=2019-06-11&to_date=2019-06-12&key=API_KEY"
 ```
 
 > The above command returns JSON structured like this:
@@ -282,7 +282,7 @@ This endpoint returns the historical supply of the Tether ERC20 token (usdt_erc2
 <img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/>
 
 ```shell
-curl "https://api.tokenanalyst.io/analytics/private/v1/token_nvt_window_historical/last?&token=usdt_omni&format=json&key=API_KEY&window=1d"
+curl "https://api.tokenanalyst.io/analytics/private/v1/token_nvt_window_historical/last?&token=usdt_omni&format=json&window=1d&from_date=2019-08-19&to_date=2019-08-20&key=API_KEY"
 ```
 
 > The above command returns JSON structured like this:
@@ -292,7 +292,7 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_nvt_window_historic
   {
     "date": "2019-08-19",
     "marketcap_usd": 2545000000,
-    "nvt": 9.4907
+    "nvt": 9.4917
   },
   {
     "date": "2019-08-20",
@@ -334,7 +334,7 @@ This endpoint returns the NVT Ratio (Network Value to Transactions Ratio) for Te
 <img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/>
 
 ```shell
-curl "https://api.tokenanalyst.io/analytics/private/v1/token_fees_window_historical/last?&token=usdt_omni&format=json&key=API_KEY&window=1d"
+curl "https://api.tokenanalyst.io/analytics/private/v1/token_fees_window_historical/last?&token=usdt_omni&format=json&window=1d&from_date=2019-08-13&to_date=2019-08-14&key=API_KEY"
 ```
 
 > The above command returns JSON structured like this:
@@ -392,7 +392,7 @@ This endpoint returns the historical supply of Tether (usdt_omni) on the OMNI bl
 <img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/>
 
 ```shell
-curl "https://api.tokenanalyst.io/analytics/private/v1/token_volume_window_historical/last?format=json&token=usdc&key=API_KEY&window=1d"
+curl "https://api.tokenanalyst.io/analytics/private/v1/token_volume_window_historical/last?format=json&token=usdc&window=1d&from_date=2019-09-25&to_date=2019-09-26&key=API_KEY"
 ```
 
 > The above command returns JSON structured like this:
@@ -400,14 +400,14 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_volume_window_histo
 ```json
 [
   {
-    "date": "2018-09-10",
-    "volume": 22.2,
-    "volume_usd": 0.0
+    "date": "2018-09-25",
+    "volume": 219830971.166091,
+    "volume_usd": 219830971.17
   },
   {
-    "date": "2018-09-12",
-    "volume": 2.5,
-    "volume_usd": 0.0
+    "date": "2018-09-26",
+    "volume": 58031092.284338,
+    "volume_usd": 58031092.28
   }
 ]
 ```
@@ -444,7 +444,7 @@ This endpoint returns the full historical on-chain volume of any of the stableco
 <img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/>
 
 ```shell
-curl "https://api.tokenanalyst.io/analytics/private/v1/token_count_window_historical/last?format=json&token=dai&key=API_KEY&window=1d"
+curl "https://api.tokenanalyst.io/analytics/private/v1/token_count_window_historical/last?format=json&token=dai&window=1d&from_date=2017-12-18&to_date=2017-12-20&key=API_KEY"
 ```
 
 > The above command returns JSON structured like this:
@@ -497,7 +497,7 @@ This endpoint returns the number of token transfers on the Ethereum blockchain f
 <img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/>
 
 ```shell
-curl "https://api.tokenanalyst.io/analytics/private/v1/token_active_address_window_historical/last?&token=usdc&format=json&key=API_KEY&window=1d"
+curl "https://api.tokenanalyst.io/analytics/private/v1/token_active_address_window_historical/last?&token=usdc&format=json&window=1d&from_date=2018-11-11&to_date=2018-11-12&key=API_KEY"
 ```
 
 > The above command returns JSON structured like this:
@@ -505,14 +505,14 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_active_address_wind
 ```json
 [
   {
-    "date": "2016-11-11",
-    "active_senders": 23,
-    "active_recipients": 31
+    "date": "2018-11-11",
+    "active_senders": 67,
+    "active_recipients": 67
   },
   {
-    "date": "2016-11-12",
-    "active_senders": 332,
-    "active_recipients": 23
+    "date": "2018-11-12",
+    "active_senders": 126,
+    "active_recipients": 110
   }
 ]
 ```

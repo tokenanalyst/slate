@@ -99,7 +99,7 @@ The age in block height is used over the block timestamp because the block times
 <img src="https://img.shields.io/badge/Tier-Enterprise-blueviolet.svg"/>
 
 ```shell
-curl "https://api.tokenanalyst.io/analytics/private/v1/token_utxo_metric_window_historical/last?metric=avg_age&limit=2&window=1d&format=json&token=btc&key=API_KEY"
+curl "https://api.tokenanalyst.io/analytics/private/v1/token_utxo_metric_window_historical/last?metric=avg_value&limit=2&window=1d&format=json&token=btc&key=API_KEY"
 ```
 
 > The above command returns JSON structured like this:
@@ -277,7 +277,7 @@ The age in block height is used over the block timestamp because the block times
 <img src="https://img.shields.io/badge/Tier-Enterprise-blueviolet.svg"/>
 
 ```shell
-curl "https://api.tokenanalyst.io/analytics/private/v1/token_utxo_metric_window_historical/last?metric=count&limit=2&window=1d&format=json&token=btc&key=API_KEY"
+curl "https://api.tokenanalyst.io/analytics/private/v1/token_utxo_metric_window_historical/last?metric=median_age&limit=2&window=1d&format=json&token=btc&key=API_KEY"
 ```
 
 > The above command returns JSON structured like this:

@@ -16,7 +16,7 @@ The stablecoins we currently support are:
 <img src="https://img.shields.io/badge/Tier-Professional-black.svg"/>
 
 ```shell
-curl "https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_window_historical/last?format=json&window=1d&token=usdt_omni&exchange=kraken&direction=inflow&key=API_KEY"
+curl "https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_window_historical/last?format=json&window=1h&token=usdt_omni&exchange=kraken&direction=inflow&limit=2&key=API_KEY"
 ```
 
 > The above command returns JSON structured like this:
@@ -24,20 +24,24 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_window_hist
 ```json
 [
   {
-    "date": "2019-08-16",
-    "inflow": 2760452.458,
-    "inflow_usd": 2760452.46,
-    "number_of_txns": 26,
-    "avg_txn_value": 106171.2484,
-    "avg_txn_value_usd": 106171.25
+    'date': "2019-10-24",
+    'hour': "15:00:00", // not available when window 1d
+    'datetime': "2019-10-24 15:00:00", // not available when window 1d
+    'avg_txn_value': 0,
+    'avg_txn_value_usd': 0,
+    'inflow': 0,
+    'inflow_usd': 0,
+    'number_of_txns': 0
   },
   {
-    "date": "2019-08-17",
-    "inflow": 97184.7667,
-    "inflow_usd": 97184.76,
-    "number_of_txns": 10,
-    "avg_txn_value": 9718.4767,
-    "avg_txn_value_usd": 9718.48
+    'date': "2019-10-24",
+    'hour': "16:00:00", // not available when window 1d
+    'datetime': "2019-10-24 16:00:00", // not available when window 1d
+    'avg_txn_value': 2701.218,
+    'avg_txn_value_usd': 2702.59,
+    'inflow': 8103.6541,
+    'inflow_usd': 8107.77,
+    'number_of_txns': 3
   }
 ]
 ```
@@ -81,7 +85,7 @@ This endpoint returns the inflow of stablecoins into exchange wallets. The `avg_
 <img src="https://img.shields.io/badge/Tier-Professional-black.svg"/>
 
 ```shell
-curl "https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_window_historical/last?format=json&window=1d&token=usdt_omni&exchange=huobi&direction=outflow&key=API_KEY"
+curl "https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_window_historical/last?format=json&window=1h&token=usdt_omni&exchange=huobi&direction=outflow&limit=2&API_KEY"
 ```
 
 > The above command returns JSON structured like this:
@@ -89,20 +93,24 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_window_hist
 ```json
 [
   {
-    "date": "2018-09-26",
-    "outflow": 11148431.05,
-    "outflow_usd": 11137036.46,
-    "number_of_txns": 465,
-    "avg_txn_value": 23975.1205,
-    "avg_txn_value_usd": 23950.62
+    'date': "2019-10-24",
+    'hour': "15:00:00", // not available when window 1d
+    'datetime': "2019-10-24 15:00:00", // not available when window 1d
+    'outflow': 786995.9981,
+    'outflow_usd': 788730.02,
+    'number_of_txns': 143,
+    'avg_txn_value': 5503.4685,
+    'avg_txn_value_usd': 5515.59
   },
   {
-    "date": "2018-09-27",
-    "outflow": 15456621.51,
-    "outflow_usd": 15426543.13,
-    "number_of_txns": 436,
-    "avg_txn_value": 35450.9668,
-    "avg_txn_value_usd": 35381.98
+   ' date': "2019-10-24",
+    'hour': "16:00:00", // not available when window 1d
+    'datetime': "2019-10-24 16:00:00", // not available when window 1d
+    'outflow': 74282.2861,
+    'outflow_usd': 74320.05,
+    'number_of_txns': 15,
+    'avg_txn_value': 4952.1524,
+    'avg_txn_value_usd': 4954.67
   }
 ]
 ```
@@ -147,7 +155,7 @@ This endpoint returns the inflow of stablecoins into exchange wallets. The `avg_
 > This is an example:
 
 ```shell
-curl "https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_top10_window_historical/last?token=usdt_omni&exchange=binance&direction=inflow&format=json&key=API_KEY&window=1d"
+curl "https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_top10_window_historical/last?token=usdt_omni&exchange=binance&direction=inflow&format=json&window=1d&limit=2&key=API_KEY"
 ```
 
 > The response looks like:
@@ -210,7 +218,7 @@ This endpoint returns the top 10 transactions (in terms of total USDT sent) flow
 <img src="https://img.shields.io/badge/Tier-Professional-black.svg"/>
 
 ```shell
-curl "https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_top10_window_historical/last?token=usdt_omni&exchange=binance&direction=outflow&format=json&key=API_KEY"
+curl "https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_top10_window_historical/last?token=usdt_omni&exchange=binance&direction=outflow&format=json&limit=2&key=API_KEY"
 ```
 
 > The response looks like:
