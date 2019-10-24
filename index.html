@@ -524,7 +524,7 @@
 You must replace <code>API_KEY</code> with your personal API key.
 </aside>
 <h1 id='date-amp-time-conventions'>Date &amp; Time Conventions</h1>
-<p>Throughout this API a <code>window</code> parameter is used to indicate the time intervals for which the data is aggregated. We currently offer daily (denoted by <code>window=1d</code>) and hourly (denoted by <code>window=1h</code>) endpoints:</p>
+<p>Throughout this API a <code>window</code> parameter is used to indicate the time intervals for which the data is aggregated. We currently offer daily (denoted by <code>window=1d</code>) and hourly (denoted by <code>window=1h</code>) endpoints. We use a 6 block confirmation strategy in all our calculations, therefore, the latest hour’s data may change when the following hour is calculated due to these block lags:</p>
 
 <table><thead>
 <tr>
@@ -543,7 +543,7 @@ You must replace <code>API_KEY</code> with your personal API key.
 </tbody></table>
 
 <aside class="warning">
-Note: not all endpoints support hourly data yet. See the specific docs below to see if the `window=1h` param is supported for your desired endpoint
+Note: Not all endpoints support hourly data yet. See the specific docs below to see if the `window=1h` param is supported for your desired endpoint
 </aside>
 <h1 id='bitcoin-fundamentals'>Bitcoin Fundamentals</h1><h2 id='btc-on-chain-volume'>BTC On-chain Volume</h2>
 <p><img src="https://img.shields.io/badge/Tier-Free-green.svg"/></p>
