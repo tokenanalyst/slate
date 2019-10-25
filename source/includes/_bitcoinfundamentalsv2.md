@@ -13,7 +13,7 @@ remainder left over after subtracting the change.
 ```shell
 # Make sure you substitute API_KEY for your unique API key.
 
-curl "https://api.tokenanalyst.io/analytics/private/v1/token_volume_window_historical/last?format=json&key=API_KEY&token=btc&window=1h"
+curl "https://api.tokenanalyst.io/analytics/private/v1/token_volume_window_historical/last?format=json&token=btc&window=1h&from_date=2014-03-12&to_date=2014-03-12&limit=2&key=API_KEY"
 ```
 
 > The above command returns JSON structured like this:
@@ -486,7 +486,7 @@ Note: All params with a \* are optional and `limit` is only available in the JSO
 <img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/>
 
 ```shell
-curl "https://api.tokenanalyst.io/analytics/private/v1/token_miner_hashrate_window_historical/last?format=json&token=btc&key=API_KEY"
+curl "https://api.tokenanalyst.io/analytics/private/v1/token_miner_hashrate_window_historical/last?format=json&window=1d&token=btc&limit=2&key=API_KEY"
 ```
 
 > The above command returns JSON structured like this:

@@ -29,7 +29,7 @@ ERC20 tokens we currently support are:
 <img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/>
 
 ```shell
-curl "https://api.tokenanalyst.io/analytics/private/v1/token_volume_window_historical/last?format=json&token=zrx&key=API_KEY&window=1d"
+curl "https://api.tokenanalyst.io/analytics/private/v1/token_volume_window_historical/last?format=json&token=zrx&window=1d&from_date=2017-08-13&to_date=2017-08-14&key=API_KEY"
 ```
 
 > The above command returns JSON structured like this:
@@ -37,14 +37,14 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_volume_window_histo
 ```json
 [
   {
-    "date": "2017-08-11",
-    "volume": 100001170833,
-    "volume_usd": 1305799085
+    "date": "2017-08-13",
+    "volume": 82750000,
+    "volume_usd": 14909136.52
   },
   {
-    "date": "2017-08-13",
-    "volume": 82753422,
-    "volume_usd": 1490913652
+    "date": "2017-08-14",
+    "volume": 52500000,
+    "volume_usd": 11388781.29
   }
 ]
 ```
@@ -82,17 +82,13 @@ This endpoint returns the full historical on-chain volume of any of the major ER
 <img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/>
 
 ```shell
-curl "https://api.tokenanalyst.io/analytics/private/v1/token_count_window_historical/last?format=json&token=mana&key=API_KEY&window=1d"
+curl "https://api.tokenanalyst.io/analytics/private/v1/token_count_window_historical/last?format=json&token=mana&from_date=2017-09-15&to_date=2017-09-16&window=1d&key=API_KEY"
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
 [
-  {
-    "date": "2017-09-06",
-    "number_of_txns": 4
-  },
   {
     "date": "2017-09-15",
     "number_of_txns": 5512
@@ -137,7 +133,7 @@ This endpoint returns the number of token transfers on the blockchain for the gi
 <img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/>
 
 ```shell
-curl "https://api.tokenanalyst.io/analytics/private/v1/token_active_address_window_historical/last?&token=gnt&format=json&key=API_KEY&window=1d"
+curl "https://api.tokenanalyst.io/analytics/private/v1/token_active_address_window_historical/last?&token=gnt&format=json&from_date=2016-11-11&to_date=2016-12&window=1d&key=API_KEY"
 ```
 
 > The above command returns JSON structured like this:

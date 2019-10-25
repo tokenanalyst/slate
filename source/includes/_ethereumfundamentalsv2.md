@@ -5,7 +5,7 @@
 <img src="https://img.shields.io/badge/Tier-Free-green.svg"/>
 
 ```shell
-curl "https://api.tokenanalyst.io/analytics/private/v1/token_volume_window_historical/last?format=json&token=eth&key=API_KEY&window=1d"
+curl "https://api.tokenanalyst.io/analytics/private/v1/token_volume_window_historical/last?format=json&token=eth&window=1d&from_date=2015-08-07&to_date=2015-08-08&key=API_KEY"
 ```
 
 > The above command returns JSON structured like this:
@@ -71,7 +71,7 @@ This endpoint returns the full historical on-chain volume of Ethereum since it w
 <img src="https://img.shields.io/badge/Tier-Free-green.svg"/>
 
 ```shell
-curl "https://api.tokenanalyst.io/analytics/private/v1/token_count_window_historical/last?format=json&token=eth&key=API_KEY&window=1d"
+curl "https://api.tokenanalyst.io/analytics/private/v1/token_count_window_historical/last?format=json&token=eth&window=1d&from_date=2015-08-07&to_date=2015-08-09&key=API_KEY"
 ```
 
 > The above command returns JSON structured like this:
@@ -124,7 +124,7 @@ This endpoint returns the number of transactions, where ETH value transferred wa
 <img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/>
 
 ```shell
-curl "https://api.tokenanalyst.io/analytics/private/v1/token_active_address_window_historical/last?&token=eth&format=json&key=API_KEY&window=1d"
+curl "https://api.tokenanalyst.io/analytics/private/v1/token_active_address_window_historical/last?&token=eth&format=json&from_date=2015-08-11&to_date=2015-08-12&window=1d&key=API_KEY"
 ```
 
 > The above command returns JSON structured like this:
@@ -176,7 +176,7 @@ This endpoint returns the active addresses on the Ethereum blockchain for every 
 <img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/>
 
 ```shell
-curl "https://api.tokenanalyst.io/analytics/private/v1/token_supply_window_historical/last?&token=eth&format=json&key=API_KEY&window=1d"
+curl "https://api.tokenanalyst.io/analytics/private/v1/token_supply_window_historical/last?&token=eth&format=json&window=1d&from_date=2015-07-30&to_date=2015-07-31&key=API_KEY"
 ```
 
 > The above command returns JSON structured like this:
@@ -225,7 +225,7 @@ This endpoint returns the historical supply of ETH on the Ethereum blockchain fo
 <img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/>
 
 ```shell
-curl "https://api.tokenanalyst.io/analytics/private/v1/token_nvt_window_historical/last?&token=eth&format=json&key=API_KEY&window=1d"
+curl "https://api.tokenanalyst.io/analytics/private/v1/token_nvt_window_historical/last?&token=eth&format=json&window=1d&from_date=2015-09-02&to_date=2015-09-03&key=API_KEY"
 ```
 
 > The above command returns JSON structured like this:
@@ -277,7 +277,7 @@ This endpoint returns the NVT Ratio (Network Value to Transactions Ratio) for ET
 <img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/>
 
 ```shell
-curl "https://api.tokenanalyst.io/analytics/private/v1/token_fees_window_historical/last?&token=eth&format=json&key=API_KEY&window=1d"
+curl "https://api.tokenanalyst.io/analytics/private/v1/token_fees_window_historical/last?&token=eth&format=json&window=1d&from_date=2015-10-19&to_date=2015-10-20&key=API_KEY"
 ```
 
 > The above command returns JSON structured like this:
@@ -341,7 +341,7 @@ This endpoint returns the total and average fees spent on the Ethereum network f
 <img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/>
 
 ```shell
-curl "https://api.tokenanalyst.io/analytics/private/v1/token_miner_hashrate_window_historical/last?format=json&token=eth&key=API_KEY&window=1d"
+curl "https://api.tokenanalyst.io/analytics/private/v1/token_miner_hashrate_window_historical/last?format=json&token=eth&window=1d&from_date=2016-04-06&to_date=2016-04-07&limit=2&key=API_KEY"
 ```
 
 > The above command returns JSON structured like this:
@@ -350,31 +350,31 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_miner_hashrate_wind
 [
   {
     "date": "2016-04-07",
-    "miner": "0x5bD7a5f263fD5B00Fc8047D581fDBa92E34783b8",
+    "miner": "0xeF59F31770B101C23e69958C8FD9485Cc267FCD9",
     "miner_name": "Unknown",
     "total_daily_hashrate": 1.6977,
     "miner_daily_hashrate": 0.0006,
-    "miner_daily_hashrate_pct": 0.0333,
+    "miner_daily_hashrate_pct": 0.0331,
     "miner_daily_block_count": 2,
     "miner_daily_uncle_count": 0,
     "miner_daily_uncle_pct": 0,
     "total_daily_block_count": 5953,
     "total_daily_uncle_count": 403,
-    "total_daily_uncle_pct": 6
+    "total_daily_uncle_pct": 6.7697
   },
   {
     "date": "2016-04-07",
-    "miner": "0x61C808D82A3Ac53231750daDc13c777b59310bD9",
-    "miner_name": "F2Pool 1",
+    "miner": "0xf8b483DbA2c3B7176a3Da549ad41A48BB3121069",
+    "miner_name": "Coinotron 1",
     "total_daily_hashrate": 1.6977,
-    "miner_daily_hashrate": 0.1032,
-    "miner_daily_hashrate_pct": 6.0811,
-    "miner_daily_block_count": 362,
-    "miner_daily_uncle_count": 22,
-    "miner_daily_uncle_pct": 5,
+    "miner_daily_hashrate": 0.1637,
+    "miner_daily_hashrate_pct": 9.6417,
+    "miner_daily_block_count": 574,
+    "miner_daily_uncle_count": 41,
+    "miner_daily_uncle_pct": 6.6667,
     "total_daily_block_count": 5953,
     "total_daily_uncle_count": 403,
-    "total_daily_uncle_pct": 6
+    "total_daily_uncle_pct": 6.7697
   }
 ]
 ```
@@ -420,7 +420,7 @@ This endpoint returns the total and miner specifc hashrate and uncle rates. The 
 <img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/>
 
 ```shell
-curl "https://api.tokenanalyst.io/analytics/private/v1/token_miner_rewards_window_historical/last?format=json&token=eth&key=API_KEY&window=1d"
+curl "https://api.tokenanalyst.io/analytics/private/v1/token_miner_rewards_window_historical/last?format=json&token=eth&from_date=2019-07-22&to_date=2019-07-23&limit=2&window=1d&key=API_KEY"
 ```
 
 > The above command returns JSON structured like this:
@@ -429,19 +429,19 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_miner_rewards_windo
 [
   {
     "date": "2019-07-23",
-    "miner_name": "Nanopool",
-    "miner_daily_block_reward": 1604.3125,
-    "miner_daily_block_reward_usd": 359940.49,
-    "miner_daily_uncle_reward": 76,
-    "miner_daily_uncle_reward_usd": 17051.22
+    "miner_name": "WaterholePool",
+    "miner_daily_block_reward": 32.0625,
+    "miner_daily_block_reward_usd": 6853.98,
+    "miner_daily_uncle_reward": 7,
+    "miner_daily_uncle_reward_usd": 1496.39
   },
   {
     "date": "2019-07-23",
-    "miner_name": "Spark Pool",
-    "miner_daily_block_reward": 3048,
-    "miner_daily_block_reward_usd": 683843.47,
-    "miner_daily_uncle_reward": 141,
-    "miner_daily_uncle_reward_usd": 31634.49
+    "miner_name": "zhizu.top",
+    "miner_daily_block_reward": 344.5,
+    "miner_daily_block_reward_usd": 73643.53,
+    "miner_daily_uncle_reward": 25,
+    "miner_daily_uncle_reward_usd": 5344.23
   }
 ]
 ```

@@ -29,10 +29,10 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/miner_flow_window_histori
     "avg_txn_value": 0.01407396,
     "avg_txn_value_usd": 51.51,
     "date": "2019-02-08",
-    "datetime": "2019-02-08 23:00:00",
-    "hour": "23:00:00",
-    "inflow": 0.02814792, // not available when window 1d
-    "inflow_usd": 103.02, // not available when window 1d
+    "datetime": "2019-02-08 23:00:00", // not available when window 1d
+    "hour": "23:00:00", // not available when window 1d
+    "inflow": 0.02814792,
+    "inflow_usd": 103.02,
     "miner_name": "Unknown",
     "number_of_txns": 2
   }
@@ -97,8 +97,8 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/miner_flow_window_histori
     "avg_txn_value": 1.15274538,
     "avg_txn_value_usd": 4186.79,
     "date": "2019-02-08",
-    "datetime": "2019-02-08 21:00:00",
-    "hour": "21:00:00",
+    "datetime": "2019-02-08 21:00:00", // not available when window 1d
+    "hour": "21:00:00", // not available when window 1d
     "miner_name": "Unknown",
     "number_of_txns": 7,
     "outflow": 8.06921768,
