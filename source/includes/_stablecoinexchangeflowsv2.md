@@ -24,24 +24,24 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_window_hist
 ```json
 [
   {
-    'date': "2019-10-24",
-    'hour': "15:00:00", // not available when window 1d
-    'datetime': "2019-10-24 15:00:00", // not available when window 1d
-    'avg_txn_value': 0,
-    'avg_txn_value_usd': 0,
-    'inflow': 0,
-    'inflow_usd': 0,
-    'number_of_txns': 0
+    "date": "2019-10-24",
+    "hour": "15:00:00", // not available when window 1d
+    "datetime": "2019-10-24 15:00:00", // not available when window 1d
+    "avg_txn_value": 0,
+    "avg_txn_value_usd": 0,
+    "inflow": 0,
+    "inflow_usd": 0,
+    "number_of_txns": 0
   },
   {
-    'date': "2019-10-24",
-    'hour': "16:00:00", // not available when window 1d
-    'datetime': "2019-10-24 16:00:00", // not available when window 1d
-    'avg_txn_value': 2701.218,
-    'avg_txn_value_usd': 2702.59,
-    'inflow': 8103.6541,
-    'inflow_usd': 8107.77,
-    'number_of_txns': 3
+    "date": "2019-10-24",
+    "hour": "16:00:00", // not available when window 1d
+    "datetime": "2019-10-24 16:00:00", // not available when window 1d
+    "avg_txn_value": 2701.218,
+    "avg_txn_value_usd": 2702.59,
+    "inflow": 8103.6541,
+    "inflow_usd": 8107.77,
+    "number_of_txns": 3
   }
 ]
 ```
@@ -93,24 +93,24 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_window_hist
 ```json
 [
   {
-    'date': "2019-10-24",
-    'hour': "15:00:00", // not available when window 1d
-    'datetime': "2019-10-24 15:00:00", // not available when window 1d
-    'outflow': 786995.9981,
-    'outflow_usd': 788730.02,
-    'number_of_txns': 143,
-    'avg_txn_value': 5503.4685,
-    'avg_txn_value_usd': 5515.59
+    "date": "2019-10-24",
+    "hour": "15:00:00", // not available when window 1d
+    "datetime": "2019-10-24 15:00:00", // not available when window 1d
+    "outflow": 786995.9981,
+    "outflow_usd": 788730.02,
+    "number_of_txns": 143,
+    "avg_txn_value": 5503.4685,
+    "avg_txn_value_usd": 5515.59
   },
   {
-   ' date': "2019-10-24",
-    'hour': "16:00:00", // not available when window 1d
-    'datetime': "2019-10-24 16:00:00", // not available when window 1d
-    'outflow': 74282.2861,
-    'outflow_usd': 74320.05,
-    'number_of_txns': 15,
-    'avg_txn_value': 4952.1524,
-    'avg_txn_value_usd': 4954.67
+    "date": "2019-10-24",
+    "hour": "16:00:00", // not available when window 1d
+    "datetime": "2019-10-24 16:00:00", // not available when window 1d
+    "outflow": 74282.2861,
+    "outflow_usd": 74320.05,
+    "number_of_txns": 15,
+    "avg_txn_value": 4952.1524,
+    "avg_txn_value_usd": 4954.67
   }
 ]
 ```

@@ -349,32 +349,32 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_miner_hashrate_wind
 ```json
 [
   {
-    'date': "2016-04-07",
-    'miner': "0xeF59F31770B101C23e69958C8FD9485Cc267FCD9",
-    'miner_name': "Unknown",
-    'total_daily_hashrate': 1.6977,
-    'miner_daily_hashrate': 0.0006,
-    'miner_daily_hashrate_pct': 0.0331,
-    'miner_daily_block_count': 2,
-    'miner_daily_uncle_count': 0,
-    'miner_daily_uncle_pct': 0,
-    'total_daily_block_count': 5953,
-    'total_daily_uncle_count': 403,
-    'total_daily_uncle_pct': 6.7697
+    "date": "2016-04-07",
+    "miner": "0xeF59F31770B101C23e69958C8FD9485Cc267FCD9",
+    "miner_name": "Unknown",
+    "total_daily_hashrate": 1.6977,
+    "miner_daily_hashrate": 0.0006,
+    "miner_daily_hashrate_pct": 0.0331,
+    "miner_daily_block_count": 2,
+    "miner_daily_uncle_count": 0,
+    "miner_daily_uncle_pct": 0,
+    "total_daily_block_count": 5953,
+    "total_daily_uncle_count": 403,
+    "total_daily_uncle_pct": 6.7697
   },
   {
-    'date': "2016-04-07",
-    'miner': "0xf8b483DbA2c3B7176a3Da549ad41A48BB3121069",
-    'miner_name': "Coinotron 1",
-    'total_daily_hashrate': 1.6977,
-    'miner_daily_hashrate': 0.1637,
-    'miner_daily_hashrate_pct': 9.6417,
-    'miner_daily_block_count': 574,
-    'miner_daily_uncle_count': 41,
-    'miner_daily_uncle_pct': 6.6667,
-    'total_daily_block_count': 5953,
-    'total_daily_uncle_count': 403,
-    'total_daily_uncle_pct': 6.7697
+    "date": "2016-04-07",
+    "miner": "0xf8b483DbA2c3B7176a3Da549ad41A48BB3121069",
+    "miner_name": "Coinotron 1",
+    "total_daily_hashrate": 1.6977,
+    "miner_daily_hashrate": 0.1637,
+    "miner_daily_hashrate_pct": 9.6417,
+    "miner_daily_block_count": 574,
+    "miner_daily_uncle_count": 41,
+    "miner_daily_uncle_pct": 6.6667,
+    "total_daily_block_count": 5953,
+    "total_daily_uncle_count": 403,
+    "total_daily_uncle_pct": 6.7697
   }
 ]
 ```
