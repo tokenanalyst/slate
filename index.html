@@ -555,7 +555,7 @@ is sent back to the same address that sent the BTC. The &#39;real&#39; volume is
 remainder left over after subtracting the change.</p>
 <pre class="highlight shell tab-shell"><code><span class="c"># Make sure you substitute API_KEY for your unique API key.</span>
 
-curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_volume_window_historical/last?format=json&amp;key=API_KEY&amp;token=btc&amp;window=1h"</span>
+curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_volume_window_historical/last?format=json&amp;token=btc&amp;window=1h&amp;from_date=2014-03-12&amp;to_date=2014-03-12&amp;limit=2&amp;key=API_KEY"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -1384,7 +1384,7 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
 </tbody></table>
 <h2 id='btc-miner-hashrate'>BTC Miner Hashrate</h2>
 <p><img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/></p>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_miner_hashrate_window_historical/last?format=json&amp;token=btc&amp;key=API_KEY"</span>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_miner_hashrate_window_historical/last?format=json&amp;window=1d&amp;token=btc&amp;limit=2&amp;key=API_KEY"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -1781,7 +1781,7 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
 <p>The age in block height is used over the block timestamp because the block timestamp serves as a source of variation when calculating the blockhash and is only accurate to within an hour or two. By using timestamps some UTXOs could be considered older than a previously generated UTXO. By using block-age from current the blockheight, the age of utxos is strictly ordinal as blockheight is strictly sequential.</p>
 
 <p><img src="https://img.shields.io/badge/Tier-Enterprise-blueviolet.svg"/></p>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_utxo_metric_window_historical/last?metric=avg_age&amp;limit=2&amp;window=1d&amp;format=json&amp;token=btc&amp;key=API_KEY"</span>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_utxo_metric_window_historical/last?metric=avg_value&amp;limit=2&amp;window=1d&amp;format=json&amp;token=btc&amp;key=API_KEY"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -2125,7 +2125,7 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
 <p>The age in block height is used over the block timestamp because the block timestamp serves as a source of variation when calculating the blockhash and is only accurate to within an hour or two. By using timestamps some UTXOs could be considered older than a previously generated UTXO. By using block-age from current the blockheight, the age of utxos is strictly ordinal as blockheight is strictly sequential.</p>
 
 <p><img src="https://img.shields.io/badge/Tier-Enterprise-blueviolet.svg"/></p>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_utxo_metric_window_historical/last?metric=count&amp;limit=2&amp;window=1d&amp;format=json&amp;token=btc&amp;key=API_KEY"</span>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_utxo_metric_window_historical/last?metric=median_age&amp;limit=2&amp;window=1d&amp;format=json&amp;token=btc&amp;key=API_KEY"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -2814,7 +2814,7 @@ The weighted average age is sum of the ages of UTXOs multiplied by their bitocoi
 </tbody></table>
 <h1 id='ethereum-fundamentals'>Ethereum Fundamentals</h1><h2 id='eth-on-chain-volume'>ETH On-chain Volume</h2>
 <p><img src="https://img.shields.io/badge/Tier-Free-green.svg"/></p>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_volume_window_historical/last?format=json&amp;token=eth&amp;key=API_KEY&amp;window=1d"</span>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_volume_window_historical/last?format=json&amp;token=eth&amp;window=1d&amp;from_date=2015-08-07&amp;to_date=2015-08-08&amp;key=API_KEY"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -2935,7 +2935,7 @@ The weighted average age is sum of the ages of UTXOs multiplied by their bitocoi
 </tbody></table>
 <h2 id='eth-on-chain-transaction-count'>ETH On-chain Transaction Count</h2>
 <p><img src="https://img.shields.io/badge/Tier-Free-green.svg"/></p>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_count_window_historical/last?format=json&amp;token=eth&amp;key=API_KEY&amp;window=1d"</span>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_count_window_historical/last?format=json&amp;token=eth&amp;window=1d&amp;from_date=2015-08-07&amp;to_date=2015-08-09&amp;key=API_KEY"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -3023,7 +3023,7 @@ The weighted average age is sum of the ages of UTXOs multiplied by their bitocoi
 </tbody></table>
 <h2 id='eth-active-addresses'>ETH Active addresses</h2>
 <p><img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/></p>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_active_address_window_historical/last?&amp;token=eth&amp;format=json&amp;key=API_KEY&amp;window=1d"</span>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_active_address_window_historical/last?&amp;token=eth&amp;format=json&amp;from_date=2015-08-11&amp;to_date=2015-08-12&amp;window=1d&amp;key=API_KEY"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -3114,7 +3114,7 @@ The weighted average age is sum of the ages of UTXOs multiplied by their bitocoi
 </tbody></table>
 <h2 id='eth-supply'>ETH Supply</h2>
 <p><img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/></p>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_supply_window_historical/last?&amp;token=eth&amp;format=json&amp;key=API_KEY&amp;window=1d"</span>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_supply_window_historical/last?&amp;token=eth&amp;format=json&amp;window=1d&amp;from_date=2015-07-30&amp;to_date=2015-07-31&amp;key=API_KEY"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -3198,7 +3198,7 @@ The weighted average age is sum of the ages of UTXOs multiplied by their bitocoi
 </tbody></table>
 <h2 id='eth-nvt'>ETH NVT</h2>
 <p><img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/></p>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_nvt_window_historical/last?&amp;token=eth&amp;format=json&amp;key=API_KEY&amp;window=1d"</span>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_nvt_window_historical/last?&amp;token=eth&amp;format=json&amp;window=1d&amp;from_date=2015-09-02&amp;to_date=2015-09-03&amp;key=API_KEY"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -3289,7 +3289,7 @@ The weighted average age is sum of the ages of UTXOs multiplied by their bitocoi
 </tbody></table>
 <h2 id='eth-fees'>ETH Fees</h2>
 <p><img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/></p>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_fees_window_historical/last?&amp;token=eth&amp;format=json&amp;key=API_KEY&amp;window=1d"</span>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_fees_window_historical/last?&amp;token=eth&amp;format=json&amp;window=1d&amp;from_date=2015-10-19&amp;to_date=2015-10-20&amp;key=API_KEY"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -3408,7 +3408,7 @@ The weighted average age is sum of the ages of UTXOs multiplied by their bitocoi
 </tbody></table>
 <h2 id='eth-miner-hashrate'>ETH Miner Hashrate</h2>
 <p><img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/></p>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_miner_hashrate_window_historical/last?format=json&amp;token=eth&amp;key=API_KEY&amp;window=1d"</span>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_miner_hashrate_window_historical/last?format=json&amp;token=eth&amp;window=1d&amp;from_date=2016-04-06&amp;to_date=2016-04-07&amp;limit=2&amp;key=API_KEY"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -3416,31 +3416,31 @@ The weighted average age is sum of the ages of UTXOs multiplied by their bitocoi
 <pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-04-07"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"miner"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0x5bD7a5f263fD5B00Fc8047D581fDBa92E34783b8"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"miner"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0xeF59F31770B101C23e69958C8FD9485Cc267FCD9"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"miner_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Unknown"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"total_daily_hashrate"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.6977</span><span class="p">,</span><span class="w">
     </span><span class="s2">"miner_daily_hashrate"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0006</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"miner_daily_hashrate_pct"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0333</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"miner_daily_hashrate_pct"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0331</span><span class="p">,</span><span class="w">
     </span><span class="s2">"miner_daily_block_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
     </span><span class="s2">"miner_daily_uncle_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
     </span><span class="s2">"miner_daily_uncle_pct"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
     </span><span class="s2">"total_daily_block_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">5953</span><span class="p">,</span><span class="w">
     </span><span class="s2">"total_daily_uncle_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">403</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"total_daily_uncle_pct"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="w">
+    </span><span class="s2">"total_daily_uncle_pct"</span><span class="p">:</span><span class="w"> </span><span class="mf">6.7697</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-04-07"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"miner"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0x61C808D82A3Ac53231750daDc13c777b59310bD9"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"miner_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"F2Pool 1"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"miner"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0xf8b483DbA2c3B7176a3Da549ad41A48BB3121069"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"miner_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Coinotron 1"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"total_daily_hashrate"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.6977</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"miner_daily_hashrate"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.1032</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"miner_daily_hashrate_pct"</span><span class="p">:</span><span class="w"> </span><span class="mf">6.0811</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"miner_daily_block_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">362</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"miner_daily_uncle_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">22</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"miner_daily_uncle_pct"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"miner_daily_hashrate"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.1637</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"miner_daily_hashrate_pct"</span><span class="p">:</span><span class="w"> </span><span class="mf">9.6417</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"miner_daily_block_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">574</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"miner_daily_uncle_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">41</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"miner_daily_uncle_pct"</span><span class="p">:</span><span class="w"> </span><span class="mf">6.6667</span><span class="p">,</span><span class="w">
     </span><span class="s2">"total_daily_block_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">5953</span><span class="p">,</span><span class="w">
     </span><span class="s2">"total_daily_uncle_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">403</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"total_daily_uncle_pct"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="w">
+    </span><span class="s2">"total_daily_uncle_pct"</span><span class="p">:</span><span class="w"> </span><span class="mf">6.7697</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
@@ -3562,7 +3562,7 @@ The weighted average age is sum of the ages of UTXOs multiplied by their bitocoi
 </tbody></table>
 <h2 id='eth-miner-rewards'>ETH Miner Rewards</h2>
 <p><img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/></p>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_miner_rewards_window_historical/last?format=json&amp;token=eth&amp;key=API_KEY&amp;window=1d"</span>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_miner_rewards_window_historical/last?format=json&amp;token=eth&amp;from_date=2019-07-22&amp;to_date=2019-07-23&amp;limit=2&amp;window=1d&amp;key=API_KEY"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -3570,19 +3570,19 @@ The weighted average age is sum of the ages of UTXOs multiplied by their bitocoi
 <pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-07-23"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"miner_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nanopool"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"miner_daily_block_reward"</span><span class="p">:</span><span class="w"> </span><span class="mf">1604.3125</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"miner_daily_block_reward_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">359940.49</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"miner_daily_uncle_reward"</span><span class="p">:</span><span class="w"> </span><span class="mi">76</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"miner_daily_uncle_reward_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">17051.22</span><span class="w">
+    </span><span class="s2">"miner_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WaterholePool"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"miner_daily_block_reward"</span><span class="p">:</span><span class="w"> </span><span class="mf">32.0625</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"miner_daily_block_reward_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">6853.98</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"miner_daily_uncle_reward"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"miner_daily_uncle_reward_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">1496.39</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-07-23"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"miner_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Spark Pool"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"miner_daily_block_reward"</span><span class="p">:</span><span class="w"> </span><span class="mi">3048</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"miner_daily_block_reward_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">683843.47</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"miner_daily_uncle_reward"</span><span class="p">:</span><span class="w"> </span><span class="mi">141</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"miner_daily_uncle_reward_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">31634.49</span><span class="w">
+    </span><span class="s2">"miner_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"zhizu.top"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"miner_daily_block_reward"</span><span class="p">:</span><span class="w"> </span><span class="mf">344.5</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"miner_daily_block_reward_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">73643.53</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"miner_daily_uncle_reward"</span><span class="p">:</span><span class="w"> </span><span class="mi">25</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"miner_daily_uncle_reward_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">5344.23</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
@@ -3756,21 +3756,21 @@ The weighted average age is sum of the ages of UTXOs multiplied by their bitocoi
 </tbody></table>
 <h2 id='erc20-on-chain-volume'>ERC20 On-chain Volume</h2>
 <p><img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/></p>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_volume_window_historical/last?format=json&amp;token=zrx&amp;key=API_KEY&amp;window=1d"</span>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_volume_window_historical/last?format=json&amp;token=zrx&amp;window=1d&amp;from_date=2017-08-13&amp;to_date=2017-08-14&amp;key=API_KEY"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-08-11"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"volume"</span><span class="p">:</span><span class="w"> </span><span class="mi">100001170833</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"volume_usd"</span><span class="p">:</span><span class="w"> </span><span class="mi">1305799085</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-08-13"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"volume"</span><span class="p">:</span><span class="w"> </span><span class="mi">82750000</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"volume_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">14909136.52</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-08-13"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"volume"</span><span class="p">:</span><span class="w"> </span><span class="mi">82753422</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"volume_usd"</span><span class="p">:</span><span class="w"> </span><span class="mi">1490913652</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-08-14"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"volume"</span><span class="p">:</span><span class="w"> </span><span class="mi">52500000</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"volume_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">11388781.29</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
@@ -3847,16 +3847,12 @@ The weighted average age is sum of the ages of UTXOs multiplied by their bitocoi
 </tbody></table>
 <h2 id='erc20-on-chain-transaction-count'>ERC20 On-chain Transaction Count</h2>
 <p><img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/></p>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_count_window_historical/last?format=json&amp;token=mana&amp;key=API_KEY&amp;window=1d"</span>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_count_window_historical/last?format=json&amp;token=mana&amp;from_date=2017-09-15&amp;to_date=2017-09-16&amp;window=1d&amp;key=API_KEY"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-09-06"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"number_of_txns"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="w">
-  </span><span class="p">},</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-09-15"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"number_of_txns"</span><span class="p">:</span><span class="w"> </span><span class="mi">5512</span><span class="w">
@@ -3935,7 +3931,7 @@ The weighted average age is sum of the ages of UTXOs multiplied by their bitocoi
 </tbody></table>
 <h2 id='erc20-active-addresses'>ERC20 Active addresses</h2>
 <p><img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/></p>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_active_address_window_historical/last?&amp;token=gnt&amp;format=json&amp;key=API_KEY&amp;window=1d"</span>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_active_address_window_historical/last?&amp;token=gnt&amp;format=json&amp;from_date=2016-11-11&amp;to_date=2016-12&amp;window=1d&amp;key=API_KEY"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -4066,25 +4062,25 @@ The weighted average age is sum of the ages of UTXOs multiplied by their bitocoi
 <p>We have slightly different endpoints for Tether (usdt_omni) due to the nature of OMNI blockchian</p>
 <h2 id='tether-omni-on-chain-volume'>Tether (Omni) On-chain Volume</h2>
 <p><img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/></p>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_volume_window_historical/last?key=API_KEY&amp;format=json&amp;token=usdt_omni&amp;window=1h"</span>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_volume_window_historical/last?format=json&amp;token=usdt_omni&amp;window=1h&amp;from_date=2018-09-10&amp;to_date=2018-09-12&amp;limit=2&amp;key=API_KEY"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-09-10"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"hour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">available</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
-    </span><span class="s2">"datetime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-09-10 01:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">available</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
-    </span><span class="s2">"volume"</span><span class="p">:</span><span class="w"> </span><span class="mf">759397926.2</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"volume_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">759397926.2</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-09-12"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"hour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"22:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">available</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
+    </span><span class="s2">"datetime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-09-10 22:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">available</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
+    </span><span class="s2">"volume"</span><span class="p">:</span><span class="w"> </span><span class="mf">3253506.56</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"volume_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">3245372.75</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-09-12"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"hour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"02:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">available</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
-    </span><span class="s2">"datetime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-09-12 02:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">available</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
-    </span><span class="s2">"volume"</span><span class="p">:</span><span class="w"> </span><span class="mf">397509639.4</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"volume_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">397509639.4</span><span class="w">
+    </span><span class="s2">"hour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"23:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">available</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
+    </span><span class="s2">"datetime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-09-12 23:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">available</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
+    </span><span class="s2">"volume"</span><span class="p">:</span><span class="w"> </span><span class="mf">3820308.81</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"volume_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">3815724.25</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
@@ -4171,7 +4167,7 @@ The weighted average age is sum of the ages of UTXOs multiplied by their bitocoi
 </tbody></table>
 <h2 id='tether-omni-on-chain-transaction-count'>Tether (Omni) On-chain Transaction Count</h2>
 <p><img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/></p>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_count_window_historical/last?format=json&amp;token=usdt_omni&amp;key=API_KEY&amp;window=1h"</span>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_count_window_historical/last?format=json&amp;token=usdt_omni&amp;from_date=2017-12-17&amp;to_date=2017-12-18&amp;limit=2&amp;window=1h&amp;key=API_KEY"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -4179,15 +4175,15 @@ The weighted average age is sum of the ages of UTXOs multiplied by their bitocoi
 <pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-12-18"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"hour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">available</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
-    </span><span class="s2">"datetime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-12-18 01:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">available</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
-    </span><span class="s2">"number_of_txns"</span><span class="p">:</span><span class="w"> </span><span class="mi">311</span><span class="w">
+    </span><span class="s2">"hour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"22:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">available</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
+    </span><span class="s2">"datetime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-12-18 22:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">available</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
+    </span><span class="s2">"number_of_txns"</span><span class="p">:</span><span class="w"> </span><span class="mi">121</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-12-18"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"hour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"02:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">available</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
-    </span><span class="s2">"datetime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-12-18 02:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">available</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
-    </span><span class="s2">"number_of_txns"</span><span class="p">:</span><span class="w"> </span><span class="mi">411</span><span class="w">
+    </span><span class="s2">"hour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"23:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">available</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
+    </span><span class="s2">"datetime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-12-18 23:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">available</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
+    </span><span class="s2">"number_of_txns"</span><span class="p">:</span><span class="w"> </span><span class="mi">89</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
@@ -4269,7 +4265,7 @@ The weighted average age is sum of the ages of UTXOs multiplied by their bitocoi
 </tbody></table>
 <h2 id='tether-omni-active-addresses'>Tether (Omni) Active Addresses</h2>
 <p><img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/></p>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_active_address_window_historical/last?&amp;token=usdt_omni&amp;format=json&amp;key=API_KEY&amp;window=1d"</span>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_active_address_window_historical/last?&amp;token=usdt_omni&amp;format=json&amp;from_date=2019-02-17&amp;to_date=2019-02-18&amp;window=1d&amp;key=API_KEY"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -4277,13 +4273,13 @@ The weighted average age is sum of the ages of UTXOs multiplied by their bitocoi
 <pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-02-17"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"active_senders"</span><span class="p">:</span><span class="w"> </span><span class="mi">5860</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"active_recipients"</span><span class="p">:</span><span class="w"> </span><span class="mi">6320</span><span class="w">
+    </span><span class="s2">"active_recipients"</span><span class="p">:</span><span class="w"> </span><span class="mi">6320</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"active_senders"</span><span class="p">:</span><span class="w"> </span><span class="mi">5860</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-02-18"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"active_senders"</span><span class="p">:</span><span class="w"> </span><span class="mi">6787</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"active_recipients"</span><span class="p">:</span><span class="w"> </span><span class="mi">8347</span><span class="w">
+    </span><span class="s2">"active_recipients"</span><span class="p">:</span><span class="w"> </span><span class="mi">8347</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"active_senders"</span><span class="p">:</span><span class="w"> </span><span class="mi">6787</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
@@ -4360,7 +4356,7 @@ The weighted average age is sum of the ages of UTXOs multiplied by their bitocoi
 </tbody></table>
 <h2 id='tether-omni-supply'>Tether (Omni) Supply</h2>
 <p><img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/></p>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_supply_window_historical/last?&amp;token=usdt_omni&amp;format=json&amp;key=API_KEY&amp;window=1d"</span>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_supply_window_historical/last?&amp;token=usdt_omni&amp;format=json&amp;window=1d&amp;from_date=2019-08-14&amp;to_date=2019-08-15&amp;key=API_KEY"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -4368,11 +4364,11 @@ The weighted average age is sum of the ages of UTXOs multiplied by their bitocoi
 <pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-14"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"supply"</span><span class="p">:</span><span class="w"> </span><span class="mi">2544048400</span><span class="w">
+    </span><span class="s2">"supply"</span><span class="p">:</span><span class="w"> </span><span class="mi">2545000000</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-15"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"supply"</span><span class="p">:</span><span class="w"> </span><span class="mi">2544048400</span><span class="w">
+    </span><span class="s2">"supply"</span><span class="p">:</span><span class="w"> </span><span class="mi">2545000000</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
@@ -4444,7 +4440,7 @@ The weighted average age is sum of the ages of UTXOs multiplied by their bitocoi
 </tbody></table>
 <h2 id='tether-erc20-supply'>Tether (ERC20) Supply</h2>
 <p><img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/></p>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_supply_window_historical/last?&amp;token=usdt_erc20&amp;format=json&amp;key=API_KEY&amp;window=1d"</span>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_supply_window_historical/last?&amp;token=usdt_erc20&amp;format=json&amp;window=1d&amp;from_date=2019-06-11&amp;to_date=2019-06-12&amp;key=API_KEY"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -4528,7 +4524,7 @@ The weighted average age is sum of the ages of UTXOs multiplied by their bitocoi
 </tbody></table>
 <h2 id='tether-omni-nvt'>Tether (Omni) NVT</h2>
 <p><img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/></p>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_nvt_window_historical/last?&amp;token=usdt_omni&amp;format=json&amp;key=API_KEY&amp;window=1d"</span>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_nvt_window_historical/last?&amp;token=usdt_omni&amp;format=json&amp;window=1d&amp;from_date=2019-08-19&amp;to_date=2019-08-20&amp;key=API_KEY"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -4537,7 +4533,7 @@ The weighted average age is sum of the ages of UTXOs multiplied by their bitocoi
   </span><span class="p">{</span><span class="w">
     </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-19"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"marketcap_usd"</span><span class="p">:</span><span class="w"> </span><span class="mi">2545000000</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"nvt"</span><span class="p">:</span><span class="w"> </span><span class="mf">9.4907</span><span class="w">
+    </span><span class="s2">"nvt"</span><span class="p">:</span><span class="w"> </span><span class="mf">9.4917</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-20"</span><span class="p">,</span><span class="w">
@@ -4619,7 +4615,7 @@ The weighted average age is sum of the ages of UTXOs multiplied by their bitocoi
 </tbody></table>
 <h2 id='tether-omni-fees'>Tether (Omni) Fees</h2>
 <p><img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/></p>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_fees_window_historical/last?&amp;token=usdt_omni&amp;format=json&amp;key=API_KEY&amp;window=1d"</span>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_fees_window_historical/last?&amp;token=usdt_omni&amp;format=json&amp;window=1d&amp;from_date=2019-08-13&amp;to_date=2019-08-14&amp;key=API_KEY"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -4724,21 +4720,21 @@ The weighted average age is sum of the ages of UTXOs multiplied by their bitocoi
 </tbody></table>
 <h2 id='stablecoin-on-chain-volume'>Stablecoin On-chain Volume</h2>
 <p><img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/></p>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_volume_window_historical/last?format=json&amp;token=usdc&amp;key=API_KEY&amp;window=1d"</span>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_volume_window_historical/last?format=json&amp;token=usdc&amp;window=1d&amp;from_date=2019-09-25&amp;to_date=2019-09-26&amp;key=API_KEY"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-09-10"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"volume"</span><span class="p">:</span><span class="w"> </span><span class="mf">22.2</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"volume_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-09-25"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"volume"</span><span class="p">:</span><span class="w"> </span><span class="mf">219830971.166091</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"volume_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">219830971.17</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-09-12"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"volume"</span><span class="p">:</span><span class="w"> </span><span class="mf">2.5</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"volume_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-09-26"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"volume"</span><span class="p">:</span><span class="w"> </span><span class="mf">58031092.284338</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"volume_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">58031092.28</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
@@ -4815,7 +4811,7 @@ The weighted average age is sum of the ages of UTXOs multiplied by their bitocoi
 </tbody></table>
 <h2 id='stablecoin-on-chain-transaction-count'>Stablecoin On-chain Transaction Count</h2>
 <p><img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/></p>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_count_window_historical/last?format=json&amp;token=dai&amp;key=API_KEY&amp;window=1d"</span>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_count_window_historical/last?format=json&amp;token=dai&amp;window=1d&amp;from_date=2017-12-18&amp;to_date=2017-12-20&amp;key=API_KEY"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -4903,21 +4899,21 @@ The weighted average age is sum of the ages of UTXOs multiplied by their bitocoi
 </tbody></table>
 <h2 id='stablecoin-active-addresses'>Stablecoin Active addresses</h2>
 <p><img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/></p>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_active_address_window_historical/last?&amp;token=usdc&amp;format=json&amp;key=API_KEY&amp;window=1d"</span>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_active_address_window_historical/last?&amp;token=usdc&amp;format=json&amp;window=1d&amp;from_date=2018-11-11&amp;to_date=2018-11-12&amp;key=API_KEY"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-11-11"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"active_senders"</span><span class="p">:</span><span class="w"> </span><span class="mi">23</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"active_recipients"</span><span class="p">:</span><span class="w"> </span><span class="mi">31</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-11-11"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"active_senders"</span><span class="p">:</span><span class="w"> </span><span class="mi">67</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"active_recipients"</span><span class="p">:</span><span class="w"> </span><span class="mi">67</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-11-12"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"active_senders"</span><span class="p">:</span><span class="w"> </span><span class="mi">332</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"active_recipients"</span><span class="p">:</span><span class="w"> </span><span class="mi">23</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-11-12"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"active_senders"</span><span class="p">:</span><span class="w"> </span><span class="mi">126</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"active_recipients"</span><span class="p">:</span><span class="w"> </span><span class="mi">110</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
@@ -5093,7 +5089,7 @@ The weighted average age is sum of the ages of UTXOs multiplied by their bitocoi
 <tr>
 <td>direction</td>
 <td><em>string</em></td>
-<td>Either <code>inflow</code> or <code>outflow</code> (in this case <code>inflow</code>)</td>
+<td><code>inflow</code></td>
 </tr>
 <tr>
 <td>exchange</td>
@@ -5235,7 +5231,7 @@ The weighted average age is sum of the ages of UTXOs multiplied by their bitocoi
 <tr>
 <td>direction</td>
 <td><em>string</em></td>
-<td>Either <code>inflow</code> or <code>outflow</code> (in this case <code>outflow</code>)</td>
+<td><code>outflow</code></td>
 </tr>
 <tr>
 <td>exchange</td>
@@ -5602,31 +5598,31 @@ The weighted average age is sum of the ages of UTXOs multiplied by their bitocoi
 <blockquote>
 <p>This is an example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_window_historical/last?token=eth&amp;exchange=binance&amp;direction=inflow&amp;window=1h&amp;format=json&amp;key=API_KEY"</span>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_window_historical/last?token=eth&amp;exchange=binance&amp;direction=inflow&amp;window=1h&amp;format=json&amp;from_date=2018-01-01&amp;to_date=2018-01-05&amp;limit=2&amp;key=API_KEY"</span>
 </code></pre>
 <blockquote>
 <p>The response looks like:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-03-17"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"hour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">available</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
-    </span><span class="s2">"datetime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-03-17 11:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">available</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
-    </span><span class="s2">"inflow"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.8164</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"inflow_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">21.14</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"number_of_txns"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"avg_txn_value"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.22705</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"avg_txn_value_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">2.64</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-01-05"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"hour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"22:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">available</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
+    </span><span class="s2">"datetime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-01-05 22:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">available</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
+    </span><span class="s2">"inflow"</span><span class="p">:</span><span class="w"> </span><span class="mf">11758.0723</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"inflow_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">11131601.58</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"number_of_txns"</span><span class="p">:</span><span class="w"> </span><span class="mi">8461</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"avg_txn_value"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.3897</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"avg_txn_value_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">1315.64</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-03-18"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"hour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">available</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
-    </span><span class="s2">"datetime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-03-18 12:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">available</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
-    </span><span class="s2">"inflow"</span><span class="p">:</span><span class="w"> </span><span class="mf">3.7594499999999997</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"inflow_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">38.38</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"number_of_txns"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"avg_txn_value"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.75189</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"avg_txn_value_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">7.68</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-01-05"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"hour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"23:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">available</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
+    </span><span class="s2">"datetime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-01-05 23:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">available</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
+    </span><span class="s2">"inflow"</span><span class="p">:</span><span class="w"> </span><span class="mf">11330.9083</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"inflow_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">10958461.64</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"number_of_txns"</span><span class="p">:</span><span class="w"> </span><span class="mi">8439</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"avg_txn_value"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.3427</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"avg_txn_value_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">1298.55</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
@@ -5742,31 +5738,31 @@ The weighted average age is sum of the ages of UTXOs multiplied by their bitocoi
 <blockquote>
 <p>This is an example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_window_historical/last?token=eth&amp;exchange=binance&amp;direction=outflow&amp;window=1h&amp;format=json&amp;key=API_KEY"</span>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_window_historical/last?token=eth&amp;exchange=binance&amp;direction=outflow&amp;window=1h&amp;format=json&amp;from_date=2019-01-01&amp;to_date=2019-01-05&amp;limit=2&amp;key=API_KEY"</span>
 </code></pre>
 <blockquote>
 <p>The response looks like:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-03-17"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"hour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">available</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
-    </span><span class="s2">"datetime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-03-17 11:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">available</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
-    </span><span class="s2">"outflow"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.8164</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"outflow_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">21.14</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"number_of_txns"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"avg_txn_value"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.22705</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"avg_txn_value_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">2.64</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-05"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"hour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"22:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">available</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
+    </span><span class="s2">"datetime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-05 22:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">available</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
+    </span><span class="s2">"outflow"</span><span class="p">:</span><span class="w"> </span><span class="mf">4019.589</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"outflow_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">631879.37</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"number_of_txns"</span><span class="p">:</span><span class="w"> </span><span class="mi">133</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"avg_txn_value"</span><span class="p">:</span><span class="w"> </span><span class="mf">30.2225</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"avg_txn_value_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">4750.97</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-03-18"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"hour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">available</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
-    </span><span class="s2">"datetime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-03-18 12:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">available</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
-    </span><span class="s2">"outflow"</span><span class="p">:</span><span class="w"> </span><span class="mf">3.7594499999999997</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"outflow_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">38.38</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"number_of_txns"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"avg_txn_value"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.75189</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"avg_txn_value_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">7.68</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-05"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"hour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"23:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">available</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
+    </span><span class="s2">"datetime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-05 23:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">available</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
+    </span><span class="s2">"outflow"</span><span class="p">:</span><span class="w"> </span><span class="mf">591.5552</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"outflow_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">92418.66</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"number_of_txns"</span><span class="p">:</span><span class="w"> </span><span class="mi">92</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"avg_txn_value"</span><span class="p">:</span><span class="w"> </span><span class="mf">6.4299</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"avg_txn_value_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">1004.55</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
@@ -5882,7 +5878,7 @@ The weighted average age is sum of the ages of UTXOs multiplied by their bitocoi
 <blockquote>
 <p>This is an example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_top10_historical/last?token=eth&amp;exchange=binance&amp;direction=inflow&amp;format=json&amp;key=API_KEY"</span>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_top10_historical/last?token=eth&amp;exchange=binance&amp;direction=inflow&amp;format=json&amp;limit=2&amp;key=API_KEY"</span>
 </code></pre>
 <blockquote>
 <p>The response looks like:</p>
@@ -5999,7 +5995,7 @@ The weighted average age is sum of the ages of UTXOs multiplied by their bitocoi
 </tbody></table>
 <h2 id='eth-full-historical-top-10-outflow-large-value-transactions'>ETH Full Historical Top 10 Outflow Large Value Transactions</h2>
 <p><img src="https://img.shields.io/badge/Tier-Professional-black.svg"/></p>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_top10_historical/last?token=eth&amp;exchange=binance&amp;direction=outflow&amp;format=json&amp;key=API_KEY"</span>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_top10_historical/last?token=eth&amp;exchange=binance&amp;direction=outflow&amp;format=json&amp;limit=2&amp;key=API_KEY"</span>
 </code></pre>
 <blockquote>
 <p>The response looks like:</p>
@@ -6157,27 +6153,31 @@ The weighted average age is sum of the ages of UTXOs multiplied by their bitocoi
 </tbody></table>
 <h2 id='stablecoins-full-historical-inflow-from-exchanges-beta'>Stablecoins Full Historical Inflow from Exchanges [Beta]</h2>
 <p><img src="https://img.shields.io/badge/Tier-Professional-black.svg"/></p>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_window_historical/last?format=json&amp;window=1d&amp;token=usdt_omni&amp;exchange=kraken&amp;direction=inflow&amp;key=API_KEY"</span>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_window_historical/last?format=json&amp;window=1h&amp;token=usdt_omni&amp;exchange=kraken&amp;direction=inflow&amp;limit=2&amp;key=API_KEY"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-16"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"inflow"</span><span class="p">:</span><span class="w"> </span><span class="mf">2760452.458</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"inflow_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">2760452.46</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"number_of_txns"</span><span class="p">:</span><span class="w"> </span><span class="mi">26</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"avg_txn_value"</span><span class="p">:</span><span class="w"> </span><span class="mf">106171.2484</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"avg_txn_value_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">106171.25</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-10-24"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"hour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"15:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">available</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
+    </span><span class="s2">"datetime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-10-24 15:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">available</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
+    </span><span class="s2">"avg_txn_value"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"avg_txn_value_usd"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"inflow"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"inflow_usd"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"number_of_txns"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-17"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"inflow"</span><span class="p">:</span><span class="w"> </span><span class="mf">97184.7667</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"inflow_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">97184.76</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"number_of_txns"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"avg_txn_value"</span><span class="p">:</span><span class="w"> </span><span class="mf">9718.4767</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"avg_txn_value_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">9718.48</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-10-24"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"hour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"16:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">available</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
+    </span><span class="s2">"datetime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-10-24 16:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">available</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
+    </span><span class="s2">"avg_txn_value"</span><span class="p">:</span><span class="w"> </span><span class="mf">2701.218</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"avg_txn_value_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">2702.59</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"inflow"</span><span class="p">:</span><span class="w"> </span><span class="mf">8103.6541</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"inflow_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">8107.77</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"number_of_txns"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
@@ -6284,27 +6284,31 @@ The weighted average age is sum of the ages of UTXOs multiplied by their bitocoi
 </tbody></table>
 <h2 id='stablecoins-full-historical-outflow-from-exchanges-beta'>Stablecoins Full Historical Outflow from Exchanges [Beta]</h2>
 <p><img src="https://img.shields.io/badge/Tier-Professional-black.svg"/></p>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_window_historical/last?format=json&amp;window=1d&amp;token=usdt_omni&amp;exchange=huobi&amp;direction=outflow&amp;key=API_KEY"</span>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_window_historical/last?format=json&amp;window=1h&amp;token=usdt_omni&amp;exchange=huobi&amp;direction=outflow&amp;limit=2&amp;API_KEY"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-09-26"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"outflow"</span><span class="p">:</span><span class="w"> </span><span class="mf">11148431.05</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"outflow_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">11137036.46</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"number_of_txns"</span><span class="p">:</span><span class="w"> </span><span class="mi">465</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"avg_txn_value"</span><span class="p">:</span><span class="w"> </span><span class="mf">23975.1205</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"avg_txn_value_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">23950.62</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-10-24"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"hour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"15:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">available</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
+    </span><span class="s2">"datetime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-10-24 15:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">available</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
+    </span><span class="s2">"outflow"</span><span class="p">:</span><span class="w"> </span><span class="mf">786995.9981</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"outflow_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">788730.02</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"number_of_txns"</span><span class="p">:</span><span class="w"> </span><span class="mi">143</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"avg_txn_value"</span><span class="p">:</span><span class="w"> </span><span class="mf">5503.4685</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"avg_txn_value_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">5515.59</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-09-27"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"outflow"</span><span class="p">:</span><span class="w"> </span><span class="mf">15456621.51</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"outflow_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">15426543.13</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"number_of_txns"</span><span class="p">:</span><span class="w"> </span><span class="mi">436</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"avg_txn_value"</span><span class="p">:</span><span class="w"> </span><span class="mf">35450.9668</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"avg_txn_value_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">35381.98</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-10-24"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"hour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"16:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">available</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
+    </span><span class="s2">"datetime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-10-24 16:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">available</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
+    </span><span class="s2">"outflow"</span><span class="p">:</span><span class="w"> </span><span class="mf">74282.2861</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"outflow_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">74320.05</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"number_of_txns"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"avg_txn_value"</span><span class="p">:</span><span class="w"> </span><span class="mf">4952.1524</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"avg_txn_value_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">4954.67</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
@@ -6415,7 +6419,7 @@ The weighted average age is sum of the ages of UTXOs multiplied by their bitocoi
 <blockquote>
 <p>This is an example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_top10_window_historical/last?token=usdt_omni&amp;exchange=binance&amp;direction=inflow&amp;format=json&amp;key=API_KEY&amp;window=1d"</span>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_top10_window_historical/last?token=usdt_omni&amp;exchange=binance&amp;direction=inflow&amp;format=json&amp;window=1d&amp;limit=2&amp;key=API_KEY"</span>
 </code></pre>
 <blockquote>
 <p>The response looks like:</p>
@@ -6537,7 +6541,7 @@ The weighted average age is sum of the ages of UTXOs multiplied by their bitocoi
 </tbody></table>
 <h2 id='tether-omni-full-historical-top-10-outflow-large-value-transactions'>Tether (Omni) Full Historical Top 10 Outflow Large Value Transactions</h2>
 <p><img src="https://img.shields.io/badge/Tier-Professional-black.svg"/></p>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_top10_window_historical/last?token=usdt_omni&amp;exchange=binance&amp;direction=outflow&amp;format=json&amp;key=API_KEY"</span>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_top10_window_historical/last?token=usdt_omni&amp;exchange=binance&amp;direction=outflow&amp;format=json&amp;limit=2&amp;key=API_KEY"</span>
 </code></pre>
 <blockquote>
 <p>The response looks like:</p>
@@ -6749,31 +6753,31 @@ The weighted average age is sum of the ages of UTXOs multiplied by their bitocoi
 <blockquote>
 <p>This is an example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_window_historical/last?token=bat&amp;exchange=binance&amp;direction=inflow&amp;window=1h&amp;format=json&amp;key=API_KEY"</span>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_window_historical/last?token=bat&amp;exchange=binance&amp;direction=inflow&amp;window=1h&amp;format=json&amp;from_date=2019-10-04&amp;to_date=2019-10-06&amp;limit=2&amp;key=API_KEY"</span>
 </code></pre>
 <blockquote>
 <p>The response looks like:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-03-17"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"hour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">available</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
-    </span><span class="s2">"datetime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-03-17 11:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">available</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
-    </span><span class="s2">"inflow"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.8164</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"inflow_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">21.14</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"number_of_txns"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"avg_txn_value"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.22705</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"avg_txn_value_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">2.64</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-10-06"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"hour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"22:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">available</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
+    </span><span class="s2">"datetime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-10-06 22:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">available</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
+    </span><span class="s2">"inflow"</span><span class="p">:</span><span class="w"> </span><span class="mf">2564.4029</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"inflow_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">487.24</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"number_of_txns"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"avg_txn_value"</span><span class="p">:</span><span class="w"> </span><span class="mf">641.1007</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"avg_txn_value_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">121.81</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-03-18"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"hour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">available</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
-    </span><span class="s2">"datetime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-03-18 12:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">available</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
-    </span><span class="s2">"inflow"</span><span class="p">:</span><span class="w"> </span><span class="mf">3.7594499999999997</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"inflow_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">38.38</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"number_of_txns"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"avg_txn_value"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.75189</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"avg_txn_value_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">7.68</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-10-06"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"hour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"23:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">available</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
+    </span><span class="s2">"datetime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2010-10-06 23:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">available</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
+    </span><span class="s2">"inflow"</span><span class="p">:</span><span class="w"> </span><span class="mf">219.5791</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"inflow_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">41.72</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"number_of_txns"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"avg_txn_value"</span><span class="p">:</span><span class="w"> </span><span class="mf">109.7895</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"avg_txn_value_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">20.86</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
@@ -6889,31 +6893,31 @@ The weighted average age is sum of the ages of UTXOs multiplied by their bitocoi
 <blockquote>
 <p>This is an example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_window_historical/last?token=bat&amp;exchange=binance&amp;direction=outflow&amp;window=1h&amp;format=json&amp;key=API_KEY"</span>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_window_historical/last?token=bat&amp;exchange=binance&amp;direction=outflow&amp;window=1h&amp;format=json&amp;from_date=2019-10-01&amp;to_date=2019-10-10&amp;limit=2&amp;key=API_KEY"</span>
 </code></pre>
 <blockquote>
 <p>The response looks like:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-03-17"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"hour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">available</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
-    </span><span class="s2">"datetime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-03-17 11:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">available</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
-    </span><span class="s2">"outflow"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.8164</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"outflow_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">21.14</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-10-10"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"hour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"22:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">available</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
+    </span><span class="s2">"datetime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-10-10 22:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">available</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
+    </span><span class="s2">"outflow"</span><span class="p">:</span><span class="w"> </span><span class="mf">108214.6507</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"outflow_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">21642.93</span><span class="p">,</span><span class="w">
     </span><span class="s2">"number_of_txns"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"avg_txn_value"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.22705</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"avg_txn_value_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">2.64</span><span class="w">
+    </span><span class="s2">"avg_txn_value"</span><span class="p">:</span><span class="w"> </span><span class="mf">13526.8313</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"avg_txn_value_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">2705.37</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-03-18"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"hour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">available</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
-    </span><span class="s2">"datetime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-03-18 12:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">available</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
-    </span><span class="s2">"outflow"</span><span class="p">:</span><span class="w"> </span><span class="mf">3.7594499999999997</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"outflow_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">38.38</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"number_of_txns"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"avg_txn_value"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.75189</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"avg_txn_value_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">7.68</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-10-10"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"hour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"23:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">available</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
+    </span><span class="s2">"datetime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-10-10 23:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">available</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
+    </span><span class="s2">"outflow"</span><span class="p">:</span><span class="w"> </span><span class="mf">51502.1242</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"outflow_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">10300.42</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"number_of_txns"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"avg_txn_value"</span><span class="p">:</span><span class="w"> </span><span class="mf">12875.5311</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"avg_txn_value_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">2575.11</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
@@ -7048,10 +7052,10 @@ The weighted average age is sum of the ages of UTXOs multiplied by their bitocoi
     </span><span class="s2">"avg_txn_value"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.01407396</span><span class="p">,</span><span class="w">
     </span><span class="s2">"avg_txn_value_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">51.51</span><span class="p">,</span><span class="w">
     </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-02-08"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"datetime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-02-08 23:00:00"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"hour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"23:00:00"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"inflow"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.02814792</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">available</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
-    </span><span class="s2">"inflow_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">103.02</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">available</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
+    </span><span class="s2">"datetime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-02-08 23:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">available</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
+    </span><span class="s2">"hour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"23:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">available</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
+    </span><span class="s2">"inflow"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.02814792</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"inflow_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">103.02</span><span class="p">,</span><span class="w">
     </span><span class="s2">"miner_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Unknown"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"number_of_txns"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
   </span><span class="p">}</span><span class="w">
@@ -7184,8 +7188,8 @@ The weighted average age is sum of the ages of UTXOs multiplied by their bitocoi
     </span><span class="s2">"avg_txn_value"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.15274538</span><span class="p">,</span><span class="w">
     </span><span class="s2">"avg_txn_value_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">4186.79</span><span class="p">,</span><span class="w">
     </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-02-08"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"datetime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-02-08 21:00:00"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"hour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"21:00:00"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"datetime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-02-08 21:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">available</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
+    </span><span class="s2">"hour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"21:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">available</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
     </span><span class="s2">"miner_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Unknown"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"number_of_txns"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
     </span><span class="s2">"outflow"</span><span class="p">:</span><span class="w"> </span><span class="mf">8.06921768</span><span class="p">,</span><span class="w">
