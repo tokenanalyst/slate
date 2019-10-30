@@ -1609,11 +1609,11 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
 <h2 id='btc-spent-outputs-profit-ratio'>BTC Spent Outputs Profit Ratio</h2>
 <p><img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/></p>
 
-<p>This endpoint returns the full historical spent outputs profit ratio (SOPR) of Bitcoin since it&#39;s genesis in 2009.</p>
+<p>This endpoint returns the historical spent outputs profit ratio (SOPR) as defined by Renato Shirakashi. The data starts from 2010-10-10 when we start tracking a non-zero price for Bitcoin because UTXOs with a non-zero realised price will have an infinite profit ratio when created with an effective price of $0.</p>
 
 <p>SOPR shows whether Bitcoin outputs (UTXOs) were spent at a profit or a loss by dividing their value when they are spent, by their value when they were created.</p>
 
-<p>If the ratio is greater than one, this means that a UTXO was spent when it was worth more than when it was created.</p>
+<p>If the ratio is greater than one, this means that a UTXO was spent when it was worth more than when it was created. SOPR is calculated by adding of the USD value of the UTXOs spent in a time window, and dividing it by the sum of USD values of these UTXOs at the time when they were created. The average price of Bitcoin in a given time window is used to determine its USD value. </p>
 <pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_sopr_window_historical/last?window=1h&amp;limit=2&amp;from_date=2019-10-10&amp;to_date=2019-10-11&amp;format=json&amp;token=btc&amp;key=API_KEY"</span>
 </code></pre>
 <blockquote>
@@ -1697,7 +1697,7 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
 <tr>
 <td>sopr</td>
 <td><em>decimal</em></td>
-<td>The value of UTXOs spent at a given date divided by the value of it&#39;s value when they were created</td>
+<td>The average ratio between the realised price of UTXOs spent during this time period, divided by their price at the time of creation</td>
 </tr>
 <tr>
 <td>hour *</td>
