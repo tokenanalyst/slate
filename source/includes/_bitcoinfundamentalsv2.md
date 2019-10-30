@@ -601,3 +601,63 @@ Note: All params with a \* are optional and `limit` is only available in the JSO
 | miner_name                   | _string_  | Human readable name of the miner in our database, if known.                              |
 | miner_daily_block_reward     | _decimal_ | The total amount of block rewards earned by this miner on this date. Denominated in BTC. |  |
 | miner_daily_block_reward_usd | _decimal_ | _miner_daily_block_reward_ \* _price_usd_                                                |
+
+## BTC Spent Outputs Profit Ratio
+
+<img src="https://img.shields.io/badge/Tier-Free-green.svg"/>
+
+This endpoint returns the full historical spent outputs profit ratio (SOPR) of Bitcoin since it's genesis in 2009.
+
+SOPR shows whether Bitcoin outputs (UTXOs) were spent at a profit or a loss by dividing their value when they are spent, by their value when they were created.
+
+If the ratio is greater than one, this means that a UTXO was spent when it was worth more than when it was created.
+
+```shell
+curl "https://api.tokenanalyst.io/analytics/private/v1/token_sopr_window_historical/last?window=1h&limit=2&from_date=2019-10-10&to_date=2019-10-11&format=json&token=btc&key=API_KEY"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+  {
+    "date": "2019-10-11",
+    "hour": "22:00:00", // not available when window 1d
+    "datetime": "2010-10-11 22:00:00", // not available when window 1d
+    "sopr": 0.9934
+  },
+  {
+    "date": "2019-10-11",
+    "hour": "23:00:00", // not available when window 1d
+    "datetime": "2019-10-11 23:00:00", // not available when window 1d
+    "sopr": 0.9943
+  }
+]
+```
+
+### HTTP Request
+
+`GET https://api.tokenanalyst.io/analytics/private/v1/token_sopr_window_historical/last`
+
+### Query Parameters
+
+| Parameter    | Type      | Description                                                                               |
+| ------------ | --------- | ----------------------------------------------------------------------------------------- |
+| key          | _string_  | Your unique API key                                                                       |
+| format       | _string_  | What format you want your data in (`json` or `csv`)                                       |
+| token        | _string_  | `btc`                                  |
+| window       | _string_  | `1h` or `1d`                                                                              |
+| from_date \* | _string_  | Start date of returned data specified as YYYY-MM-DD (ISO date format)                     |
+| to_date \*   | _string_  | End date of returned data specified as YYYY-MM-DD (ISO date format)                       |
+| limit \*     | _integer_ | The number of entries returned before the latest data point (or the to_date if specified) |
+
+Note: All params with a \* are optional and `limit` is only available in the JSON return format
+
+### Data Overview
+
+| Field          | Type      | Description                                                                                                                  |
+| -------------- | --------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| date           | _string_  | The date in _YYYY-MM-DD_                                                                                                     |
+| sopr           | _decimal_ | The value of UTXOs spent at a given date divided by the value of it's value when they were created
+| hour \*        | _string_  | The hour of the day in _HH:MM:SS_ (UTC time zone). This is an optional field and appears when window is `1h`                 |
+| datetime *     | _string_  | The hour of the day in datetime format YYYY-MM-DD HH:MM:SS (UTC time zone). This is an optional field field and appears when window is `1h`        |
