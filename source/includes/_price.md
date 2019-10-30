@@ -1,5 +1,5 @@
 # Prices (USD)
-The US Dollar (_USD_) price of each asset we support is available through this endpoint. The mean hourly and daily price is available for each asset.
+The US Dollar (_USD_) price of each asset we support is available through this endpoint. The hourly price is the hourly closing price for each asset. The daily price is the mean of the hourly closing prices for each asset.
 
 The list of assets we currently support is:
 
