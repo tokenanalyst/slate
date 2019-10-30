@@ -606,11 +606,12 @@ Note: All params with a \* are optional and `limit` is only available in the JSO
 
 <img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/>
 
-This endpoint returns the full historical spent outputs profit ratio (SOPR) of Bitcoin since it's genesis in 2009.
+This endpoint returns the historical spent outputs profit ratio (SOPR) as defined by Renato Shirakashi. The data starts from 2010-10-10 when we start tracking a non-zero price for Bitcoin because UTXOs with a non-zero realised price will have an infinite profit ratio when created with an effective price of $0.
 
 SOPR shows whether Bitcoin outputs (UTXOs) were spent at a profit or a loss by dividing their value when they are spent, by their value when they were created.
 
-If the ratio is greater than one, this means that a UTXO was spent when it was worth more than when it was created.
+If the ratio is greater than one, this means that a UTXO was spent when it was worth more than when it was created. SOPR is calculated by adding of the USD value of the UTXOs spent in a time window, and dividing it by the sum of USD values of these UTXOs at the time when they were created. The average price of Bitcoin in a given time window is used to determine its USD value. 
+
 
 ```shell
 curl "https://api.tokenanalyst.io/analytics/private/v1/token_sopr_window_historical/last?window=1h&limit=2&from_date=2019-10-10&to_date=2019-10-11&format=json&token=btc&key=API_KEY"
@@ -658,6 +659,6 @@ Note: All params with a \* are optional and `limit` is only available in the JSO
 | Field          | Type      | Description                                                                                                                  |
 | -------------- | --------- | ---------------------------------------------------------------------------------------------------------------------------- |
 | date           | _string_  | The date in _YYYY-MM-DD_                                                                                                     |
-| sopr           | _decimal_ | The value of UTXOs spent at a given date divided by the value of it's value when they were created
+| sopr           | _decimal_ | The average ratio between the realised price of UTXOs spent during this time period, divided by their price at the time of creation
 | hour \*        | _string_  | The hour of the day in _HH:MM:SS_ (UTC time zone). This is an optional field and appears when window is `1h`                 |
 | datetime *     | _string_  | The hour of the day in datetime format YYYY-MM-DD HH:MM:SS (UTC time zone). This is an optional field field and appears when window is `1h`        |
