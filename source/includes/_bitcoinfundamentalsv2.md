@@ -604,7 +604,7 @@ Note: All params with a \* are optional and `limit` is only available in the JSO
 
 ## BTC Spent Outputs Profit Ratio
 
-<img src="https://img.shields.io/badge/Tier-Free-green.svg"/>
+<img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/>
 
 This endpoint returns the full historical spent outputs profit ratio (SOPR) of Bitcoin since it's genesis in 2009.
 
