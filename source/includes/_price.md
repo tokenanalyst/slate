@@ -45,7 +45,6 @@ The list of assets we currently support is:
 | Monero                    | _xmr_         |
 | Ripple                    | _xrp_         |
 | Zcash                     | _zec_         |
-| Zilliqa                   | _zil_         |
 | 0x                        | _zrx_         |
 
 
