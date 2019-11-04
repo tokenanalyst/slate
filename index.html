@@ -8063,7 +8063,7 @@ curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/exchange
 <p>Websocket connections go through the following lifecycle:</p>
 
 <ul>
-<li>Establish a websocket connection with <code>ws://ws.tokenanalyst.io:8000</code></li>
+<li>Establish a websocket connection with <code>wss://ws.tokenanalyst.io:8000</code></li>
 <li>Receive heartbeat (every 30 seconds) - <code>{&quot;id&quot;:null,&quot;event&quot;:&quot;heartbeat&quot;,&quot;data&quot;:{&quot;serverTime&quot;:1570014312199}}</code></li>
 <li>Authenticate and subscribe to a channel with <code>{&quot;event&quot;:&quot;subscribe&quot;,&quot;channel&quot;:&quot;btc_confirmed_exchange_flows&quot;,&quot;id&quot;:&quot;test-id&quot;,&quot;key&quot;:&quot;&lt;insert_api_key_here&gt;&quot;}</code></li>
 <li>Receive subscription response <code>{&quot;id&quot;:&quot;test-id&quot;,&quot;event&quot;:&quot;subscribed&quot;,&quot;data&quot;:{&quot;success&quot;:true,&quot;errorCode&quot;:null,&quot;message&quot;:&quot;Subscribed to channel btc_confirmed_exchange_flows&quot;}}</code></li>
