@@ -62,7 +62,7 @@ wss://ws.tokenanalyst.io
 
 Websocket connections go through the following lifecycle:
 
-- Establish a websocket connection with `ws://ws.tokenanalyst.io:8000`
+- Establish a websocket connection with `wss://ws.tokenanalyst.io:8000`
 - Receive heartbeat (every 30 seconds) - `{"id":null,"event":"heartbeat","data":{"serverTime":1570014312199}}`
 - Authenticate and subscribe to a channel with `{"event":"subscribe","channel":"btc_confirmed_exchange_flows","id":"test-id","key":"<insert_api_key_here>"}`
 - Receive subscription response `{"id":"test-id","event":"subscribed","data":{"success":true,"errorCode":null,"message":"Subscribed to channel btc_confirmed_exchange_flows"}}`
