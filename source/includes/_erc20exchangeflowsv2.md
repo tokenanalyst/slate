@@ -10,7 +10,6 @@ ERC20 tokens we currently support are:
 | Augur                 | `rep`  | `binance`, `bittrex`, `kraken`, `poloniex` |
 | Golem                 | `gnt`  | `binance`, `bittrex`, `poloniex` |
 | ZRX                   | `zrx`  | `binance`, `bittrex`, `kucoin`, `poloniex` |
-| Zilliqa               | `zil`  | `binance`, `bittrex`, `kucoin` |
 | Decentraland          | `mana` | `binance`, `bittrex`, `kucoin`, `poloniex` |
 | Numerai               | `nmr`  | `bittrex` |
 | Loom Network          | `loom` | `binance`, `bittrex`, `kucoin`, `poloniex` |

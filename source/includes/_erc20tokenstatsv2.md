@@ -11,7 +11,6 @@ ERC20 tokens we currently support are:
 | Augur                 | `rep`   |
 | Golem                 | `gnt`   |
 | ZRX                   | `zrx`   |
-| Zilliqa               | `zil`   |
 | Decentraland          | `mana`  |
 | Numerai               | `nmr`   |
 | Tokencard             | `tkn`   |
