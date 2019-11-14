@@ -92,8 +92,6 @@ This endpoint returns the outflow of BTC from exchange wallets for as far back a
 
 `GET https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_window_historical/last?`
 
-> This is an example:
-
 ```shell
 curl "https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_window_historical/last?token=btc&exchange=binance&direction=outflow&window=1h&format=json&limit=2&key=API_KEY"
 ```
@@ -153,6 +151,77 @@ Note: All params with a \* are optional and `limit` is only available in the JSO
 | number_of_txns                          | _decimal_ | The number of transactions sending BTC out of this exchange on this date.                                                                                                                                                 |
 | outflow                                 | _decimal_ | The total amount of BTC that flowed out of the entity on this date. Denominated in BTC.                                                                                                                                   |
 | outflow_usd                             | _decimal_ | The USD value of the total amount of BTC that flowed out of the exchange on this date                                                                                                                                     |
+
+## BTC Exchange to Exchange Flows
+
+<img src="https://img.shields.io/badge/Tier-Professional-black.svg"/>
+
+This endpoint returns the full historical inter-flows from an exchange *to* another exchange that we have labelled.
+
+### HTTP Request
+
+`GET https://api.tokenanalyst.io/analytics/private/v1/entity_to_entity_flow_window_historical/last?`
+
+```shell
+curl "https://api.tokenanalyst.io/analytics/private/v1/entity_to_entity_flow_window_historical/last?format=json&token=btc&window=1h&limit=2&from_date=2019-11-01&to_date=2019-11-09&from_entity=binance&to_entity=huobi&key=API_KEY"
+```
+
+> The response looks like:
+
+```json
+[
+  {
+    "date": "2019-11-09",
+    "hour": "22:00:00", // not available when window 1d
+    "datetime": "2019-11-09 22:00:00", // not available when window 1d
+    "value": 1.56713953,
+    "value_usd": 13816.08,
+    "number_of_txns": 3,
+    "avg_txn_value": 0.52237984,
+    "avg_txn_value_usd": 4605.36
+  },
+  {
+    "date": "2019-11-09",
+    "hour": "23:00:00", // not available when window 1d
+    "datetime": "2019-11-09 23:00:00", // not available when window 1d
+    "value": 3.540122,
+    "value_usd": 31248.74,
+    "number_of_txns": 2,
+    "avg_txn_value": 1.770061,
+    "avg_txn_value_usd": 15624.37
+  }
+]
+```
+
+### URL Parameters
+
+| Parameter    | Type      | Description                                                                               |
+| ------------ | --------- | ----------------------------------------------------------------------------------------- |
+| key          | _string_  | Your unique API key                                                                       |
+| format       | _string_  | What format you want your data in (`json` or `csv`)                                       |
+| token        | _string_  | `btc`                                                                                     |                                                                             |
+| window       | _string_  | `1h` or `1d`                                                                           |
+| from_entity  | _string_  | An exchange from the table that we support
+| to_entity    | _string_  | An exchange from the table that we support. Cannot be the same as ```from_entity```       |                                                 |
+| from_date \* | _string_  | Start date of returned data specified as YYYY-MM-DD (ISO date format)                     |
+| to_date \*   | _string_  | End date of returned data specified as YYYY-MM-DD (ISO date format)                       |
+| limit \*     | _integer_ | The number of entries returned before the latest data point (or the to_date if specified) |
+
+Note: All params with a \* are optional and `limit` is only available in the JSON return format
+
+### Data Overview
+
+| Field             | Type      | Description                                                                                                  |
+| ----------------- | --------- | ------------------------------------------------------------------------------------------------------------ |
+| avg_txn_value     | _decimal_ | The average amount BTC transferred per transaction out of the given exchange to another exchange on this date.                    |
+| avg_txn_value_usd | _decimal_ | The USD value of the average amount of BTC transferred per transaction out of the given exchange to another exchange on this date.|
+| date              | _string_  | The date in _YYYY-MM-DD_                                                                                     |
+| datetime *        | _string_  | The hour of the day in datetime format YYYY-MM-DD HH:MM:SS (UTC time zone). This is an optional field field and appears when window is `1h`        |
+| hour *            | _string_  | The hour of the day in _HH:MM:SS_ (UTC time zone). This is an optional field field and appears when window is `1h`                                 |
+| number_of_txns    | _integer_ | The number of transactions sending BTC into from an exchange to another exchange on this date.                                       |
+| value             | _decimal_ | The amount of BTC transferred in this transaction.                                                            |
+| value_usd         | _decimal_ | The value in USD of the amount of BTC transferred in this transaction.                                         |
+
 
 ## BTC Full Historical Top 10 Inflow Large Value Transactions
 
@@ -216,7 +285,7 @@ Note: All params with a \* are optional and `limit` is only available in the JSO
 | transaction_datetime | _string_  | The timestamp in datetime format YYYY-MM-DD HH:MM:SS (UTC time zone) when the transaction was mined          |
 | transactionid    | _string_  | The transaction id of the transaction in question.                                                           |
 | value            | _decimal_ | The amount of BTC transferred in this transaction.                                                           |
-| value_usd        | _decimal_ | The value in USD of the amount of BTC tranferred in this transaction.                                        |
+| value_usd        | _decimal_ | The value in USD of the amount of BTC transferred in this transaction.                                        |
 
 ## BTC Full Historical Top 10 Outflow Large Value Transactions
 
@@ -280,4 +349,4 @@ Note: All params with a \* are optional and `limit` is only available in the JSO
 | transaction_datetime | _string_  | The timestamp in datetime format YYYY-MM-DD HH:MM:SS (UTC time zone) when the transaction was mined            |
 | transactionid    | _string_  | The transaction id of the transaction in question.                                                             |
 | value            | _decimal_ | The amount of BTC transferred in this transaction.                                                             |
-| value_usd        | _decimal_ | The value in USD of the amount of BTC tranferred in this transaction.                                          |
+| value_usd        | _decimal_ | The value in USD of the amount of BTC transferred in this transaction.                                          |

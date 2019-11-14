@@ -18,7 +18,7 @@ includes:
   - ethereumexchangeflows
   - stablecoinexchangeflowsv2
   - erc20exchangeflowsv2
-  - minerflows
+  - btcminerflows
   - bitcoinexchangebalances
   - price
   - websocketfeed
