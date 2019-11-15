@@ -7262,8 +7262,40 @@ The weighted average age is sum of the ages of UTXOs multiplied by their bitocoi
 <td>The USD value of the average amount of ETH transferred per transaction out of the given exchange on this date.</td>
 </tr>
 </tbody></table>
-<h1 id='bitcoin-miner-flows'>Bitcoin Miner Flows</h1><h2 id='miner-full-historical-inflow'>Miner Full Historical Inflow</h2>
-<p>This endpoint returns the inflow of a given token into miner controlled wallets during the time period specified. Miner wallets are all bitcoin addresses that have <em>ever</em> been the recipient of block rewards. The <code>avg_txn_value</code>, <code>inflow</code>, and <code>number_of_txns</code> are calculated over the window (either 1 hour or 1 day). Inflow to miner addresses that are unlabelled are returned have a <code>miner_name</code> of <code>&quot;Unknown&quot;</code>. The <code>hour</code> is in UTC</p>
+<h1 id='bitcoin-miner-flows'>Bitcoin Miner Flows</h1>
+<p>For Bitcoin <em>Miner Historical Inflow</em> and <em>Miner Historical Outflow</em> endpoints, the supported miners/mining pools in the field <code>miner_name</code> are:</p>
+
+<table><thead>
+<tr>
+<th><code>miner_name</code></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>Antpool</code></td>
+</tr>
+<tr>
+<td><code>BTC.TOP</code></td>
+</tr>
+<tr>
+<td><code>BitClubNetwork</code></td>
+</tr>
+<tr>
+<td><code>F2Pool</code></td>
+</tr>
+<tr>
+<td><code>SlushPool</code></td>
+</tr>
+<tr>
+<td><code>viaBTC</code></td>
+</tr>
+<tr>
+<td><code>Unknown</code></td>
+</tr>
+</tbody></table>
+
+<p>Miner addresses that are unlabelled have a <code>miner_name</code> of <code>&quot;Unknown&quot;</code>.</p>
+<h2 id='miner-full-historical-inflow'>Miner Full Historical Inflow</h2>
+<p>This endpoint returns the inflow of a given token into miner controlled wallets during the time period specified. Miner wallets are all bitcoin addresses that have <em>ever</em> been the recipient of block rewards. The <code>avg_txn_value</code>, <code>inflow</code>, and <code>number_of_txns</code> are calculated over the window (either 1 hour or 1 day). The <code>hour</code> is in UTC.</p>
 
 <p><img src="https://img.shields.io/badge/Tier-Professional-black.svg"/></p>
 <pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/miner_flow_window_historical/last?token=btc&amp;direction=inflow&amp;window=1h&amp;from_date=2019-02-07&amp;to_date=2019-02-08&amp;format=json&amp;limit=2&amp;key=API_KEY"</span>
@@ -7392,7 +7424,7 @@ The weighted average age is sum of the ages of UTXOs multiplied by their bitocoi
 <tr>
 <td>miner_name</td>
 <td><em>string</em></td>
-<td>The name of the miner or mining pool in question</td>
+<td>The name of the miner or mining pool from the table above.</td>
 </tr>
 <tr>
 <td>number_of_txns</td>
@@ -7530,7 +7562,7 @@ The weighted average age is sum of the ages of UTXOs multiplied by their bitocoi
 <tr>
 <td>miner_name</td>
 <td><em>string</em></td>
-<td>The name of the miner or mining pool in question</td>
+<td>The name of the miner or mining pool from the table above</td>
 </tr>
 <tr>
 <td>number_of_txns</td>
