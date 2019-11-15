@@ -1,6 +1,6 @@
 # Bitcoin Miner Flows
 
-For Bitcoin _Miner Historical Inflow_ and _Miner Historical Outflow_ endpoints, the supported miners/mining pools from the field `miner_name` are:
+For Bitcoin _Miner Historical Inflow_ and _Miner Historical Outflow_ endpoints, the supported miners/mining pools in the field `miner_name` are:
 
 | `miner_name`     |
 |------------------|
@@ -12,7 +12,7 @@ For Bitcoin _Miner Historical Inflow_ and _Miner Historical Outflow_ endpoints, 
 | `viaBTC`         |
 | `Unknown  `      |
 
-Miner addresses that are unlabelled are returned have a `miner_name` of `"Unknown"`.
+Miner addresses that are unlabelled have a `miner_name` of `"Unknown"`.
 
 ## Miner Full Historical Inflow
 
