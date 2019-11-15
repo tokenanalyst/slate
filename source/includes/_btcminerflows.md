@@ -1,8 +1,23 @@
 # Bitcoin Miner Flows
 
+For Bitcoin _Miner Historical Inflow_ and _Miner Historical Outflow_ endpoints, the supported miners/mining pools from the field `miner_name` are:
+
+| `miner_name`     |
+|------------------|
+| `Antpool`        |
+| `BTC.TOP`        |
+| `BitClubNetwork` |
+| `F2Pool `        |
+| `SlushPool`      |
+| `viaBTC`         |
+| `Unknown  `      |
+
+Miner addresses that are unlabelled are returned have a `miner_name` of `"Unknown"`.
+
 ## Miner Full Historical Inflow
 
-This endpoint returns the inflow of a given token into miner controlled wallets during the time period specified. Miner wallets are all bitcoin addresses that have _ever_ been the recipient of block rewards. The `avg_txn_value`, `inflow`, and `number_of_txns` are calculated over the window (either 1 hour or 1 day). Inflow to miner addresses that are unlabelled are returned have a `miner_name` of `"Unknown"`. The `hour` is in UTC
+This endpoint returns the inflow of a given token into miner controlled wallets during the time period specified. Miner wallets are all bitcoin addresses that have _ever_ been the recipient of block rewards. The `avg_txn_value`, `inflow`, and `number_of_txns` are calculated over the window (either 1 hour or 1 day). The `hour` is in UTC.
+
 
 <img src="https://img.shields.io/badge/Tier-Professional-black.svg"/>
 
@@ -67,7 +82,7 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/miner_flow_window_histori
 | hour \*           | _string_  | The hour of the day in _HH:MM:SS_ (UTC time zone). This is an optional field field and appears when window is `1h`                          |
 | inflow            | _decimal_ | The total amount of the token that flowed into the miner on this date/hour. Denominated in the token in question.                           |
 | inflow_usd        | _decimal_ | The USD value of the total amount of the token that flowed into the miner on this date/hour                                                 |
-| miner_name        | _string_  | The name of the miner or mining pool in question                                                                                            |
+| miner_name        | _string_  | The name of the miner or mining pool from the table above.                                                                                            |
 | number_of_txns    | _integer_ | The number of transactions sending the token into this miner on this date/hour.                                                             |
 
 ## Miner Full Historical Outflow
@@ -137,7 +152,7 @@ This endpoint returns the outflow of a given token out of miner controlled walle
 | hour \*           | _string_  | The hour of the day in _HH:MM:SS_ (UTC time zone). This is an optional field field and appears when window is `1h`                          |
 | outflow            | _decimal_ | The total amount of the token that flowed out of the miner on this date/hour. Denominated in the token in question.                           |
 | outflow_usd        | _decimal_ | The USD value of the total amount of the token that flowed out of the miner on this date/hour                                                 |
-| miner_name        | _string_  | The name of the miner or mining pool in question                                                                                            |
+| miner_name        | _string_  | The name of the miner or mining pool from the table above                                                                                            |
 | number_of_txns    | _integer_ | The number of transactions sending the token out of this miner on this date/hour.                                                             |
 
 ## Miners to Exchanges Full Historical Flows
