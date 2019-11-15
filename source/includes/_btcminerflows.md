@@ -1,4 +1,4 @@
-# Miner Flows
+# Bitcoin Miner Flows
 
 ## Miner Full Historical Inflow
 
