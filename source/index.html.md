@@ -20,6 +20,7 @@ includes:
   - erc20exchangeflowsv2
   - btcminerflows
   - bitcoinexchangebalances
+  - ethereumexchangebalances
   - price
   - websocketfeed
 
