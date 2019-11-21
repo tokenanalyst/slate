@@ -82,7 +82,6 @@ This endpoint returns the inflow of ETH into exchange wallets. The `avg_txn_valu
 | avg_txn_value       | _decimal_ | The average amount ETH transferred per transaction into the given exchange on this date.                                 |
 | avg_txn_value_usd    | _decimal_ | The USD value of the average amount of ETH transferred per transaction into the given exchange on this date.    |
 
-
 ## ETH Full Historical Flows Out Of Exchanges
 
 <img src="https://img.shields.io/badge/Tier-Professional-black.svg"/>
@@ -152,6 +151,80 @@ This endpoint returns the outflow of ETH from exchange wallets. The `avg_txn_val
 | number_of_txns       | _integer_ | The number of transactions sending ETH out of this exchange on this date.                                 |
 | avg_txn_value       | _decimal_ | The average amount ETH transferred per transaction out of the given exchange on this date.                                 |
 | avg_txn_value_usd    | _decimal_ | The USD value of the average amount of ETH transferred per transaction out of the given exchange on this date.    |
+
+## ETH Full Historical Static Flows to Exchanges
+
+<img src="https://img.shields.io/badge/Tier-Professional-black.svg"/>
+
+This endpoint returns _static_ flows of ETH into exchange wallets for as far back as we track. The average inflow is the average transaction value for transactions flowing into exchange wallets on a given day.
+
+```shell
+curl "https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_window_static/last?format=json&exchange=binance&token=eth&direction=inflow&window=1h&lag=hour&limit=2&key=API_KEY"
+```
+
+> The response looks like:
+
+```json
+[
+  {
+    "date": "2019-11-16",
+    "hour": "15:00:00", // not available when window 1d
+    "datetime": "2019-11-16 15:00:00", // not available when window 1d
+    "inflow": 532.8873, // not available when direction outflow
+    "inflow_usd": 97338.28, // not available when direction outflow
+    "number_of_txns": 202,
+    "avg_txn_value": 2.6381,
+    "avg_txn_value_usd": 481.87,
+    "last_updated": "2019-11-17 16:00:18+00:00"
+  },
+  {
+    "date": "2019-11-16",
+    "hour": "16:00:00", // not available when window 1d
+    "datetime": "2019-11-16 16:00:00", // not available when window 1d
+    "inflow": 921.5056, // not available when direction outflow
+    "inflow_usd": 168488.38, // not available when direction outflow
+    "number_of_txns": 232,
+    "avg_txn_value": 3.972,
+    "avg_txn_value_usd": 726.24,
+    "last_updated": "2019-11-17 17:01:24+00:00",
+  }
+]
+```
+
+### HTTP Request
+
+`GET https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_window_static/last?`
+
+### URL Parameters
+
+| Parameter    | Type      | Description                                                                               |
+| ------------ | --------- | ----------------------------------------------------------------------------------------- |
+| key          | _string_  | Your unique API key                                                                       |
+| format       | _string_  | What format you want your data in (`json` or `csv`)                                       |
+| token        | _string_  | `eth`                                                                                     |
+| direction    | _string_  | `inflow` or `outflow`                                                                     |
+| exchange     | _string_  | An exchange from the table that we support                                                |
+| lag          | _string_  | `hour`,`day`, or `month`. Lags the returned data by the specified parameter               |
+| window       | _string_  | `1h` or `1d`                                                                              |
+| from_date \* | _string_  | Start date of returned data specified as YYYY-MM-DD (ISO date format)                     |
+| to_date \*   | _string_  | End date of returned data specified as YYYY-MM-DD (ISO date format)                       |
+| limit \*     | _integer_ | The number of entries returned before the latest data point (or the to_date if specified) |
+
+Note: All params with a \* are optional and `limit` is only available in the JSON return format
+
+### Data Overview
+
+| Field                                 | Type      | Description                                                                                                                                                                                                               |
+| ------------------------------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| avg_txn_value                         | _decimal_ | The average amount ETH transferred per transaction into the given exchange on this date.                                                                                                                                  |
+| avg_txn_value_usd                     | _decimal_ | The USD value of the average amount of ETH transferred per transaction into the given exchange on this date.                                                                                                              |
+| date                                  | _string_  | The date in _YYYY-MM-DD_                                                                                                                                                                                                  |
+| datetime *                             | _string_  | The hour of the day in datetime format YYYY-MM-DD HH:MM:SS (UTC time zone). This is an optional field field and appears when window is `1h`                                                                               |
+| hour *                                 | _string_  | The hour of the day in _HH:MM:SS_ (UTC time zone). This is an optional field field and appears when window is `1h`                                                                                                        |
+| inflow                                | _decimal_ | The total amount of ETH that flowed into the exchange on this date. Denominated in ETH.                                                                                                                                     |
+| inflow_usd                            | _decimal_ | The USD value of the total amount of ETH that flowed into the exchange on this date                                                                                                                                       |
+| number_of_txns                        | _integer_ | The number of transactions sending ETH into this exchange on this date.                                                                                                                                                   |
+| last_updated                          | _string_  | The date when the endpoint was last updated in `UTC` datetime format
 
 ## ETH Full Historical Top 10 Inflow Large Value Transactions
 
