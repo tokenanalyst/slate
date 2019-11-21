@@ -224,9 +224,11 @@ Note: All params with a \* are optional and `limit` is only available in the JSO
 
 ## BTC Full Historical Static Flows to Exchanges
 
-<img src="https://img.shields.io/badge/Tier-Professional-black.svg"/>
+<img src="https://img.shields.io/badge/Tier-Enterprise-blueviolet.svg"/>
 
-This endpoint returns _static_ flows of BTC into exchange wallets for as far back as we track. The average inflow is the average transaction value for transactions flowing into exchange wallets on a given day.
+This endpoint returns _static_ flows of BTC into exchange wallets for as far back as we track. What do we mean by static? while our standard API endpoint as seen <a href="https://docs.tokenanalyst.io/#btc-full-historical-inflow-to-exchanges" target="_blank">above</a> dynamically updates the data (up to 7 days prior to the current day) when we find new information on exchange wallets, the historical data from this data _never_ changes from the time it is posted. The rationale for this is to serve a snapshot look of what was known at the specific point in time - to aid in effective backtesting for users who want to use our websocket. 
+
+For this reason, as an extra reinforcement, this endpoint includes the `last_updated` field to show the time in UTC when the data point was last modified. 
 
 ```shell
 curl "https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_window_static/last?format=json&exchange=binance&token=btc&direction=inflow&window=1h&lag=hour&limit=2&key=API_KEY"
