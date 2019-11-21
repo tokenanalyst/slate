@@ -6276,7 +6276,9 @@ The weighted average age is sum of the ages of UTXOs multiplied by their bitocoi
 <h2 id='eth-full-historical-static-flows-to-exchanges'>ETH Full Historical Static Flows to Exchanges</h2>
 <p><img src="https://img.shields.io/badge/Tier-Professional-black.svg"/></p>
 
-<p>This endpoint returns <em>static</em> flows of ETH into exchange wallets for as far back as we track. The average inflow is the average transaction value for transactions flowing into exchange wallets on a given day.</p>
+<p>This endpoint returns <em>static</em> flows of ETH into exchange wallets for as far back as we track. What do we mean by static? while our standard API endpoint as seen <a href="https://docs.tokenanalyst.io/#eth-full-historical-static-flows-to-exchanges" target="_blank">above</a> dynamically updates the data (up to 7 days prior to the current day) when we find new information on exchange wallets, the historical data from this data <em>never</em> changes from the time it is posted. The rationale for this is to serve a snapshot look of what was known at the specific point in time - to aid in effective backtesting for users who want to use our websocket. </p>
+
+<p>For this reason, as an extra reinforcement, this endpoint includes the <code>last_updated</code> field to show the time in UTC when the data point was last modified. </p>
 <pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_window_static/last?format=json&amp;exchange=binance&amp;token=eth&amp;direction=inflow&amp;window=1h&amp;lag=hour&amp;limit=2&amp;key=API_KEY"</span>
 </code></pre>
 <blockquote>
