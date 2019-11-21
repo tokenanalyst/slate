@@ -79,6 +79,80 @@ This endpoint returns the inflow of stablecoins into exchange wallets. The `avg_
 | avg_txn_value     | _decimal_ | The average amount of tokens transferred per transaction into the given exchange on this date.                             |
 | avg_txn_value_usd | _decimal_ | The USD value of the average amount of tokens transferred per transaction into the given exchange on this date.            |
 
+## Stablecoins Full Historical Static Flows to Exchanges
+
+<img src="https://img.shields.io/badge/Tier-Professional-black.svg"/>
+
+This endpoint returns _static_ flows of Stablecoins into exchange wallets for as far back as we track. The average inflow is the average transaction value for transactions flowing into exchange wallets on a given day.
+
+```shell
+curl "https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_window_static/last?format=json&exchange=binance&token=usdt_omni&direction=inflow&window=1h&lag=hour&limit=2&key=API_KEY"
+```
+
+> The response looks like:
+
+```json
+[
+  {
+    "date": "2019-11-17",
+    "hour": "13:00:00", // not available when window 1d
+    "datetime": "2019-11-17 13:00:00", // not available when window 1d
+    "inflow": 5, // not available when direction outflow
+    "inflow_usd": 5, // not available when direction outflow
+    "number_of_txns": 1,
+    "avg_txn_value": 5,
+    "avg_txn_value_usd": 5,
+    "last_updated": "2019-11-17 16:00:18+00:00"
+  },
+  {
+    "date": "2019-11-17",
+    "hour": "14:00:00", // not available when window 1d
+    "datetime": "2019-11-16 16:00:00", // not available when window 1d
+    "inflow": 649995, // not available when direction outflow
+    "inflow_usd": 650325.48, // not available when direction outflow
+    "number_of_txns": 1,
+    "avg_txn_value": 649995,
+    "avg_txn_value_usd": 650325.48,
+    "last_updated": "2019-11-17 17:01:07+00:00",
+  }
+]
+```
+
+### HTTP Request
+
+`GET https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_window_static/last?`
+
+### URL Parameters
+
+| Parameter    | Type      | Description                                                                               |
+| ------------ | --------- | ----------------------------------------------------------------------------------------- |
+| key          | _string_  | Your unique API key                                                                       |
+| format       | _string_  | What format you want your data in (`json` or `csv`)                                       |
+| token        | _string_  | `usdt_omni`                                                                                     |
+| direction    | _string_  | `inflow` or `outflow`                                                                     |
+| exchange     | _string_  | An exchange from the table that we support                                                |
+| lag          | _string_  | `hour`,`day`, or `month`. Lags the returned data by the specified parameter               |
+| window       | _string_  | `1h` or `1d`                                                                              |
+| from_date \* | _string_  | Start date of returned data specified as YYYY-MM-DD (ISO date format)                     |
+| to_date \*   | _string_  | End date of returned data specified as YYYY-MM-DD (ISO date format)                       |
+| limit \*     | _integer_ | The number of entries returned before the latest data point (or the to_date if specified) |
+
+Note: All params with a \* are optional and `limit` is only available in the JSON return format
+
+### Data Overview
+
+| Field                                 | Type      | Description                                                                                                                                                                                                               |
+| ------------------------------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| avg_txn_value                         | _decimal_ | The average amount of tokens transferred per transaction into the given exchange on this date.                                                                                                                                  |
+| avg_txn_value_usd                     | _decimal_ | The USD value of the average amount of tokens transferred per transaction into the given exchange on this date.                                                                                                              |
+| date                                  | _string_  | The date in _YYYY-MM-DD_                                                                                                                                                                                                  |
+| datetime *                             | _string_  | The hour of the day in datetime format YYYY-MM-DD HH:MM:SS (UTC time zone). This is an optional field field and appears when window is `1h`                                                                               |
+| hour *                                 | _string_  | The hour of the day in _HH:MM:SS_ (UTC time zone). This is an optional field field and appears when window is `1h`                                                                                                        |
+| inflow                                | _decimal_ | The total amount of the token that flowed into the exchange on this date. Denominated in the token in question.                                                                                                                                     |
+| inflow_usd                            | _decimal_ | The USD value of the total amount of the token that flowed into the exchange on this date                                                                                                                                       |
+| number_of_txns                        | _integer_ | The number of transactions sending tokens into this exchange on this date.                                                                                                                                                   |
+| last_updated                          | _string_  | The date when the endpoint was last updated in `UTC` datetime format
+
 
 ## Stablecoins Full Historical Outflow from Exchanges [Beta]
 
