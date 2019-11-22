@@ -29,18 +29,18 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/exchange_balance_window_h
 ```json
 [
   {
-    "date": "",
-    "hour": "", // not available when window 1d
-    "datetime": "", // not available when window 1d
-    "balance": ,
-    "balance_usd": 
+    "date": "2019-11-22",
+    "hour": "06:00:00", // not available when window 1d
+    "datetime": "2019-11-22 06:00:00", // not available when window 1d
+    "balance": 2582886.48169047,
+    "balance_usd": 408819272.32
   },
   {
-    "date": "",
-    "hour": "", // not available when window 1d
-    "datetime": "", // not available when window 1d
-    "balance": ,
-    "balance_usd": 
+    "date": "2019-11-22",
+    "hour": "07:00:00", // not available when window 1d
+    "datetime": "2019-11-22 07:00:00", // not available when window 1d
+    "balance": 2585136.73256075,
+    "balance_usd": 403502100.96
   }
 ]
 ```
