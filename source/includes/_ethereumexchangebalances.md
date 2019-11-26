@@ -1,29 +1,27 @@
-# Bitcoin Exchange Balance 
+# Ethereum Exchange Balance 
 
-For Bitcoin currently supported exchanges are:
+For Ethereum currently supported exchanges are:
 
 | Name           | Symbol           |
 |----------------|------------------|
 | Binance        | `binance`        | 
 | Bittrex        | `bittrex`        | 
-| Bitstamp       | `bitstamp`       |
-| Bitmex         | `bitmex`         |
 | Bitfinex       | `bitfinex`       |
-| Huobi          | `huobi`          |
 | Kraken         | `kraken`         |
+| Kucoin         | `kucoin`         |
 | Poloniex       | `poloniex`       |
 
 
-## BTC Full Historical Balance
+## ETH Full Historical Balance
 
 <img src="https://img.shields.io/badge/Tier-Professional-black.svg"/>
 
-This endpoint returns the balance of BTC held in the wallets of exchanges that we support for the full history of the exchange in question.
+This endpoint returns the balance of ETH held in the wallets of exchanges that we support for the full history of the exchange in question.
 
 ```shell
 # Make sure you substitute API_KEY for your unique API key.
 
-curl "https://api.tokenanalyst.io/analytics/private/v1/exchange_balance_window_historical/last?key=API_KEY&limit=2&format=json&exchange=binance&token=btc&window=1h"
+curl "https://api.tokenanalyst.io/analytics/private/v1/exchange_balance_window_historical/last?key=API_KEY&limit=2&format=json&exchange=binance&token=eth&window=1h"
 ```
 
 > The above command returns JSON structured like this:
@@ -31,18 +29,18 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/exchange_balance_window_h
 ```json
 [
   {
-    "date": "2019-10-04",
-    "hour": "12:00:00", // not available when window 1d
-    "datetime": "2019-10-04 12:00:00", // not available when window 1d
-    "balance": 242107.08456132,
-    "balance_usd": 1976383805.44
+    "date": "2019-11-22",
+    "hour": "06:00:00", // not available when window 1d
+    "datetime": "2019-11-22 06:00:00", // not available when window 1d
+    "balance": 2582886.48169047,
+    "balance_usd": 408819272.32
   },
   {
-    "date": "2019-10-04",
-    "hour": "13:00:00", // not available when window 1d
-    "datetime": "2019-10-04 13:00:00", // not available when window 1d
-    "balance": 242107.08456132,
-    "balance_usd": 0
+    "date": "2019-11-22",
+    "hour": "07:00:00", // not available when window 1d
+    "datetime": "2019-11-22 07:00:00", // not available when window 1d
+    "balance": 2585136.73256075,
+    "balance_usd": 403502100.96
   }
 ]
 ```
@@ -57,7 +55,7 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/exchange_balance_window_h
 | ------------ | --------- | ----------------------------------------------------------------------------------------- |
 | key          | _string_  | Your unique API key                                                                       |
 | format       | _string_  | What format you want your data in (`json` or `csv`)                                       |
-| token        | _string_  | `btc`                                                                                     |                                    |
+| token        | _string_  | `eth`                                                                                     |                                    |
 | exchange     | _string_  | An exchange from the table that we support                                              |
 | window       | _string_  | `1h` or `1d`                                                                              |
 | from_date \* | _string_  | Start date of returned data specified as YYYY-MM-DD (ISO date format)                     |
@@ -70,8 +68,8 @@ Note: All params with a \* are optional and `limit` is only available in the JSO
 
 | Field                                   | Type      | Description                                                                                                                                                                                                               |
 | --------------------------------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| balance                                 | _decimal_ | The amount of BTC on a given exchange on this date.                                                                                                                                |
-| balance_usd                             | _decimal_ | The USD value of the amount of BTC on a given exchange on this date.                                                                                                            |
+| balance                                 | _decimal_ | The amount of ETH on a given exchange on this date.                                                                                                                                |
+| balance_usd                             | _decimal_ | The USD value of the amount of ETH on a given exchange on this date.                                                                                                            |
 | date                                    | _string_  | The date in _YYYY-MM-DD_                                                                                                                                                                                                  |
 | datetime *                              | _string_  | The hour of the day in datetime format YYYY-MM-DD HH:MM:SS (UTC time zone). This is an optional field and appears when window is `1h`                                                                               |
 | hour *                                  | _string_  | The hour of the day in _HH:MM:SS_ (UTC time zone). This is an optional field and appears when window is `1h`                                                                                                        |
