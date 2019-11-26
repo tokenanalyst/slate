@@ -18,7 +18,7 @@ For Bitcoin currently supported exchanges are:
 
 <img src="https://img.shields.io/badge/Tier-Professional-black.svg"/>
 
-This endpoint returns the full historical on-chain balance of Bitcoin exchanges.
+This endpoint returns the balance of BTC held in the wallets of exchanges that we support for the full history of the exchange in question.
 
 ```shell
 # Make sure you substitute API_KEY for your unique API key.
