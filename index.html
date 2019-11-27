@@ -456,6 +456,14 @@
               </ul>
           </li>
           <li>
+            <a href="#ethereum-miner-flows" class="toc-h1 toc-link" data-title="Ethereum Miner Flows">Ethereum Miner Flows</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#miners-to-exchanges-full-historical-flows" class="toc-h2 toc-link" data-title="Miners to Exchanges Full Historical Flows">Miners to Exchanges Full Historical Flows</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#bitcoin-exchange-balance" class="toc-h1 toc-link" data-title="Bitcoin Exchange Balance">Bitcoin Exchange Balance</a>
               <ul class="toc-list-h2">
                   <li>
@@ -8042,7 +8050,7 @@ The weighted average age is sum of the ages of UTXOs multiplied by their bitocoi
 </tr>
 </tbody></table>
 <h2 id='miners-to-exchanges-full-historical-flows'>Miners to Exchanges Full Historical Flows</h2>
-<p>This endpoint returns the full historical flows from miners <em>to</em> exchanges that we have labelled.</p>
+<p>This endpoint returns the full historical flows of BTC from miners <em>to</em> exchanges that we have labelled.</p>
 
 <p>For Bitcoin, the currently supported Miners/Exchanges are:</p>
 
@@ -8216,6 +8224,187 @@ The weighted average age is sum of the ages of UTXOs multiplied by their bitocoi
 <td>value_usd</td>
 <td><em>decimal</em></td>
 <td>The USD value of transactions sending BTC into an exchange</td>
+</tr>
+</tbody></table>
+<h1 id='ethereum-miner-flows'>Ethereum Miner Flows</h1><h2 id='miners-to-exchanges-full-historical-flows'>Miners to Exchanges Full Historical Flows</h2>
+<p>This endpoint returns the full historical flows of ETH from miners <em>to</em> exchanges that we have labelled.</p>
+
+<p>For Ethereum, the currently supported Exchanges/Miners are:</p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th><code>to_entity</code></th>
+<th><code>from_entity</code></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Binance</td>
+<td><code>binance</code></td>
+<td><code>2miners: pplns</code>,<code>2miners: solo</code>,<code>altpool.pro</code>,<code>btc.com pool</code>,<code>beeppool</code>,<code>coinotron 3</code>, <code>cruxpool</code>,<code>dwarfpool 1</code>,<code>eth.solopool.org</code>,<code>ethermine</code>,<code>ethpool 2</code>,<code>f2pool 2</code>,<code>minerall pool</code>,<code>miningpoolhub</code>,<code>nanopool</code>,<code>uleypool</code>,<code>w pool</code>,<code>zhizhu.top</code></td>
+</tr>
+<tr>
+<td>Bitfinex</td>
+<td><code>bitfinex</code></td>
+<td><code>2miners: pplns</code>, <code>coinotron 3</code>, <code>dwarfpool 1</code>, <code>ethermine</code>, <code>f2pool 2</code>, <code>miningpoolhub</code>, <code>nanopool</code>, <code>spark pool</code>, <code>w pool</code></td>
+</tr>
+<tr>
+<td>Bittrex</td>
+<td><code>bittrex</code></td>
+<td><code>2miners: pplns</code>,<code>2miners: solo</code>, <code>btc.com pool</code>, <code>baikalmine 1</code>, <code>beeppool</code>, <code>coinotron 3</code>, <code>dwarfpool 1</code>,<code>eth.solopool.org</code>, <code>ethermine</code>,<code>f2pool 2</code>,<code>minerall pool</code>,<code>miningpoolhub</code>,<code>nanopool</code>, <code>w pool</code>, <code>zhizhu.top</code></td>
+</tr>
+<tr>
+<td>Kraken</td>
+<td><code>kraken</code></td>
+<td><code>2miners: pplns</code>, <code>btc.com pool</code>, <code>coinotron 3</code>, <code>cruxpool</code>, <code>dwarfpool 1</code>, <code>ethermine</code>, <code>ethpool 2</code>, <code>f2pool 2</code>,<code>minerall pool</code>,<code>miningpoolhub</code>,<code>nanopool</code>, <code>w pool</code></td>
+</tr>
+<tr>
+<td>Kucoin</td>
+<td><code>kucoin</code></td>
+<td><code>2miners: pplns</code>, <code>dwarfpool 1</code>, <code>ethermine</code>, <code>f2pool 2</code>, <code>miningpoolhub</code>, <code>nanopool</code>, <code>w pool</code></td>
+</tr>
+<tr>
+<td>Poloniex</td>
+<td><code>poloniex</code></td>
+<td><code>coinotron 3</code>, <code>dwarfpool 1</code>, <code>ethermine</code>, <code>minerall pool</code>, <code>nanopool</code></td>
+</tr>
+</tbody></table>
+
+<p>The above table defines supported pairs of the query parameters <code>to_entity</code> and <code>from_entity</code>. </p>
+
+<p><img src="https://img.shields.io/badge/Tier-Professional-black.svg"/></p>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/entity_to_entity_flow_window_historical/last?ormat=json&amp;to_entity=binance&amp;from_entity=2miners:%20pplns&amp;token=eth&amp;window=1h&amp;limit=2&amp;key=APIKEY"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-11-27"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"hour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"08:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">available</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
+        </span><span class="s2">"datetime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-11-17 08:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">available</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
+        </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.05637151</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"value_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">8.26</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"number_of_txns"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"avg_txn_value"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.05637151</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"avg_txn_value_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">8.26</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-11-27"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"hour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"09:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">available</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
+        </span><span class="s2">"datetime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-11-17 09:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">available</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">window</span><span class="w"> </span><span class="mi">1</span><span class="err">d</span><span class="w">
+        </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.10035594</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"value_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">14.35</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"number_of_txns"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"avg_txn_value"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.05017797</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"avg_txn_value_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">7.18</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre><h3 id='http-request'>HTTP Request</h3>
+<p><code>GET https://api.tokenanalyst.io/analytics/private/v1/entity_to_entity_flow_window_historical/last</code></p>
+<h3 id='query-parameters'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>key</td>
+<td><em>string</em></td>
+<td>Your unique API key</td>
+</tr>
+<tr>
+<td>format</td>
+<td><em>string</em></td>
+<td>What format you want your data in (<code>json</code> or <code>csv</code>)</td>
+</tr>
+<tr>
+<td>token</td>
+<td><em>string</em></td>
+<td><code>eth</code></td>
+</tr>
+<tr>
+<td>window</td>
+<td><em>string</em></td>
+<td><code>1h</code> or <code>1d</code></td>
+</tr>
+<tr>
+<td>from_entity</td>
+<td><em>string</em></td>
+<td>A miner from the table that we support</td>
+</tr>
+<tr>
+<td>to_entity</td>
+<td><em>string</em></td>
+<td>An exchange from the table that we support</td>
+</tr>
+<tr>
+<td>from_date *</td>
+<td><em>string</em></td>
+<td>Start date of returned data specified as YYYY-MM-DD (ISO date format)</td>
+</tr>
+<tr>
+<td>to_date *</td>
+<td><em>string</em></td>
+<td>End date of returned data specified as YYYY-MM-DD (ISO date format)</td>
+</tr>
+<tr>
+<td>limit *</td>
+<td><em>integer</em></td>
+<td>The number of entries returned before the latest data point (or the to_date if specified)</td>
+</tr>
+</tbody></table>
+
+<p>Note: All params with a * are optional and <code>limit</code> is only available in the JSON return format</p>
+<h3 id='data-overview'>Data Overview</h3>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>avg_txn_value</td>
+<td><em>decimal</em></td>
+<td>The average amount of ETH transferred per transaction into the given exchange on this date.</td>
+</tr>
+<tr>
+<td>avg_txn_value_usd</td>
+<td><em>decimal</em></td>
+<td>The USD value of the average amount of ETH transferred per transaction into the given exchange on this date.</td>
+</tr>
+<tr>
+<td>date</td>
+<td><em>string</em></td>
+<td>The date in <em>YYYY-MM-DD</em></td>
+</tr>
+<tr>
+<td>datetime *</td>
+<td><em>string</em></td>
+<td>The hour of the day in datetime format YYYY-MM-DD HH:MM:SS (UTC time zone). This is an optional field and appears when window is <code>1h</code></td>
+</tr>
+<tr>
+<td>hour *</td>
+<td><em>string</em></td>
+<td>The hour of the day in <em>HH:MM:SS</em> (UTC time zone). This is an optional field and appears when window is <code>1h</code></td>
+</tr>
+<tr>
+<td>number_of_txns</td>
+<td><em>integer</em></td>
+<td>The number of transactions sending ETH into an exchange on this date/hour</td>
+</tr>
+<tr>
+<td>value</td>
+<td><em>decimal</em></td>
+<td>The total value of transactions sending ETH into an exchange</td>
+</tr>
+<tr>
+<td>value_usd</td>
+<td><em>decimal</em></td>
+<td>The USD value of transactions sending ETH into an exchange</td>
 </tr>
 </tbody></table>
 <h1 id='bitcoin-exchange-balance'>Bitcoin Exchange Balance</h1>
