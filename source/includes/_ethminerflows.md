@@ -62,7 +62,7 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/entity_to_entity_flow_win
 | ------------ | --------- | ----------------------------------------------------------------------------------------- |
 | key          | _string_  | Your unique API key                                                                       |
 | format       | _string_  | What format you want your data in (`json` or `csv`)                                       |
-| token        | _string_  | `btc`                                                                                     |                                       |
+| token        | _string_  | `eth`                                                                                     |                                       |
 | window       | _string_  | `1h` or `1d`                                                                              |
 | from_entity  | _string_  | A miner from the table that we support
 | to_entity    | _string_  | An exchange from the table that we support
