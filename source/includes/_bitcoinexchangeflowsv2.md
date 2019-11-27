@@ -226,7 +226,7 @@ Note: All params with a \* are optional and `limit` is only available in the JSO
 
 <img src="https://img.shields.io/badge/Tier-Enterprise-blueviolet.svg"/>
 
-This endpoint returns _static_ flows of BTC into exchange wallets for as far back as we track. What do we mean by static? while our standard API endpoint as seen <a href="https://docs.tokenanalyst.io/#btc-full-historical-inflow-to-exchanges" target="_blank">above</a> dynamically updates the data (up to 7 days prior to the current day) when we find new information on exchange wallets, the historical data from this data _never_ changes from the time it is posted. The rationale for this is to serve a snapshot look of what was known at the specific point in time - to aid in effective backtesting for users who want to use our websocket. 
+This endpoint returns _static_ flows of BTC into exchange wallets for as far back as we track. What do we mean by static? while our standard API endpoint as seen <a href="https://docs.tokenanalyst.io/#btc-full-historical-inflow-to-exchanges" target="_blank">above</a> dynamically updates the data (up to 7 days prior to the current day) when we find new information on exchange wallets, the historical data from this endpoint _never_ changes from the time it is posted. The rationale for this is to serve a snapshot look of what was known at the specific point in time - to aid in effective backtesting and inputs for ML models. This is suited for users who want to use our websocket. 
 
 For this reason, as an extra reinforcement, this endpoint includes the `last_updated` field to show the time in UTC when the data point was last modified. 
 
@@ -247,7 +247,7 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_window_stat
     "number_of_txns": 617,
     "avg_txn_value": 0.55430791,
     "avg_txn_value_usd": 4804.39,
-    "last_updated": "2019-11-15 16:01:30+00:00"
+    "last_updated": "2019-11-15 16:01:30"
   },
   {
     "date": "2019-11-15",
@@ -258,7 +258,7 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_window_stat
     "number_of_txns": 442,
     "avg_txn_value": 1.59081203,
     "avg_txn_value_usd": 13601.62,
-    "last_updated": "2019-11-15 16:01:30+00:00",
+    "last_updated": "2019-11-15 16:01:30",
   }
 ]
 ```
@@ -276,7 +276,7 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_window_stat
 | token        | _string_  | `btc`                                                                                     |
 | direction    | _string_  | `inflow` or `outflow`                                                                     |
 | exchange     | _string_  | An exchange from the table that we support                                                |
-| lag          | _string_  | `hour`,`day`, or `month`. Lags the returned data by the specified parameter                     |
+| lag          | _string_  | `hour`,`day`, or `week`. Lags the returned data by the specified parameter                     |
 | window       | _string_  | `1h` or `1d`                                                                              |
 | from_date \* | _string_  | Start date of returned data specified as YYYY-MM-DD (ISO date format)                     |
 | to_date \*   | _string_  | End date of returned data specified as YYYY-MM-DD (ISO date format)                       |
