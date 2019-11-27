@@ -157,7 +157,7 @@ This endpoint returns the outflow of a given token out of miner controlled walle
 
 ## Miners to Exchanges Full Historical Flows
 
-This endpoint returns the full historical flows from miners *to* exchanges that we have labelled.
+This endpoint returns the full historical flows of BTC from miners *to* exchanges that we have labelled.
 
 
 For Bitcoin, the currently supported Miners/Exchanges are:

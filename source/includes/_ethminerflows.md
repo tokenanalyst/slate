@@ -2,7 +2,7 @@
 
 ## Miners to Exchanges Full Historical Flows
 
-This endpoint returns the full historical flows from miners *to* exchanges that we have labelled.
+This endpoint returns the full historical flows of ETH from miners *to* exchanges that we have labelled.
 
 
 For Ethereum, the currently supported Exchanges/Miners are:
