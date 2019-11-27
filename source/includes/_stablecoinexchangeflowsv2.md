@@ -175,7 +175,7 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_window_stat
     "number_of_txns": 202,
     "avg_txn_value": 2.6381,
     "avg_txn_value_usd": 481.87,
-    "last_updated": "2019-11-17 16:00:18+00:00"
+    "last_updated": "2019-11-17 16:00:18"
   },
   {
     "date": "2019-11-16",
@@ -186,7 +186,7 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_window_stat
     "number_of_txns": 232,
     "avg_txn_value": 3.972,
     "avg_txn_value_usd": 726.24,
-    "last_updated": "2019-11-17 17:01:24+00:00",
+    "last_updated": "2019-11-17 17:01:24",
   }
 ]
 ```
