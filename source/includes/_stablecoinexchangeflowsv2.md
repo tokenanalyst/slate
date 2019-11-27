@@ -226,7 +226,7 @@ This endpoint returns the inflow of stablecoins into exchange wallets. The `avg_
 
 ## Stablecoins Full Historical Static Flows to Exchanges
 
-<img src="https://img.shields.io/badge/Tier-Professional-black.svg"/>
+<img src="https://img.shields.io/badge/Tier-Enterprise-blueviolet.svg"/>
 
 This endpoint returns _static_ flows of stablecoins into exchange wallets for as far back as we track. What do we mean by static? while our standard API endpoint as seen <a href="https://docs.tokenanalyst.io/#stablecoins-full-historical-inflow-from-exchanges" target="_blank">above</a> dynamically updates the data (up to 7 days prior to the current day) when we find new information on exchange wallets, the historical data from this endpoint _never_ changes from the time it is posted. The rationale for this is to serve a snapshot look of what was known at the specific point in time - to aid in effective backtesting and inputs for ML models. This is suited for users who want to use our websocket. 
 
