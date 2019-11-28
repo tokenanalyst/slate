@@ -1,6 +1,8 @@
 # Prices (USD)
 The US Dollar (_USD_) price of each asset we support is available through this endpoint. The hourly price is the hourly closing price for each asset. The daily price is the mean of the hourly closing prices for each asset.
 
+## Supported Assets
+
 The list of assets we currently support is:
 
 | Name                      | API Parameter |
@@ -47,6 +49,8 @@ The list of assets we currently support is:
 | Zcash                     | _zec_         |
 | 0x                        | _zrx_         |
 
+
+## Token Price
 
 <img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/>
 
