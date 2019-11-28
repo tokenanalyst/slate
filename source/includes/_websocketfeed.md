@@ -1,11 +1,12 @@
 # Websocket Feed
 
-The TokenAnalyst websocket feed provides real-time bitcoin inflows and outflows to/from exchanges that we have labelled. We have two channels you can subscribe to:
+The TokenAnalyst websocket feed provides real-time bitcoin inflows and outflows to/from exchanges that we have labelled. We have three channels you can subscribe to:
 
 - `btc_confirmed_exchange_flows`: This is the primary channel that we support in production and it shows transactions as soon as they are included in a block on the blockchain by a miner.
 - `btc_unconfirmed_exchange_flows`: This is a much more experimental channel that shows a stream of unconfirmed transactions that are in the Bitcoin memory pool of our nodes. This particular stream is highly experimental and is in a _beta_ stage right now.
+- `btc_confirmed_value_flows`: This is a channel that contains all of the value flows within every transactions (without any filtering) as soon as they are included in a block on the blockchain by a miner.
 
-You can find a sample python script to subscribe to this feed here - <a href="https://github.com/tokenanalyst/samplecode" target="_blank">https://github.com/tokenanalyst/samplecode</a>
+You can find a sample python script to subscribe to these feeds here - <a href="https://github.com/tokenanalyst/samplecode" target="_blank">https://github.com/tokenanalyst/samplecode</a>
 
 Here are the exchanges we support in the Bitcoin WebSocket: `Binance`, `BitMEX`, `Bitfinex`, `Bittrex`, `Kraken`, `Poloniex`, and `Huobi`
 
@@ -54,6 +55,29 @@ wss://ws.tokenanalyst.io
 }
 ```
 
+> Subscribing to the btc_confirmed_value_flows (all flows) channel returns JSON structured like this:
+
+```json
+{
+  "id": "test-id",
+  "event": "data",
+  "data": {
+    "blockNumber": 605732,
+    "blockHash": "0000000000000000000ab29452f880860cc56008cafd4bb48bc1372b62e05497",
+    "transactionId": "283a02a55ab9a7f16ec9862bbb799f3e1e940d3238afdde9c287a4029017aef7",
+    "timestamp": 1574935742,
+    "from": [
+      "1KUPay2RCy9GHiVcie1x535SVHHSgcY1bc",
+      "1KUPay2RCy9GHiVcie1x535SVHHSgcY1bc",
+      "1TuoU8zq3EuLxAuyCNKWQ5vJGgr7E3i3U"
+    ],
+    "to": ["1TuoU8zq3EuLxAuyCNKWQ5vJGgr7E3i3U"],
+    "value": 0.03123805,
+    "flowType": "Unclassified"
+  }
+}
+```
+
 ### URL
 
 `wss://ws.tokenanalyst.io`
@@ -72,19 +96,20 @@ Websocket connections go through the following lifecycle:
 
 ### Request Parameters
 
-| Field   | Type     | Description                                                                                                                                                                                                                                                                                                                                                                        |
-| ------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| event   | _string_ | `subscribe` or `unsubscribe`                                                                                                                                                                                                                                                                                                                                                       |
-| channel | _string_ | The channel you want to subscribe to. Currently we only support 1) `btc_confirmed_exchange_flows`, which has all BTC transactions going into, out of, and in-between exchanges on-chain 2) `btc_unconfirmed_exchange_flows` which has all BTC transactions going into, out of, and in-between exchanges on-chain straight from the Bitcoin memory pool (unconfirmed transactions). |
-| id      | _string_ | An arbitrary id that you can specify to identify the data from the specific subscription                                                                                                                                                                                                                                                                                           |
-| key     | _string_ | Your unique TokenAnalyst API key                                                                                                                                                                                                                                                                                                                                                   |
+| Field   | Type     | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| ------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| event   | _string_ | `subscribe` or `unsubscribe`                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| channel | _string_ | The channel you want to subscribe to. Currently we only support 1) `btc_confirmed_exchange_flows`, which has all BTC transactions going into, out of, and in-between exchanges on-chain 2) `btc_unconfirmed_exchange_flows` which has all BTC transactions going into, out of, and in-between exchanges on-chain straight from the Bitcoin memory pool (unconfirmed transactions) and 3) `btc_confirmed_value_flows` which has all value flows on-chain (with no filtering) |
+| id      | _string_ | An arbitrary id that you can specify to identify the data from the specific subscription                                                                                                                                                                                                                                                                                                                                                                                    |
+| key     | _string_ | Your unique TokenAnalyst API key                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 
 ### Channels
 
-| Name                           | Description                                                                                                                                        |
-| ------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------- |
-| btc_confirmed_exchange_flows   | This channel has all BTC transactions going into, out of, and in-between exchanges on-chain, transaction is mined in one block.                    |
-| btc_unconfirmed_exchange_flows | This channel has unconfirmed BTC transactions going into, out of, and in-between exchanges on-chain straight from the Bitcoin memory pool (_beta_) |
+| Name                           | Description                                                                                                                                                                                    |
+| ------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| btc_confirmed_exchange_flows   | This channel has all BTC transactions going into, out of, and in-between exchanges on-chain, if the transaction is mined in one block.                                                         |
+| btc_unconfirmed_exchange_flows | This channel has unconfirmed BTC transactions going into, out of, and in-between exchanges on-chain straight from the Bitcoin memory pool (_beta_)                                             |
+| btc_confirmed_value_flows      | This channel has all BTC value flows within every transaction for any transaction that is mined in a block. For every every output in a transaction, there is a value flow that is recorded. |
 
 <aside class="notice">
 We currently support and return 4 types of events - <code>subscribe</code>, <code>unsubscribe</code>, <code>error</code>, and <code>data</code>. Below are overviews of the types of responses you will get from each event type.
@@ -98,7 +123,7 @@ We currently support and return 4 types of events - <code>subscribe</code>, <cod
 | blockHash     | _string_   | The hash of the block where this transaction occurred                                                                                                        |
 | transactionId | _string_   | The id of the transaction in question                                                                                                                        |
 | timestamp     | _integer_  | Unix timestamp of the transaction in question                                                                                                                |
-| from          | [_string_] | A list of sending public key hashes (if infow) or exchange names (if outfow)                                                                                 |
+| from          | [_string_] | A list of sending public key hashes (if inflow) or exchange names (if outflow)                                                                                 |
 | to            | [_string_] | A list of receiving public key hashes (if outflow) or exchange names (if inflow)                                                                             |
 | value         | _decimal_  | The total amount of BTC sent in the transaction                                                                                                              |
 | flowType      | _string_   | One of either `Inflow`, `Outflow`, or `InterFlow` (if funds flow between different exchanges) `IntraFlow` (if funds flow within the same exchange's wallets) |
@@ -115,6 +140,20 @@ We currently support and return 4 types of events - <code>subscribe</code>, <cod
 | to            | [_string_] | A list of receiving public key hashes (if outflow) or exchange names (if inflow)                                                                             |
 | value         | _decimal_  | The total amount of BTC sent in the transaction                                                                                                              |
 | flowType      | _string_   | One of either `Inflow`, `Outflow`, or `InterFlow` (if funds flow between different exchanges) `IntraFlow` (if funds flow within the same exchange's wallets) |
+
+### Data Response btc_confirmed_value_flows Overview
+
+| Field         | Type       | Description                                                                                                                                                  |
+| ------------- | ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| blockNumber   | _integer_  | The block number where this transaction occurred                                                                                                             |
+| blockHash     | _string_   | The hash of the block where this transaction occurred                                                                                                        |
+| transactionId | _string_   | The id of the transaction in question                                                                                                                        |
+| timestamp     | _integer_  | Unix timestamp of the transaction in question                                                                                                                |
+| from          | [_string_] | A list of sending public key hashes                                                                                 |
+| to            | [_string_] | A list of receiving public key hashes                                                                            |
+| value         | _decimal_  | The total amount of BTC sent in the transaction                                                                                                              |
+| flowType      | _string_   | Always `Unclassified` for now |
+
 
 ### Subscribe/Unsubscribe/Error Event Response Overview
 
