@@ -518,6 +518,9 @@
                     <a href="#data-response-btc_unconfirmed_exchange_flows-overview" class="toc-h2 toc-link" data-title="Data Response btc_unconfirmed_exchange_flows Overview">Data Response btc_unconfirmed_exchange_flows Overview</a>
                   </li>
                   <li>
+                    <a href="#data-response-btc_confirmed_value_flows-overview" class="toc-h2 toc-link" data-title="Data Response btc_confirmed_value_flows Overview">Data Response btc_confirmed_value_flows Overview</a>
+                  </li>
+                  <li>
                     <a href="#subscribe-unsubscribe-error-event-response-overview" class="toc-h2 toc-link" data-title="Subscribe/Unsubscribe/Error Event Response Overview">Subscribe/Unsubscribe/Error Event Response Overview</a>
                   </li>
                   <li>
@@ -9141,14 +9144,15 @@ curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/exchange
 </tr>
 </tbody></table>
 <h1 id='websocket-feed'>Websocket Feed</h1>
-<p>The TokenAnalyst websocket feed provides real-time bitcoin inflows and outflows to/from exchanges that we have labelled. We have two channels you can subscribe to:</p>
+<p>The TokenAnalyst websocket feed provides real-time bitcoin inflows and outflows to/from exchanges that we have labelled. We have three channels you can subscribe to:</p>
 
 <ul>
 <li><code>btc_confirmed_exchange_flows</code>: This is the primary channel that we support in production and it shows transactions as soon as they are included in a block on the blockchain by a miner.</li>
 <li><code>btc_unconfirmed_exchange_flows</code>: This is a much more experimental channel that shows a stream of unconfirmed transactions that are in the Bitcoin memory pool of our nodes. This particular stream is highly experimental and is in a <em>beta</em> stage right now.</li>
+<li><code>btc_confirmed_value_flows</code>: This is a channel that contains all of the value flows within every transactions (without any filtering) as soon as they are included in a block on the blockchain by a miner.</li>
 </ul>
 
-<p>You can find a sample python script to subscribe to this feed here - <a href="https://github.com/tokenanalyst/samplecode" target="_blank">https://github.com/tokenanalyst/samplecode</a></p>
+<p>You can find a sample python script to subscribe to these feeds here - <a href="https://github.com/tokenanalyst/samplecode" target="_blank">https://github.com/tokenanalyst/samplecode</a></p>
 
 <p>Here are the exchanges we support in the Bitcoin WebSocket: <code>Binance</code>, <code>BitMEX</code>, <code>Bitfinex</code>, <code>Bittrex</code>, <code>Kraken</code>, <code>Poloniex</code>, and <code>Huobi</code></p>
 
@@ -9191,6 +9195,28 @@ curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/exchange
     </span><span class="s2">"flowType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Inflow"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Subscribing to the btc_confirmed_value_flows (all flows) channel returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test-id"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"event"</span><span class="p">:</span><span class="w"> </span><span class="s2">"data"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"blockNumber"</span><span class="p">:</span><span class="w"> </span><span class="mi">605732</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"blockHash"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0000000000000000000ab29452f880860cc56008cafd4bb48bc1372b62e05497"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"transactionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"283a02a55ab9a7f16ec9862bbb799f3e1e940d3238afdde9c287a4029017aef7"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">1574935742</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"from"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="s2">"1KUPay2RCy9GHiVcie1x535SVHHSgcY1bc"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"1KUPay2RCy9GHiVcie1x535SVHHSgcY1bc"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"1TuoU8zq3EuLxAuyCNKWQ5vJGgr7E3i3U"</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"to"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"1TuoU8zq3EuLxAuyCNKWQ5vJGgr7E3i3U"</span><span class="p">],</span><span class="w">
+    </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.03123805</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"flowType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Unclassified"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
 </span></code></pre><h3 id='url'>URL</h3>
 <p><code>wss://ws.tokenanalyst.io</code></p>
 <h3 id='request-process'>Request process</h3>
@@ -9221,7 +9247,7 @@ curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/exchange
 <tr>
 <td>channel</td>
 <td><em>string</em></td>
-<td>The channel you want to subscribe to. Currently we only support 1) <code>btc_confirmed_exchange_flows</code>, which has all BTC transactions going into, out of, and in-between exchanges on-chain 2) <code>btc_unconfirmed_exchange_flows</code> which has all BTC transactions going into, out of, and in-between exchanges on-chain straight from the Bitcoin memory pool (unconfirmed transactions).</td>
+<td>The channel you want to subscribe to. Currently we only support 1) <code>btc_confirmed_exchange_flows</code>, which has all BTC transactions going into, out of, and in-between exchanges on-chain 2) <code>btc_unconfirmed_exchange_flows</code> which has all BTC transactions going into, out of, and in-between exchanges on-chain straight from the Bitcoin memory pool (unconfirmed transactions) and 3) <code>btc_confirmed_value_flows</code> which has all value flows on-chain (with no filtering)</td>
 </tr>
 <tr>
 <td>id</td>
@@ -9243,11 +9269,15 @@ curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/exchange
 </thead><tbody>
 <tr>
 <td>btc_confirmed_exchange_flows</td>
-<td>This channel has all BTC transactions going into, out of, and in-between exchanges on-chain, transaction is mined in one block.</td>
+<td>This channel has all BTC transactions going into, out of, and in-between exchanges on-chain, if the transaction is mined in one block.</td>
 </tr>
 <tr>
 <td>btc_unconfirmed_exchange_flows</td>
 <td>This channel has unconfirmed BTC transactions going into, out of, and in-between exchanges on-chain straight from the Bitcoin memory pool (<em>beta</em>)</td>
+</tr>
+<tr>
+<td>btc_confirmed_value_flows</td>
+<td>This channel has all BTC value flows within every transaction for any transaction that is mined in a block. For every every output in a transaction, there is a value flow that is recorded.</td>
 </tr>
 </tbody></table>
 
@@ -9285,7 +9315,7 @@ We currently support and return 4 types of events - <code>subscribe</code>, <cod
 <tr>
 <td>from</td>
 <td>[<em>string</em>]</td>
-<td>A list of sending public key hashes (if infow) or exchange names (if outfow)</td>
+<td>A list of sending public key hashes (if inflow) or exchange names (if outflow)</td>
 </tr>
 <tr>
 <td>to</td>
@@ -9350,6 +9380,55 @@ We currently support and return 4 types of events - <code>subscribe</code>, <cod
 <td>flowType</td>
 <td><em>string</em></td>
 <td>One of either <code>Inflow</code>, <code>Outflow</code>, or <code>InterFlow</code> (if funds flow between different exchanges) <code>IntraFlow</code> (if funds flow within the same exchange&#39;s wallets)</td>
+</tr>
+</tbody></table>
+<h3 id='data-response-btc_confirmed_value_flows-overview'>Data Response btc_confirmed_value_flows Overview</h3>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>blockNumber</td>
+<td><em>integer</em></td>
+<td>The block number where this transaction occurred</td>
+</tr>
+<tr>
+<td>blockHash</td>
+<td><em>string</em></td>
+<td>The hash of the block where this transaction occurred</td>
+</tr>
+<tr>
+<td>transactionId</td>
+<td><em>string</em></td>
+<td>The id of the transaction in question</td>
+</tr>
+<tr>
+<td>timestamp</td>
+<td><em>integer</em></td>
+<td>Unix timestamp of the transaction in question</td>
+</tr>
+<tr>
+<td>from</td>
+<td>[<em>string</em>]</td>
+<td>A list of sending public key hashes</td>
+</tr>
+<tr>
+<td>to</td>
+<td>[<em>string</em>]</td>
+<td>A list of receiving public key hashes</td>
+</tr>
+<tr>
+<td>value</td>
+<td><em>decimal</em></td>
+<td>The total amount of BTC sent in the transaction</td>
+</tr>
+<tr>
+<td>flowType</td>
+<td><em>string</em></td>
+<td>Always <code>Unclassified</code> for now</td>
 </tr>
 </tbody></table>
 <h3 id='subscribe-unsubscribe-error-event-response-overview'>Subscribe/Unsubscribe/Error Event Response Overview</h3>
