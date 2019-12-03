@@ -8,7 +8,7 @@ The TokenAnalyst websocket feed provides real-time bitcoin inflows and outflows 
 
 You can find a sample python script to subscribe to these feeds here - <a href="https://github.com/tokenanalyst/samplecode" target="_blank">https://github.com/tokenanalyst/samplecode</a>
 
-Here are the exchanges we support in the Bitcoin WebSocket: `Binance`, `BitMEX`, `Bitfinex`, `Bittrex`, `Kraken`, `Poloniex`, and `Huobi`
+Here are the exchanges we support in the Bitcoin WebSocket: `Binance`, `BitMEX`, `Bitfinex`, `Bittrex`, `Deribit`, `Huobi`, `Kraken`, `OKex`, and `Poloniex`.
 
 <img src="https://img.shields.io/badge/Tier-Enterprise-blueviolet.svg"/>
 
