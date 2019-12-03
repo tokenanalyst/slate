@@ -205,7 +205,7 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_window_stat
 | direction    | _string_  | `inflow` or `outflow`                                                                     |
 | exchange     | _string_  | An exchange from the table that we support                                                |
 | lag          | _string_  | `hour`,`day`, or `week`. Lags the returned data by the specified parameter               |
-| window       | _string_  | `1h` or `1d`                                                                              |
+| window       | _string_  | `1h`                                                                            |
 | from_date \* | _string_  | Start date of returned data specified as YYYY-MM-DD (ISO date format)                     |
 | to_date \*   | _string_  | End date of returned data specified as YYYY-MM-DD (ISO date format)                       |
 | limit \*     | _integer_ | The number of entries returned before the latest data point (or the to_date if specified) |
