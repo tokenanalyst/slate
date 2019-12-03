@@ -165,9 +165,9 @@ For Bitcoin, the currently supported Miners/Exchanges are:
 | Name           | `from_entity`    | `to_entity`                                                                           |
 |----------------|------------------|---------------------------------------------------------------------------------------|
 | AntPool        | `antpool`        | `bitstamp`, `bittrex`                                                                 |
-| BTC.TOP        | `btc.top`        | `binance`, `bitfinex`, `bitmex`, `bitstamp`, `bittrex`, `huobi`, `kraken`, `poloniex` |    
+| BTC.TOP        | `btc.top`        | `binance`, `bitfinex`, `bitmex`, `bitstamp`, `bittrex`, `huobi`, `kraken`, `okex`, `poloniex` |    
 | BitClubNetwork | `bitclubnetwork` | `bitfinex`, `bitstamp`                                                                |
-| F2Pool         | `f2pool`         | `binance`, `bitfinex`, `bitstamp`, `bittrex`, `huobi`, `kraken`, `poloniex`           |
+| F2Pool         | `f2pool`         | `binance`, `bitfinex`, `bitstamp`, `bittrex`, `huobi`, `kraken`, `okex`, `poloniex`           |
 | SlushPool      | `slushpool`      | `binance`, `bitfinex`, `bitmex`, `bitstamp`, `bittrex`, `huobi`, `kraken`, `poloniex` |
 | viaBTC         | `viabtc`         | `bitmex`, `bitstamp`, `bittrex`, `huobi`, `poloniex`                                  |
 

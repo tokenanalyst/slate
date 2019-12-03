@@ -8,8 +8,10 @@ For Bitcoin currently supported exchanges are:
 | Bitstamp       | `bitstamp`       |
 | Bitmex         | `bitmex`         |
 | Bitfinex       | `bitfinex`       |
+| Deribit        | `deribit`        |
 | Huobi          | `huobi`          |
 | Kraken         | `kraken`         |
+| OKEx           | `okex`           |
 | Poloniex       | `poloniex`       |
 
 ## BTC Full Historical Inflow to Exchanges
