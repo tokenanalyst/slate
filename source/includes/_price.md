@@ -99,6 +99,6 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_price_usd_window_hi
 | Field         | Type     | Description                                          |
 | ------------- | -------- | ---------------------------------------------------- |
 | date         | _string_ | The date in _YYYY-MM-DD_                                                  |
-| datetime *   | _string_  | The hour of the day in datetime format YYYY-MM-DD HH:MM:SS (UTC time zone). This is an optional field field and appears when window is `1h`                                                                               |
-| hour *       | _string_  | The hour of the day in _HH:MM:SS_ (UTC time zone). This is an optional field field and appears when window is `1h`                                                                                                        |
+| datetime *   | _string_  | The hour of the day in datetime format YYYY-MM-DD HH:MM:SS (UTC time zone). This is an optional field and appears when window is `1h`                                                                               |
+| hour *       | _string_  | The hour of the day in _HH:MM:SS_ (UTC time zone). This is an optional field and appears when window is `1h`                                                                                                        |
 | price_usd    | _decimal_ | The daily price of the token in USD (the hourly or daily mean of minute-level price data) |

@@ -82,8 +82,8 @@ This endpoint returns the inflow of ERC20 tokens into exchange wallets. The `avg
 | Field | Type     | Description                                          |
 | --------- | -------- | ---------------------------------------------------- |
 | date     | _string_ | The date in _YYYY-MM-DD_                                                  |
-| hour *   | _string_  | The hour of the day in _HH:MM:SS_ (UTC time zone). This is an optional field field and appears when window is `1h`                                                                                                        |
-| datetime *  | _string_  | The hour of the day in datetime format YYYY-MM-DD HH:MM:SS (UTC time zone). This is an optional field field and appears when window is `1h`                                                                               |
+| hour *   | _string_  | The hour of the day in _HH:MM:SS_ (UTC time zone). This is an optional field and appears when window is `1h`                                                                                                        |
+| datetime *  | _string_  | The hour of the day in datetime format YYYY-MM-DD HH:MM:SS (UTC time zone). This is an optional field and appears when window is `1h`                                                                               |
 | inflow  | _decimal_ | The total amount of ERC20 token that flowed into the exchange on this date. Denominated in ERC20 token.         |
 | inflow_usd  | _decimal_ | The USD value of the total amount of ERC20 token that flowed into the exchange on this date         |
 | number_of_txns       | _integer_ | The number of transactions sending ERC20 token into this exchange on this date.                                 |
@@ -153,8 +153,8 @@ This endpoint returns the outflow of ERC20 token from exchange wallets. The `avg
 | Field | Type     | Description                                          |
 | --------- | -------- | ---------------------------------------------------- |
 | date     | _string_ | The date in _YYYY-MM-DD_                                                  |
-| hour *   | _string_  | The hour of the day in _HH:MM:SS_ (UTC time zone). This is an optional field field and appears when window is `1h`                                                                                                        |
-| datetime * | _string_  | The hour of the day in datetime format YYYY-MM-DD HH:MM:SS (UTC time zone). This is an optional field field and appears when window is `1h`                                                                               |
+| hour *   | _string_  | The hour of the day in _HH:MM:SS_ (UTC time zone). This is an optional field and appears when window is `1h`                                                                                                        |
+| datetime * | _string_  | The hour of the day in datetime format YYYY-MM-DD HH:MM:SS (UTC time zone). This is an optional field and appears when window is `1h`                                                                               |
 | outflow  | _decimal_ | The total amount of ERC20 token that flowed out of the exchange on this date. Denominated in ERC20 token.         |
 | outflow_usd  | _decimal_ | The USD value of the total amount of ERC20 token that flowed out of the exchange on this date         |
 | number_of_txns       | _integer_ | The number of transactions sending ERC20 token out of this exchange on this date.                                 |
@@ -232,8 +232,8 @@ Note: All params with a \* are optional and `limit` is only available in the JSO
 | avg_txn_value                         | _decimal_ | The average amount ERC20 token transferred per transaction into the given exchange on this date.                                                                                                                                  |
 | avg_txn_value_usd                     | _decimal_ | The USD value of the average amount of ERC20 token transferred per transaction into the given exchange on this date.                                                                                                              |
 | date                                  | _string_  | The date in _YYYY-MM-DD_                                                                                                                                                                                                  |
-| datetime *                             | _string_  | The hour of the day in datetime format YYYY-MM-DD HH:MM:SS (UTC time zone). This is an optional field field and appears when window is `1h`                                                                               |
-| hour *                                 | _string_  | The hour of the day in _HH:MM:SS_ (UTC time zone). This is an optional field field and appears when window is `1h`                                                                                                        |
+| datetime *                             | _string_  | The hour of the day in datetime format YYYY-MM-DD HH:MM:SS (UTC time zone). This is an optional field and appears when window is `1h`                                                                               |
+| hour *                                 | _string_  | The hour of the day in _HH:MM:SS_ (UTC time zone). This is an optional field and appears when window is `1h`                                                                                                        |
 | inflow                                | _decimal_ | The total amount of ERC20 token that flowed into the exchange on this date. Denominated in ERC20 token.                                                                                                                                     |
 | inflow_usd                            | _decimal_ | The USD value of the total amount of ERC20 token that flowed into the exchange on this date                                                                                                                                       |
 | number_of_txns                        | _integer_ | The number of transactions sending ERC20 token into this exchange on this date.                                                                                                                                                   |
