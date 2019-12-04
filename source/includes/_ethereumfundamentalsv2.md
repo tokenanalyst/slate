@@ -48,7 +48,7 @@ This endpoint returns the full historical on-chain volume of Ethereum since it w
 | key       | _string_ | Your unique API key                                    |
 | format    | _string_ | What format you want your data in (`json` or `csv`)    |
 | token     | _string_ | The token you want the volume for (in this case `eth`) |
-| window       | _string_  | `1d` (no support for 1h at this time)                                                     |
+| window       | _string_  | `1h` or `1d`                                                       |
 | from_date \* | _string_  | Start date of returned data specified as YYYY-MM-DD (ISO date format)                     |
 | to_date \*   | _string_  | End date of returned data specified as YYYY-MM-DD (ISO date format)                       |
 | limit \*     | _integer_ | The number of entries returned before the latest data point (or the to_date if specified) |
@@ -106,7 +106,7 @@ This endpoint returns the number of transactions, where ETH value transferred wa
 | key       | _string_ | Your unique API key                                    |
 | format    | _string_ | What format you want your data in (`json` or `csv`)    |
 | token     | _string_ | The token you want the volume for (in this case `eth`) |
-| window       | _string_  | `1d` (no support for 1h at this time)                                                     |
+| window       | _string_  | `1h` or `1d`                                                         |
 | from_date \* | _string_  | Start date of returned data specified as YYYY-MM-DD (ISO date format)                     |
 | to_date \*   | _string_  | End date of returned data specified as YYYY-MM-DD (ISO date format)                       |
 | limit \*     | _integer_ | The number of entries returned before the latest data point (or the to_date if specified) |

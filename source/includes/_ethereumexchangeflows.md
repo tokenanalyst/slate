@@ -158,7 +158,11 @@ This endpoint returns the outflow of ETH from exchange wallets. The `avg_txn_val
 
 This endpoint returns _static_ flows of ETH into exchange wallets for as far back as we track. What do we mean by static? while our standard API endpoint as seen <a href="https://docs.tokenanalyst.io/#eth-full-historical-flows-into-exchanges" target="_blank">above</a> dynamically updates the data (up to 7 days prior to the current day) when we find new information on exchange wallets, the historical data from this data _never_ changes from the time it is posted. The rationale for this is to serve a snapshot look of what was known at the specific point in time - to aid in effective backtesting and inputs for ML models. This is suited for users who want to use our websocket. 
 
-For this reason, as an extra reinforcement, this endpoint includes the `last_updated` field to show the time in UTC when the data point was last modified. 
+<aside class="notice">
+The static endpoint lags behind the tip of the chain by 2 hours in order to leave time to for our internal algorithms classify wallets definitively. This is important because the data in this endpoint does not change after it is posted (unlike the other endpoints).
+</aside>
+
+For this reason, as an extra reinforcement, this endpoint includes the `last_updated` field to show the time in UTC when the data point was last modified. Additionally, there is a `lag` parameter that needs to be explicitly included with the option of `hour` - which signifies the default 2 hour lag.
 
 ```shell
 curl "https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_window_static/last?format=json&exchange=binance&token=eth&direction=inflow&window=1h&lag=hour&limit=2&key=API_KEY"
@@ -206,7 +210,7 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_window_stat
 | token        | _string_  | `eth`                                                                                     |
 | direction    | _string_  | `inflow` or `outflow`                                                                     |
 | exchange     | _string_  | An exchange from the table that we support                                                |
-| lag          | _string_  | `hour`,`day`, or `week`. Lags the returned data by the specified parameter               |
+| lag          | _string_  | `hour` (default two hour lag)              |
 | window       | _string_  | `1h`                                                                          |
 | from_date \* | _string_  | Start date of returned data specified as YYYY-MM-DD (ISO date format)                     |
 | to_date \*   | _string_  | End date of returned data specified as YYYY-MM-DD (ISO date format)                       |

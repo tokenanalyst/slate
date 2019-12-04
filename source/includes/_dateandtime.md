@@ -1,6 +1,11 @@
 # Date & Time Conventions
 
-Throughout this API a `window` parameter is used to indicate the time intervals for which the data is aggregated. We currently offer daily (denoted by `window=1d`) and hourly (denoted by `window=1h`) endpoints. We use a 6 block confirmation strategy in all our calculations, therefore, the latest hour’s data may change when the following hour is calculated due to these block lags:
+Throughout this API a `window` parameter is used to indicate the time intervals for which the data is aggregated. We currently offer daily (denoted by `window=1d`) and hourly (denoted by `window=1h`) endpoints. 
+
+<aside class="success">
+We use a 3 block confirmation methodology in all our calculations, therefore, the latest hour data may change when the following hour is calculated due to these block lags. Due to this, if you want the data for a full day (1 day bar), the safe time to query the endpoint would be 2 hours after the day (i.e 2 AM UTC the following day if you want data for 12:00 AM - 11:59 PM UTC).
+</aside>
+
 
 | Window | Description     | 
 | --------- | -------- | 
