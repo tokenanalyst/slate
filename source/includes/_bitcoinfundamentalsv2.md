@@ -66,8 +66,8 @@ Note: All params with a \* are optional and `limit` is only available in the JSO
 | Field             | Type      | Description                                                                                                                                        |
 | ----------------- | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
 | date              | _string_  | The date in _YYYY-MM-DD_                                                                                                                           |
-| hour \*           | _string_  | The hour of the day in _HH:MM:SS_ (UTC time zone). This is an optional field field and appears when window is `1h`                                 |
-| datetime *        | _string_  | The hour of the day in datetime format YYYY-MM-DD HH:MM:SS (UTC time zone). This is an optional field field and appears when window is `1h`        |
+| hour \*           | _string_  | The hour of the day in _HH:MM:SS_ (UTC time zone). This is an optional field and appears when window is `1h`                                 |
+| datetime *        | _string_  | The hour of the day in datetime format YYYY-MM-DD HH:MM:SS (UTC time zone). This is an optional field and appears when window is `1h`        |
 | volume_change     | _decimal_ | The total sum of BTC sent to (locked by) addresses that were also on the sending side of the same transaction                                      |
 | volume_change_usd | _decimal_ | _volume_change_ \* _price_usd_                                                                                                                     |
 | volume_gross      | _decimal_ | The total sum of BTC sent by (unlocked by) addresses in transactions with a timestamp that occurs on this date. Does not include coinbase rewards. |
@@ -137,7 +137,7 @@ Note: All params with a \* are optional and `limit` is only available in the JSO
 | date           | _string_  | The date in _YYYY-MM-DD_                                                                                                     |
 | number_of_txns | _integer_ | The number of transactions included in blocks with a timestamp that occurs during this date (includes coinbase transactions) |
 | hour \*        | _string_  | The hour of the day in _HH:MM:SS_ (UTC time zone). This is an optional field and appears when window is `1h`                 |
-| datetime *     | _string_  | The hour of the day in datetime format YYYY-MM-DD HH:MM:SS (UTC time zone). This is an optional field field and appears when window is `1h`        |
+| datetime *     | _string_  | The hour of the day in datetime format YYYY-MM-DD HH:MM:SS (UTC time zone). This is an optional field and appears when window is `1h`        |
 
 ---
 
@@ -661,4 +661,4 @@ Note: All params with a \* are optional and `limit` is only available in the JSO
 | date           | _string_  | The date in _YYYY-MM-DD_                                                                                                     |
 | sopr           | _decimal_ | The average ratio between the realised price of UTXOs spent during this time period, divided by their price at the time of creation
 | hour \*        | _string_  | The hour of the day in _HH:MM:SS_ (UTC time zone). This is an optional field and appears when window is `1h`                 |
-| datetime *     | _string_  | The hour of the day in datetime format YYYY-MM-DD HH:MM:SS (UTC time zone). This is an optional field field and appears when window is `1h`        |
+| datetime *     | _string_  | The hour of the day in datetime format YYYY-MM-DD HH:MM:SS (UTC time zone). This is an optional field and appears when window is `1h`        |

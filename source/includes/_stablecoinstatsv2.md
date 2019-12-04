@@ -67,8 +67,8 @@ This endpoint returns the full historical on-chain volume of Tether on the OMNI 
 | Field       | Type      | Description                                                                                                                                 |
 | ----------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
 | date        | _string_  | The date in _YYYY-MM-DD_                                                                                                                    |
-| hour \*     | _string_  | The hour of the day in _HH:MM:SS_ (UTC time zone). This is an optional field field and appears when window is `1h`                          |
-| datetime \* | _string_  | The hour of the day in datetime format YYYY-MM-DD HH:MM:SS (UTC time zone). This is an optional field field and appears when window is `1h` |
+| hour \*     | _string_  | The hour of the day in _HH:MM:SS_ (UTC time zone). This is an optional field and appears when window is `1h`                          |
+| datetime \* | _string_  | The hour of the day in datetime format YYYY-MM-DD HH:MM:SS (UTC time zone). This is an optional field and appears when window is `1h` |
 | volume      | _decimal_ | The total sum of Tether (usdt_omni) sent by addresses in transactions with a timestamp that occurs within the window.                       |
 | volume_usd  | _decimal_ | _volume_ \* _price_usd_                                                                                                                     |
 
@@ -123,8 +123,8 @@ This endpoint returns the daily number of Tether (usdt_omni) transactions on the
 | Field          | Type      | Description                                                                                                                                 |
 | -------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
 | date           | _string_  | The date in _YYYY-MM-DD_                                                                                                                    |
-| hour \*        | _string_  | The hour of the day in _HH:MM:SS_ (UTC time zone). This is an optional field field and appears when window is `1h`                          |
-| datetime \*    | _string_  | The hour of the day in datetime format YYYY-MM-DD HH:MM:SS (UTC time zone). This is an optional field field and appears when window is `1h` |
+| hour \*        | _string_  | The hour of the day in _HH:MM:SS_ (UTC time zone). This is an optional field and appears when window is `1h`                          |
+| datetime \*    | _string_  | The hour of the day in datetime format YYYY-MM-DD HH:MM:SS (UTC time zone). This is an optional field and appears when window is `1h` |
 | number_of_txns | _integer_ | The number of stablecoin transactions included in blocks with a timestamp that occurs on this date                                          |
 
 ## Tether (Omni) Active Addresses
