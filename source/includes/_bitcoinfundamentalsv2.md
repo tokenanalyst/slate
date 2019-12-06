@@ -665,7 +665,7 @@ Note: All params with a \* are optional and `limit` is only available in the JSO
 
 ## BTC New Addresses
 
-<img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/>
+<img src="https://img.shields.io/badge/Tier-Professional-black.svg"/>
 
 This endpoint returns the full historical number of unique addresses that appeared for the first time in a transaction on the Bitcoin network.
 
@@ -715,3 +715,69 @@ Note: All params with a \* are optional and `limit` is only available in the JSO
 | date                      | _string_  | The date in _YYYY-MM-DD_                                                                               |
 | number_of_new_addresses   | _integer_ | The total number of distinct addresses that appeared for the first time in a transaction on the Bitcoin network on this date     |
 | total_number_of_addresses | _integer_ | The cumulative total of distinct addresses appeared for the first time in a transaction on the Bitcoin network on this date |
+
+## BTC Address Balances
+
+<img src="https://img.shields.io/badge/Tier-Professional-black.svg"/>
+
+This endpoint returns the full historical number of unique addresses holding some number of Bitcoins we have bucketed.
+
+```shell
+curl "https://api.tokenanalyst.io/analytics/private/v1/token_address_balance_group_window_historical/last?format=json&token=btc&window=1d&from_date=2019-12-04&to_date=2019-12-05&limit=2&key=API_KEY"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+  {
+    "date": "2019-12-04",
+    "balance_greater_than_0": 28153270,
+    "balance_greater_than_1": 778513,
+    "balance_greater_than_10": 152666,
+    "balance_greater_than_100": 16273,
+    "balance_greater_than_1000": 2128,
+    "balance_greater_than_10000": 108
+  },
+  {
+    "date": "2019-12-05",
+    "balance_greater_than_0": 28173349,
+    "balance_greater_than_1": 778406,
+    "balance_greater_than_10": 152705,
+    "balance_greater_than_100": 16220,
+    "balance_greater_than_1000": 2131,
+    "balance_greater_than_10000": 107
+  },
+  }
+]
+```
+
+### HTTP Request
+
+`GET https://api.tokenanalyst.io/analytics/private/v1/token_address_balance_group_window_historical/last`
+
+### Query Parameters
+
+| Parameter    | Type      | Description                                                                               |
+| ------------ | --------- | ----------------------------------------------------------------------------------------- |
+| key          | _string_  | Your unique API key                                                                       |
+| format       | _string_  | What format you want your data in (`json` or `csv`)                                       |
+| token        | _string_  | `btc`                                                                                     |
+| window       | _string_  | `1d` (no support for 1h at this time)                                                     |
+| from_date \* | _string_  | Start date of returned data specified as YYYY-MM-DD (ISO date format)                     |
+| to_date \*   | _string_  | End date of returned data specified as YYYY-MM-DD (ISO date format)                       |
+| limit \*     | _integer_ | The number of entries returned before the latest data point (or the to_date if specified) |
+
+Note: All params with a \* are optional and `limit` is only available in the JSON return format
+
+### Data Overview
+
+| Field                         | Type      | Description                                                                                            |
+| ----------------------------- | --------- | ------------------------------------------------------------------------------------------------------ |
+| date                          | _string_  | The date in _YYYY-MM-DD_                                                                               |
+| balance_greater_than_0        | _integer_ | The number of unique addresses holding more than `0` BTC on this date                                  |
+| balance_greater_than_1        | _integer_ | The number of unique addresses holding at least `1` BTC on this date                                   |
+| balance_greater_than_10       | _integer_ | The number of unique addresses holding at least `10` BTC on this date                                  |
+| balance_greater_than_100      | _integer_ | The number of unique addresses holding at least `100` BTC on this date                                 |
+| balance_greater_than_1000     | _integer_ | The number of unique addresses holding at least `1000` BTC on this date                                |
+| balance_greater_than_10000    | _integer_ | The number of unique addresses holding at least `10000` BTC on this date                               |
