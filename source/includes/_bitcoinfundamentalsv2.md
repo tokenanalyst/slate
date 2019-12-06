@@ -662,3 +662,56 @@ Note: All params with a \* are optional and `limit` is only available in the JSO
 | sopr           | _decimal_ | The average ratio between the realised price of UTXOs spent during this time period, divided by their price at the time of creation
 | hour \*        | _string_  | The hour of the day in _HH:MM:SS_ (UTC time zone). This is an optional field and appears when window is `1h`                 |
 | datetime *     | _string_  | The hour of the day in datetime format YYYY-MM-DD HH:MM:SS (UTC time zone). This is an optional field and appears when window is `1h`        |
+
+## BTC New Addresses
+
+<img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/>
+
+This endpoint returns the full historical number of unique addresses that appeared for the first time in a transaction on the Bitcoin network.
+
+```shell
+curl "https://api.tokenanalyst.io/analytics/private/v1/token_new_address_window_historical/last?format=json&token=btc&window=1d&from_date=2019-12-04&to_date=2019-12-05&limit=2&key=API_KEY"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+  {
+    "date": "2019-12-04",
+    "number_of_new_addresses": 395937,
+    "total_number_of_addresses": 586240871
+  },
+  {
+    "date": "2019-12-05",
+    "number_of_new_addresses": 380820,
+    "total_number_of_addresses": 586621691
+  }
+]
+```
+
+### HTTP Request
+
+`GET https://api.tokenanalyst.io/analytics/private/v1/token_new_address_window_historical/last`
+
+### Query Parameters
+
+| Parameter    | Type      | Description                                                                               |
+| ------------ | --------- | ----------------------------------------------------------------------------------------- |
+| key          | _string_  | Your unique API key                                                                       |
+| format       | _string_  | What format you want your data in (`json` or `csv`)                                       |
+| token        | _string_  | `btc`                                                                                     |
+| window       | _string_  | `1d` (no support for 1h at this time)                                                     |
+| from_date \* | _string_  | Start date of returned data specified as YYYY-MM-DD (ISO date format)                     |
+| to_date \*   | _string_  | End date of returned data specified as YYYY-MM-DD (ISO date format)                       |
+| limit \*     | _integer_ | The number of entries returned before the latest data point (or the to_date if specified) |
+
+Note: All params with a \* are optional and `limit` is only available in the JSON return format
+
+### Data Overview
+
+| Field                     | Type      | Description                                                                                                  |
+| ------------------------- | --------- | ------------------------------------------------------------------------------------------------------ |
+| date                      | _string_  | The date in _YYYY-MM-DD_                                                                               |
+| number_of_new_addresses   | _integer_ | The total number of distinct addresses that appeared for the first time in a transaction on the Bitcoin network on this date     |
+| total_number_of_addresses | _integer_ | The cumulative total of distinct addresses appeared for the first time in a transaction on the Bitcoin network on this date |
