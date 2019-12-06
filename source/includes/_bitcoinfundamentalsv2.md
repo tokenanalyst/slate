@@ -747,7 +747,6 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_address_balance_gro
     "balance_greater_than_100": 16220,
     "balance_greater_than_1000": 2131,
     "balance_greater_than_10000": 107
-  },
   }
 ]
 ```
