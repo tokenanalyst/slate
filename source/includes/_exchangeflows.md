@@ -102,12 +102,13 @@ Note: All params with a \* are optional and `limit` is only available in the JSO
 | avg_txn_value                         | _decimal_ | The average amount of a given token transferred per transaction into the given exchange on this date.                                             |
 | avg_txn_value_usd                     | _decimal_ | The USD value of the average amount of tokens transferred per transaction into the exchange on this date.                                         |
 | date                                  | _string_  | The date in _YYYY-MM-DD_                                                                                                                          |
-| datetime *                            | _string_  | The hour of the day in datetime format YYYY-MM-DD HH:MM:SS (UTC time zone). This is an optional field and appears when window is `1h`             |
-| hour *                                | _string_  | The hour of the day in _HH:MM:SS_ (UTC time zone). This is an optional field and appears when window is `1h`                                      |
+| datetime *                            | _string_  | The hour of the day in datetime format YYYY-MM-DD HH:MM:SS (UTC time zone).                                                                       |
+| hour *                                | _string_  | The hour of the day in _HH:MM:SS_ (UTC time zone).                                                                                                |
 | inflow                                | _decimal_ | The total amount of tokens that flowed into the exchange on this date. Denominated by the given token.                                            |
 | inflow_usd                            | _decimal_ | The USD value of the total amount of tokens that flowed into the exchange on this date                                                            |
 | number_of_txns                        | _integer_ | The number of transactions sending tokens into a given exchange on this date.                                                                     |
 
+Note: All fields with a \* are optional and appears when window is `1h`. 
 
 ## Full Historical Outflows
 
