@@ -1,11 +1,5 @@
 # Changelog
 
-## Version 2.3.2
-
-*December 9, 2019*
-
-- Reorganised the Exchange Flows endpoints into one section
-
 ## Version 2.3.1
 
 *July 5, 2018*
