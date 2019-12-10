@@ -322,6 +322,9 @@
                   <li>
                     <a href="#eth-miner-rewards" class="toc-h2 toc-link" data-title="ETH Miner Rewards">ETH Miner Rewards</a>
                   </li>
+                  <li>
+                    <a href="#eth-new-addresses" class="toc-h2 toc-link" data-title="ETH New Addresses">ETH New Addresses</a>
+                  </li>
               </ul>
           </li>
           <li>
@@ -1748,7 +1751,7 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
 <h2 id='btc-new-addresses'>BTC New Addresses</h2>
 <p><img src="https://img.shields.io/badge/Tier-Professional-black.svg"/></p>
 
-<p>This endpoint returns the full historical number of unique addresses that appeared for the first time in a transaction as well as the total number of addresses on the Bitcoin network on every day throughout it&#39;s history.</p>
+<p>This endpoint returns the full historical number of unique addresses that appeared for the first time in a transaction as well as the total number of addresses on the Bitcoin network every day throughout it&#39;s history.</p>
 <pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_new_address_window_historical/last?format=json&amp;token=btc&amp;window=1d&amp;from_date=2019-12-04&amp;to_date=2019-12-05&amp;limit=2&amp;key=API_KEY"</span>
 </code></pre>
 <blockquote>
@@ -4026,6 +4029,99 @@ The weighted average age is sum of the ages of UTXOs multiplied by their bitocoi
 <td>miner_daily_uncle_reward_usd</td>
 <td><em>decimal</em></td>
 <td><em>miner_daily_uncle_reward</em> * <em>price_usd</em></td>
+</tr>
+</tbody></table>
+<h2 id='eth-new-addresses'>ETH New Addresses</h2>
+<p><img src="https://img.shields.io/badge/Tier-Professional-black.svg"/></p>
+
+<p>This endpoint returns the full historical number of unique addresses that appeared for the first time in a transaction as well as the total number of addresses on the Ethereum network every day throughout it&#39;s history.</p>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_new_address_window_historical/last?format=json&amp;token=eth&amp;window=1d&amp;from_date=2019-12-04&amp;to_date=2019-12-05&amp;limit=2&amp;key=API_KEY"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-12-04"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"number_of_new_addresses"</span><span class="p">:</span><span class="w"> </span><span class="mi">52926</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"total_number_of_addresses"</span><span class="p">:</span><span class="w"> </span><span class="mi">77017751</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-12-05"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"number_of_new_addresses"</span><span class="p">:</span><span class="w"> </span><span class="mi">75678</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"total_number_of_addresses"</span><span class="p">:</span><span class="w"> </span><span class="mi">77093429</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre><h3 id='http-request-9'>HTTP Request</h3>
+<p><code>GET https://api.tokenanalyst.io/analytics/private/v1/token_new_address_window_historical/last</code></p>
+<h3 id='query-parameters-9'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>key</td>
+<td><em>string</em></td>
+<td>Your unique API key</td>
+</tr>
+<tr>
+<td>format</td>
+<td><em>string</em></td>
+<td>What format you want your data in (<code>json</code> or <code>csv</code>)</td>
+</tr>
+<tr>
+<td>token</td>
+<td><em>string</em></td>
+<td><code>eth</code></td>
+</tr>
+<tr>
+<td>window</td>
+<td><em>string</em></td>
+<td><code>1d</code> (no support for 1h at this time)</td>
+</tr>
+<tr>
+<td>from_date *</td>
+<td><em>string</em></td>
+<td>Start date of returned data specified as YYYY-MM-DD (ISO date format)</td>
+</tr>
+<tr>
+<td>to_date *</td>
+<td><em>string</em></td>
+<td>End date of returned data specified as YYYY-MM-DD (ISO date format)</td>
+</tr>
+<tr>
+<td>limit *</td>
+<td><em>integer</em></td>
+<td>The number of entries returned before the latest data point (or the to_date if specified)</td>
+</tr>
+</tbody></table>
+
+<p>Note: All params with a * are optional and <code>limit</code> is only available in the JSON return format</p>
+<h3 id='data-overview-9'>Data Overview</h3>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>date</td>
+<td><em>string</em></td>
+<td>The date in <em>YYYY-MM-DD</em></td>
+</tr>
+<tr>
+<td>number_of_new_addresses</td>
+<td><em>integer</em></td>
+<td>The total number of distinct addresses that appeared for the first time in a transaction on the Ethereum network on this date</td>
+</tr>
+<tr>
+<td>total_number_of_addresses</td>
+<td><em>integer</em></td>
+<td>The cumulative total of distinct addresses appeared for the first time in a transaction on the Ethereum network on this date</td>
 </tr>
 </tbody></table>
 <h1 id='erc20-fundamentals'>ERC20 Fundamentals</h1>
