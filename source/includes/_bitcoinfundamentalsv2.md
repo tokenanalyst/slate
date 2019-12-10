@@ -667,7 +667,7 @@ Note: All params with a \* are optional and `limit` is only available in the JSO
 
 <img src="https://img.shields.io/badge/Tier-Professional-black.svg"/>
 
-This endpoint returns the full historical number of unique addresses that appeared for the first time in a transaction as well as the total number of addresses on the Bitcoin network on every day throughout it's history.
+This endpoint returns the full historical number of unique addresses that appeared for the first time in a transaction as well as the total number of addresses on the Bitcoin network every day throughout it's history.
 
 ```shell
 curl "https://api.tokenanalyst.io/analytics/private/v1/token_new_address_window_historical/last?format=json&token=btc&window=1d&from_date=2019-12-04&to_date=2019-12-05&limit=2&key=API_KEY"
