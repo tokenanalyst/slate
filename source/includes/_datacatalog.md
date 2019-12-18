@@ -662,6 +662,8 @@ curl "https://api.tokenanalyst.io/catalog/data/entity_to_entity_flow_window_hist
 
 ## Supported Values
 
+The following list of API calls provide arrays of valid values for certain dataset types. For example the list of supported exchanges for a given token, or the supported data windows for a given dataset.
+
 ## Tokens
 
 Return an array of tokens supported for this dataset.
@@ -770,12 +772,12 @@ curl "https://api.tokenanalyst.io/catalog/data/exchange_flow_window_historical/w
 > The above command returns an array like the below:
 
 ```json
-[
+
     [
       "1d",
       "1h"
     ]
-]
+
 ```
 
 ### URL Segments
@@ -802,12 +804,12 @@ curl "https://api.tokenanalyst.io/catalog/data/exchange_flow_window_historical/d
 > The above command returns an array like the below:
 
 ```json
-[
+
     [
       "outflow",
       "inflow"
     ]
-]
+
 ```
 
 ### URL Segments
@@ -834,7 +836,7 @@ curl "https://api.tokenanalyst.io/catalog/data/entity_to_entity_flow_window_hist
 > The above command returns an array like the below:
 
 ```json
-[
+
     [
       "2miners: pplns",
       "2miners: solo",
@@ -847,7 +849,7 @@ curl "https://api.tokenanalyst.io/catalog/data/entity_to_entity_flow_window_hist
       "eth.solopool.org",
       "ethermine"
     ]
-]
+
 ```
 
 ### URL Segments
@@ -874,7 +876,7 @@ curl "https://api.tokenanalyst.io/catalog/data/entity_to_entity_flow_window_hist
 > The above command returns an array like the below:
 
 ```json
-[
+
     [
       "binance",
       "bitfinex",
@@ -883,7 +885,7 @@ curl "https://api.tokenanalyst.io/catalog/data/entity_to_entity_flow_window_hist
       "kucoin",
       "poloniex",
     ]
-]
+
 ```
 
 ### URL Segments
