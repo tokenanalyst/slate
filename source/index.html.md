@@ -24,6 +24,7 @@ includes:
   - ethereumexchangebalances
   - price
   - websocketfeed
+  - datacatalog
 
 search: true
 ---
