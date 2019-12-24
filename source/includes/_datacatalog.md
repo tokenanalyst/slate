@@ -89,7 +89,7 @@ curl "https://api.tokenanalyst.io/catalog/data/exchange_flow_window_historical"
                 "window": "1h",
                 "location": {
                     "api": "https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_window_historical/last?token=btc&direction=inflow&window=1h&exchange=bittrex",
-                    "is_api_active": null
+                    "is_api_active": true
                 }
             },
             {
@@ -99,7 +99,7 @@ curl "https://api.tokenanalyst.io/catalog/data/exchange_flow_window_historical"
                 "window": "1h",
                 "location": {
                     "api": "https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_window_historical/last?direction=inflow&window=1h&token=bat&exchange=poloniex",
-                    "is_api_active": null
+                    "is_api_active": true
                 }
             },
         ]
@@ -164,7 +164,7 @@ curl "https://api.tokenanalyst.io/catalog/data/exchange_flow_window_historical/t
                 "window": "1h",
                 "location": {
                     "api": "https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_window_historical/last?token=btc&direction=inflow&window=1h&exchange=bittrex",
-                    "is_api_active": null
+                    "is_api_active": true
                 }
             },
             {
@@ -174,7 +174,7 @@ curl "https://api.tokenanalyst.io/catalog/data/exchange_flow_window_historical/t
                 "window": "1h",
                 "location": {
                     "api": "https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_window_historical/last?token=btc&exchange=bittrex&direction=outflow&window=1h",
-                    "is_api_active": null
+                    "is_api_active": true
                 }
             },
         ]
@@ -240,7 +240,7 @@ curl "https://api.tokenanalyst.io/catalog/data/exchange_flow_window_historical/e
                 "window": "1h",
                 "location": {
                     "api": "https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_window_historical/last?token=btc&direction=outflow&window=1h&exchange=huobi",
-                    "is_api_active": null
+                    "is_api_active": true
                 }
             },
             {
@@ -250,7 +250,7 @@ curl "https://api.tokenanalyst.io/catalog/data/exchange_flow_window_historical/e
                 "window": "1h",
                 "location": {
                     "api": "https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_window_historical/last?direction=outflow&window=1h&token=bat&exchange=huobi",
-                    "is_api_active": null
+                    "is_api_active": true
                 }
             },
         ]
@@ -316,7 +316,7 @@ curl "https://api.tokenanalyst.io/catalog/data/exchange_flow_window_historical/e
                 "window": "1h",
                 "location": {
                     "api": "https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_window_historical/last?token=btc&direction=outflow&window=1h&exchange=binance",
-                    "is_api_active": null
+                    "is_api_active": true
                 }
             },
             {
@@ -326,7 +326,7 @@ curl "https://api.tokenanalyst.io/catalog/data/exchange_flow_window_historical/e
                 "window": "1h",
                 "location": {
                     "api": "https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_window_historical/last?token=btc&exchange=binance&direction=inflow&window=1h",
-                    "is_api_active": null
+                    "is_api_active": true
                 }
             },
         ]
@@ -393,7 +393,7 @@ curl "https://api.tokenanalyst.io/catalog/data/exchange_flow_window_historical/w
                 "window": "1h",
                 "location": {
                     "api": "https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_window_historical/last?token=btc&direction=inflow&window=1h&exchange=bittrex",
-                    "is_api_active": null
+                    "is_api_active": true
                 }
             },
             {
@@ -403,7 +403,7 @@ curl "https://api.tokenanalyst.io/catalog/data/exchange_flow_window_historical/w
                 "window": "1h",
                 "location": {
                     "api": "https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_window_historical/last?direction=inflow&window=1h&token=bat&exchange=poloniex",
-                    "is_api_active": null
+                    "is_api_active": true
                 }
             },
         ]
@@ -469,7 +469,7 @@ curl "https://api.tokenanalyst.io/catalog/data/exchange_flow_window_historical/d
                 "window": "1h",
                 "location": {
                     "api": "https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_window_historical/last?token=btc&direction=inflow&window=1h&exchange=bittrex",
-                    "is_api_active": null
+                    "is_api_active": true
                 }
             },
             {
@@ -479,7 +479,7 @@ curl "https://api.tokenanalyst.io/catalog/data/exchange_flow_window_historical/d
                 "window": "1h",
                 "location": {
                     "api": "https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_window_historical/last?direction=inflow&window=1h&token=bat&exchange=poloniex",
-                    "is_api_active": null
+                    "is_api_active": true
                 }
             },
         ]
@@ -545,7 +545,7 @@ curl "https://api.tokenanalyst.io/catalog/data/entity_to_entity_flow_window_hist
                 "window": "1h",
                 "location": {
                     "api": "https://api.tokenanalyst.io/analytics/private/v1/entity_to_entity_flow_window_historical/last?token=eth&window=1h&from_entity=ethermine&to_entity=poloniex",
-                    "is_api_active": null
+                    "is_api_active": true
                 }
             },
             {
@@ -555,7 +555,7 @@ curl "https://api.tokenanalyst.io/catalog/data/entity_to_entity_flow_window_hist
                 "window": "1h",
                 "location": {
                     "api": "https://api.tokenanalyst.io/analytics/private/v1/entity_to_entity_flow_window_historical/last?token=eth&window=1h&from_entity=ethermine&to_entity=kucoin",
-                    "is_api_active": null
+                    "is_api_active": true
                 }
             },
         ]
@@ -621,7 +621,7 @@ curl "https://api.tokenanalyst.io/catalog/data/entity_to_entity_flow_window_hist
                 "window": "1h",
                 "location": {
                     "api": "https://api.tokenanalyst.io/analytics/private/v1/entity_to_entity_flow_window_historical/last?token=eth&window=1h&from_entity=2miners: pplns,2miners: solo&to_entity=bittrex",
-                    "is_api_active": null
+                    "is_api_active": true
                 }
             },
             {
@@ -631,7 +631,7 @@ curl "https://api.tokenanalyst.io/catalog/data/entity_to_entity_flow_window_hist
                 "window": "1h",
                 "location": {
                     "api": "https://api.tokenanalyst.io/analytics/private/v1/entity_to_entity_flow_window_historical/last?token=eth&window=1h&from_entity=beeppool&to_entity=bittrex",
-                    "is_api_active": null
+                    "is_api_active": true
                 }
             },
         ]
