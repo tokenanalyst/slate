@@ -400,7 +400,7 @@ Note: All params with a \* are optional and `limit` is only available in the JSO
 <img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/>
 
 ```shell
-curl "https://api.tokenanalyst.io/analytics/private/v1/token_utxo_age_window_historical/last?window=1d&exchange=binance&direction=outflow&format=json&token=btc&from_date=2019-09-01&to_date=2019-09-02&key=API_KEY"
+curl "https://api.tokenanalyst.io/analytics/private/v1/token_utxo_age_window_historical/last?window=1d&format=json&token=btc&from_date=2019-09-01&to_date=2019-09-02&key=API_KEY"
 ```
 
 > The above command returns JSON structured like this:
