@@ -1315,7 +1315,7 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
 </tbody></table>
 <h2 id='btc-utxo-age'>BTC UTXO Age</h2>
 <p><img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/></p>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_utxo_age_window_historical/last?window=1d&amp;exchange=binance&amp;direction=outflow&amp;format=json&amp;token=btc&amp;from_date=2019-09-01&amp;to_date=2019-09-02&amp;key=API_KEY"</span>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_utxo_age_window_historical/last?window=1d&amp;format=json&amp;token=btc&amp;from_date=2019-09-01&amp;to_date=2019-09-02&amp;key=API_KEY"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -10129,7 +10129,7 @@ We currently support and return 4 types of events - <code>subscribe</code>, <cod
                 </span><span class="s2">"window"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1h"</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"location"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
                     </span><span class="s2">"api"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_window_historical/last?token=btc&amp;direction=inflow&amp;window=1h&amp;exchange=bittrex"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"is_api_active"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+                    </span><span class="s2">"is_api_active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
                 </span><span class="p">}</span><span class="w">
             </span><span class="p">},</span><span class="w">
             </span><span class="p">{</span><span class="w">
@@ -10139,7 +10139,7 @@ We currently support and return 4 types of events - <code>subscribe</code>, <cod
                 </span><span class="s2">"window"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1h"</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"location"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
                     </span><span class="s2">"api"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_window_historical/last?direction=inflow&amp;window=1h&amp;token=bat&amp;exchange=poloniex"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"is_api_active"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+                    </span><span class="s2">"is_api_active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
                 </span><span class="p">}</span><span class="w">
             </span><span class="p">},</span><span class="w">
         </span><span class="p">]</span><span class="w">
@@ -10239,7 +10239,7 @@ We currently support and return 4 types of events - <code>subscribe</code>, <cod
                 </span><span class="s2">"window"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1h"</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"location"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
                     </span><span class="s2">"api"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_window_historical/last?token=btc&amp;direction=inflow&amp;window=1h&amp;exchange=bittrex"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"is_api_active"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+                    </span><span class="s2">"is_api_active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
                 </span><span class="p">}</span><span class="w">
             </span><span class="p">},</span><span class="w">
             </span><span class="p">{</span><span class="w">
@@ -10249,7 +10249,7 @@ We currently support and return 4 types of events - <code>subscribe</code>, <cod
                 </span><span class="s2">"window"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1h"</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"location"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
                     </span><span class="s2">"api"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_window_historical/last?token=btc&amp;exchange=bittrex&amp;direction=outflow&amp;window=1h"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"is_api_active"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+                    </span><span class="s2">"is_api_active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
                 </span><span class="p">}</span><span class="w">
             </span><span class="p">},</span><span class="w">
         </span><span class="p">]</span><span class="w">
@@ -10354,7 +10354,7 @@ We currently support and return 4 types of events - <code>subscribe</code>, <cod
                 </span><span class="s2">"window"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1h"</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"location"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
                     </span><span class="s2">"api"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_window_historical/last?token=btc&amp;direction=outflow&amp;window=1h&amp;exchange=huobi"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"is_api_active"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+                    </span><span class="s2">"is_api_active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
                 </span><span class="p">}</span><span class="w">
             </span><span class="p">},</span><span class="w">
             </span><span class="p">{</span><span class="w">
@@ -10364,7 +10364,7 @@ We currently support and return 4 types of events - <code>subscribe</code>, <cod
                 </span><span class="s2">"window"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1h"</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"location"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
                     </span><span class="s2">"api"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_window_historical/last?direction=outflow&amp;window=1h&amp;token=bat&amp;exchange=huobi"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"is_api_active"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+                    </span><span class="s2">"is_api_active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
                 </span><span class="p">}</span><span class="w">
             </span><span class="p">},</span><span class="w">
         </span><span class="p">]</span><span class="w">
@@ -10469,7 +10469,7 @@ We currently support and return 4 types of events - <code>subscribe</code>, <cod
                 </span><span class="s2">"window"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1h"</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"location"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
                     </span><span class="s2">"api"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_window_historical/last?token=btc&amp;direction=outflow&amp;window=1h&amp;exchange=binance"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"is_api_active"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+                    </span><span class="s2">"is_api_active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
                 </span><span class="p">}</span><span class="w">
             </span><span class="p">},</span><span class="w">
             </span><span class="p">{</span><span class="w">
@@ -10479,7 +10479,7 @@ We currently support and return 4 types of events - <code>subscribe</code>, <cod
                 </span><span class="s2">"window"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1h"</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"location"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
                     </span><span class="s2">"api"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_window_historical/last?token=btc&amp;exchange=binance&amp;direction=inflow&amp;window=1h"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"is_api_active"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+                    </span><span class="s2">"is_api_active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
                 </span><span class="p">}</span><span class="w">
             </span><span class="p">},</span><span class="w">
         </span><span class="p">]</span><span class="w">
@@ -10589,7 +10589,7 @@ We currently support and return 4 types of events - <code>subscribe</code>, <cod
                 </span><span class="s2">"window"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1h"</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"location"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
                     </span><span class="s2">"api"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_window_historical/last?token=btc&amp;direction=inflow&amp;window=1h&amp;exchange=bittrex"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"is_api_active"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+                    </span><span class="s2">"is_api_active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
                 </span><span class="p">}</span><span class="w">
             </span><span class="p">},</span><span class="w">
             </span><span class="p">{</span><span class="w">
@@ -10599,7 +10599,7 @@ We currently support and return 4 types of events - <code>subscribe</code>, <cod
                 </span><span class="s2">"window"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1h"</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"location"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
                     </span><span class="s2">"api"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_window_historical/last?direction=inflow&amp;window=1h&amp;token=bat&amp;exchange=poloniex"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"is_api_active"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+                    </span><span class="s2">"is_api_active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
                 </span><span class="p">}</span><span class="w">
             </span><span class="p">},</span><span class="w">
         </span><span class="p">]</span><span class="w">
@@ -10704,7 +10704,7 @@ We currently support and return 4 types of events - <code>subscribe</code>, <cod
                 </span><span class="s2">"window"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1h"</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"location"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
                     </span><span class="s2">"api"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_window_historical/last?token=btc&amp;direction=inflow&amp;window=1h&amp;exchange=bittrex"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"is_api_active"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+                    </span><span class="s2">"is_api_active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
                 </span><span class="p">}</span><span class="w">
             </span><span class="p">},</span><span class="w">
             </span><span class="p">{</span><span class="w">
@@ -10714,7 +10714,7 @@ We currently support and return 4 types of events - <code>subscribe</code>, <cod
                 </span><span class="s2">"window"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1h"</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"location"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
                     </span><span class="s2">"api"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_window_historical/last?direction=inflow&amp;window=1h&amp;token=bat&amp;exchange=poloniex"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"is_api_active"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+                    </span><span class="s2">"is_api_active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
                 </span><span class="p">}</span><span class="w">
             </span><span class="p">},</span><span class="w">
         </span><span class="p">]</span><span class="w">
@@ -10819,7 +10819,7 @@ We currently support and return 4 types of events - <code>subscribe</code>, <cod
                 </span><span class="s2">"window"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1h"</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"location"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
                     </span><span class="s2">"api"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/entity_to_entity_flow_window_historical/last?token=eth&amp;window=1h&amp;from_entity=ethermine&amp;to_entity=poloniex"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"is_api_active"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+                    </span><span class="s2">"is_api_active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
                 </span><span class="p">}</span><span class="w">
             </span><span class="p">},</span><span class="w">
             </span><span class="p">{</span><span class="w">
@@ -10829,7 +10829,7 @@ We currently support and return 4 types of events - <code>subscribe</code>, <cod
                 </span><span class="s2">"window"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1h"</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"location"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
                     </span><span class="s2">"api"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/entity_to_entity_flow_window_historical/last?token=eth&amp;window=1h&amp;from_entity=ethermine&amp;to_entity=kucoin"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"is_api_active"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+                    </span><span class="s2">"is_api_active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
                 </span><span class="p">}</span><span class="w">
             </span><span class="p">},</span><span class="w">
         </span><span class="p">]</span><span class="w">
@@ -10934,7 +10934,7 @@ We currently support and return 4 types of events - <code>subscribe</code>, <cod
                 </span><span class="s2">"window"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1h"</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"location"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
                     </span><span class="s2">"api"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/entity_to_entity_flow_window_historical/last?token=eth&amp;window=1h&amp;from_entity=2miners: pplns,2miners: solo&amp;to_entity=bittrex"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"is_api_active"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+                    </span><span class="s2">"is_api_active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
                 </span><span class="p">}</span><span class="w">
             </span><span class="p">},</span><span class="w">
             </span><span class="p">{</span><span class="w">
@@ -10944,7 +10944,7 @@ We currently support and return 4 types of events - <code>subscribe</code>, <cod
                 </span><span class="s2">"window"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1h"</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"location"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
                     </span><span class="s2">"api"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/entity_to_entity_flow_window_historical/last?token=eth&amp;window=1h&amp;from_entity=beeppool&amp;to_entity=bittrex"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"is_api_active"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+                    </span><span class="s2">"is_api_active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
                 </span><span class="p">}</span><span class="w">
             </span><span class="p">},</span><span class="w">
         </span><span class="p">]</span><span class="w">
