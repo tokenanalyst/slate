@@ -4,7 +4,7 @@ The stablecoins we currently support are:
 
 | Name                 | Symbol       | Supported Exchanges     |
 | -------------------- | ------------ | ------------ |
-| Tether (Omni)        | `usdt_omni`  | `kraken`, `bitfinex`, `poloniex`, `bittrex`, `okex` |
+| Tether (Omni)        | `usdt_omni`  | `bitfinex`, `kraken`, `huobi`, `okex`, `poloniex` |
 | Tether (ERC20)       | `usdt_erc20` | `binance`, `bitfinex`, `bittrex`, `kucoin`, `poloniex` |
 | USDC                 | `usdc`       | `binance`, `bitfinex`|
 | Paxos Standard Token | `pax`        | `binance`, `bitfinex`, `bittrex` |
