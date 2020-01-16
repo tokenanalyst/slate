@@ -481,6 +481,112 @@ Note: All params with a \* are optional and `limit` is only available in the JSO
 | >10y   | _decimal_ | Proportion of bitcoin supply on this date held in unspent outputs (UTXOs) from transactions that occurred greater than 10 years prior to this date. |
 | date   | _string_  | The date in _YYYY-MM-DD_                                                                                                                            |
 
+## BTC Daily Hashrate
+
+<img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/>
+
+```shell
+curl "https://api.tokenanalyst.io/analytics/private/v1/token_hashrate_window_historical/last?format=json&window=1d&token=btc&limit=2&key=API_KEY"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+  {
+    "date": "2020-01-14",
+    "hashrate": 99607271.22,
+    "block_count": 145,
+  },
+  {
+    "date": "2020-01-15",
+    "hashrate": 80799093.578,
+    "block_count": 110,
+  }
+]
+```
+
+This endpoint returns the daily hashrate and blocks mined for a given day. The `hashrate` is denominated in TH/s and `block_count` is the total number of blocks mined, for a given day.
+
+### HTTP Request
+
+`GET https://api.tokenanalyst.io/analytics/private/v1/token_miner_hashrate_window_historical/last`
+
+### Query Parameters
+
+| Parameter    | Type      | Description                                                                               |
+| ------------ | --------- | ----------------------------------------------------------------------------------------- |
+| key          | _string_  | Your unique API key                                                                       |
+| format       | _string_  | What format you want your data in (`json` or `csv`)                                       |
+| token        | _string_  | `btc`                                                                                     |
+| window       | _string_  | `1d` (no support for 1h at this time)                                                     |
+| from_date \* | _string_  | Start date of returned data specified as YYYY-MM-DD (ISO date format)                     |
+| to_date \*   | _string_  | End date of returned data specified as YYYY-MM-DD (ISO date format)                       |
+| limit \*     | _integer_ | The number of entries returned before the latest data point (or the to_date if specified) |
+
+Note: All params with a \* are optional and `limit` is only available in the JSON return format
+
+### Data Overview
+
+| Field                    | Type      | Description                                                                                                         |
+| ------------------------ | --------- | ------------------------------------------------------------------------------------------------------------------- |
+| date                     | _string_  | The date in _YYYY-MM-DD_                                                                                            |
+| hashrate                 | _decimal_ | The hashrate of the blockchain for the day. Denominated in Th/s.                                                    |
+| block_count              | _integer_ | The total number of blocks mined on the blockchain on this date.                                                    |
+
+## BTC Daily Rewards
+
+<img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/>
+
+```shell
+curl "https://api.tokenanalyst.io/analytics/private/v1/token_rewards_window_historical/last?format=json&token=btc&window=1d&limit=2&key=API_KEY"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+  {
+    "date": "2020-01-14",
+    "block_reward": 1838.721577,
+    "block_reward_usd": 15756511.73
+  },
+  {
+    "date": "2020-01-15",
+    "block_reward": 1460.60649732,
+    "block_reward_usd": 12738482.28
+  }
+]
+```
+
+This endpoint returns the daily coinbase rewards. The `block_reward` is denominated BTC.
+
+### HTTP Request
+
+`GET https://api.tokenanalyst.io/analytics/private/v1/token_miner_rewards_window_historical/last`
+
+### Query Parameters
+
+| Parameter    | Type      | Description                                                                               |
+| ------------ | --------- | ----------------------------------------------------------------------------------------- |
+| key          | _string_  | Your unique API key                                                                       |
+| format       | _string_  | What format you want your data in (`json` or `csv`)                                       |
+| token        | _string_  | `btc`                                                                                     |
+| window       | _string_  | `1d` only. `1h` not supported currently.                                                  |
+| from_date \* | _string_  | Start date of returned data specified as YYYY-MM-DD (ISO date format)                     |
+| to_date \*   | _string_  | End date of returned data specified as YYYY-MM-DD (ISO date format)                       |
+| limit \*     | _integer_ | The number of entries returned before the latest data point (or the to_date if specified) |
+
+Note: All params with a \* are optional and `limit` is only available in the JSON return format
+
+### Data Overview
+
+| Field                        | Type      | Description                                                                              |
+| ---------------------------- | --------- | ---------------------------------------------------------------------------------------- |
+| date                         | _string_  | The date in _YYYY-MM-DD_                                                                 |
+| block_reward                 | _decimal_ | The total amount of block rewards earned on this date. Denominated in BTC.               |
+| block_reward_usd             | _decimal_ | _block_reward_ \* _price_usd_                                                            |
+
 ## BTC Miner Hashrate
 
 <img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/>
@@ -514,7 +620,7 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_miner_hashrate_wind
 ]
 ```
 
-This endpoint returns the daily and miner specifc hashrates. The `total_daily_hashrate` and the `miner_daily_hashrate` are denominated in TH/s. The `total_daily_block_count` is the total number of blocks mined on a given day, and the `miner_daily_block_count` are the number of blocks mined by a specific miner. We do not know the identify of all miners and a lot of them are labelled as unkown and grouped together
+This endpoint returns the daily and miner specific hashrates. The `total_daily_hashrate` and the `miner_daily_hashrate` are denominated in TH/s. The `total_daily_block_count` is the total number of blocks mined on a given day, and the `miner_daily_block_count` are the number of blocks mined by a specific miner. We do not know the identify of all miners and a lot of them are labelled as unknown and grouped together.
 
 ### HTTP Request
 
@@ -573,7 +679,7 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_miner_rewards_windo
 ]
 ```
 
-This endpoint returns the daily coinbase rewards by miner (incl. txn fees). The `miner_daily_block_reward` is denomiated BTC.
+This endpoint returns the daily coinbase rewards by miner (incl. txn fees). The `miner_daily_block_reward` is denominated BTC.
 
 ### HTTP Request
 
@@ -601,114 +707,6 @@ Note: All params with a \* are optional and `limit` is only available in the JSO
 | miner_name                   | _string_  | Human readable name of the miner in our database, if known.                              |
 | miner_daily_block_reward     | _decimal_ | The total amount of block rewards earned by this miner on this date. Denominated in BTC. |  |
 | miner_daily_block_reward_usd | _decimal_ | _miner_daily_block_reward_ \* _price_usd_                                                |
-
-## BTC Daily Hashrate
-
-<img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/>
-
-```shell
-curl "https://api.tokenanalyst.io/analytics/private/v1/token_hashrate_window_historical/last?format=json&window=1d&token=btc&limit=2&key=API_KEY"
-```
-
-> The above command returns JSON structured like this:
-
-```json
-[
-  {
-    "date": "2020-01-14",
-    "hashrate": 99607271.22,
-    "block_count": 145,
-  },
-  {
-    "date": "2020-01-15",
-    "hashrate": 80799093.578,
-    "block_count": 110,
-  }
-]
-```
-
-This endpoint returns the daily hashrate and blocks mined for a given day. The `hashrate` is denominated in TH/s and `block_count` is the total number of blocks mined, on a given day.
-
-### HTTP Request
-
-`GET https://api.tokenanalyst.io/analytics/private/v1/token_miner_hashrate_window_historical/last`
-
-### Query Parameters
-
-| Parameter    | Type      | Description                                                                               |
-| ------------ | --------- | ----------------------------------------------------------------------------------------- |
-| key          | _string_  | Your unique API key                                                                       |
-| format       | _string_  | What format you want your data in (`json` or `csv`)                                       |
-| token        | _string_  | `btc`                                                                                     |
-| window       | _string_  | `1d` (no support for 1h at this time)                                                     |
-| from_date \* | _string_  | Start date of returned data specified as YYYY-MM-DD (ISO date format)                     |
-| to_date \*   | _string_  | End date of returned data specified as YYYY-MM-DD (ISO date format)                       |
-| limit \*     | _integer_ | The number of entries returned before the latest data point (or the to_date if specified) |
-
-Note: All params with a \* are optional and `limit` is only available in the JSON return format
-
-### Data Overview
-
-| Field                    | Type      | Description                                                                                                         |
-| ------------------------ | --------- | ------------------------------------------------------------------------------------------------------------------- |
-| date                     | _string_  | The date in _YYYY-MM-DD_                                                                                            |
-| hashrate                 | _decimal_ | The hashrate of the blockchain for the day. Denominated in Th/s.                                                    |
-| block_count              | _integer_ | The total number of blocks mined on the blockchain on this date.                                                    |
-
-
-## BTC Daily Rewards
-
-<img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/>
-
-```shell
-curl "https://api.tokenanalyst.io/analytics/private/v1/token_rewards_window_historical/last?format=json&token=btc&window=1d&limit=2&key=API_KEY"
-```
-
-> The above command returns JSON structured like this:
-
-```json
-[
-  {
-    "date": "2020-01-14",
-    "block_reward": 1838.721577,
-    "block_reward_usd": 15756511.73
-  },
-  {
-    "date": "2020-01-15",
-    "block_reward": 1460.60649732,
-    "block_reward_usd": 12738482.28
-  }
-]
-```
-
-This endpoint returns the daily coinbase rewards by miner (incl. txn fees). The `block_reward` is denomiated BTC.
-
-### HTTP Request
-
-`GET https://api.tokenanalyst.io/analytics/private/v1/token_miner_rewards_window_historical/last`
-
-### Query Parameters
-
-| Parameter    | Type      | Description                                                                               |
-| ------------ | --------- | ----------------------------------------------------------------------------------------- |
-| key          | _string_  | Your unique API key                                                                       |
-| format       | _string_  | What format you want your data in (`json` or `csv`)                                       |
-| token        | _string_  | `btc`                                                                                     |
-| window       | _string_  | `1d` only. `1h` not supported currently.                                                  |
-| from_date \* | _string_  | Start date of returned data specified as YYYY-MM-DD (ISO date format)                     |
-| to_date \*   | _string_  | End date of returned data specified as YYYY-MM-DD (ISO date format)                       |
-| limit \*     | _integer_ | The number of entries returned before the latest data point (or the to_date if specified) |
-
-Note: All params with a \* are optional and `limit` is only available in the JSON return format
-
-### Data Overview
-
-| Field                        | Type      | Description                                                                              |
-| ---------------------------- | --------- | ---------------------------------------------------------------------------------------- |
-| date                         | _string_  | The date in _YYYY-MM-DD_                                                                 |
-| block_reward                 | _decimal_ | The total amount of block rewards earned on this date. Denominated in BTC.               |
-| block_reward_usd             | _decimal_ | _block_reward_ \* _price_usd_                                                            |
-
 
 ## BTC Spent Outputs Profit Ratio
 
