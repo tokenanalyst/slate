@@ -1,4 +1,4 @@
-# Ethereum Miner Flows
+# Ethereum Miner Stats
 
 ## Miners to Exchanges Full Historical Flows
 
