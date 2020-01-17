@@ -253,10 +253,10 @@
                     <a href="#btc-utxo-age" class="toc-h2 toc-link" data-title="BTC UTXO Age">BTC UTXO Age</a>
                   </li>
                   <li>
-                    <a href="#btc-miner-hashrate" class="toc-h2 toc-link" data-title="BTC Miner Hashrate">BTC Miner Hashrate</a>
+                    <a href="#btc-total-hashrate" class="toc-h2 toc-link" data-title="BTC Total Hashrate">BTC Total Hashrate</a>
                   </li>
                   <li>
-                    <a href="#btc-miner-rewards" class="toc-h2 toc-link" data-title="BTC Miner Rewards">BTC Miner Rewards</a>
+                    <a href="#btc-total-rewards" class="toc-h2 toc-link" data-title="BTC Total Rewards">BTC Total Rewards</a>
                   </li>
                   <li>
                     <a href="#btc-spent-outputs-profit-ratio" class="toc-h2 toc-link" data-title="BTC Spent Outputs Profit Ratio">BTC Spent Outputs Profit Ratio</a>
@@ -457,8 +457,14 @@
               </ul>
           </li>
           <li>
-            <a href="#bitcoin-miner-flows" class="toc-h1 toc-link" data-title="Bitcoin Miner Flows">Bitcoin Miner Flows</a>
+            <a href="#bitcoin-miner-stats" class="toc-h1 toc-link" data-title="Bitcoin Miner Stats">Bitcoin Miner Stats</a>
               <ul class="toc-list-h2">
+                  <li>
+                    <a href="#miner-hashrate" class="toc-h2 toc-link" data-title="Miner Hashrate">Miner Hashrate</a>
+                  </li>
+                  <li>
+                    <a href="#miner-rewards" class="toc-h2 toc-link" data-title="Miner Rewards">Miner Rewards</a>
+                  </li>
                   <li>
                     <a href="#miner-full-historical-inflow" class="toc-h2 toc-link" data-title="Miner Full Historical Inflow">Miner Full Historical Inflow</a>
                   </li>
@@ -471,7 +477,7 @@
               </ul>
           </li>
           <li>
-            <a href="#ethereum-miner-flows" class="toc-h1 toc-link" data-title="Ethereum Miner Flows">Ethereum Miner Flows</a>
+            <a href="#ethereum-miner-stats" class="toc-h1 toc-link" data-title="Ethereum Miner Stats">Ethereum Miner Stats</a>
               <ul class="toc-list-h2">
                   <li>
                     <a href="#miners-to-exchanges-full-historical-flows" class="toc-h2 toc-link" data-title="Miners to Exchanges Full Historical Flows">Miners to Exchanges Full Historical Flows</a>
@@ -1479,35 +1485,27 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
 <td>The date in <em>YYYY-MM-DD</em></td>
 </tr>
 </tbody></table>
-<h2 id='btc-miner-hashrate'>BTC Miner Hashrate</h2>
+<h2 id='btc-total-hashrate'>BTC Total Hashrate</h2>
 <p><img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/></p>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_miner_hashrate_window_historical/last?format=json&amp;window=1d&amp;token=btc&amp;limit=2&amp;key=API_KEY"</span>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_hashrate_window_historical/last?format=json&amp;window=1d&amp;token=btc&amp;limit=2&amp;key=API_KEY"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-07-22"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"miner_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"F2 Pool"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"miner_daily_block_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">19</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"total_daily_block_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">322</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"miner_daily_hashrate"</span><span class="p">:</span><span class="w"> </span><span class="mf">8561054.749877952</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"total_daily_hashrate"</span><span class="p">:</span><span class="w"> </span><span class="mf">71191928.97266929</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"miner_daily_hashrate_pct"</span><span class="p">:</span><span class="w"> </span><span class="mf">12.025316455696203</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-14"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"hashrate"</span><span class="p">:</span><span class="w"> </span><span class="mf">99607271.22</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"block_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">145</span><span class="p">,</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-07-22"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"miner_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AntPool"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"miner_daily_block_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">18</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"total_daily_block_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">322</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"miner_daily_hashrate"</span><span class="p">:</span><span class="w"> </span><span class="mf">8110472.920937006</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"total_daily_hashrate"</span><span class="p">:</span><span class="w"> </span><span class="mf">71191928.97266929</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"miner_daily_hashrate_pct"</span><span class="p">:</span><span class="w"> </span><span class="mf">11.392405063291138</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-15"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"hashrate"</span><span class="p">:</span><span class="w"> </span><span class="mf">80799093.578</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"block_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">110</span><span class="p">,</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
-<p>This endpoint returns the daily and miner specifc hashrates. The <code>total_daily_hashrate</code> and the <code>miner_daily_hashrate</code> are denominated in TH/s. The <code>total_daily_block_count</code> is the total number of blocks mined on a given day, and the <code>miner_daily_block_count</code> are the number of blocks mined by a specific miner. We do not know the identify of all miners and a lot of them are labelled as unkown and grouped together</p>
+<p>This endpoint returns the daily hashrate and blocks mined for a given day. The <code>hashrate</code> is denominated in TH/s and <code>block_count</code> is the total number of blocks mined, for a given day.</p>
 <h3 id='http-request-8'>HTTP Request</h3>
 <p><code>GET https://api.tokenanalyst.io/analytics/private/v1/token_miner_hashrate_window_historical/last</code></p>
 <h3 id='query-parameters-8'>Query Parameters</h3>
@@ -1570,59 +1568,37 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
 <td>The date in <em>YYYY-MM-DD</em></td>
 </tr>
 <tr>
-<td>miner_name</td>
-<td><em>string</em></td>
-<td>Human readable name of the miner in our database, if known.</td>
-</tr>
-<tr>
-<td>miner_daily_block_count</td>
-<td><em>integer</em></td>
-<td>The total number of blocks mined by the miner on this date</td>
-</tr>
-<tr>
-<td>total_daily_block_count</td>
-<td><em>integer</em></td>
-<td>The total number of blocks mined on the blockchain on this date.</td>
-</tr>
-<tr>
-<td>miner_daily_hashrate</td>
-<td><em>decimal</em></td>
-<td>The hashrate contribution of the given miner for the day. Denominated in Th/s.</td>
-</tr>
-<tr>
-<td>total_daily_hashrate</td>
+<td>hashrate</td>
 <td><em>decimal</em></td>
 <td>The hashrate of the blockchain for the day. Denominated in Th/s.</td>
 </tr>
 <tr>
-<td>miner_daily_hashrate_pct</td>
-<td><em>decimal</em></td>
-<td>The percentage of the daily hashrate contributed by the miner. (<em>miner_daily_hashrate</em>/<em>total_daily_hashrate</em>)*100</td>
+<td>block_count</td>
+<td><em>integer</em></td>
+<td>The total number of blocks mined on the blockchain on this date.</td>
 </tr>
 </tbody></table>
-<h2 id='btc-miner-rewards'>BTC Miner Rewards</h2>
+<h2 id='btc-total-rewards'>BTC Total Rewards</h2>
 <p><img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/></p>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_miner_rewards_window_historical/last?format=json&amp;token=btc&amp;window=1d&amp;limit=2&amp;key=API_KEY"</span>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_rewards_window_historical/last?format=json&amp;token=btc&amp;window=1d&amp;limit=2&amp;key=API_KEY"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-10-16"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"miner_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"miner_daily_block_reward"</span><span class="p">:</span><span class="w"> </span><span class="mf">571.6431</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"miner_daily_block_reward_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">4620304.75</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-14"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"block_reward"</span><span class="p">:</span><span class="w"> </span><span class="mf">1838.721577</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"block_reward_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">15756511.73</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-10-16"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"miner_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"viaBTC"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"miner_daily_block_reward"</span><span class="p">:</span><span class="w"> </span><span class="mf">164.9395</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"miner_daily_block_reward_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">1333123.7</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-15"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"block_reward"</span><span class="p">:</span><span class="w"> </span><span class="mf">1460.60649732</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"block_reward_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">12738482.28</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
-<p>This endpoint returns the daily coinbase rewards by miner (incl. txn fees). The <code>miner_daily_block_reward</code> is denomiated BTC.</p>
+<p>This endpoint returns the daily coinbase rewards. The <code>block_reward</code> is denominated BTC.</p>
 <h3 id='http-request-9'>HTTP Request</h3>
 <p><code>GET https://api.tokenanalyst.io/analytics/private/v1/token_miner_rewards_window_historical/last</code></p>
 <h3 id='query-parameters-9'>Query Parameters</h3>
@@ -1685,19 +1661,14 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
 <td>The date in <em>YYYY-MM-DD</em></td>
 </tr>
 <tr>
-<td>miner_name</td>
-<td><em>string</em></td>
-<td>Human readable name of the miner in our database, if known.</td>
+<td>block_reward</td>
+<td><em>decimal</em></td>
+<td>The total amount of block rewards earned on this date. Denominated in BTC.</td>
 </tr>
 <tr>
-<td>miner_daily_block_reward</td>
+<td>block_reward_usd</td>
 <td><em>decimal</em></td>
-<td>The total amount of block rewards earned by this miner on this date. Denominated in BTC.</td>
-</tr>
-<tr>
-<td>miner_daily_block_reward_usd</td>
-<td><em>decimal</em></td>
-<td><em>miner_daily_block_reward</em> * <em>price_usd</em></td>
+<td><em>block_reward</em> * <em>price_usd</em></td>
 </tr>
 </tbody></table>
 <h2 id='btc-spent-outputs-profit-ratio'>BTC Spent Outputs Profit Ratio</h2>
@@ -8430,8 +8401,8 @@ The static endpoint lags behind the tip of the chain by 2 hours in order to leav
 <td>The date when the endpoint was last updated in <code>UTC</code> datetime format</td>
 </tr>
 </tbody></table>
-<h1 id='bitcoin-miner-flows'>Bitcoin Miner Flows</h1>
-<p>For Bitcoin <em>Miner Historical Inflow</em> and <em>Miner Historical Outflow</em> endpoints, the supported miners/mining pools in the field <code>miner_name</code> are:</p>
+<h1 id='bitcoin-miner-stats'>Bitcoin Miner Stats</h1>
+<p>For Bitcoin <em>Miner Hashrate</em>, <em>Miner Rewards</em>, <em>Miner Historical Inflow</em> and <em>Miner Historical Outflow</em> endpoints, the supported miners/mining pools in the field <code>miner_name</code> are:</p>
 
 <table><thead>
 <tr>
@@ -8458,6 +8429,227 @@ The static endpoint lags behind the tip of the chain by 2 hours in order to leav
 </tr>
 <tr>
 <td><code>Unknown</code></td>
+</tr>
+</tbody></table>
+<h2 id='miner-hashrate'>Miner Hashrate</h2>
+<p><img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/></p>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_miner_hashrate_window_historical/last?format=json&amp;window=1d&amp;token=btc&amp;limit=2&amp;key=API_KEY"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-07-22"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"miner_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"F2 Pool"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"miner_daily_block_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">19</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"total_daily_block_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">322</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"miner_daily_hashrate"</span><span class="p">:</span><span class="w"> </span><span class="mf">8561054.749877952</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"total_daily_hashrate"</span><span class="p">:</span><span class="w"> </span><span class="mf">71191928.97266929</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"miner_daily_hashrate_pct"</span><span class="p">:</span><span class="w"> </span><span class="mf">12.025316455696203</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-07-22"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"miner_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AntPool"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"miner_daily_block_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">18</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"total_daily_block_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">322</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"miner_daily_hashrate"</span><span class="p">:</span><span class="w"> </span><span class="mf">8110472.920937006</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"total_daily_hashrate"</span><span class="p">:</span><span class="w"> </span><span class="mf">71191928.97266929</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"miner_daily_hashrate_pct"</span><span class="p">:</span><span class="w"> </span><span class="mf">11.392405063291138</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<p>This endpoint returns the daily miner specific hashrates for all the miners we cover. The <code>total_daily_hashrate</code> and the <code>miner_daily_hashrate</code> are denominated in TH/s. The <code>total_daily_block_count</code> is the total number of blocks mined on a given day, and the <code>miner_daily_block_count</code> are the number of blocks mined by a specific miner. We do not know the identify of all miners and a lot of them are labelled as unknown and grouped together.</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>GET https://api.tokenanalyst.io/analytics/private/v1/token_miner_hashrate_window_historical/last</code></p>
+<h3 id='query-parameters'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>key</td>
+<td><em>string</em></td>
+<td>Your unique API key</td>
+</tr>
+<tr>
+<td>format</td>
+<td><em>string</em></td>
+<td>What format you want your data in (<code>json</code> or <code>csv</code>)</td>
+</tr>
+<tr>
+<td>token</td>
+<td><em>string</em></td>
+<td><code>btc</code></td>
+</tr>
+<tr>
+<td>window</td>
+<td><em>string</em></td>
+<td><code>1d</code> (no support for 1h at this time)</td>
+</tr>
+<tr>
+<td>from_date *</td>
+<td><em>string</em></td>
+<td>Start date of returned data specified as YYYY-MM-DD (ISO date format)</td>
+</tr>
+<tr>
+<td>to_date *</td>
+<td><em>string</em></td>
+<td>End date of returned data specified as YYYY-MM-DD (ISO date format)</td>
+</tr>
+<tr>
+<td>limit *</td>
+<td><em>integer</em></td>
+<td>The number of entries returned before the latest data point (or the to_date if specified)</td>
+</tr>
+</tbody></table>
+
+<p>Note: All params with a * are optional and <code>limit</code> is only available in the JSON return format</p>
+<h3 id='data-overview'>Data Overview</h3>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>date</td>
+<td><em>string</em></td>
+<td>The date in <em>YYYY-MM-DD</em></td>
+</tr>
+<tr>
+<td>miner_name</td>
+<td><em>string</em></td>
+<td>Human readable name of the miner in our database, if known.</td>
+</tr>
+<tr>
+<td>miner_daily_block_count</td>
+<td><em>integer</em></td>
+<td>The total number of blocks mined by the miner on this date</td>
+</tr>
+<tr>
+<td>total_daily_block_count</td>
+<td><em>integer</em></td>
+<td>The total number of blocks mined on the blockchain on this date.</td>
+</tr>
+<tr>
+<td>miner_daily_hashrate</td>
+<td><em>decimal</em></td>
+<td>The hashrate contribution of the given miner for the day. Denominated in Th/s.</td>
+</tr>
+<tr>
+<td>total_daily_hashrate</td>
+<td><em>decimal</em></td>
+<td>The hashrate of the blockchain for the day. Denominated in Th/s.</td>
+</tr>
+<tr>
+<td>miner_daily_hashrate_pct</td>
+<td><em>decimal</em></td>
+<td>The percentage of the daily hashrate contributed by the miner. (<em>miner_daily_hashrate</em>/<em>total_daily_hashrate</em>)*100</td>
+</tr>
+</tbody></table>
+<h2 id='miner-rewards'>Miner Rewards</h2>
+<p><img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/></p>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_miner_rewards_window_historical/last?format=json&amp;token=btc&amp;window=1d&amp;limit=2&amp;key=API_KEY"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-10-16"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"miner_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"miner_daily_block_reward"</span><span class="p">:</span><span class="w"> </span><span class="mf">571.6431</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"miner_daily_block_reward_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">4620304.75</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-10-16"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"miner_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"viaBTC"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"miner_daily_block_reward"</span><span class="p">:</span><span class="w"> </span><span class="mf">164.9395</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"miner_daily_block_reward_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">1333123.7</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<p>This endpoint returns the daily coinbase rewards earned by all the miners we cover (incl. txn fees). The <code>miner_daily_block_reward</code> is denominated BTC.</p>
+<h3 id='http-request-2'>HTTP Request</h3>
+<p><code>GET https://api.tokenanalyst.io/analytics/private/v1/token_miner_rewards_window_historical/last</code></p>
+<h3 id='query-parameters-2'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>key</td>
+<td><em>string</em></td>
+<td>Your unique API key</td>
+</tr>
+<tr>
+<td>format</td>
+<td><em>string</em></td>
+<td>What format you want your data in (<code>json</code> or <code>csv</code>)</td>
+</tr>
+<tr>
+<td>token</td>
+<td><em>string</em></td>
+<td><code>btc</code></td>
+</tr>
+<tr>
+<td>window</td>
+<td><em>string</em></td>
+<td><code>1d</code> only. <code>1h</code> not supported currently.</td>
+</tr>
+<tr>
+<td>from_date *</td>
+<td><em>string</em></td>
+<td>Start date of returned data specified as YYYY-MM-DD (ISO date format)</td>
+</tr>
+<tr>
+<td>to_date *</td>
+<td><em>string</em></td>
+<td>End date of returned data specified as YYYY-MM-DD (ISO date format)</td>
+</tr>
+<tr>
+<td>limit *</td>
+<td><em>integer</em></td>
+<td>The number of entries returned before the latest data point (or the to_date if specified)</td>
+</tr>
+</tbody></table>
+
+<p>Note: All params with a * are optional and <code>limit</code> is only available in the JSON return format</p>
+<h3 id='data-overview-2'>Data Overview</h3>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>date</td>
+<td><em>string</em></td>
+<td>The date in <em>YYYY-MM-DD</em></td>
+</tr>
+<tr>
+<td>miner_name</td>
+<td><em>string</em></td>
+<td>Human readable name of the miner in our database, if known.</td>
+</tr>
+<tr>
+<td>miner_daily_block_reward</td>
+<td><em>decimal</em></td>
+<td>The total amount of block rewards earned by this miner on this date. Denominated in BTC.</td>
+</tr>
+<tr>
+<td>miner_daily_block_reward_usd</td>
+<td><em>decimal</em></td>
+<td><em>miner_daily_block_reward</em> * <em>price_usd</em></td>
 </tr>
 </tbody></table>
 
@@ -8495,9 +8687,9 @@ The static endpoint lags behind the tip of the chain by 2 hours in order to leav
     </span><span class="s2">"number_of_txns"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
-</span></code></pre><h3 id='http-request'>HTTP Request</h3>
+</span></code></pre><h3 id='http-request-3'>HTTP Request</h3>
 <p><code>GET https://api.tokenanalyst.io/analytics/private/v1/miner_flow_window_historical/last?</code></p>
-<h3 id='query-parameters'>Query Parameters</h3>
+<h3 id='query-parameters-3'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -8546,7 +8738,7 @@ The static endpoint lags behind the tip of the chain by 2 hours in order to leav
 <td>The number of entries returned before the latest data point (or the to_date if specified)</td>
 </tr>
 </tbody></table>
-<h3 id='data-overview'>Data Overview</h3>
+<h3 id='data-overview-3'>Data Overview</h3>
 <table><thead>
 <tr>
 <th>Field</th>
@@ -8633,9 +8825,9 @@ The static endpoint lags behind the tip of the chain by 2 hours in order to leav
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
 <p>This endpoint returns the outflow of a given token out of miner controlled wallets during the time period specified. Miner wallets are all bitcoin addresses that have <em>ever</em> been the recipient of block rewards. The <code>avg_txn_value</code>, <code>inflow</code>, and <code>number_of_txns</code> are calculated over the window (either 1 hour or 1 day). Inflow to miner addresses that are unlabelled are returned have a <code>miner_name</code> of <code>&quot;Unknown&quot;</code>. The <code>hour</code> is in UTC.</p>
-<h3 id='http-request-2'>HTTP Request</h3>
+<h3 id='http-request-4'>HTTP Request</h3>
 <p><code>GET https://api.tokenanalyst.io/analytics/private/v1/miner_flow_window_historical/last?</code></p>
-<h3 id='query-parameters-2'>Query Parameters</h3>
+<h3 id='query-parameters-4'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -8684,7 +8876,7 @@ The static endpoint lags behind the tip of the chain by 2 hours in order to leav
 <td>The number of entries returned before the latest data point (or the to_date if specified)</td>
 </tr>
 </tbody></table>
-<h3 id='data-overview-2'>Data Overview</h3>
+<h3 id='data-overview-4'>Data Overview</h3>
 <table><thead>
 <tr>
 <th>Field</th>
@@ -8808,9 +9000,9 @@ The static endpoint lags behind the tip of the chain by 2 hours in order to leav
         </span><span class="s2">"avg_txn_value_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">1910.95</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
-</span></code></pre><h3 id='http-request-3'>HTTP Request</h3>
+</span></code></pre><h3 id='http-request-5'>HTTP Request</h3>
 <p><code>GET https://api.tokenanalyst.io/analytics/private/v1/entity_to_entity_flow_window_historical/last</code></p>
-<h3 id='query-parameters-3'>Query Parameters</h3>
+<h3 id='query-parameters-5'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -8866,7 +9058,7 @@ The static endpoint lags behind the tip of the chain by 2 hours in order to leav
 </tbody></table>
 
 <p>Note: All params with a * are optional and <code>limit</code> is only available in the JSON return format</p>
-<h3 id='data-overview-3'>Data Overview</h3>
+<h3 id='data-overview-5'>Data Overview</h3>
 <table><thead>
 <tr>
 <th>Field</th>
@@ -8915,7 +9107,7 @@ The static endpoint lags behind the tip of the chain by 2 hours in order to leav
 <td>The USD value of transactions sending BTC into an exchange</td>
 </tr>
 </tbody></table>
-<h1 id='ethereum-miner-flows'>Ethereum Miner Flows</h1><h2 id='miners-to-exchanges-full-historical-flows'>Miners to Exchanges Full Historical Flows</h2>
+<h1 id='ethereum-miner-stats'>Ethereum Miner Stats</h1><h2 id='miners-to-exchanges-full-historical-flows'>Miners to Exchanges Full Historical Flows</h2>
 <p>This endpoint returns the full historical flows of ETH from miners <em>to</em> exchanges that we have labelled.</p>
 
 <p>For Ethereum, the currently supported Exchanges/Miners are:</p>
