@@ -18,8 +18,8 @@ includes:
   - ethereumexchangeflows
   - stablecoinexchangeflowsv2
   - erc20exchangeflowsv2
-  - btcminerflows
-  - ethminerflows
+  - btcminerstats
+  - ethminerstats
   - bitcoinexchangebalances
   - ethereumexchangebalances
   - price
