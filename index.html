@@ -1507,7 +1507,7 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
 </span></code></pre>
 <p>This endpoint returns the daily hashrate and blocks mined for a given day. The <code>hashrate</code> is denominated in TH/s and <code>block_count</code> is the total number of blocks mined, for a given day.</p>
 <h3 id='http-request-8'>HTTP Request</h3>
-<p><code>GET https://api.tokenanalyst.io/analytics/private/v1/token_miner_hashrate_window_historical/last</code></p>
+<p><code>GET https://api.tokenanalyst.io/analytics/private/v1/token_hashrate_window_historical/last</code></p>
 <h3 id='query-parameters-8'>Query Parameters</h3>
 <table><thead>
 <tr>
@@ -1534,7 +1534,7 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
 <tr>
 <td>window</td>
 <td><em>string</em></td>
-<td><code>1d</code> (no support for 1h at this time)</td>
+<td><code>1d</code> only. <code>1h</code> not supported currently.</td>
 </tr>
 <tr>
 <td>from_date *</td>
@@ -1600,7 +1600,7 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
 </span></code></pre>
 <p>This endpoint returns the daily coinbase rewards. The <code>block_reward</code> is denominated BTC.</p>
 <h3 id='http-request-9'>HTTP Request</h3>
-<p><code>GET https://api.tokenanalyst.io/analytics/private/v1/token_miner_rewards_window_historical/last</code></p>
+<p><code>GET https://api.tokenanalyst.io/analytics/private/v1/token_rewards_window_historical/last</code></p>
 <h3 id='query-parameters-9'>Query Parameters</h3>
 <table><thead>
 <tr>
