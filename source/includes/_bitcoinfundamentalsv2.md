@@ -510,7 +510,7 @@ This endpoint returns the daily hashrate and blocks mined for a given day. The `
 
 ### HTTP Request
 
-`GET https://api.tokenanalyst.io/analytics/private/v1/token_miner_hashrate_window_historical/last`
+`GET https://api.tokenanalyst.io/analytics/private/v1/token_hashrate_window_historical/last`
 
 ### Query Parameters
 
@@ -519,7 +519,7 @@ This endpoint returns the daily hashrate and blocks mined for a given day. The `
 | key          | _string_  | Your unique API key                                                                       |
 | format       | _string_  | What format you want your data in (`json` or `csv`)                                       |
 | token        | _string_  | `btc`                                                                                     |
-| window       | _string_  | `1d` (no support for 1h at this time)                                                     |
+| window       | _string_  | `1d` only. `1h` not supported currently.                                                    |
 | from_date \* | _string_  | Start date of returned data specified as YYYY-MM-DD (ISO date format)                     |
 | to_date \*   | _string_  | End date of returned data specified as YYYY-MM-DD (ISO date format)                       |
 | limit \*     | _integer_ | The number of entries returned before the latest data point (or the to_date if specified) |
@@ -563,7 +563,7 @@ This endpoint returns the daily coinbase rewards. The `block_reward` is denomina
 
 ### HTTP Request
 
-`GET https://api.tokenanalyst.io/analytics/private/v1/token_miner_rewards_window_historical/last`
+`GET https://api.tokenanalyst.io/analytics/private/v1/token_rewards_window_historical/last`
 
 ### Query Parameters
 
