@@ -391,12 +391,6 @@
                   <li>
                     <a href="#btc-full-historical-static-flows-to-exchanges" class="toc-h2 toc-link" data-title="BTC Full Historical Static Flows to Exchanges">BTC Full Historical Static Flows to Exchanges</a>
                   </li>
-                  <li>
-                    <a href="#btc-full-historical-top-10-inflow-large-value-transactions" class="toc-h2 toc-link" data-title="BTC Full Historical Top 10 Inflow Large Value Transactions">BTC Full Historical Top 10 Inflow Large Value Transactions</a>
-                  </li>
-                  <li>
-                    <a href="#btc-full-historical-top-10-outflow-large-value-transactions" class="toc-h2 toc-link" data-title="BTC Full Historical Top 10 Outflow Large Value Transactions">BTC Full Historical Top 10 Outflow Large Value Transactions</a>
-                  </li>
               </ul>
           </li>
           <li>
@@ -413,12 +407,6 @@
                   </li>
                   <li>
                     <a href="#eth-full-historical-static-flows-to-exchanges" class="toc-h2 toc-link" data-title="ETH Full Historical Static Flows to Exchanges">ETH Full Historical Static Flows to Exchanges</a>
-                  </li>
-                  <li>
-                    <a href="#eth-full-historical-top-10-inflow-large-value-transactions" class="toc-h2 toc-link" data-title="ETH Full Historical Top 10 Inflow Large Value Transactions">ETH Full Historical Top 10 Inflow Large Value Transactions</a>
-                  </li>
-                  <li>
-                    <a href="#eth-full-historical-top-10-outflow-large-value-transactions" class="toc-h2 toc-link" data-title="ETH Full Historical Top 10 Outflow Large Value Transactions">ETH Full Historical Top 10 Outflow Large Value Transactions</a>
                   </li>
               </ul>
           </li>
@@ -6083,254 +6071,6 @@ The static endpoint lags behind the tip of the chain by 2 hours in order to leav
 <td>The date when the endpoint was last updated in <code>UTC</code> datetime format</td>
 </tr>
 </tbody></table>
-<h2 id='btc-full-historical-top-10-inflow-large-value-transactions'>BTC Full Historical Top 10 Inflow Large Value Transactions</h2>
-<p><img src="https://img.shields.io/badge/Tier-Professional-black.svg"/></p>
-
-<p>This endpoint returns the top 10 transactions (in terms of total BTC sent) flowing into exchange wallets for every day that the exchange wallets we track have been live on the blockchain.</p>
-<h3 id='http-request-5'>HTTP Request</h3>
-<p><code>GET https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_top10_window_historical/last?</code></p>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_top10_window_historical/last?format=json&amp;token=btc&amp;exchange=bitmex&amp;direction=inflow&amp;window=1d&amp;limit=2&amp;from_date=2019-02-02&amp;to_date=2019-02-08&amp;key=API_KEY"</span>
-</code></pre>
-<blockquote>
-<p>This is what the response looks like</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-02-08"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"transactionid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ea6a036eb69f0b3c47ce27cc77a59270d2c0dc99342cdd5f4dcc41cfa1c98298"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"transaction_datetime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-02-08 16:50:54"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"value_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">174539.71</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-02-08"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"transactionid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"310ff316a1f8d887be851dfaaa14cb829f4d4d225a416ce7cd74a0c032d03c98"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"transaction_datetime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-02-08 17:21:24"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"value_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">174539.71</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="w">
-</span></code></pre><h3 id='url-parameters-5'>URL Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>key</td>
-<td><em>string</em></td>
-<td>Your unique API key</td>
-</tr>
-<tr>
-<td>format</td>
-<td><em>string</em></td>
-<td>What format you want your data in (<code>json</code> or <code>csv</code>)</td>
-</tr>
-<tr>
-<td>token</td>
-<td><em>string</em></td>
-<td><code>btc</code></td>
-</tr>
-<tr>
-<td>direction</td>
-<td><em>string</em></td>
-<td><code>inflow</code></td>
-</tr>
-<tr>
-<td>exchange</td>
-<td><em>string</em></td>
-<td>An exchange from the list of ones we support</td>
-</tr>
-<tr>
-<td>window</td>
-<td><em>string</em></td>
-<td><code>1d</code> (no support for 1h at this time)</td>
-</tr>
-<tr>
-<td>from_date *</td>
-<td><em>string</em></td>
-<td>Start date of returned data specified as YYYY-MM-DD (ISO date format)</td>
-</tr>
-<tr>
-<td>to_date *</td>
-<td><em>string</em></td>
-<td>End date of returned data specified as YYYY-MM-DD (ISO date format)</td>
-</tr>
-<tr>
-<td>limit *</td>
-<td><em>integer</em></td>
-<td>The number of entries returned before the latest data point (or the to_date if specified)</td>
-</tr>
-</tbody></table>
-
-<p>Note: All params with a * are optional and <code>limit</code> is only available in the JSON return format</p>
-<h3 id='data-overview-5'>Data Overview</h3>
-<table><thead>
-<tr>
-<th>Field</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>date</td>
-<td><em>string</em></td>
-<td>The date in <em>YYYY-MM-DD</em></td>
-</tr>
-<tr>
-<td>rank</td>
-<td><em>integer</em></td>
-<td>Ranking out of 10 for the 10 largest transactions of BTC flowing into the exchange in question on this date.</td>
-</tr>
-<tr>
-<td>transaction_datetime</td>
-<td><em>string</em></td>
-<td>The timestamp in datetime format YYYY-MM-DD HH:MM:SS (UTC time zone) when the transaction was mined</td>
-</tr>
-<tr>
-<td>transactionid</td>
-<td><em>string</em></td>
-<td>The transaction id of the transaction in question.</td>
-</tr>
-<tr>
-<td>value</td>
-<td><em>decimal</em></td>
-<td>The amount of BTC transferred in this transaction.</td>
-</tr>
-<tr>
-<td>value_usd</td>
-<td><em>decimal</em></td>
-<td>The value in USD of the amount of BTC transferred in this transaction.</td>
-</tr>
-</tbody></table>
-<h2 id='btc-full-historical-top-10-outflow-large-value-transactions'>BTC Full Historical Top 10 Outflow Large Value Transactions</h2>
-<p><img src="https://img.shields.io/badge/Tier-Professional-black.svg"/></p>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_top10_window_historical/last?format=json&amp;token=btc&amp;exchange=bitmex&amp;direction=outflow&amp;window=1d&amp;limit=2&amp;from_date=2019-02-02&amp;to_date=2019-02-08&amp;key=API_KEY"</span>
-</code></pre>
-<blockquote>
-<p>This is what the response looks like</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-02-08"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"transactionid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bdf372897349b7103ed48c56e6bf0cfd44df854b4e3fc6cb6ce6b106360d0c2f"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"transaction_datetime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-02-08 18:50:53"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"value_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">27926.35</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-02-08"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"transactionid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fcca2b0d59d640c5ba6bade0c32936d4ad512865b5e9e602ddce1da745d589e2"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"transaction_datetime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-02-08 18:50:53"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="mf">7.71</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"value_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">26897.2</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="w">
-</span></code></pre>
-<p>This endpoint returns the top 10 transactions (in terms of total BTC sent) flowing out of exchange wallets for every day that the exchange wallets we track have been live on the blockchain. Note: Currently Bitstamp and Binance are not supported for this endpoint</p>
-<h3 id='http-request-6'>HTTP Request</h3>
-<p><code>GET https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_top10_window_historical/last?</code></p>
-<h3 id='url-parameters-6'>URL Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>key</td>
-<td><em>string</em></td>
-<td>Your unique API key</td>
-</tr>
-<tr>
-<td>format</td>
-<td><em>string</em></td>
-<td>What format you want your data in (<code>json</code> or <code>csv</code>)</td>
-</tr>
-<tr>
-<td>token</td>
-<td><em>string</em></td>
-<td><code>btc</code></td>
-</tr>
-<tr>
-<td>direction</td>
-<td><em>string</em></td>
-<td><code>outflow</code></td>
-</tr>
-<tr>
-<td>exchange</td>
-<td><em>string</em></td>
-<td>An exchange from the list of ones we support</td>
-</tr>
-<tr>
-<td>window</td>
-<td><em>string</em></td>
-<td><code>1d</code> (no support for 1h at this time)</td>
-</tr>
-<tr>
-<td>from_date *</td>
-<td><em>string</em></td>
-<td>Start date of returned data specified as YYYY-MM-DD (ISO date format)</td>
-</tr>
-<tr>
-<td>to_date *</td>
-<td><em>string</em></td>
-<td>End date of returned data specified as YYYY-MM-DD (ISO date format)</td>
-</tr>
-<tr>
-<td>limit *</td>
-<td><em>integer</em></td>
-<td>The number of entries returned before the latest data point (or the to_date if specified)</td>
-</tr>
-</tbody></table>
-
-<p>Note: All params with a * are optional and <code>limit</code> is only available in the JSON return format</p>
-<h3 id='data-overview-6'>Data Overview</h3>
-<table><thead>
-<tr>
-<th>Field</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>date</td>
-<td><em>string</em></td>
-<td>The date in <em>YYYY-MM-DD</em></td>
-</tr>
-<tr>
-<td>rank</td>
-<td><em>integer</em></td>
-<td>Ranking out of 10 for the 10 largest transactions of BTC flowing out of the exchange in question on this date.</td>
-</tr>
-<tr>
-<td>transaction_datetime</td>
-<td><em>string</em></td>
-<td>The timestamp in datetime format YYYY-MM-DD HH:MM:SS (UTC time zone) when the transaction was mined</td>
-</tr>
-<tr>
-<td>transactionid</td>
-<td><em>string</em></td>
-<td>The transaction id of the transaction in question.</td>
-</tr>
-<tr>
-<td>value</td>
-<td><em>decimal</em></td>
-<td>The amount of BTC transferred in this transaction.</td>
-</tr>
-<tr>
-<td>value_usd</td>
-<td><em>decimal</em></td>
-<td>The value in USD of the amount of BTC transferred in this transaction.</td>
-</tr>
-</tbody></table>
 <h1 id='ethereum-exchange-flows'>Ethereum Exchange Flows</h1>
 <p>For Ethereum currently supported exchanges are:</p>
 
@@ -6937,244 +6677,6 @@ The static endpoint lags behind the tip of the chain by 2 hours in order to leav
 <td>last_updated</td>
 <td><em>string</em></td>
 <td>The date when the endpoint was last updated in <code>UTC</code> datetime format</td>
-</tr>
-</tbody></table>
-<h2 id='eth-full-historical-top-10-inflow-large-value-transactions'>ETH Full Historical Top 10 Inflow Large Value Transactions</h2>
-<p><img src="https://img.shields.io/badge/Tier-Professional-black.svg"/></p>
-
-<blockquote>
-<p>This is an example:</p>
-</blockquote>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_top10_historical/last?token=eth&amp;exchange=binance&amp;direction=inflow&amp;format=json&amp;limit=2&amp;key=API_KEY"</span>
-</code></pre>
-<blockquote>
-<p>The response looks like:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"transactionhash"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0x8f4e1350eaa1c13360ea4a5269a1a350f3c5b3880147d0aa32ec34a12fc30923"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="mf">3424.6575</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-04-29"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"transaction_datetime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-04-29 09:13:57"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"value_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">537210.85</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"transactionhash"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0x5512d27b371bfbef2fc6dae353fb243866fe3dfb24ad546d6b6eebb4159fb7c2"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="mf">3000.0</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-04-29"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"transaction_datetime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-04-29 04:50:08"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"value_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">470596.71</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="w">
-</span></code></pre>
-<p>This endpoint returns the top 10 transactions (in terms of total ETH sent) flowing into exchange wallets for every day that the exchange wallets we track have been live on the blockchain.</p>
-<h3 id='http-request-5'>HTTP Request</h3>
-<p><code>GET https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_top10_historical/last?</code></p>
-<h3 id='url-parameters-5'>URL Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>key</td>
-<td><em>string</em></td>
-<td>Your unique API key</td>
-</tr>
-<tr>
-<td>format</td>
-<td><em>string</em></td>
-<td>What format you want your data in (<code>json</code> or <code>csv</code>)</td>
-</tr>
-<tr>
-<td>token</td>
-<td><em>string</em></td>
-<td><code>eth</code></td>
-</tr>
-<tr>
-<td>direction</td>
-<td><em>string</em></td>
-<td><code>inflow</code></td>
-</tr>
-<tr>
-<td>exchange</td>
-<td><em>string</em></td>
-<td>An exchange from the list of ones we support</td>
-</tr>
-<tr>
-<td>from_date *</td>
-<td><em>string</em></td>
-<td>Start date of returned data specified as YYYY-MM-DD (ISO date format)</td>
-</tr>
-<tr>
-<td>to_date *</td>
-<td><em>string</em></td>
-<td>End date of returned data specified as YYYY-MM-DD (ISO date format)</td>
-</tr>
-<tr>
-<td>limit *</td>
-<td><em>integer</em></td>
-<td>The number of entries returned before the latest data point (or the to_date if specified)</td>
-</tr>
-</tbody></table>
-<h3 id='data-overview-5'>Data Overview</h3>
-<table><thead>
-<tr>
-<th>Field</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>transactionhash</td>
-<td><em>string</em></td>
-<td>The transaction hash of the transaction in question.</td>
-</tr>
-<tr>
-<td>value</td>
-<td><em>decimal</em></td>
-<td>The amount of ETH transferred in this transaction.</td>
-</tr>
-<tr>
-<td>date</td>
-<td><em>string</em></td>
-<td>The date in <em>YYYY-MM-DD</em></td>
-</tr>
-<tr>
-<td>transaction_datetime</td>
-<td><em>string</em></td>
-<td>The timestamp in datetime format YYYY-MM-DD HH:MM:SS (UTC time zone) when the transaction was mined</td>
-</tr>
-<tr>
-<td>rank</td>
-<td><em>integer</em></td>
-<td>Ranking out of 10 for the 10 largest ETH transactions flowing into the exchange in question on this date.</td>
-</tr>
-<tr>
-<td>value_usd</td>
-<td><em>decimal</em></td>
-<td>The value in USD of the amount of ETH tranferred in this transaction.</td>
-</tr>
-</tbody></table>
-<h2 id='eth-full-historical-top-10-outflow-large-value-transactions'>ETH Full Historical Top 10 Outflow Large Value Transactions</h2>
-<p><img src="https://img.shields.io/badge/Tier-Professional-black.svg"/></p>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_top10_historical/last?token=eth&amp;exchange=binance&amp;direction=outflow&amp;format=json&amp;limit=2&amp;key=API_KEY"</span>
-</code></pre>
-<blockquote>
-<p>The response looks like:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"transactionhash"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0x97b8063962d549b053cf7366e70877f09ede29f5e2d5bd9837e5a9ea8089bb46"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="mf">7300.00024</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-04-26"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"transaction_datetime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-04-26 09:03:53"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"value_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">1129368.16</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"transactionhash"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0x0e3d275eeae64b27ccbb12b65861039a7c3662c0c99212f88b9927c41b37bbae"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="mf">5982.0288</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-04-26"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"transaction_datetime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-04-26 04:02:49"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"value_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">925467.48</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="w">
-</span></code></pre>
-<p>This endpoint returns the top 10 transactions (in terms of total ETH sent) flowing out of exchange wallets for every day that the exchange wallets we track have been live on the blockchain.</p>
-<h3 id='http-request-6'>HTTP Request</h3>
-<p><code>GET https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_top10_historical/last?</code></p>
-<h3 id='url-parameters-6'>URL Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>key</td>
-<td><em>string</em></td>
-<td>Your unique API key</td>
-</tr>
-<tr>
-<td>format</td>
-<td><em>string</em></td>
-<td>What format you want your data in (<code>json</code> or <code>csv</code>)</td>
-</tr>
-<tr>
-<td>token</td>
-<td><em>string</em></td>
-<td><code>eth</code></td>
-</tr>
-<tr>
-<td>direction</td>
-<td><em>string</em></td>
-<td><code>outflow</code></td>
-</tr>
-<tr>
-<td>exchange</td>
-<td><em>string</em></td>
-<td>An exchange from the list of ones we support</td>
-</tr>
-<tr>
-<td>from_date *</td>
-<td><em>string</em></td>
-<td>Start date of returned data specified as YYYY-MM-DD (ISO date format)</td>
-</tr>
-<tr>
-<td>to_date *</td>
-<td><em>string</em></td>
-<td>End date of returned data specified as YYYY-MM-DD (ISO date format)</td>
-</tr>
-<tr>
-<td>limit *</td>
-<td><em>integer</em></td>
-<td>The number of entries returned before the latest data point (or the to_date if specified)</td>
-</tr>
-</tbody></table>
-<h3 id='data-overview-6'>Data Overview</h3>
-<table><thead>
-<tr>
-<th>Field</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>transactionhash</td>
-<td><em>string</em></td>
-<td>The transaction hash of the transaction in question.</td>
-</tr>
-<tr>
-<td>value</td>
-<td><em>decimal</em></td>
-<td>The amount of ETH transferred in this transaction.</td>
-</tr>
-<tr>
-<td>date</td>
-<td><em>string</em></td>
-<td>The date in <em>YYYY-MM-DD</em></td>
-</tr>
-<tr>
-<td>transaction_datetime</td>
-<td><em>string</em></td>
-<td>The timestamp in datetime format YYYY-MM-DD HH:MM:SS (UTC time zone) when the transaction was mined</td>
-</tr>
-<tr>
-<td>rank</td>
-<td><em>integer</em></td>
-<td>Ranking out of 10 for the 10 largest ETH transactions flowing out of the exchange in question on this date.</td>
-</tr>
-<tr>
-<td>value_usd</td>
-<td><em>decimal</em></td>
-<td>The value in USD of the amount of ETH tranferred in this transaction.</td>
 </tr>
 </tbody></table>
 <h1 id='stablecoin-exchange-flows'>Stablecoin Exchange Flows</h1>
@@ -8402,64 +7904,78 @@ The static endpoint lags behind the tip of the chain by 2 hours in order to leav
 </tr>
 </tbody></table>
 <h1 id='bitcoin-miner-stats'>Bitcoin Miner Stats</h1>
-<p>For Bitcoin <em>Miner Hashrate</em>, <em>Miner Rewards</em>, <em>Miner Historical Inflow</em> and <em>Miner Historical Outflow</em> endpoints, the supported miners/mining pools in the field <code>miner_name</code> are:</p>
+<p>For Bitcoin <em>Miner Hashrate</em>, <em>Miner Rewards</em>, <em>Miner Historical Inflow</em> and <em>Miner Historical Outflow</em> endpoints, the supported miners/mining pools in the query parameter <code>miner</code> are:</p>
 
 <table><thead>
 <tr>
-<th><code>miner_name</code></th>
+<th>Miner Name</th>
+<th><code>miner</code></th>
 </tr>
 </thead><tbody>
 <tr>
-<td><code>Antpool</code></td>
+<td>Antpool</td>
+<td><code>antpool</code></td>
 </tr>
 <tr>
-<td><code>BTC.TOP</code></td>
+<td>BTC.TOP</td>
+<td><code>btc-top</code></td>
 </tr>
 <tr>
-<td><code>BitClubNetwork</code></td>
+<td>BTC-com</td>
+<td><code>btc-com</code></td>
 </tr>
 <tr>
-<td><code>F2Pool</code></td>
+<td>BitFury</td>
+<td><code>bitfury</code></td>
 </tr>
 <tr>
-<td><code>SlushPool</code></td>
+<td>F2Pool</td>
+<td><code>f2pool</code></td>
 </tr>
 <tr>
-<td><code>viaBTC</code></td>
+<td>Huobi Pool</td>
+<td><code>huobi-pool</code></td>
 </tr>
 <tr>
-<td><code>Unknown</code></td>
+<td>Poolin</td>
+<td><code>poolin</code></td>
+</tr>
+<tr>
+<td>SlushPool</td>
+<td><code>slushpool</code></td>
+</tr>
+<tr>
+<td>viaBTC</td>
+<td><code>viabtc</code></td>
+</tr>
+<tr>
+<td>1THash&amp;58coin</td>
+<td><code>1thash%2658coin</code></td>
 </tr>
 </tbody></table>
 <h2 id='miner-hashrate'>Miner Hashrate</h2>
 <p><img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/></p>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_miner_hashrate_window_historical/last?format=json&amp;window=1d&amp;token=btc&amp;limit=2&amp;key=API_KEY"</span>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_miner_hashrate_window_historical/last?format=json&amp;miner=antpool&amp;token=btc&amp;window=1d&amp;from_date=2020-01-22&amp;to_date=2020-01-23&amp;limit=2&amp;key=API_KEY"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-07-22"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"miner_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"F2 Pool"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"miner_daily_block_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">19</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"total_daily_block_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">322</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"miner_daily_hashrate"</span><span class="p">:</span><span class="w"> </span><span class="mf">8561054.749877952</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"total_daily_hashrate"</span><span class="p">:</span><span class="w"> </span><span class="mf">71191928.97266929</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"miner_daily_hashrate_pct"</span><span class="p">:</span><span class="w"> </span><span class="mf">12.025316455696203</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-22"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"hashrate"</span><span class="p">:</span><span class="w"> </span><span class="mf">13956207.0726</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"block_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">19</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"hashrate_pct"</span><span class="p">:</span><span class="w"> </span><span class="mf">12.1795</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-07-22"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"miner_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AntPool"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"miner_daily_block_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">18</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"total_daily_block_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">322</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"miner_daily_hashrate"</span><span class="p">:</span><span class="w"> </span><span class="mf">8110472.920937006</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"total_daily_hashrate"</span><span class="p">:</span><span class="w"> </span><span class="mf">71191928.97266929</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"miner_daily_hashrate_pct"</span><span class="p">:</span><span class="w"> </span><span class="mf">11.392405063291138</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-22"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"hashrate"</span><span class="p">:</span><span class="w"> </span><span class="mf">12487132.6439</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"block_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">17</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"hashrate_pct"</span><span class="p">:</span><span class="w"> </span><span class="mf">10.6918</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
-<p>This endpoint returns the daily miner specific hashrates for all the miners we cover. The <code>total_daily_hashrate</code> and the <code>miner_daily_hashrate</code> are denominated in TH/s. The <code>total_daily_block_count</code> is the total number of blocks mined on a given day, and the <code>miner_daily_block_count</code> are the number of blocks mined by a specific miner. We do not know the identify of all miners and a lot of them are labelled as unknown and grouped together.</p>
+<p>This endpoint returns the daily miner specific hashrates for all the miners we cover. The <code>hashrate</code> are denominated in TH/s. The <code>block_count</code> are the number of blocks mined by a specific miner.</p>
 <h3 id='http-request'>HTTP Request</h3>
 <p><code>GET https://api.tokenanalyst.io/analytics/private/v1/token_miner_hashrate_window_historical/last</code></p>
 <h3 id='query-parameters'>Query Parameters</h3>
@@ -8484,6 +8000,11 @@ The static endpoint lags behind the tip of the chain by 2 hours in order to leav
 <td>token</td>
 <td><em>string</em></td>
 <td><code>btc</code></td>
+</tr>
+<tr>
+<td>miner</td>
+<td><em>miner</em></td>
+<td>A miner from the table that we support</td>
 </tr>
 <tr>
 <td>window</td>
@@ -8522,59 +8043,43 @@ The static endpoint lags behind the tip of the chain by 2 hours in order to leav
 <td>The date in <em>YYYY-MM-DD</em></td>
 </tr>
 <tr>
-<td>miner_name</td>
-<td><em>string</em></td>
-<td>Human readable name of the miner in our database, if known.</td>
-</tr>
-<tr>
-<td>miner_daily_block_count</td>
-<td><em>integer</em></td>
-<td>The total number of blocks mined by the miner on this date</td>
-</tr>
-<tr>
-<td>total_daily_block_count</td>
-<td><em>integer</em></td>
-<td>The total number of blocks mined on the blockchain on this date.</td>
-</tr>
-<tr>
-<td>miner_daily_hashrate</td>
+<td>hashrate</td>
 <td><em>decimal</em></td>
-<td>The hashrate contribution of the given miner for the day. Denominated in Th/s.</td>
+<td>The hashrate contribution of a given miner for the day. Denominated in Th/s.</td>
 </tr>
 <tr>
-<td>total_daily_hashrate</td>
-<td><em>decimal</em></td>
-<td>The hashrate of the blockchain for the day. Denominated in Th/s.</td>
+<td>block_count</td>
+<td><em>integer</em></td>
+<td>The total number of blocks mined by a given miner on this date</td>
 </tr>
 <tr>
-<td>miner_daily_hashrate_pct</td>
+<td>hashrate_pct</td>
 <td><em>decimal</em></td>
 <td>The percentage of the daily hashrate contributed by the miner. (<em>miner_daily_hashrate</em>/<em>total_daily_hashrate</em>)*100</td>
 </tr>
 </tbody></table>
 <h2 id='miner-rewards'>Miner Rewards</h2>
 <p><img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/></p>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_miner_rewards_window_historical/last?format=json&amp;token=btc&amp;window=1d&amp;limit=2&amp;key=API_KEY"</span>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_rewards_hashrate_window_historical/last?format=json&amp;miner=antpool&amp;token=btc&amp;window=1d&amp;from_date=2020-01-22&amp;to_date=2020-01-23&amp;limit=2&amp;key=API_KEY"</span>
+
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-10-16"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"miner_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"miner_daily_block_reward"</span><span class="p">:</span><span class="w"> </span><span class="mf">571.6431</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"miner_daily_block_reward_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">4620304.75</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-22"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"block_reward"</span><span class="p">:</span><span class="w"> </span><span class="mf">240.2266818</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"block_reward_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">2086207.8</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-10-16"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"miner_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"viaBTC"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"miner_daily_block_reward"</span><span class="p">:</span><span class="w"> </span><span class="mf">164.9395</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"miner_daily_block_reward_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">1333123.7</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-23"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"block_reward"</span><span class="p">:</span><span class="w"> </span><span class="mf">215.34830001</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"block_reward_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">1816345.79</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
-<p>This endpoint returns the daily coinbase rewards earned by all the miners we cover (incl. txn fees). The <code>miner_daily_block_reward</code> is denominated BTC.</p>
+<p>This endpoint returns the daily coinbase rewards earned by all the miners we cover (incl. txn fees). The <code>block_reward</code> is denominated BTC.</p>
 <h3 id='http-request-2'>HTTP Request</h3>
 <p><code>GET https://api.tokenanalyst.io/analytics/private/v1/token_miner_rewards_window_historical/last</code></p>
 <h3 id='query-parameters-2'>Query Parameters</h3>
@@ -8599,6 +8104,11 @@ The static endpoint lags behind the tip of the chain by 2 hours in order to leav
 <td>token</td>
 <td><em>string</em></td>
 <td><code>btc</code></td>
+</tr>
+<tr>
+<td>miner</td>
+<td><em>string</em></td>
+<td>A miner from the table that we support</td>
 </tr>
 <tr>
 <td>window</td>
@@ -8637,23 +8147,16 @@ The static endpoint lags behind the tip of the chain by 2 hours in order to leav
 <td>The date in <em>YYYY-MM-DD</em></td>
 </tr>
 <tr>
-<td>miner_name</td>
-<td><em>string</em></td>
-<td>Human readable name of the miner in our database, if known.</td>
+<td>block_reward</td>
+<td><em>decimal</em></td>
+<td>The total amount of block rewards earned by a given miner on this date. Denominated in BTC.</td>
 </tr>
 <tr>
-<td>miner_daily_block_reward</td>
+<td>block_reward_usd</td>
 <td><em>decimal</em></td>
-<td>The total amount of block rewards earned by this miner on this date. Denominated in BTC.</td>
-</tr>
-<tr>
-<td>miner_daily_block_reward_usd</td>
-<td><em>decimal</em></td>
-<td><em>miner_daily_block_reward</em> * <em>price_usd</em></td>
+<td><em>block_reward</em> * <em>price_usd</em></td>
 </tr>
 </tbody></table>
-
-<p>Miner addresses that are unlabelled have a <code>miner_name</code> of <code>&quot;Unknown&quot;</code>.</p>
 <h2 id='miner-full-historical-inflow'>Miner Full Historical Inflow</h2>
 <p>This endpoint returns the inflow of a given token into miner controlled wallets during the time period specified. Miner wallets are all bitcoin addresses that have <em>ever</em> been the recipient of block rewards. The <code>avg_txn_value</code>, <code>inflow</code>, and <code>number_of_txns</code> are calculated over the window (either 1 hour or 1 day). The <code>hour</code> is in UTC.</p>
 
