@@ -56,7 +56,7 @@ This endpoint returns the daily miner specific hashrates for all the miners we c
 | key          | _string_  | Your unique API key                                                                       |
 | format       | _string_  | What format you want your data in (`json` or `csv`)                                       |
 | token        | _string_  | `btc`                                                                                     |
-| miner        | _miner_   | A miner from that we support                                                              |
+| miner        | _miner_   | A miner from the table that we support                                                              |
 | window       | _string_  | `1d` (no support for 1h at this time)                                                     |
 | from_date \* | _string_  | Start date of returned data specified as YYYY-MM-DD (ISO date format)                     |
 | to_date \*   | _string_  | End date of returned data specified as YYYY-MM-DD (ISO date format)                       |
