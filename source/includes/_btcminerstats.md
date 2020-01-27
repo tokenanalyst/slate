@@ -14,7 +14,10 @@ For Bitcoin _Miner Hashrate_, _Miner Rewards_, _Miner Historical Inflow_ and _Mi
 | SlushPool      | `slushpool`       |
 | viaBTC         | `viabtc`          |
 | 1THash&58coin  | `1thash%2658coin` |
+| Others         | `others`          |
+| Unknown        | `unknown`         |
 
+Miner addresses that we have identified but are not supported have a `miner` name of `others`. Similarly, miner addresses that are unlabelled have a `miner` name of `unknown`
 
 ## Miner Hashrate
 
