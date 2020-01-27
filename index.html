@@ -7952,7 +7952,17 @@ The static endpoint lags behind the tip of the chain by 2 hours in order to leav
 <td>1THash&amp;58coin</td>
 <td><code>1thash%2658coin</code></td>
 </tr>
+<tr>
+<td>Others</td>
+<td><code>others</code></td>
+</tr>
+<tr>
+<td>Unknown</td>
+<td><code>unknown</code></td>
+</tr>
 </tbody></table>
+
+<p>Miner addresses that we have identified but are not supported have a <code>miner</code> name of <code>others</code>. Similarly, miner addresses that are unlabelled have a <code>miner</code> name of <code>unknown</code></p>
 <h2 id='miner-hashrate'>Miner Hashrate</h2>
 <p><img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/></p>
 <pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_miner_hashrate_window_historical/last?format=json&amp;miner=antpool&amp;token=btc&amp;window=1d&amp;from_date=2020-01-22&amp;to_date=2020-01-23&amp;limit=2&amp;key=API_KEY"</span>
