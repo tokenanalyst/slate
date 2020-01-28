@@ -38,7 +38,7 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_miner_hashrate_wind
     "hashrate_pct": 12.1795
   },
   {
-    "date": "2020-01-22",
+    "date": "2020-01-23",
     "hashrate": 12487132.6439,
     "block_count": 17,
     "hashrate_pct": 10.6918
