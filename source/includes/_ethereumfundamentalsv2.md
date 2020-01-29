@@ -336,12 +336,12 @@ This endpoint returns the total and average fees spent on the Ethereum network f
 | avg_fee           | _string_ | The average fee paid per transaction that occurred on this date. Denominated in ETH.                                                                                                                      |
 | avg_fee_usd       | _string_ | _avg_fee_ \* _price_usd_                                                                                                                                                                                      |
 
-## ETH Miner Hashrate
+## ETH Total Hashrate
 
 <img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/>
 
 ```shell
-curl "https://api.tokenanalyst.io/analytics/private/v1/token_miner_hashrate_window_historical/last?format=json&token=eth&window=1d&from_date=2016-04-06&to_date=2016-04-07&limit=2&key=API_KEY"
+curl "https://api.tokenanalyst.io/analytics/private/v1/token_hashrate_window_historical/last?format=json&window=1d&token=eth&limit=2&key=API_KEY"
 ```
 
 > The above command returns JSON structured like this:
@@ -349,78 +349,52 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_miner_hashrate_wind
 ```json
 [
   {
-    "date": "2016-04-07",
-    "miner": "0xeF59F31770B101C23e69958C8FD9485Cc267FCD9",
-    "miner_name": "Unknown",
-    "total_daily_hashrate": 1.6977,
-    "miner_daily_hashrate": 0.0006,
-    "miner_daily_hashrate_pct": 0.0331,
-    "miner_daily_block_count": 2,
-    "miner_daily_uncle_count": 0,
-    "miner_daily_uncle_pct": 0,
-    "total_daily_block_count": 5953,
-    "total_daily_uncle_count": 403,
-    "total_daily_uncle_pct": 6.7697
+    "date": "2020-01-27",
+    "hashrate": 157.4803,
+    "block_count": 6552,
   },
   {
-    "date": "2016-04-07",
-    "miner": "0xf8b483DbA2c3B7176a3Da549ad41A48BB3121069",
-    "miner_name": "Coinotron 1",
-    "total_daily_hashrate": 1.6977,
-    "miner_daily_hashrate": 0.1637,
-    "miner_daily_hashrate_pct": 9.6417,
-    "miner_daily_block_count": 574,
-    "miner_daily_uncle_count": 41,
-    "miner_daily_uncle_pct": 6.6667,
-    "total_daily_block_count": 5953,
-    "total_daily_uncle_count": 403,
-    "total_daily_uncle_pct": 6.7697
+    "date": "2020-01-28",
+    "hashrate": 154.7753,
+    "block_count": 6511,
   }
 ]
 ```
 
-This endpoint returns the total and miner specifc hashrate and uncle rates. The `total_daily_hashrate` and the `miner_daily_hashrate` are denominated in TH/s. The `total_daily_block_count` is the total number of blocks mined on a given day, and the `miner_daily_block_count` are the number of blocks mined by a specific miner. We do not know the identify of all miners and a lot of them are labelled as unkown
+This endpoint returns the daily hashrate and blocks mined for a given day. The `hashrate` is denominated in TH/s and `block_count` is the total number of blocks mined, for a given day.
 
 ### HTTP Request
 
-`GET https://api.tokenanalyst.io/analytics/private/v1/token_miner_hashrate_window_historical/last`
+`GET https://api.tokenanalyst.io/analytics/private/v1/token_hashrate_window_historical/last`
 
 ### Query Parameters
 
-| Parameter | Type     | Description                                         |
-| --------- | -------- | --------------------------------------------------- |
-| key       | _string_ | Your unique API key                                 |
-| format    | _string_ | What format you want your data in (`json` or `csv`) |
-| token     | _string_ | `eth`                                               |
-| window       | _string_  | `1d` (no support for 1h at this time)                                                     |
+| Parameter    | Type      | Description                                                                               |
+| ------------ | --------- | ----------------------------------------------------------------------------------------- |
+| key          | _string_  | Your unique API key                                                                       |
+| format       | _string_  | What format you want your data in (`json` or `csv`)                                       |
+| token        | _string_  | `eth`                                                                                     |
+| window       | _string_  | `1d` only. `1h` not supported currently.                                                    |
 | from_date \* | _string_  | Start date of returned data specified as YYYY-MM-DD (ISO date format)                     |
 | to_date \*   | _string_  | End date of returned data specified as YYYY-MM-DD (ISO date format)                       |
 | limit \*     | _integer_ | The number of entries returned before the latest data point (or the to_date if specified) |
 
+Note: All params with a \* are optional and `limit` is only available in the JSON return format
 
 ### Data Overview
 
-| Field                    | Type      | Description                                                                    |
-| ------------------------ | --------- | ------------------------------------------------------------------------------ |
-| date                     | _string_  | The date in _YYYY-MM-DD_                                                       |
-| miner               | _string_  | Public key hash (address) of the miner                   |
-| miner_name               | _string_  | Human readable name of the miner in our database, if known.                    |
-| total_daily_hashrate     | _decimal_ | The hashrate of the blockchain for the day. Denominated in Th/s.               |
-| miner_daily_hashrate     | _decimal_  | The hashrate contribution of the given miner for the day. Denominated in Th/s. |
-| miner_daily_hashrate_pct | _decimal_  | The percentage of the daily hashrate contributed by the miner. (_miner_daily_hashrate_/_total_daily_hashrate_)*100                                                                          |
-| miner_daily_block_count  | _integer_  | The total number of blocks mined by the miner on this date                            |
-| miner_daily_uncle_count  | _integer_  | The total number of uncles mined by the miner on this date                                                                          |
-| miner_daily_uncle_pct    | _decimal_  | (_miner_daily_uncle_count_/_miner_daily_block_count_)*100                            |
-| total_daily_block_count  | _integer_  | The total number of blocks mined on the blockchain on this date.                                                                          |
-| total_daily_uncle_count  | _integer_  | The total number of uncles mined on the blockchain on this date.                            |
-| total_daily_uncle_pct    | _decimal_  | (_total_daily_uncle_count_/_total_daily_block_count_)*100                                                                          |
+| Field                    | Type      | Description                                                                                                         |
+| ------------------------ | --------- | ------------------------------------------------------------------------------------------------------------------- |
+| date                     | _string_  | The date in _YYYY-MM-DD_                                                                                            |
+| hashrate                 | _decimal_ | The hashrate of the blockchain for the day. Denominated in Th/s.                                                    |
+| block_count              | _integer_ | The total number of blocks mined on the blockchain on this date.                                                    |
 
-## ETH Miner Rewards
+## ETH Total Rewards
 
 <img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/>
 
 ```shell
-curl "https://api.tokenanalyst.io/analytics/private/v1/token_miner_rewards_window_historical/last?format=json&token=eth&from_date=2019-07-22&to_date=2019-07-23&limit=2&window=1d&key=API_KEY"
+curl "https://api.tokenanalyst.io/analytics/private/v1/token_rewards_window_historical/last?format=json&token=eth&window=1d&limit=2&key=API_KEY"
 ```
 
 > The above command returns JSON structured like this:
@@ -428,53 +402,45 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_miner_rewards_windo
 ```json
 [
   {
-    "date": "2019-07-23",
-    "miner_name": "WaterholePool",
-    "miner_daily_block_reward": 32.0625,
-    "miner_daily_block_reward_usd": 6853.98,
-    "miner_daily_uncle_reward": 7,
-    "miner_daily_uncle_reward_usd": 1496.39
+    "date": "2020-01-27",
+    "block_reward": 13678.125,
+    "block_reward_usd": 2306321.47
   },
   {
-    "date": "2019-07-23",
-    "miner_name": "zhizu.top",
-    "miner_daily_block_reward": 344.5,
-    "miner_daily_block_reward_usd": 73643.53,
-    "miner_daily_uncle_reward": 25,
-    "miner_daily_uncle_reward_usd": 5344.23
+    "date": "2020-01-28",
+    "block_reward": 13565.375,
+    "block_reward_usd": 2333781.64
   }
 ]
 ```
 
-This endpoint returns the daily block rewards and uncle rewards by miner. The `miner_daily_block_reward` and `miner_daily_uncle_reward` are denomiated ETH.
+This endpoint returns the daily coinbase rewards. The `block_reward` (incl. uncle rewards) is denominated ETH.
 
 ### HTTP Request
 
-`GET https://api.tokenanalyst.io/analytics/private/v1/token_miner_rewards_window_historical/last`
+`GET https://api.tokenanalyst.io/analytics/private/v1/token_rewards_window_historical/last`
 
 ### Query Parameters
 
-| Parameter | Type     | Description                                         |
-| --------- | -------- | --------------------------------------------------- |
-| key       | _string_ | Your unique API key                                 |
-| format    | _string_ | What format you want your data in (`json` or `csv`) |
-| token     | _string_ | `eth`                                               |
-| window       | _string_  | `1d` (no support for 1h at this time)                                                     |
+| Parameter    | Type      | Description                                                                               |
+| ------------ | --------- | ----------------------------------------------------------------------------------------- |
+| key          | _string_  | Your unique API key                                                                       |
+| format       | _string_  | What format you want your data in (`json` or `csv`)                                       |
+| token        | _string_  | `eth`                                                                                     |
+| window       | _string_  | `1d` only. `1h` not supported currently.                                                  |
 | from_date \* | _string_  | Start date of returned data specified as YYYY-MM-DD (ISO date format)                     |
 | to_date \*   | _string_  | End date of returned data specified as YYYY-MM-DD (ISO date format)                       |
 | limit \*     | _integer_ | The number of entries returned before the latest data point (or the to_date if specified) |
 
+Note: All params with a \* are optional and `limit` is only available in the JSON return format
 
 ### Data Overview
 
-| Field | Type     | Description                                         |
-| --------- | -------- | --------------------------------------------------- |
-| date       | _string_ | The date in _YYYY-MM-DD_                                 |
-| miner_name    | _string_ | Human readable name of the miner in our database, if known. |
-| miner_daily_block_reward     | _decimal_ | The total amount of block rewards earned by this miner on this date. Denominated in ETH.                                               |
-| miner_daily_block_reward_usd     | _decimal_ | _miner_daily_block_reward_ * _price_usd_                                              |
-| miner_daily_uncle_reward     | _decimal_ | The total amount of uncle rewards earned by this miner on this date. Denominated in ETH.                                                                         |
-| miner_daily_uncle_reward_usd     | _decimal_ | _miner_daily_uncle_reward_ * _price_usd_                                               |
+| Field                        | Type      | Description                                                                              |
+| ---------------------------- | --------- | ---------------------------------------------------------------------------------------- |
+| date                         | _string_  | The date in _YYYY-MM-DD_                                                                 |
+| block_reward                 | _decimal_ | The total amount of block rewards earned on this date. Denominated in ETH.               |
+| block_reward_usd             | _decimal_ | _block_reward_ \* _price_usd_                                                            |
 
 ## ETH New Addresses
 
