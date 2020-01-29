@@ -317,10 +317,10 @@
                     <a href="#eth-fees" class="toc-h2 toc-link" data-title="ETH Fees">ETH Fees</a>
                   </li>
                   <li>
-                    <a href="#eth-miner-hashrate" class="toc-h2 toc-link" data-title="ETH Miner Hashrate">ETH Miner Hashrate</a>
+                    <a href="#eth-total-hashrate" class="toc-h2 toc-link" data-title="ETH Total Hashrate">ETH Total Hashrate</a>
                   </li>
                   <li>
-                    <a href="#eth-miner-rewards" class="toc-h2 toc-link" data-title="ETH Miner Rewards">ETH Miner Rewards</a>
+                    <a href="#eth-total-rewards" class="toc-h2 toc-link" data-title="ETH Total Rewards">ETH Total Rewards</a>
                   </li>
                   <li>
                     <a href="#eth-new-addresses" class="toc-h2 toc-link" data-title="ETH New Addresses">ETH New Addresses</a>
@@ -3780,47 +3780,29 @@ The weighted average age is sum of the ages of UTXOs multiplied by their bitocoi
 <td><em>avg_fee</em> * <em>price_usd</em></td>
 </tr>
 </tbody></table>
-<h2 id='eth-miner-hashrate'>ETH Miner Hashrate</h2>
+<h2 id='eth-total-hashrate'>ETH Total Hashrate</h2>
 <p><img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/></p>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_miner_hashrate_window_historical/last?format=json&amp;token=eth&amp;window=1d&amp;from_date=2016-04-06&amp;to_date=2016-04-07&amp;limit=2&amp;key=API_KEY"</span>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_hashrate_window_historical/last?format=json&amp;window=1d&amp;token=eth&amp;limit=2&amp;key=API_KEY"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-04-07"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"miner"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0xeF59F31770B101C23e69958C8FD9485Cc267FCD9"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"miner_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Unknown"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"total_daily_hashrate"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.6977</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"miner_daily_hashrate"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0006</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"miner_daily_hashrate_pct"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0331</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"miner_daily_block_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"miner_daily_uncle_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"miner_daily_uncle_pct"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"total_daily_block_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">5953</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"total_daily_uncle_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">403</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"total_daily_uncle_pct"</span><span class="p">:</span><span class="w"> </span><span class="mf">6.7697</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-27"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"hashrate"</span><span class="p">:</span><span class="w"> </span><span class="mf">157.4803</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"block_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">6552</span><span class="p">,</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-04-07"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"miner"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0xf8b483DbA2c3B7176a3Da549ad41A48BB3121069"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"miner_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Coinotron 1"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"total_daily_hashrate"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.6977</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"miner_daily_hashrate"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.1637</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"miner_daily_hashrate_pct"</span><span class="p">:</span><span class="w"> </span><span class="mf">9.6417</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"miner_daily_block_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">574</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"miner_daily_uncle_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">41</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"miner_daily_uncle_pct"</span><span class="p">:</span><span class="w"> </span><span class="mf">6.6667</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"total_daily_block_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">5953</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"total_daily_uncle_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">403</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"total_daily_uncle_pct"</span><span class="p">:</span><span class="w"> </span><span class="mf">6.7697</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-28"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"hashrate"</span><span class="p">:</span><span class="w"> </span><span class="mf">154.7753</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"block_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">6511</span><span class="p">,</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
-<p>This endpoint returns the total and miner specifc hashrate and uncle rates. The <code>total_daily_hashrate</code> and the <code>miner_daily_hashrate</code> are denominated in TH/s. The <code>total_daily_block_count</code> is the total number of blocks mined on a given day, and the <code>miner_daily_block_count</code> are the number of blocks mined by a specific miner. We do not know the identify of all miners and a lot of them are labelled as unkown</p>
+<p>This endpoint returns the daily hashrate and blocks mined for a given day. The <code>hashrate</code> is denominated in TH/s and <code>block_count</code> is the total number of blocks mined, for a given day.</p>
 <h3 id='http-request-7'>HTTP Request</h3>
-<p><code>GET https://api.tokenanalyst.io/analytics/private/v1/token_miner_hashrate_window_historical/last</code></p>
+<p><code>GET https://api.tokenanalyst.io/analytics/private/v1/token_hashrate_window_historical/last</code></p>
 <h3 id='query-parameters-7'>Query Parameters</h3>
 <table><thead>
 <tr>
@@ -3847,7 +3829,7 @@ The weighted average age is sum of the ages of UTXOs multiplied by their bitocoi
 <tr>
 <td>window</td>
 <td><em>string</em></td>
-<td><code>1d</code> (no support for 1h at this time)</td>
+<td><code>1d</code> only. <code>1h</code> not supported currently.</td>
 </tr>
 <tr>
 <td>from_date *</td>
@@ -3865,6 +3847,8 @@ The weighted average age is sum of the ages of UTXOs multiplied by their bitocoi
 <td>The number of entries returned before the latest data point (or the to_date if specified)</td>
 </tr>
 </tbody></table>
+
+<p>Note: All params with a * are optional and <code>limit</code> is only available in the JSON return format</p>
 <h3 id='data-overview-7'>Data Overview</h3>
 <table><thead>
 <tr>
@@ -3879,90 +3863,39 @@ The weighted average age is sum of the ages of UTXOs multiplied by their bitocoi
 <td>The date in <em>YYYY-MM-DD</em></td>
 </tr>
 <tr>
-<td>miner</td>
-<td><em>string</em></td>
-<td>Public key hash (address) of the miner</td>
-</tr>
-<tr>
-<td>miner_name</td>
-<td><em>string</em></td>
-<td>Human readable name of the miner in our database, if known.</td>
-</tr>
-<tr>
-<td>total_daily_hashrate</td>
+<td>hashrate</td>
 <td><em>decimal</em></td>
 <td>The hashrate of the blockchain for the day. Denominated in Th/s.</td>
 </tr>
 <tr>
-<td>miner_daily_hashrate</td>
-<td><em>decimal</em></td>
-<td>The hashrate contribution of the given miner for the day. Denominated in Th/s.</td>
-</tr>
-<tr>
-<td>miner_daily_hashrate_pct</td>
-<td><em>decimal</em></td>
-<td>The percentage of the daily hashrate contributed by the miner. (<em>miner_daily_hashrate</em>/<em>total_daily_hashrate</em>)*100</td>
-</tr>
-<tr>
-<td>miner_daily_block_count</td>
-<td><em>integer</em></td>
-<td>The total number of blocks mined by the miner on this date</td>
-</tr>
-<tr>
-<td>miner_daily_uncle_count</td>
-<td><em>integer</em></td>
-<td>The total number of uncles mined by the miner on this date</td>
-</tr>
-<tr>
-<td>miner_daily_uncle_pct</td>
-<td><em>decimal</em></td>
-<td>(<em>miner_daily_uncle_count</em>/<em>miner_daily_block_count</em>)*100</td>
-</tr>
-<tr>
-<td>total_daily_block_count</td>
+<td>block_count</td>
 <td><em>integer</em></td>
 <td>The total number of blocks mined on the blockchain on this date.</td>
 </tr>
-<tr>
-<td>total_daily_uncle_count</td>
-<td><em>integer</em></td>
-<td>The total number of uncles mined on the blockchain on this date.</td>
-</tr>
-<tr>
-<td>total_daily_uncle_pct</td>
-<td><em>decimal</em></td>
-<td>(<em>total_daily_uncle_count</em>/<em>total_daily_block_count</em>)*100</td>
-</tr>
 </tbody></table>
-<h2 id='eth-miner-rewards'>ETH Miner Rewards</h2>
+<h2 id='eth-total-rewards'>ETH Total Rewards</h2>
 <p><img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/></p>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_miner_rewards_window_historical/last?format=json&amp;token=eth&amp;from_date=2019-07-22&amp;to_date=2019-07-23&amp;limit=2&amp;window=1d&amp;key=API_KEY"</span>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_rewards_window_historical/last?format=json&amp;token=eth&amp;window=1d&amp;limit=2&amp;key=API_KEY"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-07-23"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"miner_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WaterholePool"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"miner_daily_block_reward"</span><span class="p">:</span><span class="w"> </span><span class="mf">32.0625</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"miner_daily_block_reward_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">6853.98</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"miner_daily_uncle_reward"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"miner_daily_uncle_reward_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">1496.39</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-27"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"block_reward"</span><span class="p">:</span><span class="w"> </span><span class="mf">13678.125</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"block_reward_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">2306321.47</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-07-23"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"miner_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"zhizu.top"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"miner_daily_block_reward"</span><span class="p">:</span><span class="w"> </span><span class="mf">344.5</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"miner_daily_block_reward_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">73643.53</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"miner_daily_uncle_reward"</span><span class="p">:</span><span class="w"> </span><span class="mi">25</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"miner_daily_uncle_reward_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">5344.23</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-28"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"block_reward"</span><span class="p">:</span><span class="w"> </span><span class="mf">13565.375</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"block_reward_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">2333781.64</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
-<p>This endpoint returns the daily block rewards and uncle rewards by miner. The <code>miner_daily_block_reward</code> and <code>miner_daily_uncle_reward</code> are denomiated ETH.</p>
+<p>This endpoint returns the daily coinbase rewards. The <code>block_reward</code> (incl. uncle rewards) is denominated ETH.</p>
 <h3 id='http-request-8'>HTTP Request</h3>
-<p><code>GET https://api.tokenanalyst.io/analytics/private/v1/token_miner_rewards_window_historical/last</code></p>
+<p><code>GET https://api.tokenanalyst.io/analytics/private/v1/token_rewards_window_historical/last</code></p>
 <h3 id='query-parameters-8'>Query Parameters</h3>
 <table><thead>
 <tr>
@@ -3989,7 +3922,7 @@ The weighted average age is sum of the ages of UTXOs multiplied by their bitocoi
 <tr>
 <td>window</td>
 <td><em>string</em></td>
-<td><code>1d</code> (no support for 1h at this time)</td>
+<td><code>1d</code> only. <code>1h</code> not supported currently.</td>
 </tr>
 <tr>
 <td>from_date *</td>
@@ -4007,6 +3940,8 @@ The weighted average age is sum of the ages of UTXOs multiplied by their bitocoi
 <td>The number of entries returned before the latest data point (or the to_date if specified)</td>
 </tr>
 </tbody></table>
+
+<p>Note: All params with a * are optional and <code>limit</code> is only available in the JSON return format</p>
 <h3 id='data-overview-8'>Data Overview</h3>
 <table><thead>
 <tr>
@@ -4021,29 +3956,14 @@ The weighted average age is sum of the ages of UTXOs multiplied by their bitocoi
 <td>The date in <em>YYYY-MM-DD</em></td>
 </tr>
 <tr>
-<td>miner_name</td>
-<td><em>string</em></td>
-<td>Human readable name of the miner in our database, if known.</td>
+<td>block_reward</td>
+<td><em>decimal</em></td>
+<td>The total amount of block rewards earned on this date. Denominated in ETH.</td>
 </tr>
 <tr>
-<td>miner_daily_block_reward</td>
+<td>block_reward_usd</td>
 <td><em>decimal</em></td>
-<td>The total amount of block rewards earned by this miner on this date. Denominated in ETH.</td>
-</tr>
-<tr>
-<td>miner_daily_block_reward_usd</td>
-<td><em>decimal</em></td>
-<td><em>miner_daily_block_reward</em> * <em>price_usd</em></td>
-</tr>
-<tr>
-<td>miner_daily_uncle_reward</td>
-<td><em>decimal</em></td>
-<td>The total amount of uncle rewards earned by this miner on this date. Denominated in ETH.</td>
-</tr>
-<tr>
-<td>miner_daily_uncle_reward_usd</td>
-<td><em>decimal</em></td>
-<td><em>miner_daily_uncle_reward</em> * <em>price_usd</em></td>
+<td><em>block_reward</em> * <em>price_usd</em></td>
 </tr>
 </tbody></table>
 <h2 id='eth-new-addresses'>ETH New Addresses</h2>
