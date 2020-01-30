@@ -33,15 +33,15 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_miner_hashrate_wind
 [
   {
     "date": "2020-01-22",
-    "hashrate": ,
-    "block_count": ,
-    "hashrate_pct": 
+    "hashrate": 12.5367,
+    "block_count": 518,
+    "hashrate_pct": 8.003
   },
   {
     "date": "2020-01-23",
-    "hashrate": ,
-    "block_count": ,
-    "hashrate_pct": 
+    "hashrate": 12.533,
+    "block_count": 522,
+    "hashrate_pct": 7.9325
   }
 ]
 ```
@@ -89,13 +89,13 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_miner_rewards_windo
 [
   {
     "date": "2020-01-22",
-    "block_reward": ,
-    "block_reward_usd": 
+    "block_reward": 1091.75,
+    "block_reward_usd": 183502.22
   },
   {
     "date": "2020-01-23",
-    "block_reward": ,
-    "block_reward_usd": 
+    "block_reward": 1100.3125,
+    "block_reward_usd": 179312.62
   }
 ]
 ```
