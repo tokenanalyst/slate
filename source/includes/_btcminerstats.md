@@ -352,7 +352,7 @@ Note: All params with a \* are optional and `limit` is only available in the JSO
 
 This endpoint returns the full historical BTC balance difference from miners that we have labelled. 
 
-The balance difference is the difference between the sum of the inputs and the sum of the outputs from Bitcoin transactions.
+The balance difference is defined to be the difference between the sum of the inputs and the sum of the outputs from an address's transactions.
 
 <img src="https://img.shields.io/badge/Tier-Professional-black.svg"/>
 
