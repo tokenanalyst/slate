@@ -61,7 +61,7 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_miner_hashrate_wind
 | format       | _string_  | What format you want your data in (`json` or `csv`)                                       |
 | token        | _string_  | `btc`                                                                                     |
 | miner        | _string_   | A miner from the table that we support                                                    |
-| window       | _string_  | `1d` (no support for 1h at this time)                                                     |
+| window       | _string_  | `1d` only. `1h` not supported currently.                                                    |
 | from_date \* | _string_  | Start date of returned data specified as YYYY-MM-DD (ISO date format)                     |
 | to_date \*   | _string_  | End date of returned data specified as YYYY-MM-DD (ISO date format)                       |
 | limit \*     | _integer_ | The number of entries returned before the latest data point (or the to_date if specified) |
