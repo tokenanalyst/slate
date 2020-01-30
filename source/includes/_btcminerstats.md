@@ -1,6 +1,6 @@
 # Bitcoin Miner Stats
 
-For Bitcoin _Miner Hashrate_, _Miner Rewards_, _Miner Historical Inflow_ and _Miner Historical Outflow_ endpoints, the supported miners/mining pools in the query parameter `miner` are:
+For Bitcoin _Miner Hashrate_, _Miner Rewards_, _Miner Historical Inflow_, _Miner Historical Outflow_ and _Miner Balances_ endpoints, the supported miners/mining pools in the query parameter `miner` are:
 
 | Miner Name     | `miner`           | 
 |----------------|-------------------|
@@ -14,10 +14,12 @@ For Bitcoin _Miner Hashrate_, _Miner Rewards_, _Miner Historical Inflow_ and _Mi
 | SlushPool      | `slushpool`       |
 | viaBTC         | `viabtc`          |
 | 1THash&58coin  | `1thash%2658coin` |
-| Others         | `others`          |
-| Unknown        | `unknown`         |
+| Others †       | `others`          |
+| Unknown †      | `unknown`         |
 
 Miner addresses that we have identified but are not supported have a `miner` name of `others`. Similarly, miner addresses that are unlabelled have a `miner` name of `unknown`
+
+Note: All miners with a † are not supported for _Miner Balances_ endpoint.
 
 ## Miner Hashrate
 
@@ -60,7 +62,7 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_miner_hashrate_wind
 | key          | _string_  | Your unique API key                                                                       |
 | format       | _string_  | What format you want your data in (`json` or `csv`)                                       |
 | token        | _string_  | `btc`                                                                                     |
-| miner        | _string_   | A miner from the table that we support                                                    |
+| miner        | _string_  | A miner from the <a href="https://docs.tokenanalyst.io/#bitcoin-miner-stats" target="_self">table</a> that we support     |
 | window       | _string_  | `1d` only. `1h` not supported currently.                                                    |
 | from_date \* | _string_  | Start date of returned data specified as YYYY-MM-DD (ISO date format)                     |
 | to_date \*   | _string_  | End date of returned data specified as YYYY-MM-DD (ISO date format)                       |
@@ -116,7 +118,7 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_rewards_hashrate_wi
 | key          | _string_  | Your unique API key                                                                       |
 | format       | _string_  | What format you want your data in (`json` or `csv`)                                       |
 | token        | _string_  | `btc`                                                                                     |
-| miner        | _string_  | A miner from the table that we support                                                    |
+| miner        | _string_  | A miner from the <a href="https://docs.tokenanalyst.io/#bitcoin-miner-stats" target="_self">table</a> that we support                                                    |
 | window       | _string_  | `1d` only. `1h` not supported currently.                                                  |
 | from_date \* | _string_  | Start date of returned data specified as YYYY-MM-DD (ISO date format)                     |
 | to_date \*   | _string_  | End date of returned data specified as YYYY-MM-DD (ISO date format)                       |
@@ -182,10 +184,12 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/miner_flow_window_histori
 | token        | _string_  | `btc`                                                                                     |
 | direction    | _string_  | `inflow`                                                                                  |
 | window       | _string_  | `1h` or `1d`                                                                              |
-| miner        | _string_  | A miner from the table that we support                                                    |
+| miner        | _string_  | A miner from the <a href="https://docs.tokenanalyst.io/#bitcoin-miner-stats" target="_self">table</a> that we support                                                    |
 | from_date \* | _string_  | Start date of returned data specified as YYYY-MM-DD (ISO date format)                     |
 | to_date \*   | _string_  | End date of returned data specified as YYYY-MM-DD (ISO date format)                       |
 | limit \*     | _integer_ | The number of entries returned before the latest data point (or the to_date if specified) |
+
+Note: All params with a \* are optional and `limit` is only available in the JSON return format
 
 ### Data Overview
 
@@ -250,7 +254,7 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/miner_flow_window_histori
 | token        | _string_  | `btc`                                                                                     |
 | direction    | _string_  | `outflow`                                                                                 |
 | window       | _string_  | `1h` or `1d`                                                                              |
-| miner        | _string_  | A miner from the table that we support                                                    |
+| miner        | _string_  | A miner from the <a href="https://docs.tokenanalyst.io/#bitcoin-miner-stats" target="_self">table</a> that we support                                                    |
 | from_date \* | _string_  | Start date of returned data specified as YYYY-MM-DD (ISO date format)                     |
 | to_date \*   | _string_  | End date of returned data specified as YYYY-MM-DD (ISO date format)                       |
 | limit \*     | _integer_ | The number of entries returned before the latest data point (or the to_date if specified) |
@@ -327,8 +331,8 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/entity_to_entity_flow_win
 | format       | _string_  | What format you want your data in (`json` or `csv`)                                       |
 | token        | _string_  | `btc`                                                                                     |                                       |
 | window       | _string_  | `1h` or `1d`                                                                              |
-| from_entity  | _string_  | A miner from the table that we support
-| to_entity    | _string_  | An exchange from the table that we support
+| from_entity  | _string_  | A miner from the <a href="https://docs.tokenanalyst.io/#miners-to-exchanges-full-historical-flows" target="_self">table</a> that we support
+| to_entity    | _string_  | An exchange from the <a href="https://docs.tokenanalyst.io/#miners-to-exchanges-full-historical-flows" target="_self">table</a> that we support
 | from_date \* | _string_  | Start date of returned data specified as YYYY-MM-DD (ISO date format)                     |
 | to_date \*   | _string_  | End date of returned data specified as YYYY-MM-DD (ISO date format)                       |
 | limit \*     | _integer_ | The number of entries returned before the latest data point (or the to_date if specified) |
@@ -348,16 +352,14 @@ Note: All params with a \* are optional and `limit` is only available in the JSO
 | value                                   | _decimal_ | The total value of transactions sending BTC into an exchange
 | value_usd                               | _decimal_ | The USD value of transactions sending BTC into an exchange
 
-## Miner Balance Difference
+## Miner Balances
 
-This endpoint returns the full historical BTC balance difference from miners that we have labelled. 
-
-The balance difference is defined to be the difference between the sum of the inputs and the sum of the outputs from an address's transactions.
+This endpoint returns the balance of BTC held in the wallets of miners that we support for the full history of the miner in question.
 
 <img src="https://img.shields.io/badge/Tier-Professional-black.svg"/>
 
 ```shell
-curl "https://api.tokenanalyst.io/analytics/private/v1/miner_balancediff_window_historical/last?token=btc&window=1h&miner=slushpool&from_date=2019-01-01&to_date=2019-02-08&format=json&key=API_KEY"
+curl "https://api.tokenanalyst.io/analytics/private/v1/miner_balance_window_historical/last?token=btc&window=1h&miner=slushpool&from_date=2019-01-01&to_date=2019-02-08&format=json&key=API_KEY"
 ```
 
 > The above command returns JSON structured like this:
@@ -366,22 +368,24 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/miner_balancediff_window_
 [
   {
     "date": "2019-01-01",
-    "hour": "11:00:00", // not available when window 1d
-    "datetime": "2019-01-01 11:00:00", // not available when window 1d
-    "balancediff": 12.52530201,
+    "hour": "00:00:00", // not available when window 1d
+    "datetime": "2019-01-01 00:00:00", // not available when window 1d
+    "balance": 1000.50560683,
+    "balance_usd": 3752806.49
   },
   {
     "date": "2019-01-01",
-    "hour": "12:00:00", // not available when window 1d
-    "datetime": "2019-01-01 12:00:00", // not available when window 1d
-    "balancediff": 12.53417305,
+    "hour": "01:00:00", // not available when window 1d
+    "datetime": "2019-01-01 01:00:00", // not available when window 1d
+    "balance": 997.17045289,
+    "balance_usd": 3725528.53
   }
 ]
 ```
 
 ### HTTP Request
 
-`GET https://api.tokenanalyst.io/analytics/private/v1/miner_balancediff_window_historical/last?`
+`GET https://api.tokenanalyst.io/analytics/private/v1/miner_balance_window_historical/last?`
 
 ### Query Parameters
 
@@ -391,10 +395,12 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/miner_balancediff_window_
 | format       | _string_  | What format you want your data in (`json` or `csv`)                                       |
 | token        | _string_  | `btc`                                                                                     |
 | window       | _string_  | `1h` or `1d`                                                                              |
-| miner        | _string_  | A miner from the table that we support                                                    |
+| miner        | _string_  | A miner from the <a href="https://docs.tokenanalyst.io/#bitcoin-miner-stats" target="_self">table</a> that we support                                                    |
 | from_date \* | _string_  | Start date of returned data specified as YYYY-MM-DD (ISO date format)                     |
 | to_date \*   | _string_  | End date of returned data specified as YYYY-MM-DD (ISO date format)                       |
 | limit \*     | _integer_ | The number of entries returned before the latest data point (or the to_date if specified) |
+
+Note: All params with a \* are optional and `limit` is only available in the JSON return format
 
 ### Data Overview
 
@@ -403,4 +409,5 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/miner_balancediff_window_
 | date              | _string_  | The date in _YYYY-MM-DD_                                                                                                                    |
 | hour \*           | _string_  | The hour of the day in _HH:MM:SS_ (UTC time zone). This is an optional field and appears when window is `1h`                                |
 | datetime \*       | _string_  | The hour of the day in datetime format YYYY-MM-DD HH:MM:SS (UTC time zone). This is an optional field and appears when window is `1h`       |
-| balancediff       | _decimal_ | The difference between the sum of input entries and the sum of output entries from BTC transactions on this date/hour                       |
+| balance           | _decimal_ | The amount of BTC for a given miner on this date.                                                                                           |
+| balance_usd       | _decimal_ | The USD value of the amount of BTC for a given miner on this date.                                                                          |
