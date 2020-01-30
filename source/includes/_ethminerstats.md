@@ -70,8 +70,8 @@ Note: All params with a \* are optional and `limit` is only available in the JSO
 | Field                    | Type      | Description                                                                                                         |
 | ------------------------ | --------- | ------------------------------------------------------------------------------------------------------------------- |
 | date                     | _string_  | The date in _YYYY-MM-DD_                                                                                            |
-| hashrate                 | _decimal_ | The hashrate contribution of a given miner for the day. Denominated in Th/s.                                      |
-| block_count              | _integer_ | The total number of blocks mined by a given miner on this date                                                          |
+| hashrate                 | _decimal_ | The hashrate contribution of a given miner for the day. Denominated in Th/s.                                        |
+| block_count              | _integer_ | The total number of blocks mined by a given miner on this date                                                      |
 | hashrate_pct             | _decimal_ | The percentage of the daily hashrate contributed by the miner. (_miner_daily_hashrate_/_total_daily_hashrate_)\*100 |
 
 ## ETH Miner Rewards
@@ -113,7 +113,7 @@ This endpoint returns the daily rewards earned by all the miners we cover (incl.
 | key          | _string_  | Your unique API key                                                                       |
 | format       | _string_  | What format you want your data in (`json` or `csv`)                                       |
 | token        | _string_  | `eth`                                                                                     |
-| miner        | _string_  | A miner from the [table](#ethereum-miner-stats) that we support                                                    |
+| miner        | _string_  | A miner from the [table](#ethereum-miner-stats) that we support                           |
 | window       | _string_  | `1d` only. `1h` not supported currently.                                                  |
 | from_date \* | _string_  | Start date of returned data specified as YYYY-MM-DD (ISO date format)                     |
 | to_date \*   | _string_  | End date of returned data specified as YYYY-MM-DD (ISO date format)                       |
