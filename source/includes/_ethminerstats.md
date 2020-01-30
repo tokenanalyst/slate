@@ -163,7 +163,7 @@ The above table defines supported pairs of the query parameters `to_entity` and 
 <img src="https://img.shields.io/badge/Tier-Professional-black.svg"/>
 
 ```shell
-curl "https://api.tokenanalyst.io/analytics/private/v1/entity_to_entity_flow_window_historical/last?ormat=json&to_entity=binance&from_entity=2miners:%20pplns&token=eth&window=1h&limit=2&key=APIKEY"
+curl "https://api.tokenanalyst.io/analytics/private/v1/entity_to_entity_flow_window_historical/last?ormat=json&to_entity=binance&from_entity=2minerspplns&token=eth&window=1h&limit=2&key=APIKEY"
 ```
 
 > The above command returns JSON structured like this:
