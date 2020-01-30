@@ -137,26 +137,26 @@ For Ethereum, the currently supported Exchanges/Miners are:
 
 | Name             | `to_entity`        | `from_entity`                                                    |
 | ---------------- | ------------------ | ---------------------------------------------------------------- |
-| 2 Miners PPLNS   | `2miners: pplns`   | `binance`, `bitfinex`, `bittrex`, `kraken`, `kucoin`             |
-| 2 Miners SOLO    | `2miners: solo`    | `binance`, `bittrex`                                             |
-| AltPool.Pro      | `altpool.pro`      | `binance`                                                        |
-| BTC.COM          | `btc.com pool`     | `binance`, `bittrex`, `kraken`                                   |
-| Baikalmine       | `baikalmine 1`     | `bittrex`                                                        |
+| 2 Miners PPLNS   | `2minerspplns`     | `binance`, `bitfinex`, `bittrex`, `kraken`, `kucoin`             |
+| 2 Miners SOLO    | `2minerssolo`      | `binance`, `bittrex`                                             |
+| AltPool.Pro      | `altpool-pro`      | `binance`                                                        |
+| BTC.COM          | `btc-compool`      | `binance`, `bittrex`, `kraken`                                   |
+| Baikalmine       | `baikalmine1`      | `bittrex`                                                        |
 | Beeppool         | `beeppool`         | `binance`, `bittrex`                                             |
-| Coinotron        | `coinotron 3`      | `binance`, `bitfinex`, `bittrex`, `kraken`, `poloniex`           |
+| Coinotron        | `coinotron3`       | `binance`, `bitfinex`, `bittrex`, `kraken`, `poloniex`           |
 | Cruxpool         | `cruxpool`         | `binance`, `kraken`                                              |
-| Dwarfpool        | `dwarfpool 1`      | `binance`, `bitfinex`, `bittrex`, `kraken`, `kucoin`, `poloniex` |
-| eth.solopool.org | `eth.solopool.org` | `binance`, `bittrex`                                             |
+| Dwarfpool        | `dwarfpool1`       | `binance`, `bitfinex`, `bittrex`, `kraken`, `kucoin`, `poloniex` |
+| eth.solopool.org | `eth-solopool-org` | `binance`, `bittrex`                                             |
 | Ethermine        | `ethermine`        | `binance`, `bitfinex`, `bittrex`, `kraken`, `kucoin`, `poloniex` |
-| Ethpool          | `ethpool 2`        | `binance`, `kraken`                                              |
-| F2 Pool          | `f2pool 2`         | `binance`, `bitfinex`, `bittrex`, `kraken`, `kucoin`             |
-| Minerall         | `minerall pool`    | `binance`, `bittrex`, `kraken`, `poloniex`                       |
+| Ethpool          | `ethpool2`         | `binance`, `kraken`                                              |
+| F2 Pool          | `f2pool2`          | `binance`, `bitfinex`, `bittrex`, `kraken`, `kucoin`             |
+| Minerall         | `minerallpool`     | `binance`, `bittrex`, `kraken`, `poloniex`                       |
 | Miningpoolhub    | `miningpoolhub`    | `binance`, `bitfinex`, `bittrex`, `kraken`, `kucoin`             |
 | Nanopool         | `nanopool`         | `binance`, `bitfinex`, `bittrex`, `kraken`, `kucoin`, `poloniex` |
-| Sparkpool        | `spark pool`       | `bitfinex`                                                       |
+| Sparkpool        | `sparkpool`        | `bitfinex`                                                       |
 | Uleypool         | `uleypool`         | `binance`                                                        |
-| W pool           | `w pool`           | `binance`, `bitfinex`, `bittrex`, `kraken`, `kucoin`             |
-| zhizhu.top       | `zhizhu.top`       | `binance`, `bittrex`                                             |
+| W pool           | `wpool`            | `binance`, `bitfinex`, `bittrex`, `kraken`, `kucoin`             |
+| zhizhu.top       | `zhizhu-top`       | `binance`, `bittrex`                                             |
 
 The above table defines supported pairs of the query parameters `to_entity` and `from_entity`.
 
