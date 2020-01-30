@@ -19,7 +19,7 @@ For Ethereum _Miner Hashrate_ and _Miner Rewards_ endpoints, the supported miner
 
 Miner addresses that we have identified but are not supported have a `miner` name of `others`. Similarly, miner addresses that are unlabelled have a `miner` name of `unknown`
 
-## Miner Hashrate
+## ETH Miner Hashrate
 
 This endpoint returns the daily miner specific hashrates for all the miners we cover. 
 The `hashrate` are denominated in TH/s. The `block_count` are the number of blocks mined by a specific miner.
@@ -57,7 +57,7 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/token_miner_hashrate_wind
 | key          | _string_  | Your unique API key                                                                       |
 | format       | _string_  | What format you want your data in (`json` or `csv`)                                       |
 | token        | _string_  | `eth`                                                                                     |
-| miner        | _miner_   | A miner from the <a href="https://docs.tokenanalyst.io/#ethereum-miner-stats" target="_self">table</a> that we support                                                              |
+| miner        | _miner_   | A miner from the [table](#ethereum-miner-stats) that we support                                                              |
 | window       | _string_  | `1d` (no support for 1h at this time)                                                     |
 | from_date \* | _string_  | Start date of returned data specified as YYYY-MM-DD (ISO date format)                     |
 | to_date \*   | _string_  | End date of returned data specified as YYYY-MM-DD (ISO date format)                       |
@@ -74,7 +74,7 @@ Note: All params with a \* are optional and `limit` is only available in the JSO
 | block_count              | _integer_ | The total number of blocks mined by a given miner on this date                                                          |
 | hashrate_pct             | _decimal_ | The percentage of the daily hashrate contributed by the miner. (_miner_daily_hashrate_/_total_daily_hashrate_)\*100 |
 
-## Miner Rewards
+## ETH Miner Rewards
 
 <img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/>
 
@@ -113,7 +113,7 @@ This endpoint returns the daily rewards earned by all the miners we cover (incl.
 | key          | _string_  | Your unique API key                                                                       |
 | format       | _string_  | What format you want your data in (`json` or `csv`)                                       |
 | token        | _string_  | `eth`                                                                                     |
-| miner        | _string_  | A miner from the <a href="https://docs.tokenanalyst.io/#ethereum-miner-stats" target="_self">table</a> that we support                                                    |
+| miner        | _string_  | A miner from the [table](#ethereum-miner-stats) that we support                                                    |
 | window       | _string_  | `1d` only. `1h` not supported currently.                                                  |
 | from_date \* | _string_  | Start date of returned data specified as YYYY-MM-DD (ISO date format)                     |
 | to_date \*   | _string_  | End date of returned data specified as YYYY-MM-DD (ISO date format)                       |
@@ -129,8 +129,7 @@ Note: All params with a \* are optional and `limit` is only available in the JSO
 | block_reward                 | _decimal_ | The total amount of block rewards earned by a given miner on this date. Denominated in ETH. |
 | block_reward_usd             | _decimal_ | _block_reward_ \* _price_usd_                                                            |
 
-
-## Miners to Exchanges Full Historical Flows
+## ETH Miners to Exchanges Full Historical Flows
 
 This endpoint returns the full historical flows of ETH from miners _to_ exchanges that we have labelled.
 
@@ -206,8 +205,8 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/entity_to_entity_flow_win
 | format       | _string_  | What format you want your data in (`json` or `csv`)                                       |
 | token        | _string_  | `eth`                                                                                     |  |
 | window       | _string_  | `1h` or `1d`                                                                              |
-| from_entity  | _string_  | A miner from the table that we support                                                    |
-| to_entity    | _string_  | An exchange from the table that we support                                                |
+| from_entity  | _string_  | A miner from the <a href="https://docs.tokenanalyst.io/##eth-miners-to-exchanges-full-historical-flows" target="_self">table</a> that we support                                                    |
+| to_entity    | _string_  | An exchange from the <a href="https://docs.tokenanalyst.io/##eth-miners-to-exchanges-full-historical-flows" target="_self">table</a> that we support                                                |
 | from_date \* | _string_  | Start date of returned data specified as YYYY-MM-DD (ISO date format)                     |
 | to_date \*   | _string_  | End date of returned data specified as YYYY-MM-DD (ISO date format)                       |
 | limit \*     | _integer_ | The number of entries returned before the latest data point (or the to_date if specified) |
@@ -226,4 +225,3 @@ Note: All params with a \* are optional and `limit` is only available in the JSO
 | number_of_txns    | _integer_ | The number of transactions sending ETH into an exchange on this date/hour                                                             |
 | value             | _decimal_ | The total value of transactions sending ETH into an exchange                                                                          |
 | value_usd         | _decimal_ | The USD value of transactions sending ETH into an exchange                                                                            |
-
