@@ -532,52 +532,16 @@
                     <a href="#dataset-types" class="toc-h2 toc-link" data-title="Dataset Types">Dataset Types</a>
                   </li>
                   <li>
-                    <a href="#dataset-results" class="toc-h2 toc-link" data-title="Dataset Results">Dataset Results</a>
-                  </li>
-                  <li>
                     <a href="#by-name" class="toc-h2 toc-link" data-title="By Name">By Name</a>
-                  </li>
-                  <li>
-                    <a href="#by-token" class="toc-h2 toc-link" data-title="By Token">By Token</a>
-                  </li>
-                  <li>
-                    <a href="#by-exchange" class="toc-h2 toc-link" data-title="By Exchange">By Exchange</a>
-                  </li>
-                  <li>
-                    <a href="#by-exchange-and-token" class="toc-h2 toc-link" data-title="By Exchange and Token">By Exchange and Token</a>
-                  </li>
-                  <li>
-                    <a href="#by-window" class="toc-h2 toc-link" data-title="By Window">By Window</a>
-                  </li>
-                  <li>
-                    <a href="#by-direction" class="toc-h2 toc-link" data-title="By Direction">By Direction</a>
-                  </li>
-                  <li>
-                    <a href="#by-origin-entity" class="toc-h2 toc-link" data-title="By Origin Entity">By Origin Entity</a>
-                  </li>
-                  <li>
-                    <a href="#by-destination-entity" class="toc-h2 toc-link" data-title="By Destination Entity">By Destination Entity</a>
                   </li>
                   <li>
                     <a href="#supported-values" class="toc-h2 toc-link" data-title="Supported Values">Supported Values</a>
                   </li>
                   <li>
-                    <a href="#tokens" class="toc-h2 toc-link" data-title="Tokens">Tokens</a>
+                    <a href="#possible-values" class="toc-h2 toc-link" data-title="Possible values">Possible values</a>
                   </li>
                   <li>
-                    <a href="#exchanges" class="toc-h2 toc-link" data-title="Exchanges">Exchanges</a>
-                  </li>
-                  <li>
-                    <a href="#windows" class="toc-h2 toc-link" data-title="Windows">Windows</a>
-                  </li>
-                  <li>
-                    <a href="#directions" class="toc-h2 toc-link" data-title="Directions">Directions</a>
-                  </li>
-                  <li>
-                    <a href="#origin-entities" class="toc-h2 toc-link" data-title="Origin Entities">Origin Entities</a>
-                  </li>
-                  <li>
-                    <a href="#destination-entities" class="toc-h2 toc-link" data-title="Destination Entities">Destination Entities</a>
+                    <a href="#possible-values-filtered" class="toc-h2 toc-link" data-title="Possible values, filtered">Possible values, filtered</a>
                   </li>
               </ul>
           </li>
@@ -9854,17 +9818,26 @@ We currently support and return 4 types of events - <code>subscribe</code>, <cod
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"exchange_flow_window_historical"</span><span class="w">
+ </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"entity_to_entity_flow_window_historical"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"On-chain flows between entities"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"tier"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"exchange_flow_window_static"</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"token_supply_window_historical"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Token supply over time"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"tier"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"token_nvt_window_historical"</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"token_price_usd_window_historical"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Historical token prices in USD"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"tier"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
     </span><span class="p">},</span><span class="w">
+    </span><span class="err">...</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre><h3 id='data-overview'>Data Overview</h3>
+<p>All of the following dataset queries will have the same metadata at the top of the JSON structure.</p>
+
 <table><thead>
 <tr>
 <th>Field</th>
@@ -9877,36 +9850,15 @@ We currently support and return 4 types of events - <code>subscribe</code>, <cod
 <td><em>string</em></td>
 <td>The name of the dataset type that can be used in subsequent Data Catalog calls.</td>
 </tr>
-</tbody></table>
-<h2 id='dataset-results'>Dataset Results</h2>
-<p>All of the following dataset queries will have the below metadata at the top of the JSON structure:</p>
-<h3 id='dataset-base-metadata'>Dataset base metadata</h3>
-<table><thead>
 <tr>
-<th>Field</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>name</td>
-<td><em>string</em></td>
-<td>The name of the dataset type.</td>
-</tr>
-<tr>
-<td>description.text</td>
+<td>description</td>
 <td><em>string</em></td>
 <td>A description of the dataset type.</td>
 </tr>
 <tr>
-<td>tier.value</td>
-<td><em>number</em></td>
-<td>Numerical representation of the type of subscription required to access this set where 0 = Free, 2 = Pro, 3 = Enterprise.</td>
-</tr>
-<tr>
-<td>schema.json</td>
+<td>tier</td>
 <td><em>string</em></td>
-<td>JSON schema representation of the return values and types.</td>
+<td>Numerical representation of the type of subscription required to access this set where 0 = Free, 2 = Pro, 3 = Enterprise.</td>
 </tr>
 </tbody></table>
 <h2 id='by-name'>By Name</h2>
@@ -9921,39 +9873,132 @@ We currently support and return 4 types of events - <code>subscribe</code>, <cod
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"exchange_flow_window_historical"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Description for dataset exchange_flow_window_historical"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="s2">"tier"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="s2">"schema"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"json"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{</span><span class="se">\"</span><span class="s2">avg_txn_value</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">precision</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">{satoshi_precision}</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">type</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">float</span><span class="se">\"</span><span class="s2">},</span><span class="se">\"</span><span class="s2">avg_txn_value_usd</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">precision</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">{usd_precision}</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">type</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">float</span><span class="se">\"</span><span class="s2">},</span><span class="se">\"</span><span class="s2">date</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">format</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">{date_format}</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">type</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">date</span><span class="se">\"</span><span class="s2">},</span><span class="se">\"</span><span class="s2">datetime</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">format</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">{datetime_format}</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">type</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">datetime</span><span class="se">\"</span><span class="s2">},</span><span class="se">\"</span><span class="s2">hour</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">format</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">{hour_format}</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">type</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">hour</span><span class="se">\"</span><span class="s2">},</span><span class="se">\"</span><span class="s2">inflow</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">precision</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">{satoshi_precision}</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">type</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">float</span><span class="se">\"</span><span class="s2">},</span><span class="se">\"</span><span class="s2">inflow_usd</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">precision</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">{usd_precision}</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">type</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">float</span><span class="se">\"</span><span class="s2">},</span><span class="se">\"</span><span class="s2">number_of_txns</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">type</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">int</span><span class="se">\"</span><span class="s2">}}"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="s2">"exchange_flow_window_historical"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-            </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"direction"</span><span class="p">:</span><span class="w"> </span><span class="s2">"inflow"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"exchange"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bittrex"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"btc"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"window"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1h"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"location"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                    </span><span class="s2">"api"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_window_historical/last?token=btc&amp;direction=inflow&amp;window=1h&amp;exchange=bittrex"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"is_api_active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"exchange_flow_window_historical"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"tier"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"jobs"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"btc_exchange_outflow_1h"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"schema"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"date"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"format"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{date_format}"</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="s2">"hour"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"hour"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"format"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{hour_format}"</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="s2">"outflow"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"float"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"precision"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{satoshi_precision}"</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="s2">"datetime"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"datetime"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"format"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{datetime_format}"</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="s2">"outflow_usd"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"float"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"precision"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{usd_precision}"</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="s2">"avg_txn_value"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"float"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"precision"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{satoshi_precision}"</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="s2">"number_of_txns"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"int"</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="s2">"avg_txn_value_usd"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"float"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"precision"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{usd_precision}"</span><span class="w">
                 </span><span class="p">}</span><span class="w">
             </span><span class="p">},</span><span class="w">
-            </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"direction"</span><span class="p">:</span><span class="w"> </span><span class="s2">"inflow"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"exchange"</span><span class="p">:</span><span class="w"> </span><span class="s2">"poloniex"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bat"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"window"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1h"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"location"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                    </span><span class="s2">"api"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_window_historical/last?direction=inflow&amp;window=1h&amp;token=bat&amp;exchange=poloniex"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"is_api_active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+            </span><span class="s2">"endpoints"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"url_parameters"</span><span class="p">:</span><span class="w"> </span><span class="s2">"token=btc&amp;window=1h&amp;exchange=binance&amp;direction=outflow"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"btc_binance_outflow_1h_historical"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"parameters"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                        </span><span class="s2">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"btc"</span><span class="p">,</span><span class="w">
+                        </span><span class="s2">"window"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1h"</span><span class="p">,</span><span class="w">
+                        </span><span class="s2">"exchange"</span><span class="p">:</span><span class="w"> </span><span class="s2">"binance"</span><span class="p">,</span><span class="w">
+                        </span><span class="s2">"direction"</span><span class="p">:</span><span class="w"> </span><span class="s2">"outflow"</span><span class="w">
+                    </span><span class="p">}</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"url_parameters"</span><span class="p">:</span><span class="w"> </span><span class="s2">"token=btc&amp;window=1h&amp;exchange=kraken&amp;direction=outflow"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"btc_kraken_outflow_1h_historical"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"parameters"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                        </span><span class="s2">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"btc"</span><span class="p">,</span><span class="w">
+                        </span><span class="s2">"window"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1h"</span><span class="p">,</span><span class="w">
+                        </span><span class="s2">"exchange"</span><span class="p">:</span><span class="w"> </span><span class="s2">"kraken"</span><span class="p">,</span><span class="w">
+                        </span><span class="s2">"direction"</span><span class="p">:</span><span class="w"> </span><span class="s2">"outflow"</span><span class="w">
+                    </span><span class="p">}</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="err">...</span><span class="w">
+            </span><span class="p">]</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"erc20_exchange_split_outflow_historical"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"schema"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"date"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"format"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{date_format}"</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="s2">"hour"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"hour"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"format"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{hour_format}"</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="s2">"outflow"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"float"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"precision"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{default_precision}"</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="s2">"datetime"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"datetime"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"format"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{datetime_format}"</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="s2">"outflow_usd"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"float"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"precision"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{usd_precision}"</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="s2">"avg_txn_value"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"float"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"precision"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{default_precision}"</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="s2">"number_of_txns"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"int"</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="s2">"avg_txn_value_usd"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"float"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"precision"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{usd_precision}"</span><span class="w">
                 </span><span class="p">}</span><span class="w">
             </span><span class="p">},</span><span class="w">
-        </span><span class="p">]</span><span class="w">
+            </span><span class="s2">"endpoints"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"url_parameters"</span><span class="p">:</span><span class="w"> </span><span class="s2">"token=usdt_erc20&amp;window=1h&amp;exchange=binance&amp;direction=outflow"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"usdt_erc20_binance_outflow_1h_historical"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"parameters"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                        </span><span class="s2">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"usdt_erc20"</span><span class="p">,</span><span class="w">
+                        </span><span class="s2">"window"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1h"</span><span class="p">,</span><span class="w">
+                        </span><span class="s2">"exchange"</span><span class="p">:</span><span class="w"> </span><span class="s2">"binance"</span><span class="p">,</span><span class="w">
+                        </span><span class="s2">"direction"</span><span class="p">:</span><span class="w"> </span><span class="s2">"outflow"</span><span class="w">
+                    </span><span class="p">}</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"url_parameters"</span><span class="p">:</span><span class="w"> </span><span class="s2">"token=usdt_erc20&amp;window=1h&amp;exchange=bitfinex&amp;direction=outflow"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"usdt_erc20_bitfinex_outflow_1h_historical"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"parameters"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                        </span><span class="s2">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"usdt_erc20"</span><span class="p">,</span><span class="w">
+                        </span><span class="s2">"window"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1h"</span><span class="p">,</span><span class="w">
+                        </span><span class="s2">"exchange"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bitfinex"</span><span class="p">,</span><span class="w">
+                        </span><span class="s2">"direction"</span><span class="p">:</span><span class="w"> </span><span class="s2">"outflow"</span><span class="w">
+                    </span><span class="p">}</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="err">...</span><span class="w">
+            </span><span class="p">]</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="err">...</span><span class="w">
+    </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
+
 </span></code></pre><h3 id='url-segments'>URL Segments</h3>
 <table><thead>
 <tr>
@@ -9977,93 +10022,82 @@ We currently support and return 4 types of events - <code>subscribe</code>, <cod
 </tr>
 </thead><tbody>
 <tr>
-<td>direction*</td>
+<td>name</td>
 <td><em>string</em></td>
-<td>The flow direction to / from an exchange</td>
+<td>The name of the dataset</td>
 </tr>
 <tr>
-<td>exchange*</td>
-<td><em>string</em></td>
-<td>The exchange name</td>
+<td>schema</td>
+<td><em>object</em></td>
+<td>The sschema for the dataset</td>
 </tr>
 <tr>
-<td>token</td>
+<td>endpoints</td>
 <td><em>string</em></td>
-<td>The token code</td>
+<td>The list of possible parameters combination for the dataset</td>
 </tr>
 <tr>
-<td>window</td>
+<td>endpoints.name</td>
 <td><em>string</em></td>
-<td>The time window for each datapoint</td>
+<td>The name of the parameter combination</td>
 </tr>
 <tr>
-<td>from_entity*</td>
-<td><em>string</em></td>
-<td>The origin entity of a transaction</td>
+<td>endpoints.parameters</td>
+<td><em>object</em></td>
+<td>Parameters</td>
 </tr>
 <tr>
-<td>to_entity*</td>
+<td>endpoints.url_parameters</td>
 <td><em>string</em></td>
-<td>The destination entity of a transaction</td>
-</tr>
-<tr>
-<td>location.api</td>
-<td><em>string</em></td>
-<td>The full API URL to access this dataset</td>
-</tr>
-<tr>
-<td>location.is_api_active</td>
-<td><em>bool</em></td>
-<td>Signify whether this API URL is currently accessible</td>
+<td>Parameters in url query parameters format</td>
 </tr>
 </tbody></table>
 
-<p>(*) Availability dependant on dataset type</p>
-<h2 id='by-token'>By Token</h2>
-<p>Return a list of all the datasets of a given dataset type, filtered by token.</p>
+<p>You can also filter the endpoints by parameters. i.e. if you want to filter where the exchange is &quot;binance&quot;, you can call:</p>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/catalog/data/exchange_flow_window_historical?exchange=binance"</span>
+</code></pre>
+<p>The can also be combined:
+<code>shell
+curl &quot;https://api.tokenanalyst.io/catalog/data/exchange_flow_window_historical?exchange=binance&amp;token=btc&quot;
+</code></p>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/catalog/data/entity_to_entity_flow_window_historical?token=eth&amp;to_entity=binance&amp;window=1h"</span>
+</code></pre><h2 id='supported-values'>Supported Values</h2>
+<p>The following list of API calls allow you to query all the possible values for a given parameter, optionally filtering by a second parameter. This would allow you to for example query all the tokens supported by a given dataset type, or the tokens supported for a given exchange. </p>
+<h2 id='possible-values'>Possible values</h2>
+<p>Return an array of supported values for a given parameter.</p>
 <h3 id='http-request-3'>HTTP Request</h3>
-<p><code>GET https://api.tokenanalyst.io/catalog/data/{name}/token/{token}</code></p>
+<p><code>GET https://api.tokenanalyst.io/catalog/data/{name}/{parameter}</code></p>
 
 <p><img src="https://img.shields.io/badge/Tier-Free-green.svg"/></p>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/catalog/data/exchange_flow_window_historical/token/btc"</span>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/catalog/data/exchange_flow_window_historical/token"</span>
 </code></pre>
 <blockquote>
-<p>The above command returns JSON structured like this:</p>
+<p>The above command returns an array like the below:</p>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"exchange_flow_window_historical"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Description for dataset exchange_flow_window_historical"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="s2">"tier"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="s2">"schema"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"json"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{</span><span class="se">\"</span><span class="s2">avg_txn_value</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">precision</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">{satoshi_precision}</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">type</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">float</span><span class="se">\"</span><span class="s2">},</span><span class="se">\"</span><span class="s2">avg_txn_value_usd</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">precision</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">{usd_precision}</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">type</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">float</span><span class="se">\"</span><span class="s2">},</span><span class="se">\"</span><span class="s2">date</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">format</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">{date_format}</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">type</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">date</span><span class="se">\"</span><span class="s2">},</span><span class="se">\"</span><span class="s2">datetime</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">format</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">{datetime_format}</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">type</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">datetime</span><span class="se">\"</span><span class="s2">},</span><span class="se">\"</span><span class="s2">hour</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">format</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">{hour_format}</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">type</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">hour</span><span class="se">\"</span><span class="s2">},</span><span class="se">\"</span><span class="s2">inflow</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">precision</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">{satoshi_precision}</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">type</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">float</span><span class="se">\"</span><span class="s2">},</span><span class="se">\"</span><span class="s2">inflow_usd</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">precision</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">{usd_precision}</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">type</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">float</span><span class="se">\"</span><span class="s2">},</span><span class="se">\"</span><span class="s2">number_of_txns</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">type</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">int</span><span class="se">\"</span><span class="s2">}}"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="s2">"exchange_flow_window_historical"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-           </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"direction"</span><span class="p">:</span><span class="w"> </span><span class="s2">"inflow"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"exchange"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bittrex"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"btc"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"window"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1h"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"location"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                    </span><span class="s2">"api"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_window_historical/last?token=btc&amp;direction=inflow&amp;window=1h&amp;exchange=bittrex"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"is_api_active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-                </span><span class="p">}</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-            </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"direction"</span><span class="p">:</span><span class="w"> </span><span class="s2">"outflow"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"exchange"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bittrex"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"btc"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"window"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1h"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"location"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                    </span><span class="s2">"api"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_window_historical/last?token=btc&amp;exchange=bittrex&amp;direction=outflow&amp;window=1h"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"is_api_active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-                </span><span class="p">}</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-        </span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+    </span><span class="s2">"rep"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"rlc"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"link"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"dai"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"usdc"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"mana"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"omg"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"gnt"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"btc"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"bat"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"usdt_omni"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"pax"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"cvc"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"mkr"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"knc"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"usdt_erc20"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"tusd"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"loom"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"nmr"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"snt"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"eth"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"zrx"</span><span class="w">
+</span><span class="p">]</span><span class="w">
 </span></code></pre><h3 id='url-segments-2'>URL Segments</h3>
 <table><thead>
 <tr>
@@ -10078,107 +10112,35 @@ We currently support and return 4 types of events - <code>subscribe</code>, <cod
 <td>The dataset type name (see above)</td>
 </tr>
 <tr>
-<td>token</td>
+<td>parameter</td>
 <td><em>string</em></td>
-<td>The token code to filter by, i.e. btc</td>
+<td>The parameter to get possible values of</td>
 </tr>
 </tbody></table>
-<h3 id='dataset-values-2'>Dataset Values</h3>
-<table><thead>
-<tr>
-<th>Field</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>direction*</td>
-<td><em>string</em></td>
-<td>The flow direction to / from an exchange</td>
-</tr>
-<tr>
-<td>exchange*</td>
-<td><em>string</em></td>
-<td>The exchange name</td>
-</tr>
-<tr>
-<td>token</td>
-<td><em>string</em></td>
-<td>The token code</td>
-</tr>
-<tr>
-<td>window</td>
-<td><em>string</em></td>
-<td>The time window for each datapoint</td>
-</tr>
-<tr>
-<td>from_entity*</td>
-<td><em>string</em></td>
-<td>The origin entity of a transaction</td>
-</tr>
-<tr>
-<td>to_entity*</td>
-<td><em>string</em></td>
-<td>The destination entity of a transaction</td>
-</tr>
-<tr>
-<td>location.api</td>
-<td><em>string</em></td>
-<td>The full API URL to access this dataset</td>
-</tr>
-<tr>
-<td>location.is_api_active</td>
-<td><em>bool</em></td>
-<td>Signify whether this API URL is currently accessible</td>
-</tr>
-</tbody></table>
-
-<p>(*) Availability dependant on dataset type</p>
-<h2 id='by-exchange'>By Exchange</h2>
-<p>Return a list of all the datasets of a given dataset type, filtered by exchange name. Please note this can only be specified for exchange related dataset types.</p>
+<h2 id='possible-values-filtered'>Possible values, filtered</h2>
+<p>Return an array of supported values for a given parameter, filtering by another parameter.</p>
 <h3 id='http-request-4'>HTTP Request</h3>
-<p><code>GET https://api.tokenanalyst.io/catalog/data/{name}/exchange/{exchange}</code></p>
+<p><code>GET https://api.tokenanalyst.io/catalog/data/{name}/{filter_parameter}/{filter_value}/{parameter}</code></p>
 
 <p><img src="https://img.shields.io/badge/Tier-Free-green.svg"/></p>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/catalog/data/exchange_flow_window_historical/exchange/huobi"</span>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/catalog/data/entity_to_entity_flow_window_historical/window/1h/to_entity"</span>
 </code></pre>
 <blockquote>
-<p>The above command returns JSON structured like this:</p>
+<p>The above command returns an array like the below:</p>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"exchange_flow_window_historical"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Description for dataset exchange_flow_window_historical"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="s2">"tier"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="s2">"schema"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"json"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{</span><span class="se">\"</span><span class="s2">avg_txn_value</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">precision</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">{satoshi_precision}</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">type</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">float</span><span class="se">\"</span><span class="s2">},</span><span class="se">\"</span><span class="s2">avg_txn_value_usd</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">precision</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">{usd_precision}</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">type</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">float</span><span class="se">\"</span><span class="s2">},</span><span class="se">\"</span><span class="s2">date</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">format</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">{date_format}</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">type</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">date</span><span class="se">\"</span><span class="s2">},</span><span class="se">\"</span><span class="s2">datetime</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">format</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">{datetime_format}</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">type</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">datetime</span><span class="se">\"</span><span class="s2">},</span><span class="se">\"</span><span class="s2">hour</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">format</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">{hour_format}</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">type</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">hour</span><span class="se">\"</span><span class="s2">},</span><span class="se">\"</span><span class="s2">inflow</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">precision</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">{satoshi_precision}</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">type</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">float</span><span class="se">\"</span><span class="s2">},</span><span class="se">\"</span><span class="s2">inflow_usd</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">precision</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">{usd_precision}</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">type</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">float</span><span class="se">\"</span><span class="s2">},</span><span class="se">\"</span><span class="s2">number_of_txns</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">type</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">int</span><span class="se">\"</span><span class="s2">}}"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="s2">"exchange_flow_window_historical"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-           </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"direction"</span><span class="p">:</span><span class="w"> </span><span class="s2">"outflow"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"exchange"</span><span class="p">:</span><span class="w"> </span><span class="s2">"huobi"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"btc"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"window"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1h"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"location"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                    </span><span class="s2">"api"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_window_historical/last?token=btc&amp;direction=outflow&amp;window=1h&amp;exchange=huobi"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"is_api_active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-                </span><span class="p">}</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-            </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"direction"</span><span class="p">:</span><span class="w"> </span><span class="s2">"outflow"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"exchange"</span><span class="p">:</span><span class="w"> </span><span class="s2">"huobi"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bat"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"window"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1h"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"location"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                    </span><span class="s2">"api"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_window_historical/last?direction=outflow&amp;window=1h&amp;token=bat&amp;exchange=huobi"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"is_api_active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-                </span><span class="p">}</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-        </span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+    </span><span class="s2">"binance"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"bitfinex"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"bitmex"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"bitstamp"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"bittrex"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"deribit"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"huobi"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"kraken"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"kucoin"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"okex"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"poloniex"</span><span class="w">
+</span><span class="p">]</span><span class="w">
 </span></code></pre><h3 id='url-segments-3'>URL Segments</h3>
 <table><thead>
 <tr>
@@ -10193,870 +10155,19 @@ We currently support and return 4 types of events - <code>subscribe</code>, <cod
 <td>The dataset type name (see above)</td>
 </tr>
 <tr>
-<td>exchange</td>
+<td>filter_parameter</td>
 <td><em>string</em></td>
-<td>The name of the exchange, i.e. binance</td>
+<td>The parameter to use as a filter</td>
 </tr>
-</tbody></table>
-<h3 id='dataset-values-3'>Dataset Values</h3>
-<table><thead>
 <tr>
-<th>Field</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>direction*</td>
+<td>filter_value</td>
 <td><em>string</em></td>
-<td>The flow direction to / from an exchange</td>
+<td>The value to filter with</td>
 </tr>
 <tr>
-<td>exchange*</td>
+<td>parameter</td>
 <td><em>string</em></td>
-<td>The exchange name</td>
-</tr>
-<tr>
-<td>token</td>
-<td><em>string</em></td>
-<td>The token code</td>
-</tr>
-<tr>
-<td>window</td>
-<td><em>string</em></td>
-<td>The time window for each datapoint</td>
-</tr>
-<tr>
-<td>from_entity*</td>
-<td><em>string</em></td>
-<td>The origin entity of a transaction</td>
-</tr>
-<tr>
-<td>to_entity*</td>
-<td><em>string</em></td>
-<td>The destination entity of a transaction</td>
-</tr>
-<tr>
-<td>location.api</td>
-<td><em>string</em></td>
-<td>The full API URL to access this dataset</td>
-</tr>
-<tr>
-<td>location.is_api_active</td>
-<td><em>bool</em></td>
-<td>Signify whether this API URL is currently accessible</td>
-</tr>
-</tbody></table>
-
-<p>(*) Availability dependant on dataset type</p>
-<h2 id='by-exchange-and-token'>By Exchange and Token</h2>
-<p>Return a list of all the datasets of a given dataset type, filtered by exchange name. Please note this can only be specified for exchange related dataset types.</p>
-<h3 id='http-request-5'>HTTP Request</h3>
-<p><code>GET https://api.tokenanalyst.io/catalog/data/{name}/exchange/{exchange}/token/{token}</code></p>
-
-<p><img src="https://img.shields.io/badge/Tier-Free-green.svg"/></p>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/catalog/data/exchange_flow_window_historical/exchange/binance/token/btc"</span>
-</code></pre>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"exchange_flow_window_historical"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Description for dataset exchange_flow_window_historical"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="s2">"tier"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="s2">"schema"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"json"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{</span><span class="se">\"</span><span class="s2">avg_txn_value</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">precision</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">{satoshi_precision}</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">type</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">float</span><span class="se">\"</span><span class="s2">},</span><span class="se">\"</span><span class="s2">avg_txn_value_usd</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">precision</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">{usd_precision}</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">type</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">float</span><span class="se">\"</span><span class="s2">},</span><span class="se">\"</span><span class="s2">date</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">format</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">{date_format}</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">type</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">date</span><span class="se">\"</span><span class="s2">},</span><span class="se">\"</span><span class="s2">datetime</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">format</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">{datetime_format}</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">type</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">datetime</span><span class="se">\"</span><span class="s2">},</span><span class="se">\"</span><span class="s2">hour</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">format</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">{hour_format}</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">type</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">hour</span><span class="se">\"</span><span class="s2">},</span><span class="se">\"</span><span class="s2">inflow</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">precision</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">{satoshi_precision}</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">type</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">float</span><span class="se">\"</span><span class="s2">},</span><span class="se">\"</span><span class="s2">inflow_usd</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">precision</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">{usd_precision}</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">type</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">float</span><span class="se">\"</span><span class="s2">},</span><span class="se">\"</span><span class="s2">number_of_txns</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">type</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">int</span><span class="se">\"</span><span class="s2">}}"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="s2">"exchange_flow_window_historical"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-            </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"direction"</span><span class="p">:</span><span class="w"> </span><span class="s2">"outflow"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"exchange"</span><span class="p">:</span><span class="w"> </span><span class="s2">"binance"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"btc"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"window"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1h"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"location"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                    </span><span class="s2">"api"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_window_historical/last?token=btc&amp;direction=outflow&amp;window=1h&amp;exchange=binance"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"is_api_active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-                </span><span class="p">}</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-            </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"direction"</span><span class="p">:</span><span class="w"> </span><span class="s2">"inflow"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"exchange"</span><span class="p">:</span><span class="w"> </span><span class="s2">"binance"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"btc"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"window"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1h"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"location"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                    </span><span class="s2">"api"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_window_historical/last?token=btc&amp;exchange=binance&amp;direction=inflow&amp;window=1h"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"is_api_active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-                </span><span class="p">}</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-        </span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='url-segments-4'>URL Segments</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>name</td>
-<td><em>string</em></td>
-<td>The dataset type name (see above)</td>
-</tr>
-<tr>
-<td>exchange</td>
-<td><em>string</em></td>
-<td>The name of the exchange, i.e. binance</td>
-</tr>
-<tr>
-<td>token</td>
-<td><em>string</em></td>
-<td>The token code to filter by, i.e. btc</td>
-</tr>
-</tbody></table>
-<h3 id='dataset-values-4'>Dataset Values</h3>
-<table><thead>
-<tr>
-<th>Field</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>direction*</td>
-<td><em>string</em></td>
-<td>The flow direction to / from an exchange</td>
-</tr>
-<tr>
-<td>exchange*</td>
-<td><em>string</em></td>
-<td>The exchange name</td>
-</tr>
-<tr>
-<td>token</td>
-<td><em>string</em></td>
-<td>The token code</td>
-</tr>
-<tr>
-<td>window</td>
-<td><em>string</em></td>
-<td>The time window for each datapoint</td>
-</tr>
-<tr>
-<td>from_entity*</td>
-<td><em>string</em></td>
-<td>The origin entity of a transaction</td>
-</tr>
-<tr>
-<td>to_entity*</td>
-<td><em>string</em></td>
-<td>The destination entity of a transaction</td>
-</tr>
-<tr>
-<td>location.api</td>
-<td><em>string</em></td>
-<td>The full API URL to access this dataset</td>
-</tr>
-<tr>
-<td>location.is_api_active</td>
-<td><em>bool</em></td>
-<td>Signify whether this API URL is currently accessible</td>
-</tr>
-</tbody></table>
-
-<p>(*) Availability dependant on dataset type</p>
-<h2 id='by-window'>By Window</h2>
-<p>Return a list of all the datasets of a given dataset type, filtered by time windows.</p>
-<h3 id='http-request-6'>HTTP Request</h3>
-<p><code>GET https://api.tokenanalyst.io/catalog/data/{name}/window/{window}</code></p>
-
-<p><img src="https://img.shields.io/badge/Tier-Free-green.svg"/></p>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/catalog/data/exchange_flow_window_historical/window/1h"</span>
-</code></pre>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"exchange_flow_window_historical"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Description for dataset exchange_flow_window_historical"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="s2">"tier"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="s2">"schema"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"json"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{</span><span class="se">\"</span><span class="s2">avg_txn_value</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">precision</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">{satoshi_precision}</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">type</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">float</span><span class="se">\"</span><span class="s2">},</span><span class="se">\"</span><span class="s2">avg_txn_value_usd</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">precision</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">{usd_precision}</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">type</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">float</span><span class="se">\"</span><span class="s2">},</span><span class="se">\"</span><span class="s2">date</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">format</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">{date_format}</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">type</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">date</span><span class="se">\"</span><span class="s2">},</span><span class="se">\"</span><span class="s2">datetime</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">format</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">{datetime_format}</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">type</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">datetime</span><span class="se">\"</span><span class="s2">},</span><span class="se">\"</span><span class="s2">hour</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">format</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">{hour_format}</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">type</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">hour</span><span class="se">\"</span><span class="s2">},</span><span class="se">\"</span><span class="s2">inflow</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">precision</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">{satoshi_precision}</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">type</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">float</span><span class="se">\"</span><span class="s2">},</span><span class="se">\"</span><span class="s2">inflow_usd</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">precision</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">{usd_precision}</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">type</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">float</span><span class="se">\"</span><span class="s2">},</span><span class="se">\"</span><span class="s2">number_of_txns</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">type</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">int</span><span class="se">\"</span><span class="s2">}}"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="s2">"exchange_flow_window_historical"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-            </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"direction"</span><span class="p">:</span><span class="w"> </span><span class="s2">"inflow"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"exchange"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bittrex"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"btc"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"window"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1h"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"location"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                    </span><span class="s2">"api"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_window_historical/last?token=btc&amp;direction=inflow&amp;window=1h&amp;exchange=bittrex"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"is_api_active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-                </span><span class="p">}</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-            </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"direction"</span><span class="p">:</span><span class="w"> </span><span class="s2">"inflow"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"exchange"</span><span class="p">:</span><span class="w"> </span><span class="s2">"poloniex"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bat"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"window"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1h"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"location"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                    </span><span class="s2">"api"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_window_historical/last?direction=inflow&amp;window=1h&amp;token=bat&amp;exchange=poloniex"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"is_api_active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-                </span><span class="p">}</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-        </span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='url-segments-5'>URL Segments</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>name</td>
-<td><em>string</em></td>
-<td>The dataset type name (see above)</td>
-</tr>
-<tr>
-<td>window</td>
-<td><em>string</em></td>
-<td>The data window, i.e. 1h</td>
-</tr>
-</tbody></table>
-<h3 id='dataset-values-5'>Dataset Values</h3>
-<table><thead>
-<tr>
-<th>Field</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>direction*</td>
-<td><em>string</em></td>
-<td>The flow direction to / from an exchange</td>
-</tr>
-<tr>
-<td>exchange*</td>
-<td><em>string</em></td>
-<td>The exchange name</td>
-</tr>
-<tr>
-<td>token</td>
-<td><em>string</em></td>
-<td>The token code</td>
-</tr>
-<tr>
-<td>window</td>
-<td><em>string</em></td>
-<td>The time window for each datapoint</td>
-</tr>
-<tr>
-<td>from_entity*</td>
-<td><em>string</em></td>
-<td>The origin entity of a transaction</td>
-</tr>
-<tr>
-<td>to_entity*</td>
-<td><em>string</em></td>
-<td>The destination entity of a transaction</td>
-</tr>
-<tr>
-<td>location.api</td>
-<td><em>string</em></td>
-<td>The full API URL to access this dataset</td>
-</tr>
-<tr>
-<td>location.is_api_active</td>
-<td><em>bool</em></td>
-<td>Signify whether this API URL is currently accessible</td>
-</tr>
-</tbody></table>
-
-<p>(*) Availability dependant on dataset type</p>
-<h2 id='by-direction'>By Direction</h2>
-<p>Return a list of all the datasets of a given dataset type, filtered by flow direction. Please note this is only valid for certain datasets.</p>
-<h3 id='http-request-7'>HTTP Request</h3>
-<p><code>GET https://api.tokenanalyst.io/catalog/data/{name}/direction/{direction}</code></p>
-
-<p><img src="https://img.shields.io/badge/Tier-Free-green.svg"/></p>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/catalog/data/exchange_flow_window_historical/direction/inflow"</span>
-</code></pre>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"exchange_flow_window_historical"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Description for dataset exchange_flow_window_historical"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="s2">"tier"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="s2">"schema"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"json"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{</span><span class="se">\"</span><span class="s2">avg_txn_value</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">precision</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">{satoshi_precision}</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">type</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">float</span><span class="se">\"</span><span class="s2">},</span><span class="se">\"</span><span class="s2">avg_txn_value_usd</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">precision</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">{usd_precision}</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">type</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">float</span><span class="se">\"</span><span class="s2">},</span><span class="se">\"</span><span class="s2">date</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">format</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">{date_format}</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">type</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">date</span><span class="se">\"</span><span class="s2">},</span><span class="se">\"</span><span class="s2">datetime</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">format</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">{datetime_format}</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">type</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">datetime</span><span class="se">\"</span><span class="s2">},</span><span class="se">\"</span><span class="s2">hour</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">format</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">{hour_format}</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">type</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">hour</span><span class="se">\"</span><span class="s2">},</span><span class="se">\"</span><span class="s2">inflow</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">precision</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">{satoshi_precision}</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">type</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">float</span><span class="se">\"</span><span class="s2">},</span><span class="se">\"</span><span class="s2">inflow_usd</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">precision</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">{usd_precision}</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">type</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">float</span><span class="se">\"</span><span class="s2">},</span><span class="se">\"</span><span class="s2">number_of_txns</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">type</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">int</span><span class="se">\"</span><span class="s2">}}"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="s2">"exchange_flow_window_historical"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-            </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"direction"</span><span class="p">:</span><span class="w"> </span><span class="s2">"inflow"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"exchange"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bittrex"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"btc"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"window"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1h"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"location"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                    </span><span class="s2">"api"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_window_historical/last?token=btc&amp;direction=inflow&amp;window=1h&amp;exchange=bittrex"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"is_api_active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-                </span><span class="p">}</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-            </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"direction"</span><span class="p">:</span><span class="w"> </span><span class="s2">"inflow"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"exchange"</span><span class="p">:</span><span class="w"> </span><span class="s2">"poloniex"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bat"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"window"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1h"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"location"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                    </span><span class="s2">"api"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_window_historical/last?direction=inflow&amp;window=1h&amp;token=bat&amp;exchange=poloniex"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"is_api_active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-                </span><span class="p">}</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-        </span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='url-segments-6'>URL Segments</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>name</td>
-<td><em>string</em></td>
-<td>The dataset type name (see above)</td>
-</tr>
-<tr>
-<td>direction</td>
-<td><em>string</em></td>
-<td>The flow direction, i.e. inflow</td>
-</tr>
-</tbody></table>
-<h3 id='dataset-values-6'>Dataset Values</h3>
-<table><thead>
-<tr>
-<th>Field</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>direction*</td>
-<td><em>string</em></td>
-<td>The flow direction to / from an exchange</td>
-</tr>
-<tr>
-<td>exchange*</td>
-<td><em>string</em></td>
-<td>The exchange name</td>
-</tr>
-<tr>
-<td>token</td>
-<td><em>string</em></td>
-<td>The token code</td>
-</tr>
-<tr>
-<td>window</td>
-<td><em>string</em></td>
-<td>The time window for each datapoint</td>
-</tr>
-<tr>
-<td>from_entity*</td>
-<td><em>string</em></td>
-<td>The origin entity of a transaction</td>
-</tr>
-<tr>
-<td>to_entity*</td>
-<td><em>string</em></td>
-<td>The destination entity of a transaction</td>
-</tr>
-<tr>
-<td>location.api</td>
-<td><em>string</em></td>
-<td>The full API URL to access this dataset</td>
-</tr>
-<tr>
-<td>location.is_api_active</td>
-<td><em>bool</em></td>
-<td>Signify whether this API URL is currently accessible</td>
-</tr>
-</tbody></table>
-
-<p>(*) Availability dependant on dataset type</p>
-<h2 id='by-origin-entity'>By Origin Entity</h2>
-<p>Return a list of all the datasets of a given dataset type, filtered by to origin entity of the transactions. Please note that this is only valid for certain datasets.</p>
-<h3 id='http-request-8'>HTTP Request</h3>
-<p><code>GET https://api.tokenanalyst.io/catalog/data/{name}/from_entity/{from_entity}</code></p>
-
-<p><img src="https://img.shields.io/badge/Tier-Free-green.svg"/></p>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/catalog/data/entity_to_entity_flow_window_historical/from_entity/ethermine"</span>
-</code></pre>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"entity_to_entity_flow_window_historical"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Description for dataset entity_to_entity_flow_window_historical"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="s2">"tier"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="s2">"schema"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"json"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{</span><span class="se">\"</span><span class="s2">avg_txn_value</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">agg_string</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">value / number_of_txns</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">aggregate_type</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">custom</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">precision</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">{satoshi_precision}</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">type</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">float</span><span class="se">\"</span><span class="s2">},</span><span class="se">\"</span><span class="s2">avg_txn_value_usd</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">agg_string</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">value_usd / number_of_txns</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">aggregate_type</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">custom</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">precision</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">{usd_precision}</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">type</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">float</span><span class="se">\"</span><span class="s2">},</span><span class="se">\"</span><span class="s2">date</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">format</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">{date_format}</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">type</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">date</span><span class="se">\"</span><span class="s2">},</span><span class="se">\"</span><span class="s2">datetime</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">format</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">{datetime_format}</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">type</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">datetime</span><span class="se">\"</span><span class="s2">},</span><span class="se">\"</span><span class="s2">hour</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">format</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">{hour_format}</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">type</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">hour</span><span class="se">\"</span><span class="s2">},</span><span class="se">\"</span><span class="s2">number_of_txns</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">aggregate_type</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">sum</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">type</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">int</span><span class="se">\"</span><span class="s2">},</span><span class="se">\"</span><span class="s2">value</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">aggregate_type</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">sum</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">precision</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">{satoshi_precision}</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">type</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">float</span><span class="se">\"</span><span class="s2">},</span><span class="se">\"</span><span class="s2">value_usd</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">aggregate_type</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">sum</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">precision</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">{usd_precision}</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">type</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">float</span><span class="se">\"</span><span class="s2">}}"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="s2">"entity_to_entity_flow_window_historical"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-            </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"from_entity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ethermine"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"to_entity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"poloniex"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eth"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"window"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1h"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"location"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                    </span><span class="s2">"api"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/entity_to_entity_flow_window_historical/last?token=eth&amp;window=1h&amp;from_entity=ethermine&amp;to_entity=poloniex"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"is_api_active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-                </span><span class="p">}</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-            </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"from_entity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ethermine"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"to_entity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"kucoin"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eth"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"window"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1h"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"location"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                    </span><span class="s2">"api"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/entity_to_entity_flow_window_historical/last?token=eth&amp;window=1h&amp;from_entity=ethermine&amp;to_entity=kucoin"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"is_api_active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-                </span><span class="p">}</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-        </span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='url-segments-7'>URL Segments</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>name</td>
-<td><em>string</em></td>
-<td>The dataset type name (see above)</td>
-</tr>
-<tr>
-<td>from_entity</td>
-<td><em>string</em></td>
-<td>The name of the origin entity, i.e. binance</td>
-</tr>
-</tbody></table>
-<h3 id='dataset-values-7'>Dataset Values</h3>
-<table><thead>
-<tr>
-<th>Field</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>direction*</td>
-<td><em>string</em></td>
-<td>The flow direction to / from an exchange</td>
-</tr>
-<tr>
-<td>exchange*</td>
-<td><em>string</em></td>
-<td>The exchange name</td>
-</tr>
-<tr>
-<td>token</td>
-<td><em>string</em></td>
-<td>The token code</td>
-</tr>
-<tr>
-<td>window</td>
-<td><em>string</em></td>
-<td>The time window for each datapoint</td>
-</tr>
-<tr>
-<td>from_entity*</td>
-<td><em>string</em></td>
-<td>The origin entity of a transaction</td>
-</tr>
-<tr>
-<td>to_entity*</td>
-<td><em>string</em></td>
-<td>The destination entity of a transaction</td>
-</tr>
-<tr>
-<td>location.api</td>
-<td><em>string</em></td>
-<td>The full API URL to access this dataset</td>
-</tr>
-<tr>
-<td>location.is_api_active</td>
-<td><em>bool</em></td>
-<td>Signify whether this API URL is currently accessible</td>
-</tr>
-</tbody></table>
-
-<p>(*) Availability dependant on dataset type</p>
-<h2 id='by-destination-entity'>By Destination Entity</h2>
-<p>Return a list of all the datasets of a given dataset type, filtered by to destination entity of the transactions. Please note that this is only valid for certain datasets.</p>
-<h3 id='http-request-9'>HTTP Request</h3>
-<p><code>GET https://api.tokenanalyst.io/catalog/data/{name}/to_entity/{to_entity}</code></p>
-
-<p><img src="https://img.shields.io/badge/Tier-Free-green.svg"/></p>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/catalog/data/entity_to_entity_flow_window_historical/to_entity/bittrex"</span>
-</code></pre>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"entity_to_entity_flow_window_historical"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Description for dataset entity_to_entity_flow_window_historical"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="s2">"tier"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="s2">"schema"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"json"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{</span><span class="se">\"</span><span class="s2">avg_txn_value</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">agg_string</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">value / number_of_txns</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">aggregate_type</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">custom</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">precision</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">{satoshi_precision}</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">type</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">float</span><span class="se">\"</span><span class="s2">},</span><span class="se">\"</span><span class="s2">avg_txn_value_usd</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">agg_string</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">value_usd / number_of_txns</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">aggregate_type</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">custom</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">precision</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">{usd_precision}</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">type</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">float</span><span class="se">\"</span><span class="s2">},</span><span class="se">\"</span><span class="s2">date</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">format</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">{date_format}</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">type</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">date</span><span class="se">\"</span><span class="s2">},</span><span class="se">\"</span><span class="s2">datetime</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">format</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">{datetime_format}</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">type</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">datetime</span><span class="se">\"</span><span class="s2">},</span><span class="se">\"</span><span class="s2">hour</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">format</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">{hour_format}</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">type</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">hour</span><span class="se">\"</span><span class="s2">},</span><span class="se">\"</span><span class="s2">number_of_txns</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">aggregate_type</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">sum</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">type</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">int</span><span class="se">\"</span><span class="s2">},</span><span class="se">\"</span><span class="s2">value</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">aggregate_type</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">sum</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">precision</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">{satoshi_precision}</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">type</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">float</span><span class="se">\"</span><span class="s2">},</span><span class="se">\"</span><span class="s2">value_usd</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">aggregate_type</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">sum</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">precision</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">{usd_precision}</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">type</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">float</span><span class="se">\"</span><span class="s2">}}"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="s2">"entity_to_entity_flow_window_historical"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-            </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"from_entity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2miners: pplns,2miners: solo"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"to_entity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bittrex"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eth"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"window"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1h"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"location"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                    </span><span class="s2">"api"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/entity_to_entity_flow_window_historical/last?token=eth&amp;window=1h&amp;from_entity=2miners: pplns,2miners: solo&amp;to_entity=bittrex"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"is_api_active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-                </span><span class="p">}</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-            </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"from_entity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"beeppool"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"to_entity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bittrex"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eth"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"window"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1h"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"location"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                    </span><span class="s2">"api"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/entity_to_entity_flow_window_historical/last?token=eth&amp;window=1h&amp;from_entity=beeppool&amp;to_entity=bittrex"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"is_api_active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-                </span><span class="p">}</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-        </span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='url-segments-8'>URL Segments</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>name</td>
-<td><em>string</em></td>
-<td>The dataset type name (see above)</td>
-</tr>
-<tr>
-<td>to_entity</td>
-<td><em>string</em></td>
-<td>The name of the destination entity, i.e. binance</td>
-</tr>
-</tbody></table>
-<h3 id='dataset-values-8'>Dataset Values</h3>
-<table><thead>
-<tr>
-<th>Field</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>direction*</td>
-<td><em>string</em></td>
-<td>The flow direction to / from an exchange</td>
-</tr>
-<tr>
-<td>exchange*</td>
-<td><em>string</em></td>
-<td>The exchange name</td>
-</tr>
-<tr>
-<td>token</td>
-<td><em>string</em></td>
-<td>The token code</td>
-</tr>
-<tr>
-<td>window</td>
-<td><em>string</em></td>
-<td>The time window for each datapoint</td>
-</tr>
-<tr>
-<td>from_entity*</td>
-<td><em>string</em></td>
-<td>The origin entity of a transaction</td>
-</tr>
-<tr>
-<td>to_entity*</td>
-<td><em>string</em></td>
-<td>The destination entity of a transaction</td>
-</tr>
-<tr>
-<td>location.api</td>
-<td><em>string</em></td>
-<td>The full API URL to access this dataset</td>
-</tr>
-<tr>
-<td>location.is_api_active</td>
-<td><em>bool</em></td>
-<td>Signify whether this API URL is currently accessible</td>
-</tr>
-</tbody></table>
-
-<p>(*) Availability dependant on dataset type</p>
-<h2 id='supported-values'>Supported Values</h2>
-<p>The following list of API calls provide arrays of valid values for certain dataset types. For example the list of supported exchanges for a given token, or the supported data windows for a given dataset.</p>
-<h2 id='tokens'>Tokens</h2>
-<p>Return an array of tokens supported for this dataset.</p>
-<h3 id='http-request-10'>HTTP Request</h3>
-<p><code>GET https://api.tokenanalyst.io/catalog/data/{name}/tokens</code></p>
-
-<p><img src="https://img.shields.io/badge/Tier-Free-green.svg"/></p>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/catalog/data/exchange_flow_window_historical/tokens"</span>
-</code></pre>
-<blockquote>
-<p>The above command returns an array like the below:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
-    </span><span class="s2">"btc"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"bat"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"eth"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"usdt_omni"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"usdt_erc20"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"pax"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"usdc"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"zrx"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"loom"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"tusd"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"link"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"mana"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"omg"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"gnt"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"cvc"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"knc"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"rep"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"dai"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"mkr"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"nmr"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"rlc"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"snt"</span><span class="w">
-</span><span class="p">]</span><span class="w">
-</span></code></pre><h3 id='url-segments-9'>URL Segments</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>name</td>
-<td><em>string</em></td>
-<td>The dataset type name (see above)</td>
-</tr>
-</tbody></table>
-<h2 id='exchanges'>Exchanges</h2>
-<p>Return an array of exchanges supported for this dataset and token. Please note this only applies to datasets that involve exchanges.</p>
-<h3 id='http-request-11'>HTTP Request</h3>
-<p><code>GET https://api.tokenanalyst.io/catalog/data/{name}/tokens/{token}/exchanges</code></p>
-
-<p><img src="https://img.shields.io/badge/Tier-Free-green.svg"/></p>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/catalog/data/exchange_flow_window_historical/token/btc/exchanges"</span>
-</code></pre>
-<blockquote>
-<p>The above command returns an array like the below:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
-    </span><span class="s2">"bitstamp"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"binance"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"bittrex"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"bitfinex"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"bitmex"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"kraken"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"huobi"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"poloniex"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"kucoin"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"okex"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"deribit"</span><span class="w">
-</span><span class="p">]</span><span class="w">
-</span></code></pre><h3 id='url-segments-10'>URL Segments</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>name</td>
-<td><em>string</em></td>
-<td>The dataset type name (see above)</td>
-</tr>
-<tr>
-<td>token</td>
-<td><em>string</em></td>
-<td>The token code</td>
-</tr>
-</tbody></table>
-<h2 id='windows'>Windows</h2>
-<p>Return an array of supported data windows for this dataset type</p>
-<h3 id='http-request-12'>HTTP Request</h3>
-<p><code>GET https://api.tokenanalyst.io/catalog/data/{name}/windows</code></p>
-
-<p><img src="https://img.shields.io/badge/Tier-Free-green.svg"/></p>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/catalog/data/exchange_flow_window_historical/windows"</span>
-</code></pre>
-<blockquote>
-<p>The above command returns an array like the below:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="w">
-    </span><span class="p">[</span><span class="w">
-      </span><span class="s2">"1d"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"1h"</span><span class="w">
-    </span><span class="p">]</span><span class="w">
-
-</span></code></pre><h3 id='url-segments-11'>URL Segments</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>name</td>
-<td><em>string</em></td>
-<td>The dataset type name (see above)</td>
-</tr>
-</tbody></table>
-<h2 id='directions'>Directions</h2>
-<p>Return an array of supported flow directions. Only applies to datasets that involve exchanges.</p>
-<h3 id='http-request-13'>HTTP Request</h3>
-<p><code>GET https://api.tokenanalyst.io/catalog/data/{name}/directions</code></p>
-
-<p><img src="https://img.shields.io/badge/Tier-Free-green.svg"/></p>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/catalog/data/exchange_flow_window_historical/directions"</span>
-</code></pre>
-<blockquote>
-<p>The above command returns an array like the below:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="w">
-    </span><span class="p">[</span><span class="w">
-      </span><span class="s2">"outflow"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"inflow"</span><span class="w">
-    </span><span class="p">]</span><span class="w">
-
-</span></code></pre><h3 id='url-segments-12'>URL Segments</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>name</td>
-<td><em>string</em></td>
-<td>The dataset type name (see above)</td>
-</tr>
-</tbody></table>
-<h2 id='origin-entities'>Origin Entities</h2>
-<p>Return an array of supported origin entities for this dataset. Only applies to datasets that involve entity to entity flows.</p>
-<h3 id='http-request-14'>HTTP Request</h3>
-<p><code>GET https://api.tokenanalyst.io/catalog/data/{name}/from_entities</code></p>
-
-<p><img src="https://img.shields.io/badge/Tier-Free-green.svg"/></p>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/catalog/data/entity_to_entity_flow_window_historical/from_entities"</span>
-</code></pre>
-<blockquote>
-<p>The above command returns an array like the below:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="w">
-    </span><span class="p">[</span><span class="w">
-      </span><span class="s2">"2miners: pplns"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"2miners: solo"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"altpool.pro"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"beeppool"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"btc.com pool"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"coinotron 3"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"cruxpool"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"dwarfpool 1"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"eth.solopool.org"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"ethermine"</span><span class="w">
-    </span><span class="p">]</span><span class="w">
-
-</span></code></pre><h3 id='url-segments-13'>URL Segments</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>name</td>
-<td><em>string</em></td>
-<td>The dataset type name (see above)</td>
-</tr>
-</tbody></table>
-<h2 id='destination-entities'>Destination Entities</h2>
-<p>Return an array of supported destination entities for this dataset. Only applies to datasets that involve entity to entity flows.</p>
-<h3 id='http-request-15'>HTTP Request</h3>
-<p><code>GET https://api.tokenanalyst.io/catalog/data/{name}/to_entities</code></p>
-
-<p><img src="https://img.shields.io/badge/Tier-Free-green.svg"/></p>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/catalog/data/entity_to_entity_flow_window_historical/to_entities"</span>
-</code></pre>
-<blockquote>
-<p>The above command returns an array like the below:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="w">
-    </span><span class="p">[</span><span class="w">
-      </span><span class="s2">"binance"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"bitfinex"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"bittrex"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"kraken"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"kucoin"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"poloniex"</span><span class="p">,</span><span class="w">
-    </span><span class="p">]</span><span class="w">
-
-</span></code></pre><h3 id='url-segments-14'>URL Segments</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>name</td>
-<td><em>string</em></td>
-<td>The dataset type name (see above)</td>
+<td>The parameter to get possible values of</td>
 </tr>
 </tbody></table>
 
