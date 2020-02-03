@@ -471,7 +471,13 @@
             <a href="#ethereum-miner-stats" class="toc-h1 toc-link" data-title="Ethereum Miner Stats">Ethereum Miner Stats</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#miners-to-exchanges-full-historical-flows" class="toc-h2 toc-link" data-title="Miners to Exchanges Full Historical Flows">Miners to Exchanges Full Historical Flows</a>
+                    <a href="#eth-miner-hashrate" class="toc-h2 toc-link" data-title="ETH Miner Hashrate">ETH Miner Hashrate</a>
+                  </li>
+                  <li>
+                    <a href="#eth-miner-rewards" class="toc-h2 toc-link" data-title="ETH Miner Rewards">ETH Miner Rewards</a>
+                  </li>
+                  <li>
+                    <a href="#eth-miners-to-exchanges-full-historical-flows" class="toc-h2 toc-link" data-title="ETH Miners to Exchanges Full Historical Flows">ETH Miners to Exchanges Full Historical Flows</a>
                   </li>
               </ul>
           </li>
@@ -8433,12 +8439,12 @@ The static endpoint lags behind the tip of the chain by 2 hours in order to leav
 <tr>
 <td>from_entity</td>
 <td><em>string</em></td>
-<td>A miner from the <a href="https://docs.tokenanalyst.io/#miners-to-exchanges-full-historical-flows" target="_self">table</a> that we support</td>
+<td>A miner from the <a href="https://docs.tokenanalyst.io/#btc-miners-to-exchanges-full-historical-flows" target="_self">table</a> that we support</td>
 </tr>
 <tr>
 <td>to_entity</td>
 <td><em>string</em></td>
-<td>An exchange from the <a href="https://docs.tokenanalyst.io/#miners-to-exchanges-full-historical-flows" target="_self">table</a> that we support</td>
+<td>An exchange from the <a href="https://docs.tokenanalyst.io/#btc-miners-to-exchanges-full-historical-flows" target="_self">table</a> that we support</td>
 </tr>
 <tr>
 <td>from_date *</td>
@@ -8619,7 +8625,268 @@ The static endpoint lags behind the tip of the chain by 2 hours in order to leav
 <td>The USD value of the amount of BTC for a given miner on this date.</td>
 </tr>
 </tbody></table>
-<h1 id='ethereum-miner-stats'>Ethereum Miner Stats</h1><h2 id='miners-to-exchanges-full-historical-flows'>Miners to Exchanges Full Historical Flows</h2>
+<h1 id='ethereum-miner-stats'>Ethereum Miner Stats</h1>
+<p>For Ethereum <em>Miner Hashrate</em> and <em>Miner Rewards</em> endpoints, the supported miners/mining pools in the query parameter <code>miner</code> are:</p>
+
+<table><thead>
+<tr>
+<th>Miner Name</th>
+<th><code>miner</code></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>BitClubPool</td>
+<td><code>bitclubpool</code></td>
+</tr>
+<tr>
+<td>Coinotron3</td>
+<td><code>coinotron3</code></td>
+</tr>
+<tr>
+<td>DwarfPool1</td>
+<td><code>dwarfpool1</code></td>
+</tr>
+<tr>
+<td>Ethermine</td>
+<td><code>ethermine</code></td>
+</tr>
+<tr>
+<td>Ethpool2</td>
+<td><code>ethpool2</code></td>
+</tr>
+<tr>
+<td>F2Pool2</td>
+<td><code>f2pool2</code></td>
+</tr>
+<tr>
+<td>MiningPoolHub</td>
+<td><code>miningpoolhub</code></td>
+</tr>
+<tr>
+<td>NanoPool</td>
+<td><code>nanopool</code></td>
+</tr>
+<tr>
+<td>SparkPool</td>
+<td><code>sparkpool</code></td>
+</tr>
+<tr>
+<td>Zhizhu.top</td>
+<td><code>zhizhu-top</code></td>
+</tr>
+<tr>
+<td>Others</td>
+<td><code>others</code></td>
+</tr>
+<tr>
+<td>Unknown</td>
+<td><code>unknown</code></td>
+</tr>
+</tbody></table>
+
+<p>Miner addresses that we have identified but are not supported have a <code>miner</code> name of <code>others</code>. Similarly, miner addresses that are unlabelled have a <code>miner</code> name of <code>unknown</code></p>
+<h2 id='eth-miner-hashrate'>ETH Miner Hashrate</h2>
+<p>This endpoint returns the daily miner specific hashrates for all the miners we cover. 
+The <code>hashrate</code> are denominated in TH/s. The <code>block_count</code> are the number of blocks mined by a specific miner.</p>
+
+<p><img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/></p>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_miner_hashrate_window_historical/last?format=json&amp;miner=nanopool&amp;token=eth&amp;window=1d&amp;from_date=2020-01-22&amp;to_date=2020-01-23&amp;limit=2&amp;key=API_KEY"</span>
+</code></pre><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-22"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"hashrate"</span><span class="p">:</span><span class="w"> </span><span class="mf">12.5367</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"block_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">518</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"hashrate_pct"</span><span class="p">:</span><span class="w"> </span><span class="mf">8.003</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-23"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"hashrate"</span><span class="p">:</span><span class="w"> </span><span class="mf">12.533</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"block_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">522</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"hashrate_pct"</span><span class="p">:</span><span class="w"> </span><span class="mf">7.9325</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre><h3 id='http-request'>HTTP Request</h3>
+<p><code>GET https://api.tokenanalyst.io/analytics/private/v1/token_miner_hashrate_window_historical/last</code></p>
+<h3 id='query-parameters'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>key</td>
+<td><em>string</em></td>
+<td>Your unique API key</td>
+</tr>
+<tr>
+<td>format</td>
+<td><em>string</em></td>
+<td>What format you want your data in (<code>json</code> or <code>csv</code>)</td>
+</tr>
+<tr>
+<td>token</td>
+<td><em>string</em></td>
+<td><code>eth</code></td>
+</tr>
+<tr>
+<td>miner</td>
+<td><em>miner</em></td>
+<td>A miner from the <a href="#ethereum-miner-stats">table</a> that we support</td>
+</tr>
+<tr>
+<td>window</td>
+<td><em>string</em></td>
+<td><code>1d</code> (no support for 1h at this time)</td>
+</tr>
+<tr>
+<td>from_date *</td>
+<td><em>string</em></td>
+<td>Start date of returned data specified as YYYY-MM-DD (ISO date format)</td>
+</tr>
+<tr>
+<td>to_date *</td>
+<td><em>string</em></td>
+<td>End date of returned data specified as YYYY-MM-DD (ISO date format)</td>
+</tr>
+<tr>
+<td>limit *</td>
+<td><em>integer</em></td>
+<td>The number of entries returned before the latest data point (or the to_date if specified)</td>
+</tr>
+</tbody></table>
+
+<p>Note: All params with a * are optional and <code>limit</code> is only available in the JSON return format</p>
+<h3 id='data-overview'>Data Overview</h3>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>date</td>
+<td><em>string</em></td>
+<td>The date in <em>YYYY-MM-DD</em></td>
+</tr>
+<tr>
+<td>hashrate</td>
+<td><em>decimal</em></td>
+<td>The hashrate contribution of a given miner for the day. Denominated in Th/s.</td>
+</tr>
+<tr>
+<td>block_count</td>
+<td><em>integer</em></td>
+<td>The total number of blocks mined by a given miner on this date</td>
+</tr>
+<tr>
+<td>hashrate_pct</td>
+<td><em>decimal</em></td>
+<td>The percentage of the daily hashrate contributed by the miner. (<em>miner_daily_hashrate</em>/<em>total_daily_hashrate</em>)*100</td>
+</tr>
+</tbody></table>
+<h2 id='eth-miner-rewards'>ETH Miner Rewards</h2>
+<p><img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/></p>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_miner_rewards_window_historical/last?format=json&amp;miner=nanopool&amp;token=eth&amp;window=1d&amp;from_date=2020-01-22&amp;to_date=2020-01-23&amp;limit=2&amp;key=API_KEY"</span>
+
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-22"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"block_reward"</span><span class="p">:</span><span class="w"> </span><span class="mf">1091.75</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"block_reward_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">183502.22</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-23"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"block_reward"</span><span class="p">:</span><span class="w"> </span><span class="mf">1100.3125</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"block_reward_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">179312.62</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<p>This endpoint returns the daily rewards earned by all the miners we cover (incl. uncle rewards). The <code>block_reward</code> is denominated ETH.</p>
+<h3 id='http-request-2'>HTTP Request</h3>
+<p><code>GET https://api.tokenanalyst.io/analytics/private/v1/token_miner_rewards_window_historical/last</code></p>
+<h3 id='query-parameters-2'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>key</td>
+<td><em>string</em></td>
+<td>Your unique API key</td>
+</tr>
+<tr>
+<td>format</td>
+<td><em>string</em></td>
+<td>What format you want your data in (<code>json</code> or <code>csv</code>)</td>
+</tr>
+<tr>
+<td>token</td>
+<td><em>string</em></td>
+<td><code>eth</code></td>
+</tr>
+<tr>
+<td>miner</td>
+<td><em>string</em></td>
+<td>A miner from the <a href="#ethereum-miner-stats">table</a> that we support</td>
+</tr>
+<tr>
+<td>window</td>
+<td><em>string</em></td>
+<td><code>1d</code> only. <code>1h</code> not supported currently.</td>
+</tr>
+<tr>
+<td>from_date *</td>
+<td><em>string</em></td>
+<td>Start date of returned data specified as YYYY-MM-DD (ISO date format)</td>
+</tr>
+<tr>
+<td>to_date *</td>
+<td><em>string</em></td>
+<td>End date of returned data specified as YYYY-MM-DD (ISO date format)</td>
+</tr>
+<tr>
+<td>limit *</td>
+<td><em>integer</em></td>
+<td>The number of entries returned before the latest data point (or the to_date if specified)</td>
+</tr>
+</tbody></table>
+
+<p>Note: All params with a * are optional and <code>limit</code> is only available in the JSON return format</p>
+<h3 id='data-overview-2'>Data Overview</h3>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>date</td>
+<td><em>string</em></td>
+<td>The date in <em>YYYY-MM-DD</em></td>
+</tr>
+<tr>
+<td>block_reward</td>
+<td><em>decimal</em></td>
+<td>The total amount of block rewards earned by a given miner on this date. Denominated in ETH.</td>
+</tr>
+<tr>
+<td>block_reward_usd</td>
+<td><em>decimal</em></td>
+<td><em>block_reward</em> * <em>price_usd</em></td>
+</tr>
+</tbody></table>
+<h2 id='eth-miners-to-exchanges-full-historical-flows'>ETH Miners to Exchanges Full Historical Flows</h2>
 <p>This endpoint returns the full historical flows of ETH from miners <em>to</em> exchanges that we have labelled.</p>
 
 <p>For Ethereum, the currently supported Exchanges/Miners are:</p>
@@ -8632,54 +8899,14 @@ The static endpoint lags behind the tip of the chain by 2 hours in order to leav
 </tr>
 </thead><tbody>
 <tr>
-<td>2 Miners PPLNS</td>
-<td><code>2miners: pplns</code></td>
-<td><code>binance</code>, <code>bitfinex</code>, <code>bittrex</code>, <code>kraken</code>, <code>kucoin</code></td>
-</tr>
-<tr>
-<td>2 Miners SOLO</td>
-<td><code>2miners: solo</code></td>
-<td><code>binance</code>, <code>bittrex</code></td>
-</tr>
-<tr>
-<td>AltPool.Pro</td>
-<td><code>altpool.pro</code></td>
-<td><code>binance</code></td>
-</tr>
-<tr>
-<td>BTC.COM</td>
-<td><code>btc.com pool</code></td>
-<td><code>binance</code>, <code>bittrex</code>, <code>kraken</code></td>
-</tr>
-<tr>
-<td>Baikalmine</td>
-<td><code>baikalmine 1</code></td>
-<td><code>bittrex</code></td>
-</tr>
-<tr>
-<td>Beeppool</td>
-<td><code>beeppool</code></td>
-<td><code>binance</code>, <code>bittrex</code></td>
-</tr>
-<tr>
 <td>Coinotron</td>
-<td><code>coinotron 3</code></td>
+<td><code>coinotron3</code></td>
 <td><code>binance</code>, <code>bitfinex</code>, <code>bittrex</code>, <code>kraken</code>, <code>poloniex</code></td>
 </tr>
 <tr>
-<td>Cruxpool</td>
-<td><code>cruxpool</code></td>
-<td><code>binance</code>, <code>kraken</code></td>
-</tr>
-<tr>
 <td>Dwarfpool</td>
-<td><code>dwarfpool 1</code></td>
+<td><code>dwarfpool1</code></td>
 <td><code>binance</code>, <code>bitfinex</code>, <code>bittrex</code>, <code>kraken</code>, <code>kucoin</code>, <code>poloniex</code></td>
-</tr>
-<tr>
-<td>eth.solopool.org</td>
-<td><code>eth.solopool.org</code></td>
-<td><code>binance</code>, <code>bittrex</code></td>
 </tr>
 <tr>
 <td>Ethermine</td>
@@ -8688,18 +8915,13 @@ The static endpoint lags behind the tip of the chain by 2 hours in order to leav
 </tr>
 <tr>
 <td>Ethpool</td>
-<td><code>ethpool 2</code></td>
+<td><code>ethpool2</code></td>
 <td><code>binance</code>, <code>kraken</code></td>
 </tr>
 <tr>
 <td>F2 Pool</td>
-<td><code>f2pool 2</code></td>
+<td><code>f2pool2</code></td>
 <td><code>binance</code>, <code>bitfinex</code>, <code>bittrex</code>, <code>kraken</code>, <code>kucoin</code></td>
-</tr>
-<tr>
-<td>Minerall</td>
-<td><code>minerall pool</code></td>
-<td><code>binance</code>, <code>bittrex</code>, <code>kraken</code>, <code>poloniex</code></td>
 </tr>
 <tr>
 <td>Miningpoolhub</td>
@@ -8713,22 +8935,12 @@ The static endpoint lags behind the tip of the chain by 2 hours in order to leav
 </tr>
 <tr>
 <td>Sparkpool</td>
-<td><code>spark pool</code></td>
+<td><code>sparkpool</code></td>
 <td><code>bitfinex</code></td>
 </tr>
 <tr>
-<td>Uleypool</td>
-<td><code>uleypool</code></td>
-<td><code>binance</code></td>
-</tr>
-<tr>
-<td>W pool</td>
-<td><code>w pool</code></td>
-<td><code>binance</code>, <code>bitfinex</code>, <code>bittrex</code>, <code>kraken</code>, <code>kucoin</code></td>
-</tr>
-<tr>
 <td>zhizhu.top</td>
-<td><code>zhizhu.top</code></td>
+<td><code>zhizhu-top</code></td>
 <td><code>binance</code>, <code>bittrex</code></td>
 </tr>
 </tbody></table>
@@ -8736,7 +8948,7 @@ The static endpoint lags behind the tip of the chain by 2 hours in order to leav
 <p>The above table defines supported pairs of the query parameters <code>to_entity</code> and <code>from_entity</code>.</p>
 
 <p><img src="https://img.shields.io/badge/Tier-Professional-black.svg"/></p>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/entity_to_entity_flow_window_historical/last?ormat=json&amp;to_entity=binance&amp;from_entity=2miners:%20pplns&amp;token=eth&amp;window=1h&amp;limit=2&amp;key=APIKEY"</span>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/entity_to_entity_flow_window_historical/last?ormat=json&amp;to_entity=binance&amp;from_entity=2minerspplns&amp;token=eth&amp;window=1h&amp;limit=2&amp;key=APIKEY"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -8763,9 +8975,9 @@ The static endpoint lags behind the tip of the chain by 2 hours in order to leav
         </span><span class="s2">"avg_txn_value_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">7.18</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
-</span></code></pre><h3 id='http-request'>HTTP Request</h3>
+</span></code></pre><h3 id='http-request-3'>HTTP Request</h3>
 <p><code>GET https://api.tokenanalyst.io/analytics/private/v1/entity_to_entity_flow_window_historical/last</code></p>
-<h3 id='query-parameters'>Query Parameters</h3>
+<h3 id='query-parameters-3'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -8796,12 +9008,12 @@ The static endpoint lags behind the tip of the chain by 2 hours in order to leav
 <tr>
 <td>from_entity</td>
 <td><em>string</em></td>
-<td>A miner from the table that we support</td>
+<td>A miner from the <a href="https://docs.tokenanalyst.io/##eth-miners-to-exchanges-full-historical-flows" target="_self">table</a> that we support</td>
 </tr>
 <tr>
 <td>to_entity</td>
 <td><em>string</em></td>
-<td>An exchange from the table that we support</td>
+<td>An exchange from the <a href="https://docs.tokenanalyst.io/##eth-miners-to-exchanges-full-historical-flows" target="_self">table</a> that we support</td>
 </tr>
 <tr>
 <td>from_date *</td>
@@ -8821,7 +9033,7 @@ The static endpoint lags behind the tip of the chain by 2 hours in order to leav
 </tbody></table>
 
 <p>Note: All params with a * are optional and <code>limit</code> is only available in the JSON return format</p>
-<h3 id='data-overview'>Data Overview</h3>
+<h3 id='data-overview-3'>Data Overview</h3>
 <table><thead>
 <tr>
 <th>Field</th>
