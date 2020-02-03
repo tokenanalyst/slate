@@ -21,36 +21,35 @@ curl "https://api.tokenanalyst.io/catalog/data"
 
 ```json
 [
-    {
-        "name": "exchange_flow_window_historical"
+ {
+        "name": "entity_to_entity_flow_window_historical",
+        "description": "On-chain flows between entities",
+        "tier": 2
     },
     {
-        "name": "exchange_flow_window_static"
+        "name": "token_supply_window_historical",
+        "description": "Token supply over time",
+        "tier": 1
     },
     {
-        "name": "token_nvt_window_historical"
+        "name": "token_price_usd_window_historical",
+        "description": "Historical token prices in USD",
+        "tier": 1
     },
+    ...
 ]
 ```
 
 ### Data Overview
 
+All of the following dataset queries will have the same metadata at the top of the JSON structure.
+
 | Field | Type     | Description                                                                     |
 | ----- | -------- | ------------------------------------------------------------------------------- |
 | name  | _string_ | The name of the dataset type that can be used in subsequent Data Catalog calls. |
+| description  | _string_ | A description of the dataset type. |
+| tier  | _string_ | Numerical representation of the type of subscription required to access this set where 0 = Free, 2 = Pro, 3 = Enterprise. |
 
-## Dataset Results
-
-All of the following dataset queries will have the below metadata at the top of the JSON structure:
-
-### Dataset base metadata
-
-| Field            | Type     | Description                                                                                                               |
-| ---------------- | -------- | ------------------------------------------------------------------------------------------------------------------------- |
-| name             | _string_ | The name of the dataset type.                                                                                             |
-| description.text | _string_ | A description of the dataset type.                                                                                        |
-| tier.value       | _number_ | Numerical representation of the type of subscription required to access this set where 0 = Free, 2 = Pro, 3 = Enterprise. |
-| schema.json      | _string_ | JSON schema representation of the return values and types.                                                                |
 
 ## By Name
 
@@ -71,39 +70,132 @@ curl "https://api.tokenanalyst.io/catalog/data/exchange_flow_window_historical"
 
 ```json
 {
-        "name": "exchange_flow_window_historical",
-        "description": {
-            "text": "Description for dataset exchange_flow_window_historical"
-        },
-        "tier": {
-            "value": 3
-        },
-        "schema": {
-            "json": "{\"avg_txn_value\":{\"precision\":\"{satoshi_precision}\",\"type\":\"float\"},\"avg_txn_value_usd\":{\"precision\":\"{usd_precision}\",\"type\":\"float\"},\"date\":{\"format\":\"{date_format}\",\"type\":\"date\"},\"datetime\":{\"format\":\"{datetime_format}\",\"type\":\"datetime\"},\"hour\":{\"format\":\"{hour_format}\",\"type\":\"hour\"},\"inflow\":{\"precision\":\"{satoshi_precision}\",\"type\":\"float\"},\"inflow_usd\":{\"precision\":\"{usd_precision}\",\"type\":\"float\"},\"number_of_txns\":{\"type\":\"int\"}}"
-        },
-        "exchange_flow_window_historical": [
-            {
-                "direction": "inflow",
-                "exchange": "bittrex",
-                "token": "btc",
-                "window": "1h",
-                "location": {
-                    "api": "https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_window_historical/last?token=btc&direction=inflow&window=1h&exchange=bittrex",
-                    "is_api_active": true
+    "name": "exchange_flow_window_historical",
+    "description": "",
+    "tier": 2,
+    "jobs": [
+        {
+            "name": "btc_exchange_outflow_1h",
+            "schema": {
+                "date": {
+                    "type": "date",
+                    "format": "{date_format}"
+                },
+                "hour": {
+                    "type": "hour",
+                    "format": "{hour_format}"
+                },
+                "outflow": {
+                    "type": "float",
+                    "precision": "{satoshi_precision}"
+                },
+                "datetime": {
+                    "type": "datetime",
+                    "format": "{datetime_format}"
+                },
+                "outflow_usd": {
+                    "type": "float",
+                    "precision": "{usd_precision}"
+                },
+                "avg_txn_value": {
+                    "type": "float",
+                    "precision": "{satoshi_precision}"
+                },
+                "number_of_txns": {
+                    "type": "int"
+                },
+                "avg_txn_value_usd": {
+                    "type": "float",
+                    "precision": "{usd_precision}"
                 }
             },
-            {
-                "direction": "inflow",
-                "exchange": "poloniex",
-                "token": "bat",
-                "window": "1h",
-                "location": {
-                    "api": "https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_window_historical/last?direction=inflow&window=1h&token=bat&exchange=poloniex",
-                    "is_api_active": true
+            "endpoints": [
+                {
+                    "url_parameters": "token=btc&window=1h&exchange=binance&direction=outflow",
+                    "name": "btc_binance_outflow_1h_historical",
+                    "parameters": {
+                        "token": "btc",
+                        "window": "1h",
+                        "exchange": "binance",
+                        "direction": "outflow"
+                    }
+                },
+                {
+                    "url_parameters": "token=btc&window=1h&exchange=kraken&direction=outflow",
+                    "name": "btc_kraken_outflow_1h_historical",
+                    "parameters": {
+                        "token": "btc",
+                        "window": "1h",
+                        "exchange": "kraken",
+                        "direction": "outflow"
+                    }
+                },
+                ...
+            ]
+        },
+        {
+            "name": "erc20_exchange_split_outflow_historical",
+            "schema": {
+                "date": {
+                    "type": "date",
+                    "format": "{date_format}"
+                },
+                "hour": {
+                    "type": "hour",
+                    "format": "{hour_format}"
+                },
+                "outflow": {
+                    "type": "float",
+                    "precision": "{default_precision}"
+                },
+                "datetime": {
+                    "type": "datetime",
+                    "format": "{datetime_format}"
+                },
+                "outflow_usd": {
+                    "type": "float",
+                    "precision": "{usd_precision}"
+                },
+                "avg_txn_value": {
+                    "type": "float",
+                    "precision": "{default_precision}"
+                },
+                "number_of_txns": {
+                    "type": "int"
+                },
+                "avg_txn_value_usd": {
+                    "type": "float",
+                    "precision": "{usd_precision}"
                 }
             },
-        ]
+            "endpoints": [
+                {
+                    "url_parameters": "token=usdt_erc20&window=1h&exchange=binance&direction=outflow",
+                    "name": "usdt_erc20_binance_outflow_1h_historical",
+                    "parameters": {
+                        "token": "usdt_erc20",
+                        "window": "1h",
+                        "exchange": "binance",
+                        "direction": "outflow"
+                    }
+                },
+                {
+                    "url_parameters": "token=usdt_erc20&window=1h&exchange=bitfinex&direction=outflow",
+                    "name": "usdt_erc20_bitfinex_outflow_1h_historical",
+                    "parameters": {
+                        "token": "usdt_erc20",
+                        "window": "1h",
+                        "exchange": "bitfinex",
+                        "direction": "outflow"
+                    }
+                },
+                ...
+            ]
+        },
+        ...
+    ]
 }
+
 ```
 
 ### URL Segments
@@ -116,595 +208,73 @@ curl "https://api.tokenanalyst.io/catalog/data/exchange_flow_window_historical"
 
 | Field                  | Type     | Description                                          |
 | ---------------------- | -------- | ---------------------------------------------------- |
-| direction*             | _string_ | The flow direction to / from an exchange             |
-| exchange*              | _string_ | The exchange name                                    |
-| token                  | _string_ | The token code                                       |
-| window                 | _string_ | The time window for each datapoint                   |
-| from_entity*           | _string_ | The origin entity of a transaction                   |
-| to_entity*             | _string_ | The destination entity of a transaction              |
-| location.api           | _string_ | The full API URL to access this dataset              |
-| location.is_api_active | _bool_   | Signify whether this API URL is currently accessible |
+| name             | _string_ | The name of the dataset             |
+| schema              | _object_ | The sschema for the dataset                                    |
+| endpoints                  | _string_ | The list of possible parameters combination for the dataset                                     |
+| endpoints.name                  | _string_ | The name of the parameter combination                                       |
+| endpoints.parameters                  | _object_ | Parameters                                       |
+| endpoints.url_parameters                  | _string_ | Parameters in url query parameters format                                       |
 
-(*) Availability dependant on dataset type
-
-## By Token
-
-Return a list of all the datasets of a given dataset type, filtered by token.
-
-### HTTP Request
-
-`GET https://api.tokenanalyst.io/catalog/data/{name}/token/{token}`
-
-<img src="https://img.shields.io/badge/Tier-Free-green.svg"/>
-
+You can also filter the endpoints by parameters. i.e. if you want to filter where the exchange is "binance", you can call:
 
 ```shell
-curl "https://api.tokenanalyst.io/catalog/data/exchange_flow_window_historical/token/btc"
+curl "https://api.tokenanalyst.io/catalog/data/exchange_flow_window_historical?exchange=binance"
 ```
 
-> The above command returns JSON structured like this:
-
-```json
-{
-        "name": "exchange_flow_window_historical",
-        "description": {
-            "text": "Description for dataset exchange_flow_window_historical"
-        },
-        "tier": {
-            "value": 3
-        },
-        "schema": {
-            "json": "{\"avg_txn_value\":{\"precision\":\"{satoshi_precision}\",\"type\":\"float\"},\"avg_txn_value_usd\":{\"precision\":\"{usd_precision}\",\"type\":\"float\"},\"date\":{\"format\":\"{date_format}\",\"type\":\"date\"},\"datetime\":{\"format\":\"{datetime_format}\",\"type\":\"datetime\"},\"hour\":{\"format\":\"{hour_format}\",\"type\":\"hour\"},\"inflow\":{\"precision\":\"{satoshi_precision}\",\"type\":\"float\"},\"inflow_usd\":{\"precision\":\"{usd_precision}\",\"type\":\"float\"},\"number_of_txns\":{\"type\":\"int\"}}"
-        },
-        "exchange_flow_window_historical": [
-           {
-                "direction": "inflow",
-                "exchange": "bittrex",
-                "token": "btc",
-                "window": "1h",
-                "location": {
-                    "api": "https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_window_historical/last?token=btc&direction=inflow&window=1h&exchange=bittrex",
-                    "is_api_active": true
-                }
-            },
-            {
-                "direction": "outflow",
-                "exchange": "bittrex",
-                "token": "btc",
-                "window": "1h",
-                "location": {
-                    "api": "https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_window_historical/last?token=btc&exchange=bittrex&direction=outflow&window=1h",
-                    "is_api_active": true
-                }
-            },
-        ]
-}
+The can also be combined:
+```shell
+curl "https://api.tokenanalyst.io/catalog/data/exchange_flow_window_historical?exchange=binance&token=btc"
 ```
-
-### URL Segments
-
-| Parameter | Type     | Description                           |
-| --------- | -------- | ------------------------------------- |
-| name      | _string_ | The dataset type name (see above)     |
-| token     | _string_ | The token code to filter by, i.e. btc |
-
-### Dataset Values
-
-| Field                  | Type     | Description                                          |
-| ---------------------- | -------- | ---------------------------------------------------- |
-| direction*             | _string_ | The flow direction to / from an exchange             |
-| exchange*              | _string_ | The exchange name                                    |
-| token                  | _string_ | The token code                                       |
-| window                 | _string_ | The time window for each datapoint                   |
-| from_entity*           | _string_ | The origin entity of a transaction                   |
-| to_entity*             | _string_ | The destination entity of a transaction              |
-| location.api           | _string_ | The full API URL to access this dataset              |
-| location.is_api_active | _bool_   | Signify whether this API URL is currently accessible |
-
-(*) Availability dependant on dataset type
-
-## By Exchange
-
-Return a list of all the datasets of a given dataset type, filtered by exchange name. Please note this can only be specified for exchange related dataset types.
-
-### HTTP Request
-
-`GET https://api.tokenanalyst.io/catalog/data/{name}/exchange/{exchange}`
-
-<img src="https://img.shields.io/badge/Tier-Free-green.svg"/>
-
 
 ```shell
-curl "https://api.tokenanalyst.io/catalog/data/exchange_flow_window_historical/exchange/huobi"
+curl "https://api.tokenanalyst.io/catalog/data/entity_to_entity_flow_window_historical?token=eth&to_entity=binance&window=1h"
 ```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-        "name": "exchange_flow_window_historical",
-        "description": {
-            "text": "Description for dataset exchange_flow_window_historical"
-        },
-        "tier": {
-            "value": 3
-        },
-        "schema": {
-            "json": "{\"avg_txn_value\":{\"precision\":\"{satoshi_precision}\",\"type\":\"float\"},\"avg_txn_value_usd\":{\"precision\":\"{usd_precision}\",\"type\":\"float\"},\"date\":{\"format\":\"{date_format}\",\"type\":\"date\"},\"datetime\":{\"format\":\"{datetime_format}\",\"type\":\"datetime\"},\"hour\":{\"format\":\"{hour_format}\",\"type\":\"hour\"},\"inflow\":{\"precision\":\"{satoshi_precision}\",\"type\":\"float\"},\"inflow_usd\":{\"precision\":\"{usd_precision}\",\"type\":\"float\"},\"number_of_txns\":{\"type\":\"int\"}}"
-        },
-        "exchange_flow_window_historical": [
-           {
-                "direction": "outflow",
-                "exchange": "huobi",
-                "token": "btc",
-                "window": "1h",
-                "location": {
-                    "api": "https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_window_historical/last?token=btc&direction=outflow&window=1h&exchange=huobi",
-                    "is_api_active": true
-                }
-            },
-            {
-                "direction": "outflow",
-                "exchange": "huobi",
-                "token": "bat",
-                "window": "1h",
-                "location": {
-                    "api": "https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_window_historical/last?direction=outflow&window=1h&token=bat&exchange=huobi",
-                    "is_api_active": true
-                }
-            },
-        ]
-}
-```
-
-### URL Segments
-
-| Parameter | Type     | Description                            |
-| --------- | -------- | -------------------------------------- |
-| name      | _string_ | The dataset type name (see above)      |
-| exchange  | _string_ | The name of the exchange, i.e. binance |
-
-### Dataset Values
-
-| Field                  | Type     | Description                                          |
-| ---------------------- | -------- | ---------------------------------------------------- |
-| direction*             | _string_ | The flow direction to / from an exchange             |
-| exchange*              | _string_ | The exchange name                                    |
-| token                  | _string_ | The token code                                       |
-| window                 | _string_ | The time window for each datapoint                   |
-| from_entity*           | _string_ | The origin entity of a transaction                   |
-| to_entity*             | _string_ | The destination entity of a transaction              |
-| location.api           | _string_ | The full API URL to access this dataset              |
-| location.is_api_active | _bool_   | Signify whether this API URL is currently accessible |
-
-(*) Availability dependant on dataset type
-
-## By Exchange and Token
-
-Return a list of all the datasets of a given dataset type, filtered by exchange name. Please note this can only be specified for exchange related dataset types.
-
-### HTTP Request
-
-`GET https://api.tokenanalyst.io/catalog/data/{name}/exchange/{exchange}/token/{token}`
-
-<img src="https://img.shields.io/badge/Tier-Free-green.svg"/>
-
-
-```shell
-curl "https://api.tokenanalyst.io/catalog/data/exchange_flow_window_historical/exchange/binance/token/btc"
-```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-        "name": "exchange_flow_window_historical",
-        "description": {
-            "text": "Description for dataset exchange_flow_window_historical"
-        },
-        "tier": {
-            "value": 3
-        },
-        "schema": {
-            "json": "{\"avg_txn_value\":{\"precision\":\"{satoshi_precision}\",\"type\":\"float\"},\"avg_txn_value_usd\":{\"precision\":\"{usd_precision}\",\"type\":\"float\"},\"date\":{\"format\":\"{date_format}\",\"type\":\"date\"},\"datetime\":{\"format\":\"{datetime_format}\",\"type\":\"datetime\"},\"hour\":{\"format\":\"{hour_format}\",\"type\":\"hour\"},\"inflow\":{\"precision\":\"{satoshi_precision}\",\"type\":\"float\"},\"inflow_usd\":{\"precision\":\"{usd_precision}\",\"type\":\"float\"},\"number_of_txns\":{\"type\":\"int\"}}"
-        },
-        "exchange_flow_window_historical": [
-            {
-                "direction": "outflow",
-                "exchange": "binance",
-                "token": "btc",
-                "window": "1h",
-                "location": {
-                    "api": "https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_window_historical/last?token=btc&direction=outflow&window=1h&exchange=binance",
-                    "is_api_active": true
-                }
-            },
-            {
-                "direction": "inflow",
-                "exchange": "binance",
-                "token": "btc",
-                "window": "1h",
-                "location": {
-                    "api": "https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_window_historical/last?token=btc&exchange=binance&direction=inflow&window=1h",
-                    "is_api_active": true
-                }
-            },
-        ]
-}
-```
-
-### URL Segments
-
-| Parameter | Type     | Description                            |
-| --------- | -------- | -------------------------------------- |
-| name      | _string_ | The dataset type name (see above)      |
-| exchange  | _string_ | The name of the exchange, i.e. binance |
-| token     | _string_ | The token code to filter by, i.e. btc  |
-
-### Dataset Values
-
-| Field                  | Type     | Description                                          |
-| ---------------------- | -------- | ---------------------------------------------------- |
-| direction*             | _string_ | The flow direction to / from an exchange             |
-| exchange*              | _string_ | The exchange name                                    |
-| token                  | _string_ | The token code                                       |
-| window                 | _string_ | The time window for each datapoint                   |
-| from_entity*           | _string_ | The origin entity of a transaction                   |
-| to_entity*             | _string_ | The destination entity of a transaction              |
-| location.api           | _string_ | The full API URL to access this dataset              |
-| location.is_api_active | _bool_   | Signify whether this API URL is currently accessible |
-
-(*) Availability dependant on dataset type
-
-## By Window
-
-Return a list of all the datasets of a given dataset type, filtered by time windows.
-
-### HTTP Request
-
-`GET https://api.tokenanalyst.io/catalog/data/{name}/window/{window}`
-
-<img src="https://img.shields.io/badge/Tier-Free-green.svg"/>
-
-
-```shell
-curl "https://api.tokenanalyst.io/catalog/data/exchange_flow_window_historical/window/1h"
-```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-        "name": "exchange_flow_window_historical",
-        "description": {
-            "text": "Description for dataset exchange_flow_window_historical"
-        },
-        "tier": {
-            "value": 3
-        },
-        "schema": {
-            "json": "{\"avg_txn_value\":{\"precision\":\"{satoshi_precision}\",\"type\":\"float\"},\"avg_txn_value_usd\":{\"precision\":\"{usd_precision}\",\"type\":\"float\"},\"date\":{\"format\":\"{date_format}\",\"type\":\"date\"},\"datetime\":{\"format\":\"{datetime_format}\",\"type\":\"datetime\"},\"hour\":{\"format\":\"{hour_format}\",\"type\":\"hour\"},\"inflow\":{\"precision\":\"{satoshi_precision}\",\"type\":\"float\"},\"inflow_usd\":{\"precision\":\"{usd_precision}\",\"type\":\"float\"},\"number_of_txns\":{\"type\":\"int\"}}"
-        },
-        "exchange_flow_window_historical": [
-            {
-                "direction": "inflow",
-                "exchange": "bittrex",
-                "token": "btc",
-                "window": "1h",
-                "location": {
-                    "api": "https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_window_historical/last?token=btc&direction=inflow&window=1h&exchange=bittrex",
-                    "is_api_active": true
-                }
-            },
-            {
-                "direction": "inflow",
-                "exchange": "poloniex",
-                "token": "bat",
-                "window": "1h",
-                "location": {
-                    "api": "https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_window_historical/last?direction=inflow&window=1h&token=bat&exchange=poloniex",
-                    "is_api_active": true
-                }
-            },
-        ]
-}
-```
-
-### URL Segments
-
-| Parameter | Type     | Description                       |
-| --------- | -------- | --------------------------------- |
-| name      | _string_ | The dataset type name (see above) |
-| window    | _string_ | The data window, i.e. 1h          |
-
-### Dataset Values
-
-| Field                  | Type     | Description                                          |
-| ---------------------- | -------- | ---------------------------------------------------- |
-| direction*             | _string_ | The flow direction to / from an exchange             |
-| exchange*              | _string_ | The exchange name                                    |
-| token                  | _string_ | The token code                                       |
-| window                 | _string_ | The time window for each datapoint                   |
-| from_entity*           | _string_ | The origin entity of a transaction                   |
-| to_entity*             | _string_ | The destination entity of a transaction              |
-| location.api           | _string_ | The full API URL to access this dataset              |
-| location.is_api_active | _bool_   | Signify whether this API URL is currently accessible |
-
-(*) Availability dependant on dataset type
-
-## By Direction
-
-Return a list of all the datasets of a given dataset type, filtered by flow direction. Please note this is only valid for certain datasets.
-
-### HTTP Request
-
-`GET https://api.tokenanalyst.io/catalog/data/{name}/direction/{direction}`
-
-<img src="https://img.shields.io/badge/Tier-Free-green.svg"/>
-
-
-```shell
-curl "https://api.tokenanalyst.io/catalog/data/exchange_flow_window_historical/direction/inflow"
-```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-        "name": "exchange_flow_window_historical",
-        "description": {
-            "text": "Description for dataset exchange_flow_window_historical"
-        },
-        "tier": {
-            "value": 3
-        },
-        "schema": {
-            "json": "{\"avg_txn_value\":{\"precision\":\"{satoshi_precision}\",\"type\":\"float\"},\"avg_txn_value_usd\":{\"precision\":\"{usd_precision}\",\"type\":\"float\"},\"date\":{\"format\":\"{date_format}\",\"type\":\"date\"},\"datetime\":{\"format\":\"{datetime_format}\",\"type\":\"datetime\"},\"hour\":{\"format\":\"{hour_format}\",\"type\":\"hour\"},\"inflow\":{\"precision\":\"{satoshi_precision}\",\"type\":\"float\"},\"inflow_usd\":{\"precision\":\"{usd_precision}\",\"type\":\"float\"},\"number_of_txns\":{\"type\":\"int\"}}"
-        },
-        "exchange_flow_window_historical": [
-            {
-                "direction": "inflow",
-                "exchange": "bittrex",
-                "token": "btc",
-                "window": "1h",
-                "location": {
-                    "api": "https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_window_historical/last?token=btc&direction=inflow&window=1h&exchange=bittrex",
-                    "is_api_active": true
-                }
-            },
-            {
-                "direction": "inflow",
-                "exchange": "poloniex",
-                "token": "bat",
-                "window": "1h",
-                "location": {
-                    "api": "https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_window_historical/last?direction=inflow&window=1h&token=bat&exchange=poloniex",
-                    "is_api_active": true
-                }
-            },
-        ]
-}
-```
-
-### URL Segments
-
-| Parameter | Type     | Description                       |
-| --------- | -------- | --------------------------------- |
-| name      | _string_ | The dataset type name (see above) |
-| direction | _string_ | The flow direction, i.e. inflow   |
-
-### Dataset Values
-
-| Field                  | Type     | Description                                          |
-| ---------------------- | -------- | ---------------------------------------------------- |
-| direction*             | _string_ | The flow direction to / from an exchange             |
-| exchange*              | _string_ | The exchange name                                    |
-| token                  | _string_ | The token code                                       |
-| window                 | _string_ | The time window for each datapoint                   |
-| from_entity*           | _string_ | The origin entity of a transaction                   |
-| to_entity*             | _string_ | The destination entity of a transaction              |
-| location.api           | _string_ | The full API URL to access this dataset              |
-| location.is_api_active | _bool_   | Signify whether this API URL is currently accessible |
-
-(*) Availability dependant on dataset type
-
-## By Origin Entity
-
-Return a list of all the datasets of a given dataset type, filtered by to origin entity of the transactions. Please note that this is only valid for certain datasets.
-
-### HTTP Request
-
-`GET https://api.tokenanalyst.io/catalog/data/{name}/from_entity/{from_entity}`
-
-<img src="https://img.shields.io/badge/Tier-Free-green.svg"/>
-
-
-```shell
-curl "https://api.tokenanalyst.io/catalog/data/entity_to_entity_flow_window_historical/from_entity/ethermine"
-```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-        "name": "entity_to_entity_flow_window_historical",
-        "description": {
-            "text": "Description for dataset entity_to_entity_flow_window_historical"
-        },
-        "tier": {
-            "value": 3
-        },
-        "schema": {
-            "json": "{\"avg_txn_value\":{\"agg_string\":\"value / number_of_txns\",\"aggregate_type\":\"custom\",\"precision\":\"{satoshi_precision}\",\"type\":\"float\"},\"avg_txn_value_usd\":{\"agg_string\":\"value_usd / number_of_txns\",\"aggregate_type\":\"custom\",\"precision\":\"{usd_precision}\",\"type\":\"float\"},\"date\":{\"format\":\"{date_format}\",\"type\":\"date\"},\"datetime\":{\"format\":\"{datetime_format}\",\"type\":\"datetime\"},\"hour\":{\"format\":\"{hour_format}\",\"type\":\"hour\"},\"number_of_txns\":{\"aggregate_type\":\"sum\",\"type\":\"int\"},\"value\":{\"aggregate_type\":\"sum\",\"precision\":\"{satoshi_precision}\",\"type\":\"float\"},\"value_usd\":{\"aggregate_type\":\"sum\",\"precision\":\"{usd_precision}\",\"type\":\"float\"}}"
-        },
-        "entity_to_entity_flow_window_historical": [
-            {
-                "from_entity": "ethermine",
-                "to_entity": "poloniex",
-                "token": "eth",
-                "window": "1h",
-                "location": {
-                    "api": "https://api.tokenanalyst.io/analytics/private/v1/entity_to_entity_flow_window_historical/last?token=eth&window=1h&from_entity=ethermine&to_entity=poloniex",
-                    "is_api_active": true
-                }
-            },
-            {
-                "from_entity": "ethermine",
-                "to_entity": "kucoin",
-                "token": "eth",
-                "window": "1h",
-                "location": {
-                    "api": "https://api.tokenanalyst.io/analytics/private/v1/entity_to_entity_flow_window_historical/last?token=eth&window=1h&from_entity=ethermine&to_entity=kucoin",
-                    "is_api_active": true
-                }
-            },
-        ]
-}
-```
-
-### URL Segments
-
-| Parameter   | Type     | Description                                 |
-| ----------- | -------- | ------------------------------------------- |
-| name        | _string_ | The dataset type name (see above)           |
-| from_entity | _string_ | The name of the origin entity, i.e. binance |
-
-### Dataset Values
-
-| Field                  | Type     | Description                                          |
-| ---------------------- | -------- | ---------------------------------------------------- |
-| direction*             | _string_ | The flow direction to / from an exchange             |
-| exchange*              | _string_ | The exchange name                                    |
-| token                  | _string_ | The token code                                       |
-| window                 | _string_ | The time window for each datapoint                   |
-| from_entity*           | _string_ | The origin entity of a transaction                   |
-| to_entity*             | _string_ | The destination entity of a transaction              |
-| location.api           | _string_ | The full API URL to access this dataset              |
-| location.is_api_active | _bool_   | Signify whether this API URL is currently accessible |
-
-(*) Availability dependant on dataset type
-
-## By Destination Entity
-
-Return a list of all the datasets of a given dataset type, filtered by to destination entity of the transactions. Please note that this is only valid for certain datasets.
-
-### HTTP Request
-
-`GET https://api.tokenanalyst.io/catalog/data/{name}/to_entity/{to_entity}`
-
-<img src="https://img.shields.io/badge/Tier-Free-green.svg"/>
-
-
-```shell
-curl "https://api.tokenanalyst.io/catalog/data/entity_to_entity_flow_window_historical/to_entity/bittrex"
-```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-        "name": "entity_to_entity_flow_window_historical",
-        "description": {
-            "text": "Description for dataset entity_to_entity_flow_window_historical"
-        },
-        "tier": {
-            "value": 3
-        },
-        "schema": {
-            "json": "{\"avg_txn_value\":{\"agg_string\":\"value / number_of_txns\",\"aggregate_type\":\"custom\",\"precision\":\"{satoshi_precision}\",\"type\":\"float\"},\"avg_txn_value_usd\":{\"agg_string\":\"value_usd / number_of_txns\",\"aggregate_type\":\"custom\",\"precision\":\"{usd_precision}\",\"type\":\"float\"},\"date\":{\"format\":\"{date_format}\",\"type\":\"date\"},\"datetime\":{\"format\":\"{datetime_format}\",\"type\":\"datetime\"},\"hour\":{\"format\":\"{hour_format}\",\"type\":\"hour\"},\"number_of_txns\":{\"aggregate_type\":\"sum\",\"type\":\"int\"},\"value\":{\"aggregate_type\":\"sum\",\"precision\":\"{satoshi_precision}\",\"type\":\"float\"},\"value_usd\":{\"aggregate_type\":\"sum\",\"precision\":\"{usd_precision}\",\"type\":\"float\"}}"
-        },
-        "entity_to_entity_flow_window_historical": [
-            {
-                "from_entity": "2miners: pplns,2miners: solo",
-                "to_entity": "bittrex",
-                "token": "eth",
-                "window": "1h",
-                "location": {
-                    "api": "https://api.tokenanalyst.io/analytics/private/v1/entity_to_entity_flow_window_historical/last?token=eth&window=1h&from_entity=2miners: pplns,2miners: solo&to_entity=bittrex",
-                    "is_api_active": true
-                }
-            },
-            {
-                "from_entity": "beeppool",
-                "to_entity": "bittrex",
-                "token": "eth",
-                "window": "1h",
-                "location": {
-                    "api": "https://api.tokenanalyst.io/analytics/private/v1/entity_to_entity_flow_window_historical/last?token=eth&window=1h&from_entity=beeppool&to_entity=bittrex",
-                    "is_api_active": true
-                }
-            },
-        ]
-}
-```
-
-### URL Segments
-
-| Parameter | Type     | Description                                      |
-| --------- | -------- | ------------------------------------------------ |
-| name      | _string_ | The dataset type name (see above)                |
-| to_entity | _string_ | The name of the destination entity, i.e. binance |
-
-### Dataset Values
-
-| Field                  | Type     | Description                                          |
-| ---------------------- | -------- | ---------------------------------------------------- |
-| direction*             | _string_ | The flow direction to / from an exchange             |
-| exchange*              | _string_ | The exchange name                                    |
-| token                  | _string_ | The token code                                       |
-| window                 | _string_ | The time window for each datapoint                   |
-| from_entity*           | _string_ | The origin entity of a transaction                   |
-| to_entity*             | _string_ | The destination entity of a transaction              |
-| location.api           | _string_ | The full API URL to access this dataset              |
-| location.is_api_active | _bool_   | Signify whether this API URL is currently accessible |
-
-(*) Availability dependant on dataset type
 
 ## Supported Values
 
-The following list of API calls provide arrays of valid values for certain dataset types. For example the list of supported exchanges for a given token, or the supported data windows for a given dataset.
+The following list of API calls allow you to query all the possible values for a given parameter, optionally filtering by a second parameter. This would allow you to for example query all the tokens supported by a given dataset type, or the tokens supported for a given exchange. 
 
-## Tokens
+## Possible values
 
-Return an array of tokens supported for this dataset.
+Return an array of supported values for a given parameter.
 
 ### HTTP Request
 
-`GET https://api.tokenanalyst.io/catalog/data/{name}/tokens`
+`GET https://api.tokenanalyst.io/catalog/data/{name}/{parameter}`
 
 <img src="https://img.shields.io/badge/Tier-Free-green.svg"/>
 
 
 ```shell
-curl "https://api.tokenanalyst.io/catalog/data/exchange_flow_window_historical/tokens"
+curl "https://api.tokenanalyst.io/catalog/data/exchange_flow_window_historical/token"
 ```
 
 > The above command returns an array like the below:
 
 ```json
 [
-    "btc",
-    "bat",
-    "eth",
-    "usdt_omni",
-    "usdt_erc20",
-    "pax",
-    "usdc",
-    "zrx",
-    "loom",
-    "tusd",
+    "rep",
+    "rlc",
     "link",
+    "dai",
+    "usdc",
     "mana",
     "omg",
     "gnt",
+    "btc",
+    "bat",
+    "usdt_omni",
+    "pax",
     "cvc",
-    "knc",
-    "rep",
-    "dai",
     "mkr",
+    "knc",
+    "usdt_erc20",
+    "tusd",
+    "loom",
     "nmr",
-    "rlc",
-    "snt"
+    "snt",
+    "eth",
+    "zrx"
 ]
 ```
 
@@ -713,37 +283,38 @@ curl "https://api.tokenanalyst.io/catalog/data/exchange_flow_window_historical/t
 | Parameter | Type     | Description                       |
 | --------- | -------- | --------------------------------- |
 | name      | _string_ | The dataset type name (see above) |
+| parameter | _string_ | The parameter to get possible values of |
 
-## Exchanges
+## Possible values, filtered
 
-Return an array of exchanges supported for this dataset and token. Please note this only applies to datasets that involve exchanges.
+Return an array of supported values for a given parameter, filtering by another parameter.
 
 ### HTTP Request
 
-`GET https://api.tokenanalyst.io/catalog/data/{name}/tokens/{token}/exchanges`
+`GET https://api.tokenanalyst.io/catalog/data/{name}/{filter_parameter}/{filter_value}/{parameter}`
 
 <img src="https://img.shields.io/badge/Tier-Free-green.svg"/>
 
 
 ```shell
-curl "https://api.tokenanalyst.io/catalog/data/exchange_flow_window_historical/token/btc/exchanges"
+curl "https://api.tokenanalyst.io/catalog/data/entity_to_entity_flow_window_historical/window/1h/to_entity"
 ```
 
 > The above command returns an array like the below:
 
 ```json
 [
-    "bitstamp",
     "binance",
-    "bittrex",
     "bitfinex",
     "bitmex",
-    "kraken",
+    "bitstamp",
+    "bittrex",
+    "deribit",
     "huobi",
-    "poloniex",
+    "kraken",
     "kucoin",
     "okex",
-    "deribit"
+    "poloniex"
 ]
 ```
 
@@ -752,145 +323,7 @@ curl "https://api.tokenanalyst.io/catalog/data/exchange_flow_window_historical/t
 | Parameter | Type     | Description                       |
 | --------- | -------- | --------------------------------- |
 | name      | _string_ | The dataset type name (see above) |
-| token     | _string_ | The token code                    |
-
-## Windows
-
-Return an array of supported data windows for this dataset type
-
-### HTTP Request
-
-`GET https://api.tokenanalyst.io/catalog/data/{name}/windows`
-
-<img src="https://img.shields.io/badge/Tier-Free-green.svg"/>
-
-
-```shell
-curl "https://api.tokenanalyst.io/catalog/data/exchange_flow_window_historical/windows"
-```
-
-> The above command returns an array like the below:
-
-```json
-
-    [
-      "1d",
-      "1h"
-    ]
-
-```
-
-### URL Segments
-
-| Parameter | Type     | Description                       |
-| --------- | -------- | --------------------------------- |
-| name      | _string_ | The dataset type name (see above) |
-
-## Directions
-
-Return an array of supported flow directions. Only applies to datasets that involve exchanges.
-
-### HTTP Request
-
-`GET https://api.tokenanalyst.io/catalog/data/{name}/directions`
-
-<img src="https://img.shields.io/badge/Tier-Free-green.svg"/>
-
-
-```shell
-curl "https://api.tokenanalyst.io/catalog/data/exchange_flow_window_historical/directions"
-```
-
-> The above command returns an array like the below:
-
-```json
-
-    [
-      "outflow",
-      "inflow"
-    ]
-
-```
-
-### URL Segments
-
-| Parameter | Type     | Description                       |
-| --------- | -------- | --------------------------------- |
-| name      | _string_ | The dataset type name (see above) |
-
-## Origin Entities
-
-Return an array of supported origin entities for this dataset. Only applies to datasets that involve entity to entity flows.
-
-### HTTP Request
-
-`GET https://api.tokenanalyst.io/catalog/data/{name}/from_entities`
-
-<img src="https://img.shields.io/badge/Tier-Free-green.svg"/>
-
-
-```shell
-curl "https://api.tokenanalyst.io/catalog/data/entity_to_entity_flow_window_historical/from_entities"
-```
-
-> The above command returns an array like the below:
-
-```json
-
-    [
-      "2miners: pplns",
-      "2miners: solo",
-      "altpool.pro",
-      "beeppool",
-      "btc.com pool",
-      "coinotron 3",
-      "cruxpool",
-      "dwarfpool 1",
-      "eth.solopool.org",
-      "ethermine"
-    ]
-
-```
-
-### URL Segments
-
-| Parameter | Type     | Description                       |
-| --------- | -------- | --------------------------------- |
-| name      | _string_ | The dataset type name (see above) |
-
-## Destination Entities
-
-Return an array of supported destination entities for this dataset. Only applies to datasets that involve entity to entity flows.
-
-### HTTP Request
-
-`GET https://api.tokenanalyst.io/catalog/data/{name}/to_entities`
-
-<img src="https://img.shields.io/badge/Tier-Free-green.svg"/>
-
-
-```shell
-curl "https://api.tokenanalyst.io/catalog/data/entity_to_entity_flow_window_historical/to_entities"
-```
-
-> The above command returns an array like the below:
-
-```json
-
-    [
-      "binance",
-      "bitfinex",
-      "bittrex",
-      "kraken",
-      "kucoin",
-      "poloniex",
-    ]
-
-```
-
-### URL Segments
-
-| Parameter | Type     | Description                       |
-| --------- | -------- | --------------------------------- |
-| name      | _string_ | The dataset type name (see above) |
+| filter_parameter | _string_ | The parameter to use as a filter |
+| filter_value | _string_ | The value to filter with |
+| parameter | _string_ | The parameter to get possible values of |
 
