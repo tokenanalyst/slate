@@ -63,7 +63,7 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_window_hist
 | format       | _string_  | What format you want your data in (`json` or `csv`)                                       |
 | token        | _string_  | `btc`                                                                                     |
 | direction    | _string_  | `inflow`                                                                                  |
-| exchange     | _string_  | An exchange from the table that we support                                                |
+| exchange     | _string_  | An exchange from the [table](#bitcoin-exchange-flows) that we support                                                |
 | window       | _string_  | `1h` or `1d`                                                                              |
 | from_date \* | _string_  | Start date of returned data specified as YYYY-MM-DD (ISO date format)                     |
 | to_date \*   | _string_  | End date of returned data specified as YYYY-MM-DD (ISO date format)                       |
@@ -133,7 +133,7 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_window_hist
 | format       | _string_  | What format you want your data in (`json` or `csv`)                                       |
 | token        | _string_  | `btc`                                                                                     |
 | direction    | _string_  | `outflow`                                                                                 |
-| exchange     | _string_  | An exchange from the list of ones we support                                              |
+| exchange     | _string_  | An exchange from the [table](#bitcoin-exchange-flows) that we support                                             |
 | window       | _string_  | `1h` or `1d`                                                                              |
 | from_date \* | _string_  | Start date of returned data specified as YYYY-MM-DD (ISO date format)                     |
 | to_date \*   | _string_  | End date of returned data specified as YYYY-MM-DD (ISO date format)                       |
@@ -203,8 +203,8 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/entity_to_entity_flow_win
 | format       | _string_  | What format you want your data in (`json` or `csv`)                                       |
 | token        | _string_  | `btc`                                                                                     |                                                                             |
 | window       | _string_  | `1h` or `1d`                                                                           |
-| from_entity  | _string_  | An exchange from the table that we support
-| to_entity    | _string_  | An exchange from the table that we support. Cannot be the same as ```from_entity```       |                                                 |
+| from_entity  | _string_  | An exchange from the [table](#bitcoin-exchange-flows) that we support
+| to_entity    | _string_  | An exchange from the [table](#bitcoin-exchange-flows) that we support. Cannot be the same as ```from_entity```       |                                                 |
 | from_date \* | _string_  | Start date of returned data specified as YYYY-MM-DD (ISO date format)                     |
 | to_date \*   | _string_  | End date of returned data specified as YYYY-MM-DD (ISO date format)                       |
 | limit \*     | _integer_ | The number of entries returned before the latest data point (or the to_date if specified) |
@@ -281,7 +281,7 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_window_stat
 | format       | _string_  | What format you want your data in (`json` or `csv`)                                       |
 | token        | _string_  | `btc`                                                                                     |
 | direction    | _string_  | `inflow` or `outflow`                                                                     |
-| exchange     | _string_  | An exchange from the table that we support                                                |
+| exchange     | _string_  | An exchange from the [table](#bitcoin-exchange-flows) that we support                                                |
 | lag          | _string_  | `hour` (default two hour lag)                    |
 | window       | _string_  | `1h`                                                                               |
 | from_date \* | _string_  | Start date of returned data specified as YYYY-MM-DD (ISO date format)                     |
