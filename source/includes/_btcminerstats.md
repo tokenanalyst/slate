@@ -293,7 +293,7 @@ The above table defines supported pairs of the query parameters `from_entity` an
 
 
 ```shell
-curl "https://api.tokenanalyst.io/analytics/private/v1/entity_to_entity_flow_window_historical/last?window=1d&limit=2&from_entity=slushpool&to_entity=binance&format=json&token=btc&key=APIKEY"
+curl "https://api.tokenanalyst.io/analytics/private/v1/entity_to_entity_flow_window_historical/last?window=1d&limit=2&from_entity=slushpool&to_entity=binance&format=json&token=btc&key=API_KEY"
 ```
 
 > The above command returns JSON structured like this:

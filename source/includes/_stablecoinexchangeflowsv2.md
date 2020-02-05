@@ -59,7 +59,7 @@ This endpoint returns the inflow of stablecoins into exchange wallets. The `avg_
 | key       | _string_ | Your unique API key                                 |
 | format    | _string_ | What format you want your data in (`json` or `csv`) |
 | token     | _string_ | `usdt_omni`                                         |
-| exchange  | _string_ | An exchange from the table that we support        |
+| exchange  | _string_ | An exchange from the [table](#stablecoin-exchange-flows) that we support        |
 | direction | _string_ | `inflow`                                            |
 | window    | _string_ | `1h` or `1d`                                        |
 | from_date \* | _string_  | Start date of returned data specified as YYYY-MM-DD (ISO date format)                     |
@@ -128,7 +128,7 @@ This endpoint returns the inflow of stablecoins into exchange wallets. The `avg_
 | key       | _string_ | Your unique API key                                 |
 | format    | _string_ | What format you want your data in (`json` or `csv`) |
 | token     | _string_ | `usdt_omni`                                         |
-| exchange  | _string_ | An exchange from the list of ones we support        |
+| exchange  | _string_ | An exchange from the [table](#stablecoin-exchange-flows) that we support       |
 | direction | _string_ | `inflow`                                            |
 | window    | _string_ | `1h` or `1d`                                        |
 | from_date \* | _string_  | Start date of returned data specified as YYYY-MM-DD (ISO date format)                     |
@@ -207,7 +207,7 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_window_stat
 | format       | _string_  | What format you want your data in (`json` or `csv`)                                       |
 | token        | _string_  | `usdc`                                                                                     |
 | direction    | _string_  | `inflow` or `outflow`                                                                     |
-| exchange     | _string_  | An exchange from the table that we support                                                |
+| exchange     | _string_  | An exchange from the [table](#stablecoin-exchange-flows) that we support                                                |
 | lag          | _string_  | `hour` (default 2 hour lag)              |
 | window       | _string_  | `1h`                                                                            |
 | from_date \* | _string_  | Start date of returned data specified as YYYY-MM-DD (ISO date format)                     |
@@ -278,7 +278,7 @@ This endpoint returns the top 10 transactions (in terms of total USDT sent) flow
 | format    | _string_ | What format you want your data in (`json` or `csv`) |
 | token     | _string_ | `usdt_omni`                                         |
 | direction | _string_ | `inflow`                                            |
-| exchange  | _string_ | An exchange from the list of ones we support        |
+| exchange  | _string_ | An exchange from the [table](#stablecoin-exchange-flows) that we support     |
 | window       | _string_  | `1d` (no support for 1h at this time)                                                     |
 | from_date \* | _string_  | Start date of returned data specified as YYYY-MM-DD (ISO date format)                     |
 | to_date \*   | _string_  | End date of returned data specified as YYYY-MM-DD (ISO date format)                       |
@@ -341,7 +341,7 @@ This endpoint returns the top 10 transactions (in terms of total USDT sent) flow
 | format    | _string_ | What format you want your data in (`json` or `csv`) |
 | token     | _string_ | `usdt_omni`                                         |
 | direction | _string_ | `outflow`                                           |
-| exchange  | _string_ | An exchange from the list of ones we support        |
+| exchange  | _string_ | An exchange from the [table](#stablecoin-exchange-flows) that we support        |
 | window       | _string_  | `1d` (no support for 1h at this time)                                                     |
 | from_date \* | _string_  | Start date of returned data specified as YYYY-MM-DD (ISO date format)                     |
 | to_date \*   | _string_  | End date of returned data specified as YYYY-MM-DD (ISO date format)                       |
