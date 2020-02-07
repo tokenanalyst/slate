@@ -9,7 +9,7 @@ The stablecoins we currently support are:
 | USDC                 | `usdc`       | `binance`, `bitfinex`|
 | Paxos Standard Token | `pax`        | `binance`, `bitfinex`, `bittrex` |
 | TrueUSD              | `tusd`       | `binance`, `bittrex` |
-| Dai                  | `dai`        | `bittrex` |
+| Multi-Collateral Dai | `dai`        | `bittrex` |
 
 ## Stablecoins Full Historical Inflow from Exchanges
 

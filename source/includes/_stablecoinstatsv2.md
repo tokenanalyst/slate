@@ -10,9 +10,9 @@ The stablecoins we currently support are:
 | Paxos Standard Token | `pax`        |
 | TrueUSD              | `tusd`       |
 | Gemini Dollar        | `gusd`       |
-| Dai                  | `dai`        |
+| Multi-Collateral Dai | `dai`        |
 
-We have slightly different endpoints for Tether (usdt_omni) due to the nature of OMNI blockchian
+We have slightly different endpoints for Tether (usdt_omni) due to the nature of OMNI blockchain
 
 ## Tether (Omni) On-chain Volume
 
@@ -424,7 +424,7 @@ This endpoint returns the full historical on-chain volume of any of the stableco
 | --------- | -------- | --------------------------------------------------- |
 | key       | _string_ | Your unique API key                                 |
 | format    | _string_ | What format you want your data in (`json` or `csv`) |
-| token     | _string_ | The token you want the volume for                   |
+| token     | _string_ | The [stablecoin](#stablecoin-fxchange-flows) you want the volume for                   |
 | window    | _string_ | `1d` (no support for 1h at this time)               |
 | from_date \* | _string_  | Start date of returned data specified as YYYY-MM-DD (ISO date format)                     |
 | to_date \*   | _string_  | End date of returned data specified as YYYY-MM-DD (ISO date format)                       |
@@ -478,7 +478,7 @@ This endpoint returns the number of token transfers on the Ethereum blockchain f
 | --------- | -------- | --------------------------------------------------- |
 | key       | _string_ | Your unique API key                                 |
 | format    | _string_ | What format you want your data in (`json` or `csv`) |
-| token     | _string_ | The stablecoin you want the transaction count for   |
+| token     | _string_ | The [stablecoin](#stablecoin-fxchange-flows) you want the transaction count for   |
 | window    | _string_ | `1d` (no support for 1h at this time)               |
 | from_date \* | _string_  | Start date of returned data specified as YYYY-MM-DD (ISO date format)                     |
 | to_date \*   | _string_  | End date of returned data specified as YYYY-MM-DD (ISO date format)                       |
@@ -529,7 +529,7 @@ This endpoint returns the active addresses of stabelecoin tokens for every day o
 | --------- | -------- | --------------------------------------------------- |
 | key       | _string_ | Your unique API key                                 |
 | format    | _string_ | What format you want your data in (`json` or `csv`) |
-| token     | _string_ | The stablecoin you want the transaction count for   |
+| token     | _string_ | The [stablecoin](#stablecoin-fxchange-flows) you want the transaction count for   |
 | window    | _string_ | `1d` (no support for 1h at this time)               |
 | from_date \* | _string_  | Start date of returned data specified as YYYY-MM-DD (ISO date format)                     |
 | to_date \*   | _string_  | End date of returned data specified as YYYY-MM-DD (ISO date format)                       |
