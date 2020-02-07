@@ -4410,12 +4410,12 @@ The weighted average age is sum of the ages of UTXOs multiplied by their bitocoi
 <td><code>gusd</code></td>
 </tr>
 <tr>
-<td>Dai</td>
+<td>Multi-Collateral Dai</td>
 <td><code>dai</code></td>
 </tr>
 </tbody></table>
 
-<p>We have slightly different endpoints for Tether (usdt_omni) due to the nature of OMNI blockchian</p>
+<p>We have slightly different endpoints for Tether (usdt_omni) due to the nature of OMNI blockchain</p>
 <h2 id='tether-omni-on-chain-volume'>Tether (Omni) On-chain Volume</h2>
 <p><img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/></p>
 <pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_volume_window_historical/last?format=json&amp;token=usdt_omni&amp;window=1h&amp;from_date=2018-09-10&amp;to_date=2018-09-12&amp;limit=2&amp;key=API_KEY"</span>
@@ -5118,7 +5118,7 @@ The weighted average age is sum of the ages of UTXOs multiplied by their bitocoi
 <tr>
 <td>token</td>
 <td><em>string</em></td>
-<td>The token you want the volume for</td>
+<td>The <a href="#stablecoin-stats">stablecoin</a> you want the volume for</td>
 </tr>
 <tr>
 <td>window</td>
@@ -5211,7 +5211,7 @@ The weighted average age is sum of the ages of UTXOs multiplied by their bitocoi
 <tr>
 <td>token</td>
 <td><em>string</em></td>
-<td>The stablecoin you want the transaction count for</td>
+<td>The <a href="#stablecoin-stats">stablecoin</a> you want the transaction count for</td>
 </tr>
 <tr>
 <td>window</td>
@@ -5297,7 +5297,7 @@ The weighted average age is sum of the ages of UTXOs multiplied by their bitocoi
 <tr>
 <td>token</td>
 <td><em>string</em></td>
-<td>The stablecoin you want the transaction count for</td>
+<td>The <a href="#stablecoin-stats">stablecoin</a> you want the transaction count for</td>
 </tr>
 <tr>
 <td>window</td>
@@ -6608,7 +6608,7 @@ The static endpoint lags behind the tip of the chain by 2 hours in order to leav
 <td><code>binance</code>, <code>bittrex</code></td>
 </tr>
 <tr>
-<td>Dai</td>
+<td>Multi-Collateral Dai</td>
 <td><code>dai</code></td>
 <td><code>bittrex</code></td>
 </tr>
