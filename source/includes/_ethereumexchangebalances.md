@@ -56,7 +56,7 @@ curl "https://api.tokenanalyst.io/analytics/private/v1/exchange_balance_window_h
 | key          | _string_  | Your unique API key                                                                       |
 | format       | _string_  | What format you want your data in (`json` or `csv`)                                       |
 | token        | _string_  | `eth`                                                                                     |                                    |
-| exchange     | _string_  | An exchange from the table that we support                                              |
+| exchange     | _string_  | An exchange from the [table](#ethereum-exchange-balance) that we support                                              |
 | window       | _string_  | `1h` or `1d`                                                                              |
 | from_date \* | _string_  | Start date of returned data specified as YYYY-MM-DD (ISO date format)                     |
 | to_date \*   | _string_  | End date of returned data specified as YYYY-MM-DD (ISO date format)                       |

@@ -14,13 +14,17 @@ includes:
   - ethereumfundamentalsv2
   - erc20tokenstatsv2
   - stablecoinstatsv2
-  - exchangeflows
-  - btcminerflows
-  - ethminerflows
+  - bitcoinexchangeflowsv2
+  - ethereumexchangeflows
+  - stablecoinexchangeflowsv2
+  - erc20exchangeflowsv2
+  - btcminerstats
+  - ethminerstats
   - bitcoinexchangebalances
   - ethereumexchangebalances
   - price
   - websocketfeed
+  - datacatalog
 
 search: true
 ---
