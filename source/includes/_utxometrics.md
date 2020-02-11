@@ -1,4 +1,4 @@
-# BTC UTXO Metrics
+# Bitcoin UTXO Metrics
 
 ## BTC UTXO Average Age
 

@@ -141,7 +141,7 @@ Note: All params with a \* are optional and `limit` is only available in the JSO
 
 ---
 
-## BTC Active addresses
+## BTC Active Addresses
 
 <img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/>
 
