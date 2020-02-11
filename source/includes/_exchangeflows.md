@@ -13,7 +13,7 @@ For stablecoins, the exchanges we currently support are:
 | -------------------- | ------------ | ------------------------------------------------------ |
 | Tether (Omni)        | `usdt_omni`  | `bitfinex`, `kraken`, `huobi`, `okex`, `poloniex`      |
 | Tether               | `usdt_erc20` | `binance`, `bitfinex`, `bittrex`, `kucoin`, `poloniex` |
-| USDC                 | `usdc`       | `binance`, `bitfinex`
+| USD Coin             | `usdc`       | `binance`, `bitfinex`
 | Paxos Standard Token | `pax`        | `binance`, `bitfinex`, `bittrex`
 | TrueUSD              | `tusd`       | `binance`, `bittrex`
 | Multi-Collateral Dai | `dai`        | `bittrex`
