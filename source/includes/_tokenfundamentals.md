@@ -5,7 +5,7 @@ The stablecoins we currently support are:
 | Name                 | Symbol       |
 | -------------------- | ------------ |
 | Tether               | `usdt_erc20` |
-| USDC                 | `usdc`       |
+| USD Coin             | `usdc`       |
 | Paxos Standard Token | `pax`        |
 | TrueUSD              | `tusd`       |
 | Gemini Dollar        | `gusd`       |

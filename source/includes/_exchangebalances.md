@@ -6,12 +6,14 @@ For the native tokens, the exchanges we currently support for balances are:
 ------------------------|--------|-----------------------------------------------------------------------------------------------------------|
 | Bitcoin               | `btc`  | `binance`, `bittrex`, `bitstamp`, `bitmex`, `bitfinex`, `deribit`, `huobi`, `kraken`, `okex`, `poloniex`  | 
 | Ethereum              | `eth`  | `binance`, `bittrex`, `bitfinex`, `kraken`, `kucoin`, `poloniex`                                          |
+| Tether                | `usdt_erc20`|  `binance`, `bittrex`, `bitfinex`, `kucoin`, `poloniex`                                              |
+| USD Coin              | `usdc` | `binance`, `bitfinex`                                                                                     |
 
 ## Full Historical Balance
 
 <img src="https://img.shields.io/badge/Tier-Professional-black.svg"/>
 
-This endpoint returns the balance of BTC held in the wallets of exchanges that we support for the full history of the exchange in question.
+This endpoint returns the balance of tokens held in the wallets of exchanges that we support for the full history of the exchange in question.
 
 ```shell
 # Make sure you substitute API_KEY for your unique API key.
