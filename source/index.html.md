@@ -10,7 +10,6 @@ toc_footers:
 includes:
   - dateandtime
   - bitcoinfundamentalsv2
-
   - ethereumfundamentalsv2
   - tokenfundamentals
   - exchangebalances

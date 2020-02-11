@@ -7,47 +7,47 @@ The list of assets we currently support is:
 
 | Name                      | API Parameter |
 |---------------------------|---------------|
-| Basic Attention Token     | _bat_         |
-| Bitcoin Cash              | _bch_         |
-| Binance Coin              | _bnb_         |
-| Bancor                    | _bnt_         |
-| Bitcoin                   | _btc_         |
-| Bitcoin BEP2 (Binance Chain)   | _btcb_        |
-| Bezant                    | _bznt_        |
-| Civic                     | _cvc_         |
-| Dai                       | _dai_         |
-| Ethereum Classic          | _etc_         |
-| Ethereum                  | _eth_         |
-| Fetch                     | _fet_         |
-| Fantom                    | _ftm_         |
-| Golem                     | _gnt_         |
-| Gemini Dollar             | _gusd_        |
-| ICON                      | _icx_         |
-| Kyber Network             | _knc_         |
-| Chainlink                 | _link_        |
-| Loom Network              | _loom_        |
-| Litecoin                  | _ltc_         |
-| Decentraland              | _mana_        |
-| Matic Network             | _matic_       |
-| Mithril                   | _mith_        |
-| Maker                     | _mkr_         |
-| Numeraire                 | _nmr_         |
-| OmiseGO                   | _omg_         |
-| 1Coin                     | _one_         |
-| Paxos Standard Token      | _pax_         |
-| Augur                     | _rep_         |
-| iExec                     | _rlc_         |
-| Status                    | _snt_         |
-| Storj                     | _storj_       |
-| Monolith                  | _tkn_         |
-| TrueUSD                   | _tusd_        |
-| USD Coin                  | _usdc_        |
-| StableUSD (Binance chain) | _usdsb_       |
-| Tether                    | _usdt_erc20_  |
-| Monero                    | _xmr_         |
-| Ripple                    | _xrp_         |
-| Zcash                     | _zec_         |
-| 0x                        | _zrx_         |
+| Basic Attention Token     | `bat`         |
+| Bitcoin Cash              | `bch`         |
+| Binance Coin              | `bnb`         |
+| Bancor                    | `bnt`         |
+| Bitcoin                   | `btc`         |
+| Bitcoin BEP2 (Binance Chain)   | `btcb`        |
+| Bezant                    | `bznt`        |
+| Civic                     | `cvc`         |
+| Dai                       | `dai`         |
+| Ethereum Classic          | `etc`         |
+| Ethereum                  | `eth`         |
+| Fetch                     | `fet`         |
+| Fantom                    | `ftm`         |
+| Golem                     | `gnt`         |
+| Gemini Dollar             | `gusd`        |
+| ICON                      | `icx`         |
+| Kyber Network             | `knc`         |
+| Chainlink                 | `link`        |
+| Loom Network              | `loom`        |
+| Litecoin                  | `ltc`         |
+| Decentraland              | `mana`        |
+| Matic Network             | `matic`       |
+| Mithril                   | `mith`        |
+| Maker                     | `mkr`         |
+| Numeraire                 | `nmr`         |
+| OmiseGO                   | `omg`         |
+| 1Coin                     | `one`         |
+| Paxos Standard Token      | `pax`         |
+| Augur                     | `rep`         |
+| iExec                     | `rlc`         |
+| Status                    | `snt`         |
+| Storj                     | `storj`       |
+| Monolith                  | `tkn`         |
+| TrueUSD                   | `tusd`        |
+| USD Coin                  | `usdc`        |
+| StableUSD (Binance chain) | `usdsb`       |
+| Tether                    | `usdt_erc20`  |
+| Monero                    | `xmr`         |
+| Ripple                    | `xrp`         |
+| Zcash                     | `zec`         |
+| 0x                        | `zrx`         |
 
 
 ## Token Price
