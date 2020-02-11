@@ -1,4 +1,4 @@
-# Token Fundamentals
+# ERC20 Token Fundamentals
 
 The stablecoins we currently support are:
 
@@ -35,7 +35,7 @@ The ERC20 tokens we currently support are:
 | Fetch.ai.             | `fet`   |
 
 
-## Token On-chain Volume
+## ERC20 On-chain Volume
 
 <img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/>
 
@@ -72,7 +72,7 @@ This endpoint returns the full historical on-chain volume of any of the tokens t
 | --------- | -------- | --------------------------------------------------- |
 | key       | _string_ | Your unique API key                                 |
 | format    | _string_ | What format you want your data in (`json` or `csv`) |
-| token     | _string_ | A token from the [table](#token-fundamentals) that we support                   |
+| token     | _string_ | A token from the [table](#erc20-token-fundamentals) that we support                   |
 | window    | _string_ | `1d` (no support for 1h at this time)               |
 | from_date \* | _string_  | Start date of returned data specified as YYYY-MM-DD (ISO date format)                     |
 | to_date \*   | _string_  | End date of returned data specified as YYYY-MM-DD (ISO date format)                       |
@@ -87,7 +87,7 @@ This endpoint returns the full historical on-chain volume of any of the tokens t
 | volume     | _decimal_ | The total sum of tokens sent by addresses in transactions with a timestamp that occurs on this date. |
 | volume_usd | _decimal_ | _volume_ \* _price_usd_                                                                                   |
 
-## Token On-chain Transaction Count
+## ERC20 On-chain Transaction Count
 
 <img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/>
 
@@ -126,7 +126,7 @@ This endpoint returns the number of token transfers on the Ethereum blockchain f
 | --------- | -------- | --------------------------------------------------- |
 | key       | _string_ | Your unique API key                                 |
 | format    | _string_ | What format you want your data in (`json` or `csv`) |
-| token     | _string_ | A token from the [table](#token-fundamentals) that we support    |
+| token     | _string_ | A token from the [table](#erc20-token-fundamentals) that we support    |
 | window    | _string_ | `1d` (no support for 1h at this time)               |
 | from_date \* | _string_  | Start date of returned data specified as YYYY-MM-DD (ISO date format)                     |
 | to_date \*   | _string_  | End date of returned data specified as YYYY-MM-DD (ISO date format)                       |
@@ -140,7 +140,7 @@ This endpoint returns the number of token transfers on the Ethereum blockchain f
 | date           | _string_  | The date in _YYYY-MM-DD_                                                                           |
 | number_of_txns | _integer_ | The number of token transactions included in blocks with a timestamp that occurs on this date |
 
-## Token Active Addresses
+## ERC20 Active Addresses
 
 <img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/>
 
@@ -177,7 +177,7 @@ This endpoint returns the active addresses of a supported token for every day of
 | --------- | -------- | --------------------------------------------------- |
 | key       | _string_ | Your unique API key                                 |
 | format    | _string_ | What format you want your data in (`json` or `csv`) |
-| token     | _string_ | A token from the [table](#token-fundamentals) that we support    |
+| token     | _string_ | A token from the [table](#erc20-token-fundamentals) that we support    |
 | window    | _string_ | `1d` (no support for 1h at this time)               |
 | from_date \* | _string_  | Start date of returned data specified as YYYY-MM-DD (ISO date format)                     |
 | to_date \*   | _string_  | End date of returned data specified as YYYY-MM-DD (ISO date format)                       |
