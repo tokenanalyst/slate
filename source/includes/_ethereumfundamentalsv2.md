@@ -119,7 +119,7 @@ This endpoint returns the number of transactions, where ETH value transferred wa
 | date           | _string_  | The date in _YYYY-MM-DD_                                                                    |
 | number_of_txns | _integer_ | The number of transactions included in blocks with a timestamp that occurs during this date |
 
-## ETH Active addresses
+## ETH Active Addresses
 
 <img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/>
 
