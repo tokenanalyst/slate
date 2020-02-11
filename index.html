@@ -302,16 +302,16 @@
               </ul>
           </li>
           <li>
-            <a href="#token-fundamentals" class="toc-h1 toc-link" data-title="Token Fundamentals">Token Fundamentals</a>
+            <a href="#erc20-token-fundamentals" class="toc-h1 toc-link" data-title="ERC20 Token Fundamentals">ERC20 Token Fundamentals</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#token-on-chain-volume" class="toc-h2 toc-link" data-title="Token On-chain Volume">Token On-chain Volume</a>
+                    <a href="#erc20-on-chain-volume" class="toc-h2 toc-link" data-title="ERC20 On-chain Volume">ERC20 On-chain Volume</a>
                   </li>
                   <li>
-                    <a href="#token-on-chain-transaction-count" class="toc-h2 toc-link" data-title="Token On-chain Transaction Count">Token On-chain Transaction Count</a>
+                    <a href="#erc20-on-chain-transaction-count" class="toc-h2 toc-link" data-title="ERC20 On-chain Transaction Count">ERC20 On-chain Transaction Count</a>
                   </li>
                   <li>
-                    <a href="#token-active-addresses" class="toc-h2 toc-link" data-title="Token Active Addresses">Token Active Addresses</a>
+                    <a href="#erc20-active-addresses" class="toc-h2 toc-link" data-title="ERC20 Active Addresses">ERC20 Active Addresses</a>
                   </li>
               </ul>
           </li>
@@ -2729,7 +2729,7 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
 <td>The cumulative total of distinct addresses appeared for the first time in a transaction on the Ethereum network on this date</td>
 </tr>
 </tbody></table>
-<h1 id='token-fundamentals'>Token Fundamentals</h1>
+<h1 id='erc20-token-fundamentals'>ERC20 Token Fundamentals</h1>
 <p>The stablecoins we currently support are:</p>
 
 <table><thead>
@@ -2743,7 +2743,7 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
 <td><code>usdt_erc20</code></td>
 </tr>
 <tr>
-<td>USDC</td>
+<td>USD Coin</td>
 <td><code>usdc</code></td>
 </tr>
 <tr>
@@ -2841,7 +2841,7 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
 <td><code>fet</code></td>
 </tr>
 </tbody></table>
-<h2 id='token-on-chain-volume'>Token On-chain Volume</h2>
+<h2 id='erc20-on-chain-volume'>ERC20 On-chain Volume</h2>
 <p><img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/></p>
 <pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_volume_window_historical/last?format=json&amp;token=usdc&amp;window=1d&amp;from_date=2019-09-25&amp;to_date=2019-09-26&amp;key=API_KEY"</span>
 </code></pre>
@@ -2885,7 +2885,7 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
 <tr>
 <td>token</td>
 <td><em>string</em></td>
-<td>A token from the <a href="#token-fundamentals">table</a> that we support</td>
+<td>A token from the <a href="#erc20-token-fundamentals">table</a> that we support</td>
 </tr>
 <tr>
 <td>window</td>
@@ -2932,7 +2932,7 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
 <td><em>volume</em> * <em>price_usd</em></td>
 </tr>
 </tbody></table>
-<h2 id='token-on-chain-transaction-count'>Token On-chain Transaction Count</h2>
+<h2 id='erc20-on-chain-transaction-count'>ERC20 On-chain Transaction Count</h2>
 <p><img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/></p>
 <pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_count_window_historical/last?format=json&amp;token=dai&amp;window=1d&amp;from_date=2017-12-18&amp;to_date=2017-12-20&amp;key=API_KEY"</span>
 </code></pre>
@@ -2978,7 +2978,7 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
 <tr>
 <td>token</td>
 <td><em>string</em></td>
-<td>A token from the <a href="#token-fundamentals">table</a> that we support</td>
+<td>A token from the <a href="#erc20-token-fundamentals">table</a> that we support</td>
 </tr>
 <tr>
 <td>window</td>
@@ -3020,7 +3020,7 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
 <td>The number of token transactions included in blocks with a timestamp that occurs on this date</td>
 </tr>
 </tbody></table>
-<h2 id='token-active-addresses'>Token Active Addresses</h2>
+<h2 id='erc20-active-addresses'>ERC20 Active Addresses</h2>
 <p><img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/></p>
 <pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/token_active_address_window_historical/last?&amp;token=usdc&amp;format=json&amp;window=1d&amp;from_date=2018-11-11&amp;to_date=2018-11-12&amp;key=API_KEY"</span>
 </code></pre>
@@ -3064,7 +3064,7 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
 <tr>
 <td>token</td>
 <td><em>string</em></td>
-<td>A token from the <a href="#token-fundamentals">table</a> that we support</td>
+<td>A token from the <a href="#erc20-token-fundamentals">table</a> that we support</td>
 </tr>
 <tr>
 <td>window</td>
@@ -3131,11 +3131,21 @@ calculating metrics such as the average fee per transaction (<code>avg_fee</code
 <td><code>eth</code></td>
 <td><code>binance</code>, <code>bittrex</code>, <code>bitfinex</code>, <code>kraken</code>, <code>kucoin</code>, <code>poloniex</code></td>
 </tr>
+<tr>
+<td>Tether</td>
+<td><code>usdt_erc20</code></td>
+<td><code>binance</code>, <code>bittrex</code>, <code>bitfinex</code>, <code>kucoin</code>, <code>poloniex</code></td>
+</tr>
+<tr>
+<td>USD Coin</td>
+<td><code>usdc</code></td>
+<td><code>binance</code>, <code>bitfinex</code></td>
+</tr>
 </tbody></table>
 <h2 id='full-historical-balance'>Full Historical Balance</h2>
 <p><img src="https://img.shields.io/badge/Tier-Professional-black.svg"/></p>
 
-<p>This endpoint returns the balance of BTC held in the wallets of exchanges that we support for the full history of the exchange in question.</p>
+<p>This endpoint returns the balance of tokens held in the wallets of exchanges that we support for the full history of the exchange in question.</p>
 <pre class="highlight shell tab-shell"><code><span class="c"># Make sure you substitute API_KEY for your unique API key.</span>
 
 curl <span class="s2">"https://api.tokenanalyst.io/analytics/private/v1/exchange_balance_window_historical/last?key=API_KEY&amp;limit=2&amp;format=json&amp;exchange=binance&amp;token=btc&amp;window=1h"</span>
