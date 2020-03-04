@@ -5,7 +5,7 @@ For the native tokens, the exchanges we currently support are:
 | Native Token          | Symbol | Supported Exchanges                                                                                       |
 ------------------------|--------|-----------------------------------------------------------------------------------------------------------|
 | Bitcoin               | `btc`  | `binance`, `bittrex`, `bitstamp`, `bitmex`, `bitfinex`, `deribit`, `huobi`, `kraken`, `okex`, `poloniex`  | 
-| Ethereum              | `eth`  | `binance`, `bittrex`, `bitfinex`, `kraken`, `kucoin`, `poloniex`                                          |
+| Ethereum              | `eth`  | `binance`, `bittrex`, `bitstamp`, `bitfinex`, `gemini`, `huobi`, `kraken`, `kucoin`, `okex`, `poloniex`   |
 
 For stablecoins, the exchanges we currently support are:
 

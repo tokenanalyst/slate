@@ -5,7 +5,7 @@ For the native tokens, the exchanges we currently support for balances are:
 | Native Token          | Symbol | Supported Exchanges                                                                                       |
 ------------------------|--------|-----------------------------------------------------------------------------------------------------------|
 | Bitcoin               | `btc`  | `binance`, `bittrex`, `bitstamp`, `bitmex`, `bitfinex`, `deribit`, `huobi`, `kraken`, `okex`, `poloniex`  | 
-| Ethereum              | `eth`  | `binance`, `bittrex`, `bitfinex`, `kraken`, `kucoin`, `poloniex`                                          |
+| Ethereum              | `eth`  | `binance`, `bittrex`, `bitstamp`, `bitfinex`, `gemini`, `huobi`, `kraken`, `kucoin`, `okex`, `poloniex`                                          |
 | Tether                | `usdt_erc20`|  `binance`, `bittrex`, `bitfinex`, `kucoin`, `poloniex`                                              |
 | USD Coin              | `usdc` | `binance`, `bitfinex`                                                                                     |
 
