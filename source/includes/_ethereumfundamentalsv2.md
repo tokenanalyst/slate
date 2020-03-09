@@ -5,6 +5,8 @@
 <img src="https://img.shields.io/badge/Tier-Free-green.svg"/>
 
 ```shell
+# Make sure you substitute API_KEY for your unique API key.
+
 curl "https://api.tokenanalyst.io/analytics/private/v1/token_volume_window_historical/last?format=json&token=eth&window=1d&from_date=2015-08-07&to_date=2015-08-08&key=API_KEY"
 ```
 
@@ -71,6 +73,8 @@ This endpoint returns the full historical on-chain volume of Ethereum since it w
 <img src="https://img.shields.io/badge/Tier-Free-green.svg"/>
 
 ```shell
+# Make sure you substitute API_KEY for your unique API key.
+
 curl "https://api.tokenanalyst.io/analytics/private/v1/token_count_window_historical/last?format=json&token=eth&window=1d&from_date=2015-08-07&to_date=2015-08-09&key=API_KEY"
 ```
 
@@ -124,6 +128,8 @@ This endpoint returns the number of transactions, where ETH value transferred wa
 <img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/>
 
 ```shell
+# Make sure you substitute API_KEY for your unique API key.
+
 curl "https://api.tokenanalyst.io/analytics/private/v1/token_active_address_window_historical/last?&token=eth&format=json&from_date=2015-08-11&to_date=2015-08-12&window=1d&key=API_KEY"
 ```
 
@@ -176,6 +182,8 @@ This endpoint returns the active addresses on the Ethereum blockchain for every 
 <img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/>
 
 ```shell
+# Make sure you substitute API_KEY for your unique API key.
+
 curl "https://api.tokenanalyst.io/analytics/private/v1/token_supply_window_historical/last?&token=eth&format=json&window=1d&from_date=2015-07-30&to_date=2015-07-31&key=API_KEY"
 ```
 
@@ -225,6 +233,8 @@ This endpoint returns the historical supply of ETH on the Ethereum blockchain fo
 <img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/>
 
 ```shell
+# Make sure you substitute API_KEY for your unique API key.
+
 curl "https://api.tokenanalyst.io/analytics/private/v1/token_nvt_window_historical/last?&token=eth&format=json&window=1d&from_date=2015-09-02&to_date=2015-09-03&key=API_KEY"
 ```
 
@@ -277,6 +287,8 @@ This endpoint returns the NVT Ratio (Network Value to Transactions Ratio) for ET
 <img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/>
 
 ```shell
+# Make sure you substitute API_KEY for your unique API key.
+
 curl "https://api.tokenanalyst.io/analytics/private/v1/token_fees_window_historical/last?&token=eth&format=json&window=1d&from_date=2015-10-19&to_date=2015-10-20&key=API_KEY"
 ```
 
@@ -341,6 +353,8 @@ This endpoint returns the total and average fees spent on the Ethereum network f
 <img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/>
 
 ```shell
+# Make sure you substitute API_KEY for your unique API key.
+
 curl "https://api.tokenanalyst.io/analytics/private/v1/token_hashrate_window_historical/last?format=json&window=1d&token=eth&limit=2&key=API_KEY"
 ```
 
@@ -394,6 +408,8 @@ Note: All params with a \* are optional and `limit` is only available in the JSO
 <img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/>
 
 ```shell
+# Make sure you substitute API_KEY for your unique API key.
+
 curl "https://api.tokenanalyst.io/analytics/private/v1/token_rewards_window_historical/last?format=json&token=eth&window=1d&limit=2&key=API_KEY"
 ```
 
@@ -449,6 +465,8 @@ Note: All params with a \* are optional and `limit` is only available in the JSO
 This endpoint returns the full historical number of unique addresses that appeared for the first time in a transaction as well as the total number of addresses on the Ethereum network every day throughout it's history.
 
 ```shell
+# Make sure you substitute API_KEY for your unique API key.
+
 curl "https://api.tokenanalyst.io/analytics/private/v1/token_new_address_window_historical/last?format=json&token=eth&window=1d&from_date=2019-12-04&to_date=2019-12-05&limit=2&key=API_KEY"
 ```
 

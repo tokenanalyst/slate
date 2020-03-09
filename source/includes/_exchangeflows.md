@@ -44,6 +44,8 @@ For ERC20 tokens, the exchanges we currently support are:
 This endpoint returns the inflow of a given token we support from exchange wallets for as far back as we track. The average inflow is the average transaction value for transactions flowing into exchange wallets on a given day.
 
 ```shell
+# Make sure you substitute API_KEY for your unique API key.
+
 curl "https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_window_historical/last?format=json&token=btc&exchange=binance&direction=inflow&window=1h&limit=2&key=API_KEY"
 ```
 
@@ -121,6 +123,8 @@ This endpoint returns the outflow of a given token from exchange wallets for as 
 `GET https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_window_historical/last?`
 
 ```shell
+# Make sure you substitute API_KEY for your unique API key.
+
 curl "https://api.tokenanalyst.io/analytics/private/v1/exchange_flow_window_historical/last?token=btc&exchange=binance&direction=outflow&window=1h&format=json&limit=2&key=API_KEY"
 ```
 
@@ -180,6 +184,7 @@ Note: All params with a \* are optional and `limit` is only available in the JSO
 | outflow                                 | _decimal_ | The total amount of tokens that flowed out of the exchange on this date. Denominated by the given token.                                    |
 | outflow_usd                             | _decimal_ | The USD value of the total amount of tokens that flowed out of the exchange on this date                                                    |
 
+
 ## Exchange to Exchange Flows
 
 <img src="https://img.shields.io/badge/Tier-Professional-black.svg"/>
@@ -193,6 +198,8 @@ For this endpoint, the tokens we currently support are `btc` and `eth`.
 `GET https://api.tokenanalyst.io/analytics/private/v1/entity_to_entity_flow_window_historical/last?`
 
 ```shell
+# Make sure you substitute API_KEY for your unique API key.
+
 curl "https://api.tokenanalyst.io/analytics/private/v1/entity_to_entity_flow_window_historical/last?format=json&token=btc&window=1h&limit=2&from_date=2019-11-01&to_date=2019-11-09&from_entity=binance&to_entity=huobi&key=API_KEY"
 ```
 

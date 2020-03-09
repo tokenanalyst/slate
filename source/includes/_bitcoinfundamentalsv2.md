@@ -84,6 +84,8 @@ This endpoint returns the daily number of transactions on the full historical Bi
 for every day since it's genesis in 2009.
 
 ```shell
+# Make sure you substitute API_KEY for your unique API key.
+
 curl "https://api.tokenanalyst.io/analytics/private/v1/token_count_window_historical/last?format=json&token=btc&window=1h&from_date=2009-03-12&to_date=2009-03-12&limit=3&key=API_KEY"
 ```
 
@@ -152,6 +154,8 @@ counted, i.e. an address which sends thousands of transactions per day is only c
 as an _active_sender_ with the same logic applied to distinct receiving addresses.
 
 ```shell
+# Make sure you substitute API_KEY for your unique API key.
+
 curl "https://api.tokenanalyst.io/analytics/private/v1/token_active_address_window_historical/last?format=json&token=btc&window=1d&from_date=2018-10-10&to_date=2018-10-18&limit=2&key=API_KEY"
 ```
 
@@ -222,6 +226,8 @@ for which there is likely no known private key hence those bitcoins are also los
 An example of this is the lowest possible bitcoin address of `1111111111111111111114oLvT2`.
 
 ```shell
+# Make sure you substitute API_KEY for your unique API key.
+
 curl "https://api.tokenanalyst.io/analytics/private/v1/token_supply_window_historical/last?format=json&token=btc&window=1d&from_date=2016-10-10&to_date=2016-10-12&key=API_KEY"
 ```
 
@@ -276,6 +282,8 @@ Note: All params with a \* are optional and `limit` is only available in the JSO
 <img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/>
 
 ```shell
+# Make sure you substitute API_KEY for your unique API key.
+
 curl "https://api.tokenanalyst.io/analytics/private/v1/token_nvt_window_historical/last?format=json&token=btc&window=1d&from_date=2011-10-10&to_date=2012-09-01&limit=3&key=API_KEY"
 ```
 
@@ -334,6 +342,8 @@ Note: All params with a \* are optional and `limit` is only available in the JSO
 <img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/>
 
 ```shell
+# Make sure you substitute API_KEY for your unique API key.
+
 curl "https://api.tokenanalyst.io/analytics/private/v1/token_fees_window_historical/last?format=json&token=btc&window=1d&from_date=2014-03-12&to_date=2014-03-15&limit=2&key=API_KEY"
 ```
 
@@ -400,6 +410,8 @@ Note: All params with a \* are optional and `limit` is only available in the JSO
 <img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/>
 
 ```shell
+# Make sure you substitute API_KEY for your unique API key.
+
 curl "https://api.tokenanalyst.io/analytics/private/v1/token_hashrate_window_historical/last?format=json&window=1d&token=btc&limit=2&key=API_KEY"
 ```
 
@@ -453,6 +465,8 @@ Note: All params with a \* are optional and `limit` is only available in the JSO
 <img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/>
 
 ```shell
+# Make sure you substitute API_KEY for your unique API key.
+
 curl "https://api.tokenanalyst.io/analytics/private/v1/token_rewards_window_historical/last?format=json&token=btc&window=1d&limit=2&key=API_KEY"
 ```
 
@@ -508,6 +522,8 @@ Note: All params with a \* are optional and `limit` is only available in the JSO
 This endpoint returns the full historical number of unique addresses that appeared for the first time in a transaction as well as the total number of addresses on the Bitcoin network every day throughout it's history.
 
 ```shell
+# Make sure you substitute API_KEY for your unique API key.
+
 curl "https://api.tokenanalyst.io/analytics/private/v1/token_new_address_window_historical/last?format=json&token=btc&window=1d&from_date=2019-12-04&to_date=2019-12-05&limit=2&key=API_KEY"
 ```
 
@@ -561,6 +577,8 @@ Note: All params with a \* are optional and `limit` is only available in the JSO
 This endpoint returns the full historical number of unique addresses holding a given amount of bitcoin.  We have bucketed the amounts of Bitcoin held into distinct categories (greater than 1, greater than 100 etc.)
 
 ```shell
+# Make sure you substitute API_KEY for your unique API key.
+
 curl "https://api.tokenanalyst.io/analytics/private/v1/token_address_balance_group_window_historical/last?format=json&token=btc&window=1d&from_date=2019-12-04&to_date=2019-12-05&limit=2&key=API_KEY"
 ```
 
@@ -631,6 +649,8 @@ If the ratio is greater than one, this means that a UTXO was spent when it was w
 
 
 ```shell
+# Make sure you substitute API_KEY for your unique API key.
+
 curl "https://api.tokenanalyst.io/analytics/private/v1/token_sopr_window_historical/last?window=1h&limit=2&from_date=2019-10-10&to_date=2019-10-11&format=json&token=btc&key=API_KEY"
 ```
 
@@ -685,6 +705,8 @@ Note: All params with a \* are optional and `limit` is only available in the JSO
 <img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/>
 
 ```shell
+# Make sure you substitute API_KEY for your unique API key.
+
 curl "https://api.tokenanalyst.io/analytics/private/v1/token_utxo_age_window_historical/last?window=1d&format=json&token=btc&from_date=2019-09-01&to_date=2019-09-02&key=API_KEY"
 ```
 

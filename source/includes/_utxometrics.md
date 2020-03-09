@@ -10,6 +10,8 @@ The age in block height is used over the block timestamp because the block times
 
 
 ```shell
+# Make sure you substitute API_KEY for your unique API key.
+
 curl "https://api.tokenanalyst.io/analytics/private/v1/token_utxo_metric_window_historical/last?metric=avg_age&limit=2&window=1d&format=json&token=btc&key=API_KEY"
 ```
 
@@ -99,6 +101,8 @@ The age in block height is used over the block timestamp because the block times
 <img src="https://img.shields.io/badge/Tier-Enterprise-blueviolet.svg"/>
 
 ```shell
+# Make sure you substitute API_KEY for your unique API key.
+
 curl "https://api.tokenanalyst.io/analytics/private/v1/token_utxo_metric_window_historical/last?metric=avg_value&limit=2&window=1d&format=json&token=btc&key=API_KEY"
 ```
 
@@ -188,6 +192,8 @@ The age in block height is used over the block timestamp because the block times
 <img src="https://img.shields.io/badge/Tier-Enterprise-blueviolet.svg"/>
 
 ```shell
+# Make sure you substitute API_KEY for your unique API key.
+
 curl "https://api.tokenanalyst.io/analytics/private/v1/token_utxo_metric_window_historical/last?metric=count&limit=2&window=1d&format=json&token=btc&key=API_KEY"
 ```
 
@@ -277,6 +283,8 @@ The age in block height is used over the block timestamp because the block times
 <img src="https://img.shields.io/badge/Tier-Enterprise-blueviolet.svg"/>
 
 ```shell
+# Make sure you substitute API_KEY for your unique API key.
+
 curl "https://api.tokenanalyst.io/analytics/private/v1/token_utxo_metric_window_historical/last?metric=median_age&limit=2&window=1d&format=json&token=btc&key=API_KEY"
 ```
 
@@ -366,6 +374,8 @@ The age in block height is used over the block timestamp because the block times
 <img src="https://img.shields.io/badge/Tier-Enterprise-blueviolet.svg"/>
 
 ```shell
+# Make sure you substitute API_KEY for your unique API key.
+
 curl "https://api.tokenanalyst.io/analytics/private/v1/token_utxo_metric_window_historical/last?metric=total_value&limit=2&window=1d&format=json&token=btc&key=API_KEY"
 ```
 
@@ -460,6 +470,8 @@ The age in block height is used over the block timestamp because the block times
 <img src="https://img.shields.io/badge/Tier-Enterprise-blueviolet.svg"/>
 
 ```shell
+# Make sure you substitute API_KEY for your unique API key.
+
 curl "https://api.tokenanalyst.io/analytics/private/v1/token_utxo_metric_window_historical/last?metric=weighted_avg_age&limit=2&window=1d&format=json&token=btc&key=API_KEY"
 ```
 
@@ -545,6 +557,8 @@ Note: All params with a \* are optional and `limit` is only available in the JSO
 <img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/>
 
 ```shell
+# Make sure you substitute API_KEY for your unique API key.
+
 curl "https://api.tokenanalyst.io/analytics/private/v1/token_utxo_metric_window_historical/last?window=1d&metric=supply_pct&format=json&token=btc&limit=2&key=API_KEY"
 ```
 

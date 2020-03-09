@@ -40,6 +40,8 @@ The ERC20 tokens we currently support are:
 <img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/>
 
 ```shell
+# Make sure you substitute API_KEY for your unique API key.
+
 curl "https://api.tokenanalyst.io/analytics/private/v1/token_volume_window_historical/last?format=json&token=usdc&window=1d&from_date=2019-09-25&to_date=2019-09-26&key=API_KEY"
 ```
 
@@ -92,6 +94,8 @@ This endpoint returns the full historical on-chain volume of any of the tokens t
 <img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/>
 
 ```shell
+# Make sure you substitute API_KEY for your unique API key.
+
 curl "https://api.tokenanalyst.io/analytics/private/v1/token_count_window_historical/last?format=json&token=dai&window=1d&from_date=2017-12-18&to_date=2017-12-20&key=API_KEY"
 ```
 
@@ -145,6 +149,8 @@ This endpoint returns the number of token transfers on the Ethereum blockchain f
 <img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/>
 
 ```shell
+# Make sure you substitute API_KEY for your unique API key.
+
 curl "https://api.tokenanalyst.io/analytics/private/v1/token_active_address_window_historical/last?&token=usdc&format=json&window=1d&from_date=2018-11-11&to_date=2018-11-12&key=API_KEY"
 ```
 
