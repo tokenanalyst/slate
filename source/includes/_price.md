@@ -15,7 +15,7 @@ The list of assets we currently support is:
 | Bitcoin BEP2 (Binance Chain)   | `btcb`        |
 | Bezant                    | `bznt`        |
 | Civic                     | `cvc`         |
-| Dai                       | `dai`         |
+| Multi-Collateral Dai      | `dai`         |
 | Ethereum Classic          | `etc`         |
 | Ethereum                  | `eth`         |
 | Fetch                     | `fet`         |
@@ -55,6 +55,8 @@ The list of assets we currently support is:
 <img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/>
 
 ```shell
+# Make sure you substitute API_KEY for your unique API key.
+
 curl "https://api.tokenanalyst.io/analytics/private/v1/token_price_usd_window_historical/last?token=btc&window=1h&format=json&key=API_KEY"
 ```
 

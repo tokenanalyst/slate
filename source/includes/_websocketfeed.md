@@ -21,13 +21,33 @@ Here are the exchanges we support in the Bitcoin WebSocket: `Binance`, `BitMEX`,
 
 Websocket connections go through the following lifecycle:
 
-- Establish a websocket connection with `wss://ws.tokenanalyst.io:8000`
-- Receive heartbeat (every 30 seconds) - `{"id":null,"event":"heartbeat","data":{"serverTime":1570014312199}}`
-- Authenticate and subscribe to a channel with `{"event":"subscribe","channel":"btc_confirmed_exchange_flows","id":"test-id","key":"<insert_api_key_here>"}`
-- Receive subscription response `{"id":"test-id","event":"subscribed","data":{"success":true,"errorCode":null,"message":"Subscribed to channel btc_confirmed_exchange_flows"}}`
-- Receive data `{"id":"test-id","event":"data","data":{"blockNumber":597542,"blockHash":"0000000000000000000581292750484f48e85bc2de54c2658a4a774da2095880","transactionId":"67bd2bc0652ae1a999cd5c60a879c5c15f5cb7178aa00b97875bb6fe8debff2d","timestamp":1570019590,"from":["1Bf5e5iUDbKL1c4wqom1Us6zszSokXY4Bd","1Bf5e5iUDbKL1c4wqom1Us6zszSokXY4Bd","1Bf5e5iUDbKL1c4wqom1Us6zszSokXY4Bd","1Bf5e5iUDbKL1c4wqom1Us6zszSokXY4Bd"],"to":["Huobi"],"value":0.2018245,"flowType":"Inflow"}}`
-- Unsubscribe `{"event":"unsubscribe","channel":"btc_confirmed_exchange_flows","id":"test-id"}`
-- Receive unsubscription response `{"id":"test-id","event":"unsubscribed","data":{"success":true,"errorCode":null,"message":"Unsubscribed from channel btc_confirmed_exchange_flows"}}`
+- Establish a websocket connection with: 
+
+`wss://ws.tokenanalyst.io:8000`
+
+- Receive heartbeat (every 30 seconds): 
+
+ `{"id":null,"event":"heartbeat","data":{"serverTime":1570014312199}}`
+ 
+- Authenticate and subscribe to a channel with: 
+
+`{"event":"subscribe","channel":"btc_confirmed_exchange_flows","id":"test-id","key":"<insert_api_key_here>"}`
+
+- Receive subscription response: 
+
+`{"id":"test-id","event":"subscribed","data":{"success":true,"errorCode":null,"message":"Subscribed to channel btc_confirmed_exchange_flows"}}`
+
+- Receive data: 
+
+`{"id":"test-id","event":"data","data":{"blockNumber":597542,"blockHash":"0000000000000000000581292750484f48e85bc2de54c2658a4a774da2095880","transactionId":"67bd2bc0652ae1a999cd5c60a879c5c15f5cb7178aa00b97875bb6fe8debff2d","timestamp":1570019590,"from":["1Bf5e5iUDbKL1c4wqom1Us6zszSokXY4Bd","1Bf5e5iUDbKL1c4wqom1Us6zszSokXY4Bd","1Bf5e5iUDbKL1c4wqom1Us6zszSokXY4Bd","1Bf5e5iUDbKL1c4wqom1Us6zszSokXY4Bd"],"to":["Huobi"],"value":0.2018245,"flowType":"Inflow"}}`
+
+- Unsubscribe: 
+
+`{"event":"unsubscribe","channel":"btc_confirmed_exchange_flows","id":"test-id"}`
+
+- Receive unsubscription response: 
+
+`{"id":"test-id","event":"unsubscribed","data":{"success":true,"errorCode":null,"message":"Unsubscribed from channel btc_confirmed_exchange_flows"}}`
 
 ### Request Parameters
 

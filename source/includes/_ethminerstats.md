@@ -27,6 +27,8 @@ The `hashrate` are denominated in TH/s. The `block_count` are the number of bloc
 <img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/>
 
 ```shell
+# Make sure you substitute API_KEY for your unique API key.
+
 curl "https://api.tokenanalyst.io/analytics/private/v1/token_miner_hashrate_window_historical/last?format=json&miner=nanopool&token=eth&window=1d&from_date=2020-01-22&to_date=2020-01-23&limit=2&key=API_KEY"
 ```
 ```json
@@ -79,6 +81,8 @@ Note: All params with a \* are optional and `limit` is only available in the JSO
 <img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/>
 
 ```shell
+# Make sure you substitute API_KEY for your unique API key.
+
 curl "https://api.tokenanalyst.io/analytics/private/v1/token_miner_rewards_window_historical/last?format=json&miner=nanopool&token=eth&window=1d&from_date=2020-01-22&to_date=2020-01-23&limit=2&key=API_KEY"
 
 ```
@@ -152,6 +156,8 @@ The above table defines supported pairs of the query parameters `to_entity` and 
 <img src="https://img.shields.io/badge/Tier-Professional-black.svg"/>
 
 ```shell
+# Make sure you substitute API_KEY for your unique API key.
+
 curl "https://api.tokenanalyst.io/analytics/private/v1/entity_to_entity_flow_window_historical/last?ormat=json&to_entity=binance&from_entity=2minerspplns&token=eth&window=1h&limit=2&key=API_KEY"
 ```
 

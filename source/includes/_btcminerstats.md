@@ -29,6 +29,8 @@ This endpoint returns the daily miner specific hashrates for all the miners we c
 <img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/>
 
 ```shell
+# Make sure you substitute API_KEY for your unique API key.
+
 curl "https://api.tokenanalyst.io/analytics/private/v1/token_miner_hashrate_window_historical/last?format=json&miner=antpool&token=btc&window=1d&from_date=2020-01-22&to_date=2020-01-23&limit=2&key=API_KEY"
 ```
 
@@ -86,8 +88,9 @@ This endpoint returns the daily coinbase rewards earned by all the miners we cov
 <img src="https://img.shields.io/badge/Tier-Hobbyist-blue.svg"/>
 
 ```shell
-curl "https://api.tokenanalyst.io/analytics/private/v1/token_rewards_hashrate_window_historical/last?format=json&miner=antpool&token=btc&window=1d&from_date=2020-01-22&to_date=2020-01-23&limit=2&key=API_KEY"
+# Make sure you substitute API_KEY for your unique API key.
 
+curl "https://api.tokenanalyst.io/analytics/private/v1/token_rewards_hashrate_window_historical/last?format=json&miner=antpool&token=btc&window=1d&from_date=2020-01-22&to_date=2020-01-23&limit=2&key=API_KEY"
 ```
 
 > The above command returns JSON structured like this:
@@ -141,6 +144,8 @@ This endpoint returns the inflow of a given token into miner controlled wallets 
 <img src="https://img.shields.io/badge/Tier-Professional-black.svg"/>
 
 ```shell
+# Make sure you substitute API_KEY for your unique API key.
+
 curl "https://api.tokenanalyst.io/analytics/private/v1/miner_flow_window_historical/last?token=btc&direction=inflow&window=1h&miner=f2pool&from_date=2019-02-07&to_date=2019-02-08&format=json&limit=2&key=API_KEY"
 ```
 
@@ -211,6 +216,8 @@ This endpoint returns the outflow of a given token out of miner controlled walle
 <img src="https://img.shields.io/badge/Tier-Professional-black.svg"/>
 
 ```shell
+# Make sure you substitute API_KEY for your unique API key.
+
 curl "https://api.tokenanalyst.io/analytics/private/v1/miner_flow_window_historical/last?token=btc&direction=outflow&window=1h&miner=slushpool&from_date=2019-01-01&to_date=2019-01-02&format=json&limit=2&key=API_KEY"
 ```
 
@@ -293,6 +300,8 @@ The above table defines supported pairs of the query parameters `from_entity` an
 
 
 ```shell
+# Make sure you substitute API_KEY for your unique API key.
+
 curl "https://api.tokenanalyst.io/analytics/private/v1/entity_to_entity_flow_window_historical/last?window=1d&limit=2&from_entity=slushpool&to_entity=binance&format=json&token=btc&key=API_KEY"
 ```
 
@@ -359,6 +368,8 @@ This endpoint returns the balance of BTC held in the wallets of miners that we s
 <img src="https://img.shields.io/badge/Tier-Professional-black.svg"/>
 
 ```shell
+# Make sure you substitute API_KEY for your unique API key.
+
 curl "https://api.tokenanalyst.io/analytics/private/v1/miner_balance_window_historical/last?token=btc&window=1h&miner=slushpool&from_date=2019-01-01&to_date=2019-02-08&format=json&key=API_KEY"
 ```
 
