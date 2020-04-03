@@ -18,7 +18,6 @@ includes:
   - ethminerstats
   - utxometrics
   - price
-  - websocketfeed
   - datacatalog
 
 search: true
